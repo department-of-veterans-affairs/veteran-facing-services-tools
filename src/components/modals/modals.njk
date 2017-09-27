@@ -1,0 +1,13 @@
+<div class='va-modal' id='{id}' role="alertdialog" aria-labelledby={`${id}-title`}>
+  <div class='va-modal-inner'>
+    <h3 class='va-modal-title'>{{ modals.title }}</h3>
+     <button class="va-modal-close" type="button" onClick={this.props.onClose}>
+       <i className="fa fa-close"></i>
+       <span className="usa-sr-only">Close this modal</span>
+     </button>
+
+     <div class='va-modal-body'>
+       {{ modals.content }}
+     </div>
+   </div>
+  </div> <!-- close modal -->

@@ -1,0 +1,186 @@
+// Variables
+
+@import "shared-variables";
+@import "modules/m-process-list";
+@import "modules/m-form-process";
+@import "modules/m-progress-bar";
+@import "modules/m-schemaform";
+@import "modules/m-modal";
+@import "modules/m-omb-info";
+@import "modules/m-form-confirmation";
+
+// Also in 1990 review
+.edu-benefits-pre {
+  white-space: pre-wrap;
+}
+
+// 1990
+.edu-benefits-info-no-icon,
+.usa-alert-info.edu-benefits-info-no-icon {
+  background-image: none;
+}
+
+// 1990
+.edu-benefits-list {
+  margin-top: 0;
+  margin-bottom: 1em;
+  list-style: disc;
+  > li {
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+  }
+}
+
+// 1990
+.edu-benefits-first-label {
+  label {
+    margin-top: 0;
+  }
+  .usa-input-error {
+    margin-top: 0;
+  }
+}
+
+// 1990
+.va-growable-background .edu-benefits-first-label {
+  label {
+    margin-top: 0;
+  }
+}
+
+.edu-benefits-mil-group.form-expanding-group-inner-enter,
+  .edu-benefits-mil-group.form-expanding-group-inner-leave-active {
+  margin-top: -30px;
+}
+
+.edu-benefits-selection-group.form-expanding-group-inner-enter,
+  .edu-benefits-selection-group.form-expanding-group-inner-leave-active {
+  margin-top: -16px;
+}
+
+.edu-benefits-chapter33-extra {
+  margin-left: 29px;
+}
+
+.edu-benefits-rotc-group.form-expanding-group-inner-enter,
+  .edu-benefits-rotc-group.form-expanding-group-inner-leave-active {
+  margin-top: -30px;
+}
+
+.edu-benefits-chapter33-group.form-expanding-group-inner-enter,
+  .edu-benefits-chapter33-group.form-expanding-group-inner-leave-active {
+  margin-top: -16px;
+}
+
+.edu-benefits-employ-group.form-expanding-group-inner-enter,
+  .edu-benefits-employ-group.form-expanding-group-inner-leave-active {
+  margin-top: -30px;
+}
+
+.edu-benefits-apply-group.form-expanding-group-inner-enter,
+  .edu-benefits-apply-group.form-expanding-group-inner-leave-active {
+  margin-top: -30px;
+}
+
+.edu-benefits-active-group.form-expanding-group-inner-enter,
+  .edu-benefits-active-group.form-expanding-group-inner-leave-active {
+  margin-top: -16px;
+}
+
+// 1990
+.edu-benefits-active-group{
+  margin-left: 20px;
+}
+
+// 1990
+.no-pad-left {
+  padding-left: 0 !important;
+}
+
+// 1990
+.no-pad-right {
+  padding-right: 0 !important;
+}
+
+// 1990
+.form-required-span {
+  font-size: 1.7em;
+  line-height: 0;
+  position: relative;
+  top: 10px;
+}
+
+// 1990
+.edu-growable-expanded {
+  display: none;
+}
+
+//1990
+.form-review-panel-page {
+  .edu-growable-expanded {
+    display: table-row-group;
+  }
+  .edu-growable-review-desc {
+    > tr > td {
+      border-bottom-style: solid;
+    }
+  }
+}
+
+// 1990
+.edu-growable-review-header {
+  margin-bottom: 1em;
+}
+
+// 1990
+table.review td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// 1990
+.edu-growable-form {
+  table.review td {
+    padding: 0;
+  }
+}
+
+.edu-page-title {
+  &:focus {
+    outline: none;
+  }
+}
+
+.edu-benefits-dependents-desc {
+  margin-top: 5px;
+}
+
+.edu-dd-warning {
+  margin-top: 3rem;
+}
+
+.row .edu-intro-spacing {
+  margin-bottom: 7rem;
+}
+
+.edu-benefits-alert {
+  margin-top: 0;
+  margin-bottom: 23px;
+}
+
+.edu-warning-single-line {
+  margin-top: 0;
+  > .usa-alert-body {
+    padding-left: 4rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .edu-warning-single-line {
+    background-size: 4.2rem;
+    background-position: 1.3rem 1.5rem;
+    > .usa-alert-body {
+      padding-left: 5rem;
+    }
+  }
+}

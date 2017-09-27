@@ -1,0 +1,8 @@
+
+$color-header-background: #804;
+$color-header-content: #fde;
+$color-link: #402;
+
+@import "../theme";
+@import "../core/all";
+@import "../components/**/*.scss";

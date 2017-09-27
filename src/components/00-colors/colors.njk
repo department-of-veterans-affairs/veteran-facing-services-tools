@@ -1,0 +1,18 @@
+{% for family in family %}
+
+<div class='row'>
+  <h1> {{ family.name }} </h2>
+
+  {% for color in family.color %}
+
+    <div class='fr-color-family {{ color.var }}'>
+      <h2>{{ color.name }}</h2>
+      <p>Hex: {{ color.hex }}</p>
+      <p>Contrast rating: {{ color.contrast }}
+    </div>
+
+  {% endfor %}
+  
+  </div> <!-- end row-->
+{% endfor %}
+

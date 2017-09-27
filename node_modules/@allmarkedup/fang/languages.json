@@ -1,0 +1,5264 @@
+{
+  ".abap": {
+    "name": "ABAP",
+    "mode": "abap",
+    "scope": null,
+    "color": "#E8274B"
+  },
+  ".asc": {
+    "name": "Public Key",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ash": {
+    "name": "AGS Script",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#B9D9FF"
+  },
+  ".ampl": {
+    "name": "AMPL",
+    "mode": "text",
+    "scope": "source.ampl",
+    "color": "#E6EFBB"
+  },
+  ".mod": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".g4": {
+    "name": "ANTLR",
+    "mode": "text",
+    "scope": null,
+    "color": "#9DC3FF"
+  },
+  ".apib": {
+    "name": "API Blueprint",
+    "mode": "markdown",
+    "scope": "text.html.markdown.source.gfm.apib",
+    "color": "#2ACCA8"
+  },
+  ".apl": {
+    "name": "APL",
+    "mode": "text",
+    "scope": "source.apl",
+    "color": "#5A8164"
+  },
+  ".dyalog": {
+    "name": "APL",
+    "mode": "text",
+    "scope": "source.apl",
+    "color": "#5A8164"
+  },
+  ".asp": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".asax": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".ascx": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".ashx": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".asmx": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".aspx": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".axd": {
+    "name": "ASP",
+    "mode": "text",
+    "scope": "text.html.asp",
+    "color": "#6a40fd"
+  },
+  ".dats": {
+    "name": "ATS",
+    "mode": "ocaml",
+    "scope": "source.ats",
+    "color": "#1ac620"
+  },
+  ".hats": {
+    "name": "ATS",
+    "mode": "ocaml",
+    "scope": "source.ats",
+    "color": "#1ac620"
+  },
+  ".sats": {
+    "name": "ATS",
+    "mode": "ocaml",
+    "scope": "source.ats",
+    "color": "#1ac620"
+  },
+  ".as": {
+    "name": "ActionScript",
+    "mode": "actionscript",
+    "scope": "source.actionscript.3",
+    "color": "#882B0F"
+  },
+  ".adb": {
+    "name": "Ada",
+    "mode": "ada",
+    "scope": null,
+    "color": "#02f88c"
+  },
+  ".ada": {
+    "name": "Ada",
+    "mode": "ada",
+    "scope": null,
+    "color": "#02f88c"
+  },
+  ".ads": {
+    "name": "Ada",
+    "mode": "ada",
+    "scope": null,
+    "color": "#02f88c"
+  },
+  ".agda": {
+    "name": "Agda",
+    "mode": "text",
+    "scope": null,
+    "color": "#315665"
+  },
+  ".als": {
+    "name": "Alloy",
+    "mode": "text",
+    "scope": null,
+    "color": "#64C800"
+  },
+  ".apacheconf": {
+    "name": "ApacheConf",
+    "mode": "apache_conf",
+    "scope": "source.apache-config",
+    "color": null
+  },
+  ".vhost": {
+    "name": "Nginx",
+    "mode": "text",
+    "scope": "source.nginx",
+    "color": "#9469E9"
+  },
+  ".cls": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".applescript": {
+    "name": "AppleScript",
+    "mode": "applescript",
+    "scope": null,
+    "color": "#101F1F"
+  },
+  ".scpt": {
+    "name": "AppleScript",
+    "mode": "applescript",
+    "scope": null,
+    "color": "#101F1F"
+  },
+  ".arc": {
+    "name": "Arc",
+    "mode": "text",
+    "scope": null,
+    "color": "#aa2afe"
+  },
+  ".ino": {
+    "name": "Arduino",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#bd79d1"
+  },
+  ".asciidoc": {
+    "name": "AsciiDoc",
+    "mode": "asciidoc",
+    "scope": "text.html.asciidoc",
+    "color": null
+  },
+  ".adoc": {
+    "name": "AsciiDoc",
+    "mode": "asciidoc",
+    "scope": "text.html.asciidoc",
+    "color": null
+  },
+  ".aj": {
+    "name": "AspectJ",
+    "mode": "text",
+    "scope": "source.aspectj",
+    "color": "#a957b0"
+  },
+  ".asm": {
+    "name": "Assembly",
+    "mode": "assembly_x86",
+    "scope": "source.asm.x86",
+    "color": "#6E4C13"
+  },
+  ".a51": {
+    "name": "Assembly",
+    "mode": "assembly_x86",
+    "scope": "source.asm.x86",
+    "color": "#6E4C13"
+  },
+  ".inc": {
+    "name": "SourcePawn",
+    "mode": "text",
+    "scope": "source.sp",
+    "color": "#5c7611"
+  },
+  ".nasm": {
+    "name": "Assembly",
+    "mode": "assembly_x86",
+    "scope": "source.asm.x86",
+    "color": "#6E4C13"
+  },
+  ".aug": {
+    "name": "Augeas",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ahk": {
+    "name": "AutoHotkey",
+    "mode": "autohotkey",
+    "scope": "source.ahk",
+    "color": "#6594b9"
+  },
+  ".ahkl": {
+    "name": "AutoHotkey",
+    "mode": "autohotkey",
+    "scope": "source.ahk",
+    "color": "#6594b9"
+  },
+  ".au3": {
+    "name": "AutoIt",
+    "mode": "autohotkey",
+    "scope": "source.autoit.3",
+    "color": "#1C3552"
+  },
+  ".awk": {
+    "name": "Awk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".auk": {
+    "name": "Awk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".gawk": {
+    "name": "Awk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".mawk": {
+    "name": "Awk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nawk": {
+    "name": "Awk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".bat": {
+    "name": "Batchfile",
+    "mode": "batchfile",
+    "scope": "source.dosbatch",
+    "color": "#C1F12E"
+  },
+  ".cmd": {
+    "name": "Batchfile",
+    "mode": "batchfile",
+    "scope": "source.dosbatch",
+    "color": "#C1F12E"
+  },
+  ".befunge": {
+    "name": "Befunge",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".bison": {
+    "name": "Bison",
+    "mode": "text",
+    "scope": "source.bison",
+    "color": "#6A463F"
+  },
+  ".bb": {
+    "name": "BlitzBasic",
+    "mode": "text",
+    "scope": "source.blitzmax",
+    "color": null
+  },
+  ".decls": {
+    "name": "BlitzBasic",
+    "mode": "text",
+    "scope": "source.blitzmax",
+    "color": null
+  },
+  ".bmx": {
+    "name": "BlitzMax",
+    "mode": "text",
+    "scope": null,
+    "color": "#cd6400"
+  },
+  ".bsv": {
+    "name": "Bluespec",
+    "mode": "verilog",
+    "scope": "source.bsv",
+    "color": null
+  },
+  ".boo": {
+    "name": "Boo",
+    "mode": "text",
+    "scope": null,
+    "color": "#d4bec1"
+  },
+  ".b": {
+    "name": "Limbo",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".bf": {
+    "name": "HyPhy",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".brs": {
+    "name": "Brightscript",
+    "mode": "text",
+    "scope": "source.brightscript",
+    "color": null
+  },
+  ".bro": {
+    "name": "Bro",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".c": {
+    "name": "C",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#555555"
+  },
+  ".cats": {
+    "name": "C",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#555555"
+  },
+  ".h": {
+    "name": "Objective-C",
+    "mode": "objectivec",
+    "scope": "source.objc",
+    "color": "#438eff"
+  },
+  ".idc": {
+    "name": "C",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#555555"
+  },
+  ".w": {
+    "name": "C",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#555555"
+  },
+  ".cs": {
+    "name": "Smalltalk",
+    "mode": "text",
+    "scope": null,
+    "color": "#596706"
+  },
+  ".cake": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  ".cshtml": {
+    "name": "C#",
+    "mode": "csharp",
+    "scope": "source.cs",
+    "color": "#178600"
+  },
+  ".csx": {
+    "name": "C#",
+    "mode": "csharp",
+    "scope": "source.cs",
+    "color": "#178600"
+  },
+  ".cpp": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".c++": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".cc": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".cp": {
+    "name": "Component Pascal",
+    "mode": "pascal",
+    "scope": "source.pascal",
+    "color": "#B0CE4E"
+  },
+  ".cxx": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".h++": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".hh": {
+    "name": "Hack",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#878787"
+  },
+  ".hpp": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".hxx": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".inl": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".ipp": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".tcc": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".tpp": {
+    "name": "C++",
+    "mode": "c_cpp",
+    "scope": null,
+    "color": "#f34b7d"
+  },
+  ".c-objdump": {
+    "name": "C-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".chs": {
+    "name": "C2hs Haskell",
+    "mode": "haskell",
+    "scope": "source.haskell",
+    "color": null
+  },
+  ".clp": {
+    "name": "CLIPS",
+    "mode": "text",
+    "scope": "source.clips",
+    "color": null
+  },
+  ".cmake": {
+    "name": "CMake",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".cmake.in": {
+    "name": "CMake",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".cob": {
+    "name": "COBOL",
+    "mode": "cobol",
+    "scope": null,
+    "color": null
+  },
+  ".cbl": {
+    "name": "COBOL",
+    "mode": "cobol",
+    "scope": null,
+    "color": null
+  },
+  ".ccp": {
+    "name": "COBOL",
+    "mode": "cobol",
+    "scope": null,
+    "color": null
+  },
+  ".cobol": {
+    "name": "COBOL",
+    "mode": "cobol",
+    "scope": null,
+    "color": null
+  },
+  ".cpy": {
+    "name": "COBOL",
+    "mode": "cobol",
+    "scope": null,
+    "color": null
+  },
+  ".css": {
+    "name": "CSS",
+    "mode": "css",
+    "scope": "source.css",
+    "color": "#563d7c"
+  },
+  ".capnp": {
+    "name": "Cap'n Proto",
+    "mode": "text",
+    "scope": "source.capnp",
+    "color": null
+  },
+  ".mss": {
+    "name": "CartoCSS",
+    "mode": "text",
+    "scope": "source.css.mss",
+    "color": null
+  },
+  ".ceylon": {
+    "name": "Ceylon",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".chpl": {
+    "name": "Chapel",
+    "mode": "text",
+    "scope": null,
+    "color": "#8dc63f"
+  },
+  ".ch": {
+    "name": "xBase",
+    "mode": "text",
+    "scope": "source.harbour",
+    "color": "#403a40"
+  },
+  ".ck": {
+    "name": "ChucK",
+    "mode": "java",
+    "scope": "source.java",
+    "color": null
+  },
+  ".cirru": {
+    "name": "Cirru",
+    "mode": "cirru",
+    "scope": null,
+    "color": "#ccccff"
+  },
+  ".clw": {
+    "name": "Clarion",
+    "mode": "text",
+    "scope": "source.clarion",
+    "color": "#db901e"
+  },
+  ".icl": {
+    "name": "Clean",
+    "mode": "text",
+    "scope": null,
+    "color": "#3F85AF"
+  },
+  ".dcl": {
+    "name": "Clean",
+    "mode": "text",
+    "scope": null,
+    "color": "#3F85AF"
+  },
+  ".click": {
+    "name": "Click",
+    "mode": "text",
+    "scope": "source.click",
+    "color": "#E4E6F3"
+  },
+  ".clj": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".boot": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cl2": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cljc": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cljs": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cljs.hl": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cljscm": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".cljx": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".hic": {
+    "name": "Clojure",
+    "mode": "clojure",
+    "scope": null,
+    "color": "#db5855"
+  },
+  ".coffee": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  "._coffee": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  ".cjsx": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  ".cson": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  ".iced": {
+    "name": "CoffeeScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#244776"
+  },
+  ".cfm": {
+    "name": "ColdFusion",
+    "mode": "coldfusion",
+    "scope": "text.html.cfm",
+    "color": "#ed2cd6"
+  },
+  ".cfml": {
+    "name": "ColdFusion",
+    "mode": "coldfusion",
+    "scope": "text.html.cfm",
+    "color": "#ed2cd6"
+  },
+  ".cfc": {
+    "name": "ColdFusion CFC",
+    "mode": "coldfusion",
+    "scope": "source.cfscript",
+    "color": "#ed2cd6"
+  },
+  ".lisp": {
+    "name": "NewLisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#87AED7"
+  },
+  ".asd": {
+    "name": "Common Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#3fb68b"
+  },
+  ".cl": {
+    "name": "OpenCL",
+    "mode": "c_cpp",
+    "scope": "source.c",
+    "color": null
+  },
+  ".l": {
+    "name": "PicoLisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": null
+  },
+  ".lsp": {
+    "name": "NewLisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#87AED7"
+  },
+  ".ny": {
+    "name": "Common Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#3fb68b"
+  },
+  ".podsl": {
+    "name": "Common Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#3fb68b"
+  },
+  ".sexp": {
+    "name": "Common Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#3fb68b"
+  },
+  ".cps": {
+    "name": "Component Pascal",
+    "mode": "pascal",
+    "scope": "source.pascal",
+    "color": "#B0CE4E"
+  },
+  ".coq": {
+    "name": "Coq",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".v": {
+    "name": "Verilog",
+    "mode": "verilog",
+    "scope": null,
+    "color": "#b2b7f8"
+  },
+  ".cppobjdump": {
+    "name": "Cpp-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".c++-objdump": {
+    "name": "Cpp-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".c++objdump": {
+    "name": "Cpp-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".cpp-objdump": {
+    "name": "Cpp-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".cxx-objdump": {
+    "name": "Cpp-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".creole": {
+    "name": "Creole",
+    "mode": "text",
+    "scope": "text.html.creole",
+    "color": null
+  },
+  ".cr": {
+    "name": "Crystal",
+    "mode": "ruby",
+    "scope": "source.crystal",
+    "color": "#776791"
+  },
+  ".feature": {
+    "name": "Cucumber",
+    "mode": "text",
+    "scope": "text.gherkin.feature",
+    "color": "#5B2063"
+  },
+  ".cu": {
+    "name": "Cuda",
+    "mode": "c_cpp",
+    "scope": "source.cuda-c++",
+    "color": "#3A4E3A"
+  },
+  ".cuh": {
+    "name": "Cuda",
+    "mode": "c_cpp",
+    "scope": "source.cuda-c++",
+    "color": "#3A4E3A"
+  },
+  ".cy": {
+    "name": "Cycript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": null
+  },
+  ".pyx": {
+    "name": "Cython",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".pxd": {
+    "name": "Cython",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".pxi": {
+    "name": "Cython",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".d": {
+    "name": "Makefile",
+    "mode": "makefile",
+    "scope": null,
+    "color": "#427819"
+  },
+  ".di": {
+    "name": "D",
+    "mode": "d",
+    "scope": null,
+    "color": "#ba595e"
+  },
+  ".d-objdump": {
+    "name": "D-ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".com": {
+    "name": "DIGITAL Command Language",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".dm": {
+    "name": "DM",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#447265"
+  },
+  ".zone": {
+    "name": "DNS Zone",
+    "mode": "text",
+    "scope": "text.zone_file",
+    "color": null
+  },
+  ".arpa": {
+    "name": "DNS Zone",
+    "mode": "text",
+    "scope": "text.zone_file",
+    "color": null
+  },
+  ".darcspatch": {
+    "name": "Darcs Patch",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".dpatch": {
+    "name": "Darcs Patch",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".dart": {
+    "name": "Dart",
+    "mode": "dart",
+    "scope": null,
+    "color": "#00B4AB"
+  },
+  ".diff": {
+    "name": "Diff",
+    "mode": "diff",
+    "scope": "source.diff",
+    "color": null
+  },
+  ".patch": {
+    "name": "Diff",
+    "mode": "diff",
+    "scope": "source.diff",
+    "color": null
+  },
+  ".dockerfile": {
+    "name": "Dockerfile",
+    "mode": "dockerfile",
+    "scope": "source.dockerfile",
+    "color": null
+  },
+  ".djs": {
+    "name": "Dogescript",
+    "mode": "text",
+    "scope": null,
+    "color": "#cca760"
+  },
+  ".dylan": {
+    "name": "Dylan",
+    "mode": "text",
+    "scope": null,
+    "color": "#6c616e"
+  },
+  ".dyl": {
+    "name": "Dylan",
+    "mode": "text",
+    "scope": null,
+    "color": "#6c616e"
+  },
+  ".intr": {
+    "name": "Dylan",
+    "mode": "text",
+    "scope": null,
+    "color": "#6c616e"
+  },
+  ".lid": {
+    "name": "Dylan",
+    "mode": "text",
+    "scope": null,
+    "color": "#6c616e"
+  },
+  ".E": {
+    "name": "E",
+    "mode": "text",
+    "scope": null,
+    "color": "#ccce35"
+  },
+  ".ecl": {
+    "name": "ECLiPSe",
+    "mode": "prolog",
+    "scope": "source.prolog.eclipse",
+    "color": null
+  },
+  ".eclxml": {
+    "name": "ECL",
+    "mode": "text",
+    "scope": null,
+    "color": "#8a1267"
+  },
+  ".sch": {
+    "name": "KiCad",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".brd": {
+    "name": "KiCad",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".epj": {
+    "name": "Ecere Projects",
+    "mode": "json",
+    "scope": "source.json",
+    "color": null
+  },
+  ".e": {
+    "name": "Eiffel",
+    "mode": "eiffel",
+    "scope": null,
+    "color": "#946d57"
+  },
+  ".ex": {
+    "name": "Elixir",
+    "mode": "elixir",
+    "scope": null,
+    "color": "#6e4a7e"
+  },
+  ".exs": {
+    "name": "Elixir",
+    "mode": "elixir",
+    "scope": null,
+    "color": "#6e4a7e"
+  },
+  ".elm": {
+    "name": "Elm",
+    "mode": "elm",
+    "scope": "source.elm",
+    "color": "#60B5CC"
+  },
+  ".el": {
+    "name": "Emacs Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#c065db"
+  },
+  ".emacs": {
+    "name": "Emacs Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#c065db"
+  },
+  ".emacs.desktop": {
+    "name": "Emacs Lisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#c065db"
+  },
+  ".em": {
+    "name": "EmberScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#FFF4F3"
+  },
+  ".emberscript": {
+    "name": "EmberScript",
+    "mode": "coffee",
+    "scope": "source.coffee",
+    "color": "#FFF4F3"
+  },
+  ".erl": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".es": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".escript": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".hrl": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".xrl": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".yrl": {
+    "name": "Erlang",
+    "mode": "erlang",
+    "scope": null,
+    "color": "#B83998"
+  },
+  ".fs": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".fsi": {
+    "name": "F#",
+    "mode": "text",
+    "scope": "source.fsharp",
+    "color": "#b845fc"
+  },
+  ".fsx": {
+    "name": "F#",
+    "mode": "text",
+    "scope": "source.fsharp",
+    "color": "#b845fc"
+  },
+  ".fx": {
+    "name": "FLUX",
+    "mode": "text",
+    "scope": null,
+    "color": "#88ccff"
+  },
+  ".flux": {
+    "name": "FLUX",
+    "mode": "text",
+    "scope": null,
+    "color": "#88ccff"
+  },
+  ".f90": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".f": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".f03": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".f08": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".f77": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".f95": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".for": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".fpp": {
+    "name": "FORTRAN",
+    "mode": "text",
+    "scope": "source.fortran.modern",
+    "color": "#4d41b1"
+  },
+  ".factor": {
+    "name": "Factor",
+    "mode": "text",
+    "scope": null,
+    "color": "#636746"
+  },
+  ".fy": {
+    "name": "Fancy",
+    "mode": "text",
+    "scope": null,
+    "color": "#7b9db4"
+  },
+  ".fancypack": {
+    "name": "Fancy",
+    "mode": "text",
+    "scope": null,
+    "color": "#7b9db4"
+  },
+  ".fan": {
+    "name": "Fantom",
+    "mode": "text",
+    "scope": "source.fan",
+    "color": "#dbded5"
+  },
+  ".eam.fs": {
+    "name": "Formatted",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".fth": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".4th": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".forth": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".fr": {
+    "name": "Text",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".frt": {
+    "name": "Forth",
+    "mode": "forth",
+    "scope": null,
+    "color": "#341708"
+  },
+  ".ftl": {
+    "name": "FreeMarker",
+    "mode": "ftl",
+    "scope": "text.html.ftl",
+    "color": "#0050b2"
+  },
+  ".g": {
+    "name": "GAP",
+    "mode": "text",
+    "scope": "source.gap",
+    "color": null
+  },
+  ".gco": {
+    "name": "G-code",
+    "mode": "gcode",
+    "scope": "source.gcode",
+    "color": null
+  },
+  ".gcode": {
+    "name": "G-code",
+    "mode": "gcode",
+    "scope": "source.gcode",
+    "color": null
+  },
+  ".gms": {
+    "name": "GAMS",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".gap": {
+    "name": "GAP",
+    "mode": "text",
+    "scope": "source.gap",
+    "color": null
+  },
+  ".gd": {
+    "name": "GDScript",
+    "mode": "text",
+    "scope": "source.gdscript",
+    "color": null
+  },
+  ".gi": {
+    "name": "GAP",
+    "mode": "text",
+    "scope": "source.gap",
+    "color": null
+  },
+  ".tst": {
+    "name": "Scilab",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".s": {
+    "name": "GAS",
+    "mode": "assembly_x86",
+    "scope": "source.asm.x86",
+    "color": null
+  },
+  ".ms": {
+    "name": "MAXScript",
+    "mode": "text",
+    "scope": "source.maxscript",
+    "color": "#00a6a6"
+  },
+  ".glsl": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".fp": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".frag": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".frg": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".fshader": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".geo": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".geom": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".glslv": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".gshader": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".shader": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".vert": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".vrx": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".vshader": {
+    "name": "GLSL",
+    "mode": "glsl",
+    "scope": null,
+    "color": null
+  },
+  ".gml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".kid": {
+    "name": "Genshi",
+    "mode": "xml",
+    "scope": "text.xml.genshi",
+    "color": null
+  },
+  ".ebuild": {
+    "name": "Gentoo Ebuild",
+    "mode": "sh",
+    "scope": "source.shell",
+    "color": null
+  },
+  ".eclass": {
+    "name": "Gentoo Eclass",
+    "mode": "sh",
+    "scope": "source.shell",
+    "color": null
+  },
+  ".po": {
+    "name": "Gettext Catalog",
+    "mode": "text",
+    "scope": "source.po",
+    "color": null
+  },
+  ".pot": {
+    "name": "Gettext Catalog",
+    "mode": "text",
+    "scope": "source.po",
+    "color": null
+  },
+  ".glf": {
+    "name": "Glyph",
+    "mode": "tcl",
+    "scope": "source.tcl",
+    "color": "#e4cc98"
+  },
+  ".gp": {
+    "name": "Gnuplot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f0a9f0"
+  },
+  ".gnu": {
+    "name": "Gnuplot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f0a9f0"
+  },
+  ".gnuplot": {
+    "name": "Gnuplot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f0a9f0"
+  },
+  ".plot": {
+    "name": "Gnuplot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f0a9f0"
+  },
+  ".plt": {
+    "name": "Gnuplot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f0a9f0"
+  },
+  ".go": {
+    "name": "Go",
+    "mode": "golang",
+    "scope": null,
+    "color": "#375eab"
+  },
+  ".golo": {
+    "name": "Golo",
+    "mode": "text",
+    "scope": "source.golo",
+    "color": "#88562A"
+  },
+  ".gs": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".gst": {
+    "name": "Gosu",
+    "mode": "text",
+    "scope": "source.gosu.2",
+    "color": "#82937f"
+  },
+  ".gsx": {
+    "name": "Gosu",
+    "mode": "text",
+    "scope": "source.gosu.2",
+    "color": "#82937f"
+  },
+  ".vark": {
+    "name": "Gosu",
+    "mode": "text",
+    "scope": "source.gosu.2",
+    "color": "#82937f"
+  },
+  ".grace": {
+    "name": "Grace",
+    "mode": "text",
+    "scope": "source.grace",
+    "color": null
+  },
+  ".gradle": {
+    "name": "Gradle",
+    "mode": "text",
+    "scope": "source.groovy.gradle",
+    "color": null
+  },
+  ".gf": {
+    "name": "Grammatical Framework",
+    "mode": "haskell",
+    "scope": "source.haskell",
+    "color": "#79aa7a"
+  },
+  ".dot": {
+    "name": "Graphviz (DOT)",
+    "mode": "text",
+    "scope": "source.dot",
+    "color": null
+  },
+  ".gv": {
+    "name": "Graphviz (DOT)",
+    "mode": "text",
+    "scope": "source.dot",
+    "color": null
+  },
+  ".man": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".1": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".1in": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".1m": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".1x": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".2": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".3": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".3in": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".3m": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".3qt": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".3x": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".4": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".5": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".6": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".7": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".8": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".9": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".n": {
+    "name": "Nemerle",
+    "mode": "text",
+    "scope": null,
+    "color": "#3d3c6e"
+  },
+  ".rno": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".roff": {
+    "name": "Groff",
+    "mode": "text",
+    "scope": "text.groff",
+    "color": null
+  },
+  ".groovy": {
+    "name": "Groovy",
+    "mode": "groovy",
+    "scope": null,
+    "color": "#e69f56"
+  },
+  ".grt": {
+    "name": "Groovy",
+    "mode": "groovy",
+    "scope": null,
+    "color": "#e69f56"
+  },
+  ".gtpl": {
+    "name": "Groovy",
+    "mode": "groovy",
+    "scope": null,
+    "color": "#e69f56"
+  },
+  ".gvy": {
+    "name": "Groovy",
+    "mode": "groovy",
+    "scope": null,
+    "color": "#e69f56"
+  },
+  ".gsp": {
+    "name": "Groovy Server Pages",
+    "mode": "jsp",
+    "scope": "text.html.jsp",
+    "color": null
+  },
+  ".hcl": {
+    "name": "HCL",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": null
+  },
+  ".tf": {
+    "name": "HCL",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": null
+  },
+  ".html": {
+    "name": "HTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#e44b23"
+  },
+  ".htm": {
+    "name": "HTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#e44b23"
+  },
+  ".html.hl": {
+    "name": "HTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#e44b23"
+  },
+  ".st": {
+    "name": "Smalltalk",
+    "mode": "text",
+    "scope": null,
+    "color": "#596706"
+  },
+  ".xht": {
+    "name": "HTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#e44b23"
+  },
+  ".xhtml": {
+    "name": "HTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#e44b23"
+  },
+  ".mustache": {
+    "name": "HTML+Django",
+    "mode": "django",
+    "scope": "text.html.django",
+    "color": null
+  },
+  ".jinja": {
+    "name": "HTML+Django",
+    "mode": "django",
+    "scope": "text.html.django",
+    "color": null
+  },
+  ".eex": {
+    "name": "HTML+EEX",
+    "mode": "text",
+    "scope": "text.html.elixir",
+    "color": null
+  },
+  ".erb": {
+    "name": "HTML+ERB",
+    "mode": "text",
+    "scope": "text.html.erb",
+    "color": null
+  },
+  ".erb.deface": {
+    "name": "HTML+ERB",
+    "mode": "text",
+    "scope": "text.html.erb",
+    "color": null
+  },
+  ".phtml": {
+    "name": "HTML+PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": null
+  },
+  ".http": {
+    "name": "HTTP",
+    "mode": "text",
+    "scope": "source.httpspec",
+    "color": null
+  },
+  ".php": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".haml": {
+    "name": "Haml",
+    "mode": "haml",
+    "scope": null,
+    "color": "#ECE2A9"
+  },
+  ".haml.deface": {
+    "name": "Haml",
+    "mode": "haml",
+    "scope": null,
+    "color": "#ECE2A9"
+  },
+  ".handlebars": {
+    "name": "Handlebars",
+    "mode": "handlebars",
+    "scope": "text.html.handlebars",
+    "color": "#01a9d6"
+  },
+  ".hbs": {
+    "name": "Handlebars",
+    "mode": "handlebars",
+    "scope": "text.html.handlebars",
+    "color": "#01a9d6"
+  },
+  ".hb": {
+    "name": "Harbour",
+    "mode": "text",
+    "scope": "source.harbour",
+    "color": "#0e60e3"
+  },
+  ".hs": {
+    "name": "Haskell",
+    "mode": "haskell",
+    "scope": null,
+    "color": "#29b544"
+  },
+  ".hsc": {
+    "name": "Haskell",
+    "mode": "haskell",
+    "scope": null,
+    "color": "#29b544"
+  },
+  ".hx": {
+    "name": "Haxe",
+    "mode": "haxe",
+    "scope": "source.haxe.2",
+    "color": "#df7900"
+  },
+  ".hxsl": {
+    "name": "Haxe",
+    "mode": "haxe",
+    "scope": "source.haxe.2",
+    "color": "#df7900"
+  },
+  ".hy": {
+    "name": "Hy",
+    "mode": "text",
+    "scope": "source.hy",
+    "color": "#7790B2"
+  },
+  ".pro": {
+    "name": "QMake",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".dlm": {
+    "name": "IDL",
+    "mode": "text",
+    "scope": null,
+    "color": "#a3522f"
+  },
+  ".ipf": {
+    "name": "IGOR Pro",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ini": {
+    "name": "INI",
+    "mode": "ini",
+    "scope": "source.ini",
+    "color": null
+  },
+  ".cfg": {
+    "name": "INI",
+    "mode": "ini",
+    "scope": "source.ini",
+    "color": null
+  },
+  ".prefs": {
+    "name": "INI",
+    "mode": "ini",
+    "scope": "source.ini",
+    "color": null
+  },
+  ".properties": {
+    "name": "INI",
+    "mode": "ini",
+    "scope": "source.ini",
+    "color": null
+  },
+  ".irclog": {
+    "name": "IRC log",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".weechatlog": {
+    "name": "IRC log",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".idr": {
+    "name": "Idris",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".lidr": {
+    "name": "Idris",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ni": {
+    "name": "Inform 7",
+    "mode": "text",
+    "scope": "source.inform7",
+    "color": null
+  },
+  ".i7x": {
+    "name": "Inform 7",
+    "mode": "text",
+    "scope": "source.inform7",
+    "color": null
+  },
+  ".iss": {
+    "name": "Inno Setup",
+    "mode": "text",
+    "scope": "source.inno",
+    "color": null
+  },
+  ".io": {
+    "name": "Io",
+    "mode": "io",
+    "scope": null,
+    "color": "#a9188d"
+  },
+  ".ik": {
+    "name": "Ioke",
+    "mode": "text",
+    "scope": null,
+    "color": "#078193"
+  },
+  ".thy": {
+    "name": "Isabelle",
+    "mode": "text",
+    "scope": "source.isabelle.theory",
+    "color": "#FEFE00"
+  },
+  ".ijs": {
+    "name": "J",
+    "mode": "text",
+    "scope": "source.j",
+    "color": "#9EEDFF"
+  },
+  ".flex": {
+    "name": "JFlex",
+    "mode": "text",
+    "scope": "source.jflex",
+    "color": "#DBCA00"
+  },
+  ".jflex": {
+    "name": "JFlex",
+    "mode": "text",
+    "scope": "source.jflex",
+    "color": "#DBCA00"
+  },
+  ".json": {
+    "name": "JSON",
+    "mode": "json",
+    "scope": "source.json",
+    "color": null
+  },
+  ".geojson": {
+    "name": "JSON",
+    "mode": "json",
+    "scope": "source.json",
+    "color": null
+  },
+  ".lock": {
+    "name": "JSON",
+    "mode": "json",
+    "scope": "source.json",
+    "color": null
+  },
+  ".topojson": {
+    "name": "JSON",
+    "mode": "json",
+    "scope": "source.json",
+    "color": null
+  },
+  ".json5": {
+    "name": "JSON5",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": null
+  },
+  ".jsonld": {
+    "name": "JSONLD",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": null
+  },
+  ".jq": {
+    "name": "JSONiq",
+    "mode": "jsoniq",
+    "scope": "source.jq",
+    "color": "#40d47e"
+  },
+  ".jsx": {
+    "name": "JSX",
+    "mode": "javascript",
+    "scope": "source.js.jsx",
+    "color": null
+  },
+  ".jade": {
+    "name": "Jade",
+    "mode": "jade",
+    "scope": "text.jade",
+    "color": null
+  },
+  ".j": {
+    "name": "Objective-J",
+    "mode": "text",
+    "scope": "source.js.objj",
+    "color": "#ff0c5a"
+  },
+  ".java": {
+    "name": "Java",
+    "mode": "java",
+    "scope": null,
+    "color": "#b07219"
+  },
+  ".jsp": {
+    "name": "Java Server Pages",
+    "mode": "jsp",
+    "scope": "text.html.jsp",
+    "color": null
+  },
+  ".js": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  "._js": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".bones": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".es6": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jake": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jsb": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jscad": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jsfl": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jsm": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jss": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".njs": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".pac": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sjs": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".ssjs": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-build": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-commands": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-completions": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-keymap": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-macro": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-menu": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-mousemap": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-project": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-settings": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-theme": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime-workspace": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime_metrics": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".sublime_session": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".xsjs": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".xsjslib": {
+    "name": "JavaScript",
+    "mode": "javascript",
+    "scope": "source.js",
+    "color": "#f1e05a"
+  },
+  ".jl": {
+    "name": "Julia",
+    "mode": "julia",
+    "scope": null,
+    "color": "#a270ba"
+  },
+  ".ipynb": {
+    "name": "Jupyter Notebook",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#DA5B0B"
+  },
+  ".krl": {
+    "name": "KRL",
+    "mode": "text",
+    "scope": null,
+    "color": "#28431f"
+  },
+  ".kicad_pcb": {
+    "name": "KiCad",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".kit": {
+    "name": "Kit",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": null
+  },
+  ".kt": {
+    "name": "Kotlin",
+    "mode": "text",
+    "scope": "source.Kotlin",
+    "color": "#F18E33"
+  },
+  ".ktm": {
+    "name": "Kotlin",
+    "mode": "text",
+    "scope": "source.Kotlin",
+    "color": "#F18E33"
+  },
+  ".kts": {
+    "name": "Kotlin",
+    "mode": "text",
+    "scope": "source.Kotlin",
+    "color": "#F18E33"
+  },
+  ".lfe": {
+    "name": "LFE",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#004200"
+  },
+  ".ll": {
+    "name": "LLVM",
+    "mode": "text",
+    "scope": null,
+    "color": "#185619"
+  },
+  ".lol": {
+    "name": "LOLCODE",
+    "mode": "text",
+    "scope": null,
+    "color": "#cc9900"
+  },
+  ".lsl": {
+    "name": "LSL",
+    "mode": "lsl",
+    "scope": null,
+    "color": "#3d9970"
+  },
+  ".lslp": {
+    "name": "LSL",
+    "mode": "lsl",
+    "scope": null,
+    "color": "#3d9970"
+  },
+  ".lvproj": {
+    "name": "LabVIEW",
+    "mode": "xml",
+    "scope": "text.xml",
+    "color": null
+  },
+  ".lasso": {
+    "name": "Lasso",
+    "mode": "text",
+    "scope": "file.lasso",
+    "color": "#999999"
+  },
+  ".las": {
+    "name": "Lasso",
+    "mode": "text",
+    "scope": "file.lasso",
+    "color": "#999999"
+  },
+  ".lasso8": {
+    "name": "Lasso",
+    "mode": "text",
+    "scope": "file.lasso",
+    "color": "#999999"
+  },
+  ".lasso9": {
+    "name": "Lasso",
+    "mode": "text",
+    "scope": "file.lasso",
+    "color": "#999999"
+  },
+  ".ldml": {
+    "name": "Lasso",
+    "mode": "text",
+    "scope": "file.lasso",
+    "color": "#999999"
+  },
+  ".latte": {
+    "name": "Latte",
+    "mode": "smarty",
+    "scope": "text.html.smarty",
+    "color": "#A8FF97"
+  },
+  ".lean": {
+    "name": "Lean",
+    "mode": "lean",
+    "scope": null,
+    "color": null
+  },
+  ".hlean": {
+    "name": "Lean",
+    "mode": "lean",
+    "scope": null,
+    "color": null
+  },
+  ".less": {
+    "name": "Less",
+    "mode": "less",
+    "scope": "source.css.less",
+    "color": "#A1D9A1"
+  },
+  ".lex": {
+    "name": "Lex",
+    "mode": "text",
+    "scope": null,
+    "color": "#DBCA00"
+  },
+  ".ly": {
+    "name": "LilyPond",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ily": {
+    "name": "LilyPond",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".m": {
+    "name": "Objective-C",
+    "mode": "objectivec",
+    "scope": "source.objc",
+    "color": "#438eff"
+  },
+  ".ld": {
+    "name": "Linker Script",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".lds": {
+    "name": "Linker Script",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".liquid": {
+    "name": "Liquid",
+    "mode": "liquid",
+    "scope": "text.html.liquid",
+    "color": null
+  },
+  ".lagda": {
+    "name": "Literate Agda",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".litcoffee": {
+    "name": "Literate CoffeeScript",
+    "mode": "text",
+    "scope": "source.litcoffee",
+    "color": null
+  },
+  ".lhs": {
+    "name": "Literate Haskell",
+    "mode": "text",
+    "scope": "text.tex.latex.haskell",
+    "color": null
+  },
+  ".ls": {
+    "name": "LoomScript",
+    "mode": "text",
+    "scope": "source.loomscript",
+    "color": null
+  },
+  "._ls": {
+    "name": "LiveScript",
+    "mode": "livescript",
+    "scope": null,
+    "color": "#499886"
+  },
+  ".xm": {
+    "name": "Logos",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".x": {
+    "name": "Logos",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".xi": {
+    "name": "Logos",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".lgt": {
+    "name": "Logtalk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".logtalk": {
+    "name": "Logtalk",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".lookml": {
+    "name": "LookML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": "#652B81"
+  },
+  ".lua": {
+    "name": "Lua",
+    "mode": "lua",
+    "scope": null,
+    "color": "#000080"
+  },
+  ".fcgi": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".nse": {
+    "name": "Lua",
+    "mode": "lua",
+    "scope": null,
+    "color": "#000080"
+  },
+  ".pd_lua": {
+    "name": "Lua",
+    "mode": "lua",
+    "scope": null,
+    "color": "#000080"
+  },
+  ".rbxs": {
+    "name": "Lua",
+    "mode": "lua",
+    "scope": null,
+    "color": "#000080"
+  },
+  ".wlua": {
+    "name": "Lua",
+    "mode": "lua",
+    "scope": null,
+    "color": "#000080"
+  },
+  ".mumps": {
+    "name": "M",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": null
+  },
+  ".mcr": {
+    "name": "MAXScript",
+    "mode": "text",
+    "scope": "source.maxscript",
+    "color": "#00a6a6"
+  },
+  ".mtml": {
+    "name": "MTML",
+    "mode": "html",
+    "scope": "text.html.basic",
+    "color": "#b7e1f4"
+  },
+  ".muf": {
+    "name": "MUF",
+    "mode": "forth",
+    "scope": null,
+    "color": null
+  },
+  ".mak": {
+    "name": "Makefile",
+    "mode": "makefile",
+    "scope": null,
+    "color": "#427819"
+  },
+  ".mk": {
+    "name": "Makefile",
+    "mode": "makefile",
+    "scope": null,
+    "color": "#427819"
+  },
+  ".mako": {
+    "name": "Mako",
+    "mode": "text",
+    "scope": "text.html.mako",
+    "color": null
+  },
+  ".mao": {
+    "name": "Mako",
+    "mode": "text",
+    "scope": "text.html.mako",
+    "color": null
+  },
+  ".md": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".markdown": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".mkd": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".mkdn": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".mkdown": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".ron": {
+    "name": "Markdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": "#083FA1"
+  },
+  ".mask": {
+    "name": "Mask",
+    "mode": "mask",
+    "scope": "source.mask",
+    "color": "#f97732"
+  },
+  ".mathematica": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".cdf": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ma": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".mt": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nb": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nbp": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".wl": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".wlt": {
+    "name": "Mathematica",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".matlab": {
+    "name": "Matlab",
+    "mode": "matlab",
+    "scope": null,
+    "color": "#bb92ac"
+  },
+  ".maxpat": {
+    "name": "Max",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#c4a79c"
+  },
+  ".maxhelp": {
+    "name": "Max",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#c4a79c"
+  },
+  ".maxproj": {
+    "name": "Max",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#c4a79c"
+  },
+  ".mxt": {
+    "name": "Max",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#c4a79c"
+  },
+  ".pat": {
+    "name": "Max",
+    "mode": "json",
+    "scope": "source.json",
+    "color": "#c4a79c"
+  },
+  ".mediawiki": {
+    "name": "MediaWiki",
+    "mode": "text",
+    "scope": "text.html.mediawiki",
+    "color": null
+  },
+  ".wiki": {
+    "name": "MediaWiki",
+    "mode": "text",
+    "scope": "text.html.mediawiki",
+    "color": null
+  },
+  ".moo": {
+    "name": "Moocode",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".metal": {
+    "name": "Metal",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#8f14e9"
+  },
+  ".minid": {
+    "name": "MiniD",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".druby": {
+    "name": "Mirah",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": "#c7a938"
+  },
+  ".duby": {
+    "name": "Mirah",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": "#c7a938"
+  },
+  ".mir": {
+    "name": "Mirah",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": "#c7a938"
+  },
+  ".mirah": {
+    "name": "Mirah",
+    "mode": "ruby",
+    "scope": "source.ruby",
+    "color": "#c7a938"
+  },
+  ".mo": {
+    "name": "Modelica",
+    "mode": "text",
+    "scope": "source.modelica",
+    "color": null
+  },
+  ".mms": {
+    "name": "Module Management System",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".mmk": {
+    "name": "Module Management System",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".monkey": {
+    "name": "Monkey",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".moon": {
+    "name": "MoonScript",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".myt": {
+    "name": "Myghty",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ncl": {
+    "name": "Text",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nl": {
+    "name": "NewLisp",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#87AED7"
+  },
+  ".nsi": {
+    "name": "NSIS",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nsh": {
+    "name": "NSIS",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".axs": {
+    "name": "NetLinx",
+    "mode": "text",
+    "scope": "source.netlinx",
+    "color": "#0aa0ff"
+  },
+  ".axi": {
+    "name": "NetLinx",
+    "mode": "text",
+    "scope": "source.netlinx",
+    "color": "#0aa0ff"
+  },
+  ".axs.erb": {
+    "name": "NetLinx+ERB",
+    "mode": "text",
+    "scope": "source.netlinx.erb",
+    "color": "#747faa"
+  },
+  ".axi.erb": {
+    "name": "NetLinx+ERB",
+    "mode": "text",
+    "scope": "source.netlinx.erb",
+    "color": "#747faa"
+  },
+  ".nlogo": {
+    "name": "NetLogo",
+    "mode": "lisp",
+    "scope": "source.lisp",
+    "color": "#ff6375"
+  },
+  ".nginxconf": {
+    "name": "Nginx",
+    "mode": "text",
+    "scope": "source.nginx",
+    "color": "#9469E9"
+  },
+  ".nim": {
+    "name": "Nimrod",
+    "mode": "text",
+    "scope": "source.nim",
+    "color": "#37775b"
+  },
+  ".nimrod": {
+    "name": "Nimrod",
+    "mode": "text",
+    "scope": "source.nim",
+    "color": "#37775b"
+  },
+  ".ninja": {
+    "name": "Ninja",
+    "mode": "text",
+    "scope": "source.ninja",
+    "color": null
+  },
+  ".nit": {
+    "name": "Nit",
+    "mode": "text",
+    "scope": "source.nit",
+    "color": "#009917"
+  },
+  ".nix": {
+    "name": "Nix",
+    "mode": "nix",
+    "scope": "source.nix",
+    "color": "#7e7eff"
+  },
+  ".nu": {
+    "name": "Nu",
+    "mode": "scheme",
+    "scope": "source.scheme",
+    "color": "#c9df40"
+  },
+  ".numpy": {
+    "name": "NumPy",
+    "mode": "text",
+    "scope": null,
+    "color": "#9C8AF9"
+  },
+  ".numpyw": {
+    "name": "NumPy",
+    "mode": "text",
+    "scope": null,
+    "color": "#9C8AF9"
+  },
+  ".numsc": {
+    "name": "NumPy",
+    "mode": "text",
+    "scope": null,
+    "color": "#9C8AF9"
+  },
+  ".ml": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".eliom": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".eliomi": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".ml4": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".mli": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".mll": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".mly": {
+    "name": "OCaml",
+    "mode": "ocaml",
+    "scope": "source.ocaml",
+    "color": "#3be133"
+  },
+  ".objdump": {
+    "name": "ObjDump",
+    "mode": "assembly_x86",
+    "scope": "objdump.x86asm",
+    "color": null
+  },
+  ".mm": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".sj": {
+    "name": "Objective-J",
+    "mode": "text",
+    "scope": "source.js.objj",
+    "color": "#ff0c5a"
+  },
+  ".omgrofl": {
+    "name": "Omgrofl",
+    "mode": "text",
+    "scope": null,
+    "color": "#cabbff"
+  },
+  ".opa": {
+    "name": "Opa",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".opal": {
+    "name": "Opal",
+    "mode": "text",
+    "scope": "source.opal",
+    "color": "#f7ede0"
+  },
+  ".opencl": {
+    "name": "OpenCL",
+    "mode": "c_cpp",
+    "scope": "source.c",
+    "color": null
+  },
+  ".p": {
+    "name": "OpenEdge ABL",
+    "mode": "text",
+    "scope": "source.abl",
+    "color": null
+  },
+  ".scad": {
+    "name": "OpenSCAD",
+    "mode": "scad",
+    "scope": "source.scad",
+    "color": null
+  },
+  ".org": {
+    "name": "Org",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ox": {
+    "name": "Ox",
+    "mode": "text",
+    "scope": "source.ox",
+    "color": null
+  },
+  ".oxh": {
+    "name": "Ox",
+    "mode": "text",
+    "scope": "source.ox",
+    "color": null
+  },
+  ".oxo": {
+    "name": "Ox",
+    "mode": "text",
+    "scope": "source.ox",
+    "color": null
+  },
+  ".oxygene": {
+    "name": "Oxygene",
+    "mode": "text",
+    "scope": null,
+    "color": "#cdd0e3"
+  },
+  ".oz": {
+    "name": "Oz",
+    "mode": "text",
+    "scope": "source.oz",
+    "color": "#fab738"
+  },
+  ".pwn": {
+    "name": "PAWN",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#dbb284"
+  },
+  ".aw": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".ctp": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".php3": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".php4": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".php5": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".phps": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".phpt": {
+    "name": "PHP",
+    "mode": "php",
+    "scope": "text.html.php",
+    "color": "#4F5D95"
+  },
+  ".pls": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".pck": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".pkb": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".pks": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".plb": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".plsql": {
+    "name": "PLSQL",
+    "mode": "sql",
+    "scope": "source.plsql.oracle",
+    "color": "#dad8d8"
+  },
+  ".sql": {
+    "name": "SQLPL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".pan": {
+    "name": "Pan",
+    "mode": "text",
+    "scope": null,
+    "color": "#cc0000"
+  },
+  ".psc": {
+    "name": "Papyrus",
+    "mode": "text",
+    "scope": "source.papyrus",
+    "color": "#6600cc"
+  },
+  ".parrot": {
+    "name": "Parrot",
+    "mode": "text",
+    "scope": null,
+    "color": "#f3ca0a"
+  },
+  ".pasm": {
+    "name": "Parrot Assembly",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".pir": {
+    "name": "Parrot Internal Representation",
+    "mode": "text",
+    "scope": "source.parrot.pir",
+    "color": null
+  },
+  ".pas": {
+    "name": "Pascal",
+    "mode": "pascal",
+    "scope": null,
+    "color": "#E3F171"
+  },
+  ".dfm": {
+    "name": "Pascal",
+    "mode": "pascal",
+    "scope": null,
+    "color": "#E3F171"
+  },
+  ".dpr": {
+    "name": "Pascal",
+    "mode": "pascal",
+    "scope": null,
+    "color": "#E3F171"
+  },
+  ".lpr": {
+    "name": "Pascal",
+    "mode": "pascal",
+    "scope": null,
+    "color": "#E3F171"
+  },
+  ".pp": {
+    "name": "Puppet",
+    "mode": "text",
+    "scope": null,
+    "color": "#302B6D"
+  },
+  ".pl": {
+    "name": "Prolog",
+    "mode": "prolog",
+    "scope": "source.prolog",
+    "color": "#74283c"
+  },
+  ".al": {
+    "name": "Perl",
+    "mode": "perl",
+    "scope": "source.perl",
+    "color": "#0298c3"
+  },
+  ".cgi": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".perl": {
+    "name": "Perl",
+    "mode": "perl",
+    "scope": "source.perl",
+    "color": "#0298c3"
+  },
+  ".ph": {
+    "name": "Perl",
+    "mode": "perl",
+    "scope": "source.perl",
+    "color": "#0298c3"
+  },
+  ".plx": {
+    "name": "Perl",
+    "mode": "perl",
+    "scope": "source.perl",
+    "color": "#0298c3"
+  },
+  ".pm": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".pod": {
+    "name": "Pod",
+    "mode": "perl",
+    "scope": null,
+    "color": null
+  },
+  ".psgi": {
+    "name": "Perl",
+    "mode": "perl",
+    "scope": "source.perl",
+    "color": "#0298c3"
+  },
+  ".t": {
+    "name": "Turing",
+    "mode": "text",
+    "scope": null,
+    "color": "#45f715"
+  },
+  ".6pl": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".6pm": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".nqp": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".p6": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".p6l": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".p6m": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".pl6": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".pm6": {
+    "name": "Perl6",
+    "mode": "perl",
+    "scope": "source.perl.6",
+    "color": "#0000fb"
+  },
+  ".pkl": {
+    "name": "Pickle",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".pig": {
+    "name": "PigLatin",
+    "mode": "text",
+    "scope": "source.pig_latin",
+    "color": "#fcd7de"
+  },
+  ".pike": {
+    "name": "Pike",
+    "mode": "text",
+    "scope": null,
+    "color": "#005390"
+  },
+  ".pmod": {
+    "name": "Pike",
+    "mode": "text",
+    "scope": null,
+    "color": "#005390"
+  },
+  ".pogo": {
+    "name": "PogoScript",
+    "mode": "text",
+    "scope": "source.pogoscript",
+    "color": "#d80074"
+  },
+  ".pony": {
+    "name": "Pony",
+    "mode": "text",
+    "scope": "source.pony",
+    "color": null
+  },
+  ".ps": {
+    "name": "PostScript",
+    "mode": "text",
+    "scope": "source.postscript",
+    "color": null
+  },
+  ".eps": {
+    "name": "PostScript",
+    "mode": "text",
+    "scope": "source.postscript",
+    "color": null
+  },
+  ".ps1": {
+    "name": "PowerShell",
+    "mode": "powershell",
+    "scope": null,
+    "color": null
+  },
+  ".psd1": {
+    "name": "PowerShell",
+    "mode": "powershell",
+    "scope": null,
+    "color": null
+  },
+  ".psm1": {
+    "name": "PowerShell",
+    "mode": "powershell",
+    "scope": null,
+    "color": null
+  },
+  ".pde": {
+    "name": "Processing",
+    "mode": "text",
+    "scope": null,
+    "color": "#0096D8"
+  },
+  ".prolog": {
+    "name": "Prolog",
+    "mode": "prolog",
+    "scope": "source.prolog",
+    "color": "#74283c"
+  },
+  ".spin": {
+    "name": "Propeller Spin",
+    "mode": "text",
+    "scope": "source.spin",
+    "color": "#7fa2a7"
+  },
+  ".proto": {
+    "name": "Protocol Buffer",
+    "mode": "protobuf",
+    "scope": "source.protobuf",
+    "color": null
+  },
+  ".pub": {
+    "name": "Public Key",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".pd": {
+    "name": "Pure Data",
+    "mode": "text",
+    "scope": null,
+    "color": "#91de79"
+  },
+  ".pb": {
+    "name": "PureBasic",
+    "mode": "text",
+    "scope": null,
+    "color": "#5a6986"
+  },
+  ".pbi": {
+    "name": "PureBasic",
+    "mode": "text",
+    "scope": null,
+    "color": "#5a6986"
+  },
+  ".purs": {
+    "name": "PureScript",
+    "mode": "haskell",
+    "scope": "source.purescript",
+    "color": "#1D222D"
+  },
+  ".py": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".gyp": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".lmi": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".pyde": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".pyp": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".pyt": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".pyw": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".tac": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".wsgi": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".xpy": {
+    "name": "Python",
+    "mode": "python",
+    "scope": null,
+    "color": "#3572A5"
+  },
+  ".pytb": {
+    "name": "Python traceback",
+    "mode": "text",
+    "scope": "text.python.traceback",
+    "color": null
+  },
+  ".qml": {
+    "name": "QML",
+    "mode": "text",
+    "scope": "source.qml",
+    "color": "#44a51c"
+  },
+  ".qbs": {
+    "name": "QML",
+    "mode": "text",
+    "scope": "source.qml",
+    "color": "#44a51c"
+  },
+  ".pri": {
+    "name": "QMake",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".r": {
+    "name": "Rebol",
+    "mode": "text",
+    "scope": "source.rebol",
+    "color": "#358a5b"
+  },
+  ".rd": {
+    "name": "R",
+    "mode": "r",
+    "scope": null,
+    "color": "#198CE7"
+  },
+  ".rsx": {
+    "name": "R",
+    "mode": "r",
+    "scope": null,
+    "color": "#198CE7"
+  },
+  ".raml": {
+    "name": "RAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": "#77d9fb"
+  },
+  ".rdoc": {
+    "name": "RDoc",
+    "mode": "rdoc",
+    "scope": "text.rdoc",
+    "color": "#8E84BF"
+  },
+  ".rbbas": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rbfrm": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rbmnu": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rbres": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rbtbar": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rbuistate": {
+    "name": "REALbasic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".rhtml": {
+    "name": "RHTML",
+    "mode": "rhtml",
+    "scope": "text.html.erb",
+    "color": null
+  },
+  ".rmd": {
+    "name": "RMarkdown",
+    "mode": "markdown",
+    "scope": "source.gfm",
+    "color": null
+  },
+  ".rkt": {
+    "name": "Racket",
+    "mode": "lisp",
+    "scope": "source.racket",
+    "color": "#22228f"
+  },
+  ".rktd": {
+    "name": "Racket",
+    "mode": "lisp",
+    "scope": "source.racket",
+    "color": "#22228f"
+  },
+  ".rktl": {
+    "name": "Racket",
+    "mode": "lisp",
+    "scope": "source.racket",
+    "color": "#22228f"
+  },
+  ".scrbl": {
+    "name": "Racket",
+    "mode": "lisp",
+    "scope": "source.racket",
+    "color": "#22228f"
+  },
+  ".rl": {
+    "name": "Ragel in Ruby Host",
+    "mode": "text",
+    "scope": null,
+    "color": "#9d5200"
+  },
+  ".raw": {
+    "name": "Raw token data",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".reb": {
+    "name": "Rebol",
+    "mode": "text",
+    "scope": "source.rebol",
+    "color": "#358a5b"
+  },
+  ".r2": {
+    "name": "Rebol",
+    "mode": "text",
+    "scope": "source.rebol",
+    "color": "#358a5b"
+  },
+  ".r3": {
+    "name": "Rebol",
+    "mode": "text",
+    "scope": "source.rebol",
+    "color": "#358a5b"
+  },
+  ".rebol": {
+    "name": "Rebol",
+    "mode": "text",
+    "scope": "source.rebol",
+    "color": "#358a5b"
+  },
+  ".red": {
+    "name": "Red",
+    "mode": "text",
+    "scope": "source.red",
+    "color": "#ee0000"
+  },
+  ".reds": {
+    "name": "Red",
+    "mode": "text",
+    "scope": "source.red",
+    "color": "#ee0000"
+  },
+  ".cw": {
+    "name": "Redcode",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".rpy": {
+    "name": "Ren'Py",
+    "mode": "python",
+    "scope": "source.renpy",
+    "color": "#ff7f7f"
+  },
+  ".rs": {
+    "name": "Rust",
+    "mode": "rust",
+    "scope": null,
+    "color": "#dea584"
+  },
+  ".rsh": {
+    "name": "RenderScript",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".robot": {
+    "name": "RobotFramework",
+    "mode": "text",
+    "scope": "text.robot",
+    "color": null
+  },
+  ".rg": {
+    "name": "Rouge",
+    "mode": "clojure",
+    "scope": "source.clojure",
+    "color": "#cc0088"
+  },
+  ".rb": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".builder": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".gemspec": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".god": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".irbrc": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".jbuilder": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".mspec": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".pluginspec": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".podspec": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rabl": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rake": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rbuild": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rbw": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rbx": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".ru": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".ruby": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".thor": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".watchr": {
+    "name": "Ruby",
+    "mode": "ruby",
+    "scope": null,
+    "color": "#701516"
+  },
+  ".rs.in": {
+    "name": "Rust",
+    "mode": "rust",
+    "scope": null,
+    "color": "#dea584"
+  },
+  ".sas": {
+    "name": "SAS",
+    "mode": "text",
+    "scope": "source.sas",
+    "color": "#B34936"
+  },
+  ".scss": {
+    "name": "SCSS",
+    "mode": "scss",
+    "scope": "source.scss",
+    "color": "#CF649A"
+  },
+  ".smt2": {
+    "name": "SMT",
+    "mode": "text",
+    "scope": "source.smt",
+    "color": null
+  },
+  ".smt": {
+    "name": "SMT",
+    "mode": "text",
+    "scope": "source.smt",
+    "color": null
+  },
+  ".sparql": {
+    "name": "SPARQL",
+    "mode": "text",
+    "scope": "source.sparql",
+    "color": null
+  },
+  ".rq": {
+    "name": "SPARQL",
+    "mode": "text",
+    "scope": "source.sparql",
+    "color": null
+  },
+  ".sqf": {
+    "name": "SQF",
+    "mode": "text",
+    "scope": "source.sqf",
+    "color": "#3F3F3F"
+  },
+  ".hqf": {
+    "name": "SQF",
+    "mode": "text",
+    "scope": "source.sqf",
+    "color": "#3F3F3F"
+  },
+  ".cql": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".ddl": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".prc": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".tab": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".udf": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".viw": {
+    "name": "SQL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".db2": {
+    "name": "SQLPL",
+    "mode": "sql",
+    "scope": "source.sql",
+    "color": null
+  },
+  ".ston": {
+    "name": "STON",
+    "mode": "text",
+    "scope": "source.smalltalk",
+    "color": null
+  },
+  ".svg": {
+    "name": "SVG",
+    "mode": "xml",
+    "scope": "text.xml",
+    "color": null
+  },
+  ".sage": {
+    "name": "Sage",
+    "mode": "python",
+    "scope": "source.python",
+    "color": null
+  },
+  ".sagews": {
+    "name": "Sage",
+    "mode": "python",
+    "scope": "source.python",
+    "color": null
+  },
+  ".sls": {
+    "name": "Scheme",
+    "mode": "scheme",
+    "scope": null,
+    "color": "#1e4aec"
+  },
+  ".sass": {
+    "name": "Sass",
+    "mode": "sass",
+    "scope": "source.sass",
+    "color": "#CF649A"
+  },
+  ".scala": {
+    "name": "Scala",
+    "mode": "scala",
+    "scope": null,
+    "color": "#DC322F"
+  },
+  ".sbt": {
+    "name": "Scala",
+    "mode": "scala",
+    "scope": null,
+    "color": "#DC322F"
+  },
+  ".sc": {
+    "name": "SuperCollider",
+    "mode": "text",
+    "scope": "source.supercollider",
+    "color": "#46390b"
+  },
+  ".scaml": {
+    "name": "Scaml",
+    "mode": "text",
+    "scope": "source.scaml",
+    "color": null
+  },
+  ".scm": {
+    "name": "Scheme",
+    "mode": "scheme",
+    "scope": null,
+    "color": "#1e4aec"
+  },
+  ".sld": {
+    "name": "Scheme",
+    "mode": "scheme",
+    "scope": null,
+    "color": "#1e4aec"
+  },
+  ".sps": {
+    "name": "Scheme",
+    "mode": "scheme",
+    "scope": null,
+    "color": "#1e4aec"
+  },
+  ".ss": {
+    "name": "Scheme",
+    "mode": "scheme",
+    "scope": null,
+    "color": "#1e4aec"
+  },
+  ".sci": {
+    "name": "Scilab",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".sce": {
+    "name": "Scilab",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".self": {
+    "name": "Self",
+    "mode": "text",
+    "scope": null,
+    "color": "#0579aa"
+  },
+  ".sh": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".bash": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".bats": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".command": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".ksh": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".tmux": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".tool": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".zsh": {
+    "name": "Shell",
+    "mode": "sh",
+    "scope": null,
+    "color": "#89e051"
+  },
+  ".sh-session": {
+    "name": "ShellSession",
+    "mode": "sh",
+    "scope": "text.shell-session",
+    "color": null
+  },
+  ".shen": {
+    "name": "Shen",
+    "mode": "text",
+    "scope": null,
+    "color": "#120F14"
+  },
+  ".sl": {
+    "name": "Slash",
+    "mode": "text",
+    "scope": "text.html.slash",
+    "color": "#007eff"
+  },
+  ".slim": {
+    "name": "Slim",
+    "mode": "text",
+    "scope": "text.slim",
+    "color": "#ff8f77"
+  },
+  ".smali": {
+    "name": "Smali",
+    "mode": "text",
+    "scope": "source.smali",
+    "color": null
+  },
+  ".tpl": {
+    "name": "Smarty",
+    "mode": "smarty",
+    "scope": "text.html.smarty",
+    "color": null
+  },
+  ".sp": {
+    "name": "SourcePawn",
+    "mode": "text",
+    "scope": "source.sp",
+    "color": "#5c7611"
+  },
+  ".sma": {
+    "name": "SourcePawn",
+    "mode": "text",
+    "scope": "source.sp",
+    "color": "#5c7611"
+  },
+  ".nut": {
+    "name": "Squirrel",
+    "mode": "c_cpp",
+    "scope": "source.c++",
+    "color": "#800000"
+  },
+  ".stan": {
+    "name": "Stan",
+    "mode": "text",
+    "scope": "source.stan",
+    "color": "#b2011d"
+  },
+  ".ML": {
+    "name": "Standard ML",
+    "mode": "text",
+    "scope": "source.ml",
+    "color": "#dc566d"
+  },
+  ".fun": {
+    "name": "Standard ML",
+    "mode": "text",
+    "scope": "source.ml",
+    "color": "#dc566d"
+  },
+  ".sig": {
+    "name": "Standard ML",
+    "mode": "text",
+    "scope": "source.ml",
+    "color": "#dc566d"
+  },
+  ".sml": {
+    "name": "Standard ML",
+    "mode": "text",
+    "scope": "source.ml",
+    "color": "#dc566d"
+  },
+  ".do": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ado": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".doh": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".ihlp": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".mata": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".matah": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".sthlp": {
+    "name": "Stata",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".styl": {
+    "name": "Stylus",
+    "mode": "stylus",
+    "scope": "source.stylus",
+    "color": null
+  },
+  ".scd": {
+    "name": "SuperCollider",
+    "mode": "text",
+    "scope": "source.supercollider",
+    "color": "#46390b"
+  },
+  ".swift": {
+    "name": "Swift",
+    "mode": "text",
+    "scope": null,
+    "color": "#ffac45"
+  },
+  ".sv": {
+    "name": "SystemVerilog",
+    "mode": "verilog",
+    "scope": null,
+    "color": "#DAE1C2"
+  },
+  ".svh": {
+    "name": "SystemVerilog",
+    "mode": "verilog",
+    "scope": null,
+    "color": "#DAE1C2"
+  },
+  ".vh": {
+    "name": "SystemVerilog",
+    "mode": "verilog",
+    "scope": null,
+    "color": "#DAE1C2"
+  },
+  ".toml": {
+    "name": "TOML",
+    "mode": "toml",
+    "scope": "source.toml",
+    "color": null
+  },
+  ".txl": {
+    "name": "TXL",
+    "mode": "text",
+    "scope": "source.txl",
+    "color": null
+  },
+  ".tcl": {
+    "name": "Tcl",
+    "mode": "tcl",
+    "scope": null,
+    "color": "#e4cc98"
+  },
+  ".adp": {
+    "name": "Tcl",
+    "mode": "tcl",
+    "scope": null,
+    "color": "#e4cc98"
+  },
+  ".tm": {
+    "name": "Tcl",
+    "mode": "tcl",
+    "scope": null,
+    "color": "#e4cc98"
+  },
+  ".tcsh": {
+    "name": "Tcsh",
+    "mode": "sh",
+    "scope": "source.shell",
+    "color": null
+  },
+  ".csh": {
+    "name": "Tcsh",
+    "mode": "sh",
+    "scope": "source.shell",
+    "color": null
+  },
+  ".tex": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".aux": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".bbx": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".bib": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".cbx": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".dtx": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".ins": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".lbx": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".ltx": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".mkii": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".mkiv": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".mkvi": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".sty": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".toc": {
+    "name": "TeX",
+    "mode": "tex",
+    "scope": null,
+    "color": "#3D6117"
+  },
+  ".tea": {
+    "name": "Tea",
+    "mode": "text",
+    "scope": "source.tea",
+    "color": null
+  },
+  ".txt": {
+    "name": "Text",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".textile": {
+    "name": "Textile",
+    "mode": "textile",
+    "scope": null,
+    "color": null
+  },
+  ".thrift": {
+    "name": "Thrift",
+    "mode": "text",
+    "scope": "source.thrift",
+    "color": null
+  },
+  ".tu": {
+    "name": "Turing",
+    "mode": "text",
+    "scope": null,
+    "color": "#45f715"
+  },
+  ".ttl": {
+    "name": "Turtle",
+    "mode": "text",
+    "scope": "source.turtle",
+    "color": null
+  },
+  ".twig": {
+    "name": "Twig",
+    "mode": "twig",
+    "scope": "text.html.twig",
+    "color": null
+  },
+  ".ts": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tsx": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".upc": {
+    "name": "Unified Parallel C",
+    "mode": "c_cpp",
+    "scope": "source.c",
+    "color": "#4e3617"
+  },
+  ".anim": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".asset": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".mat": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".meta": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".prefab": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".unity": {
+    "name": "Unity3D Asset",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".uc": {
+    "name": "UnrealScript",
+    "mode": "java",
+    "scope": "source.java",
+    "color": "#a54c4d"
+  },
+  ".ur": {
+    "name": "UrWeb",
+    "mode": "text",
+    "scope": "source.ur",
+    "color": null
+  },
+  ".urs": {
+    "name": "UrWeb",
+    "mode": "text",
+    "scope": "source.ur",
+    "color": null
+  },
+  ".vcl": {
+    "name": "VCL",
+    "mode": "text",
+    "scope": "source.varnish.vcl",
+    "color": null
+  },
+  ".vhdl": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vhd": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vhf": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vhi": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vho": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vhs": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vht": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vhw": {
+    "name": "VHDL",
+    "mode": "vhdl",
+    "scope": null,
+    "color": "#adb2cb"
+  },
+  ".vala": {
+    "name": "Vala",
+    "mode": "vala",
+    "scope": null,
+    "color": "#fbe5cd"
+  },
+  ".vapi": {
+    "name": "Vala",
+    "mode": "vala",
+    "scope": null,
+    "color": "#fbe5cd"
+  },
+  ".veo": {
+    "name": "Verilog",
+    "mode": "verilog",
+    "scope": null,
+    "color": "#b2b7f8"
+  },
+  ".vim": {
+    "name": "VimL",
+    "mode": "text",
+    "scope": null,
+    "color": "#199f4b"
+  },
+  ".vb": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".bas": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".frm": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".frx": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".vba": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".vbhtml": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".vbs": {
+    "name": "Visual Basic",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": "#945db7"
+  },
+  ".volt": {
+    "name": "Volt",
+    "mode": "d",
+    "scope": "source.d",
+    "color": "#1F1F1F"
+  },
+  ".vue": {
+    "name": "Vue",
+    "mode": "html",
+    "scope": "text.html.vue",
+    "color": "#2c3e50"
+  },
+  ".owl": {
+    "name": "Web Ontology Language",
+    "mode": "xml",
+    "scope": "text.xml",
+    "color": "#9cc9dd"
+  },
+  ".webidl": {
+    "name": "WebIDL",
+    "mode": "text",
+    "scope": "source.webidl",
+    "color": null
+  },
+  ".x10": {
+    "name": "X10",
+    "mode": "text",
+    "scope": "source.x10",
+    "color": "#4B6BEF"
+  },
+  ".xc": {
+    "name": "XC",
+    "mode": "c_cpp",
+    "scope": "source.xc",
+    "color": "#99DA07"
+  },
+  ".xml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ant": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".axml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ccxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".clixml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".cproject": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".csl": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".csproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ct": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".dita": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ditamap": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ditaval": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".dll.config": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".filters": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".fsproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".fxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".glade": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".grxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".iml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ivy": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".jelly": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".jsproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".kml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".launch": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".mdpolicy": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".mxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".nproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".nuspec": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".odd": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".osm": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".plist": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ps1xml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".psc1": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".pt": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".rdf": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".rss": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".scxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".srdf": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".storyboard": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".stTheme": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".sublime-snippet": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".targets": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tmCommand": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tmLanguage": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tmPreferences": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tmSnippet": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".tmTheme": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".ui": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".urdf": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".vbproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".vcxproj": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".vxml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".wsdl": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".wsf": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".wxi": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".wxl": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".wxs": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".x3d": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xacro": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xaml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xib": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xlf": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xliff": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xmi": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xml.dist": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xsd": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xul": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".zcml": {
+    "name": "XML",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xsp-config": {
+    "name": "XPages",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xsp.metadata": {
+    "name": "XPages",
+    "mode": "xml",
+    "scope": null,
+    "color": null
+  },
+  ".xpl": {
+    "name": "XProc",
+    "mode": "xml",
+    "scope": "text.xml",
+    "color": null
+  },
+  ".xproc": {
+    "name": "XProc",
+    "mode": "xml",
+    "scope": "text.xml",
+    "color": null
+  },
+  ".xquery": {
+    "name": "XQuery",
+    "mode": "xquery",
+    "scope": "source.xq",
+    "color": "#5232e7"
+  },
+  ".xq": {
+    "name": "XQuery",
+    "mode": "xquery",
+    "scope": "source.xq",
+    "color": "#5232e7"
+  },
+  ".xql": {
+    "name": "XQuery",
+    "mode": "xquery",
+    "scope": "source.xq",
+    "color": "#5232e7"
+  },
+  ".xqm": {
+    "name": "XQuery",
+    "mode": "xquery",
+    "scope": "source.xq",
+    "color": "#5232e7"
+  },
+  ".xqy": {
+    "name": "XQuery",
+    "mode": "xquery",
+    "scope": "source.xq",
+    "color": "#5232e7"
+  },
+  ".xs": {
+    "name": "XS",
+    "mode": "c_cpp",
+    "scope": "source.c",
+    "color": null
+  },
+  ".xslt": {
+    "name": "XSLT",
+    "mode": "xml",
+    "scope": "text.xml.xsl",
+    "color": "#EB8CEB"
+  },
+  ".xsl": {
+    "name": "XSLT",
+    "mode": "xml",
+    "scope": "text.xml.xsl",
+    "color": "#EB8CEB"
+  },
+  ".xojo_code": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xojo_menu": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xojo_report": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xojo_script": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xojo_toolbar": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xojo_window": {
+    "name": "Xojo",
+    "mode": "text",
+    "scope": "source.vbnet",
+    "color": null
+  },
+  ".xtend": {
+    "name": "Xtend",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".yml": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".reek": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".rviz": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".syntax": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".yaml": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".yaml-tmlanguage": {
+    "name": "YAML",
+    "mode": "yaml",
+    "scope": "source.yaml",
+    "color": null
+  },
+  ".y": {
+    "name": "Yacc",
+    "mode": "text",
+    "scope": "source.bison",
+    "color": "#4B6C4B"
+  },
+  ".yacc": {
+    "name": "Yacc",
+    "mode": "text",
+    "scope": "source.bison",
+    "color": "#4B6C4B"
+  },
+  ".yy": {
+    "name": "Yacc",
+    "mode": "text",
+    "scope": "source.bison",
+    "color": "#4B6C4B"
+  },
+  ".zep": {
+    "name": "Zephir",
+    "mode": "php",
+    "scope": "source.php.zephir",
+    "color": "#118f9e"
+  },
+  ".zimpl": {
+    "name": "Zimpl",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".zmpl": {
+    "name": "Zimpl",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".zpl": {
+    "name": "Zimpl",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".desktop": {
+    "name": "desktop",
+    "mode": "text",
+    "scope": "source.desktop",
+    "color": null
+  },
+  ".desktop.in": {
+    "name": "desktop",
+    "mode": "text",
+    "scope": "source.desktop",
+    "color": null
+  },
+  ".ec": {
+    "name": "eC",
+    "mode": "text",
+    "scope": "source.c.ec",
+    "color": "#913960"
+  },
+  ".eh": {
+    "name": "eC",
+    "mode": "text",
+    "scope": "source.c.ec",
+    "color": "#913960"
+  },
+  ".edn": {
+    "name": "edn",
+    "mode": "clojure",
+    "scope": "source.clojure",
+    "color": null
+  },
+  ".fish": {
+    "name": "fish",
+    "mode": "text",
+    "scope": "source.fish",
+    "color": null
+  },
+  ".mu": {
+    "name": "mupad",
+    "mode": "text",
+    "scope": null,
+    "color": null
+  },
+  ".nc": {
+    "name": "nesC",
+    "mode": "text",
+    "scope": null,
+    "color": "#94B0C7"
+  },
+  ".ooc": {
+    "name": "ooc",
+    "mode": "text",
+    "scope": null,
+    "color": "#b0b77e"
+  },
+  ".rst": {
+    "name": "reStructuredText",
+    "mode": "text",
+    "scope": null,
+    "color": "#B3BCBC"
+  },
+  ".rest": {
+    "name": "reStructuredText",
+    "mode": "text",
+    "scope": null,
+    "color": "#B3BCBC"
+  },
+  ".rest.txt": {
+    "name": "reStructuredText",
+    "mode": "text",
+    "scope": null,
+    "color": "#B3BCBC"
+  },
+  ".rst.txt": {
+    "name": "reStructuredText",
+    "mode": "text",
+    "scope": null,
+    "color": "#B3BCBC"
+  },
+  ".wisp": {
+    "name": "wisp",
+    "mode": "clojure",
+    "scope": "source.clojure",
+    "color": "#7582D1"
+  },
+  ".prg": {
+    "name": "xBase",
+    "mode": "text",
+    "scope": "source.harbour",
+    "color": "#403a40"
+  },
+  ".prw": {
+    "name": "xBase",
+    "mode": "text",
+    "scope": "source.harbour",
+    "color": "#403a40"
+  }
+}
