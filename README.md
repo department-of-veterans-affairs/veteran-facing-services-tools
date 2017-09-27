@@ -1,3 +1,9 @@
+## Getting started with Fractal 
+
+1. Clone this repo
+2. Follow the installation instructions [here](http://fractal.build/guide/installation)
+3. When everything's installed, run `fractal start --sync`
+
 ## Choosing a design system for Vets.gov
 
 ### Goals
