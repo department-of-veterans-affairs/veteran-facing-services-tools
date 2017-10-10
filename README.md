@@ -149,3 +149,12 @@ Fractal has other features that make it a compelling tool for Vets.gov:
 
 1. [Fractal + Sketch](https://vimeo.com/209467146)
 2. [Blog post: set up a design system](https://blog.prototypr.io/design-system-ac88c6740f53)
+
+## Deploying to GitHub Pages
+
+Deployment steps assume you've followed the getting started section at the top of this document.
+
+* ensure changes are pushed and merged to master
+* Run `git checkout master`
+* Run `fractal build`
+* Run `git subtree push --prefix build origin gh-pages`
