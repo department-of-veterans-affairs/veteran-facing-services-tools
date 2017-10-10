@@ -157,4 +157,14 @@ Deployment steps assume you've followed the getting started section at the top o
 * ensure changes are pushed and merged to master
 * Run `git checkout master`
 * Run `fractal build`
+* Commit any changes (build dir is checked into git)
 * Run `git subtree push --prefix build origin gh-pages`
+
+### Running site locally
+
+GitHub will automatically try to render any Markdown files using Jekyll. If you get any Jekyll build errors from Github (via email, usually) after pushing the site, you can run the site locally to address any errors and bypass looping through the above. Instructions here assume you already have Bundler installed (see [instructions](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) if you don't know what that is).
+
+* Run `fractal build`
+* Run `bundle exec jekyll serve -s build`
+
+Add `-t` to the above if you want to get tracebacks from any errors.
