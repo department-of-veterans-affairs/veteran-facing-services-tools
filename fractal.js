@@ -1,7 +1,10 @@
 'use strict';
 const pkg = require('./package.json');
 const path = require('path');
+const fs = require('fs');
 const fractal = require('@frctl/fractal').create();
+const generatePropDocs = require('./lib/helpers/generatePropDocs');
+const createWebpackBundle = require('./createWebpackBundle');
 
 const context = {
   'package': {
@@ -21,22 +24,23 @@ components.set('path', 'src/components');
 components.set('default.preview', '@uswds');
 components.set('default.context', context);
 
-// use Nunjucks as the templating engine
-components.engine(require('@frctl/nunjucks')({
+const vetsAdapter = require('./lib/vets-adapter')({
   filters: {
     jsonify: d => JSON.stringify(d, null, '  '),
   },
   paths: [
     'src/components',
   ]
-}));
+});
+
+fractal.components.engine(vetsAdapter);
 
 const docs = fractal.docs;
 docs.set('path', 'docs');
 
 const web = fractal.web;
 
-web.theme(require('@frctl/mandelbrot')({
+const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
   skin: 'white',
   // display context data in YAML
@@ -49,8 +53,21 @@ web.theme(require('@frctl/mandelbrot')({
     'context',
     'resources',
     'info',
+    'props'
   ],
-}));
+});
+
+theme.addLoadPath(__dirname + '/theme-overrides');
+
+theme.on('init', (env, app) => {
+  env.engine.addFilter('generateProps', generatePropDocs);
+});
+
+fractal.components.on('loaded', () => {
+  createWebpackBundle(fractal.components);
+});
+
+web.theme(theme);
 
 web.set('static.path', 'dist');
 web.set('static.mount', 'dist');
