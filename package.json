@@ -5,9 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/design-system.git"
   },
-  "files": [
-    "src/components/modal/Modal.js"
-  ],
+  "main": "dist/components.bundle.js",
   "dependencies": {
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.1.0",
