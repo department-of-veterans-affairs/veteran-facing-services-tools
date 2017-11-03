@@ -8,6 +8,6 @@
       "useBuiltIns": true
     }],
     "react",
-    "babel-preset-es2015",
+    "es2015",
   ]
 }
