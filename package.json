@@ -5,7 +5,10 @@
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/design-system.git"
   },
-  "main": "dist/components.bundle.js",
+  "main": "dist/js/components",
+  "scripts": {
+    "export-components": "node src/js/export-components.js"
+  },
   "dependencies": {
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.1.0",
