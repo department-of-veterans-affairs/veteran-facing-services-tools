@@ -22285,9 +22285,6 @@ Modal.propTypes = {
   onClose: _propTypes2.default.func.isRequired,
   title: _propTypes2.default.string,
   visible: _propTypes2.default.bool.isRequired,
-  test: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    testing1: _propTypes2.default.string
-  })),
   hideCloseButton: _propTypes2.default.bool,
   focusSelector: _propTypes2.default.string
 };
