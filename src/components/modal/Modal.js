@@ -100,9 +100,6 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string,
   visible: PropTypes.bool.isRequired,
-  test: PropTypes.arrayOf(PropTypes.shape({
-    testing1: PropTypes.string
-  })),
   hideCloseButton: PropTypes.bool,
   focusSelector: PropTypes.string
 };

@@ -8,6 +8,6 @@
       "useBuiltIns": true
     }],
     "react",
-    "stage-2",
+    "es2015",
   ]
 }
