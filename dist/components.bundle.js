@@ -22121,7 +22121,8 @@ function ModalExample(props) {
     {
       title: props.title,
       id: props.id,
-      visible: true },
+      visible: true,
+      onClose: function onClose() {} },
     props.content
   );
 }

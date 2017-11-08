@@ -6,7 +6,8 @@ export default function ModalExample(props) {
     <Modal
       title={props.title}
       id={props.id}
-      visible>
+      visible
+      onClose={() => {}}>
       {props.content}
     </Modal>
   );

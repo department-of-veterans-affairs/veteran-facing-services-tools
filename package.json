@@ -8,6 +8,7 @@
   "main": "dist/js/components",
   "scripts": {
     "export-components": "node src/js/export-components.js",
+    "start": "fractal start --sync",
     "test": "karma start --single-run",
     "test-debug": "karma start --browsers Chrome"
   },
