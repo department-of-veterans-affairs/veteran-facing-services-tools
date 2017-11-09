@@ -2,7 +2,7 @@ label: Segmented progress bar
 status: wip
 
 context:
-  componentSourcePath: 'SegmentedProgressBar.js'
+  componentSourcePath: 'SegmentedProgressBar.jsx'
   id: default
   current: 4
   total: 6
