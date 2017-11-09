@@ -34,6 +34,7 @@ $color-primary-darkest:      #112e51;
 $color-secondary-darkest:    #981b1e;
 $color-focus:                #3e94cf;
 $color-gray-light:           #aeb0b5;
+$color-gray-medium:          #757575;
 $color-gray-dark:            #323a45;
 $color-primary-alt-light:    #9bdaf1;
 $color-white:                #fff;
@@ -52,8 +53,8 @@ $color-va-accent:            #988530; // New gold "metal" acccent
 $color-gold:                 #fdb81e;
 $color-warning-message:      #fac922; // Used for Disability benefits
 $color-gray-light-alt:       #eee;
-$color-va-modal-bg:          rgba($color-primary-darkest, .95);
-$color-va-modal-bg--gi:      rgba($color-gray-dark, .8);
+$color-va-modal-bg:          rgba($color-gray-dark, .8);
+//$color-va-modal-bg--gi:      rgba($color-gray-dark, .8);
 $color-va-modal-close:       rgba($color-base, .8);
 
 $color-inset-bg:             #e0f3f8;

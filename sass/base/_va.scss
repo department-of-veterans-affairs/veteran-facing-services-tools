@@ -196,12 +196,15 @@ hr {
   clear: both;
   margin: 0;
   padding: 0;
+  min-height: 147.19px;
 
   @include media($medium-screen) {
     position: relative;
+    min-height: 168.5px;
   }
 
 .login-container {
+  z-index: 2;
   background: $color-primary-darkest;
   flex-wrap: wrap;
   white-space: nowrap;
@@ -362,7 +365,6 @@ h6 {
 }
 
 .va-introtext {
-  color: $color-primary-darker;
   letter-spacing: normal;
   font-size: 1.25em;
 }
@@ -390,13 +392,13 @@ h6 {
   background: $color-primary-alt-lightest;
   padding: 1em;
   clear: both;
-  margin: 0 0 1.5em 0;
-  min-height: 11em;
+  margin: 1.5em 0 1.5em 0;
 
   p {
     color: inherit !important;
     font: inherit !important;
     margin-bottom: 0;
+    margin-top: 0;
     padding-bottom: .5em;
   }
 
@@ -489,6 +491,11 @@ ul, ol {
   .text-center {
     margin: auto;
   }
+}
+
+.faq-page {
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 //========================
@@ -591,7 +598,9 @@ ul, ol {
       display: inline-block;
       padding: 0 .35em;
     }
-
+    &:last-child:after {
+      content: "";
+    }
     &.active {
       font-weight: bold;
       padding: .3em 0;
@@ -772,7 +781,7 @@ li {
 }
 
 [class^=va-wip] {
-  padding: .576rem 1.08rem;
+  padding: .576rem 0;
   font-size: 0.8em;
   font-weight: 400;
 
@@ -820,7 +829,7 @@ li {
 
   &-inner {
     margin: auto;
-    max-width: 97rem;
+    max-width: 97.5rem;
     position: relative;
   }
 
@@ -857,7 +866,7 @@ li {
 
   @include media($medium-large-screen) {
     .usa-grid {
-      padding-left: 2rem;
+      padding-left: 0.9375rem;
       padding-right: 2rem;
     }
   }
@@ -1137,6 +1146,7 @@ li {
 // Disclaimer
 .disclaimer {
   padding: 1em 0;
+  padding-left: 0.9375rem;
 
   p {
     font-size: 1.28rem;
@@ -1168,14 +1178,6 @@ li {
     margin: 0;
   }
 }
-
-// List overrides
-
-ul li p {
-  margin: 0;
-  padding: 0;
-}
-
 
 // vets.gov branded apps
 .vets-app {
@@ -1347,40 +1349,8 @@ pre[class*="language-"]  {
   align-items: stretch;
 }
 
-.sticky-action-box--container {
-  position: relative;
-}
-
-.sticky-action-box {
-  background-color: $color-gray-lightest;
-  padding: 1.5rem;
-  z-index: 1;
-
-  a {
-    margin-right: 0;
-  }
-
-  .show-for-large-up & {
-    position: absolute;
-    right: 0;
-    top: 30px;
-    width: 22rem;
-  }
-
-  .hide-for-large-up & {
-    width: calc(100% + 0.9375rem + 0.9375rem);
-    margin-left: -0.9375rem;
-  }
-
-  #content & p,
-  #content & h3 {
-    padding: 0;
-    margin: 0;
-  }
-
-  p.small {
-    font-size: 1em;
-  }
+.react-container {
+  padding: 2em 0;
 }
 
 .react-container {
@@ -1430,4 +1400,58 @@ p.info-message {
 .usa-sidenav-sub_list {
   padding-left: 0;
   list-style: none;
+}
+
+.vertical-list-group {
+  list-style-type: none;
+}
+
+.vertical-list-group.more-bottom-cushion {
+  margin-bottom: 2.5em;
+}
+
+.vertical-list-group .list-group-item {
+  border: none;
+  border-left: 3px solid $color-gray-light;
+  box-sizing: border-box;
+  border-radius: 0;
+  padding-left: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-top: 0px;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.vertical-list-group .list-group-item:last-child{
+  border-left: 3px solid transparent;
+  padding-bottom: 0;
+}
+.vertical-list-group .list-group-item::before {
+  border-radius: 50%;
+  background-color: $color-gray-medium;
+  content: "";
+  display: inline-block;
+  float: left;
+  height: 12px;
+  line-height: 12px;
+  margin-left: -28px;
+  text-align: center;
+  width: 12px;
+}
+
+.legend-label {
+  display: block;
+  margin-top: 3rem;
+  max-width: 46rem;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.fieldset-input {
+  margin-top: 3rem;
 }

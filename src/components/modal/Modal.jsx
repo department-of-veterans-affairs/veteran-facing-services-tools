@@ -94,13 +94,38 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  contents: PropTypes.node, /* alternatively used child nodes */
-  cssClass: PropTypes.string,
-  id: PropTypes.string,
-  onClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
+  /**
+   * If the modal is visible or not
+   */
   visible: PropTypes.bool.isRequired,
+  /**
+   * Handler for when the modal is closed
+   */
+  onClose: PropTypes.func.isRequired,
+  /**
+   * Contents of modal when displayed. You can also pass the contents as children, which is preferred
+   */
+  contents: PropTypes.node,
+  /**
+   * CSS class to set on the modal
+   */
+  cssClass: PropTypes.string,
+  /**
+   * Id of the modal, used for aria attributes
+   */
+  id: PropTypes.string,
+  /**
+   * Title/header text for the modal
+   */
+  title: PropTypes.string,
+  /**
+   * Hide the close button that's normally in the top right
+   */
   hideCloseButton: PropTypes.bool,
+  /**
+   * Selector to use to find elements to focus on when the 
+   * modal is opened
+   */
   focusSelector: PropTypes.string
 };
 

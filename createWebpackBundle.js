@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function createWebpackBundle(fractalComponents, watch = true) {
   const components = fractalComponents
@@ -27,9 +28,13 @@ function createWebpackBundle(fractalComponents, watch = true) {
   fs.writeFileSync('./fractalEntry.js', output);
 
   const compiler = webpack({
-    entry: `./fractalEntry.js`,
+    entry: {
+      components: './fractalEntry.js',
+      styles: './sass/site.scss'
+    },
     output: {
-      filename: `dist/components.bundle.js`,
+      filename: `[name].bundle.js`,
+      path: path.join(__dirname, 'dist')
     },
     module: {
       rules: [
@@ -71,9 +76,61 @@ function createWebpackBundle(fractalComponents, watch = true) {
               // Also see .babelrc
             }
           }
+        },
+				{
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              { loader: 'css-loader' },
+              { loader: 'resolve-url-loader' },
+              {
+                loader: 'sass-loader',
+                options: {
+                  includePaths: [
+                    '~/uswds/src/stylesheets&sourceMap'
+                  ],
+                  sourceMap: true,
+                }
+              }
+            ],
+          })
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/i,
+          use: {
+            loader: 'url-loader?limit=10000!img?progressive=true&-minimize'
+          }
+        },
+        {
+          test: /\.svg/,
+          use: {
+            loader: 'svg-url-loader'
+          }
+        },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff'
+            }
+          }
+        },
+        {
+          test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          use: {
+            loader: 'file-loader'
+          }
         }
       ]
-    }
+    },
+    plugins: [
+      new ExtractTextPlugin({
+        filename: '[name].css',
+      })
+    ]
   });
 
   if (watch) {
@@ -83,8 +140,10 @@ function createWebpackBundle(fractalComponents, watch = true) {
       }
     });
   } else {
-    compiler.run((err) => {
-      console.log(err);
+    compiler.run((err, stats) => {
+      if (err) {
+        console.log(err);
+      }
     });
   }
 }

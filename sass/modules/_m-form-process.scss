@@ -82,7 +82,7 @@
       outline: initial;
     }
   }
-  button.usa-button-outline {
+  button.usa-button-secondary {
     color: $color-primary;
     background-color: $color-white;
     &:hover {
@@ -104,11 +104,11 @@
   }
   .edit-btn {
     &.primary-outline {
-      background-color: $color-white;
+      background-color: transparent;
       border: 2px solid $color-primary;
       color: $color-primary;
       &:hover {
-        background-color: $color-white;
+        background-color: transparent;
         border: 2px solid $color-primary-darker;
         color: $color-primary-darker;
       }
