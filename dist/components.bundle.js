@@ -22435,7 +22435,7 @@ var _SegmentedProgressBar2 = _interopRequireDefault(_SegmentedProgressBar);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function SegmentedProgressBarExample(props) {
-  return _react2.default.createElement(SegmentedProgressBar, {
+  return _react2.default.createElement(_SegmentedProgressBar2.default, {
     current: props.current,
     total: props.total });
 }
