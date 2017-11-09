@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 /**
@@ -16,3 +17,8 @@ export default function SegmentedProgressBar({ current, total }) {
     </div>
   );
 }
+
+SegmentedProgressBar.propTypes = {
+  current: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired
+};

@@ -3,5 +3,6 @@ status: wip
 
 context:
   componentSourcePath: 'SegmentedProgressBar.js'
+  id: default
   current: 4
   total: 6
