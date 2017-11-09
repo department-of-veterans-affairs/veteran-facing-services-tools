@@ -1,0 +1,7 @@
+label: Segmented progress bar
+status: wip
+
+context:
+  componentSourcePath: 'SegmentedProgressBar.js'
+  current: 4
+  total: 6
