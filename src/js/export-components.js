@@ -2,7 +2,8 @@ const fs = require('fs');
 const babel = require("babel-core");
 
 const reactComponentFiles = [
-  'src/components/modal/Modal.js'
+  'src/components/modal/Modal.jsx',
+  'src/components/segmented_progress_bar/SegmentedProgressBar.jsx'
 ];
 
 reactComponentFiles.forEach((fileName) => {
