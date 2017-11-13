@@ -9632,9 +9632,31 @@ function ModalExample(props) {
 
 /***/ }),
 /* 83 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/vacokainia/Desktop/coding/design-system/src/components/segmented_progress_bar/segmented_progress_bar.njk'\n    at Error (native)");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SegmentedProgressBarExample;
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SegmentedProgressBar = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./SegmentedProgressBar\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _SegmentedProgressBar2 = _interopRequireDefault(_SegmentedProgressBar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SegmentedProgressBarExample(props) {
+  return _react2.default.createElement(_SegmentedProgressBar2.default, {
+    current: props.current,
+    total: props.total });
+}
 
 /***/ }),
 /* 84 */
