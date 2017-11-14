@@ -12297,3 +12297,45 @@ button.va-modal-close:hover {
   background-color: inherit;
   color: #212121;
 }
+
+.progress-bar {
+  display: block;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  border: 2px solid #0071bc;
+  margin: 1em 0;
+}
+
+.progress-bar-inner {
+  background-color: #0071bc;
+  display: block;
+  content: "&nbsp;";
+  height: 100%;
+}
+
+.progress-bar-segmented {
+  display: flex;
+  width: 100%;
+  height: 6px;
+}
+
+.progress-segment {
+  content: "&nbsp;";
+  flex: 1;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: #d6d7d9;
+}
+
+.progress-segment-complete {
+  background-color: #0071bc;
+}
+
+.progress-segment:first-child {
+  margin-left: 0;
+}
+
+.progress-segment:last-child {
+  margin-right: 0;
+}
