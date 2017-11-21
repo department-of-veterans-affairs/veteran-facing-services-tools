@@ -7,9 +7,11 @@
   },
   "main": "dist/js/components",
   "scripts": {
+    "prestart": "node prebuild.js",
     "export-components": "node src/js/export-components.js",
     "start": "fractal start --sync",
     "test": "karma start --single-run",
+    "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "test-debug": "karma start --browsers Chrome"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "@frctl/nunjucks": "^1.0.3",
     "axe-core": "^2.4.2",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -34,6 +37,11 @@
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.4",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "2",
     "karma": "1.6",
     "karma-chrome-launcher": "^2.2.0",

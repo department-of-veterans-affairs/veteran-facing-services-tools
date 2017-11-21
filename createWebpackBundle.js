@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
@@ -12,7 +13,7 @@ function createWebpackBundle(fractalComponents, watch = true) {
       return `
         import component${index} from './${path.relative(__dirname, item.viewPath)}'; 
         registry['${item.handle}'] = component${index};
-      `
+      `;
     });
 
   const output = `const registry = {};
@@ -33,7 +34,7 @@ function createWebpackBundle(fractalComponents, watch = true) {
       styles: './sass/site.scss'
     },
     output: {
-      filename: `[name].bundle.js`,
+      filename: '[name].bundle.js',
       path: path.join(__dirname, 'dist')
     },
     module: {
@@ -77,7 +78,7 @@ function createWebpackBundle(fractalComponents, watch = true) {
             }
           }
         },
-				{
+        {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
@@ -134,13 +135,13 @@ function createWebpackBundle(fractalComponents, watch = true) {
   });
 
   if (watch) {
-    compiler.watch({}, (err, stats) => {
+    compiler.watch({}, (err) => {
       if (err) {
         console.log(err);
       }
     });
   } else {
-    compiler.run((err, stats) => {
+    compiler.run((err) => {
       if (err) {
         console.log(err);
       }
