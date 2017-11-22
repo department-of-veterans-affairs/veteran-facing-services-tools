@@ -70,13 +70,15 @@ class Modal extends React.Component {
 
     let closeButton;
     if (!this.props.hideCloseButton) {
-      closeButton = (<button
-        className="va-modal-close"
-        type="button"
-        onClick={this.handleClose}>
-        <i className="fa fa-close"></i>
-        <span className="usa-sr-only">Close this modal</span>
-      </button>);
+      closeButton = (
+        <button
+          className="va-modal-close"
+          type="button"
+          onClick={this.handleClose}>
+          <i className="fa fa-close"></i>
+          <span className="usa-sr-only">Close this modal</span>
+        </button>
+      );
     }
 
     return (
@@ -123,7 +125,7 @@ Modal.propTypes = {
    */
   hideCloseButton: PropTypes.bool,
   /**
-   * Selector to use to find elements to focus on when the 
+   * Selector to use to find elements to focus on when the
    * modal is opened
    */
   focusSelector: PropTypes.string

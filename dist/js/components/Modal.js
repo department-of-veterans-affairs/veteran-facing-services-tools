@@ -152,13 +152,38 @@ var Modal = function (_React$Component) {
 }(_react2.default.Component);
 
 Modal.propTypes = {
-  contents: _propTypes2.default.node, /* alternatively used child nodes */
-  cssClass: _propTypes2.default.string,
-  id: _propTypes2.default.string,
-  onClose: _propTypes2.default.func.isRequired,
-  title: _propTypes2.default.string,
+  /**
+   * If the modal is visible or not
+   */
   visible: _propTypes2.default.bool.isRequired,
+  /**
+   * Handler for when the modal is closed
+   */
+  onClose: _propTypes2.default.func.isRequired,
+  /**
+   * Contents of modal when displayed. You can also pass the contents as children, which is preferred
+   */
+  contents: _propTypes2.default.node,
+  /**
+   * CSS class to set on the modal
+   */
+  cssClass: _propTypes2.default.string,
+  /**
+   * Id of the modal, used for aria attributes
+   */
+  id: _propTypes2.default.string,
+  /**
+   * Title/header text for the modal
+   */
+  title: _propTypes2.default.string,
+  /**
+   * Hide the close button that's normally in the top right
+   */
   hideCloseButton: _propTypes2.default.bool,
+  /**
+   * Selector to use to find elements to focus on when the 
+   * modal is opened
+   */
   focusSelector: _propTypes2.default.string
 };
 

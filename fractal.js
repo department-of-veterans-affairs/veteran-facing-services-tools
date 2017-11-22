@@ -1,7 +1,4 @@
-'use strict';
 const pkg = require('./package.json');
-const path = require('path');
-const fs = require('fs');
 const fractal = require('@frctl/fractal').create();
 const generatePropDocs = require('./lib/helpers/generatePropDocs');
 const createWebpackBundle = require('./createWebpackBundle');
@@ -18,7 +15,8 @@ const context = {
 
 fractal.set('project.title', 'Vets.gov Design Standards');
 
-const components = fractal.components;
+const { components, docs, web } = fractal;
+
 components.set('ext', '.njk');
 components.set('path', 'src/components');
 components.set('default.preview', '@uswds');
@@ -35,10 +33,7 @@ const vetsAdapter = require('./lib/vets-adapter')({
 
 fractal.components.engine(vetsAdapter);
 
-const docs = fractal.docs;
 docs.set('path', 'docs');
-
-const web = fractal.web;
 
 const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
@@ -57,9 +52,9 @@ const theme = require('@frctl/mandelbrot')({
   ],
 });
 
-theme.addLoadPath(__dirname + '/theme-overrides');
+theme.addLoadPath(`${__dirname}/theme-overrides`);
 
-theme.on('init', (env, app) => {
+theme.on('init', (env) => {
   env.engine.addFilter('generateProps', generatePropDocs);
 });
 
