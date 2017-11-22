@@ -1,8 +1,8 @@
 # Accessibility and 508
 
 This directory contains anything related to accessibility including
-  * 508 audit reports
-  * plans for manual 508 QA and automated testing
+  * accessibility audit reports
+  * plans for manual QA and automated testing
   * anything else that comes up! Blog posts? User research studies with users with disabilities? The sky's the limit!
 
 ### Manual testing
@@ -12,11 +12,11 @@ To manually test or reproduce a reported error on Mac OS X, you can try out NVDA
  
  
 ### Automated testing:
-  * All applicable unit tests require keyboard navigation testing for all possible user flows
-  * Most of our end-to-end tests include calls to this [axeCheck script](https://github.com/department-of-veterans-affairs/vets-website/blob/master/test/util/nightwatch-commands/axeCheck.js) which uses the [aXe API](https://github.com/dequelabs/axe-core/blob/develop/README.md), so we can catch and fix issues and regressions before deploying to production.
-  * To debug an issue, it's useful to use the aXe dev tools [Chrome extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US) or [Firefox plugin](https://addons.mozilla.org/en-us/firefox/addon/axe-devtools/)
+  * All applicable unit tests require keyboard navigation testing.
+  * All components require unit tests that run aXe against all visual states, via calls to this [axeCheck script](https://github.com/department-of-veterans-affairs/design-system/blob/master/lib/testing/helpers.js) which uses the [aXe API](https://github.com/dequelabs/axe-core/blob/develop/README.md), so we can catch and fix issues and regressions before deploying to production.
+  * To debug an issue, it's useful to use the aXe dev tools [Chrome extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US) or [Firefox plugin](https://addons.mozilla.org/en-us/firefox/addon/axe-devtools/).
 
 ### Other stuff:
  *  Current open 508/accessibility tickets
- *  508 Testing Plan
- *  [Tracking Document for 508](./508ReviewList.md): list of reviewed/signed-off products; products in review and pending sign-off; products in queue to be sent to 508 for testing
+ *  Testing Plan
+ *  [Accessibility Tracking Document](./AccessibilityReviewList.md): list of reviewed/signed-off products; products in review and pending sign-off; products in queue to be tested
