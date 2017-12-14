@@ -2,8 +2,10 @@ const fs = require('fs');
 const babel = require("babel-core");
 
 const reactComponentFiles = [
+  'src/components/errorable_checkbox/ErrorableCheckbox.jsx',
   'src/components/modal/Modal.jsx',
-  'src/components/segmented_progress_bar/SegmentedProgressBar.jsx'
+  'src/components/segmented_progress_bar/SegmentedProgressBar.jsx',
+  'src/components/tooltip/Tooltip.jsx'
 ];
 
 reactComponentFiles.forEach((fileName) => {

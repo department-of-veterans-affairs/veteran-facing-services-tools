@@ -79,7 +79,7 @@ button.form-button-disabled {
     margin: 0;
     width: 1.8rem !important;
   }
-  > input[type="checkbox"] + label::before {
+  > label::before {
     display: block;
     float: left;
     margin-left: -1.7em;
@@ -87,7 +87,7 @@ button.form-button-disabled {
     margin-right: 0;
     pointer-events: none;
   }
-  > input[type="checkbox"] + label {
+  > label {
     margin-left: 1.7em;
   }
 }
