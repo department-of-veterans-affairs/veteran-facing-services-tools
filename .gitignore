@@ -2,3 +2,4 @@
 node_modules
 fractalEntry.js
 .babelcache
+build
