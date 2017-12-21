@@ -10,9 +10,15 @@ describe('<Tooltip/>', () => {
     expect(tree.text()).to.contain('test');
   });
 
-  it('should pass aXe check', () => {
+  it('should pass aXe check when closed', () => {
     const check = axeCheck(<Tooltip toolTipText="test" tabIndex={0}/>);
     return check;
   });
 
+  it('should pass aXe check when open', () => {
+    const tooltip = <Tooltip toolTipText="test" tabIndex={0}/>;
+    tooltip.handleOpen();
+    const check = axeCheck(tooltip);
+    return check;
+  });
 });

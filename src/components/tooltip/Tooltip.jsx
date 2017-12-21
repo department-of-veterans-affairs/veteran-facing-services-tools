@@ -56,6 +56,9 @@ class ToolTip extends React.Component {
 }
 
 ToolTip.propTypes = {
+  /**
+   * tabIndex for the tooltip toggle
+   */
   /* eslint-disable consistent-return */
   tabIndex(props, propName, componentName) {
     if (!/^\d+$/.test(props[propName])) {
@@ -64,6 +67,9 @@ ToolTip.propTypes = {
     }
   /* eslint-enable consistent-return */
   },
+  /**
+   * Text of the tooltip
+   */
   toolTipText: PropTypes.string,
 };
 

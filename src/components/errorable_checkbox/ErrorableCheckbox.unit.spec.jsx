@@ -47,12 +47,12 @@ describe('<ErrorableCheckbox/>', () => {
     // Ensure no unnecessary class names on label w/o error..
     const labels = tree.children('label');
     expect(labels).to.have.lengthOf(1);
-    expect(labels.prop('className')).to.be(undefined, 'Unnecessary class names on label without error');
+    expect(labels.prop('className')).to.be.equal(undefined, 'Unnecessary class names on label without error');
 
     // No error means no aria-describedby to not confuse screen readers.
-    const inputs = tree.children('input');
+    const inputs = tree.find('input');
     expect(inputs).to.have.lengthOf(1);
-    expect(inputs.prop('aria-describedby')).to.be(undefined, 'Unnecessary aria-describedby');
+    expect(inputs.prop('aria-describedby')).to.be.equal(undefined, 'Unnecessary aria-describedby');
   });
 
   it('has error styles when errorMessage is set', () => {
@@ -71,7 +71,7 @@ describe('<ErrorableCheckbox/>', () => {
     // No error means no aria-describedby to not confuse screen readers.
     const inputs = tree.find('input');
     expect(inputs).to.have.lengthOf(1);
-    expect(inputs.prop('aria-describedby')).to.not.be(undefined);
+    expect(inputs.prop('aria-describedby')).to.not.be.equal(undefined);
     expect(inputs.prop('aria-describedby')).to.equal(errorMessages.prop('id'));
   });
 
@@ -99,7 +99,7 @@ describe('<ErrorableCheckbox/>', () => {
     // Ensure label htmlFor is attached to input id.
     const inputs = tree.find('input');
     expect(inputs).to.have.lengthOf(1);
-    expect(inputs.prop('id')).to.not.be(undefined);
+    expect(inputs.prop('id')).to.not.be.equal(undefined);
     expect(inputs.prop('id')).to.equal(labels.prop('htmlFor'));
   });
 

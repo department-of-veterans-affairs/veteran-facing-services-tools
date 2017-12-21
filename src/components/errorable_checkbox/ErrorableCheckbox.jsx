@@ -59,7 +59,7 @@ class ErrorableCheckbox extends React.Component {
     }
 
     let className = `form-checkbox${this.props.errorMessage ? ' usa-input-error' : ''}`;
-    if (!_.isUndefined(this.props.className)) {
+    if (typeof this.props.className !== 'undefined') {
       className = `${className} ${this.props.className}`;
     }
 
@@ -72,7 +72,6 @@ class ErrorableCheckbox extends React.Component {
           htmlFor={this.inputId}>
           <input
             autoComplete="false"
-            aria-checked={!!this.props.checked}
             aria-labelledby={labelId}
             aria-describedby={errorSpanId}
             checked={this.props.checked}
@@ -91,14 +90,32 @@ class ErrorableCheckbox extends React.Component {
 }
 
 ErrorableCheckbox.propTypes = {
+  /**
+   * If the checkbox is checked or not
+   */
   checked: PropTypes.bool,
+  /**
+   * Error message for the modal
+   */
   errorMessage: PropTypes.string,
+  /**
+   * Name for the modal
+   */
   name: PropTypes.string,
+  /**
+   * Label for the checkbox
+   */
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
   ]).isRequired,
+  /**
+   * Handler for when the checkbox is changed
+   */
   onValueChange: PropTypes.func.isRequired,
+  /**
+   * If the checkbox is required or not
+   */
   required: PropTypes.bool,
 };
 
