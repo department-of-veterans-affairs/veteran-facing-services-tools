@@ -65,12 +65,7 @@ class ErrorableCheckbox extends React.Component {
 
     return (
       <div className={className}>
-        <label
-          className={this.props.errorMessage ? 'usa-input-error-label' : undefined}
-          id={labelId}
-          name={`${this.props.name}-label`}
-          htmlFor={this.inputId}>
-          <input
+        <input
             autoComplete="false"
             aria-labelledby={labelId}
             aria-describedby={errorSpanId}
@@ -79,6 +74,11 @@ class ErrorableCheckbox extends React.Component {
             name={this.props.name}
             type="checkbox"
             onChange={this.handleChange}/>
+        <label // eslint-disable-line jsx-a11y/label-has-for
+          className={this.props.errorMessage ? 'form-checkbox__label usa-input-error-label' : undefined}
+          id={labelId}
+          name={`${this.props.name}-label`}
+          htmlFor={this.inputId}>
           {this.props.label}
           {requiredSpan}
         </label>

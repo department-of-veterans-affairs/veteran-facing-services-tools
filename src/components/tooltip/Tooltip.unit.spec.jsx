@@ -16,9 +16,7 @@ describe('<Tooltip/>', () => {
   });
 
   it('should pass aXe check when open', () => {
-    const tooltip = <Tooltip toolTipText="test" tabIndex={0}/>;
-    tooltip.handleOpen();
-    const check = axeCheck(tooltip);
+    const check = axeCheck(<Tooltip open toolTipText="test" tabIndex={0}/>);
     return check;
   });
 });

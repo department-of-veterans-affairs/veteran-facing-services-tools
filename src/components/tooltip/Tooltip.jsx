@@ -5,6 +5,7 @@ import React from 'react';
  * A tooltip to give users more information about the question.
  *
  * Validation has the following props.
+ * `open` - Open or closed.
  * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tabindex order.
  * The tabindex attribute specifies the tab order of an element (when the "tab" button is used for navigating).
@@ -15,7 +16,9 @@ class ToolTip extends React.Component {
     super(props);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.state = {};
+    this.state = {
+      closed: !this.props.open
+    };
   }
 
   componentWillMount() {
