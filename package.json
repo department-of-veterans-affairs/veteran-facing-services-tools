@@ -11,7 +11,7 @@
     "export-components": "node src/js/export-components.js",
     "start": "fractal start --sync",
     "test": "karma start --single-run",
-    "test:watch": "karma start --auto-watch",
+    "test-watch": "karma start --auto-watch",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "test-debug": "karma start --browsers Chrome"
   },
