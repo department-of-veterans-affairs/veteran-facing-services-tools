@@ -66,12 +66,11 @@ class ErrorableCheckbox extends React.Component {
     return (
       <div className={className}>
         <input
+            {...this.props}
             autoComplete="false"
             aria-labelledby={labelId}
             aria-describedby={errorSpanId}
-            checked={this.props.checked}
             id={this.inputId}
-            name={this.props.name}
             type="checkbox"
             onChange={this.handleChange}/>
         <label // eslint-disable-line jsx-a11y/label-has-for
