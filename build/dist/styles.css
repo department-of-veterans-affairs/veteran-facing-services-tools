@@ -6676,65 +6676,36 @@ th.hide-for-touch {
   font-style: normal;
 }
 
-/* stylelint-disable at-rule-empty-line-before */
-
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 300;
-  src: url(36b2454850951a572647d682c969937f.eot) format("embedded-opentype"), url(91533bcffe7d49099b98dea3e7093217.woff2) format("woff2"), url(3920c044810625353fedd3e074553422.woff) format("woff"), url(5110c10b6fcf515fc776cd1b62aab226.ttf) format("truetype");
+html {
+  box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 400;
-  src: url(d8ab7c53981c7d8247c52e2caab2721a.eot) format("embedded-opentype"), url(699e5f09daf577ae815ddc7b920f8e24.woff2) format("woff2"), url(d2e3cf3e91620fa02db78122b43b856f.woff) format("woff"), url(01c34960c01c24ac996e1348d25c54eb.ttf) format("truetype");
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: italic;
-  font-weight: 400;
-  src: url(95366d5c901f8de3fbc6aef7421e0da7.eot) format("embedded-opentype"), url(ab48e5edfe4dc666d1aeba338fc078b8.woff2) format("woff2"), url(1c766c2ac93653f97310ac420ef6aa84.woff) format("woff"), url(c5a1649c9d410b426fca73e29c4f20a5.ttf) format("truetype");
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
 }
 
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 700;
-  src: url(cc7343dca32ce1c4de62e430c449b216.eot) format("embedded-opentype"), url(db08924457dfce83611a4392af58de04.woff2) format("woff2"), url(74f174d071369e0df8566c8a3013e001.woff) format("woff"), url(86937a00b9e6bd153ddb2d25a296896d.ttf) format("truetype");
+.lt-ie9 * {
+  filter: none !important;
+  /* stylelint-disable-line declaration-no-important */
 }
 
-@font-face {
-  font-family: "Merriweather";
-  font-style: normal;
-  font-weight: 300;
-  src: url(f423e689e0bdaa0f7b0587785f334e56.eot) format("embedded-opentype"), url(8e9df39cafa62b65262a85908e33ec66.woff2) format("woff2"), url(c370c7b61d28a26a1c8107def5d57b7d.woff) format("woff"), url(726e8a5e407de4813fba4998cf946761.ttf) format("truetype");
+[hidden] {
+  display: none !important;
+  /* stylelint-disable-line declaration-no-important */
 }
 
-@font-face {
-  font-family: "Merriweather";
-  font-style: normal;
-  font-weight: 400;
-  src: url(a1e02af03345e22ea9f0c3c56cf1b932.eot) format("embedded-opentype"), url(18fb7572812a600eeb86ecbdeb3c3064.woff2) format("woff2"), url(8af54a984d2993508bf270e9204d1860.woff) format("woff"), url(479fc84c654874d031d50f8e878f2139.ttf) format("truetype");
+*:focus,
+.usa-focus {
+  outline: 2px dotted #aeb0b5;
+  outline-offset: 3px;
 }
-
-@font-face {
-  font-family: "Merriweather";
-  font-style: italic;
-  font-weight: 400;
-  src: url(5b09f19714acef0663643ff49294a777.eot) format("embedded-opentype"), url(9830783aaa859c742823f3fefd60b867.woff2) format("woff2"), url(5568fe0d4ab09cd47227a2baade5fac2.woff) format("woff"), url(ad5dd583afab8f453645b057029586bf.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Merriweather";
-  font-style: normal;
-  font-weight: 700;
-  src: url(65d5dea57619d14d4e012b3a25550207.eot) format("embedded-opentype"), url(6d33d1693d8c3e674020a003b03d5aef.woff2) format("woff2"), url(b6b7444ffb6c03617a6a3c337965ce78.woff) format("woff"), url(3a8907c945b4ea384ad0b99150847706.ttf) format("truetype");
-}
-
-/* stylelint-enable */
 
 .usa-grid,
 .usa-grid-full {
@@ -7127,37 +7098,6 @@ th.hide-for-touch {
 .usa-sr-only {
   position: absolute;
   left: -999em;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
-.lt-ie9 * {
-  filter: none !important;
-  /* stylelint-disable-line declaration-no-important */
-}
-
-[hidden] {
-  display: none !important;
-  /* stylelint-disable-line declaration-no-important */
-}
-
-*:focus,
-.usa-focus {
-  outline: 2px dotted #aeb0b5;
-  outline-offset: 3px;
 }
 
 /* stylelint-disable selector-no-qualifying-type */
@@ -7826,12 +7766,13 @@ select.usa-input-success {
 
 .usa-input-required:after {
   color: #981b1e;
-  content: ' (*required)';
+  content: ' (*Required)';
 }
 
 .usa-input-optional:after {
   color: #757575;
-  content: ' (optional)';
+  content: ' - optional';
+  font-style: italic;
 }
 
 label {
@@ -7849,25 +7790,11 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAAAXNSR0IArs4c6QAAAPFJREFUSA3tlr0OAUEUhZdCRSQSBVFsQuNtPCS9t7CFRqNAFAoPoeE7m72FiTHWXp2THPN3z7eJ3Z3ZLEtrTsmxsvqNNCN9xffK6mvuK+WkLthg1mpOa7U0ofqMDRK2WlPNRxpRdcAhJByrRrVvNWR1j8NwbKxaZV5qwOwOx8KxeWWUfVKf0RbHQql5ZcUo1eN3g1Oh1LoYYmUrB5hdbNkGNhXVSbMWoDFe4E5D6I38uiHjH+cf+MlNKQDbc9S0LfQcnhzvVcnqAvR69cQq5bo5GNR1+zKo6wZrUNcjwKCuh5RBczpux6hBXQ96g9b6FHkA0+zeRS2oYfAAAAAASUVORK5CYII=);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 14'%3E%3Cg fill='%23323a45' fill-rule='evenodd'%3E%3Cpath d='M.62639628 5.99993896H9.3727389c.25339173.00130856.482416-.15074264.57956202-.38477624.09714598-.2340336.04312294-.50357616-.13670922-.6820964L5.4401815.1835435C5.32475606.06613116 5.1670083 0 5.00236114 0c-.16464716 0-.3223949.06613117-.43782037.1835435L.1835435 4.93306632C.06613116 5.0484918 0 5.20623953 0 5.3708867s.06613117.32239492.1835435.43782038c.1146444.1224934.27508006.19177244.44285278.19123188zM9.3727389 7.9999685H.6263963c-.1662653-.00316183-.32647608.06237894-.4428528.18116705C.0661312 8.296561 0 8.45430875 0 8.61895592s.06613117.32239492.1835435.43782037l4.38099726 4.7596802C4.67996622 13.9338688 4.83771396 14 5.00236113 14s.32239492-.0661312.43782038-.1835435l4.3754102-4.74961537c.17983216-.17852023.2338552-.44806278.13670922-.68209638-.09714602-.2340336-.3261703-.3860848-.579562-.38477625z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOCAYAAAAWo42rAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4QgVFh8yW10ONwAAAOtJREFUKM+t0TFPwnAQxuHf9V8SR51QkAUTJxbEQaRuTH4Gg4nByS/Rz+BoAuhm0sVFjYkDCzUudevIAknjBMEFBjkHbVIS2sl3vHvy3nCGlbjWQd2+3imVT6Nx6wX6Gm8kiar1QVdEz/9W93vFzTPP874BzHoEQGXytdh3jmoPYRiqpKBEfptN9djciHBBeirT2aJoo1YOS18zIIpu8O+RWqN5p1Ag+/anrcocaGa2qXRMNBo+FnbLeYTDlLrb4M25NADRePiUgnuBf9IGd2niyRrcC3ynDe4y8cIYt563S6MtkPcP37mKEcAPXaxTLCCXP4UAAAAASUVORK5CYII=);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.93 13.66'%3E%3Ctitle%3ESort%3C/title%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath d='M.62,5.59H9.31a.62.62,0,0,0,.44-1.06L5.4.18a.61.61,0,0,0-.87,0L.18,4.53a.61.61,0,0,0,0,.87A.6.6,0,0,0,.62,5.59Z' fill='%23323a44' fill-rule='evenodd'/%3E%3Cpath d='M9.31,8.07H.62a.6.6,0,0,0-.44.18.61.61,0,0,0,0,.87l4.35,4.35a.61.61,0,0,0,.87,0L9.75,9.13a.62.62,0,0,0-.44-1.06Z' fill='%23323a44' fill-rule='evenodd'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
-  background-size: 1rem;
-  padding-right: 3rem;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-select:-webkit-autofill {
-  appearance: menulist;
-}
-
-select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
+  background-size: 1.3rem;
 }
 
 option:first-child {
@@ -8100,31 +8027,34 @@ legend {
 table {
   border-spacing: 0;
   margin: 2em 0;
+  min-width: 100%;
 }
 
-thead th {
-  font-weight: 700;
-}
-
-thead th,
-thead td {
+table thead th,
+table thead td {
   background-color: #f1f1f1;
 }
 
-th {
+table th {
   text-align: left;
 }
 
-th,
-td {
+table tbody th {
+  font-weight: 400;
+}
+
+table th,
+table td {
   background-color: #fff;
   border: 1px solid #5b616b;
-  font-weight: 400;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
+}
+
+.usa-table-borderless thead tr {
+  background-color: transparent;
 }
 
 .usa-table-borderless thead th {
-  background-color: transparent;
   border-top: 0;
 }
 
@@ -8132,18 +8062,6 @@ td {
 .usa-table-borderless td {
   border-left: 0;
   border-right: 0;
-}
-
-.usa-table-borderless th:first-child {
-  padding-left: 0;
-}
-
-caption {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: "Roboto Slab", serif;
-  margin-bottom: 1.2rem;
-  text-align: left;
 }
 
 .usa-accordion,
