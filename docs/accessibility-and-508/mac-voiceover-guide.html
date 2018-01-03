@@ -11,10 +11,10 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/mandelbrot/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/white.css?cachebust=1.1.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/white.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Modals | Vets.gov Design Standards</title>
+<title>Mac Voice Over Guide | Vets.gov Design Standards</title>
 
 </head>
 <body>
@@ -48,236 +48,130 @@
             <div class="Frame-inner" id="pjax-container">
             
 
+<div class="Document">
 
-    
-    
-
-<div class="Pen" data-behaviour="pen" id="pen-d6929559b75e18a1d7489a59db440b50">
-
-    
-
-    <div class="Pen-panel Pen-header">
-    <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/modals.html" title="Component preview">
-            Modals
-            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-
-        </a>
-    </h1>
-    
-
-<div class="Status Status--tag">
-
-<label class="Status-label" style="background-color: #FF9233; border-color: #FF9233;">WIP</label>
-
-</div>
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Mac Voice Over Guide</h1>
+        
 
 
-</div>
-
-
-    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-d6929559b75e18a1d7489a59db440b50">
-    <div class="Preview-wrapper" data-role="resizer">
-        <div class="Preview-resizer">
-            
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="../preview/modals.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
-                 style=""
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
-        </div>
-        <div class="Preview-handle" data-role="resize-handle"></div>
-        <div class="Preview-overlay"></div>
-    </div>
-</div>
-
-
-    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
-
-    <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-d6929559b75e18a1d7489a59db440b50">
-
-    
-
-<div class="Browser-controls">
-    <ul class="Browser-tabs">
-        
-        
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-d6929559b75e18a1d7489a59db440b50-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--notes" data-role="tab">
-            <a href="#browser-d6929559b75e18a1d7489a59db440b50-panel-notes">Notes</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-d6929559b75e18a1d7489a59db440b50-panel-view">View</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-d6929559b75e18a1d7489a59db440b50-panel-context">Context</a>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-d6929559b75e18a1d7489a59db440b50-panel-info">Info</a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-    
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-d6929559b75e18a1d7489a59db440b50-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'{id}'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">id</span>}<span class="hljs-attr">-title</span>`}&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-inner'</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-title'</span>&gt;</span>Default Modal<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.props.onClose}</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-     <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-body'</span>&gt;</span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- close modal --&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-d6929559b75e18a1d7489a59db440b50-panel-notes">
-    <div class="Prose Prose--condensed">
-        
-        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
         
     </div>
+
+    <div class="Document-content">
+
+    
+
+<div class="Prose">
+
+
+
+    
+    
+    <h1 id="how-to-use-apple-s-voice-over-to-manually-check-basic-accessibility-usability-issues">How to use Apple’s Voice Over to manually check basic accessibility/usability issues</h1>
+<p>In addition to automated testing, all components should be manually checked by contributors/reviewers.
+See also: <a href="https://help.apple.com/voiceover/info/guide/10.12/#/vo15603">https://help.apple.com/voiceover/info/guide/10.12/#/vo15603</a></p>
+<h2 id="basic-controls-quick-reference-">Basic controls quick reference:</h2>
+<p>VO = control+option (but may vary)</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Keyboard command </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>turn on Voice Over</td>
+<td>command+F5 </td>
+</tr>
+<tr>
+<td>move around the elements on the page</td>
+<td>VO + arrows </td>
+</tr>
+<tr>
+<td>open VoiceOver rotor</td>
+<td>VO + U (escape to close) </td>
+</tr>
+<tr>
+<td>open commands menu (to find other shortcut commands)</td>
+<td>VO + H + H </td>
+</tr>
+<tr>
+<td>select something</td>
+<td>VO + space </td>
+</tr>
+<tr>
+<td>Navigate by headings only</td>
+<td>VO + command + H </td>
+</tr>
+<tr>
+<td>Read everything from the top of the page</td>
+<td>VO + A </td>
+</tr>
+<tr>
+<td>Jump to next paragraph</td>
+<td>VO + P </td>
+</tr>
+<tr>
+<td>Navigate to elements</td>
+<td>tab; Shift-tab to go backwards</td>
+</tr>
+<tr>
+<td>Select or deselect a checkbox or other control</td>
+<td>V0 + space </td>
+</tr>
+</tbody>
+</table>
+<p><strong>Helpful Tip</strong>: To temporarily pause VoiceOver’s audio, press the CONTROL key to stop the speech. To resume VoiceOver speech, either press the CONTROL key again or perform other actions on the keyboard.</p>
+<h2 id="step-by-step-things-you-should-do-to-assess">Step-by-step things you should do to assess</h2>
+<h3 id="for-all-page-types">For all page types</h3>
+<h4 id="1-tab-through-the-entire-page">1) Tab through the entire page</h4>
+<p>Every element that can have an action taken on it should accessible by just hitting the tab key. Every element should have a blue halo around it as you move through the page. The order that you move through the elements should match the visual hierarchy of the page (ie it shouldn’t jump from main content to footer and skip past other important pieces).</p>
+<ul>
+<li>[ ] tab from beginning to end of page watching the focus and order</li>
+</ul>
+<h4 id="2-navigate-by-headings-should-be-properly-nested-and-labeled-well">2) Navigate by headings should be properly nested and labeled well</h4>
+<p>Imagine you can’t see the page and reading out headings was your only way to find the section you’re looking for. Headings should be properly nested (no heading level is skipped) and labeled well enough to provide context when navigated outside the context of the page.</p>
+<ul>
+<li>[ ] open the rotor (VO+U) and arrow to the headings list</li>
+<li>[ ] navigate the page by headings (VO+command+H)</li>
+</ul>
+<h4 id="3-navigate-by-links">3) Navigate by links</h4>
+<p>Link labels out of context of the rest of the page should be descriptive enough to indicate the destination (no “click here”!).</p>
+<ul>
+<li>[ ] open the rotor (VO+U) and arrow to the links list. </li>
+</ul>
+<h3 id="if-applicable">If applicable</h3>
+<h4 id="4-check-loading-messages">4) Check loading messages</h4>
+<ul>
+<li>[ ] loading messages should audibly indicate that something is happening.</li>
+</ul>
+<h4 id="5-check-tabbed-views-pop-ups-modal-windows-and-other-interactive-elements">5) Check tabbed views, pop-ups, modal windows and other interactive elements</h4>
+<ul>
+<li>[ ] activate any elements that result in a pop-up or modal to make sure they can be accessed and read correctly</li>
+<li>[ ] after using any interactive element, make sure that pressing tab moves to an element that is immediately after where you left off or to an element that’s unsurprising</li>
+</ul>
+<h4 id="6-make-sure-all-elements-that-_look_-like-form-elements-are-coded-as-such">6) Make sure all elements that <em>look</em> like form elements are coded as such</h4>
+<ul>
+<li>[ ] use VO+U to open rotor and arrow to the form controls list – make sure all elements that look like form elements are on this list</li>
+</ul>
+<h4 id="6-make-sure-all-form-elements-can-be-interacted-with">6) Make sure all form elements can be interacted with</h4>
+<ul>
+<li>[ ] tab through all form elements to make sure nothing gets skipped over</li>
+<li>[ ] use enter key to access a drop down or buttons</li>
+<li>[ ] use VO+spacebar to select checkboxes/radio buttons</li>
+</ul>
+
+    
+
+
 </div>
 
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d6929559b75e18a1d7489a59db440b50-panel-view">
-    <code class="Code Code--lang-text">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'</span></span></span><span class="hljs-template-variable">{id}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span> <span class="hljs-attr">aria-labelledby</span>=</span></span><span class="hljs-template-variable">{`${id}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">-title</span>`}&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-inner'</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-title'</span>&gt;</span></span><span class="hljs-template-variable">{{ modals.title }</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onClick</span>=</span></span><span class="hljs-template-variable">{this.props.onClose}</span><span class="xml"><span class="hljs-tag">&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-     <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'va-modal-body'</span>&gt;</span>
-       </span><span class="hljs-template-variable">{{ modals.content }</span><span class="xml">}
-     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- close modal --&gt;</span></span></pre>
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d6929559b75e18a1d7489a59db440b50-panel-context">
-    <code class="Code Code--lang-yaml">
-        
-            
-            <pre><span class="hljs-attr">package:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">vets.gov-design-system</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">uswds:</span>
-<span class="hljs-attr">  path:</span> <span class="hljs-string">../../dist</span>
-<span class="hljs-attr">modals:</span>
-<span class="hljs-attr">  id:</span> <span class="hljs-string">default</span>
-<span class="hljs-attr">  title:</span> <span class="hljs-string">Default</span> <span class="hljs-string">Modal</span>
-<span class="hljs-attr">  content:</span> <span class="hljs-string">&gt;-</span>
-    <span class="hljs-string">Lorem</span> <span class="hljs-string">ipsum</span> <span class="hljs-string">dolor</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet,</span> <span class="hljs-string">consectetur</span> <span class="hljs-string">adipiscing</span> <span class="hljs-string">elit.</span> <span class="hljs-string">Aliquam</span> <span class="hljs-string">id</span> <span class="hljs-string">felis</span>
-    <span class="hljs-string">pulvinar</span> <span class="hljs-string">ligula</span> <span class="hljs-string">ultricies</span> <span class="hljs-string">sollicitudin</span> <span class="hljs-string">eget</span> <span class="hljs-string">nec</span> <span class="hljs-string">dui.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">augue</span> <span class="hljs-string">velit,</span>
-    <span class="hljs-string">pellentesque</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet</span> <span class="hljs-string">nisl</span> <span class="hljs-string">ut,</span> <span class="hljs-string">tristique</span> <span class="hljs-string">suscipit</span> <span class="hljs-string">sem.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">sollicitudin</span>
-    <span class="hljs-string">auctor</span> <span class="hljs-string">mattis.</span>
-<span class="hljs-attr">  buttons:</span>
-<span class="hljs-attr">    confirm:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">    cancel:</span> <span class="hljs-literal">null</span>
-</pre>
-            
-        
-    </code>
-</div>
-
-    
-    
 
 
-
-
-    
-    <div class="Browser-panel" data-role="tab-panel" id="browser-d6929559b75e18a1d7489a59db440b50-panel-info">
-    <ul class="Meta">
-        <li class="Meta-item">
-            <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@modals</span>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Preview:</strong>
-            <span class="Meta-value">
-                <ul>
-                    <li><a data-no-pjax href="../preview/modals.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                    <li><a data-no-pjax href="../render/modals.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                </ul>
-            </span>
-        </li>
-        <li class="Meta-item">
-            <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">src/components/modals/modals.njk</span>
-        </li>
-        
-        
-    </ul>
-</div>
-
-    
-
-</div>
-
-</div>
-
-
-    
+    </div>
 
 </div>
 
@@ -301,7 +195,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="colors.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/colors.html" data-pjax>
                 <span>Colors</span>
                 
 
@@ -336,7 +230,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/fonts.html" data-pjax>
                 <span>Fonts</span>
                 
 
@@ -360,7 +254,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="links.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/links.html" data-pjax>
                 <span>Links</span>
                 
 
@@ -384,7 +278,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="lists.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/lists.html" data-pjax>
                 <span>Lists</span>
                 
 
@@ -408,7 +302,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/typesetting.html" data-pjax>
                 <span>Typesetting</span>
                 
 
@@ -448,7 +342,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -472,7 +366,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--primary.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--primary.html" data-pjax>
                 <span>Primary</span>
                 
 
@@ -496,7 +390,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--primary-alt.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--primary-alt.html" data-pjax>
                 <span>Primary Alt</span>
                 
 
@@ -520,7 +414,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--secondary.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--secondary.html" data-pjax>
                 <span>Secondary</span>
                 
 
@@ -544,7 +438,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--outline.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--outline.html" data-pjax>
                 <span>Outline</span>
                 
 
@@ -568,7 +462,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--focus.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--focus.html" data-pjax>
                 <span>Focus</span>
                 
 
@@ -592,7 +486,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--disabled.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--disabled.html" data-pjax>
                 <span>Disabled</span>
                 
 
@@ -616,7 +510,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons--big.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons--big.html" data-pjax>
                 <span>Big</span>
                 
 
@@ -645,7 +539,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tables.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tables.html" data-pjax>
                 <span>Tables</span>
                 
 
@@ -669,7 +563,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/alerts.html" data-pjax>
                 <span>Alerts</span>
                 
 
@@ -704,7 +598,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accordion--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accordion--default.html" data-pjax>
                 <span>Borderless</span>
                 
 
@@ -728,7 +622,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accordion--bordered.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accordion--bordered.html" data-pjax>
                 <span>Bordered</span>
                 
 
@@ -752,7 +646,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accordion--multiselectable.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accordion--multiselectable.html" data-pjax>
                 <span>Multiselectable</span>
                 
 
@@ -803,7 +697,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="checkboxes.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/checkboxes.html" data-pjax>
                 <span>Checkboxes</span>
                 
 
@@ -827,7 +721,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="date-input.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/date-input.html" data-pjax>
                 <span>Date Input</span>
                 
 
@@ -851,7 +745,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="dropdown.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/dropdown.html" data-pjax>
                 <span>Dropdown</span>
                 
 
@@ -875,7 +769,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="radio-buttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/radio-buttons.html" data-pjax>
                 <span>Radio Buttons</span>
                 
 
@@ -899,7 +793,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="text-input.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/text-input.html" data-pjax>
                 <span>Text Input</span>
                 
 
@@ -939,7 +833,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/address-form.html" data-pjax>
                 <span>Address Form</span>
                 
 
@@ -963,7 +857,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/name-form.html" data-pjax>
                 <span>Name Form</span>
                 
 
@@ -1008,7 +902,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="nav-primary.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/nav-primary.html" data-pjax>
                 <span>Primary (header)</span>
                 
 
@@ -1032,7 +926,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="nav-secondary.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/nav-secondary.html" data-pjax>
                 <span>Secondary (header)</span>
                 
 
@@ -1067,7 +961,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sidenav--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sidenav--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -1091,7 +985,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sidenav--compare.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sidenav--compare.html" data-pjax>
                 <span>Compare</span>
                 
 
@@ -1136,7 +1030,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header--default.html" data-pjax>
                 <span>Compare</span>
                 
             </a>
@@ -1146,7 +1040,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header--basic.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header--basic.html" data-pjax>
                 <span>Basic header</span>
                 
 
@@ -1170,7 +1064,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header--basic-mega.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header--basic-mega.html" data-pjax>
                 <span>Basic with mega-menu</span>
                 
 
@@ -1194,7 +1088,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header--extended.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header--extended.html" data-pjax>
                 <span>Extended header</span>
                 
 
@@ -1218,7 +1112,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header--extended-mega.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header--extended-mega.html" data-pjax>
                 <span>Extended with mega-menu</span>
                 
 
@@ -1258,7 +1152,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer--default.html" data-pjax>
                 <span>Medium</span>
                 
 
@@ -1282,7 +1176,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer--big.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer--big.html" data-pjax>
                 <span>Big</span>
                 
 
@@ -1306,7 +1200,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer--slim.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer--slim.html" data-pjax>
                 <span>Slim</span>
                 
 
@@ -1335,7 +1229,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="address_block.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/address_block.html" data-pjax>
                 <span>Address block</span>
                 
 
@@ -1359,7 +1253,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="banner.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/banner.html" data-pjax>
                 <span>U.S. Government banner</span>
                 
 
@@ -1394,7 +1288,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="grid--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/grid--default.html" data-pjax>
                 <span>Examples</span>
                 
 
@@ -1418,7 +1312,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="grid--offsets.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/grid--offsets.html" data-pjax>
                 <span>Offsets</span>
                 
 
@@ -1458,7 +1352,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--docs.html" data-pjax>
                 <span>Documentation</span>
                 
 
@@ -1482,7 +1376,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--landing.html" data-pjax>
                 <span>Landing</span>
                 
 
@@ -1510,9 +1404,9 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                <span>Modals</span>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../components/detail/modal.html" data-pjax>
+                <span>Modal</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1546,7 +1440,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -1570,7 +1464,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--header.html" data-pjax>
                 <span>Header</span>
                 
 
@@ -1597,6 +1491,30 @@
         
     
         
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../components/detail/segmented_progress_bar.html" data-pjax>
+                <span>Segmented progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-test">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>Test</span>
@@ -1610,7 +1528,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="kitchen-sink.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/kitchen-sink.html" data-pjax>
                 <span>Kitchen sink</span>
                 
 
@@ -1634,7 +1552,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="multi-column-checkboxes.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/multi-column-checkboxes.html" data-pjax>
                 <span>Multi Column Checkboxes</span>
                 
 
@@ -1674,7 +1592,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="embed-container.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/embed-container.html" data-pjax>
                 <span>Responsive embed container</span>
                 
 
@@ -1726,6 +1644,62 @@
         </li>
         
     
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-accessibility-and-508">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Accessibility And 508</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accessibilityreviewlist.html" data-pjax>
+                <span>Accessibility Review List</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Mac Voice Over Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="readme.html" data-pjax>
+                <span>README</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../moving-a-component.html" data-pjax>
+                <span>Moving A Component</span>
+                
+            </a>
+        </li>
+        
+    
 
     </ul>
 </div>
@@ -1746,7 +1720,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.1.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
 
 
 
