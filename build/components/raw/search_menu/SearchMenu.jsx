@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import IconSearch from '../svgicons/IconSearch';
 import DropDown from '../dropdown/DropDown';
 
-// TODO(ceh): Fix bugs (broken asset links), disable label-has-for rule
 class SearchMenu extends React.Component {
 
   componentDidUpdate() {

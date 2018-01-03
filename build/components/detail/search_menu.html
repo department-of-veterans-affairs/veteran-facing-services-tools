@@ -273,7 +273,6 @@
 <span class="hljs-keyword">import</span> IconSearch <span class="hljs-keyword">from</span> <span class="hljs-string">'../svgicons/IconSearch'</span>;
 <span class="hljs-keyword">import</span> DropDown <span class="hljs-keyword">from</span> <span class="hljs-string">'../dropdown/DropDown'</span>;
 
-<span class="hljs-comment">// TODO(ceh): Fix bugs (broken asset links), disable label-has-for rule</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SearchMenu</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
 
   componentDidUpdate() {
@@ -398,15 +397,18 @@ export default SearchMenu;
 
 describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
   it(<span class="hljs-string">'should render'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchMenu</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Modal title"</span> <span class="hljs-attr">visible</span> <span class="hljs-attr">onClose</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}&gt;Modal contents<span class="hljs-tag">&lt;/<span class="hljs-name">SearchMenu</span>&gt;</span></span>);
-    expect(tree.text()).to.contain(<span class="hljs-string">'Modal contents'</span>);
+    <span class="hljs-keyword">const</span> tree = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchMenu</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"searchmenu"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"SearchMenu title"</span> <span class="hljs-attr">isOpen</span> <span class="hljs-attr">clickHandler</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}&gt;SearchMenu contents<span class="hljs-tag">&lt;/<span class="hljs-name">SearchMenu</span>&gt;</span></span>);
+    expect(tree.text()).to.contain(<span class="hljs-string">'SearchMenu contents'</span>);
   });
 
-  it(<span class="hljs-string">'should pass aXe check'</span>, () =&gt; {
-    <span class="hljs-keyword">return</span> axeCheck(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchMenu</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Modal title"</span> <span class="hljs-attr">visible</span> <span class="hljs-attr">onClose</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}/&gt;);
+  it(<span class="hljs-string">'should pass aXe check when closed'</span>, () =&gt; {
+    <span class="hljs-keyword">return</span> axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() =&gt; {}}/&gt;);
+  });
+  it('should pass aXe check when open', () =&gt; {
+    return axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() =&gt; {}}/&gt;);
   });
 });
-</span></pre>
+</pre>
                             </code>
                             
                         </div>
@@ -422,7 +424,7 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">586 Bytes</span>
+                    <span class="Meta-value">791 Bytes</span>
                 </li>
             </ul>
         </div>
