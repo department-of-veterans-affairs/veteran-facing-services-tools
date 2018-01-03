@@ -7,11 +7,14 @@ import SearchMenu from './SearchMenu.jsx';
 
 describe('<SearchMenu/>', () => {
   it('should render', () => {
-    const tree = shallow(<SearchMenu id="modal" title="Modal title" visible onClose={() => {}}>Modal contents</SearchMenu>);
-    expect(tree.text()).to.contain('Modal contents');
+    const tree = shallow(<SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() => {}}>SearchMenu contents</SearchMenu>);
+    expect(tree.text()).to.contain('SearchMenu contents');
   });
 
-  it('should pass aXe check', () => {
-    return axeCheck(<SearchMenu id="modal" title="Modal title" visible onClose={() => {}}/>);
+  it('should pass aXe check when closed', () => {
+    return axeCheck(<SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() => {}}/>);
+  });
+  it('should pass aXe check when open', () => {
+    return axeCheck(<SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() => {}}/>);
   });
 });
