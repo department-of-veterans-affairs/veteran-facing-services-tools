@@ -9654,7 +9654,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function ErrorableCheckboxExample(props) {
   return _react2.default.createElement(_ErrorableCheckbox2.default, _extends({
-    handleChange: function handleChange() {}
+    onChange: function onChange(e) {
+      e.target.checked;
+    }
   }, props));
 }
 

@@ -14,21 +14,13 @@ import ToolTip from '../tooltip/Tooltip.jsx'; // File extension provided for tes
  * `name` - String for name attribute.
  * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tab order.
- * `handleChange` - a function with this prototype: (newValue)
+ * `onChange` - a function with this prototype: (newValue)
  * `required` - boolean. Render marker indicating field is required.
  */
 class ErrorableCheckbox extends React.Component {
-  constructor() {
-    super();
-    this.handleChange = this.handleChange.bind(this);
-  }
 
   componentWillMount() {
     this.inputId = _.uniqueId('errorable-checkbox-');
-  }
-
-  handleChange(e) {
-    this.props.handleChange(e.target.checked);
   }
 
   render() {
@@ -71,8 +63,7 @@ class ErrorableCheckbox extends React.Component {
             aria-labelledby={labelId}
             aria-describedby={errorSpanId}
             id={this.inputId}
-            type="checkbox"
-            onChange={this.handleChange}/>
+            type="checkbox"/>
         <label // eslint-disable-line jsx-a11y/label-has-for
           className={this.props.errorMessage ? 'form-checkbox__label usa-input-error-label' : undefined}
           id={labelId}
@@ -111,7 +102,7 @@ ErrorableCheckbox.propTypes = {
   /**
    * Handler for when the checkbox is changed
    */
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   /**
    * If the checkbox is required or not
    */
