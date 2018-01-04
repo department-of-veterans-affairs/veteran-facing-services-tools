@@ -11048,13 +11048,13 @@ button.form-button-disabled {
   margin: 0 0.35em;
 }
 
-.form-checkbox [type="checkbox"] {
+[type="checkbox"] {
   height: 1.8rem !important;
   margin: 0;
   width: 1.8rem !important;
 }
 
-.form-checkbox > input[type="checkbox"] + label::before {
+> label::before {
   display: block;
   float: left;
   margin-left: -1.7em;
@@ -11063,7 +11063,7 @@ button.form-button-disabled {
   pointer-events: none;
 }
 
-.form-checkbox > input[type="checkbox"] + label {
+> label {
   margin-left: 1.7em;
 }
 

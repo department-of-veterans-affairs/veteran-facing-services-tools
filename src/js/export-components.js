@@ -4,6 +4,7 @@ const babel = require("babel-core");
 const reactComponentFiles = [
   'src/components/errorable_checkbox/ErrorableCheckbox.jsx',
   'src/components/modal/Modal.jsx',
+  'src/components/search_menu/SearchMenu.jsx',
   'src/components/segmented_progress_bar/SegmentedProgressBar.jsx',
   'src/components/tooltip/Tooltip.jsx'
 ];
