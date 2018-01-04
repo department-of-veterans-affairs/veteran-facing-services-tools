@@ -58,8 +58,35 @@ theme.on('init', (env) => {
   env.engine.addFilter('generateProps', generatePropDocs);
 });
 
-fractal.components.on('loaded', () => {
-  createWebpackBundle(fractal.components);
+fractal.cli.command('watch', () => {
+  const logger = fractal.cli.console;
+  const server = fractal.web.server({
+    sync: true
+  });
+  server.on('error', err => logger.error(err.message));
+
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+    createWebpackBundle(fractal.components);
+  });
+});
+
+fractal.cli.command('build-site', (args, done) => {
+  const logger = fractal.cli.console;
+  const builder = fractal.web.builder();
+
+  builder.on('progress', (completed, total) =>
+    logger.update(`Exported ${completed} of ${total} items`, 'info'));
+
+  builder.on('error', err =>
+    logger.error(err.message));
+
+  return builder.build().then(() => {
+    logger.success('Fractal build completed!');
+    logger.update('Building React components');
+    createWebpackBundle(fractal.components, false);
+    done();
+  });
 });
 
 web.theme(theme);
@@ -68,6 +95,5 @@ web.set('static.path', 'dist');
 web.set('static.mount', 'dist');
 // output files to /build
 web.set('builder.dest', 'build');
-web.set('server.sync', true);
 
 module.exports = fractal;
