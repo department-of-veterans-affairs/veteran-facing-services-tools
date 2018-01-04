@@ -212,7 +212,7 @@
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchMenu</span>
       <span class="hljs-attr">title</span>=<span class="hljs-string">{props.title}</span>
       <span class="hljs-attr">id</span>=<span class="hljs-string">{props.id}</span>
-      <span class="hljs-attr">isOpen</span>=<span class="hljs-string">{true}</span>
+      <span class="hljs-attr">isOpen</span>
       <span class="hljs-attr">clickHandler</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}&gt;
     <span class="hljs-tag">&lt;/<span class="hljs-name">SearchMenu</span>&gt;</span></span>
   );
@@ -270,8 +270,8 @@
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> classNames <span class="hljs-keyword">from</span> <span class="hljs-string">'classnames'</span>;
 
-<span class="hljs-keyword">import</span> IconSearch <span class="hljs-keyword">from</span> <span class="hljs-string">'../svgicons/IconSearch'</span>;
-<span class="hljs-keyword">import</span> DropDown <span class="hljs-keyword">from</span> <span class="hljs-string">'../dropdown/DropDown'</span>;
+<span class="hljs-keyword">import</span> IconSearch <span class="hljs-keyword">from</span> <span class="hljs-string">'../svgicons/IconSearch.jsx'</span>;
+<span class="hljs-keyword">import</span> DropDown <span class="hljs-keyword">from</span> <span class="hljs-string">'../dropdown/DropDown.jsx'</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SearchMenu</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
 
@@ -389,7 +389,7 @@ export default SearchMenu;
                             
                             <code class="Code Code--lang-JSX FileBrowser-code">
                                 <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { shallow } <span class="hljs-keyword">from</span> <span class="hljs-string">'enzyme'</span>;
+<span class="hljs-keyword">import</span> { mount } <span class="hljs-keyword">from</span> <span class="hljs-string">'enzyme'</span>;
 <span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">'chai'</span>;
 <span class="hljs-keyword">import</span> { axeCheck } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../lib/testing/helpers'</span>;
 
@@ -397,15 +397,15 @@ export default SearchMenu;
 
 describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
   it(<span class="hljs-string">'should render'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchMenu</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"searchmenu"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"SearchMenu title"</span> <span class="hljs-attr">isOpen</span> <span class="hljs-attr">clickHandler</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}&gt;SearchMenu contents<span class="hljs-tag">&lt;/<span class="hljs-name">SearchMenu</span>&gt;</span></span>);
-    expect(tree.text()).to.contain(<span class="hljs-string">'SearchMenu contents'</span>);
+    <span class="hljs-keyword">const</span> tree = mount(&lt;SearchMenu id="searchmenu" title="searchmenu title" isOpen clickHandler={() =&gt; {}}/&gt;);
+    expect(tree.children().text()).to.contain('Search');
   });
 
-  it(<span class="hljs-string">'should pass aXe check when closed'</span>, () =&gt; {
-    <span class="hljs-keyword">return</span> axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() =&gt; {}}/&gt;);
+  it('should pass aXe check when closed', () =&gt; {
+    return axeCheck(&lt;SearchMenu id="searchmenu" title="searchmenu title" clickHandler={() =&gt; {}}/&gt;);
   });
   it('should pass aXe check when open', () =&gt; {
-    return axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() =&gt; {}}/&gt;);
+    return axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() =&gt; {}}/&gt;);
   });
 });
 </pre>
@@ -424,7 +424,7 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">791 Bytes</span>
+                    <span class="Meta-value">747 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1617,6 +1617,54 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
         
     
         
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="checkbox.html" data-pjax>
+                <span>Checkbox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorable_checkbox.html" data-pjax>
+                <span>ErrorableCheckbox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-grid">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>Grid</span>
@@ -1941,6 +1989,30 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+                <span>Tooltip</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     

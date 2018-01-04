@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { axeCheck } from '../../../lib/testing/helpers';
 
@@ -7,14 +7,14 @@ import SearchMenu from './SearchMenu.jsx';
 
 describe('<SearchMenu/>', () => {
   it('should render', () => {
-    const tree = shallow(<SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() => {}}>SearchMenu contents</SearchMenu>);
-    expect(tree.text()).to.contain('SearchMenu contents');
+    const tree = mount(<SearchMenu id="searchmenu" title="searchmenu title" isOpen clickHandler={() => {}}/>);
+    expect(tree.children().text()).to.contain('Search');
   });
 
   it('should pass aXe check when closed', () => {
-    return axeCheck(<SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() => {}}/>);
+    return axeCheck(<SearchMenu id="searchmenu" title="searchmenu title" clickHandler={() => {}}/>);
   });
   it('should pass aXe check when open', () => {
-    return axeCheck(<SearchMenu id="searchmenu" title="SearchMenu title" isOpen clickHandler={() => {}}/>);
+    return axeCheck(<SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() => {}}/>);
   });
 });
