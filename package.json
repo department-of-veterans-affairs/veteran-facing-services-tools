@@ -9,8 +9,10 @@
   "scripts": {
     "prestart": "node prebuild.js",
     "export-components": "node src/js/export-components.js",
-    "start": "fractal start --sync",
+    "start": "fractal watch",
     "test": "karma start --single-run",
+    "site": "fractal build-site; gh-pages -d build",
+    "test-watch": "karma start --auto-watch",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "test-debug": "karma start --browsers Chrome"
   },
@@ -34,6 +36,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.4",
@@ -43,6 +46,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "2",
+    "gh-pages": "^1.1.0",
     "karma": "1.6",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
