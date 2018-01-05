@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-function createWebpackBundle(fractalComponents, watch = true) {
+function createWebpackBundle(logger, fractalComponents, watch = true) {
   const components = fractalComponents
     .flatten()
     .toArray()
@@ -36,6 +36,9 @@ function createWebpackBundle(fractalComponents, watch = true) {
     output: {
       filename: '[name].bundle.js',
       path: path.join(__dirname, 'dist')
+    },
+    resolve: {
+      extensions: ['.js', '.json', '.jsx']
     },
     module: {
       rules: [
@@ -135,15 +138,13 @@ function createWebpackBundle(fractalComponents, watch = true) {
   });
 
   if (watch) {
-    compiler.watch({}, (err) => {
-      if (err) {
-        console.log(err);
-      }
+    compiler.watch({}, (err, info) => {
+      logger.update(info, 'info');
     });
   } else {
     compiler.run((err) => {
       if (err) {
-        console.log(err);
+        logger.error(err);
       }
     });
   }

@@ -67,7 +67,7 @@ fractal.cli.command('watch', () => {
 
   return server.start().then(() => {
     logger.success(`Fractal server is now running at ${server.url}`);
-    createWebpackBundle(fractal.components);
+    createWebpackBundle(logger, fractal.components);
   });
 });
 
@@ -84,7 +84,7 @@ fractal.cli.command('build-site', (args, done) => {
   return builder.build().then(() => {
     logger.success('Fractal build completed!');
     logger.update('Building React components');
-    createWebpackBundle(fractal.components, false);
+    createWebpackBundle(logger, fractal.components, false);
     done();
   });
 });
