@@ -9,7 +9,7 @@
 
   <div class="va-notice--banner">
     <div class="va-notice--banner-inner">
-      {{> @banner }}
+      {% include '@banner' %}
       <div class="va-crisis-line">
         <div class="va-flex">
           <button data-show="#modal-crisisline" class="va-crisis-line-button va-overlay-trigger">
@@ -27,20 +27,20 @@
   <div class="row va-flex" id="va-header-logo-menu">
     <div role="banner" class="va-header-logo-wrapper">
       <a href="/" class="va-header-logo">
-      {{ "assets/img/svglogo.svg" }}
+        <img src="{{ uswds.path }}/img/svglogo.svg">
       </a>
     </div>
     {% if body_class != 'page-playbook' %}
       <div id="vetnav-controls">
         <button aria-controls="vetnav" aria-expanded="false" hidden type="button" class="vetnav-controller-close">
           <span class="va-flex">
-            {{ "assets/img/icons/close.svg" }}
+            <img src="{{ uswds.path }}/img/icons/close.svg">
             Close
           </span>
         </button>
         <button aria-controls="vetnav" type="button" aria-expanded="false" class="vetnav-controller-open">
           <span class="va-flex">
-            {{ "assets/img/arrow-down.svg" }}
+            <img src="{{ uswds.path }}/img/arrow-down.svg">
             Menu
           </span>
         </button>
@@ -48,6 +48,7 @@
     {% endif %}
 
     <div id="login-root" class="vet-toolbar"></div>
+  {% include '@navigation' %}
     {{ @navigation }}
 
   </div>

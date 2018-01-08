@@ -34,7 +34,7 @@ button,
 
 .usa-button-secondary-exit {
   &::after {
-    background-image: url(/img/icons/exit-icon-primary.png);
+    background-image: url(/dist/img/icons/exit-icon-primary.png);
     background-size: 1em auto;
     display: inline-block;
     width: 1em;
@@ -48,7 +48,7 @@ button,
     padding-right: 1.1em;
   }
   &:hover::after {
-    background-image: url(/img/icons/exit-icon-primary-darker.png);
+    background-image: url(/dist/img/icons/exit-icon-primary-darker.png);
   }
 }
 
@@ -174,7 +174,7 @@ button.short {
 }
 
 .va-btn-close-icon {
-  background: transparent url(assets/img/icons/close.svg) center no-repeat;
+  background: transparent url(dist/img/icons/close.svg) center no-repeat;
   background-size: 1rem 1rem;
   height: 2.2rem;
   padding: 2.2rem;
