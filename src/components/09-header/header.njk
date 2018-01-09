@@ -12,7 +12,7 @@
       {% include '@banner' %}
       <div class="va-crisis-line">
         <div class="va-flex">
-          <button data-show="#modal-crisisline" class="va-crisis-line-button va-overlay-trigger">
+          <button data-show="#modal-crisisline" class="va-crisis-line-button va-overlay-trigger" onClick="showModal(this);">
             <span class="va-flex">
               <span class="vcl"></span>
               Get help from Veterans Crisis Line
@@ -48,9 +48,28 @@
     {% endif %}
 
     <div id="login-root" class="vet-toolbar"></div>
-  {% include '@navigation' %}
-    {{ @navigation }}
+    {% include '@navigation' %}
 
   </div>
 
 </header>
+
+{% include '@vcl' %}
+
+<!-- hacky hacky hacky -->
+<script type="text/javascript">
+
+  function showModal(elem) {
+    //console.log('vcl clicked', elem);
+
+    var parentClasses = document.getElementById("modal-crisisline").classList;
+
+    if(elem.classList.contains('va-overlay-close')) {
+      parentClasses.add('va-overlay');
+    } else if(parentClasses.contains('va-overlay')) {
+      parentClasses.remove('va-overlay');
+    }
+
+
+  }
+</script>
