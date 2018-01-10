@@ -11,7 +11,7 @@
     "export-components": "node src/js/export-components.js",
     "start": "fractal watch",
     "test": "karma start --single-run",
-    "site": "fractal build-site; gh-pages -d build",
+    "site": "fractal build-site && gh-pages -d build",
     "test-watch": "karma start --auto-watch",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "test-debug": "karma start --browsers Chrome"

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
@@ -138,13 +137,18 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   });
 
   if (watch) {
-    compiler.watch({}, (err, info) => {
-      logger.update(info, 'info');
+    compiler.watch({}, (err, stats) => {
+      if (err || stats.hasErrors()) {
+        const info = stats.toJson();
+        logger.error(info.errors);
+      }
     });
   } else {
-    compiler.run((err) => {
-      if (err) {
-        logger.error(err);
+    compiler.run((err, stats) => {
+      if (err || stats.hasErrors()) {
+        const info = stats.toJson();
+        logger.error(info.errors);
+        throw new Error('Webpack compilation error');
       }
     });
   }
