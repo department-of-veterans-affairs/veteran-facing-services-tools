@@ -29,9 +29,9 @@ Currently, this is USWDS' Fractal system with an overlay of Vets. It's very much
   - Header -- so broken.
   - Footer
   - Links
-  - US Government banner (replace with WIP banner)
   - Buttons > Primary Alt (replace with green)
   - Buttons > Secondary (replace with outline)
+  - Serif font: Bitter
 
 
 - Add components that we _are_ using on Vets that are not on USWDS (what are these?)
@@ -42,7 +42,7 @@ Currently, this is USWDS' Fractal system with an overlay of Vets. It's very much
   - Blue cards (deprecated?)
   - Need help? sidebar/footer
   - Iconography
-  - Header > Get Help
+  - Header > Get Help (VCL)
   - Homepage template (unsure whether to break this down into smaller components, since so many of them _only_ live on Home)
   - Navigation > breadcrumbs
   - Navigation > Next/prev
