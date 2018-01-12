@@ -1,3 +1,5 @@
+const { ncp } = require('ncp');
+
 const pkg = require('./package.json');
 const fractal = require('@frctl/fractal').create();
 const generatePropDocs = require('./lib/helpers/generatePropDocs');
@@ -7,10 +9,7 @@ const context = {
   'package': {
     name: pkg.name,
     version: pkg.version,
-  },
-  uswds: {
-    path: '../../dist',
-  },
+  }
 };
 
 fractal.set('project.title', 'Vets.gov Design Standards');
@@ -65,9 +64,15 @@ fractal.cli.command('watch', () => {
   });
   server.on('error', err => logger.error(err.message));
 
-  return server.start().then(() => {
-    logger.success(`Fractal server is now running at ${server.url}`);
-    createWebpackBundle(logger, fractal.components);
+  ncp('./src/img', './dist/img', (err) => {
+    if (err) {
+      logger.error(`Failed to copy images: ${err}`);
+    }
+
+    return server.start().then(() => {
+      logger.success(`Fractal server is now running at ${server.url}`);
+      createWebpackBundle(logger, fractal.components);
+    });
   });
 });
 
@@ -85,14 +90,21 @@ fractal.cli.command('build-site', (args, done) => {
     logger.success('Fractal build completed!');
     logger.update('Building React components');
     createWebpackBundle(logger, fractal.components, false);
-    done();
+
+    ncp('./src/img', './dist/img', (err) => {
+      if (err) {
+        logger.error(`Failed to copy images: ${err}`);
+        throw new Error(err);
+      }
+
+      done();
+    });
   });
 });
 
 web.theme(theme);
 
 web.set('static.path', 'dist');
-web.set('static.mount', 'dist');
 // output files to /build
 web.set('builder.dest', 'build');
 
