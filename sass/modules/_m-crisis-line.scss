@@ -60,7 +60,7 @@
 }
 
 button.va-crisis-line-button {
-  background: $color-white url(/dist/img/arrow-right.svg) calc(100% - 0.5em) center no-repeat;
+  background: $color-white url(/img/arrow-right.svg) calc(100% - 0.5em) center no-repeat;
   background-size: .8em auto;
   border-radius: 0;
   color: $color-base;
@@ -86,7 +86,7 @@ button.va-crisis-line-button {
 
   .vcl {
     content: "";
-    background: url(/dist/img/vcl-logo.png) no-repeat right 29%;
+    background: url(/img/vcl-logo.png) no-repeat right 29%;
     background-size: 100%;
     display: inline-block;
     width: 2em;

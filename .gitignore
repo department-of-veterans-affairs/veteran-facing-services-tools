@@ -4,3 +4,4 @@ fractalEntry.js
 .babelcache
 build/
 dist/
+.DS_Store
