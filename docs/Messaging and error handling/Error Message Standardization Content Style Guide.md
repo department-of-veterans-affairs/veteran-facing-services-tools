@@ -1,12 +1,10 @@
-# Error Message Standardization Content Style Guide
-
 *Note: The guidelines below do not apply to inline error messages in form fields (ie, “Please enter a valid Social Security number.”). Those will be handled separately.*
 
 ## Structure
 
 Every error message will have **up to** 3 parts:
 
-<img src="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Products/Design%20System/Guidelines/Error%20handling/Screenshots/Error%20Message%20for%20Content%20Guide.png" width="608">
+<img src="/dist/img/docs/error_msg_content_guide.png" width="608">
 
 **1.** **Title:** Bold title giving the user a quick idea of what’s wrong
 
