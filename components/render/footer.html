@@ -1,59 +1,111 @@
 
 
-<footer class="usa-footer usa-footer-medium" role="contentinfo">
-  <div class="usa-grid usa-footer-return-to-top">
-    <a href="#">Return to top</a>
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="row va-flex">
+    <ul class="va-footer-linkgroup" id="footer-services">
+      <li><h4 class="va-footer-linkgroup-title">Services and Benefits</h4></li>
+      <li><a href="/disability-benefits/" onClick="footerNavClick(this, 'footer-services');">Disability Benefits</a></li>
+      <li><a href="/health-care/" onClick="footerNavClick(this, 'footer-services');">Health Care Benefits</a></li>
+      <li><a href="/education/" onClick="footerNavClick(this, 'footer-services');">Education Benefits</a></li>
+      <li><a href="/housing-assistance/" onClick="footerNavClick(this, 'footer-services');">Housing Assistance</a></li>
+      <li><a href="/employment/" onClick="footerNavClick(this, 'footer-services');">Careers and Employment</a></li>
+      <li><a href="/life-insurance/" onClick="footerNavClick(this, 'footer-services');">Life Insurance</a></li>
+      <li><a href="/pension/" onClick="footerNavClick(this, 'footer-services');">Pension Benefits</a></li>
+      <li><a href="/burials-and-memorials/" onClick="footerNavClick(this, 'footer-services');">Burials and Memorials</a></li>
+    </ul>
+    <ul class="va-footer-linkgroup" id="footer-popular">
+      <li><h4 class="va-footer-linkgroup-title">Popular on Vets.gov</h4></li>
+      <li><a href="/veteran-id-card/" onClick="footerNavClick(this);">Apply for Printed Veteran ID Card</a></li>
+      <li><a href="/health-care/apply/" onClick="footerNavClick(this);">Apply for health care</a></li>
+      <li><a href="/education/apply-for-education-benefits/" onClick="footerNavClick(this);">Apply for education benefits</a></li>
+      <li><a href="/track-claims/" onClick="footerNavClick(this);">Check your claim and appeal status</a></li>
+      <li><a href="/gi-bill-comparison-tool/" onClick="footerNavClick(this);">Education benefits by school</a></li>
+      <li><a href="/health-care/prescriptions/" onClick="footerNavClick(this);">Refill prescriptions</a></li>
+    </ul>
+    <ul class="va-footer-linkgroup va-list--plain" id="footer-contact">
+      <li><h4 class="va-footer-linkgroup-title">Contact</h4></li>
+      <li><a href="/facilities/" onClick="footerNavClick(this);">Find nearby VA locations</a></li>
+      <li>Call the Vets.gov Help Desk<br>
+      <a href="tel:18555747286" onClick="footerNavClick(this);">1-855-574-7286</a><br>
+      TTY:&nbsp;<a href="tel:+18008778339" onClick="footerNavClick(this);">1-800-877-8339</a><br>
+Monday &#8211; Friday, 8:00 a.m. &#8211; 8:00 p.m. (<abbr title="eastern time">ET</abbr>)</li>
+      <li><p><button class="va-overlay-trigger usa-button-unstyled va-footer-vcl-trigger" data-show="#modal-crisisline">Get help from the Veterans Crisis Line</button></p></li>
+    </ul>
   </div>
-  <div class="usa-footer-primary-section">
-    <div class="usa-grid">
-      <nav class="usa-footer-nav">
-        <ul class="usa-unstyled-list">
-          <li class="usa-width-one-sixth usa-footer-primary-content">
-            <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
-          </li>
-          <li class="usa-width-one-sixth usa-footer-primary-content">
-            <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
-          </li>
-          <li class="usa-width-one-sixth usa-footer-primary-content">
-            <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
-          </li>
-          <li class="usa-width-one-sixth usa-footer-primary-content">
-            <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
-          </li>
-          <li class="usa-width-one-sixth usa-footer-primary-content">
-            <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
-          </li>
-        </ul>
-      </nav>
+    <div class="row" id="va-footer-supplementallinks">
+    <div>
+      <ul class="va-footer-linkgroup--inline" id="footer-supplemental">
+        <li><a href="/playbook/" onClick="footerNavClick(this);">Vets.gov Playbook</a></li>
+        <li><a target="_blank" href="https://www.va.gov/oig/" onClick="footerNavClick(this);">Inspector General</a></li>
+        <li><a target="_blank" href="https://www.section508.va.gov/" onClick="footerNavClick(this);">Accessibility</a></li>
+        <li><a href="/privacy/" onClick="footerNavClick(this);">Privacy</a></li>
+        <li><a target="_blank" href="http://usa.gov" onClick="footerNavClick(this);">USA.gov</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-seal">
+        <abbr>VA</abbr> | U.S. Department of Veterans Affairs
+      </div>
     </div>
   </div>
+    
+      <div class="row disclaimer">
+        <p>Please note: Content on this Web page is for informational purposes only. It is not intended to provide legal advice or to be a comprehensive statement or analysis of applicable statutes, regulations, and case law governing this topic. Rather, it’s a plain-language summary. If you are seeking claims assistance, your local VA regional office, a VA-recognized Veterans Service Organization, or a VA-accredited attorney or agent can help. <a target="_blank" href="https://www.va.gov/ogc/apps/accreditation/index.asp">Search Accredited Attorneys, Claims Agents, or Veterans Service Organizations (VSO) Representatives</a>.</p>
+      </div>
+    
+  </div>
 
-  <div class="usa-footer-secondary_section">
+
+  <div class="va-notice--banner va-notice--banner--alt">
     <div class="usa-grid">
-      <div class="usa-footer-logo usa-width-one-half">
-        <img class="usa-footer-logo-img" src="../../dist/img/logo-img.png" alt="Logo image">
-        <h3 class="usa-footer-logo-heading">Name of Agency</h3>
-      </div>
-      <div class="usa-footer-contact-links usa-width-one-half">
-        <a class="usa-link-facebook" href="javascript:void(0);">
-          <span>Facebook</span>
-        </a>
-        <a class="usa-link-twitter" href="javascript:void(0);">
-          <span>Twitter</span>
-        </a>
-        <a class="usa-link-youtube" href="javascript:void(0);">
-          <span>YouTube</span>
-        </a>
-        <a class="usa-link-rss" href="javascript:void(0);">
-          <span>RSS</span>
-        </a>
-        <address>
-          <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
-          <p>(800) CALL-GOVT</p>
-          <a href="mailto:info@agency.gov">info@agency.gov</a>
-        </address>
-      </div>
+      <a id="feedback-tool" class="feedback-widget" tabindex="0" href="http://veterans.uservoice.com" data-uv-trigger="smartvote">
+        <span class="icon"></span>
+        <span class="text">Provide feedback on Vets.gov</span>
+      </a>
     </div>
   </div>
 </footer>
+
+<!-- End mobile crisis line overlay. See desktop overlay at end of footer -->
+<div id="modal-crisisline" class="va-overlay va-modal va-modal-large" role="alertdialog">
+    <div class="va-crisis-panel va-modal-inner">
+
+      <h3>Get help from Veterans Crisis Line</h3>
+
+      <button class="va-modal-close va-overlay-close" type="button">
+        <i class="fa fa-close va-overlay-close"></i>
+        <span class="usa-sr-only va-overlay-close">Close this modal</span>
+      </button>
+
+      <div class="va-overlay-body va-crisis-panel-body">
+        <ul>
+          <li><a href="tel:18002738255">Call <strong>1-800-273-8255 (Press 1)</strong></a></li>
+          <li><a href="sms:838255">Text to <b>838255</b></a></li>
+          <li><a href="https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat">Chat <b>confidentially now</b></a></li>
+        </ul>
+
+        <p>If you are in crisis or having thoughts of suicide,
+visit <a href="https://www.veteranscrisisline.net/">VeteransCrisisLine.net</a> for more resources.</p>
+      </div>
+    </div>
+  </div>
+<!-- End mobile crisis line overlay -->
+
+<!--
+“To care for him who shall have borne the battle and for his widow, and his orphan.”
+- Abraham Lincoln
+-->
+<script type="text/javascript">
+  function footerNavClick(elem) {
+    const eventLabel = 'nav-' + elem.parentElement.parentElement.id
+    window.dataLayer.push({
+      event: eventLabel,
+      navlabel: elem.innerText
+    });
+  }
+</script>
+
+</body>
+</html>
 
