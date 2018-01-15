@@ -4,7 +4,7 @@
 
 Every error message will have **up to** 3 parts:
 
-<img src="/dist/img/docs/error_msg_content_guide.png" width="608">
+<img src="/img/docs/error_msg_content_guide.png" width="608">
 
 **1.** **Title:** Bold title giving the user a quick idea of what’s wrong
 
