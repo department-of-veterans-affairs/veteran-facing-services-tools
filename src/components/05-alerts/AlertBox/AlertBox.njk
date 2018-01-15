@@ -1,0 +1,11 @@
+import React from 'react';
+import Alertbox from './AlertBox';
+
+export default function AlertBoxExample(props) {
+  return (
+    <AlertBox
+      headline={props.headline}
+      content={props.content}
+      status={props.status}/>
+  );
+}
