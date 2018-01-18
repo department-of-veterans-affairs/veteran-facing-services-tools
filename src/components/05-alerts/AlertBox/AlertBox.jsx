@@ -73,11 +73,23 @@ class AlertBox extends React.Component {
 }
 
 AlertBox.propTypes = {
+
+  // optional headline
   headline: PropTypes.node,
+
+  // body content is required -- this is the bulk of the alert
   content: PropTypes.node.isRequired,
+
+  // is the alert visible? useful for alerts triggered by app interaction
   isVisible: PropTypes.bool.isRequired,
+
+  // this is useful if the alerbox can be dismissed or closed
   onCloseAlert: PropTypes.func,
+
+  // if true, page scrolls to alert
   scrollOnShow: PropTypes.bool,
+
+  // determines the color of the alert box: blue, red, green, yellow respectively
   status: PropTypes.oneOf([
     'info',
     'error',
