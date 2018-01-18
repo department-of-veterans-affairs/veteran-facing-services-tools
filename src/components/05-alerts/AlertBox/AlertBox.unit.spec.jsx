@@ -1,5 +1,6 @@
 import React from 'react';
-import SkinDeep from 'skin-deep';
+import { shallow } from 'enzyme';
+import { axeCheck } from '../../../../lib/testing/helpers';
 import { expect } from 'chai';
 
 import AlertBox from './AlertBox.jsx';
@@ -7,24 +8,23 @@ import AlertBox from './AlertBox.jsx';
 // Placeholder for required "content" element
 const Content = (<p/>);
 
-describe('<AlertBox>', () => {
+describe('<AlertBox />', () => {
   it('should be an empty div if invisible', () => {
-    const tree = SkinDeep.shallowRender(
+    const wrapper = shallow(
       <AlertBox
         content={Content}
         status={'info'}
-        isVisible={false}/>
-    );
-    expect(tree.toString()).to.equal('<div aria-live="polite" />');
+        isVisible={false}/>);
+    expect(wrapper.html()).to.equal('<div aria-live="polite"></div>');
   });
 
   it('should have the expected classname', () => {
-    const tree = SkinDeep.shallowRender(
+    const wrapper = shallow(
       <AlertBox
         content={Content}
         status={'info'}
         isVisible/>
     );
-    expect(tree.props.className).to.equal('usa-alert usa-alert-info');
+    expect(wrapper.find('.usa-alert').hasClass('usa-alert-info')).to.equal(true);
   });
 });
