@@ -27,4 +27,11 @@ describe('<AlertBox />', () => {
     );
     expect(wrapper.find('.usa-alert').hasClass('usa-alert-info')).to.equal(true);
   });
+
+  it('should pass aXe check', () => {
+    return axeCheck(<AlertBox
+      content={Content}
+      status={'info'}
+      isVisible/>);
+  });
 });
