@@ -1,5 +1,0 @@
-label: System Down View
-status: wip
-
-context:
-  componentSourcePath: 'system_down_view.jsx'

@@ -1,5 +1,0 @@
-label: Required Login View
-status: wip
-
-context:
-  componentSourcePath: 'required_login_view.jsx'
