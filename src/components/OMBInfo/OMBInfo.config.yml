@@ -1,0 +1,8 @@
+label: OMB Info
+status: wip
+
+context:
+  componentSourcePath: 'OMBInfo.jsx'
+  resBurden: 15
+  ombNumber: 'Some number'
+  expDate: 'March 15 0000'
