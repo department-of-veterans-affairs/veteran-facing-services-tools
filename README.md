@@ -166,7 +166,6 @@ Deployment steps assume you've followed the getting started section at the top o
 
 GitHub will automatically try to render any Markdown files using Jekyll. If you get any Jekyll build errors from Github (via email, usually) after pushing the site, you can run the site locally to address any errors and bypass looping through the above. Instructions here assume you already have Bundler installed (see [instructions](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) if you don't know what that is).
 
-* Run `fractal build`
-* Run `bundle exec jekyll serve -s build`
+* Run `npm run start`
 
-Add `-t` to the above if you want to get tracebacks from any errors.
+If the `fractal watch` task fails, remove the `dist` directory and try running `npm run start` again.

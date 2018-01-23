@@ -137,10 +137,21 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   });
 
   if (watch) {
+    logger.log('Starting webpack build...');
+    const buildHashes = [];
     compiler.watch({}, (err, stats) => {
       if (err || stats.hasErrors()) {
         const info = stats.toJson();
         logger.error(info.errors);
+      } else {
+        if (!buildHashes.includes(stats.hash)) {
+          buildHashes.push(stats.hash);
+          logger.log(stats.toString('minimal'));
+
+          if (buildHashes.length > 1) {
+            logger.log('\x1b[36mBuild complete');
+          }
+        }
       }
     });
   } else {
