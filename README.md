@@ -146,6 +146,7 @@ Fractal has other features that make it a compelling tool for Vets.gov:
 5. [Caseflow](http://dsva-appeals-certification-demo-1715715888.us-gov-west-1.elb.amazonaws.com/styleguide)
 6. [Fractal API](http://fractal.build/api)
 7. [Fractal API + prod](http://fractal.build/guide/integration/production)
+8. [GDS' Design System](https://gds.blog.gov.uk/2017/10/30/building-the-gov-uk-design-system/)
 
 ### Stuff to look into further
 
