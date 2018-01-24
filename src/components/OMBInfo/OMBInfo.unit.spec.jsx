@@ -7,11 +7,21 @@ import OMBInfo from './OMBInfo.jsx';
 
 describe('<OMBInfo/>', () => {
   it('should render', () => {
-    const tree = shallow(<Modal id="modal" title="Modal title" visible onClose={() => {}}>Modal contents</Modal>);
-    expect(tree.text()).to.contain('Modal contents');
+    const tree = shallow(
+      <OMBInfo
+        resBurden={15}
+        ombNumber={"OMB Number"}
+        expDate={"Expiration date"}
+      />);
+    expect(tree.text()).to.contain('Expiration date');
   });
 
   it('should pass aXe check', () => {
-    return axeCheck(<Modal id="modal" title="Modal title" visible onClose={() => {}}/>);
+    return axeCheck(<OMBInfo
+        resBurden={15}
+        ombNumber={"OMB Number"}
+        expDate={"Expiration date"}
+      />);
   });
+
 });
