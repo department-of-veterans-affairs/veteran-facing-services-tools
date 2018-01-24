@@ -1,0 +1,12 @@
+label: ErrorableTextInput
+status: wip
+
+context:
+  componentSourcePath: './ErrorableTextInput.jsx'
+  errorMessage: 'Error message'
+  label: 'Label'
+  placeholder: 'Placeholder'
+  name: 'Name'
+  field:
+    dirty: false
+  charMax: 255
