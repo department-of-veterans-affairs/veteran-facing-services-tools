@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../tooltip/Tooltip.jsx';
+import ToolTip from '../../../tooltip/tooltip.jsx';
 import ExpandingGroup from '../expanding_group/ExpandingGroup.jsx';
 
 import { makeField } from '../../../../model/fields.js';
