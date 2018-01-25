@@ -4,13 +4,13 @@ import { shallow } from 'enzyme';
 import chaiAsPromised from 'chai-as-promised';
 import chai, { expect } from 'chai';
 
-import ProgressButton from '../../../../src/js/common/components/form-elements/ProgressButton';
+import ProgressButton from './ProgressButton.jsx';
 
 chai.use(chaiAsPromised);
 
 describe('<ProgressButton>', () => {
   it('has sane looking features', () => {
-    const tree = SkinDeep.shallowRender(<ProgressButton/>);
+    const tree = shallow(<ProgressButton/>);
     const buttons = tree.everySubTree('button');
     expect(buttons).to.have.lengthOf(1);
   });
