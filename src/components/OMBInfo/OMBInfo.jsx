@@ -53,7 +53,7 @@ OMBInfo.propTypes = {
   // OMB control number / form number
   ombNumber: PropTypes.string,
 
-  // form expiration date?
+  // form expiration date
   expDate: PropTypes.string
 };
 
