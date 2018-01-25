@@ -8,12 +8,16 @@ import ProgressButton from './ProgressButton.jsx';
 
 chai.use(chaiAsPromised);
 
+//    const tree = shallow(<Modal
+// id="modal" title="Modal title" visible onClose={() => {//}}>Modal contents</Modal>);
+
 describe('<ProgressButton>', () => {
   it('has sane looking features', () => {
-    const tree = shallow(<ProgressButton/>);
-    console.log(tree.debug());
-  //  const buttons = tree.everySubTree('button');
-  //  expect(buttons).to.have.lengthOf(1);
+    const tree = shallow(<ProgressButton
+      buttonText={"Button text"} buttonClass={"usa-button-primary"}
+      disabled={false}/>);
+    expect(tree.text()).to.equal("Button text");
+    expect(tree).to.have.length.of(1);
   });
 
   it('calls handle() on click', () => {
@@ -21,7 +25,11 @@ describe('<ProgressButton>', () => {
 
     const updatePromise = new Promise((resolve, _reject) => {
       progressButton = ReactTestUtils.renderIntoDocument(
-        <ProgressButton onButtonClick={() => { resolve(true); }}/>
+        <ProgressButton
+          buttonText={"Button text"} 
+          buttonClass={"usa-button-primary"}
+          disabled={false}
+          onButtonClick={() => { resolve(true); }}/>
       );
     });
 
