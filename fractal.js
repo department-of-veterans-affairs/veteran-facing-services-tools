@@ -69,10 +69,11 @@ fractal.cli.command('watch', () => {
       logger.error(`Failed to copy images: ${err}`);
     }
 
-    return server.start().then(() => {
-      logger.success(`Fractal server is now running at ${server.url}`);
-      createWebpackBundle(logger, fractal.components);
-    });
+  });
+
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+    createWebpackBundle(logger, fractal.components);
   });
 });
 
