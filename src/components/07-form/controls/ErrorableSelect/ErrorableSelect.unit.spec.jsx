@@ -3,6 +3,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import { shallow } from 'enzyme';
 import chaiAsPromised from 'chai-as-promised';
 import chai, { expect } from 'chai';
+import { axeCheck } from '../../../../../lib/testing/helpers';
 
 import ErrorableSelect from './ErrorableSelect.jsx';
 import { makeField } from '../../../../model/fields.js';
@@ -49,6 +50,10 @@ describe('<ErrorableSelect>', () => {
     expect(selects.find('aria-describedby')).to.have.lengthOf(0);
   });
 
+  it('should pass aXe check when errorMessage is undefined'), () => {
+    return axeCheck(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
+  }
+
   it('has error styles when errorMessage is set', () => {
     const tree = shallow(
       <ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) => {}}/>);
@@ -71,17 +76,29 @@ describe('<ErrorableSelect>', () => {
     expect(selects.prop('aria-describedby')).to.equal("errorable-select-3-error-message");
   });
 
+  it('should pass aXe check when errorMessage is set'), () => {
+    return axeCheck(<ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) => {}}/>);
+  }
+
   it('required=false does not have required asterisk', () => {
     const tree = shallow(
       <ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
     expect(tree.find('label').text()).to.equal('my label');
   });
 
+  it('should pass aXe check when it is not required'), () => {
+    return axeCheck(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
+  }
+
   it('required=true has required asterisk', () => {
     const tree = shallow(
       <ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) => {}}/>);
       expect(tree.find('label').text()).to.equal('my label*');
   });
+
+  it('should pass aXe check when it is required'), () => {
+    return axeCheck(<ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) => {}}/>);
+  }
 
   it('label attribute propagates', () => {
     const tree = shallow(
@@ -98,4 +115,6 @@ describe('<ErrorableSelect>', () => {
     expect(selects.find('id')).to.not.be.undefined;
     expect(selects.prop('id')).to.equal("errorable-select-6");
   });
+
+
 });
