@@ -4,14 +4,7 @@ import _ from 'lodash';
 
 /**
  * A component for the continue button to navigate through panels of questions.
- *
- * Required props
- * `onButtonClick`: function that changes the path to the next panel or submit.
- * `buttonText`: String. Stores the value for the button text.
- * `buttonClass`: String. Stores the value for the button class(es).
- * `beforeText`: String. Stores the value for the icon that will appear before the button text.
- * `afterText`: String. Stores the value for the icon that will appear after the button text.
- */
+ **/
 
 class ProgressButton extends React.Component {
   componentWillMount() {
