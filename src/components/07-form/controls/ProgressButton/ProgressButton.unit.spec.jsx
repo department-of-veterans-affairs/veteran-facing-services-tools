@@ -12,7 +12,7 @@ chai.use(chaiAsPromised);
 // id="modal" title="Modal title" visible onClose={() => {//}}>Modal contents</Modal>);
 
 describe('<ProgressButton>', () => {
-  it('has sane looking features', () => {
+  it('should render with button text', () => {
     const tree = shallow(<ProgressButton
       buttonText={"Button text"} buttonClass={"usa-button-primary"}
       disabled={false}/>);
