@@ -8,22 +8,8 @@ import { makeField } from '../../../../model/fields.js';
 
 /**
  * A form select with a label that can display error messages.
- *
- * Validation has the following props.
- * `errorMessage` - Error string to display in the component.
- *                  When defined, indicates select has a validation error.
- * `label` - String for the select field label.
- * `name` - String for the select name attribute.
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `autocomplete` - String for the select autocomplete attribute.
- * `options` - Array of options to populate select.
- * `required` - boolean. Render marker indicating field is required.
- * `value` - object containing:
- *   - `value`: Value of the select field.
- *   - `dirty`: boolean. Whether a field has been touched by the user.
- * `onValueChange` - a function with this prototype: (newValue)
- */
+ **/
+ 
 class ErrorableSelect extends React.Component {
   constructor() {
     super();
@@ -113,13 +99,13 @@ ErrorableSelect.propTypes = {
   // When defined, indicates select has a validation error.
   errorMessage: PropTypes.string,
 
-  // String for the select name attribute.
+  // Select name attribute.
   name: PropTypes.string,
 
-  // String for the select autocomplete attribute.
+  // Select autocomplete attribute.
   autocomplete: PropTypes.string,
 
-  //String for the select field label.
+  // Select field label.
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -137,11 +123,14 @@ ErrorableSelect.propTypes = {
         value: PropTypes.string }),
     ])).isRequired,
 
-  // boolean. Render marker indicating field is required.
+  // Render marker indicating field is required.
   required: PropTypes.bool,
 
   // is there an empty selectable thing
   includeBlankOption: PropTypes.bool,
+
+  // Description that shows up for the blank option, when includeBlankOption is true
+  emptyDescription: PropTypes.string,
 
   /* `value` - object containing:
   *   - `value`: Value of the select field.
@@ -154,11 +143,9 @@ ErrorableSelect.propTypes = {
   // a function with this prototype: (newValue)
   onValueChange: PropTypes.func.isRequired,
 
-  // ?
-  additionalClass: PropTypes.string,
+  // Additional css class that is added to the select element.
+  additionalClass: PropTypes.string
 
-  // ?
-  emptyDescription: PropTypes.string
 };
 
 ErrorableSelect.defaultProps = {
