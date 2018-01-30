@@ -21,7 +21,6 @@
     "font-awesome": "4",
     "foundation-sites": "5",
     "prop-types": "^15.6.0",
-    "react-transition-group": "^1.1.2",
     "uswds": "^1.2.1"
   },
   "devDependencies": {
@@ -61,6 +60,7 @@
     "react-docgen": "^2.19.0",
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.0",
+    "react-transition-group": "1.x",
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",
     "sinon": "^4.1.6",
