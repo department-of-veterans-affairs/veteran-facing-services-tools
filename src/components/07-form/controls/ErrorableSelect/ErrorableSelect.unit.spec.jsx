@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import { shallow } from 'enzyme';
+import { mount,  shallow } from 'enzyme';
 import chaiAsPromised from 'chai-as-promised';
 import chai, { expect } from 'chai';
 import { axeCheck } from '../../../../../lib/testing/helpers';
@@ -15,7 +15,18 @@ describe('<ErrorableSelect>', () => {
   const options = [{ value: 1, label: 'first' }, { value: 2, label: 'second' }];
 
   it('ensure value changes propagate', () => {
+
+    const wrapper = mount(<ErrorableSelect
+      label="test"
+      options={options}
+      value={testValue}
+      onValueChange={(update) => { resolve(update); }}/>);
+
+      wrapper.find('select').first().simulate('change', {target: {value: ''}})
+      expect(valueChanged.value).to.eql('');
+    
     let errorableSelect;
+
 
     const updatePromise = new Promise((resolve, _reject) => {
       errorableSelect = ReactTestUtils.renderIntoDocument(
