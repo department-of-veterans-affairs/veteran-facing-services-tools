@@ -24,7 +24,7 @@ describe('<ErrorableSelect>', () => {
 
       wrapper.find('select').first().simulate('change', {target: {value: ''}})
       expect(valueChanged.value).to.eql('');
-    
+
     let errorableSelect;
 
 
