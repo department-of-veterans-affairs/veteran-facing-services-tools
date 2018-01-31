@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
-import { shallow } from 'enzyme';
+import { mount,  shallow } from 'enzyme';
 import chaiAsPromised from 'chai-as-promised';
 import chai, { expect } from 'chai';
 import { axeCheck } from '../../../../../lib/testing/helpers';
@@ -14,20 +13,18 @@ describe('<ErrorableSelect>', () => {
   const testValue = makeField('');
   const options = [{ value: 1, label: 'first' }, { value: 2, label: 'second' }];
 
-  it('ensure value changes propagate', () => {
-    let errorableSelect;
+  it('calls onValueChange with input value', () => {
+    let valueChanged;
+    // render component with callback that alters valueChanged with passed argument
+    const wrapper = mount(<ErrorableSelect
+      label="my label"
+      options={options}
+      value={testValue}
+      onValueChange={(value) => valueChanged = value}/>
+    );
 
-    const updatePromise = new Promise((resolve, _reject) => {
-      errorableSelect = ReactTestUtils.renderIntoDocument(
-        <ErrorableSelect label="test" options={options} value={testValue} onValueChange={(update) => { resolve(update); }}/>
-      );
-    });
-
-    const select = ReactTestUtils.findRenderedDOMComponentWithTag(errorableSelect, 'select');
-    select.value = '';
-    ReactTestUtils.Simulate.change(select);
-
-    return expect(updatePromise).to.eventually.eql(makeField('', true));
+    wrapper.find('select').first().simulate('change', {target: {value: 'hello'}});
+    expect(valueChanged.value).to.eql('hello');
   });
 
   it('no error styles when errorMessage undefined', () => {
