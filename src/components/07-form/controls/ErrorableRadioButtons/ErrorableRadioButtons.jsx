@@ -4,7 +4,7 @@ import _ from 'lodash';
 import classNames from 'classnames';
 
 import ToolTip from '../../../tooltip/tooltip.jsx';
-import ExpandingGroup from '../expanding_group/ExpandingGroup.jsx';
+import ExpandingGroup from '../ExpandingGroup/ExpandingGroup.jsx';
 
 import { makeField } from '../../../../model/fields.js';
 
