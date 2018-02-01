@@ -69,8 +69,10 @@ describe('<ErrorableSelect>', () => {
     // No error means no aria-describedby to not confuse screen readers.
     const selects = tree.find('select');
     expect(selects).to.have.lengthOf(1);
+
+    const idNum = selects.props().id.split('-')[2];
     expect(selects.prop('aria-describedby')).to.not.be.undefined;
-    expect(selects.prop('aria-describedby')).to.equal("errorable-select-3-error-message");
+    expect(selects.prop('aria-describedby')).to.equal("errorable-select-" + idNum + "-error-message");
   });
 
   it('should pass aXe check when errorMessage is set'), () => {
@@ -108,9 +110,10 @@ describe('<ErrorableSelect>', () => {
 
     // Ensure label htmlFor is attached to select id.
     const selects = tree.find('select');
+    const idNum = selects.props().id.split('-')[2];
     expect(selects).to.have.lengthOf(1);
     expect(selects.find('id')).to.not.be.undefined;
-    expect(selects.prop('id')).to.equal("errorable-select-6");
+    expect(selects.prop('id')).to.equal("errorable-select-" + idNum);
   });
 
 

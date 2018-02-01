@@ -1,0 +1,7 @@
+label: System Down View
+status: wip
+
+context:
+  componentSourcePath: 'SystemDownView.jsx'
+  messageLine1: "This is the message that shows when the system is down."
+  messageLine2: "This is an optional second line, for details or whatnot."
