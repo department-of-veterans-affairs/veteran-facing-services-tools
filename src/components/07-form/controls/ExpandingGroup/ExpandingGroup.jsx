@@ -12,7 +12,9 @@ import classnames from 'classnames';
  * additionalClass - A string added as a class to the parent element of the second child
  * showPlus - Boolean to display a "+" or "-" icon based on open status
  */
-export default function ExpandingGroup({ children, open, showPlus, additionalClass, expandedContentId }) {
+export default function ExpandingGroup({
+  children, open, showPlus, additionalClass, expandedContentId
+}) {
   const classNames = classnames(
     'form-expanding-group',
     { 'form-expanding-group-open': open },

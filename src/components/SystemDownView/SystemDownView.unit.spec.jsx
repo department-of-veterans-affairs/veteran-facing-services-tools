@@ -9,7 +9,7 @@ describe('<SystemDownView>', () => {
     const tree = shallow(<SystemDownView
         messageLine1="This is the first line"
         messageLine2="This is the second line"/>);
-    expect(tree.text()).to.contain("This is the first line");
+    expect(tree.text()).to.contain('This is the first line');
   });
 
   it('should pass aXe check', () => {

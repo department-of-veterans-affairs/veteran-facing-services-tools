@@ -15,10 +15,9 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = mount(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => valueChanged = value}/>
-    );
+      onValueChange={(value) => valueChanged = value}/>);
 
-    wrapper.find('input').first().simulate('change', {target: {value: 'hello'}});
+    wrapper.find('input').first().simulate('change', { target: { value: 'hello' } });
     expect(valueChanged.value).to.eql('hello');
     expect(valueChanged.dirty).to.eql(false);
   });
@@ -29,8 +28,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = mount(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => valueChanged = value}/>
-    );
+      onValueChange={(value) => valueChanged = value}/>);
 
     wrapper.find('input').first().simulate('blur');
     expect(valueChanged.dirty).to.eql(true);
@@ -41,8 +39,7 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       placeholder="Placeholder"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const label = wrapper.find('label');
     const input = wrapper.find('input');
@@ -57,8 +54,7 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       errorMessage="errorMessage"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const errorStyles = [
       '.usa-input-error-label',
@@ -75,12 +71,11 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       errorMessage="errorMessage"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const input = wrapper.find('input');
     const errorMessageId = wrapper.find('.usa-input-error-message').first().prop('id');
-    expect(input.prop('aria-describedby')).to.eql(errorMessageId);;
+    expect(input.prop('aria-describedby')).to.eql(errorMessageId);
   });
 
   it('renders an error message when errorMessage attribute is present', () => {
@@ -88,8 +83,7 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       errorMessage="errorMessage"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const errorMessage = wrapper.find('.usa-input-error-message');
     expect(errorMessage).to.have.lengthOf(1);
@@ -100,8 +94,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const errorStyles = [
       '.usa-input-error-label',
@@ -117,8 +110,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     expect(wrapper.find('input').prop('aria-describedby')).to.not.exist;
   });
@@ -127,8 +119,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     expect(wrapper.find('.usa-input-error-message')).to.have.lengthOf(0);
   });
@@ -138,8 +129,7 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       required
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     expect(wrapper.find('label').text()).to.eql('test*');
   });
@@ -148,8 +138,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     expect(wrapper.find('label').text()).to.eql('test');
   });
@@ -158,8 +147,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     const inputId = wrapper.find('input').first().prop('id');
     const labelFor = wrapper.find('label').first().prop('htmlFor');
@@ -172,8 +160,7 @@ describe('<ErrorableTextInput>', () => {
       field={makeField('')}
       label="test"
       placeholder="Placeholder"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     return check;
   });
@@ -184,8 +171,7 @@ describe('<ErrorableTextInput>', () => {
       label="test"
       placeholder="Placeholder"
       errorMessage="error"
-      onValueChange={(value) => value}/>
-    );
+      onValueChange={(value) => value}/>);
 
     return check;
   });

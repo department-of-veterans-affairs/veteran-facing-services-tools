@@ -10,8 +10,8 @@ import { makeField } from '../../../../model/fields.js';
 
 describe('<ErrorableRadioButtons>', () => {
   const nonExpandingOptions = ['yes', 'no'];
-  const allExpandingOptions = [{ value: 'yes', label: 'Yes', additional: 'Yes addtional'}, { value: 'no', label: 'No', additional: 'No additional'}];
-  const someExpandingOptions =  ['yes', { value: 'no', label: 'No', additional: 'No additional'}, 'maybe'];
+  const allExpandingOptions = [{ value: 'yes', label: 'Yes', additional: 'Yes addtional' }, { value: 'no', label: 'No', additional: 'No additional' }];
+  const someExpandingOptions =  ['yes', { value: 'no', label: 'No', additional: 'No additional' }, 'maybe'];
 
   it('calls onValueChange with value and dirty state', () => {
     let valueChanged;
@@ -38,7 +38,7 @@ describe('<ErrorableRadioButtons>', () => {
   });
 
   it('renders a legend tag with the label attribute', () => {
-    const labelValue = "test";
+    const labelValue = 'test';
     const wrapper = shallow(<ErrorableRadioButtons label={labelValue} options={nonExpandingOptions} value={makeField('test')} onValueChange={(value) =>  value}/>);
 
     // assert that legend element was rendered with label value as its text
