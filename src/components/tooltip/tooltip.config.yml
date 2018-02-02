@@ -2,7 +2,7 @@ label: Tooltip
 status: wip
 
 context:
-  componentSourcePath: './tooltip.jsx'
+  componentSourcePath: './Tooltip.jsx'
   id: default
   title: 'Tooltip'
   open: false

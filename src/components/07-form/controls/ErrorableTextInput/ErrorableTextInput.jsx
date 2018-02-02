@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 
-import ToolTip from '../../../tooltip/tooltip.jsx';
+import ToolTip from '../../../Tooltip/Tooltip.jsx';
 
 import { makeField } from '../../../../model/fields.js';
 

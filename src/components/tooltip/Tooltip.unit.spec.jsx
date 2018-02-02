@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { axeCheck } from '../../../lib/testing/helpers';
-import Tooltip from './tooltip.jsx';
+import Tooltip from './Tooltip.jsx';
 
 describe('<Tooltip/>', () => {
   it('should render', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import { shallow } from 'enzyme';
-import { axeCheck } from '../../../lib/testing/helpers';
+import { axeCheck } from '../../../../../lib/testing/helpers';
 import ErrorableCheckbox from './ErrorableCheckbox.jsx';
 
 chai.use(chaiAsPromised);

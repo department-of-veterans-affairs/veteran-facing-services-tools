@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 
-import ToolTip from '../../../tooltip/tooltip.jsx';
+import ToolTip from '../../../Tooltip/Tooltip.jsx';
 
 import { makeField } from '../../../../model/fields.js';
 
 /**
  * A form select with a label that can display error messages.
- **/
- 
+ */
+
 class ErrorableSelect extends React.Component {
   constructor() {
     super();
@@ -112,16 +112,17 @@ ErrorableSelect.propTypes = {
   ]).isRequired,
 
   // Array of options to populate select.
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.number }),
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string }),
-    ])).isRequired,
+  options: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.number
+    }),
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    }),
+  ])).isRequired,
 
   // Render marker indicating field is required.
   required: PropTypes.bool,
@@ -133,8 +134,9 @@ ErrorableSelect.propTypes = {
   emptyDescription: PropTypes.string,
 
   /* `value` - object containing:
-  *   - `value`: Value of the select field.
-  *   - `dirty`: boolean. Whether a field has been touched by the user.*/
+   *   - `value`: Value of the select field.
+   *   - `dirty`: boolean. Whether a field has been touched by the user.
+   */
   value: PropTypes.shape({
     value: PropTypes.string,
     dirty: PropTypes.bool

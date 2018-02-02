@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../tooltip/tooltip.jsx';
+import ToolTip from '../../../Tooltip/Tooltip.jsx';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup.jsx';
 
 import { makeField } from '../../../../model/fields.js';
@@ -197,24 +197,23 @@ ErrorableRadioButtons.propTypes = {
    * array of options to populate group- each item is a string or an object representing an Expanding Group
    *
    */
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        label: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.element,
-        ]).isRequired,
-        value: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.bool
-        ]).isRequired,
-        additional: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.element
-        ])
-      })
-    ])).isRequired,
+  options: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
+      ]).isRequired,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.bool
+      ]).isRequired,
+      additional: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+      ])
+    })
+  ])).isRequired,
   /**
    * value object for selected field <br/>
    * value: string value that matches radio button value </br>
