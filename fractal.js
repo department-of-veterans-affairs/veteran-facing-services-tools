@@ -37,17 +37,19 @@ docs.set('path', 'docs');
 const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
   skin: 'white',
+  // reorder navigation
+  nav: ["docs", "components"],
   // display context data in YAML
   format: 'yaml',
   // which panels to show
   panels: [
-    'html',
     'notes',
+    'props',
+    'html',
     'view',
     'context',
     'resources',
-    'info',
-    'props'
+    'info'
   ],
 });
 
