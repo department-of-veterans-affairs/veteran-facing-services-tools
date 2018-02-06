@@ -9,7 +9,7 @@ The most typical templates used are “L2-section-landing” (forsection landing
 
 **Check that Related Links (Piano Keys) are formatted properly:**
 
-**Code Lines: **
+**Code Lines:**
 Each `links` should have 3 lines:
 ```
 	- url: /healthcare/
