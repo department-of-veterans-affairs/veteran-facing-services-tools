@@ -1,6 +1,6 @@
 ### How to Access Staging
 
-Log in to https://staging. vets.gov:
+Log in to https://staging.vets.gov:
 
 Username: veterans
 Password: am3rica
