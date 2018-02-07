@@ -18,7 +18,7 @@ const { components, docs, web } = fractal;
 
 components.set('ext', '.njk');
 components.set('path', 'src/components');
-components.set('default.preview', '@uswds');
+components.set('default.preview', '@uswds-vets');
 components.set('default.context', context);
 
 const vetsAdapter = require('./lib/vets-adapter')({
@@ -38,7 +38,7 @@ const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
   skin: 'white',
   // reorder navigation
-  nav: ["docs", "components"],
+  nav: ['docs', 'components'],
   // display context data in YAML
   format: 'yaml',
   // which panels to show

@@ -1,5 +1,6 @@
 label: Side navigation
 status: ready
+handle: sidenav
 
 context:
   sidenav:

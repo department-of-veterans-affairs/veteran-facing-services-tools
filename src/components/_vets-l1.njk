@@ -1,0 +1,23 @@
+<!--
+Should display with header, footer, no sidenav
+-->
+
+{% extends '_uswds.njk' %}
+
+{% block body %}
+
+{% include '@vets-header' %}
+
+>> Breadcrumbs go here <<
+
+  <div class="usa-grid" style="padding: 2em">
+    <div class="usa-width-one-whole">
+
+      {{ yield }}
+
+    </div>
+  </div>
+
+{% include '@footer' %}
+
+{% endblock %}
