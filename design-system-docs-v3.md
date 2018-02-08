@@ -282,6 +282,6 @@ The owner is responsible for making sure that maintenance work is getting priori
     * might another pattern be developed instead?
     * should the existing pattern's docs be modified to reflect the new reality?
 
-<a name="#deprecation">### Deprecation</a>
+### Deprecation <a name="deprecation"></a>
 
 - There's a difference between removing components that have never been used (like those from USWDS) and removing the ones we've outgrown (like piano keys). Right now the system's in pretty good shape, but what should our criteria be for deprecating components?
