@@ -5,8 +5,6 @@ class Breadcrumbs extends React.Component {
   render() {
 
     const crumbs = this.props.crumbs;
-    console.log(typeof crumbs);
-
     return (
       <nav className="va-nav-breadcrumbs">
         <ul className="row va-nav-breadcrumbs-list columns" role="menubar" aria-label="Primary">
