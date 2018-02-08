@@ -28,7 +28,7 @@
   - [Maintenance tasks](#tasks)
   - [Deprecation](#deprecation)
 
-## What is this document? <a name="#what-is-doc"></a>
+## What is this document? <a name="what-is-doc"></a>
 
 **v3 Modified 2/8/18**
 
@@ -36,7 +36,7 @@ A draft of recommended governance for the Vets.gov design system. [Feedback welc
 
 **It contains:** an explanation of what the design system is, who it's for, and how to use it.
 
-## What is the design system? <a name="#what-is-system"></a>
+## What is the design system? <a name="what-is-system"></a>
 
 The design system (affectionately named "Jean Pants") is a Fractal implementation for Vets.gov. It's based on USWDS' own system, and modified for the unique needs of Vets.gov.
 
@@ -51,7 +51,7 @@ Jean Pants' purpose is to provide accepted guidance for:
 
 Its purpose is _not_ to limit the creation of new components and applications. If you need something, and it's not already a part of Jean Pants, we have a process for you!
 
-### Component contents <a name="#component-contents"></a>
+### Component contents <a name="component-contents"></a>
 
 Each component included in the design system has the same core files and views associated with it, accessible from the tabs for each component:
 
@@ -73,7 +73,7 @@ Each component included in the design system has the same core files and views a
 
 
 
-### Organization <a name="#organization"></a>
+### Organization <a name="organization"></a>
 
 
 > This is probably the least well-defined part of the system, and I will come back to it. -SD
@@ -84,30 +84,30 @@ Each component included in the design system has the same core files and views a
 
 
 
-### How does it work? <a name="#how-it-works"></a>
+### How does it work? <a name="how-it-works"></a>
 
 
 integration w/ vets-website, etc
 
 
 
-### How do I use it? <a name="#use"></a>
+### How do I use it? <a name="use"></a>
 
 Don't identify with any of these categories? [Submit an issue](https://github.com/department-of-veterans-affairs/design-system/issues) to our repo!
 
-#### As a designer <a name="#use-designer"></a>
+#### As a designer <a name="use-designer"></a>
 
 
-#### As a developer <a name="#use-developer"></a>
+#### As a developer <a name="use-developer"></a>
 
 
-#### As a writer <a name="#use-writer"></a>
+#### As a writer <a name="use-writer"></a>
 
 
-#### As a researcher <a name="#use-researcher"></a>
+#### As a researcher <a name="use-researcher"></a>
 
 
-### Definitions <a name="#definitions"></a>
+### Definitions <a name="definitions"></a>
 
 **Core**: The tried & true, tested parts of our design system. Comprises a subset of USWDS' core code, plus the patterns in production on Vets.gov
 
@@ -117,7 +117,7 @@ Don't identify with any of these categories? [Submit an issue](https://github.co
 
 **React component:** A Fractal component that _is_ React. Is also, technically, a React component in the usual sense of the phrase. Is called upon in React apps.
 
-## Contribution <a name="#contribution"></a>
+## Contribution <a name="contribution"></a>
 
 > What is the contribution process?
 >
@@ -132,25 +132,25 @@ Don't identify with any of these categories? [Submit an issue](https://github.co
 
 With thanks to USWDS:
 
-### Required questions <a name="#required"></a>
+### Required questions <a name="required"></a>
 
 - Describe the pattern: what’s its purpose and functionality?
 
 - What user-need does it solve?
 
-### Optional questions <a name="#optional"></a>
+### Optional questions <a name="optional"></a>
 
   - Have you conducted primary research? If so, provide.
   - Do you have secondary research (e.g. articles, outside research)? If so, provide.
   - Are there any similar or related patterns in the system already?
 
-###Share the component <a name="#share"></a>
+###Share the component <a name="share"></a>
 
 Submit sketches, wireframes, design, or code (link to code on their repo, post code directly to the issue, CodePen, or pull request).
 
 ---
 
-### Creating new components <a name="#create"></a>
+### Creating new components <a name="create"></a>
 
 Loosely, the process for bringing a new component into the design system mirrors the creation of a new design pattern. New components should result from a demonstrated need for a new visual or user-interaction pattern.
 
@@ -183,7 +183,7 @@ New components **should not**:
 
 
 
-### Moving new components into Fractal <a name="#move"></a>
+### Moving new components into Fractal <a name="move"></a>
 
 New design system components should follow this general path:
 
@@ -191,7 +191,7 @@ New design system components should follow this general path:
 
 > Mel: Moving new components into Fractal -- I love this process flow. What do you think about making it into a more visual flow chart?
 
-#### The Kitchen Sink <a name="#kitchen-sink"></a>
+#### The Kitchen Sink <a name="kitchen-sink"></a>
 
 
 This is a holding pen for potential new components, and for one-off components that haven't demonstrated reusability AND are in active use on Vets.gov. Components in the kitchen sink can be prototypes / works in progress or as fully developed as they need to be.
@@ -200,18 +200,18 @@ This is a holding pen for potential new components, and for one-off components t
 
 > Kitchen sink -- rather than a separate folder, what do you think about utilizing the orange "WIP"/green "ready" tags to indicate that status? It seems like beta-type components could easily get lost if they're all bundled away in one folder.
 
-#### At what point is a component ready to become part of the Core? <a name="#core"></a>
+#### At what point is a component ready to become part of the Core? <a name="core"></a>
 
 * Has been used in more than two discrete places on Vets.gov (ie, shows once in Education, and again in Healthcare — not twice on the same page / in the same file), AND we can see a future use case
 * Has been refined by the design team, as needed
 * Has been refined by the engineering team, as needed
 * Has passed accessibility and 508 testing
 
-#### At what point do we feed back into USWDS? <a name="#uswds"></a>
+#### At what point do we feed back into USWDS? <a name="uswds"></a>
 
 This is an open question that we need to further discuss, but suggest that if we have a component that is not already represented in USWDS's system and has potential to be useful, that we fork their repo and go from there.
 
-#### What files should all components have? <a name="#files"></a>
+#### What files should all components have? <a name="files"></a>
 
 - React
   - `.config.yml` (Fractal labeling and props used in the component example)
@@ -224,7 +224,7 @@ This is an open question that we need to further discuss, but suggest that if we
   - `.njk` (carries HTML markup)
   - `README.md` (will display in **Notes** tab; carries relevant context for design + content to know when to use a given pattern)
 
-#### Naming Conventions <a name="#naming"></a>
+#### Naming Conventions <a name="naming"></a>
 
 How do we name components in our design system? These names should be recognizable and unique.
 
@@ -243,9 +243,9 @@ New components should have names that:
 > I think you have the checks and balances covered. Does it make sense to also specify the method through which review/approval should happen, like PR review?
 
 
-## Maintenance <a name="#maintenance"></a>
+## Maintenance <a name="maintenance"></a>
 
-### Who is responsible for ongoing maintenance? <a name="#responsible"></a>
+### Who is responsible for ongoing maintenance? <a name="responsible"></a>
 
 Rather than appointing specific people from each team, every designer and FE should be responsible and comfortable with maintenance. Otherwise bottlenecking may be a concern.
 
@@ -253,13 +253,13 @@ Rather than appointing specific people from each team, every designer and FE sho
 - Consider making a turn on design system part of standard Ad Hoc/DSVA onboarding — best way to get familiar with our patterns and best practices
 
 
-### Who owns the design system? Where does the buck stop? <a name="#ownership"></a>
+### Who owns the design system? Where does the buck stop? <a name="ownership"></a>
 
 > Suggest: Nebula PM, so long as design system is a Nebula product
 
 The owner is responsible for making sure that maintenance work is getting prioritized into each PI.
 
-### Timing <a name="#timing"></a>
+### Timing <a name="timing"></a>
 
 > I'd suggest this becomes an established step in the prod. dev process we're starting to more tightly define -- [@rtluu](https://github.com/rtluu) [@minafarzad](https://github.com/minafarzad) would love your thoughts
 
@@ -271,7 +271,7 @@ The owner is responsible for making sure that maintenance work is getting priori
   - If a component is ready to move from the kitchen sink, it should be ticketed and worked into the next sprint/PI (which one depends on the existing workload).
 
 
-### Maintenance tasks <a name="#tasks"></a>
+### Maintenance tasks <a name="tasks"></a>
 
 - Possible maintenance tasks:
   - Unit testing: are the tests still making sense and passing?
