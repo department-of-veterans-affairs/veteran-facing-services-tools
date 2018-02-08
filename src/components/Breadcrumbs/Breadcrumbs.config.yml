@@ -3,7 +3,6 @@ status: wip
 
 context:
   componentSourcePath: './Breadcrumbs.jsx'
-  headline: 'Default alert'
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.'
-  status: warning
-  isVisible: true
+  crumbs: [{link: '#1', key: 'key1', label: 'link1'},
+  {link: '#2', key: 'key2', label: 'link2'},
+  {link: '#3', key: 'key3', label: 'link3'}]
