@@ -11,10 +11,10 @@
     - [As a researcher]((#use-researcher))
   - [Definitions](#definitions)
 - [Contribution](#contribution)
-  - [Required questions](#required)
-  - [Optional questions](#optional)
-  - [Share the component](#share)
   - [Creating new components](#create)
+    - [Required questions](#required)
+    - [Optional questions](#optional)
+    - [Share the component](#share)
   - [Moving new components into Fractal](#move)
     - [The Kitchen Sink](#kitchen-sink)
     - [At what point is a component ready to become part of the Core?](#core)
@@ -97,15 +97,19 @@ Don't identify with any of these categories? [Submit an issue](https://github.co
 
 #### As a designer <a name="use-designer"></a>
 
+This system contains (or will contain) all the visual patterns in use on Vets.gov. You can use this system as a reference (how does this component look? What is the standard layout?), as a guide for when certain components are or aren't appropriate, and to guide the development of new visual patterns.
 
 #### As a developer <a name="use-developer"></a>
 
+For each visual pattern represented here, there's associated code. Code can be React or static HTML. You can use this system as a reference for React components, or as a source of truth for the static code that's in use on Vets.gov. Rather than copy and paste code from an existing file, or re-inventing the wheel, come to this reference first.
 
 #### As a writer <a name="use-writer"></a>
 
+Writers are responsible not just for words, but often for the markup that renders static pages on Vets.gov. You should be able to come to this system to find the code that drives a given layout element you want to use. It also functions as a catalog of available patterns and their documentation, so you can be sure to choose the appropriate component.
 
 #### As a researcher <a name="use-researcher"></a>
 
+Want to know what new patterns are in development that may need to be tested? Look no further than Jean Pants' WIP labels. This system should also provide another connection between research and design, in that the research team's process is documented here for designers and other teammates to reference.
 
 ### Definitions <a name="definitions"></a>
 
@@ -119,6 +123,8 @@ Don't identify with any of these categories? [Submit an issue](https://github.co
 
 ## Contribution <a name="contribution"></a>
 
+We welcome feedback and other contribution to Jean Pants. This section will develop over time -- for now, this is meant to guide Vets.gov teammates' contribution to the system. _With thanks to USWDS' own contribution guidelines._
+
 > What is the contribution process?
 >
 - - Instructions
@@ -130,57 +136,38 @@ Don't identify with any of these categories? [Submit an issue](https://github.co
 - Modifying or expanding on an existing component
   - I think this deserve a similar level of detail you gave to new components. Existing components will no doubt evolve and the process for them will be even hairier given potential regressions.
 
-With thanks to USWDS:
-
-### Required questions <a name="required"></a>
-
-- Describe the pattern: what’s its purpose and functionality?
-
-- What user-need does it solve?
-
-### Optional questions <a name="optional"></a>
-
-  - Have you conducted primary research? If so, provide.
-  - Do you have secondary research (e.g. articles, outside research)? If so, provide.
-  - Are there any similar or related patterns in the system already?
-
-###Share the component <a name="share"></a>
-
-Submit sketches, wireframes, design, or code (link to code on their repo, post code directly to the issue, CodePen, or pull request).
-
----
-
 ### Creating new components <a name="create"></a>
 
 Loosely, the process for bringing a new component into the design system mirrors the creation of a new design pattern. New components should result from a demonstrated need for a new visual or user-interaction pattern.
 
-New components **should**:
 
-- Satisfy a need that cannot be satisfied by a current component — or a minor variation thereof
+#### Required questions <a name="required"></a>
 
-  > How do we define "minor"?
-
-- Adhere to existing Vets.gov standards of color, padding, grid, typography, etc.
-
-- Follow best practices for accessibility, design, and user experience
-
+- Are there any similar or related patterns in the system already? How is this one materially different?
+- Describe the pattern: what’s its purpose and functionality?
+- What user need does it solve?
+- Does it adhere to existing Vets.gov standards of color, padding, grid, typography, etc.?
+- Does it follow best practices for accessibility, design, and user experience?
   > as defined by whom? Could we point to relevant USWDS/18F/Vets.gov playbook documentation?
 
+#### Optional questions <a name="optional"></a>
+
+- Have you conducted primary research? If so, provide this as part of the documentation.
+- Do you have secondary research (e.g. articles, outside research)? If so, provide this as part of the documentation.
+
+New components **should**:
+
 - Have gone through review with both the product-owning team, and the design teams. Doesn't matter if it's a formal review or not — but there need to be eyes on it other than yours.
-
 - Have gone through basic research, either in concert with the product housing the new component, or on its own.
-
 - Have been tested for accessibility / 508 compliance, with the awareness that those are _not_ the same thing!
-
-- Have been assessed for best practices in code
+- Have been assessed for best practices in code.
 
 New components **should not**:
 
-* Duplicate existing function or the visual pattern of an existing pattern or component
-* Violate accessibility rules and standards as defined by the 508 office and our own best practices
-* Violate Vets.gov visual rules as set forth by the design system and the design team
-* Be integrated into the product, and by extension the system, without having undergone design, accessibility, and code review
-
+- Duplicate existing function or the visual pattern of an existing pattern or component
+- Violate accessibility rules and standards as defined by the 508 office and our own best practices
+- Violate Vets.gov visual rules as set forth by the design system and the design team
+- Be integrated into the product, and by extension the system, without having undergone design, accessibility, and code review
 
 
 ### Moving new components into Fractal <a name="move"></a>
@@ -192,7 +179,6 @@ New design system components should follow this general path:
 > Mel: Moving new components into Fractal -- I love this process flow. What do you think about making it into a more visual flow chart?
 
 #### The Kitchen Sink <a name="kitchen-sink"></a>
-
 
 This is a holding pen for potential new components, and for one-off components that haven't demonstrated reusability AND are in active use on Vets.gov. Components in the kitchen sink can be prototypes / works in progress or as fully developed as they need to be.
 
@@ -241,6 +227,11 @@ New components should have names that:
  * are plain-language (call a list a list.)
 
 > I think you have the checks and balances covered. Does it make sense to also specify the method through which review/approval should happen, like PR review?
+
+
+---
+
+
 
 
 ## Maintenance <a name="maintenance"></a>
