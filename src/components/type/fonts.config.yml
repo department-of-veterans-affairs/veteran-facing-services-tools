@@ -1,5 +1,6 @@
 label: Fonts
 status: ready
+order: 2
 
 context:
   typefaces:

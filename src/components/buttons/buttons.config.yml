@@ -1,5 +1,6 @@
 label: Buttons
 status: ready
+order: 3
 
 variants:
   - name: primary
