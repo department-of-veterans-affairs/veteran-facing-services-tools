@@ -1,5 +1,6 @@
 label: Breadcrumbs
 status: wip
+handle: breadcrumbs
 
 context:
   componentSourcePath: './Breadcrumbs.jsx'
