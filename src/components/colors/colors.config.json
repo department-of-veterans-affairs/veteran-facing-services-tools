@@ -1,14 +1,15 @@
 {
+    "order": 1,
     "context": {
         "status": "WIP",
         "title": "Colors",
         "family": [
-        
-        { 
+
+        {
           "name": "Defaults",
-          
+
           "color": [{
-            
+
             "var":"color-link-default",
             "name": "$color-link-default",
             "hex": "#004795",
@@ -44,9 +45,9 @@
             "hex": "#ffffff",
             "contrast": "AAA"
             }]
-            
+
         },
-        { 
+        {
           "name": "Primary",
           "color": [{
             "var":"color-primary",
@@ -66,9 +67,9 @@
             "hex": "#112e51",
             "contrast": "AAA"
             }]
-            
+
         },
-        { 
+        {
           "name": "Primary Alt",
           "color": [{
             "var":"color-primary-alt",
@@ -100,9 +101,9 @@
             "hex": "#046b99",
             "contrast": "AA"
             }]
-            
+
         },
-        { 
+        {
           "name": "Secondary",
           "color": [{
             "var":"color-secondary",
@@ -134,11 +135,11 @@
             "hex": "#981b1e",
             "contrast": "AAA"
             }]
-            
+
         },
-        { 
+        {
           "name": "Gray",
-          
+
           "color": [{
             "var":"color-gray-dark",
             "name": "$color-gray-dark",
@@ -193,11 +194,11 @@
             "hex": "#dce4ef",
             "contrast": "AAA"
             }]
-            
+
         },
-        { 
+        {
           "name": "Gold",
-          
+
           "color": [{
             "var":"color-gold",
             "name": "$color-gold",
@@ -228,11 +229,11 @@
             "hex": "#988530",
             "contrast": ""
             }]
-            
+
         },
-        { 
+        {
           "name": "Green",
-          
+
           "color": [{
             "var":"color-green",
             "name": "$color-green",
@@ -263,10 +264,10 @@
             "hex": "#195c27",
             "contrast": "AAA"
             }]
-            
+
         }
-        
+
         ]
-          
+
     }
 }
