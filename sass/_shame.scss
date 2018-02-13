@@ -4,6 +4,11 @@
 // hack in there to get it working.
 
 // message while loading react app
+
+.usa-bitter, h1, h2, h3, h4, h5, h6 {
+  font-family: "Bitter", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+}
+
 .loading-message {
   padding: 2em 0;
   text-align: center;
