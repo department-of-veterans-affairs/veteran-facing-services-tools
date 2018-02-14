@@ -8,12 +8,12 @@ Should display with header, footer, no sidenav
 
 {% include '@header' %}
 
-{% include '@omb-info' %}
+{% include '@breadcrumbs' %}
 
   <div class="usa-grid" style="padding: 2em">
     <div class="usa-width-one-whole">
 
-      {{ yield }}
+
 
       <h1>A headline</h1>
       <div class="va-introtext">
@@ -22,15 +22,15 @@ Should display with header, footer, no sidenav
 
       {% include '@buttons' %}
 
+
+      {{ yield }}
+
       <aside class="va-nav-linkslist ">
-
-
-
         <section>
           <h3 class="va-nav-linkslist-heading">Apply for Disability Benefits</h3>
 
         <ul class="va-nav-linkslist-list">
-                      <li>
+          <li>
               <a href="/disability-benefits/eligibility/" onclick="window.dataLayer.push({ event: 'nav-linkslist' });">
                 <h4 class="va-nav-linkslist-title">Eligibility</h4>
 
