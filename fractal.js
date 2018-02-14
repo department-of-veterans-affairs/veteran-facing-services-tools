@@ -18,7 +18,7 @@ const { components, docs, web } = fractal;
 
 components.set('ext', '.njk');
 components.set('path', 'src/components');
-components.set('default.preview', '@uswds-vets');
+components.set('default.preview', '@vets');
 components.set('default.context', context);
 
 const vetsAdapter = require('./lib/vets-adapter')({
