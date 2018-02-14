@@ -1,5 +1,7 @@
 label: Typesetting
-status: ready
+status: wip
+collated: true
+default: h1
 
 variants:
   - name: h1
