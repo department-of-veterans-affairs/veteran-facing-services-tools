@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import IconSearch from '../../svgicons/IconSearch.jsx';
-import DropDown from '../../07-form/controls/dropdown/DropDown.jsx';
+import DropDown from '../../form/controls/dropdown/DropDown.jsx';
 
 class SearchMenu extends React.Component {
 
