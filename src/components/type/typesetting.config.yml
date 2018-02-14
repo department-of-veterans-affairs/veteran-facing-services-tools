@@ -28,11 +28,11 @@ variants:
     context:
       name: h6
       label: "Headline H6"
-  - name: Intro Text
+  - name: IntroText
     context:
       name: Intro Text
       class: va-introtext
-      label: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis laoreet augue scelerisque sollicitudin. Proin sodales sodales posuere. Vivamus nunc enim, ullamcorper vitae facilisis a, fermentum ac diam. Aenean convallis dui id posuere gravida. Suspendisse mattis consectetur velit. Fusce mauris mauris, bibendum ac ex ac, viverra elementum justo. Nulla bibendum leo lobortis elit vehicula, blandit bibendum lectus euismod.
+      label: VA Intro Text has the class 'va-introtext'. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis laoreet augue scelerisque sollicitudin. Proin sodales sodales posuere. Vivamus nunc enim, ullamcorper vitae facilisis a, fermentum ac diam. Aenean convallis dui id posuere gravida. Suspendisse mattis consectetur velit. Fusce mauris mauris, bibendum ac ex ac, viverra elementum justo. Nulla bibendum leo lobortis elit vehicula, blandit bibendum lectus euismod.
   - name: Standard paragraph
     context:
       name: Standard paragraph

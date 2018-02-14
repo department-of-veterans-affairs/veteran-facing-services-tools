@@ -8,19 +8,21 @@ Should display with header, footer, no sidenav
 
 {% include '@header' %}
 
-{% include '@breadcrumbs' %}
-<br>
-SIDENAV: {% include '@sidenav' %}
-
-  <div class="usa-grid" style="padding: 2em">
-    <div class="usa-width-one-whole">
-
-      {{ yield }}
-
-    </div>
-  </div>
+{% render '@breadcrumbs' %}
 
 <div class="usa-grid">
+  <nav class="usa-width-one-fourth va-sidebarnav">
+    {% render '@sidenav' %}
+  </nav>
+
+  <div class="usa-width-three-fourths">
+
+    {% render '@typesetting--h1' %}
+    {% render '@typesetting--introtext' %}
+    
+    {{ yield }}
+
+  </div>
 
   PAGINATION GOES HERE
 
