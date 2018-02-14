@@ -1,5 +1,7 @@
 label: Buttons
 status: ready
+collated: true
+default: primary
 order: 3
 
 variants:
