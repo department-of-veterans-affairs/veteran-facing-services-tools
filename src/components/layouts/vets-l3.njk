@@ -6,11 +6,11 @@ Should display with header, footer, no sidenav
 
 {% block body %}
 
-{% include '@vets-header' %}
+{% include '@header' %}
 
->> Breadcrumbs go here <<
-
-{% include '@sidenav--default' %} ??
+{% include '@breadcrumbs' %}
+<br>
+SIDENAV: {% include '@sidenav' %}
 
   <div class="usa-grid" style="padding: 2em">
     <div class="usa-width-one-whole">
