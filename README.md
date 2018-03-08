@@ -6,8 +6,8 @@ These instructions assume you're using Terminal, and that you're starting from s
 
 **Start here:**
 
-- Homebrew. To install Homebrew, [follow these instructions](https://www.howtogeek.com/211541/homebrew-for-os-x-easily-installs-desktop-apps-and-terminal-utilities/)
-- Yarn. To install Yarn, you'll use Homebrew. In Terminal, run `brew install yarn`
+- You need Homebrew. To install Homebrew, [follow these instructions](https://www.howtogeek.com/211541/homebrew-for-os-x-easily-installs-desktop-apps-and-terminal-utilities/)
+- You also need Yarn. To install Yarn, you'll use Homebrew. In Terminal, run `brew install yarn`
 
 **Clone the design-system repo:**
 
