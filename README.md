@@ -14,9 +14,9 @@ These instructions assume you're using Terminal, and that you're starting from s
 If you're familiar with cloning repos from Github using Terminal, skip ahead to **Install Fractal**.
 
 You can put the repo anywhere on your computer, but as a suggestion:
-In Terminal, navigate to your desktop: `cd ~/desktop`
-Clone the Github repo by running: `git clone git@github.com:department-of-veterans-affairs/design-system.git`
-Then: `cd design-system`
+- In Terminal, navigate to your desktop: `cd ~/desktop`
+- Clone the Github repo by running: `git clone git@github.com:department-of-veterans-affairs/design-system.git`
+- Then: `cd design-system`
 
 **Install Fractal**
 
