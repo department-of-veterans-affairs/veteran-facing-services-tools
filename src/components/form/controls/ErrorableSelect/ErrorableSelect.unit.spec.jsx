@@ -5,7 +5,7 @@ import chai, { expect } from 'chai';
 import { axeCheck } from '../../../../../lib/testing/helpers';
 
 import ErrorableSelect from './ErrorableSelect.jsx';
-import { makeField } from '../../../../model/fields.js';
+import { makeField } from '../../../../helpers/fields.js';
 
 chai.use(chaiAsPromised);
 

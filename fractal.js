@@ -7,7 +7,7 @@ const createWebpackBundle = require('./createWebpackBundle');
 
 const context = {
   'package': {
-    name: pkg.name,
+    name: pkg.name.replace('@', ''), // fractal interprets @ as component references when its injected into their contexts
     version: pkg.version,
   }
 };

@@ -38,6 +38,9 @@ module.exports = function karmaConfig(config) {
           },
         ]
       },
+      resolve: {
+        extensions: ['.js', '.jsx']
+      }
     },
 
     // list of files / patterns to load in the browser

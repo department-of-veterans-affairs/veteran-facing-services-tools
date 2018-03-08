@@ -170,3 +170,51 @@ GitHub will automatically try to render any Markdown files using Jekyll. If you 
 * Run `npm run start`
 
 If the `fractal watch` task fails, remove the `dist` directory and try running `npm run start` again.
+
+### Publishing Module
+
+1. Build the components
+
+* Run `npm run export-components`
+
+Builds all JSX files in `src/components` and all js files in `src/helpers` and add them to the `dist/jean-pants` folder.
+
+`dist/jean-pants` is the root directory of the npm module.
+
+2. Test the components
+
+[yalc](https://github.com/whitecolor/yalc) is recommended for testing module publication- see installation instructions.
+
+* With yalc installed, run `npm run test-publish`
+
+Copies `package.json` to the `dist/jean-pants` directory and publishes the exported components to the local yalc directory as a `@department-of-veteran-affairs/jean-pants` module.
+
+* In the `vets-website` project, run `yalc link @department-of-veteran-affairs/jean-pants` and subsequently `yalc update`
+
+Installs `jean-pants` to `node_modules` making it available for importing and testing locally.
+
+See yalc documentation for advanced usage such as automatic updating on publish
+
+3. Update version and merge PR
+
+Preprequsite: you must be [registered](https://docs.npmjs.com/getting-started/publishing-npm-packages) with npm to publish or update the module. Verify that you are logged in correctly by running `npm whoami`.
+
+Follow these [instructions](https://docs.npmjs.com/getting-started/publishing-npm-packages#how-to-update-the-version-number) for updating a package (summarized below).
+
+* Update package version number
+
+`npm version patch` - for bug fixes and minor changes
+`npm version minor` - for new features that don't break current features
+`npm version major` - for backwards breaking changes
+
+If you are unsure of which to use, do a major version update.
+
+4. Pull master and publish
+
+* Switch to master and pull
+
+Verify that you have the new version number locally in `package.json`
+
+* Publish changes
+
+`npm publish`
