@@ -2,16 +2,29 @@ Stable URL: https://department-of-veterans-affairs.github.io/design-system
 
 ## Getting started with Fractal
 
-1. Clone this repo
-2. Follow the installation instructions [here](http://fractal.build/guide/installation)
+These instructions assume you're using Terminal, and that you're starting from scratch as far as a development environment is concerned. If you've already got dependencies installed, move on to **Install Fractal**.
 
-## Running site locally
+**Start here:**
 
-GitHub will automatically try to render any Markdown files using Jekyll. If you get any Jekyll build errors from Github (via email, usually) after pushing the site, you can run the site locally to address any errors and bypass looping through the above. Instructions here assume you already have Bundler installed (see [instructions](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) if you don't know what that is).
+- Homebrew. To install Homebrew, [follow these instructions](https://www.howtogeek.com/211541/homebrew-for-os-x-easily-installs-desktop-apps-and-terminal-utilities/)
+- Yarn. To install Yarn, you'll use Homebrew. In Terminal, run `brew install yarn`
 
-* Run `npm run start`
+**Clone the design-system repo:**
 
-If the `fractal watch` task fails, remove the `dist` directory and try running `npm run start` again.
+If you're familiar with cloning repos from Github using Terminal, skip ahead to **Install Fractal**.
+
+You can put the repo anywhere on your computer, but as a suggestion:
+In Terminal, navigate to your desktop: `cd ~/desktop`
+Clone the Github repo by running: `git clone git@github.com:department-of-veterans-affairs/design-system.git`
+Then: `cd design-system`
+
+**Install Fractal**
+
+Still in Terminal, run `yarn install`. This will download and install all the dependencies that Fractal needs to run on your local machine. It might take a minute to complete the process.
+
+**Start up Fractal**
+
+Run `yarn start`, and navigate to `localhost:3000` in your favorite browser. You should be all set!
 
 ## Deploying to GitHub Pages
 
