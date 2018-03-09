@@ -6,7 +6,7 @@ import {
 import { axeCheck } from '../../../../../lib/testing/helpers';
 import { expect } from 'chai';
 import ErrorableTextInput from './ErrorableTextInput.jsx';
-import { makeField } from '../../../../model/fields.js';
+import { makeField } from '../../../../helpers/fields.js';
 
 describe('<ErrorableTextInput>', () => {
   it('calls onValueChange with input value and dirty state', () => {

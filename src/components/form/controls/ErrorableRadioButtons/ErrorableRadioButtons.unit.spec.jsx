@@ -6,7 +6,7 @@ import {
 } from 'enzyme';
 import { axeCheck } from '../../../../../lib/testing/helpers';
 import ErrorableRadioButtons from './ErrorableRadioButtons.jsx';
-import { makeField } from '../../../../model/fields.js';
+import { makeField } from '../../../../helpers/fields.js';
 
 describe('<ErrorableRadioButtons>', () => {
   const nonExpandingOptions = ['yes', 'no'];

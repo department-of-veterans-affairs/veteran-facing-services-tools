@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import ToolTip from '../../../Tooltip/Tooltip.jsx';
 
-import { makeField } from '../../../../model/fields.js';
+import { makeField } from '../../../../helpers/fields.js';
 
 /**
  * A form input with a label that can display error messages.
