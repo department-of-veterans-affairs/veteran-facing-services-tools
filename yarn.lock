@@ -129,9 +129,13 @@
     lodash "^4.0.0"
     nunjucks "^2.4.2"
 
-"@types/node@*", "@types/node@^8.0.14":
+"@types/node@*":
   version "8.0.52"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.52.tgz#8e7f47747868e7687f2cd4922966e2d6af78d22d"
+
+"@types/node@^8.5.5":
+  version "8.9.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.5.tgz#162b864bc70be077e6db212b322754917929e976"
 
 JSONStream@^1.0.3:
   version "1.3.1"
@@ -438,6 +442,10 @@ ast-types-flow@0.0.7:
 ast-types@0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.10.1.tgz#f52fca9715579a14f841d67d7f8d25432ab6a3dd"
+
+ast-types@0.11.3:
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.11.3.tgz#c20757fe72ee71278ea0ff3d87e5c2ca30d9edf8"
 
 astw@^2.0.0:
   version "2.2.0"
@@ -5091,6 +5099,12 @@ node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
 
+nodegit-promise@~4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/nodegit-promise/-/nodegit-promise-4.0.0.tgz#5722b184f2df7327161064a791d2e842c9167b34"
+  dependencies:
+    asap "~2.0.3"
+
 nomnom@~1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/nomnom/-/nomnom-1.6.2.tgz#84a66a260174408fc5b77a18f888eccc44fb6971"
@@ -5883,6 +5897,13 @@ promised-handlebars@^2.0.0:
   dependencies:
     deep-aplus "^1.0.2"
 
+promisify-node@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/promisify-node/-/promisify-node-0.4.0.tgz#32803874ec411784e4786c339902a87a179a469c"
+  dependencies:
+    nodegit-promise "~4.0.0"
+    object-assign "^4.0.1"
+
 prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
@@ -6054,7 +6075,7 @@ react-test-renderer@^15.5.0:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-transition-group@1.x:
+react-transition-group@^1.x:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
   dependencies:
@@ -6064,7 +6085,7 @@ react-transition-group@1.x:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react@^15.6.2:
+react@^15.5.4:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
   dependencies:
@@ -6172,6 +6193,15 @@ recast@^0.12.6:
   dependencies:
     ast-types "0.10.1"
     core-js "^2.4.1"
+    esprima "~4.0.0"
+    private "~0.1.5"
+    source-map "~0.6.1"
+
+recast@^0.14.4:
+  version "0.14.5"
+  resolved "https://registry.yarnpkg.com/recast/-/recast-0.14.5.tgz#53f1f6edf7810bdfb39a25d0ff97d315bad7c314"
+  dependencies:
+    ast-types "0.11.3"
     esprima "~4.0.0"
     private "~0.1.5"
     source-map "~0.6.1"
@@ -7423,11 +7453,11 @@ useragent@^2.1.12:
     lru-cache "2.2.x"
     tmp "0.0.x"
 
-uswds@^1.2.1:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/uswds/-/uswds-1.4.2.tgz#a64617a83d79deff20503cc5b879072e547a3c29"
+uswds@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/uswds/-/uswds-1.5.0.tgz#fd49116d88d29a0d1f0225a2e3af6d4ac60efc49"
   dependencies:
-    "@types/node" "^8.0.14"
+    "@types/node" "^8.5.5"
     array-filter "^1.0.0"
     array-foreach "^1.0.2"
     browserify "^13.0.0"
