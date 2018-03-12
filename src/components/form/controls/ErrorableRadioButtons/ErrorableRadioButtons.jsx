@@ -3,10 +3,10 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../Tooltip/Tooltip.jsx';
-import ExpandingGroup from '../ExpandingGroup/ExpandingGroup.jsx';
+import ToolTip from '../../../Tooltip/Tooltip';
+import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 
-import { makeField } from '../../../../helpers/fields.js';
+import { makeField } from '../../../../helpers/fields';
 
 /**
  * A radio button group with a label.

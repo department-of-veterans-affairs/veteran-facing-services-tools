@@ -25,9 +25,7 @@
     "foundation-sites": "5",
     "lodash": "^4.5.1",
     "prop-types": "^15.6.0",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
-    "react-transition-group": "1.x",
+    "react-transition-group": "^1.x",
     "uswds": "^1.2.1"
   },
   "devDependencies": {
@@ -66,6 +64,8 @@
     "node-sass": "^4.6.0",
     "nunjucks": "^3.0.1",
     "promisify-node": "^0.4.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.6.2",
     "react-docgen": "^2.19.0",
     "react-test-renderer": "^15.5.0",
     "recast": "^0.14.4",
@@ -77,5 +77,8 @@
     "svg-url-loader": "^2.3.0",
     "url-loader": "^0.6.2",
     "webpack": "2"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4"
   }
 }
