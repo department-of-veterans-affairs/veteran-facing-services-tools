@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import IconSearch from '../../svgicons/IconSearch.jsx';
-import DropDown from '../../form/controls/dropdown/DropDown.jsx';
+import IconSearch from '../../svgicons/IconSearch';
+import DropDown from '../../form/controls/dropdown/DropDown';
 
 class SearchMenu extends React.Component {
 

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 
-import ToolTip from '../../../Tooltip/Tooltip.jsx';
+import ToolTip from '../../../Tooltip/Tooltip';
 
-import { makeField } from '../../../../helpers/fields.js';
+import { makeField } from '../../../../helpers/fields';
 
 /**
  * A form input with a label that can display error messages.
