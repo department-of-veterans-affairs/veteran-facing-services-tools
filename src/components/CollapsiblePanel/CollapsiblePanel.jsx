@@ -10,7 +10,6 @@ class CollapsiblePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: !!(props.startOpen) };
-
     this.toggleChapter = this.toggleChapter.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
   }
@@ -20,7 +19,8 @@ class CollapsiblePanel extends React.Component {
   }
 
   scrollToTop() {
-    scroller.scrollTo(`collapsible-panel-${this.id}-scroll-element`, window.VetsGov.scroll || {
+  //  console.log('undefined?', window.VetsGov.scroll);
+    scroller.scrollTo(`collapsible-panel-${this.id}-scroll-element`, {
       duration: 500,
       delay: 2,
       smooth: true,
