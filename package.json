@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/design-system.git"
   },
-  "main": "dist/js/components",
+  "main": "dist/jeanpants",
   "scripts": {
     "prestart": "node prebuild.js",
     "export-components": "node ./scripts/build-node-modules.js",
