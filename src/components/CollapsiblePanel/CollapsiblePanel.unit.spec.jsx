@@ -14,7 +14,7 @@ describe('<CollapsiblePanel>', () => {
     expect(renderedHeaderText).to.equal(testHeaderText);
   });
 
-  /*it('should handle toggling chapter', () => {
+  it('should handle toggling chapter', () => {
     const wrapper = shallow(<CollapsiblePanel panelName={'Test panel'}/>);
 
     const toggleButton = wrapper.find('button');
@@ -38,7 +38,7 @@ describe('<CollapsiblePanel>', () => {
 
     toggleButton.simulate('click');
     expect(wrapper.find('.usa-accordion-content').length).to.equal(1);
-  });*/
+  });
 
   it('should call scrollToTop on toggle open', () => {
     const scrollSpy = sinon.spy();
