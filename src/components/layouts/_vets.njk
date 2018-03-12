@@ -8,15 +8,13 @@ Should display with header, footer, no sidenav
 
 {% include '@header' %}
 
-{% render '@breadcrumbs' %}
+<!-- {% render '@breadcrumbs' %}-->
 
   <div class="usa-grid" style="padding: 2em">
     <div class="usa-width-one-whole">
 
       {% render '@typesetting--h1' %}
       {% render '@typesetting--introtext' %}
-
-      {% include '@buttons' %}
 
 
       {{ yield }}

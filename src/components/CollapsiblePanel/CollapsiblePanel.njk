@@ -3,9 +3,16 @@ import CollapsiblePanel from './CollapsiblePanel.jsx';
 
 export default function CollapsiblePanelExample(props) {
   return (
-    <CollapsiblePanel
-      panelName={props.panelName}>
-      <div>Some content goes here.</div>
-    </CollapsiblePanel>
+    <div>
+      <CollapsiblePanel
+        panelName={props.panelName}>
+        <div>Some content goes here.</div>
+      </CollapsiblePanel>
+
+      <CollapsiblePanel
+        panelName={props.panelName} startOpen>
+        <div>This panel defaults to open.</div>
+      </CollapsiblePanel>
+    </div>
   );
 }

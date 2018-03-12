@@ -15,7 +15,7 @@ describe('<CollapsiblePanel>', () => {
   });
 
   it('should handle toggling chapter', () => {
-    const wrapper = shallow(<CollapsiblePanel panelName={'Test panel'}/>);
+    const wrapper = shallow(<CollapsiblePanel panelName={'Test panel'}><div>Some content goes here.</div></CollapsiblePanel>);
 
     const toggleButton = wrapper.find('button');
     expect(wrapper.find('.usa-accordion-content').length).to.equal(0);
@@ -28,7 +28,7 @@ describe('<CollapsiblePanel>', () => {
   });
 
   it('should default to open if startOpen prop is true', () => {
-    const wrapper = shallow(<CollapsiblePanel panelName={'Test'} startOpen/>);
+    const wrapper = shallow(<CollapsiblePanel panelName={'Test'} startOpen><div>Some content goes here.</div></CollapsiblePanel>);
     const toggleButton = wrapper.find('button');
 
     expect(wrapper.find('.usa-accordion-content').length).to.equal(1);

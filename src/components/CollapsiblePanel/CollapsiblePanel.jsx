@@ -6,7 +6,7 @@ import _ from 'lodash/fp';
 const Element = Scroll.Element;
 const scroller = Scroll.scroller;
 
-export default class CollapsiblePanel extends React.Component {
+class CollapsiblePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: !!(props.startOpen) };
@@ -68,5 +68,9 @@ export default class CollapsiblePanel extends React.Component {
 }
 
 CollapsiblePanel.propTypes = {
+
+  /* panel label */
   panelName: PropTypes.string.isRequired
 };
+
+export default CollapsiblePanel;
