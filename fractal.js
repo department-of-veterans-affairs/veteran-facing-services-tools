@@ -9,7 +9,8 @@ const context = {
   'package': {
     name: pkg.name.replace('@', ''), // fractal interprets @ as component references when its injected into their contexts
     version: pkg.version,
-  }
+  },
+  assetPath: process.env.NODE_ENV === 'production' ? '/design-system/' : '/'
 };
 
 fractal.set('project.title', 'Vets.gov Design Standards');
@@ -64,7 +65,6 @@ fractal.cli.command('watch', () => {
   const server = fractal.web.server({
     sync: true
   });
-  context.assetPath = '/';
   server.on('error', err => logger.error(err.message));
 
   ncp('./src/img', './dist/img', (err) => {
@@ -83,7 +83,6 @@ fractal.cli.command('watch', () => {
 fractal.cli.command('build-site', (args, done) => {
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
-  context.assetPath = '/design-system/';
 
   builder.on('progress', (completed, total) =>
     logger.update(`Exported ${completed} of ${total} items`, 'info'));

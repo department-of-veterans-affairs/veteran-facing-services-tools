@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
     <title>{{ _self.title }}</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="{{ assetPath }}styles.css">
   </head>
   <body>
     {% block body %}{{ yield }}{% endblock %}
