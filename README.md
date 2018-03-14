@@ -26,22 +26,7 @@ Still in Terminal, run `yarn install`. This will download and install all the de
 
 **Start up Fractal**
 
-Run `yarn start`, and navigate to `localhost:3000` in your favorite browser. You should be all set!
-
-## Deploying to GitHub Pages
-
-Deployment steps assume you've followed the getting started section at the top of this document.
-
-* ensure changes are pushed and merged to master
-* Run `git checkout master`
-* Run `fractal build`
-* Commit any changes (build dir is checked into git)
-* Run `git subtree push --prefix build origin gh-pages`
-
-## Choosing a design system for Vets.gov
-This has been migrated to [another file](research.md) in order to keep the README instructional.
-
-* Run `npm run start`
+* Run `npm run start` and navigate to `localhost:3000` in your favorite browser. You should be all set!
 
 If the `fractal watch` task fails, remove the `dist` directory and try running `npm run start` again.
 
@@ -92,3 +77,6 @@ Verify that you have the new version number locally in `package.json`
 * Publish changes
 
 `npm publish`
+
+## Choosing a design system for Vets.gov
+This has been migrated to [another file](research.md) in order to keep the README instructional.
