@@ -14,42 +14,39 @@ function closeAlert() {
 
 describe('<AlertBox />', () => {
   it('should be an empty div if invisible', () => {
-    const wrapper = shallow(
-      <AlertBox
+    const wrapper = shallow(<AlertBox
         content={Content}
-        status={'info'}
+        status="info"
         isVisible={false}/>);
     expect(wrapper.html()).to.equal('<div aria-live="polite"></div>');
   });
 
   it('should have the expected classname', () => {
-    const wrapper = shallow(
-      <AlertBox
+    const wrapper = shallow(<AlertBox
         content={Content}
-        status={'info'}
-        isVisible/>
-    );
+        status="info"
+        isVisible/>);
     expect(wrapper.find('.usa-alert').hasClass('usa-alert-info')).to.equal(true);
   });
 
   it('should pass aXe check when visible', () => {
     return axeCheck(<AlertBox
       content={Content}
-      status={'info'}
+      status="info"
       isVisible/>);
   });
 
   it('should pass aXe check when not visible', () => {
     return axeCheck(<AlertBox
       content={Content}
-      status={'info'}
+      status="info"
       isVisible={false}/>);
   });
 
   it('should pass aXe check without a headline', () => {
     return axeCheck(<AlertBox
       content={Content}
-      status={'info'}
+      status="info"
       isVisible/>);
   });
 
@@ -57,7 +54,7 @@ describe('<AlertBox />', () => {
     return axeCheck(<AlertBox
       headline={Headline}
       content={Content}
-      status={'info'}
+      status="info"
       isVisible/>);
   });
 
@@ -66,7 +63,7 @@ describe('<AlertBox />', () => {
       headline={Headline}
       content={Content}
       onCloseAlert={closeAlert()}
-      status={'info'}
+      status="info"
       isVisible/>);
   });
 });
