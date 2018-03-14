@@ -64,6 +64,7 @@ fractal.cli.command('watch', () => {
   const server = fractal.web.server({
     sync: true
   });
+  context.assetPath = '/';
   server.on('error', err => logger.error(err.message));
 
   ncp('./src/img', './dist/img', (err) => {
@@ -82,6 +83,7 @@ fractal.cli.command('watch', () => {
 fractal.cli.command('build-site', (args, done) => {
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
+  context.assetPath = '/design-system/';
 
   builder.on('progress', (completed, total) =>
     logger.update(`Exported ${completed} of ${total} items`, 'info'));
