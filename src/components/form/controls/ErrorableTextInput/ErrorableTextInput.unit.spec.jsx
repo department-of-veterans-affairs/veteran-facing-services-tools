@@ -15,7 +15,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = mount(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => valueChanged = value}/>);
+      onValueChange={(value) => { valueChanged = value; }}/>);
 
     wrapper.find('input').first().simulate('change', { target: { value: 'hello' } });
     expect(valueChanged.value).to.eql('hello');
@@ -28,7 +28,7 @@ describe('<ErrorableTextInput>', () => {
     const wrapper = mount(<ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) => valueChanged = value}/>);
+      onValueChange={(value) => { valueChanged = value; }}/>);
 
     wrapper.find('input').first().simulate('blur');
     expect(valueChanged.dirty).to.eql(true);

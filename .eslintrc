@@ -90,6 +90,12 @@
     'no-lonely-if': 0,
     'lines-around-directive': 0,
   },
+  'overrides': [{
+    'files': ["**/*.unit.spec.jsx", "**/*.unit.spec.js"],
+    'rules': {
+      'no-unused-expressions': 0
+    }
+  }],
   'parserOptions': {
     'ecmaVersion': 6,
     'sourceType': 'module'

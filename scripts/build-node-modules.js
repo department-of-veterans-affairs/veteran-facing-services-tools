@@ -1,11 +1,11 @@
+/* eslint-disable no-console */
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const glob = require('glob');
 const fs = require('fs');
-const babel = require("babel-core");
+const babel = require('babel-core');
 const recast = require('recast');
 const path = require('path');
-const colors = require('colors');
 
 console.log('Starting build'.blue);
 console.log('Cleaning old build'.white);
@@ -15,6 +15,7 @@ mkdirp.sync('./dist/jean-pants');
 // this comes from gulp-flatten-requires
 // https://github.com/insin/gulp-flatten-requires/blob/master/index.js
 // Flattens paths given to require
+/* eslint-disable */
 function flattenRequires(bufferString) {
   return new Buffer(recast.print(recast.visit(recast.parse(bufferString), {
     visitCallExpression: function(path) {
@@ -32,6 +33,8 @@ function flattenRequires(bufferString) {
     }
   })).code);
 }
+/* eslint-enable */
+/* eslint-disable no-console */
 
 // get a flat array of file paths
 const fileNames = [].concat.apply([], [
@@ -44,7 +47,7 @@ fileNames.forEach(fileName => {
   const fileBuffer = fs.readFileSync(fileName);
   // transform the buffer with babel using babelrc
   const babelTransformedBuffer = babel
-    .transform(fileBuffer, { extends: './.babelrc' })
+    .transform(fileBuffer, { 'extends': './.babelrc' })
     .code;
   // flatten paths given to all requires
   const requireFlattenedBuffer = flattenRequires(babelTransformedBuffer.toString());

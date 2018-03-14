@@ -20,7 +20,7 @@ describe('<ErrorableSelect>', () => {
       label="my label"
       options={options}
       value={testValue}
-      onValueChange={(value) => valueChanged = value}/>);
+      onValueChange={(value) => { valueChanged = value; }}/>);
 
     wrapper.find('select').first().simulate('change', { target: { value: 'hello' } });
     expect(valueChanged.value).to.eql('hello');
@@ -45,9 +45,9 @@ describe('<ErrorableSelect>', () => {
     expect(selects.find('aria-describedby')).to.have.lengthOf(0);
   });
 
-  it('should pass aXe check when errorMessage is undefined'), () => {
+  it('should pass aXe check when errorMessage is undefined', () => {
     return axeCheck(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
-  };
+  });
 
   it('has error styles when errorMessage is set', () => {
     const tree = shallow(<ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) => {}}/>);
@@ -69,30 +69,30 @@ describe('<ErrorableSelect>', () => {
 
     const idNum = selects.props().id.split('-')[2];
     expect(selects.prop('aria-describedby')).to.not.be.undefined;
-    expect(selects.prop('aria-describedby')).to.equal('errorable-select-' + idNum + '-error-message');
+    expect(selects.prop('aria-describedby')).to.equal(`errorable-select-${idNum}-error-message`);
   });
 
-  it('should pass aXe check when errorMessage is set'), () => {
+  it('should pass aXe check when errorMessage is set', () => {
     return axeCheck(<ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) => {}}/>);
-  };
+  });
 
   it('required=false does not have required asterisk', () => {
     const tree = shallow(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
     expect(tree.find('label').text()).to.equal('my label');
   });
 
-  it('should pass aXe check when it is not required'), () => {
+  it('should pass aXe check when it is not required', () => {
     return axeCheck(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
-  };
+  });
 
   it('required=true has required asterisk', () => {
     const tree = shallow(<ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) => {}}/>);
     expect(tree.find('label').text()).to.equal('my label*');
   });
 
-  it('should pass aXe check when it is required'), () => {
+  it('should pass aXe check when it is required', () => {
     return axeCheck(<ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) => {}}/>);
-  };
+  });
 
   it('label attribute propagates', () => {
     const tree = shallow(<ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) => {}}/>);
@@ -107,6 +107,6 @@ describe('<ErrorableSelect>', () => {
     const idNum = selects.props().id.split('-')[2];
     expect(selects).to.have.lengthOf(1);
     expect(selects.find('id')).to.not.be.undefined;
-    expect(selects.prop('id')).to.equal('errorable-select-' + idNum);
+    expect(selects.prop('id')).to.equal(`errorable-select-${idNum}`);
   });
 });
