@@ -1,9 +1,10 @@
-label: Breadcrumbs
+label: Pagination
 status: wip
-handle: breadcrumbs
+handle: Pagination
 
 context:
-  componentSourcePath: './Breadcrumbs.jsx'
-  crumbs: [{link: '#1', key: 'key1', label: 'link1'},
-  {link: '#2', key: 'key2', label: 'link2'},
-  {link: '#3', key: 'key3', label: 'link3'}]
+  componentSourcePath: './Pagination.jsx'
+  page: 1
+  pages: 3
+  maxPageListLength: 3
+  showLastPage: true
