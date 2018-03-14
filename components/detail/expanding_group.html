@@ -164,8 +164,10 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"expanding_group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-expanding-group form-expanding-group-plus"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>visible child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Toggle Expanding Group<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-expanding-group form-expanding-group-open"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>visible child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hidden child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.currentProps = {
@@ -174,9 +176,8 @@
             <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>
         },
         <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"./ExpandingGroup.jsx"</span>,
-        <span class="hljs-string">"open"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-string">"key"</span>: <span class="hljs-number">5</span>,
-        <span class="hljs-string">"showPlus"</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-string">"open"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"expandedContentId"</span>: <span class="hljs-string">"expandedContentId"</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
         
@@ -199,15 +200,41 @@
         <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> ExpandingGroup <span class="hljs-keyword">from</span> <span class="hljs-string">'./ExpandingGroup'</span>;
 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Toggler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = props;
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+          <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> this.setState({
+            open: !this.state.open
+          })}
+        &gt;
+          Toggle Expanding Group
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span>
+          <span class="hljs-attr">open</span>=<span class="hljs-string">{this.state.open}</span>
+          &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>visible child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hidden child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+  }
+}
+
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ExpandingGroupExample</span>(<span class="hljs-params">props</span>) </span>{
   <span class="hljs-keyword">return</span> (
-          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span>
-            {<span class="hljs-attr">...props</span>}&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>visible child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>hidden child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Toggler</span>
+      {<span class="hljs-attr">...props</span>}
+    /&gt;</span>
   );
-}</pre>
+}</span></pre>
     </code>
 </div>
 
@@ -220,9 +247,8 @@
 <span class="hljs-attr">  name:</span> <span class="hljs-string">vets.gov-design-system</span>
 <span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./ExpandingGroup.jsx</span>
-<span class="hljs-attr">open:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">key:</span> <span class="hljs-number">5</span>
-<span class="hljs-attr">showPlus:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">expandedContentId:</span> <span class="hljs-string">expandedContentId</span>
 </pre>
             
         
@@ -240,15 +266,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-7ed51b13d31c6858441dec2b072d2169">ExpandingGroup.jsx</option>
+                <option value="file-329e19485b714c4cd449e3edd8062731">ExpandingGroup.jsx</option>
                 
-                <option value="file-4b3f196794466c2b86dee38117b5464c">ExpandingGroup.unit.spec.jsx</option>
+                <option value="file-75c3ee3faeaa37ced7abf235c90c0936">ExpandingGroup.unit.spec.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-7ed51b13d31c6858441dec2b072d2169" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-329e19485b714c4cd449e3edd8062731" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -292,10 +318,22 @@
 }
 
 ExpandingGroup.propTypes = {
-  <span class="hljs-attr">open</span>: PropTypes.bool.isRequired,
-  <span class="hljs-attr">additionalClass</span>: PropTypes.string,
-  <span class="hljs-attr">showPlus</span>: PropTypes.bool,
-  <span class="hljs-attr">expandedContentId</span>: PropTypes.string
+  <span class="hljs-comment">/**
+   * show second child
+   */</span>
+  open: PropTypes.bool.isRequired,
+  <span class="hljs-comment">/**
+   * class added to parent element second child component
+   */</span>
+  additionalClass: PropTypes.string,
+  <span class="hljs-comment">/**
+   * show a + or - icon indicating second child's visibility
+   */</span>
+  showPlus: PropTypes.bool,
+  <span class="hljs-comment">/**
+   * id for ReactCSSTransitionGroup
+   */</span>
+  expandedContentId: PropTypes.string
 };
 </pre>
                             </code>
@@ -313,12 +351,12 @@ ExpandingGroup.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.5 KB</span>
+                    <span class="Meta-value">1.7 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-4b3f196794466c2b86dee38117b5464c" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-75c3ee3faeaa37ced7abf235c90c0936" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -327,23 +365,39 @@ ExpandingGroup.propTypes = {
                             
                             <code class="Code Code--lang-JSX FileBrowser-code">
                                 <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> SkinDeep <span class="hljs-keyword">from</span> <span class="hljs-string">'skin-deep'</span>;
 <span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">'chai'</span>;
+<span class="hljs-keyword">import</span> { shallow } <span class="hljs-keyword">from</span> <span class="hljs-string">'enzyme'</span>;
+<span class="hljs-keyword">import</span> { axeCheck } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../lib/testing/helpers'</span>;
 
-<span class="hljs-keyword">import</span> ExpandingGroup <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../src/js/common/components/form-elements/ExpandingGroup'</span>;
-
+<span class="hljs-keyword">import</span> ExpandingGroup <span class="hljs-keyword">from</span> <span class="hljs-string">'./ExpandingGroup.jsx'</span>;
 
 describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
-  it(<span class="hljs-string">'has sane looking features'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = SkinDeep.shallowRender(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span> <span class="hljs-attr">open</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
-    expect(tree.everySubTree(<span class="hljs-string">'first'</span>)).to.have.lengthOf(<span class="hljs-number">1</span>);
-    expect(tree.everySubTree(<span class="hljs-string">'second'</span>)).to.have.lengthOf(<span class="hljs-number">1</span>);
+  it(<span class="hljs-string">'renders only first child when open is false'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> wrapper = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{false}</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
+
+    <span class="hljs-keyword">const</span> first = wrapper.find(<span class="hljs-string">'first'</span>);
+    <span class="hljs-keyword">const</span> second = wrapper.find(<span class="hljs-string">'second'</span>);
+    expect(first).to.have.lengthOf(<span class="hljs-number">1</span>);
+    expect(second).to.have.lengthOf(<span class="hljs-number">0</span>);
   });
 
-  it(<span class="hljs-string">'hides second child when closed'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = SkinDeep.shallowRender(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
-    expect(tree.everySubTree(<span class="hljs-string">'first'</span>)).to.have.lengthOf(<span class="hljs-number">1</span>);
-    expect(tree.everySubTree(<span class="hljs-string">'second'</span>)).to.have.lengthOf(<span class="hljs-number">0</span>);
+  it(<span class="hljs-string">'renders both children when open is true'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> wrapper = shallow(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span> <span class="hljs-attr">open</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
+
+    <span class="hljs-keyword">const</span> first = wrapper.find(<span class="hljs-string">'first'</span>);
+    <span class="hljs-keyword">const</span> second = wrapper.find(<span class="hljs-string">'second'</span>);
+    expect(first).to.have.lengthOf(<span class="hljs-number">1</span>);
+    expect(second).to.have.lengthOf(<span class="hljs-number">1</span>);
+  });
+
+  it(<span class="hljs-string">'passes aXe check when only first child is rendered'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> check = axeCheck(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{false}</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
+    <span class="hljs-keyword">return</span> check;
+  });
+
+  it(<span class="hljs-string">'passes aXe check when both children are rendered'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> check = axeCheck(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span> <span class="hljs-attr">open</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">first</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">second</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span></span>);
+    <span class="hljs-keyword">return</span> check;
   });
 });
 </pre>
@@ -362,7 +416,7 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">767 Bytes</span>
+                    <span class="Meta-value">1.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -421,7 +475,7 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
               <td>Yes</td>
               <td>bool</td>
               <td></td>
-              <td></td>
+              <td>show second child</td>
             </tr>
           
             <tr>
@@ -429,7 +483,7 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
               <td>No</td>
               <td>string</td>
               <td></td>
-              <td></td>
+              <td>class added to parent element second child component</td>
             </tr>
           
             <tr>
@@ -437,7 +491,7 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
               <td>No</td>
               <td>bool</td>
               <td></td>
-              <td></td>
+              <td>show a + or - icon indicating second child's visibility</td>
             </tr>
           
             <tr>
@@ -445,7 +499,7 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
               <td>No</td>
               <td>string</td>
               <td></td>
-              <td></td>
+              <td>id for ReactCSSTransitionGroup</td>
             </tr>
           
         </table>
@@ -862,6 +916,30 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+                <span>AlertBox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
                 <span>Crisis Alerts</span>
                 
@@ -1083,6 +1161,30 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
 
 
 <span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+                <span>Progress Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>
@@ -1410,6 +1512,30 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
     
         
         
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorable_text_input.html" data-pjax>
+                <span>ErrorableTextInput</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 <span>ExpandingGroup</span>
@@ -1563,8 +1689,56 @@ describe(<span class="hljs-string">'&lt;ExpandingGroup&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="loading_indicator.html" data-pjax>
+                <span>Loading indicator</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="modal.html" data-pjax>
                 <span>Modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ombinfo.html" data-pjax>
+                <span>OMB Info</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -3,8 +3,8 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../tooltip/Tooltip';
-import ExpandingGroup from '../expanding_group/ExpandingGroup';
+import ToolTip from '../tooltip/Tooltip.jsx';
+import ExpandingGroup from '../expanding_group/ExpandingGroup.jsx';
 
 import { makeField } from '../../model/fields.js';
 
@@ -15,6 +15,7 @@ import { makeField } from '../../model/fields.js';
 
  * `additionalFieldsetClass` - String for any additional fieldset classes.
  * `additionalLegendClass` - String for any additional legend classes.
+ * `errorMessage' - String Error message for the radio button group
  * `label` - String for the group field label.
  * `name` - String for the name attribute.
  * `toolTipText` - String with help text for user.
@@ -123,7 +124,7 @@ class ErrorableRadioButtons extends React.Component {
         output = (
           <ExpandingGroup
             additionalClass="form-expanding-group-active-radio"
-            open={checked}
+            open={!!checked}
             key={index}>
             {radioButton}
             <div>{optionAdditional}</div>
@@ -160,15 +161,42 @@ class ErrorableRadioButtons extends React.Component {
 }
 
 ErrorableRadioButtons.propTypes = {
+  /**
+   * additional fieldset classes
+   */
   additionalFieldsetClass: PropTypes.string,
+  /**
+   * additional legend classes
+   */
   additionalLegendClass: PropTypes.string,
+  /**
+   * radio button group error message
+   */
   errorMessage: PropTypes.string,
+  /**
+   * radio button group field label
+   */
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]).isRequired,
+  /**
+   * name attribute
+   */
   name: PropTypes.string,
   id: PropTypes.string,
+  /**
+   * help text for user
+   */
+  toolTipText: PropTypes.string,
+  /**
+   * keyboard tab order for radio button group
+   */
+  tabIndex: PropTypes.number,
+  /**
+   * array of options to populate group- each item is a string or an object representing an Expanding Group
+   *
+   */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -176,22 +204,36 @@ ErrorableRadioButtons.propTypes = {
         label: PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.element,
-        ]),
+        ]).isRequired,
         value: PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.bool
-        ]),
+        ]).isRequired,
         additional: PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.element
         ])
       })
     ])).isRequired,
+  /**
+   * value object for selected field <br/>
+   * value: string value that matches radio button value </br>
+   * dirty: indicates if form is dirty; should be true after any user input
+   */
   value: PropTypes.shape({
+  /**
+   * value of the select field.
+   */
     value: PropTypes.string,
     dirty: PropTypes.bool
   }).isRequired,
+  /**
+   * handler for the value change
+   */
   onValueChange: PropTypes.func.isRequired,
+  /**
+   * toggles required field indicator
+   */
   required: PropTypes.bool,
 };
 
