@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import ToolTip from '../../../Tooltip/Tooltip'; // File extension provided for test
+import ToolTip from '../../../tooltip/Tooltip'; // File extension provided for test
 
 /**
  * A form checkbox with a label that can display error messages.
@@ -58,12 +58,12 @@ class ErrorableCheckbox extends React.Component {
     return (
       <div className={className}>
         <input
-            {...this.props}
-            autoComplete="false"
-            aria-labelledby={labelId}
-            aria-describedby={errorSpanId}
-            id={this.inputId}
-            type="checkbox"/>
+          {...this.props}
+          autoComplete="false"
+          aria-labelledby={labelId}
+          aria-describedby={errorSpanId}
+          id={this.inputId}
+          type="checkbox"/>
         <label // eslint-disable-line jsx-a11y/label-has-for
           className={this.props.errorMessage ? 'form-checkbox__label usa-input-error-label' : undefined}
           id={labelId}

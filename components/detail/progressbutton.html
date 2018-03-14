@@ -436,10 +436,10 @@ describe(<span class="hljs-string">'&lt;ProgressButton&gt;'</span>, () =&gt; {
 
     const updatePromise = new Promise((resolve, _reject) =&gt; {
       progressButton = ReactTestUtils.renderIntoDocument(&lt;ProgressButton
-          buttonText="Button text"
-          buttonClass="usa-button-primary"
-          disabled={false}
-          onButtonClick={() =&gt; { resolve(true); }}/&gt;);
+        buttonText="Button text"
+        buttonClass="usa-button-primary"
+        disabled={false}
+        onButtonClick={() =&gt; { resolve(true); }}/&gt;);
     });
 
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(progressButton, 'button');
@@ -448,17 +448,17 @@ describe(<span class="hljs-string">'&lt;ProgressButton&gt;'</span>, () =&gt; {
     return expect(updatePromise).to.eventually.eql(true);
   });
 
-  it('should pass aXe check when enabled'), () =&gt; {
+  it('should pass aXe check when enabled', () =&gt; {
     return axeCheck(&lt;ProgressButton
-        buttonText="Button text" buttonClass="usa-button-primary"
-        disabled={false}/&gt;);
-  };
+      buttonText="Button text" buttonClass="usa-button-primary"
+      disabled={false}/&gt;);
+  });
 
-  it('should pass aXe check when disabled'), () =&gt; {
+  it('should pass aXe check when disabled', () =&gt; {
     return axeCheck(&lt;ProgressButton
-        buttonText="Button text" buttonClass="usa-button-primary"
-        disabled={true}/&gt;);
-  };
+      buttonText="Button text" buttonClass="usa-button-primary"
+      disabled/&gt;);
+  });
 });
 </pre>
                             </code>

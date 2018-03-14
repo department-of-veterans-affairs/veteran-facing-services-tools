@@ -320,7 +320,7 @@
                                 <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>; <span class="hljs-comment">// File extension provided for test</span>
+<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../tooltip/Tooltip'</span>; <span class="hljs-comment">// File extension provided for test</span>
 
 <span class="hljs-comment">/**
  * A form checkbox with a label that can display error messages.
@@ -377,12 +377,12 @@
     return (
       &lt;div className={className}&gt;
         &lt;input
-            {...this.props}
-            autoComplete="false"
-            aria-labelledby={labelId}
-            aria-describedby={errorSpanId}
-            id={this.inputId}
-            type="checkbox"/&gt;
+          {...this.props}
+          autoComplete="false"
+          aria-labelledby={labelId}
+          aria-describedby={errorSpanId}
+          id={this.inputId}
+          type="checkbox"/&gt;
         &lt;label // eslint-disable-line jsx-a11y/label-has-for
           className={this.props.errorMessage ? 'form-checkbox__label usa-input-error-label' : undefined}
           id={labelId}

@@ -473,17 +473,17 @@ export default AlertBox;
 describe(<span class="hljs-string">'&lt;AlertBox /&gt;'</span>, () =&gt; {
   it(<span class="hljs-string">'should be an empty div if invisible'</span>, () =&gt; {
     <span class="hljs-keyword">const</span> wrapper = shallow(&lt;AlertBox
-        content={Content}
-        status="info"
-        isVisible={false}/&gt;);
+      content={Content}
+      status="info"
+      isVisible={false}/&gt;);
     expect(wrapper.html()).to.equal('&lt;div aria-live="polite"&gt;&lt;/div&gt;');
   });
 
   it('should have the expected classname', () =&gt; {
     const wrapper = shallow(&lt;AlertBox
-        content={Content}
-        status="info"
-        isVisible/&gt;);
+      content={Content}
+      status="info"
+      isVisible/&gt;);
     expect(wrapper.find('.usa-alert').hasClass('usa-alert-info')).to.equal(true);
   });
 

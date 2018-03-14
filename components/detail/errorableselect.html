@@ -378,7 +378,7 @@
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
 
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
+<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../tooltip/Tooltip'</span>;
 
 <span class="hljs-keyword">import</span> { makeField } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../helpers/fields'</span>;
 
@@ -582,7 +582,7 @@ describe(<span class="hljs-string">'&lt;ErrorableSelect&gt;'</span>, () =&gt; {
       label="my label"
       options={options}
       value={testValue}
-      onValueChange={(value) =&gt; valueChanged = value}/&gt;);
+      onValueChange={(value) =&gt; { valueChanged = value; }}/&gt;);
 
     wrapper.find('select').first().simulate('change', { target: { value: 'hello' } });
     expect(valueChanged.value).to.eql('hello');
@@ -607,9 +607,9 @@ describe(<span class="hljs-string">'&lt;ErrorableSelect&gt;'</span>, () =&gt; {
     expect(selects.find('aria-describedby')).to.have.lengthOf(0);
   });
 
-  it('should pass aXe check when errorMessage is undefined'), () =&gt; {
+  it('should pass aXe check when errorMessage is undefined', () =&gt; {
     return axeCheck(&lt;ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
-  };
+  });
 
   it('has error styles when errorMessage is set', () =&gt; {
     const tree = shallow(&lt;ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
@@ -631,30 +631,30 @@ describe(<span class="hljs-string">'&lt;ErrorableSelect&gt;'</span>, () =&gt; {
 
     const idNum = selects.props().id.split('-')[2];
     expect(selects.prop('aria-describedby')).to.not.be.undefined;
-    expect(selects.prop('aria-describedby')).to.equal('errorable-select-' + idNum + '-error-message');
+    expect(selects.prop('aria-describedby')).to.equal(`errorable-select-${idNum}-error-message`);
   });
 
-  it('should pass aXe check when errorMessage is set'), () =&gt; {
+  it('should pass aXe check when errorMessage is set', () =&gt; {
     return axeCheck(&lt;ErrorableSelect label="my label" options={options} errorMessage="error message" value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
-  };
+  });
 
   it('required=false does not have required asterisk', () =&gt; {
     const tree = shallow(&lt;ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
     expect(tree.find('label').text()).to.equal('my label');
   });
 
-  it('should pass aXe check when it is not required'), () =&gt; {
+  it('should pass aXe check when it is not required', () =&gt; {
     return axeCheck(&lt;ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
-  };
+  });
 
   it('required=true has required asterisk', () =&gt; {
     const tree = shallow(&lt;ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
     expect(tree.find('label').text()).to.equal('my label*');
   });
 
-  it('should pass aXe check when it is required'), () =&gt; {
+  it('should pass aXe check when it is required', () =&gt; {
     return axeCheck(&lt;ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
-  };
+  });
 
   it('label attribute propagates', () =&gt; {
     const tree = shallow(&lt;ErrorableSelect label="my label" options={options} value={testValue} onValueChange={(_update) =&gt; {}}/&gt;);
@@ -669,7 +669,7 @@ describe(<span class="hljs-string">'&lt;ErrorableSelect&gt;'</span>, () =&gt; {
     const idNum = selects.props().id.split('-')[2];
     expect(selects).to.have.lengthOf(1);
     expect(selects.find('id')).to.not.be.undefined;
-    expect(selects.prop('id')).to.equal('errorable-select-' + idNum);
+    expect(selects.prop('id')).to.equal(`errorable-select-${idNum}`);
   });
 });
 </pre>

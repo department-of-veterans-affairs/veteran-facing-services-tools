@@ -366,7 +366,7 @@
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
 
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
+<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../tooltip/Tooltip'</span>;
 
 <span class="hljs-keyword">import</span> { makeField } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../helpers/fields'</span>;
 
@@ -578,7 +578,7 @@ describe(<span class="hljs-string">'&lt;ErrorableTextInput&gt;'</span>, () =&gt;
     <span class="hljs-keyword">const</span> wrapper = mount(&lt;ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) =&gt; valueChanged = value}/&gt;);
+      onValueChange={(value) =&gt; { valueChanged = value; }}/&gt;);
 
     wrapper.find('input').first().simulate('change', { target: { value: 'hello' } });
     expect(valueChanged.value).to.eql('hello');
@@ -591,7 +591,7 @@ describe(<span class="hljs-string">'&lt;ErrorableTextInput&gt;'</span>, () =&gt;
     const wrapper = mount(&lt;ErrorableTextInput
       field={makeField('')}
       label="test"
-      onValueChange={(value) =&gt; valueChanged = value}/&gt;);
+      onValueChange={(value) =&gt; { valueChanged = value; }}/&gt;);
 
     wrapper.find('input').first().simulate('blur');
     expect(valueChanged.dirty).to.eql(true);
@@ -755,7 +755,7 @@ describe(<span class="hljs-string">'&lt;ErrorableTextInput&gt;'</span>, () =&gt;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.7 KB</span>
+                    <span class="Meta-value">5.8 KB</span>
                 </li>
             </ul>
         </div>

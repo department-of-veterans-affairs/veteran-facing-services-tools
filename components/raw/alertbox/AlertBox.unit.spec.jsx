@@ -15,17 +15,17 @@ function closeAlert() {
 describe('<AlertBox />', () => {
   it('should be an empty div if invisible', () => {
     const wrapper = shallow(<AlertBox
-        content={Content}
-        status="info"
-        isVisible={false}/>);
+      content={Content}
+      status="info"
+      isVisible={false}/>);
     expect(wrapper.html()).to.equal('<div aria-live="polite"></div>');
   });
 
   it('should have the expected classname', () => {
     const wrapper = shallow(<AlertBox
-        content={Content}
-        status="info"
-        isVisible/>);
+      content={Content}
+      status="info"
+      isVisible/>);
     expect(wrapper.find('.usa-alert').hasClass('usa-alert-info')).to.equal(true);
   });
 
