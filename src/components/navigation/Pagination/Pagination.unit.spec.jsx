@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Pagination from './Pagination';
+import { axeCheck } from '../../../../lib/testing/helpers';
 
 const props = {
   onPageSelect: () => {},
@@ -56,15 +57,15 @@ describe('<Pagination>', () => {
         pages={5}/>
     );
     const links = tree.find('a');
-    expect(tree.find('a')).to.have.length(6);
+    expect(links).to.have.length(6);
     links.forEach((link, index) => {
       if (index === 0) {
-        expect(link.props.children.props.children).to.equal('Prev');
+        expect(link.text()).to.equal('Prev');
       } else if (index === 6) {
-        expect(link.props.children).to.equal('Next');
+        expect(link.text()).to.equal('Next');
       } else {
-        const pageNumber = index;
-        expect(link.props.children).to.equal(pageNumber);
+        const pageNumber = index.toString();
+        expect(link.text()).to.equal(pageNumber);
       }
     });
   });
@@ -80,12 +81,12 @@ describe('<Pagination>', () => {
     expect(links).to.have.length(12);
     links.forEach((link, index) => {
       if (index === 0) {
-        expect(link.props.children.props.children).to.equal('Prev');
+        expect(link.text()).to.equal('Prev');
       } else if (index === 11) {
-        expect(link.props.children).to.equal('Next');
+        expect(link.text()).to.equal('Next');
       } else {
-        const pageNumber = index + 4;
-        expect(link.props.children).to.equal(pageNumber);
+        const pageNumber = (index + 4).toString();
+        expect(link.text()).to.equal(pageNumber);
       }
     });
   });
@@ -103,16 +104,16 @@ describe('<Pagination>', () => {
     expect(links).to.have.length(12);
     links.forEach((link, index) => {
       if (index === 0) {
-        expect(link.props.children.props.children).to.equal('Prev');
+        expect(link.text()).to.equal('Prev');
       } else if (index === 9) {
-        expect(link.props.children).to.equal('...');
+        expect(link.text()).to.equal('...');
       } else if (index === 10) {
-        expect(link.props.children).to.equal(15);
+        expect(link.text()).to.equal('15');
       } else if (index === 11) {
-        expect(link.props.children).to.equal('Next');
+        expect(link.text()).to.equal('Next');
       } else {
-        const pageNumber = index + 2;
-        expect(link.props.children).to.equal(pageNumber);
+        const pageNumber = (index + 2).toString();
+        expect(link.text()).to.equal(pageNumber);
       }
     });
   });
@@ -130,15 +131,23 @@ describe('<Pagination>', () => {
     expect(links).to.have.length(12);
     links.forEach((link, index) => {
       if (index === 0) {
-        expect(link.props.children.props.children).to.equal('Prev');
+        expect(link.text()).to.equal('Prev');
       } else if (index === 10) {
-        expect(link.props.children).to.equal(15);
+        expect(link.text()).to.equal('15');
       } else if (index === 11) {
-        expect(link.props.children).to.equal('Next');
+        expect(link.text()).to.equal('Next');
       } else {
-        const pageNumber = index + 5;
-        expect(link.props.children).to.equal(pageNumber);
+        const pageNumber = (index + 5).toString();
+        expect(link.text()).to.equal(pageNumber);
       }
     });
+  });
+
+  it('should pass aXe check', () => {
+    return axeCheck(  <Pagination
+      {...props}
+      page={3}
+      pages={5}/>
+    );
   });
 });
