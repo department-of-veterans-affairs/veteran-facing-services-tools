@@ -35,15 +35,15 @@ describe('<Pagination>', () => {
         pages={5}/>
     );
     const links = tree.find('a');
-    expect(tree.find('a')).to.have.length(7);
+    expect(links).to.have.length(7);
     links.forEach((link, index) => {
       if (index === 0) {
-        expect(link.props.children.props.children).to.equal('Prev');
+        expect(link.text()).to.equal('Prev');
       } else if (index === 6) {
-        expect(link.props.children).to.equal('Next');
+        expect(link.text()).to.equal('Next');
       } else {
-        const pageNumber = index;
-        expect(link.props.children).to.equal(pageNumber);
+        const pageNumber = index.toString();
+        expect(link.text()).to.equal(pageNumber);
       }
     });
   });
