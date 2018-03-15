@@ -4,7 +4,7 @@ handle: Pagination
 
 context:
   componentSourcePath: './Pagination.jsx'
-  page: 1
+  page: 2
   pages: 3
   maxPageListLength: 3
   showLastPage: true

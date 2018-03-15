@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { axeCheck } from '../../../lib/testing/helpers';
+import { axeCheck } from '../../../../lib/testing/helpers';
 import { expect } from 'chai';
 
 import Breadcrumbs from './Breadcrumbs.jsx';
