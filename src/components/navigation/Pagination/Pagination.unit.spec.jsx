@@ -144,7 +144,7 @@ describe('<Pagination>', () => {
   });
 
   it('should pass aXe check', () => {
-    return axeCheck(  <Pagination
+    return axeCheck(<Pagination
       {...props}
       page={3}
       pages={5}/>

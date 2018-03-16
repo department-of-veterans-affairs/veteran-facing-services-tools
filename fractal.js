@@ -23,24 +23,24 @@ components.set('default.preview', '@vets');
 components.set('default.context', context);
 components.set('statuses', {
   prototype: {
-      label: "Prototype",
-      description: "Do not implement.",
-      color: "#FF3333"
+    label: 'Prototype',
+    description: 'Do not implement.',
+    color: '#FF3333'
   },
   wip: {
-      label: "WIP",
-      description: "Work in progress. Implement with caution.",
-      color: "#f9c642"
+    label: 'WIP',
+    description: 'Work in progress. Implement with caution.',
+    color: '#f9c642'
   },
   ready: {
-      label: "Ready",
-      description: "Ready to implement.",
-      color: "#29CC29"
+    label: 'Ready',
+    description: 'Ready to implement.',
+    color: '#29CC29'
   },
   deprecated: {
-      label: "Deprecated",
-      description: "We're removing this component from Vets.gov.",
-      color: "#cd2026"
+    label: 'Deprecated',
+    description: 'We\'re removing this component from Vets.gov.',
+    color: '#cd2026'
   }
 });
 
