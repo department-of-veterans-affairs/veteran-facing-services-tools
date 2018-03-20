@@ -78,5 +78,18 @@ Verify that you have the new version number locally in `package.json`
 
 `npm publish`
 
+## Deployment
+
+Jenkins automatically publishes the content to GitHub Pages (the `gh-pages` branch on this repository) on pushes to master.
+
+To make changes:
+
+- create a branch off master
+- make changes
+- create a PR
+- ensure PR is approved and Jenkins tests pass (GitHub will not let you merge without these two)
+- merge to master and Jenkins will automatically deploy.
+
 ## Choosing a design system for Vets.gov
+
 This has been migrated to [another file](research.md) in order to keep the README instructional.
