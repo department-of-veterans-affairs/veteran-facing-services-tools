@@ -1,0 +1,12 @@
+import React from 'react';
+import DropDownPanel from './DropDownPanel';
+
+export default function DropDownPanelExample(props) {
+  return (
+    <DropDownPanel
+      buttonText={props.buttonText}
+      cssClass={props.cssClass}
+      contents={props.contents}
+      isOpen={props.isOpen}
+  />);
+}
