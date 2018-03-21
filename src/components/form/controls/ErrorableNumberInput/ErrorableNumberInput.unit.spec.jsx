@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import { axeCheck } from '../../../../../lib/testing/helpers';
 import chaiAsPromised from 'chai-as-promised';
 import chai, { expect } from 'chai';
@@ -115,5 +115,10 @@ describe('<ErrorableNumberInput>', () => {
     expect(inputs).to.have.lengthOf(1);
     expect(inputs.prop('id')).to.not.be.undefined;
     expect(inputs.prop('id')).to.equal(labels.prop('htmlFor'));
+  });
+
+  it('passes aXe check', () => {
+    const check = axeCheck(<ErrorableNumberInput field={testValue} label="my label" onValueChange={(_update) => {}}/>);
+    return check;
   });
 });

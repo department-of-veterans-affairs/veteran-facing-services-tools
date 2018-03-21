@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { makeField } from '../../../../helpers/fields';
 
- /*
+/*
  * A form input with a label that can display error messages.
  *
  */
