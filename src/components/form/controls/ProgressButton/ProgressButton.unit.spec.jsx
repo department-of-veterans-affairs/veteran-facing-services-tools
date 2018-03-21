@@ -23,10 +23,10 @@ describe('<ProgressButton>', () => {
 
     const updatePromise = new Promise((resolve, _reject) => {
       progressButton = ReactTestUtils.renderIntoDocument(<ProgressButton
-          buttonText="Button text"
-          buttonClass="usa-button-primary"
-          disabled={false}
-          onButtonClick={() => { resolve(true); }}/>);
+        buttonText="Button text"
+        buttonClass="usa-button-primary"
+        disabled={false}
+        onButtonClick={() => { resolve(true); }}/>);
     });
 
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(progressButton, 'button');
@@ -35,15 +35,15 @@ describe('<ProgressButton>', () => {
     return expect(updatePromise).to.eventually.eql(true);
   });
 
-  it('should pass aXe check when enabled'), () => {
+  it('should pass aXe check when enabled', () => {
     return axeCheck(<ProgressButton
-        buttonText="Button text" buttonClass="usa-button-primary"
-        disabled={false}/>);
-  };
+      buttonText="Button text" buttonClass="usa-button-primary"
+      disabled={false}/>);
+  });
 
-  it('should pass aXe check when disabled'), () => {
+  it('should pass aXe check when disabled', () => {
     return axeCheck(<ProgressButton
-        buttonText="Button text" buttonClass="usa-button-primary"
-        disabled={true}/>);
-  };
+      buttonText="Button text" buttonClass="usa-button-primary"
+      disabled/>);
+  });
 });

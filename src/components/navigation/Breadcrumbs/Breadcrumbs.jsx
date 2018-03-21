@@ -3,7 +3,6 @@ import React from 'react';
 
 class Breadcrumbs extends React.Component {
   render() {
-
     const crumbs = this.props.crumbs;
     return (
       <nav className="va-nav-breadcrumbs">

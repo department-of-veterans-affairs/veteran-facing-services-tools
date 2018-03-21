@@ -2,7 +2,7 @@ label: Checkbox
 status: wip
 
 context:
-  componentSourcePath: '../errorable_checkbox/ErrorableCheckbox.jsx'
+  componentSourcePath: '../ErrorableCheckbox/ErrorableCheckbox.jsx'
   id: default
   label: 'Checkbox'
   required: false
