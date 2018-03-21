@@ -68,6 +68,7 @@
     "react": "^15.5.4",
     "react-docgen": "^2.19.0",
     "react-dom": "^15.6.2",
+    "react-scroll": "^1.7.7",
     "react-test-renderer": "^15.5.0",
     "recast": "^0.14.4",
     "resolve-url-loader": "^2.2.0",
