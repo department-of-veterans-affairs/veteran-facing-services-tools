@@ -7836,6 +7836,14 @@ select.usa-input-success {
   content: ' (optional)';
 }
 
+.usa-input-label-helper {
+  color: #757575;
+}
+
+.usa-input-label-required {
+  color: #981b1e;
+}
+
 label {
   display: block;
   margin-top: 3rem;
@@ -12018,6 +12026,37 @@ body.va-pos-fixed {
 .additional-info-content {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.additional-info-button {
+  text-decoration: none;
+}
+
+.additional-info-button:hover {
+  text-decoration: none;
+}
+
+.additional-info-title {
+  border-bottom-right-radius: 1px;
+  border-bottom: 2px #0071bc dotted;
+  color: #323a45;
+}
+
+.additional-info-title:hover {
+  color: #000;
+}
+
+.fa-angle-down {
+  color: #aeb0b5;
+  font-size: 16px !important;
+  margin: 0.5rem;
+  transform: rotate(0deg);
+  transition: transform 0.15s linear;
+}
+
+.fa-angle-down.open {
+  transform: rotate(180deg);
+  transition: transform 0.15s linear;
 }
 
 .usa-bitter,
