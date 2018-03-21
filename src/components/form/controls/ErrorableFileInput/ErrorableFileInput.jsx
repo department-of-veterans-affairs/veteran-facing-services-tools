@@ -100,7 +100,16 @@ ErrorableFileInput.propTypes = {
   name: PropTypes.string.isRequired,
 
   /* message for error state */
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+
+  /* string */
+  buttonText: 'Add Files',
+
+  /* file types */
+  mimeTypes: '',
+
+  /* accepts multiple files */
+  multiple: false
 };
 
 ErrorableFileInput.defaultProps = {
