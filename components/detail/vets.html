@@ -475,71 +475,7 @@
         }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Primary"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#1"</span>&gt;</span>link1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#2"</span>&gt;</span>link2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#3"</span>&gt;</span>link3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-        <span class="hljs-built_in">window</span>.currentProps = {
-            <span class="hljs-string">"package"</span>: {
-                <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veteran-affairs/jean-pants"</span>,
-                <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>
-            },
-            <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/"</span>,
-            <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"./Breadcrumbs.jsx"</span>,
-            <span class="hljs-string">"crumbs"</span>: [{
-                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#1"</span>,
-                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key1"</span>,
-                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link1"</span>
-            }, {
-                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#2"</span>,
-                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key2"</span>,
-                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link2"</span>
-            }, {
-                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#3"</span>,
-                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key3"</span>,
-                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link3"</span>
-            }],
-            <span class="hljs-string">"_env"</span>: {
-                <span class="hljs-string">"request"</span>: {
-                    <span class="hljs-string">"headers"</span>: {},
-                    <span class="hljs-string">"query"</span>: {},
-                    <span class="hljs-string">"url"</span>: <span class="hljs-string">"/components/detail/vets"</span>,
-                    <span class="hljs-string">"segments"</span>: [<span class="hljs-string">"components"</span>, <span class="hljs-string">"detail"</span>, <span class="hljs-string">"vets"</span>],
-                    <span class="hljs-string">"params"</span>: {
-                        <span class="hljs-string">"handle"</span>: <span class="hljs-string">"vets"</span>
-                    },
-                    <span class="hljs-string">"path"</span>: <span class="hljs-string">"/components/detail/vets"</span>,
-                    <span class="hljs-string">"error"</span>: <span class="hljs-literal">null</span>,
-                    <span class="hljs-string">"errorStatus"</span>: <span class="hljs-literal">null</span>,
-                    <span class="hljs-string">"route"</span>: {
-                        <span class="hljs-string">"handle"</span>: <span class="hljs-string">"component"</span>,
-                        <span class="hljs-string">"view"</span>: <span class="hljs-string">"pages/components/detail.nunj"</span>,
-                        <span class="hljs-string">"path"</span>: <span class="hljs-string">"/components/detail/:handle"</span>,
-                        <span class="hljs-string">"matcher"</span>: {
-                            <span class="hljs-string">"keys"</span>: [{
-                                <span class="hljs-string">"name"</span>: <span class="hljs-string">"handle"</span>,
-                                <span class="hljs-string">"prefix"</span>: <span class="hljs-string">"/"</span>,
-                                <span class="hljs-string">"delimiter"</span>: <span class="hljs-string">"/"</span>,
-                                <span class="hljs-string">"optional"</span>: <span class="hljs-literal">false</span>,
-                                <span class="hljs-string">"repeat"</span>: <span class="hljs-literal">false</span>,
-                                <span class="hljs-string">"partial"</span>: <span class="hljs-literal">false</span>,
-                                <span class="hljs-string">"asterisk"</span>: <span class="hljs-literal">false</span>,
-                                <span class="hljs-string">"pattern"</span>: <span class="hljs-string">"[^\\/]+?"</span>
-                            }]
-                        }
-                    }
-                },
-                <span class="hljs-string">"builder"</span>: <span class="hljs-literal">true</span>,
-                <span class="hljs-string">"server"</span>: <span class="hljs-literal">false</span>
-            }
-        }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- &lt;div id="reactMount" data-tpl="breadcrumbs"&gt;&lt;nav class="va-nav-breadcrumbs"&gt;&lt;ul class="row va-nav-breadcrumbs-list columns" role="menubar" aria-label="Primary"&gt;&lt;li&gt;&lt;a href="#1"&gt;link1&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#2"&gt;link2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#3"&gt;link3&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;&lt;/div&gt;&lt;script&gt;window.currentProps = {"package":{"name":"department-of-veteran-affairs/jean-pants","version":"0.1.0"},"assetPath":"/","componentSourcePath":"./Breadcrumbs.jsx","crumbs":[{"link":"#1","key":"key1","label":"link1"},{"link":"#2","key":"key2","label":"link2"},{"link":"#3","key":"key3","label":"link3"}],"_env":{"request":{"headers":{},"query":{},"url":"/components/detail/vets","segments":["components","detail","vets"],"params":{"handle":"vets"},"path":"/components/detail/vets","error":null,"errorStatus":null,"route":{"handle":"component","view":"pages/components/detail.nunj","path":"/components/detail/:handle","matcher":{"keys":[{"name":"handle","prefix":"/","delimiter":"/","optional":false,"repeat":false,"partial":false,"asterisk":false,"pattern":"[^\\/]+?"}]}}},"builder":true,"server":false}}&lt;/script&gt;--&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 2em"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>
@@ -559,11 +495,6 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" usa-button-active"</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" usa-button-hover"</span>&gt;</span>Hover<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -706,15 +637,13 @@ Should display with header, footer, no sidenav
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> '<a href="header.html">@header</a>' %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="breadcrumbs.html">@breadcrumbs</a>' %}</span><span class="xml">
+<span class="hljs-comment">&lt;!-- </span></span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="breadcrumbs.html">@breadcrumbs</a>' %}</span><span class="xml"><span class="hljs-comment">--&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 2em"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>
 
       </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="typesetting--h1.html">@typesetting--h1</a>' %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="typesetting--introtext.html">@typesetting--introtext</a>' %}</span><span class="xml">
-
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> '<a href="buttons.html">@buttons</a>' %}</span><span class="xml">
 
 
       </span><span class="hljs-template-variable">{{ yield }}</span><span class="xml">
@@ -784,7 +713,7 @@ Should display with header, footer, no sidenav
         </li>
         
         <li class="Meta-item">
-            <strong class="Meta-key">References <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">References <em class="Meta-count">(5)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="header.html">@<span>header</span></a>, 
@@ -794,8 +723,6 @@ Should display with header, footer, no sidenav
                 <a href="typesetting--h1.html">@<span>typesetting--h1</span></a>, 
             
                 <a href="typesetting--introtext.html">@<span>typesetting--introtext</span></a>, 
-            
-                <a href="buttons.html">@<span>buttons</span></a>, 
             
                 <a href="footer.html">@<span>footer</span></a>
             
@@ -2211,6 +2138,30 @@ Should display with header, footer, no sidenav
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="addressblock.html" data-pjax>
                 <span>Address block</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+                <span>Collapsible Panel</span>
                 
 
 <div class="Status Status--unlabelled">
