@@ -1,0 +1,11 @@
+label: Errorable File Input
+status: wip
+
+context:
+  componentSourcePath: './ErrorableFileInput.jsx'
+  id: default
+  name: Name
+  multiple: true
+  buttonText: Upload some files
+  accept: String
+  errorMessage: Error message

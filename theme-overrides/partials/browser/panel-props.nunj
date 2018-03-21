@@ -1,3 +1,5 @@
+{{ entity }}
+
 <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-{{ entity.id }}-panel-props">
     <div class="Prose Prose--condensed">
         <table>
