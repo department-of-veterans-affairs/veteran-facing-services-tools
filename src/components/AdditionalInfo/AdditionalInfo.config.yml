@@ -1,0 +1,6 @@
+label: Additional Info
+status: wip
+
+context:
+  componentSourcePath: './AdditionalInfo.jsx'
+  triggerText: 'Additional Information'
