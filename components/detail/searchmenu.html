@@ -429,15 +429,33 @@ export default SearchMenu;
 
 describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
   it(<span class="hljs-string">'should render'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = mount(&lt;SearchMenu id="searchmenu" title="searchmenu title" isOpen clickHandler={() =&gt; {}}/&gt;);
+    <span class="hljs-keyword">const</span> tree = mount(
+      &lt;SearchMenu
+        id="searchmenu"
+        title="searchmenu title"
+        isOpen
+        clickHandler={() =&gt; {}}/&gt;
+    );
     expect(tree.children().text()).to.contain('Search');
   });
 
   it('should pass aXe check when closed', () =&gt; {
-    return axeCheck(&lt;SearchMenu id="searchmenu" title="searchmenu title" clickHandler={() =&gt; {}}/&gt;);
+    return axeCheck(
+      &lt;SearchMenu
+        id="searchmenu"
+        title="searchmenu title"
+        isOpen={false}
+        clickHandler={() =&gt; {}}/&gt;
+    );
   });
   it('should pass aXe check when open', () =&gt; {
-    return axeCheck(&lt;SearchMenu id="searchmenu" title="SearchMenu title" clickHandler={() =&gt; {}}/&gt;);
+    return axeCheck(
+      &lt;SearchMenu
+        id="searchmenu"
+        title="SearchMenu title"
+        isOpen
+        clickHandler={() =&gt; {}}/&gt;
+    );
   });
 });
 </pre>
@@ -456,7 +474,7 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">750 Bytes</span>
+                    <span class="Meta-value">904 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2333,6 +2351,30 @@ describe(<span class="hljs-string">'&lt;SearchMenu/&gt;'</span>, () =&gt; {
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="omb-info.html" data-pjax>
                 <span>OMB Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+                <span>PrivacyAgreement</span>
                 
 
 <div class="Status Status--unlabelled">
