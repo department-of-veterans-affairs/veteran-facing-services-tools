@@ -3,8 +3,12 @@ import ErrorableFileInput from './ErrorableFileInput';
 
 export default function ErrorableFileInputExample(props) {
   return (
-          <ErrorableFileInput
-            onChange={(e) => e}
-            {...props}/>
+    <ErrorableFileInput
+      name={props.name}
+      multiple={props.multiple}
+      buttonText={props.buttonText}
+      accept={props.accept}
+      errorMessage={props.errorMessage}
+      onChange={(e) => e}/>
   );
 }
