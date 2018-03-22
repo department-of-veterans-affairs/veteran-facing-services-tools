@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../tooltip/Tooltip';
+import ToolTip from '../../../Tooltip/Tooltip';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 
 import { makeField } from '../../../../helpers/fields';
