@@ -46,7 +46,7 @@ describe('<ErrorableFileInput>', () => {
   });
 
   it('passes aXe check', () => {
-    const check = axeCheck(<ErrorableFileInput buttonText="my label" onChange={onChange}/>);
+    const check = axeCheck(<ErrorableFileInput buttonText="my label"/>);
     return check;
   });
 });
