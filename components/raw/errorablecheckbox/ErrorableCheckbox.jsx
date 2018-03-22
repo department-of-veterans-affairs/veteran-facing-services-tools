@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
+import ToolTip from '../../../Tooltip/Tooltip';
 
-import ToolTip from '../../../Tooltip/Tooltip'; // File extension provided for test
 
 /**
  * A form checkbox with a label that can display error messages.
