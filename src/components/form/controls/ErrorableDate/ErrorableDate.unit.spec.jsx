@@ -1,9 +1,10 @@
 import React from 'react';
 // import SkinDeep from 'skin-deep';
 import { expect } from 'chai';
-
-import ErrorableDate from '../../../../src/js/common/components/form-elements/ErrorableDate';
-import { makeField } from '../../../../src/js/common/model/fields';
+import { shallow } from 'enzyme';
+import { axeCheck } from '../../../../../lib/testing/helpers';
+import ErrorableDate from './ErrorableDate';
+import { makeField } from '../../../../helpers/fields.js';
 
 describe('<ErrorableDate>', () => {
   it('renders input elements', () => {
@@ -12,10 +13,10 @@ describe('<ErrorableDate>', () => {
       month: makeField(12),
       year: makeField(2010)
     };
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
-    expect(tree.everySubTree('ErrorableNumberInput')).to.have.lengthOf(1);
-    expect(tree.everySubTree('ErrorableSelect')).to.have.lengthOf(2);
+    expect(tree.find('ErrorableNumberInput')).to.have.lengthOf(1);
+    expect(tree.find('ErrorableSelect')).to.have.lengthOf(2);
   });
   it('displays required message', () => {
     const date = {
@@ -27,11 +28,11 @@ describe('<ErrorableDate>', () => {
     date.month.dirty = true;
     date.day.dirty = true;
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate required date={date} onValueChange={(_update) => {}}/>);
 
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Please provide a response');
+    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a response');
   });
   it('displays invalid message', () => {
     const date = {
@@ -43,12 +44,13 @@ describe('<ErrorableDate>', () => {
     date.month.dirty = true;
     date.day.dirty = true;
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
 
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Please provide a valid date');
+    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a valid date');
   });
+
   it('does not show invalid message for month year date', () => {
     const date = {
       day: makeField(''),
@@ -59,11 +61,11 @@ describe('<ErrorableDate>', () => {
     date.month.dirty = true;
     date.day.dirty = true;
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
-
-    expect(tree.everySubTree('.usa-input-error')).to.be.empty;
+    expect(tree.find('.usa-input-error')).to.have.length(0);
   });
+
   it('displays custom message', () => {
     const date = {
       day: makeField('3'),
@@ -74,11 +76,11 @@ describe('<ErrorableDate>', () => {
     date.month.dirty = true;
     date.day.dirty = true;
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate date={date} validation={{ valid: false, message: 'Test' }} onValueChange={(_update) => {}}/>);
 
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Test');
+    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
   });
   it('displays custom message from array', () => {
     const date = {
@@ -90,7 +92,7 @@ describe('<ErrorableDate>', () => {
     date.month.dirty = true;
     date.day.dirty = true;
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <ErrorableDate
         date={date}
         validation={[
@@ -100,7 +102,30 @@ describe('<ErrorableDate>', () => {
         onValueChange={(_update) => {}}/>
     );
 
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Test');
+    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
+  });
+
+  it('should pass aXe check', () => {
+    const date = {
+      day: makeField(''),
+      month: makeField(''),
+      year: makeField('1890')
+    };
+
+    return axeCheck(<ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+  });
+
+  it('should pass aXe check when errorMessage is set', () => {
+    const date = {
+      day: makeField(''),
+      month: makeField(''),
+      year: makeField('1890')
+    };
+    date.year.dirty = true;
+    date.month.dirty = true;
+    date.day.dirty = true;
+
+    return axeCheck(<ErrorableDate date={date} onValueChange={(_update) => {}}/>);
   });
 });

@@ -13,6 +13,10 @@ import ToolTip from '../../../Tooltip/Tooltip';
 import { isDirtyDate, isValidPartialDate, isNotBlankDateField, validateCustomFormComponent } from '../../../../utils/validations';
 import { months, days } from '../../../../utils/options-for-select.js';
 
+/**
+ * A date input field that accepts values for month and year
+ */
+
 class ErrorableDate extends React.Component {
   constructor() {
     super();
@@ -127,28 +131,19 @@ class ErrorableDate extends React.Component {
   }
 }
 
-/**
- * A date input field that accepts values for month and year
- *
- * Props:
- * `required` - boolean. Render marker indicating field is required.
- * `validation` - object or array. Result of custom validation. Should include a valid prop and a message prop
- * `label` - string. Label for entire question.
- * `name` - string. Used to create unique name attributes for each input.
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `date` - object. Date value. Should have month, day, and year props
- * `onValueChange` - a function with this prototype: (newValue)
- */
-
 ErrorableDate.propTypes = {
+  /* Render marker indicating field is required. */
   required: PropTypes.bool,
+  /* object or array. Result of custom validation. Should include a valid prop and a message prop */
   validation: PropTypes.shape({
     valid: PropTypes.bool,
     message: PropTypes.string
   }),
+  /* Label for entire question. */
   label: PropTypes.string,
+  /* Used to create unique name attributes for each input. */
   name: PropTypes.string.isRequired,
+  /* Date value. Should have month, day, and year props */
   date: PropTypes.shape({
     day: PropTypes.shape({
       value: PropTypes.string,
@@ -163,7 +158,9 @@ ErrorableDate.propTypes = {
       dirty: PropTypes.bool,
     })
   }).isRequired,
+  /* a function with this prototype: (newValue) */
   onValueChange: PropTypes.func.isRequired,
+  /* String with help text for user. */
   toolTipText: PropTypes.string,
   requiredMessage: PropTypes.string,
   invalidMessage: PropTypes.string
