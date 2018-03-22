@@ -1,0 +1,25 @@
+label: Sortable Table
+status: wip
+
+context:
+  componentSourcePath: 'SortableTable.jsx'
+  className:
+  currentSort:
+    value: 'String'
+    order: ASC
+  fields: [
+    {
+      label: 'Label 1',
+      value: '1' },
+    {
+      label: 'Label 2',
+      value: '2' }]
+  data: [
+    {
+      id: 1,
+      rowClass: 'class'
+    },
+    {
+      id: 2,
+      rowClass: 'class'
+    }]
