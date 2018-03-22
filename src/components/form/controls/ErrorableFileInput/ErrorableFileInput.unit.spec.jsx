@@ -39,7 +39,7 @@ describe('<ErrorableFileInput>', () => {
       }
     };
 
-    tree.getMountedInstance().handleChange(event);
+    tree.instance().handleChange(event);
 
     expect(onChange.called).to.be.true;
     expect(event.target.value).to.be.null;
