@@ -6,3 +6,4 @@ VETS-ONLY/*
 src/js/*
 fractalEntry.js
 vets-sketchapp/*
+/src/utils/*
