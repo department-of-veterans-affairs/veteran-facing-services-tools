@@ -105,8 +105,6 @@ ErrorableFileInput.propTypes = {
   /* file types */
   mimeTypes: PropTypes.string,
 
-  /* accepts multiple files */
-  multiple: PropTypes.bool
 };
 
 ErrorableFileInput.defaultProps = {
