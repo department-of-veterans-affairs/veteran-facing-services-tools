@@ -8,7 +8,7 @@ import moment from 'moment';
 import ErrorableSelect from '../ErrorableSelect/ErrorableSelect';
 import ErrorableNumberInput from '../ErrorableNumberInput/ErrorableNumberInput';
 
-import ToolTip from '../../../Tooltip/ToolTip';
+import ToolTip from '../../../Tooltip/Tooltip';
 
 import { isDirtyDate, isValidPartialDate, isNotBlankDateField, validateCustomFormComponent } from '../../../../utils/validations';
 import { months, days } from '../../../../utils/options-for-select.js';

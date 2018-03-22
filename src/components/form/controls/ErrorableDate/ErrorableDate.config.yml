@@ -3,3 +3,19 @@ status: wip
 
 context:
   componentSourcePath: './ErrorableDate.jsx'
+  required: true
+  label: 'Please tell us a date'
+  name: 'Errorable Date'
+  date:
+    day:
+      value: '14'
+      dirty: false
+    month:
+      value: '4'
+      dirty: false
+    year:
+      value: '1983'
+      dirty: false
+  toolTipText: 'This is a tool tip'
+  requiredMessage: 'Please provide a response'
+  invalidMessage: 'Please provide a valid date'

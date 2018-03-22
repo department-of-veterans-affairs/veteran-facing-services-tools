@@ -4,6 +4,8 @@ import ErrorableDate from './ErrorableDate';
 export default function ErrorableDateExample(props) {
   return (
     <ErrorableDate
-      thing={props.thing}
-  />)
+      label={props.label}
+      onValueChange={(e) => {e.target.checked}}
+      {...props}
+    />);
 }
