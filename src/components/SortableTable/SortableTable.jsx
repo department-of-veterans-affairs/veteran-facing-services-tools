@@ -102,6 +102,9 @@ SortableTable.propTypes = {
       PropTypes.number,
       PropTypes.string
     ]).isRequired,
+    values: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string])),
     rowClass: PropTypes.string
   })).isRequired,
 
