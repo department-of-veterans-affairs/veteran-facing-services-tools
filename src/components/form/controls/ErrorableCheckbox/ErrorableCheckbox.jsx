@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import ToolTip from '../../../tooltip/Tooltip'; // File extension provided for test
+import ToolTip from '../../../Tooltip/Tooltip';
+
 
 /**
  * A form checkbox with a label that can display error messages.
@@ -14,13 +15,21 @@ import ToolTip from '../../../tooltip/Tooltip'; // File extension provided for t
  * `name` - String for name attribute.
  * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tab order.
- * `onChange` - a function with this prototype: (newValue)
+ * `onValueChange` - a function with this prototype: (newValue)
  * `required` - boolean. Render marker indicating field is required.
  */
 class ErrorableCheckbox extends React.Component {
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   componentWillMount() {
     this.inputId = _.uniqueId('errorable-checkbox-');
+  }
+
+  handleChange(domEvent) {
+    this.props.onValueChange(domEvent.target.checked);
   }
 
   render() {
@@ -30,10 +39,13 @@ class ErrorableCheckbox extends React.Component {
     let errorSpanId = undefined;
     if (this.props.errorMessage) {
       errorSpanId = `${this.inputId}-error-message`;
-      errorSpan = <span className="usa-input-error-message" id={`${errorSpanId}`}>{this.props.errorMessage}</span>;
+      errorSpan = (
+        <span className="usa-input-error-message" role="alert" id={errorSpanId}>
+          <span className="sr-only">Error</span> {this.props.errorMessage}
+        </span>
+      );
     }
 
-    const labelId = `${this.inputId}-label`;
     // Addes ToolTip if text is provided.
     let toolTip;
     if (this.props.toolTipText) {
@@ -50,23 +62,27 @@ class ErrorableCheckbox extends React.Component {
       requiredSpan = <span className="form-required-span">*</span>;
     }
 
-    let className = `form-checkbox${this.props.errorMessage ? ' usa-input-error' : ''}`;
-    if (typeof this.props.className !== 'undefined') {
+    let className = `form-checkbox${
+      this.props.errorMessage ? ' usa-input-error' : ''
+    }`;
+    if (!_.isUndefined(this.props.className)) {
       className = `${className} ${this.props.className}`;
     }
 
     return (
       <div className={className}>
         <input
-          {...this.props}
           autoComplete="false"
-          aria-labelledby={labelId}
           aria-describedby={errorSpanId}
+          checked={this.props.checked}
           id={this.inputId}
-          type="checkbox"/>
-        <label // eslint-disable-line jsx-a11y/label-has-for
-          className={this.props.errorMessage ? 'form-checkbox__label usa-input-error-label' : undefined}
-          id={labelId}
+          name={this.props.name}
+          type="checkbox"
+          onChange={this.handleChange}/>
+        <label
+          className={
+            this.props.errorMessage ? 'usa-input-error-label' : undefined
+          }
           name={`${this.props.name}-label`}
           htmlFor={this.inputId}>
           {this.props.label}
@@ -95,18 +111,15 @@ ErrorableCheckbox.propTypes = {
   /**
    * Label for the checkbox
    */
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   /**
    * Handler for when the checkbox is changed
    */
-  onChange: PropTypes.func.isRequired,
+  onValueChange: PropTypes.func.isRequired,
   /**
    * If the checkbox is required or not
    */
-  required: PropTypes.bool,
+  required: PropTypes.bool
 };
 
 export default ErrorableCheckbox;

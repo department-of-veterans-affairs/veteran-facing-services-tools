@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-
-import ToolTip from '../../../tooltip/Tooltip';
-
+import ToolTip from '../../../Tooltip/Tooltip';
 import { makeField } from '../../../../helpers/fields';
 
 /**
@@ -158,7 +156,7 @@ ErrorableTextInput.propTypes = {
    */
   onValueChange: PropTypes.func.isRequired,
   /**
-   * type attribute for ijput field
+   * type attribute for input field
    */
   type: PropTypes.string
 };

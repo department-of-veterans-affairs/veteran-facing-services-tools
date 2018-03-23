@@ -3,8 +3,9 @@ import ErrorableCheckbox from './ErrorableCheckbox';
 
 export default function ErrorableCheckboxExample(props) {
   return (
-          <ErrorableCheckbox
-            onChange={(e) => {e.target.checked}}
-            {...props}/>
+    <ErrorableCheckbox
+      label='Errorable Checkbox'
+      onValueChange={(e) => {e.target.checked}}
+      {...props}/>
   );
 }
