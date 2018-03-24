@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import root from 'window-or-global';
 
 class DropDownPanel extends React.Component {
+
   constructor(props) {
     super(props);
     this.toggleDropDown = this.toggleDropDown.bind(this);
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.container.addEventListener('click', this.handleDocumentClick, false);
   }
 
@@ -58,27 +60,26 @@ class DropDownPanel extends React.Component {
 }
 
 DropDownPanel.propTypes = {
-  buttonText: PropTypes.string,
+  buttonText: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
   cssClass: PropTypes.string,
-
+  contents: PropTypes.node.isRequired,
+  icon: PropTypes.node, /* Should be SVG markup */
+  id: PropTypes.string,
+  isOpen: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   // 'container' is the parent DOM element that will close the dropdown when clicked,
   // assuming the child element is not contained by the dropdown's element.
   // This is a DOM element, not a React element, because the dropdown may need to respond
   // to events occurring outside of the React context.
   container: PropTypes.oneOfType([
-    PropTypes.instanceOf(window.HTMLDocument),
-    PropTypes.instanceOf(window.HTMLElement)
-  ]),
-  contents: PropTypes.node.isRequired,
-  icon: PropTypes.node, /* Should be SVG markup */
-  id: PropTypes.string,
-  isOpen: PropTypes.bool.isRequired,
-  disabled: PropTypes.bool
+    PropTypes.instanceOf(root.HTMLDocument),
+    PropTypes.instanceOf(root.HTMLElement)
+  ])
 };
 
 DropDownPanel.defaultProps = {
-  container: window.document,
+  container: root.document,
   disabled: false
 };
 
