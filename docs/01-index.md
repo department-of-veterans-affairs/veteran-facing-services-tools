@@ -17,6 +17,8 @@ Jean Pants’ purpose is to provide accepted guidance for:
 
 [See the complete documentation.](/docs/design-system-docs-v3)
 
+<br>
+
 # Quickstart
 
 The components that make up Vets.gov's pattern library should all be documented in Jean Pants. You can access each component using the navigation to the left.
@@ -25,8 +27,9 @@ The components that make up Vets.gov's pattern library should all be documented 
 
 Each component is rendered in Fractal in a small preview window, but it's also available as a full-screen preview without interference from the system's UI. Click the blue icon to the right of the component's name to see this view.
 
-<img src="/img/docs/fractal/preview-icon.png"/>
+<img src="img/docs/preview-icon.png"/>
 
+<br>
 Each component has a few key pieces of information associated with it, located in the upper-right corner of the UI or in the tabs beneath the visual demo.
 
 ### The label
@@ -62,24 +65,13 @@ These three tabs are specific to Fractal (the software that underpins JP).
 
 To install Jean Pants locally, please visit this [README](https://github.com/department-of-veterans-affairs/design-system/blob/master/README.md).
 
+---
 
 ## To Do:
 
 - incorporate Vets CSS
-- ~~Get the CSS working properly~~ **CAVEAT** This was done by bringing in `dist/` -- needs to be more tightly incorporated?
-- Remove components we're not using on Vets
-  - Serif font
-    - Merriweather is removed, but need to reset the section headings
-  - ~~labels~~
-  - ~~forms > password reset form~~
-  - ~~forms > sign in form (this and above handled by id.me)~~
-  - ~~Graphic list~~
-  - ~~Hero~~
-  - ~~Buttons > Grey~~
-  - ~~Buttons > Outline Inverse~~
-
+- Get the CSS working properly
 - Incorporate documentation for Foundation grid
-
 - Match styles:
   - ~~Tables~~
   - Fonts
@@ -94,7 +86,6 @@ To install Jean Pants locally, please visit this [README](https://github.com/dep
 
 
 - Add components that we _are_ using on Vets that are not on USWDS (what are these?)
-  - Color palette
   - Subway map
   - Logos
   - Grey callouts
@@ -103,30 +94,12 @@ To install Jean Pants locally, please visit this [README](https://github.com/dep
   - Iconography
   - Header > Get Help (VCL)
   - Homepage template (unsure whether to break this down into smaller components, since so many of them _only_ live on Home)
-  - Navigation > breadcrumbs
   - Navigation > Next/prev
   - Log in landing page (prompt to ID.me)
-  - Modals
-  - Address blocks
-  - Progress bars
   - Alert/accordion hybrid (see Prescription Refills)
   - Data visualizations
   - Add Source Sans Pro Bold
   - Responsive table
   - Expandable alert box (https://www.vets.gov/health-care/health-conditions/mental-health/)
-
-  **Open questions:**
-
-  - Multi-select accordion? Do we use this anywhere?
-
-
-  **Fractal only:**
-
-  - Add a 'deprecated' label for certain components
-
-  ## Long game:
-
-  - Output React components via API
-  - Tie this to Sketch or Lingo
 
 Edit this page's contents at `docs/01-index.hbs`
