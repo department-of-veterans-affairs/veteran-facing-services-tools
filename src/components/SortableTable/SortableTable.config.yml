@@ -33,5 +33,3 @@ context:
       values: [1, 2, 3],
       rowClass: 'class'
     }]
-
-// what are {rows} in the -->
