@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../themes/mandelbrot/css/white.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Sortabletable | Vets.gov Design Standards</title>
+<title>Sortable Table | Vets.gov Design Standards</title>
 
 </head>
 <body>
@@ -60,7 +60,7 @@
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
         <a class="Pen-previewLink" href="../preview/sortabletable.html" title="Component preview">
-            Sortabletable
+            Sortable Table
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -72,7 +72,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
+<label class="Status-label" style="background-color: #f9c642; border-color: #f9c642;">WIP</label>
 
 </div>
 
@@ -174,6 +174,46 @@
         <table>
           <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
           
+            <tr>
+              <td>className</td>
+              <td>No</td>
+              <td>string</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+            <tr>
+              <td>currentSort</td>
+              <td>Yes</td>
+              <td>{ <br/>&nbsp;&nbsp;value: string,<br/> &nbsp;&nbsp;order: enum }</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+            <tr>
+              <td>fields</td>
+              <td>Yes</td>
+              <td>[{ <br/>&nbsp;&nbsp;label: string,<br/> &nbsp;&nbsp;value: string }]</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+            <tr>
+              <td>data</td>
+              <td>Yes</td>
+              <td>[{ <br/>&nbsp;&nbsp;id: union,<br/> &nbsp;&nbsp;values: [union],<br/> &nbsp;&nbsp;rowClass: string }]</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+            <tr>
+              <td>onSort</td>
+              <td>No</td>
+              <td>func</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
         </table>
     </div>
 </div>
@@ -183,7 +223,72 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-2bdf75a626423640edd92445158d385c-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre>Cannot read property 'map' of undefined</pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"sortabletable"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-sortable-table va-table"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Label 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Label 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Label 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">window</span>.currentProps = {
+        <span class="hljs-string">"package"</span>: {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veteran-affairs/jean-pants"</span>,
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>
+        },
+        <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/"</span>,
+        <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"SortableTable.jsx"</span>,
+        <span class="hljs-string">"className"</span>: <span class="hljs-string">"va-table"</span>,
+        <span class="hljs-string">"currentSort"</span>: {
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"String"</span>,
+            <span class="hljs-string">"order"</span>: <span class="hljs-string">"ASC"</span>
+        },
+        <span class="hljs-string">"fields"</span>: [{
+            <span class="hljs-string">"label"</span>: <span class="hljs-string">"Label 1"</span>,
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"1"</span>
+        }, {
+            <span class="hljs-string">"label"</span>: <span class="hljs-string">"Label 2"</span>,
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"2"</span>
+        }, {
+            <span class="hljs-string">"label"</span>: <span class="hljs-string">"Label 3"</span>,
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"3"</span>
+        }],
+        <span class="hljs-string">"data"</span>: [{
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"values"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+            <span class="hljs-string">"rowClass"</span>: <span class="hljs-string">"class"</span>
+        }, {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"values"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+            <span class="hljs-string">"rowClass"</span>: <span class="hljs-string">"class"</span>
+        }, {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-string">"values"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+            <span class="hljs-string">"rowClass"</span>: <span class="hljs-string">"class"</span>
+        }]
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -213,6 +318,37 @@
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
 <span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/</span>
+<span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">SortableTable.jsx</span>
+<span class="hljs-attr">className:</span> <span class="hljs-string">va-table</span>
+<span class="hljs-attr">currentSort:</span>
+<span class="hljs-attr">  value:</span> <span class="hljs-string">String</span>
+<span class="hljs-attr">  order:</span> <span class="hljs-string">ASC</span>
+<span class="hljs-attr">fields:</span>
+<span class="hljs-attr">  - label:</span> <span class="hljs-string">Label</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">    value:</span> <span class="hljs-string">'1'</span>
+<span class="hljs-attr">  - label:</span> <span class="hljs-string">Label</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">    value:</span> <span class="hljs-string">'2'</span>
+<span class="hljs-attr">  - label:</span> <span class="hljs-string">Label</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    value:</span> <span class="hljs-string">'3'</span>
+<span class="hljs-attr">data:</span>
+<span class="hljs-attr">  - id:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">    values:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">1</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">2</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    rowClass:</span> <span class="hljs-string">class</span>
+<span class="hljs-attr">  - id:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">    values:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">1</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">2</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    rowClass:</span> <span class="hljs-string">class</span>
+<span class="hljs-attr">  - id:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    values:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">1</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">2</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">    rowClass:</span> <span class="hljs-string">class</span>
 </pre>
             
         
@@ -2280,6 +2416,30 @@ describe(<span class="hljs-string">'&lt;SortableTable&gt;'</span>, () =&gt; {
         
     
         
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+                <span>Dropdown Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-global">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>Global</span>
@@ -2424,7 +2584,7 @@ describe(<span class="hljs-string">'&lt;SortableTable&gt;'</span>, () =&gt; {
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
-                <span>Sortabletable</span>
+                <span>Sortable Table</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2432,7 +2592,7 @@ describe(<span class="hljs-string">'&lt;SortableTable&gt;'</span>, () =&gt; {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
 
 
 </div>
