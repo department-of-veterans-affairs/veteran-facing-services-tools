@@ -1,3 +1,20 @@
+{% for variant in variants %}
+
+<section>
+  <h1>{{ type }}</h1>
+  <div>
+    <h2>{{ name }}</h2>
+    <h3>Hex: {{ hex }}</h3>
+    <h3>Contrast: {{ contrast }}</h3>
+    <div class='swatch-sample {{ var }}'>
+    </div> <!-- the color swatch itself -->
+
+  </div> <!-- swatch container -->
+</section> <!-- family container -->
+
+{% endfor %}
+
+<!--
 {% for family in family %}
 
 <div class='row'>
@@ -12,7 +29,7 @@
     </div>
 
   {% endfor %}
-  
-  </div> <!-- end row-->
-{% endfor %}
 
+  </div>
+{% endfor %}
+-->

@@ -1,0 +1,49 @@
+label: Color Palette
+status: wip
+preview: '@uswds'
+collated: true
+order: 0
+
+variants:
+  - name:
+    context:
+      var: "color-link-default"
+      name: "$color-link-default"
+      hex: "#004795"
+      contrast: "AA"
+      type: default
+  - name:
+    context:
+      var: "color-visited"
+      name: "$color-visited"
+      hex: "#4c2c92"
+      contrast: "AAA"
+      type: default
+  - name:
+    context:
+      var: "color-focus"
+      name: "$color-focus"
+      hex: "#3e94cf"
+      contrast: "AA"
+      type: default
+  - name:
+    context:
+      var: "color-base"
+      name: "$color-base"
+      hex: "#212121"
+      contrast: ""
+      type: default
+  - name:
+    context:
+      var: "color-black"
+      name: "$color-black"
+      hex: "#000000"
+      contrast: "AAA"
+      type: default
+  - name:
+    context:
+      var: "color-white"
+      name: "$color-white"
+      hex: "#ffffff"
+      contrast: "AAA"
+      type: default
