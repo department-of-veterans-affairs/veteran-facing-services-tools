@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import DropDown from '../../DropDown';
+import DropDownPanel from '../../navigation/DropDownPanel/DropDownPanel';
 import IconHelp from '../../svgicons/IconHelp/IconHelp.jsx';
 
 
@@ -18,7 +18,7 @@ class HelpMenu extends React.Component {
     );
 
     return (
-      <DropDown
+      <DropDownPanel
         buttonText="Help"
         clickHandler={this.props.clickHandler}
         cssClass={this.props.cssClass}
