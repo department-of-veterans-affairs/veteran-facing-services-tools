@@ -70,30 +70,55 @@
 
     
     
-    <p>Currently, this is USWDS’ Fractal system with an overlay of Vets. It’s very much a WIP.</p>
+    <h1 id="welcome-to-jean-pants-">Welcome to Jean Pants!</h1>
+<p>The design system (affectionately named “Jean Pants”) is a Fractal implementation for Vets.gov. It’s based on USWDS’ own system, and modified for the unique needs of Vets.gov.</p>
+<p>Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Jean Pants is a single source of documentation and truth for people looking to use the Vets.gov components.</p>
+<p>Jean Pants’ purpose is to provide accepted guidance for:</p>
+<ul>
+<li>code implementations for existing components</li>
+<li>visual design for existing components</li>
+<li>use guidelines for existing components (when and when not to use a thing)</li>
+<li>implementation of new visual patterns and components</li>
+</ul>
+<p><a href="/docs/design-system-docs-v3">See the complete documentation.</a></p>
+<p><br></p>
+<h1 id="quickstart">Quickstart</h1>
+<p>The components that make up Vets.gov’s pattern library should all be documented in Jean Pants. You can access each component using the navigation to the left.</p>
+<h2 id="component-preview">Component Preview</h2>
+<p>Each component is rendered in Fractal in a small preview window, but it’s also available as a full-screen preview without interference from the system’s UI. Click the blue icon to the right of the component’s name to see this view.</p>
+<p><img src="img/docs/preview-icon.png"/></p>
+<p><br>
+Each component has a few key pieces of information associated with it, located in the upper-right corner of the UI or in the tabs beneath the visual demo.</p>
+<h3 id="the-label">The label</h3>
+<p>Jean Pants has four labels that can be applied to each component:</p>
+<ul>
+<li><strong>Ready</strong>: Implement at will. This component is mature and well-developed.</li>
+<li><strong>WIP</strong>: This component can be implemented on Vets.gov (it may already have been), but may still be in active development. Proceed with caution.</li>
+<li><strong>Prototype</strong>: This is the “kitchen sink” label – components with this label are experimental. Do not implement on Vets.gov without consulting with its author!</li>
+<li><strong>Deprecated</strong>: Components with this label are on their way out; they’re still in the system for historical purposes. Do not implement.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<p>Driven by a component’s README file, notes can contain documentation, historical knowledge, or context for using this component.</p>
+<h3 id="props">Props</h3>
+<p>Specific to React components, this tab contains all the component’s properties and the information you need to use them.</p>
+<h3 id="html">HTML</h3>
+<p>The HTML rendering of a given component. If you need to use a component in static content instead of in a React context, use this tab to get your code.</p>
+<h3 id="view-context-info">View, Context, &amp; Info</h3>
+<p>These three tabs are specific to Fractal (the software that underpins JP).</p>
+<ul>
+<li>The <strong>View</strong> is the Nunjucks template code for the component that renders it within Fractal.</li>
+<li>The <strong>Context</strong> is the contents of a component’s config file, and shows the variables being passed into the Fractal render.</li>
+<li>The <strong>Info</strong> is each component’s file information within the context of Fractal – its handle, variants, path within the filesystem, and which templates reference it. This is helpful if you’re modifying a component and need to know where to find the Fractal code!</li>
+</ul>
+<h2 id="installing-jp-locally">Installing JP locally</h2>
+<p>To install Jean Pants locally, please visit this <a href="https://github.com/department-of-veterans-affairs/design-system/blob/master/README.md">README</a>.</p>
+<hr>
 <h2 id="to-do-">To Do:</h2>
 <ul>
 <li>incorporate Vets CSS</li>
-<li><del>Get the CSS working properly</del> <strong>CAVEAT</strong> This was done by bringing in <code>dist/</code> – needs to be more tightly incorporated?</li>
-<li><p>Remove components we’re not using on Vets</p>
-<ul>
-<li>Serif font<ul>
-<li>Merriweather is removed, but need to reset the section headings</li>
-</ul>
-</li>
-<li><del>labels</del></li>
-<li><del>forms &gt; password reset form</del></li>
-<li><del>forms &gt; sign in form (this and above handled by id.me)</del></li>
-<li><del>Graphic list</del></li>
-<li><del>Hero</del></li>
-<li><del>Buttons &gt; Grey</del></li>
-<li><del>Buttons &gt; Outline Inverse</del></li>
-</ul>
-</li>
-<li><p>Incorporate documentation for Foundation grid</p>
-</li>
-<li><p>Match styles:</p>
-<ul>
+<li>Get the CSS working properly</li>
+<li>Incorporate documentation for Foundation grid</li>
+<li>Match styles:<ul>
 <li><del>Tables</del></li>
 <li>Fonts</li>
 <li>Alerts</li>
@@ -108,9 +133,7 @@
 </li>
 </ul>
 <ul>
-<li><p>Add components that we <em>are</em> using on Vets that are not on USWDS (what are these?)</p>
-<ul>
-<li>Color palette</li>
+<li>Add components that we <em>are</em> using on Vets that are not on USWDS (what are these?)<ul>
 <li>Subway map</li>
 <li>Logos</li>
 <li>Grey callouts</li>
@@ -119,32 +142,15 @@
 <li>Iconography</li>
 <li>Header &gt; Get Help (VCL)</li>
 <li>Homepage template (unsure whether to break this down into smaller components, since so many of them <em>only</em> live on Home)</li>
-<li>Navigation &gt; breadcrumbs</li>
 <li>Navigation &gt; Next/prev</li>
 <li>Log in landing page (prompt to ID.me)</li>
-<li>Modals</li>
-<li>Address blocks</li>
-<li>Progress bars</li>
 <li>Alert/accordion hybrid (see Prescription Refills)</li>
 <li>Data visualizations</li>
 <li>Add Source Sans Pro Bold</li>
 <li>Responsive table</li>
 <li>Expandable alert box (<a href="https://www.vets.gov/health-care/health-conditions/mental-health/">https://www.vets.gov/health-care/health-conditions/mental-health/</a>)</li>
 </ul>
-<p><strong>Open questions:</strong></p>
-<ul>
-<li>Multi-select accordion? Do we use this anywhere?</li>
-</ul>
 </li>
-</ul>
-<p>  <strong>Fractal only:</strong></p>
-<ul>
-<li><p>Add a ‘deprecated’ label for certain components</p>
-<h2 id="long-game-">Long game:</h2>
-</li>
-<li><p>Output React components via API</p>
-</li>
-<li>Tie this to Sketch or Lingo</li>
 </ul>
 <p>Edit this page’s contents at <code>docs/01-index.hbs</code></p>
 
