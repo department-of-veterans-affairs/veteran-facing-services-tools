@@ -1,9 +1,0 @@
-label: Checkbox
-status: wip
-
-context:
-  componentSourcePath: '../ErrorableCheckbox/ErrorableCheckbox.jsx'
-  id: default
-  label: 'Checkbox'
-  required: false
-  title: 'Checkbox'
