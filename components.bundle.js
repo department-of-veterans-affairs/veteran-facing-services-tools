@@ -53181,7 +53181,7 @@ ErrorableTextInput.propTypes = {
    */
   onValueChange: _propTypes2.default.func.isRequired,
   /**
-   * type attribute for input field
+   * type attribute for ijput field
    */
   type: _propTypes2.default.string
 };
