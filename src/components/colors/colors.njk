@@ -8,10 +8,10 @@
   {% for c in f.color %}
 
   <div class='palette-swatch'>
-    <h4>{{ c.name }}</h4>
+    <h6>{{ c.name }}</h6>
     <div class='swatch {{ c.var }}'></div>
-    {{ c.name }}<br>
-    {{ c. hex }}
+    <p><b>Hex: </b>{{ c.hex }}<br>
+      <b>Rating:</b> {{ c.contrast }}</p>
   </div>
 
   {% endfor %}
