@@ -2,14 +2,14 @@
 
 {% for f in family %}
 
+<h3>{{ f.name }}</h3>
 <section class='palette-container'>
-  <h3>{{ f.name }}</h3>
-  <p>Colors: {{ f.color }}</p>
 
   {% for c in f.color %}
 
   <div class='palette-swatch'>
     <h4>{{ c.name }}</h4>
+    <div class='swatch {{ c.var }}'></div>
     {{ c.name }}<br>
     {{ c. hex }}
   </div>
