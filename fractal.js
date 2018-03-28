@@ -59,7 +59,7 @@ docs.set('path', 'docs');
 
 const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
-  skin: 'white',
+  skin: 'navy',
   // reorder navigation
   nav: ['docs', 'components'],
   // display context data in YAML
@@ -73,6 +73,10 @@ const theme = require('@frctl/mandelbrot')({
     'context',
     'resources',
     'info'
+  ],
+  styles: [
+    'default',
+    '/styles.css'
   ],
 });
 

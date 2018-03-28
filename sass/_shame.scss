@@ -276,3 +276,16 @@ form {
     }
   }
 }
+
+
+/* TO DO: move this to _fractal.scss when that file exists */
+.fractal-vets-logo {
+  display: block;
+  height: inherit;
+  width: inherit;
+
+  path, rect {
+    fill: $color-white;
+  }
+
+}

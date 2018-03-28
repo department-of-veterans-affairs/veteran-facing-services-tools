@@ -10,7 +10,7 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
     .filter(item => item.context.componentSourcePath)
     .map((item, index) => {
       return `
-        import component${index} from './${path.relative(__dirname, item.viewPath)}'; 
+        import component${index} from './${path.relative(__dirname, item.viewPath)}';
         registry['${item.handle}'] = component${index};
       `;
     });
