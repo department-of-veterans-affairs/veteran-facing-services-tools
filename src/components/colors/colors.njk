@@ -1,18 +1,20 @@
-{% for family in family %}
+<!-- do you render {{ family }} -->
 
-<div class='row'>
-  <h1> {{ family.name }} </h2>
+{% for f in family %}
 
-  {% for color in family.color %}
+<h3>{{ f.name }}</h3>
+<section class='palette-container'>
 
-    <div class='fr-color-family {{ color.var }}'>
-      <h2>{{ color.name }}</h2>
-      <p>Hex: {{ color.hex }}</p>
-      <p>Contrast rating: {{ color.contrast }}
-    </div>
+  {% for c in f.color %}
+
+  <div class='palette-swatch'>
+    <h6>{{ c.name }}</h6>
+    <div class='swatch {{ c.var }}'></div>
+    <p><b>Hex: </b>{{ c.hex }}<br>
+      <b>Rating:</b> {{ c.contrast }}</p>
+  </div>
 
   {% endfor %}
-  
-  </div> <!-- end row-->
-{% endfor %}
 
+</section>
+{% endfor %}
