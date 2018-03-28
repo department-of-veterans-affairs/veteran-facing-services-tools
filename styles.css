@@ -7836,6 +7836,14 @@ select.usa-input-success {
   content: ' (optional)';
 }
 
+.usa-input-label-helper {
+  color: #757575;
+}
+
+.usa-input-label-required {
+  color: #981b1e;
+}
+
 label {
   display: block;
   margin-top: 3rem;
@@ -10845,10 +10853,10 @@ tr {
 .usa-button:visited,
 .usa-button-primary:visited,
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-[type="image"] {
+[type=button],
+[type=submit],
+[type=reset],
+[type=image] {
   background-color: #0071bc;
 }
 
@@ -10857,10 +10865,10 @@ button,
 .usa-button:visited.usa-button-secondary,
 .usa-button-primary:visited.usa-button-secondary,
 button.usa-button-secondary,
-[type="button"].usa-button-secondary,
-[type="submit"].usa-button-secondary,
-[type="reset"].usa-button-secondary,
-[type="image"].usa-button-secondary {
+[type=button].usa-button-secondary,
+[type=submit].usa-button-secondary,
+[type=reset].usa-button-secondary,
+[type=image].usa-button-secondary {
   background: transparent;
 }
 
