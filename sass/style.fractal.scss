@@ -14,3 +14,19 @@
     fill: white;
   }
 }
+
+.Header {
+  color: $color-white;
+
+  .f-pipe {
+    font-size: 3rem;
+  }
+
+  h2 {
+    color: $color-white;
+  }
+}
+
+.Header-navToggle svg {
+  fill: $color-white;
+}
