@@ -10,7 +10,12 @@ import ErrorableNumberInput from '../ErrorableNumberInput/ErrorableNumberInput';
 
 import ToolTip from '../../../Tooltip/Tooltip';
 
-import { isDirtyDate, isValidPartialDate, isNotBlankDateField, validateCustomFormComponent } from '../../../../utils/validations';
+import {
+  isDirtyDate,
+  isValidPartialDate,
+  isNotBlankDateField,
+  validateCustomFormComponent
+} from '../../../../utils/validations';
 import { months, days } from '../../../../utils/options-for-select.js';
 
 /**
@@ -53,12 +58,14 @@ class ErrorableDate extends React.Component {
       if (this.props.required && !isNotBlankDateField(this.props.date)) {
         isValid = false;
         errorMessage = this.props.requiredMessage;
-      // make sure the user has entered a minimally valid date
+        // make sure the user has entered a minimally valid date
       } else if (!isValidPartialDate(day.value, month.value, year.value)) {
         isValid = false;
         errorMessage = this.props.invalidMessage;
       } else {
-        const validationResult = validateCustomFormComponent(this.props.validation);
+        const validationResult = validateCustomFormComponent(
+          this.props.validation
+        );
         isValid = validationResult.valid;
         errorMessage = validationResult.message;
       }
@@ -92,36 +99,48 @@ class ErrorableDate extends React.Component {
           {this.props.required && <span className="form-required-span">*</span>}
         </label>
         {errorSpan}
-        <div className={isValid ? undefined : 'usa-input-error form-error-date'}>
+        <div
+          className={isValid ? undefined : 'usa-input-error form-error-date'}>
           <div className="usa-date-of-birth row">
             <div className="form-datefield-month">
-              <ErrorableSelect errorMessage={isValid ? undefined : ''}
+              <ErrorableSelect
+                errorMessage={isValid ? undefined : ''}
                 autocomplete="false"
                 label="Month"
                 name={`${this.props.name}Month`}
                 options={months}
                 value={month}
-                onValueChange={(update) => {this.handleChange('month', update);}}/>
+                onValueChange={update => {
+                  this.handleChange('month', update);
+                }}/>
             </div>
             <div className="form-datefield-day">
-              <ErrorableSelect errorMessage={isValid ? undefined : ''}
+              <ErrorableSelect
+                errorMessage={isValid ? undefined : ''}
                 autocomplete="false"
                 label="Day"
                 name={`${this.props.name}Day`}
                 options={daysForSelectedMonth}
                 value={day}
-                onValueChange={(update) => {this.handleChange('day', update);}}/>
+                onValueChange={update => {
+                  this.handleChange('day', update);
+                }}/>
             </div>
             <div className="usa-datefield usa-form-group usa-form-group-year">
-              <ErrorableNumberInput errorMessage={isValid ? undefined : ''}
+              <ErrorableNumberInput
+                errorMessage={isValid ? undefined : ''}
                 autocomplete="false"
                 label="Year"
                 name={`${this.props.name}Year`}
-                max={moment().add(100, 'year').year()}
+                max={moment()
+                  .add(100, 'year')
+                  .year()}
                 min="1900"
                 pattern="[0-9]{4}"
                 field={year}
-                onValueChange={(update) => {this.handleChange('year', update);}}/>
+                onValueChange={update => {
+                  this.handleChange('year', update);
+                }}/>
             </div>
           </div>
           {toolTip}
@@ -147,15 +166,15 @@ ErrorableDate.propTypes = {
   date: PropTypes.shape({
     day: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool,
+      dirty: PropTypes.bool
     }),
     month: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool,
+      dirty: PropTypes.bool
     }),
     year: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool,
+      dirty: PropTypes.bool
     })
   }).isRequired,
   /* a function with this prototype: (newValue) */
