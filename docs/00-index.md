@@ -1,8 +1,6 @@
 ---
-title: Vets.gov Design System
+title: Welcome to Jean Pants!
 ---
-
-# Welcome to Jean Pants!
 
 The design system (affectionately named “Jean Pants”) is a Fractal implementation for Vets.gov. It’s based on USWDS’ own system, and modified for the unique needs of Vets.gov.
 

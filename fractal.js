@@ -14,7 +14,7 @@ const context = {
   isProduction: process.env.NODE_ENV === 'production'
 };
 
-fractal.set('project.title', '');
+fractal.set('project.title', 'Jean Pants');
 
 const { components, docs, web } = fractal;
 
