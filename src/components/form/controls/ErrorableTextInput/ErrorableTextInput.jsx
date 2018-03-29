@@ -34,7 +34,9 @@ class ErrorableTextInput extends React.Component {
   }
 
   handleChange(domEvent) {
-    this.props.onValueChange(makeField(domEvent.target.value, this.props.field.dirty));
+    this.props.onValueChange(
+      makeField(domEvent.target.value, this.props.field.dirty)
+    );
   }
 
   handleBlur() {
@@ -72,7 +74,7 @@ class ErrorableTextInput extends React.Component {
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
-        maxCharacters = (<small>(Max. {this.props.charMax} characters)</small>);
+        maxCharacters = <small>(Max. {this.props.charMax} characters)</small>;
       }
     }
 
@@ -84,9 +86,7 @@ class ErrorableTextInput extends React.Component {
 
     return (
       <div className={inputErrorClass}>
-        <label
-          className={labelErrorClass}
-          htmlFor={this.inputId}>
+        <label className={labelErrorClass} htmlFor={this.inputId}>
           {this.props.label}
           {requiredSpan}
         </label>

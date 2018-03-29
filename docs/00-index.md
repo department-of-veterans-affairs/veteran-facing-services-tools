@@ -92,7 +92,7 @@ To install Jean Pants locally, please visit this [README](https://github.com/dep
   - Blue cards (deprecated?)
   - Need help? sidebar/footer
   - Iconography
-  - Header > Get Help (VCL)
+  - ~~Header > Get Help (VCL)~~
   - Homepage template (unsure whether to break this down into smaller components, since so many of them _only_ live on Home)
   - Navigation > Next/prev
   - Log in landing page (prompt to ID.me)

@@ -139,7 +139,9 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   if (watch) {
     logger.log('Starting webpack build...');
     const buildHashes = [];
-    compiler.watch({}, (err, stats) => {
+    compiler.watch({
+      progress: true
+    }, (err, stats) => {
       if (err || stats.hasErrors()) {
         const info = stats.toJson();
         logger.error(info.errors);

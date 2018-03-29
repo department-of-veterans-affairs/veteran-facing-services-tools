@@ -17,8 +17,8 @@
 @font-face {
   font-family: "FontAwesome";
   src: url("~font-awesome/fonts/fontawesome-webfont.woff2") format("woff2"),
-       url("~font-awesome/fonts/fontawesome-webfont.woff") format("woff"),
-       url("~font-awesome/fonts/fontawesome-webfont.eot") format("eot");
+    url("~font-awesome/fonts/fontawesome-webfont.woff") format("woff"),
+    url("~font-awesome/fonts/fontawesome-webfont.eot") format("eot");
   font-weight: normal;
   font-style: normal;
 }
@@ -46,7 +46,11 @@
 @import "~uswds/src/stylesheets/elements/table";
 @import "~uswds/src/stylesheets/components/accordions";
 @import "~uswds/src/stylesheets/components/alerts";
+@import "~uswds/src/stylesheets/components/banner";
+@import "~uswds/src/stylesheets/components/footer";
 @import "~uswds/src/stylesheets/components/forms";
+@import "~uswds/src/stylesheets/components/header";
+@import "~uswds/src/stylesheets/components/navigation";
 @import "~uswds/src/stylesheets/components/sidenav";
 
 // ----- VA BASE (VARIABLES/HELPERS) ---- //
@@ -80,7 +84,12 @@
 @import "modules/m-education-wizard";
 @import "modules/m-applications";
 @import "modules/m-additional-info";
+@import "modules/m-accept-terms";
 
 // ----- VA SHAME ---- //
 
 @import "shame";
+
+// ----- Fractal-specific ---- //
+
+@import "fractal";
