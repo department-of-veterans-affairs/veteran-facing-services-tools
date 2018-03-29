@@ -401,7 +401,9 @@
   }
 
   handleChange(domEvent) {
-    <span class="hljs-keyword">this</span>.props.onValueChange(makeField(domEvent.target.value, <span class="hljs-keyword">this</span>.props.field.dirty));
+    <span class="hljs-keyword">this</span>.props.onValueChange(
+      makeField(domEvent.target.value, <span class="hljs-keyword">this</span>.props.field.dirty)
+    );
   }
 
   handleBlur() {
@@ -439,7 +441,7 @@
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
-        maxCharacters = (&lt;small&gt;(Max. {this.props.charMax} characters)&lt;/small&gt;);
+        maxCharacters = &lt;small&gt;(Max. {this.props.charMax} characters)&lt;/small&gt;;
       }
     }
 
@@ -451,9 +453,7 @@
 
     return (
       &lt;div className={inputErrorClass}&gt;
-        &lt;label
-          className={labelErrorClass}
-          htmlFor={this.inputId}&gt;
+        &lt;label className={labelErrorClass} htmlFor={this.inputId}&gt;
           {this.props.label}
           {requiredSpan}
         &lt;/label&gt;
@@ -2025,6 +2025,30 @@ describe(<span class="hljs-string">'&lt;ErrorableTextInput&gt;'</span>, () =&gt;
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="footer.html" data-pjax>
                 <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+                <span>Accept Terms Prompt</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -456,8 +456,12 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
 
   getMatchingSubSection(checked, optionValue) {
     <span class="hljs-keyword">if</span> (checked &amp;&amp; <span class="hljs-keyword">this</span>.props.children) {
-      <span class="hljs-keyword">const</span> children = _.isArray(<span class="hljs-keyword">this</span>.props.children) ? <span class="hljs-keyword">this</span>.props.children : [<span class="hljs-keyword">this</span>.props.children];
-      <span class="hljs-keyword">const</span> subsections = children.filter(<span class="hljs-function">(<span class="hljs-params">child</span>) =&gt;</span> child.props.showIfValueChosen === optionValue);
+      <span class="hljs-keyword">const</span> children = _.isArray(<span class="hljs-keyword">this</span>.props.children)
+        ? <span class="hljs-keyword">this</span>.props.children
+        : [<span class="hljs-keyword">this</span>.props.children];
+      <span class="hljs-keyword">const</span> subsections = children.filter(
+        <span class="hljs-function"><span class="hljs-params">child</span> =&gt;</span> child.props.showIfValueChosen === optionValue
+      );
       <span class="hljs-keyword">return</span> subsections.length &gt; <span class="hljs-number">0</span> ? subsections[<span class="hljs-number">0</span>] : <span class="hljs-literal">null</span>;
     }
 
@@ -511,13 +515,18 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
         optionLabel = obj.label;
         optionValue = obj.value;
         if (obj.additional) {
-          optionAdditional = (<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{obj.additional}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>);
+          optionAdditional = <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{obj.additional}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
         }
       }
       const checked = optionValue === storedValue ? 'checked=true' : '';
-      const matchingSubSection = this.getMatchingSubSection(optionValue === storedValue, optionValue);
+      const matchingSubSection = this.getMatchingSubSection(
+        optionValue === storedValue,
+        optionValue
+      );
       const radioButton = (
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{optionAdditional</span> ? <span class="hljs-attr">undefined</span> <span class="hljs-attr">:</span> <span class="hljs-attr">index</span>} <span class="hljs-attr">className</span>=<span class="hljs-string">"form-radio-buttons"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+          <span class="hljs-attr">key</span>=<span class="hljs-string">{optionAdditional</span> ? <span class="hljs-attr">undefined</span> <span class="hljs-attr">:</span> <span class="hljs-attr">index</span>}
+          <span class="hljs-attr">className</span>=<span class="hljs-string">"form-radio-buttons"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
             <span class="hljs-attr">autoComplete</span>=<span class="hljs-string">"false"</span>
             <span class="hljs-attr">checked</span>=<span class="hljs-string">{checked}</span>
@@ -565,8 +574,7 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
 
     return (
       <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{fieldsetClass}</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>
-          <span class="hljs-attr">className</span>=<span class="hljs-string">{legendClass}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{legendClass}</span>&gt;</span>
           {this.props.label}
           {requiredSpan}
         <span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
@@ -594,10 +602,7 @@ ErrorableRadioButtons.propTypes = {
   /**
    * radio button group field label
    */
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   /**
    * name attribute
    */
@@ -615,32 +620,27 @@ ErrorableRadioButtons.propTypes = {
    * array of options to populate group- each item is a string or an object representing an Expanding Group
    *
    */
-  options: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      label: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]).isRequired,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool
-      ]).isRequired,
-      additional: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element
-      ])
-    })
-  ])).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+          .isRequired,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+          .isRequired,
+        additional: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      })
+    ])
+  ).isRequired,
   /**
    * value object for selected field <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
    * value: string value that matches radio button value <span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span>
    * dirty: indicates if form is dirty; should be true after any user input
    */
   value: PropTypes.shape({
-  /**
-   * value of the select field.
-   */
+    /**
+     * value of the select field.
+     */
     value: PropTypes.string,
     dirty: PropTypes.bool
   }).isRequired,
@@ -651,7 +651,7 @@ ErrorableRadioButtons.propTypes = {
   /**
    * toggles required field indicator
    */
-  required: PropTypes.bool,
+  required: PropTypes.bool
 };
 
 export default ErrorableRadioButtons;
@@ -671,7 +671,7 @@ export default ErrorableRadioButtons;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.8 KB</span>
+                    <span class="Meta-value">6.9 KB</span>
                 </li>
             </ul>
         </div>
@@ -2032,6 +2032,30 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="footer.html" data-pjax>
                 <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+                <span>Accept Terms Prompt</span>
                 
 
 <div class="Status Status--unlabelled">
