@@ -38,8 +38,12 @@ class ErrorableRadioButtons extends React.Component {
 
   getMatchingSubSection(checked, optionValue) {
     if (checked && this.props.children) {
-      const children = _.isArray(this.props.children) ? this.props.children : [this.props.children];
-      const subsections = children.filter((child) => child.props.showIfValueChosen === optionValue);
+      const children = _.isArray(this.props.children)
+        ? this.props.children
+        : [this.props.children];
+      const subsections = children.filter(
+        child => child.props.showIfValueChosen === optionValue
+      );
       return subsections.length > 0 ? subsections[0] : null;
     }
 
@@ -93,13 +97,18 @@ class ErrorableRadioButtons extends React.Component {
         optionLabel = obj.label;
         optionValue = obj.value;
         if (obj.additional) {
-          optionAdditional = (<div>{obj.additional}</div>);
+          optionAdditional = <div>{obj.additional}</div>;
         }
       }
       const checked = optionValue === storedValue ? 'checked=true' : '';
-      const matchingSubSection = this.getMatchingSubSection(optionValue === storedValue, optionValue);
+      const matchingSubSection = this.getMatchingSubSection(
+        optionValue === storedValue,
+        optionValue
+      );
       const radioButton = (
-        <div key={optionAdditional ? undefined : index} className="form-radio-buttons">
+        <div
+          key={optionAdditional ? undefined : index}
+          className="form-radio-buttons">
           <input
             autoComplete="false"
             checked={checked}
@@ -147,8 +156,7 @@ class ErrorableRadioButtons extends React.Component {
 
     return (
       <fieldset className={fieldsetClass}>
-        <legend
-          className={legendClass}>
+        <legend className={legendClass}>
           {this.props.label}
           {requiredSpan}
         </legend>
@@ -176,10 +184,7 @@ ErrorableRadioButtons.propTypes = {
   /**
    * radio button group field label
    */
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   /**
    * name attribute
    */
@@ -197,32 +202,27 @@ ErrorableRadioButtons.propTypes = {
    * array of options to populate group- each item is a string or an object representing an Expanding Group
    *
    */
-  options: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      label: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]).isRequired,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool
-      ]).isRequired,
-      additional: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element
-      ])
-    })
-  ])).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+          .isRequired,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+          .isRequired,
+        additional: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      })
+    ])
+  ).isRequired,
   /**
    * value object for selected field <br/>
    * value: string value that matches radio button value </br>
    * dirty: indicates if form is dirty; should be true after any user input
    */
   value: PropTypes.shape({
-  /**
-   * value of the select field.
-   */
+    /**
+     * value of the select field.
+     */
     value: PropTypes.string,
     dirty: PropTypes.bool
   }).isRequired,
@@ -233,7 +233,7 @@ ErrorableRadioButtons.propTypes = {
   /**
    * toggles required field indicator
    */
-  required: PropTypes.bool,
+  required: PropTypes.bool
 };
 
 export default ErrorableRadioButtons;
