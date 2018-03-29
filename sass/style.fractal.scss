@@ -17,6 +17,7 @@
 
 .Header {
   color: $color-white;
+  background-color: $color-primary-darkest;
 
   .f-pipe {
     font-size: 3rem;
@@ -29,4 +30,8 @@
 
 .Header-navToggle svg {
   fill: $color-white;
+}
+
+.Frame-panel {
+  background-color: $color-white;
 }
