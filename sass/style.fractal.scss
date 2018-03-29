@@ -1,0 +1,16 @@
+@import "~uswds/src/stylesheets/lib/bourbon";
+@import "~uswds/src/stylesheets/lib/neat";
+@import "~uswds/src/stylesheets/lib/normalize"; // Currently 3.0.3
+
+@import "~uswds/src/stylesheets/core/variables";
+@import "~uswds/src/stylesheets/core/fonts";
+@import "base/b-variables";
+
+.fractal-vets-logo {
+  display: block;
+  height: inherit;
+  width: inherit;
+  path, rect {
+    fill: white;
+  }
+}

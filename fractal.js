@@ -14,7 +14,7 @@ const context = {
   isProduction: process.env.NODE_ENV === 'production'
 };
 
-fractal.set('project.title', 'Vets.gov Design Standards');
+fractal.set('project.title', 'Jean Pants');
 
 const { components, docs, web } = fractal;
 
@@ -77,7 +77,7 @@ const theme = require('@frctl/mandelbrot')({
   ],
   styles: [
     'default',
-    '/styles.css'
+    '/fractal-fractal.css'
   ],
 });
 
