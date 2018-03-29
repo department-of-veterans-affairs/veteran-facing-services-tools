@@ -31,8 +31,14 @@ class HelpMenu extends React.Component {
 }
 
 HelpMenu.propTypes = {
+
+  /* class to style the menu */
   cssClass: PropTypes.string,
+
+  /* function to execute on click */
   clickHandler: PropTypes.func.isRequired,
+
+  /* does the menu begin in an open state */
   isOpen: PropTypes.bool.isRequired
 };
 
