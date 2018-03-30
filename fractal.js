@@ -41,7 +41,7 @@ components.set('statuses', {
   deprecated: {
     label: 'Deprecated',
     description: 'We\'re removing this component from Vets.gov.',
-    color: '#cd2026'
+    color: '#323a45'
   }
 });
 
