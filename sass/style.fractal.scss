@@ -1,10 +1,5 @@
-@import "~uswds/src/stylesheets/lib/bourbon";
-@import "~uswds/src/stylesheets/lib/neat";
-@import "~uswds/src/stylesheets/lib/normalize"; // Currently 3.0.3
-
-@import "~uswds/src/stylesheets/core/variables";
-@import "~uswds/src/stylesheets/core/fonts";
-@import "base/b-variables";
+$color-white: #ffffff;
+$color-primary-darkest: #112e51;
 
 .fractal-vets-logo {
   display: block;
