@@ -13928,6 +13928,53 @@ body.va-pos-fixed {
   transition: transform 0.15s linear;
 }
 
+.terms-acceptance {
+  margin-bottom: 3em;
+}
+
+.terms-acceptance .terms-box {
+  border: 1px solid #aeb0b5;
+  margin-bottom: 10px;
+}
+
+.terms-acceptance .terms-box .terms-head {
+  padding: 10px;
+  font-weight: bold;
+  color: #323a45;
+  background-color: #e0f3f8;
+  border-bottom: 1px solid #aeb0b5;
+}
+
+.terms-acceptance .terms-box .terms-scroller {
+  padding: 10px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.terms-acceptance .terms-box .form-radio-buttons {
+  padding: 0 10px 5px 10px;
+  border-top: 1px solid #aeb0b5;
+  background-color: #e0f3f8;
+  color: #323a45;
+}
+
+.terms-acceptance .terms-box .form-radio-buttons.disabled {
+  color: #757575;
+}
+
+.terms-acceptance .terms-box .form-radio-buttons input {
+  margin-left: -9999rem;
+}
+
+.terms-acceptance .terms-box .form-radio-buttons input[disabled] + label {
+  cursor: default;
+}
+
+.terms-acceptance .terms-box .form-radio-buttons label {
+  display: inline-block;
+  max-width: none;
+}
+
 .usa-bitter,
 .va-introtext p,
 h1,
