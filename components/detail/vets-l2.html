@@ -1,0 +1,2888 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../themes/mandelbrot/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../../themes/mandelbrot/css/navy.css?cachebust=1.2.0" type="text/css">
+
+<link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
+
+
+<title>Vets.gov Level 2 | Jean Pants</title>
+
+</head>
+<body>
+
+
+
+<div class="Frame" id="frame">
+
+    <div class="Frame-header">
+        <div class="Header">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
+</svg>
+
+        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+</svg>
+
+    </button>
+    <a href="../../index.html" class="Header-title" data-pjax>
+      <svg class="fractal-vets-logo" width="206" height="50" viewBox="0 0 206 50" xmlns="http://www.w3.org/2000/svg" pointer-events="none"><title>Vets dot gov from the U S Department of Veteran Affairs</title><g fill="none" fill-rule="evenodd"><g class="vets-logo-vetsdotgov"><path d="M194.04 37h3.84l6.88-19.44h-3.24l-3.68 11.04c-.56 1.92-1.2 3.88-1.76 5.72h-.16c-.6-1.84-1.24-3.8-1.8-5.72l-3.68-11.04h-3.4l7 19.44zM167.32 27.32c0 6.44 4.24 10.16 9 10.16s9-3.72 9-10.16c0-6.52-4.24-10.24-9-10.24s-9 3.72-9 10.24zm3.4 0c0-4.48 2.28-7.52 5.6-7.52 3.36 0 5.6 3.04 5.6 7.52 0 4.44-2.24 7.44-5.6 7.44-3.32 0-5.6-3-5.6-7.44zM148.28 40.72c0 3.36 3.28 5.24 8.04 5.24 6.04 0 9.84-3.12 9.84-6.72 0-3.24-2.28-4.64-6.8-4.64h-3.76c-2.64 0-3.44-.88-3.44-2.12 0-1.08.56-1.72 1.24-2.32.88.44 1.96.68 2.92.68 3.96 0 7.12-2.6 7.12-6.76 0-1.64-.68-3.12-1.6-4h4v-2.52h-6.76c-.72-.28-1.68-.48-2.76-.48-3.96 0-7.32 2.68-7.32 6.92 0 2.32 1.24 4.2 2.52 5.24v.16c-1 .68-2.12 1.96-2.12 3.6 0 1.52.76 2.56 1.72 3.16v.16c-1.76 1.2-2.84 2.76-2.84 4.4zm8.04-12.08c-2.24 0-4.12-1.8-4.12-4.64s1.84-4.52 4.12-4.52c2.28 0 4.12 1.68 4.12 4.52s-1.88 4.64-4.12 4.64zm-5.16 11.64c0-1.12.6-2.28 2-3.28.84.24 1.76.32 2.52.32h3.36c2.52 0 3.92.6 3.92 2.4 0 2.04-2.44 3.96-6.16 3.96-3.52 0-5.64-1.32-5.64-3.4zM137.52 33.8c0 2.08 1.52 3.68 3.56 3.68s3.56-1.6 3.56-3.68c0-2.12-1.52-3.72-3.56-3.72s-3.56 1.6-3.56 3.72zM118.8 34.72c2 1.64 5 2.76 7.6 2.76 5.32 0 8.16-2.8 8.16-6.4 0-3.64-2.84-5.04-5.36-5.96-2.04-.76-3.88-1.24-3.88-2.52 0-1 .72-1.56 2.24-1.56 1.4 0 2.76.64 4.2 1.68l2.64-3.52c-1.72-1.28-3.96-2.52-7-2.52-4.6 0-7.6 2.52-7.6 6.2 0 3.28 2.84 4.92 5.24 5.84 2.04.8 4.04 1.4 4.04 2.72 0 1.04-.76 1.68-2.52 1.68-1.68 0-3.32-.72-5.12-2.08l-2.64 3.68zM106.64 29.8c0 4.6 1.92 7.68 6.84 7.68 1.92 0 3.36-.4 4.4-.72l-.92-4.28c-.52.2-1.24.4-1.88.4-1.56 0-2.56-.92-2.56-3.16v-7.96h4.76v-4.6h-4.76v-5.28h-4.88l-.68 5.28-3.04.24v4.36h2.72v8.04zM85.28 27.08c0 6.56 4.36 10.4 10.04 10.4 2.36 0 5-.84 7.04-2.24l-1.96-3.56c-1.44.88-2.8 1.32-4.28 1.32-2.64 0-4.64-1.32-5.16-4.32h11.88c.12-.48.24-1.44.24-2.48 0-5.4-2.8-9.52-8.44-9.52-4.76 0-9.36 3.96-9.36 10.4zm5.64-2.04c.4-2.64 2-3.88 3.84-3.88 2.36 0 3.32 1.6 3.32 3.88h-7.16zM70.56 37h7.08l7.88-26.08h-6.04L76.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36l-3.16-12.16h-6.24L70.56 37zM53 5h1v40h-1z"></path></g><g class="vets-logo-va"><path d="M38.12 37h6.24l-8.2-26.08h-7.04L20.92 37h6l1.6-6.2h8l1.6 6.2zm-8.4-10.8l.64-2.4c.72-2.6 1.44-5.64 2.04-8.4h.16c.72 2.72 1.4 5.8 2.12 8.4l.64 2.4h-5.6zM9.56 37h7.08l7.88-26.08h-6.04L15.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36L7.92 10.92H1.68L9.56 37z"></path></g></g></svg></a><span class='f-pipe'> | </span> <h2>&nbsp;&nbsp;&nbsp;Jean Pants</h2>
+</div>
+
+    </div>
+
+    <div class="Frame-body" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            
+
+
+    
+    
+
+<div class="Pen" data-behaviour="pen" id="pen-0707d0f7119fe0cb4ebe63cef1ef06d1">
+
+    
+
+    <div class="Pen-panel Pen-header">
+    <h1 class="Pen-title">
+        <a class="Pen-previewLink" href="../preview/vets-l2.html" title="Component preview">
+            Vets.gov Level 2
+            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+
+        </a>
+    </h1>
+    
+
+<div class="Status Status--tag">
+
+<label class="Status-label" style="background-color: #f9c642; border-color: #f9c642;">WIP</label>
+
+</div>
+
+
+</div>
+
+
+    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-0707d0f7119fe0cb4ebe63cef1ef06d1">
+    <div class="Preview-wrapper" data-role="resizer">
+        <div class="Preview-resizer">
+            
+             <iframe
+                class="Preview-iframe"
+                data-role="window"
+                src="../preview/vets-l2.html"
+                sandbox="allow-same-origin allow-scripts allow-forms"
+                 style=""
+                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
+            </iframe>
+        </div>
+        <div class="Preview-handle" data-role="resize-handle"></div>
+        <div class="Preview-overlay"></div>
+    </div>
+</div>
+
+
+    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
+
+    <div class="Pen-panel Pen-info" data-role="info">
+    <div class="Browser" data-behaviour="browser" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1">
+
+    
+
+<div class="Browser-controls">
+    <ul class="Browser-tabs">
+        
+        
+        <li class="Browser-tab Browser-tab--notes is-active " data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-notes">Notes</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--props" data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-props">Props</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-html">HTML</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--view" data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-view">View</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--context" data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-context">Context</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="Browser-tab Browser-tab--info" data-role="tab">
+            <a href="#browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-info">Info</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+    
+    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-notes">
+    <div class="Prose Prose--condensed">
+        
+        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
+        
+    </div>
+</div>
+
+    
+    <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-props">
+    <div class="Prose Prose--condensed">
+        <table>
+          <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
+          
+        </table>
+    </div>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en-US"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Vets.gov Level 2: Default<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/design-system/styles.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"incompatible-browser-warning"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row full"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"small-12"</span>&gt;</span>
+                    Your browser is out of date. To use this website, please <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://whatbrowser.org/"</span>&gt;</span>update your browser<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> or use a different device.
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-notice--banner"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-notice--banner-inner"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-accordion"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-header"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid usa-banner-inner"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/favicons/favicon-57.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"U.S. flag"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>An official website of the United States government<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-accordion-button usa-banner-button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"gov-banner"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-button-text"</span>&gt;</span>Here's how you know<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-content usa-grid usa-accordion-content"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"gov-banner"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-guidance-gov usa-width-one-half"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-icon usa-media_block-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/icon-dot-gov.svg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Dot gov"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-media_block-body"</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>The .gov means it’s official.<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you're on a federal government site.
+                                    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-guidance-ssl usa-width-one-half"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-banner-icon usa-media_block-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/icon-https.svg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Https"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-media_block-body"</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>The site is secure.<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> The <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>https://<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
+                                    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-crisis-line"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-flex"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">data-show</span>=<span class="hljs-string">"#modal-crisisline"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-crisis-line-button va-overlay-trigger"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"showModal(this);"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-flex"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vcl"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+              Get help from Veterans Crisis Line
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- /header alert box --&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-flex"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-header-logo-menu"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-header-logo-wrapper"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-header-logo"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vets-logo"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"206"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 206 50"</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span> <span class="hljs-attr">pointer-events</span>=<span class="hljs-string">"none"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Vets dot gov from the U S Department of Veteran Affairs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"none"</span> <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">"evenodd"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vets-logo-vetsdotgov"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M194.04 37h3.84l6.88-19.44h-3.24l-3.68 11.04c-.56 1.92-1.2 3.88-1.76 5.72h-.16c-.6-1.84-1.24-3.8-1.8-5.72l-3.68-11.04h-3.4l7 19.44zM167.32 27.32c0 6.44 4.24 10.16 9 10.16s9-3.72 9-10.16c0-6.52-4.24-10.24-9-10.24s-9 3.72-9 10.24zm3.4 0c0-4.48 2.28-7.52 5.6-7.52 3.36 0 5.6 3.04 5.6 7.52 0 4.44-2.24 7.44-5.6 7.44-3.32 0-5.6-3-5.6-7.44zM148.28 40.72c0 3.36 3.28 5.24 8.04 5.24 6.04 0 9.84-3.12 9.84-6.72 0-3.24-2.28-4.64-6.8-4.64h-3.76c-2.64 0-3.44-.88-3.44-2.12 0-1.08.56-1.72 1.24-2.32.88.44 1.96.68 2.92.68 3.96 0 7.12-2.6 7.12-6.76 0-1.64-.68-3.12-1.6-4h4v-2.52h-6.76c-.72-.28-1.68-.48-2.76-.48-3.96 0-7.32 2.68-7.32 6.92 0 2.32 1.24 4.2 2.52 5.24v.16c-1 .68-2.12 1.96-2.12 3.6 0 1.52.76 2.56 1.72 3.16v.16c-1.76 1.2-2.84 2.76-2.84 4.4zm8.04-12.08c-2.24 0-4.12-1.8-4.12-4.64s1.84-4.52 4.12-4.52c2.28 0 4.12 1.68 4.12 4.52s-1.88 4.64-4.12 4.64zm-5.16 11.64c0-1.12.6-2.28 2-3.28.84.24 1.76.32 2.52.32h3.36c2.52 0 3.92.6 3.92 2.4 0 2.04-2.44 3.96-6.16 3.96-3.52 0-5.64-1.32-5.64-3.4zM137.52 33.8c0 2.08 1.52 3.68 3.56 3.68s3.56-1.6 3.56-3.68c0-2.12-1.52-3.72-3.56-3.72s-3.56 1.6-3.56 3.72zM118.8 34.72c2 1.64 5 2.76 7.6 2.76 5.32 0 8.16-2.8 8.16-6.4 0-3.64-2.84-5.04-5.36-5.96-2.04-.76-3.88-1.24-3.88-2.52 0-1 .72-1.56 2.24-1.56 1.4 0 2.76.64 4.2 1.68l2.64-3.52c-1.72-1.28-3.96-2.52-7-2.52-4.6 0-7.6 2.52-7.6 6.2 0 3.28 2.84 4.92 5.24 5.84 2.04.8 4.04 1.4 4.04 2.72 0 1.04-.76 1.68-2.52 1.68-1.68 0-3.32-.72-5.12-2.08l-2.64 3.68zM106.64 29.8c0 4.6 1.92 7.68 6.84 7.68 1.92 0 3.36-.4 4.4-.72l-.92-4.28c-.52.2-1.24.4-1.88.4-1.56 0-2.56-.92-2.56-3.16v-7.96h4.76v-4.6h-4.76v-5.28h-4.88l-.68 5.28-3.04.24v4.36h2.72v8.04zM85.28 27.08c0 6.56 4.36 10.4 10.04 10.4 2.36 0 5-.84 7.04-2.24l-1.96-3.56c-1.44.88-2.8 1.32-4.28 1.32-2.64 0-4.64-1.32-5.16-4.32h11.88c.12-.48.24-1.44.24-2.48 0-5.4-2.8-9.52-8.44-9.52-4.76 0-9.36 3.96-9.36 10.4zm5.64-2.04c.4-2.64 2-3.88 3.84-3.88 2.36 0 3.32 1.6 3.32 3.88h-7.16zM70.56 37h7.08l7.88-26.08h-6.04L76.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36l-3.16-12.16h-6.24L70.56 37zM53 5h1v40h-1z"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vets-logo-va"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M38.12 37h6.24l-8.2-26.08h-7.04L20.92 37h6l1.6-6.2h8l1.6 6.2zm-8.4-10.8l.64-2.4c.72-2.6 1.44-5.64 2.04-8.4h.16c.72 2.72 1.4 5.8 2.12 8.4l.64 2.4h-5.6zM9.56 37h7.08l7.88-26.08h-6.04L15.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36L7.92 10.92H1.68L9.56 37z"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-controls"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">hidden</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-controller-close"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-flex"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/icons/close.svg"</span>&gt;</span>
+            Close
+          <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-controller-open"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-flex"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/arrow-down.svg"</span>&gt;</span>
+            Menu
+          <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-root"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vet-toolbar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-container"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-flex"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- used to have `hidden`--&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-menu"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menuitem"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"none"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-explore"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level1 vetnav-trigger"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-top-level' });"</span>&gt;</span>Explore benefits<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-explore"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"none"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Explore benefits"</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-disability"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Disability<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-disability"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Disability"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-back vetnav-trigger"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-disability"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Disability<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Disability benefits overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/apply/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Application process<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/conditions/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Conditions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/track-claims/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Check claim and appeal status<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/claims-appeal/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Appeals process<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button va-button-primary va-external--light"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.ebenefits.va.gov/ebenefits/about/feature?feature=disability-compensation"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Disabilty');"</span>&gt;</span>Go to eBenefits to apply assets/img/icons/exit-icon-white.svg<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-healthcare"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Health care<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-healthcare"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Health care"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-back"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-healthcare"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Health care<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Health care benefits overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/apply/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Application process<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/health-conditions/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Health needs and conditions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/prescriptions/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Refill prescriptions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/messaging/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Message your health care team<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/health-records/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Get your VA health records<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/apply/application/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button va-button-primary"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Health Care');"</span>&gt;</span>Apply now<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-edu"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Education &amp;amp; training<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-edu"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Education and training"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-back vetnav-trigger"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-edu"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Education &amp;amp; training<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>Education benefits overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/apply/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>Application process<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/gi-bill/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>GI Bill programs<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/gi-bill-comparison-tool/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>Compare GI Bill benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/apply/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button va-button-primary"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Education Training');"</span>&gt;</span>Apply now<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-housing"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Housing assistance<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-housing"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Housing assistance"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger vetnav-back"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-housing"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Housing assistance<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Housing Assistance');"</span>&gt;</span>Housing assistance overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/home-loans/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Housing Assistance');"</span>&gt;</span>Home loans<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/adaptive-housing-grants/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Housing Assistance');"</span>&gt;</span>Adaptive housing grants<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-careers"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Careers &amp;amp; employment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-careers"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Careers and employment"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger vetnav-back"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-careers"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Careers &amp;amp; employment<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Careers Employment');"</span>&gt;</span>Careers &amp;amp; employment overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Careers Employment');"</span>&gt;</span>Find a job / Hire a Veteran<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/vocational-rehab-and-employment/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Careers Employment');"</span>&gt;</span>Vocational Rehabilitation &amp;amp; <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>Employment (VR&amp;amp;E)<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/job-seekers/register-your-business/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Careers Employment');"</span>&gt;</span>Small business support<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/job-seekers/family-members/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Careers Employment');"</span>&gt;</span>Resources for military &amp;amp; Veteran<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>family members<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-lifeinsurance"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Life insurance<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-lifeinsurance"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Life insurance"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-back vetnav-trigger"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-lifeinsurance"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Life insurance<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/life-insurance/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Life Insurance');"</span>&gt;</span>Life insurance overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/life-insurance/options-and-eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Life Insurance');"</span>&gt;</span>Options &amp;amp; eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/life-insurance/disabled-and-terminally-ill/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Life Insurance');"</span>&gt;</span>Totally disabled or terminally ill<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/life-insurance/manage-your-policy/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Life Insurance');"</span>&gt;</span>Managing your policy<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-pension"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Pension<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-pension"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Pension"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger vetnav-back"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-pension"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Pension<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Pension');"</span>&gt;</span>Pension benefits overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Pension');"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/apply/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Pension');"</span>&gt;</span>Application process<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/survivors-pension/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Pension');"</span>&gt;</span>Survivors pension<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/application/527EZ/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button va-button-primary"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Pension');"</span>&gt;</span>Apply now<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-burials"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-second-level' });"</span>&gt;</span>Burials &amp;amp; memorials<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel vetnav-panel--submenu"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-burials"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Burials and memorials"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-back vetnav-trigger"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-burials"</span>&gt;</span>Back to menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level2-heading"</span>&gt;</span>Burials &amp;amp; memorials<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Burials Memorials');"</span>&gt;</span>Burials &amp;amp; memorials overview<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/eligibility/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Burials Memorials');"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/burial-planning/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Burials Memorials');"</span>&gt;</span>Plan a burial<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/survivor-and-dependent-benefits/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Burials Memorials');"</span>&gt;</span>Allowances &amp;amp; survivor compensation<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/find-a-cemetery/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Explore Benefits-&gt;Burials Memorials');"</span>&gt;</span>Find a cemetery<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level1 vetnav-trigger"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"vetnav-benefits"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-header-top-level' });"</span>&gt;</span>Manage your health &amp;amp; benefits<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-panel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-benefits"</span> <span class="hljs-attr">hidden</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Manage your health and benefits"</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/prescriptions"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Refill prescriptions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/messaging"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Message your health care team<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/schedule-an-appointment/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Schedule a VA appointment<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/health-records"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Get your VA health records<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/track-claims"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Check claim and appeal status<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-required"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/gi-bill/post-9-11/ch-33-benefit"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Manage Health and Benefits');"</span>&gt;</span>Check Post-9/11 GI Bill benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/facilities/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"reportHeaderNav('Find VA locations');"</span>&gt;</span>Find VA locations<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+                <span class="hljs-built_in">window</span>.dataLayer = [];
+
+                <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reportHeaderNav</span>(<span class="hljs-params">navpath</span>) </span>{
+                    <span class="hljs-built_in">window</span>.dataLayer.push({
+                        <span class="hljs-attr">event</span>: <span class="hljs-string">'nav-header-link'</span>,
+                        <span class="hljs-string">'nav-path'</span>: navpath
+                    });
+                }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modal-crisisline"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-overlay va-modal va-modal-large"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-crisis-panel va-modal-inner"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Get help from Veterans Crisis Line<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close va-overlay-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"showModal(this);"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close va-overlay-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only va-overlay-close"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-overlay-body va-crisis-panel-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:18002738255"</span>&gt;</span>Call <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>1-800-273-8255 (Press 1)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"sms:838255"</span>&gt;</span>Text to <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>838255<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat"</span>&gt;</span>Chat <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>confidentially now<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>If you are in crisis or having thoughts of suicide, visit <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.veteranscrisisline.net/"</span>&gt;</span>VeteransCrisisLine.net<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> for more resources.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- hacky hacky hacky --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showModal</span>(<span class="hljs-params">elem</span>) </span>{
+            <span class="hljs-comment">//console.log('vcl clicked', elem);</span>
+            <span class="hljs-keyword">var</span> parentClasses = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"modal-crisisline"</span>).classList;
+            <span class="hljs-keyword">if</span> (elem.classList.contains(<span class="hljs-string">'va-overlay-close'</span>)) {
+                parentClasses.add(<span class="hljs-string">'va-overlay'</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parentClasses.contains(<span class="hljs-string">'va-overlay'</span>)) {
+                parentClasses.remove(<span class="hljs-string">'va-overlay'</span>);
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Primary"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#1"</span>&gt;</span>link1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#2"</span>&gt;</span>link2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#3"</span>&gt;</span>link3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-built_in">window</span>.currentProps = {
+            <span class="hljs-string">"package"</span>: {
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veteran-affairs/jean-pants"</span>,
+                <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>
+            },
+            <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
+            <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"./Breadcrumbs.jsx"</span>,
+            <span class="hljs-string">"crumbs"</span>: [{
+                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#1"</span>,
+                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key1"</span>,
+                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link1"</span>
+            }, {
+                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#2"</span>,
+                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key2"</span>,
+                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link2"</span>
+            }, {
+                <span class="hljs-string">"link"</span>: <span class="hljs-string">"#3"</span>,
+                <span class="hljs-string">"key"</span>: <span class="hljs-string">"key3"</span>,
+                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link3"</span>
+            }],
+            <span class="hljs-string">"_env"</span>: {
+                <span class="hljs-string">"request"</span>: {
+                    <span class="hljs-string">"headers"</span>: {},
+                    <span class="hljs-string">"query"</span>: {},
+                    <span class="hljs-string">"url"</span>: <span class="hljs-string">"/components/detail/vets-l2"</span>,
+                    <span class="hljs-string">"segments"</span>: [<span class="hljs-string">"components"</span>, <span class="hljs-string">"detail"</span>, <span class="hljs-string">"vets-l2"</span>],
+                    <span class="hljs-string">"params"</span>: {
+                        <span class="hljs-string">"handle"</span>: <span class="hljs-string">"vets-l2"</span>
+                    },
+                    <span class="hljs-string">"path"</span>: <span class="hljs-string">"/components/detail/vets-l2"</span>,
+                    <span class="hljs-string">"error"</span>: <span class="hljs-literal">null</span>,
+                    <span class="hljs-string">"errorStatus"</span>: <span class="hljs-literal">null</span>,
+                    <span class="hljs-string">"route"</span>: {
+                        <span class="hljs-string">"handle"</span>: <span class="hljs-string">"component"</span>,
+                        <span class="hljs-string">"view"</span>: <span class="hljs-string">"pages/components/detail.nunj"</span>,
+                        <span class="hljs-string">"path"</span>: <span class="hljs-string">"/components/detail/:handle"</span>,
+                        <span class="hljs-string">"matcher"</span>: {
+                            <span class="hljs-string">"keys"</span>: [{
+                                <span class="hljs-string">"name"</span>: <span class="hljs-string">"handle"</span>,
+                                <span class="hljs-string">"prefix"</span>: <span class="hljs-string">"/"</span>,
+                                <span class="hljs-string">"delimiter"</span>: <span class="hljs-string">"/"</span>,
+                                <span class="hljs-string">"optional"</span>: <span class="hljs-literal">false</span>,
+                                <span class="hljs-string">"repeat"</span>: <span class="hljs-literal">false</span>,
+                                <span class="hljs-string">"partial"</span>: <span class="hljs-literal">false</span>,
+                                <span class="hljs-string">"asterisk"</span>: <span class="hljs-literal">false</span>,
+                                <span class="hljs-string">"pattern"</span>: <span class="hljs-string">"[^\\/]+?"</span>
+                            }]
+                        }
+                    }
+                },
+                <span class="hljs-string">"builder"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"server"</span>: <span class="hljs-literal">false</span>
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 2em"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Headline H1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-introtext"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>VA Intro Text has the class 'va-introtext'. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis laoreet augue scelerisque sollicitudin.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" usa-button-active"</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" usa-button-hover"</span>&gt;</span>Hover<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">aside</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist "</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-heading"</span>&gt;</span>Apply for Disability Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-list"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/eligibility/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out if you can get disability benefits, like financial support and health care, from VA.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/apply/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Application Process<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Apply online now, or find out how to apply in person or get help from a trained professional.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/conditions/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Conditions<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Discover which illnesses or injuries qualify you for benefits.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/track-claims/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Check Claim and Appeal Status<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Track the status of your disability claims and appeals.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/claims-appeal/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Appeals Process<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out what to do if you disagree with your disability rating decision.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-heading"</span>&gt;</span>More VA Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-list"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/vocational-rehab-and-employment/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Vocational Rehabilitation and Employment (VR&amp;amp;E)<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>If your service-connected disability limits your ability to work or prevents you from working, find out if you can get VR&amp;amp;E benefits and services—like help exploring employment options and getting more training
+                                        if required.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/adaptive-housing-grants/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Adaptive Housing Grants<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out if you may be eligible for a grant to buy or change a home to meet your needs and help you live more independently with your service-connected disability.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"contentinfo"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--
+    Uncomment this when the feedback tool is ready to go
+    &lt;div id="feedback-root"&gt;&lt;/div&gt;
+  --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer-inner"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-flex"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-services"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup-title"</span>&gt;</span>Services and Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Disability Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Health Care Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Education Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Housing Assistance<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Careers and Employment<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/life-insurance/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Life Insurance<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pension/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Pension Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/burials-and-memorials/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this, 'footer-services');"</span>&gt;</span>Burials and Memorials<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-popular"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup-title"</span>&gt;</span>Popular on Vets.gov<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/veteran-id-card/how-to-get"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Apply for a printed Veteran ID Card<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/apply/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Apply for health care<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/education/apply-for-education-benefits/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Apply for education benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/track-claims/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Track your claims and appeals<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/gi-bill-comparison-tool/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Check education benefits by school<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/prescriptions/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Refill prescriptions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/letters/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>VA Letters<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup va-list--plain"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-contact"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup-title"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/facilities/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Find nearby VA locations<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Call the Vets.gov Help Desk<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:18555747286"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>1-855-574-7286<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> TTY:&amp;nbsp;
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:+18008778339"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>1-800-877-8339<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> Monday &amp;#8211; Friday, 8:00 a.m. &amp;#8211; 8:00 p.m. (<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"eastern time"</span>&gt;</span>ET<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-overlay-trigger usa-button-unstyled va-footer-vcl-trigger"</span> <span class="hljs-attr">data-show</span>=<span class="hljs-string">"#modal-crisisline"</span>&gt;</span>Get help from the Veterans Crisis Line<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup-title"</span>&gt;</span>New to VA?<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/welcome-to-va"</span>&gt;</span>Print out your VA Welcome Kit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-footer-supplementallinks"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-footer-linkgroup--inline"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-supplemental"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/playbook/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Vets.gov Playbook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.va.gov/oig/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Inspector General<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.section508.va.gov/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Accessibility<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/privacy/"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>Privacy<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://usa.gov"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"footerNavClick(this);"</span>&gt;</span>USA.gov<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer-seal"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Department of Veterans Affairs"</span>&gt;</span>VA<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> | U.S. Department of Veterans Affairs
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- End mobile crisis line overlay. See desktop overlay at end of footer --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modal-crisisline"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-overlay va-modal va-modal-large"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-crisis-panel va-modal-inner"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Get help from Veterans Crisis Line<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close va-overlay-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close va-overlay-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only va-overlay-close"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-overlay-body va-crisis-panel-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:18002738255"</span>&gt;</span>Call <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>1-800-273-8255 (Press 1)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"sms:838255"</span>&gt;</span>Text to <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>838255<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat"</span>&gt;</span>Chat <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>confidentially now<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>If you are in crisis or having thoughts of suicide, visit <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.veteranscrisisline.net/"</span>&gt;</span>VeteransCrisisLine.net<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> for more resources.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- End mobile crisis line overlay --&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Begin generic overlay modal --&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+“To care for him who shall have borne the battle and for his widow, and his orphan.”
+- Abraham Lincoln
+--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">footerNavClick</span>(<span class="hljs-params">elem</span>) </span>{
+            <span class="hljs-keyword">const</span> eventLabel = <span class="hljs-string">'nav-'</span> + elem.parentElement.parentElement.id
+            <span class="hljs-built_in">window</span>.dataLayer.push({
+                <span class="hljs-attr">event</span>: eventLabel,
+                <span class="hljs-attr">navlabel</span>: elem.innerText
+            });
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/uswds/dist/js/uswds.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/design-system/components.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre>
+        
+    </code>
+</div>
+
+    
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-view">
+    <code class="Code Code--lang-text">
+        <pre><span class="xml"><span class="hljs-comment">&lt;!--
+Should display with header, footer, no sidenav
+--&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">extends</span></span> '_uswds.njk' %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">block</span></span> body %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> '<a href="header.html">@header</a>' %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="breadcrumbs.html">@breadcrumbs</a>' %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 2em"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="typesetting--h1.html">@typesetting--h1</a>' %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="typesetting--introtext.html">@typesetting--introtext</a>' %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> '<a href="buttons.html">@buttons</a>' %}</span><span class="xml">
+
+
+      </span><span class="hljs-template-variable">{{ yield }}</span><span class="xml">
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">aside</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist "</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-heading"</span>&gt;</span>Apply for Disability Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-list"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/eligibility/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Eligibility<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out if you can get disability benefits, like financial support and health care, from VA.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/apply/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Application Process<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Apply online now, or find out how to apply in person or get help from a trained professional.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/conditions/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Conditions<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Discover which illnesses or injuries qualify you for benefits.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/track-claims/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Check Claim and Appeal Status<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Track the status of your disability claims and appeals.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/disability-benefits/claims-appeal/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Appeals Process<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out what to do if you disagree with your disability rating decision.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-heading"</span>&gt;</span>More VA Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-list"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/employment/vocational-rehab-and-employment/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Vocational Rehabilitation and Employment (VR&amp;amp;E)<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>If your service-connected disability limits your ability to work or prevents you from working, find out if you can get VR&amp;amp;E benefits and services—like help exploring employment options and getting more training if required.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/housing-assistance/adaptive-housing-grants/"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"window.dataLayer.push({ event: 'nav-linkslist' });"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-title"</span>&gt;</span>Adaptive Housing Grants<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-linkslist-description"</span>&gt;</span>Find out if you may be eligible for a grant to buy or change a home to meet your needs and help you live more independently with your service-connected disability.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> '<a href="footer.html">@footer</a>' %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endblock</span></span> %}</span><span class="xml"></span></pre>
+    </code>
+</div>
+
+    
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-context">
+    <code class="Code Code--lang-yaml">
+        
+            
+            <pre><span class="hljs-attr">package:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
+<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
+</pre>
+            
+        
+    </code>
+</div>
+
+    
+    
+
+
+
+
+    
+    <div class="Browser-panel" data-role="tab-panel" id="browser-0707d0f7119fe0cb4ebe63cef1ef06d1-panel-info">
+    <ul class="Meta">
+        <li class="Meta-item">
+            <strong class="Meta-key">Handle:</strong>
+            <span class="Meta-value">@vets-l2</span>
+        </li>
+        
+        
+        
+        
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Preview:</strong>
+            <span class="Meta-value">
+                <ul>
+                    <li><a data-no-pjax href="../preview/vets-l2.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+</a></li>
+                    <li><a data-no-pjax href="../render/vets-l2.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+</a></li>
+                </ul>
+            </span>
+        </li>
+        <li class="Meta-item">
+            <strong class="Meta-key">Filesystem Path:</strong>
+            <span class="Meta-value">src/components/layouts/vets-l2.njk</span>
+        </li>
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">References <em class="Meta-count">(6)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="header.html">@<span>header</span></a>, 
+            
+                <a href="breadcrumbs.html">@<span>breadcrumbs</span></a>, 
+            
+                <a href="typesetting--h1.html">@<span>typesetting--h1</span></a>, 
+            
+                <a href="typesetting--introtext.html">@<span>typesetting--introtext</span></a>, 
+            
+                <a href="buttons.html">@<span>buttons</span></a>, 
+            
+                <a href="footer.html">@<span>footer</span></a>
+            
+            </span>
+        </li class="Meta-item">
+        
+        
+    </ul>
+</div>
+
+    
+
+</div>
+
+</div>
+
+
+    
+
+</div>
+
+
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+        
+        <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
+            <nav class="Navigation">
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../index.html" data-pjax>
+                <span>Overview</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/quickstart.html" data-pjax>
+                <span>Quickstart</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/design-system-docs-v3.html" data-pjax>
+                <span>Design System Docs V 3</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/moving-a-component.html" data-pjax>
+                <span>Moving A Component</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-user-research">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>User Research</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/new-planning-issue-template.html" data-pjax>
+                <span>New Planning Issue Template</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/reporting-out-templates.html" data-pjax>
+                <span>Reporting Out Templates</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/research-lead-checklist.html" data-pjax>
+                <span>Research Lead Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/session-report-template.html" data-pjax>
+                <span>Session Report Template</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-messaging-and-error-handling">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Messaging And Error Handling</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/error-message-standardization-content-style-guide.html" data-pjax>
+                <span>Error Message Standardization Content Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/messaging-design-guide.html" data-pjax>
+                <span>Messaging Design Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/messaging-dictionary.html" data-pjax>
+                <span>Messaging Dictionary</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-content-guides">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Content Guides</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/pdf_resources.html" data-pjax>
+                <span>PDF Resources</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/before-after-pl-examples.html" data-pjax>
+                <span>Before After PL Examples</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/checklist-for-reviewing-staged-content-errors_kr_05162017.html" data-pjax>
+                <span>Checklist For Reviewing Staged Content Errors KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/content-team-process-and-tools.html" data-pjax>
+                <span>Content Team Process And Tools</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/content-update-form-process.html" data-pjax>
+                <span>Content Update Form Process</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/copyediting-checklist.html" data-pjax>
+                <span>Copyediting Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/creating-title-tags.html" data-pjax>
+                <span>Creating Title Tags</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/editorial_style_guide.html" data-pjax>
+                <span>Editorial Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/file-locations-in-design-elements.html" data-pjax>
+                <span>File Locations In Design Elements</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/md-and-html-style.html" data-pjax>
+                <span>MD And HTML Style</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/pivotal_tracker_process_v1-1.html" data-pjax>
+                <span>Pivotal Tracker Process V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/plain_language_checklist_v1.1" data-pjax>
+                <span>Plain Language Checklist V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/proof_qa_checklist.html" data-pjax>
+                <span>Proof QA Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/qa-for-staged-content-before-proofing_kr_05162017.html" data-pjax>
+                <span>QA For Staged Content BEFORE PROOFING KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/staging-log-in-info.html" data-pjax>
+                <span>Staging Log In Info</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/uploading_a_story_into_github.html" data-pjax>
+                <span>Uploading A Story Into Github</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/working_with_templates.html" data-pjax>
+                <span>Working With Templates</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-accessibility-and-508">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Accessibility And 508</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/accessibilityreviewlist.html" data-pjax>
+                <span>Accessibility Review List</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/mac-voiceover-guide.html" data-pjax>
+                <span>Mac Voice Over Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/readme.html" data-pjax>
+                <span>README</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-components">
+    <h3 class="Tree-title">components</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="colors.html" data-pjax>
+                <span>Color palette</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-type">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Typography</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+                <span>Fonts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="links.html" data-pjax>
+                <span>Links</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="lists.html" data-pjax>
+                <span>Lists</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+                <span>Typesetting</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="grid.html" data-pjax>
+                <span>Grid</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="buttons.html" data-pjax>
+                <span>Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tables.html" data-pjax>
+                <span>Tables</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-alerts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Alerts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+                <span>AlertBox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
+                <span>Crisis Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="standard-alerts.html" data-pjax>
+                <span>Standard Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-form">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="best-practice.html" data-pjax>
+                <span>How to build a good form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-templates">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Templates</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+                <span>Address Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+                <span>Name Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-controls">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Form Controls</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablecheckbox.html" data-pjax>
+                <span>ErrorableCheckbox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorabledate.html" data-pjax>
+                <span>Errorable Date</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablefileinput.html" data-pjax>
+                <span>Errorable File Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablenumberinput.html" data-pjax>
+                <span>Errorable Number Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorableradiobuttons.html" data-pjax>
+                <span>Errorable Radio Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorableselect.html" data-pjax>
+                <span>Errorable Select</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorabletextinput.html" data-pjax>
+                <span>Errorable Text Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="expandinggroup.html" data-pjax>
+                <span>ExpandingGroup</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+                <span>Progress Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="progressbar.html" data-pjax>
+                <span>Progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="segmentedprogressbar.html" data-pjax>
+                <span>Segmented progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-header">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Header</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="header.html" data-pjax>
+                <span>Vets.gov Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="banner.html" data-pjax>
+                <span>U.S. Government banner</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="helpmenu.html" data-pjax>
+                <span>Help Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-search">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Search</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="search--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+                <span>Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="searchmenu.html" data-pjax>
+                <span>Search Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vcl.html" data-pjax>
+                <span>Veterans Crisis Line modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="footer.html" data-pjax>
+                <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+                <span>Accept Terms Prompt</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
+                <span>Additional Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+                <span>Address block</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+                <span>Collapsible Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-layouts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Page layouts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+                <span>Documentation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+                <span>Landing</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Vets.gov Level 2</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-l3.html" data-pjax>
+                <span>Vets.gov Level 3</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+                <span>Loading Indicator</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal.html" data-pjax>
+                <span>Modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-navigation">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Navigation</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="navigation.html" data-pjax>
+                <span>Global Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="breadcrumbs.html" data-pjax>
+                <span>Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+                <span>Dropdown Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pagination.html" data-pjax>
+                <span>Pagination</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="sidenav.html" data-pjax>
+                <span>Side navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="omb-info.html" data-pjax>
+                <span>OMB Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+                <span>PrivacyAgreement</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="sortabletable.html" data-pjax>
+                <span>Sortable Table</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-svgicons">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Svgicons</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconhelp.html" data-pjax>
+                <span>IconHelp</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconsearch.html" data-pjax>
+                <span>IconSearch</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconuser.html" data-pjax>
+                <span>IconUser</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="systemdownview.html" data-pjax>
+                <span>System Down View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+                <span>Tooltip</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+</nav>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+
+
+
+</body>
+</html>

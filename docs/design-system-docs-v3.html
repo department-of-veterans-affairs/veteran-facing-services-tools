@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../themes/mandelbrot/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../themes/mandelbrot/css/navy.css?cachebust=1.2.0" type="text/css">
+
+<link rel="stylesheet" href="../fractal-styles.css?cachebust=1.2.0" type="text/css">
+
+
+<title>Design System Docs V 3 | Jean Pants</title>
+
+</head>
+<body>
+
+
+
+<div class="Frame" id="frame">
+
+    <div class="Frame-header">
+        <div class="Header">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
+</svg>
+
+        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+</svg>
+
+    </button>
+    <a href="../index.html" class="Header-title" data-pjax>
+      <svg class="fractal-vets-logo" width="206" height="50" viewBox="0 0 206 50" xmlns="http://www.w3.org/2000/svg" pointer-events="none"><title>Vets dot gov from the U S Department of Veteran Affairs</title><g fill="none" fill-rule="evenodd"><g class="vets-logo-vetsdotgov"><path d="M194.04 37h3.84l6.88-19.44h-3.24l-3.68 11.04c-.56 1.92-1.2 3.88-1.76 5.72h-.16c-.6-1.84-1.24-3.8-1.8-5.72l-3.68-11.04h-3.4l7 19.44zM167.32 27.32c0 6.44 4.24 10.16 9 10.16s9-3.72 9-10.16c0-6.52-4.24-10.24-9-10.24s-9 3.72-9 10.24zm3.4 0c0-4.48 2.28-7.52 5.6-7.52 3.36 0 5.6 3.04 5.6 7.52 0 4.44-2.24 7.44-5.6 7.44-3.32 0-5.6-3-5.6-7.44zM148.28 40.72c0 3.36 3.28 5.24 8.04 5.24 6.04 0 9.84-3.12 9.84-6.72 0-3.24-2.28-4.64-6.8-4.64h-3.76c-2.64 0-3.44-.88-3.44-2.12 0-1.08.56-1.72 1.24-2.32.88.44 1.96.68 2.92.68 3.96 0 7.12-2.6 7.12-6.76 0-1.64-.68-3.12-1.6-4h4v-2.52h-6.76c-.72-.28-1.68-.48-2.76-.48-3.96 0-7.32 2.68-7.32 6.92 0 2.32 1.24 4.2 2.52 5.24v.16c-1 .68-2.12 1.96-2.12 3.6 0 1.52.76 2.56 1.72 3.16v.16c-1.76 1.2-2.84 2.76-2.84 4.4zm8.04-12.08c-2.24 0-4.12-1.8-4.12-4.64s1.84-4.52 4.12-4.52c2.28 0 4.12 1.68 4.12 4.52s-1.88 4.64-4.12 4.64zm-5.16 11.64c0-1.12.6-2.28 2-3.28.84.24 1.76.32 2.52.32h3.36c2.52 0 3.92.6 3.92 2.4 0 2.04-2.44 3.96-6.16 3.96-3.52 0-5.64-1.32-5.64-3.4zM137.52 33.8c0 2.08 1.52 3.68 3.56 3.68s3.56-1.6 3.56-3.68c0-2.12-1.52-3.72-3.56-3.72s-3.56 1.6-3.56 3.72zM118.8 34.72c2 1.64 5 2.76 7.6 2.76 5.32 0 8.16-2.8 8.16-6.4 0-3.64-2.84-5.04-5.36-5.96-2.04-.76-3.88-1.24-3.88-2.52 0-1 .72-1.56 2.24-1.56 1.4 0 2.76.64 4.2 1.68l2.64-3.52c-1.72-1.28-3.96-2.52-7-2.52-4.6 0-7.6 2.52-7.6 6.2 0 3.28 2.84 4.92 5.24 5.84 2.04.8 4.04 1.4 4.04 2.72 0 1.04-.76 1.68-2.52 1.68-1.68 0-3.32-.72-5.12-2.08l-2.64 3.68zM106.64 29.8c0 4.6 1.92 7.68 6.84 7.68 1.92 0 3.36-.4 4.4-.72l-.92-4.28c-.52.2-1.24.4-1.88.4-1.56 0-2.56-.92-2.56-3.16v-7.96h4.76v-4.6h-4.76v-5.28h-4.88l-.68 5.28-3.04.24v4.36h2.72v8.04zM85.28 27.08c0 6.56 4.36 10.4 10.04 10.4 2.36 0 5-.84 7.04-2.24l-1.96-3.56c-1.44.88-2.8 1.32-4.28 1.32-2.64 0-4.64-1.32-5.16-4.32h11.88c.12-.48.24-1.44.24-2.48 0-5.4-2.8-9.52-8.44-9.52-4.76 0-9.36 3.96-9.36 10.4zm5.64-2.04c.4-2.64 2-3.88 3.84-3.88 2.36 0 3.32 1.6 3.32 3.88h-7.16zM70.56 37h7.08l7.88-26.08h-6.04L76.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36l-3.16-12.16h-6.24L70.56 37zM53 5h1v40h-1z"></path></g><g class="vets-logo-va"><path d="M38.12 37h6.24l-8.2-26.08h-7.04L20.92 37h6l1.6-6.2h8l1.6 6.2zm-8.4-10.8l.64-2.4c.72-2.6 1.44-5.64 2.04-8.4h.16c.72 2.72 1.4 5.8 2.12 8.4l.64 2.4h-5.6zM9.56 37h7.08l7.88-26.08h-6.04L15.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36L7.92 10.92H1.68L9.56 37z"></path></g></g></svg></a><span class='f-pipe'> | </span> <h2>&nbsp;&nbsp;&nbsp;Jean Pants</h2>
+</div>
+
+    </div>
+
+    <div class="Frame-body" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            
+
+<div class="Document">
+
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Design System Docs V 3</h1>
+        
+
+
+        
+    </div>
+
+    <div class="Document-content">
+
+    
+
+<div class="Prose">
+
+
+
+    
+    
+    <p><strong>Table of Contents:</strong></p>
+<ul>
+<li><a href="#what-is-doc">What is this document?</a></li>
+<li><a href="#what-is-system">What is the design system?</a><ul>
+<li><a href="#component-contents">Component contents</a></li>
+<li><a href="#organization">Organization</a></li>
+<li><a href="#how-it-works">How does it work?</a></li>
+<li><a href="#use">How do I use it?</a><ul>
+<li><a href="#use-designer">As a designer</a></li>
+<li><a href="#use-developer">As a developer</a></li>
+<li><a href="#use-writer">As a writer</a></li>
+<li><a href="(#use-researcher">As a researcher</a>)</li>
+</ul>
+</li>
+<li><a href="#definitions">Definitions</a></li>
+</ul>
+</li>
+<li><a href="#contribution">Contribution</a><ul>
+<li><a href="#create">Creating new components</a><ul>
+<li><a href="#required">Required questions</a></li>
+<li><a href="#optional">Optional questions</a></li>
+<li><a href="#share">Share the component</a></li>
+</ul>
+</li>
+<li><a href="#move">Moving new components into Fractal</a><ul>
+<li><a href="#kitchen-sink">The <code>prototype</code> label</a></li>
+<li><a href="#core">At what point is a component ready to become part of the Core?</a></li>
+<li><a href="#uswds">At what point do we feed back into USWDS?</a></li>
+<li><a href="#files">What files should all components have?</a></li>
+<li><a href="#naming">Naming Conventions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#maintenance">Maintenance</a><ul>
+<li><a href="#responsible">Who is responsible for ongoing maintenance?</a></li>
+<li><a href="#ownership">Who owns the design system? Where does the buck stop?</a></li>
+<li><a href="#timing">Timing</a></li>
+<li><a href="#tasks">Maintenance tasks</a></li>
+<li><a href="#deprecation">Deprecation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-this-document-a-name-what-is-doc-a-">What is this document? <a name="what-is-doc"></a></h2>
+<p><strong>v3 Modified 2/8/18</strong></p>
+<p>A draft of recommended governance for the Vets.gov design system. <a href="https://github.com/department-of-veterans-affairs/design-system/issues">Feedback welcome</a>. Strong opinions, loosely held.</p>
+<p><strong>It contains:</strong> an explanation of what the design system is, who it’s for, and how to use it.</p>
+<h2 id="what-is-the-design-system-a-name-what-is-system-a-">What is the design system? <a name="what-is-system"></a></h2>
+<p>The design system (affectionately named “Jean Pants”) is a Fractal implementation for Vets.gov. It’s based on USWDS’ own system, and modified for the unique needs of Vets.gov.</p>
+<p>Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Jean Pants is a single source of documentation and truth for people looking to use the Vets.gov components.</p>
+<p>Jean Pants’ purpose is to provide accepted guidance for:</p>
+<ul>
+<li>code implementations for existing components</li>
+<li>visual design for existing components</li>
+<li>use guidelines for existing components (when and when <em>not</em> to use a thing)</li>
+<li>implementation of new visual patterns and components</li>
+</ul>
+<p>Its purpose is <em>not</em> to limit the creation of new components and applications. If you need something, and it’s not already a part of Jean Pants, we have a <a href="#contribution">process</a> for you!</p>
+<h3 id="component-contents-a-name-component-contents-a-">Component contents <a name="component-contents"></a></h3>
+<p>Each component included in the design system has the same core files and views associated with it, accessible from the tabs for each component:</p>
+<ul>
+<li>HTML: Fractal’s rendered code</li>
+<li>Notes: Generated by a component’s <code>README.md</code> file, the Notes section includes links to robust documentation (if available) and guidance for when and when not to use a given component. Gotchas, considerations, and major decision points should be found here as well.<ul>
+<li><blockquote>
+<p>Meeting this promise will require that we go back and document!</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>View: Generated by a component’s <code>.njx</code> file, this shows the code that’s producing the component you see in the preview window.</li>
+<li>Context: Generated by a component’s <code>config.yml</code> file, the context shows what props and data are being passed to the component’s preview.</li>
+<li>Assets: Available for React components only, the Assets tab reveals which <code>.jsx</code> files are associated with a component.</li>
+<li>Info: Fractal’s info window, showing filepaths and handles for use within Fractal itself.</li>
+<li>Props: Exposes a React component’s <code>props</code>, their types, and whether or not they are required.</li>
+</ul>
+<h3 id="organization-a-name-organization-a-">Organization <a name="organization"></a></h3>
+<p>Jean Pants is very loosely organized according to the principles of atomic design, which is the idea that small atoms (like colors, typography, links, fieldforms, and buttons) can be combined into larger atoms (like forms) and then even larger organisms (like templates and pages).</p>
+<p>We don’t totally adhere to the structure of atomic design with this sytem, but we have something akin to it. For example, all the form elements are grouped together, and all the basics of the Vets visual language are also grouped together.</p>
+<p>This organization is very much subject to change as we work out the specifics of our NPM module and other needs.</p>
+<h3 id="how-does-it-work-a-name-how-it-works-a-">How does it work? <a name="how-it-works"></a></h3>
+<p>Jean Pants is built on a piece of software called <a href="https://fractal.build">Fractal</a>, which is effectively a static site generator, similar to Metalsmith or Jekyll. A component is defined by a collection of <a href="#files">files</a> with the same name, but different extensions.</p>
+<p>The different components can be referenced within Jean Pants to build larger templates and layouts.</p>
+<blockquote>
+<p>Need some help explaining how this connects to Vets.gov</p>
+</blockquote>
+<h3 id="how-do-i-use-it-a-name-use-a-">How do I use it? <a name="use"></a></h3>
+<p>Don’t identify with any of these categories? <a href="https://github.com/department-of-veterans-affairs/design-system/issues">Submit an issue</a> to our repo!</p>
+<h4 id="as-a-designer-a-name-use-designer-a-">As a designer <a name="use-designer"></a></h4>
+<p>This system contains (or will contain) all the visual patterns in use on Vets.gov. You can use this system as a reference (how does this component look? What is the standard layout?), as a guide for when certain components are or aren’t appropriate, and to guide the development of new visual patterns.</p>
+<h4 id="as-a-developer-a-name-use-developer-a-">As a developer <a name="use-developer"></a></h4>
+<p>For each visual pattern represented here, there’s associated code. Code can be React or static HTML. You can use this system as a reference for React components, or as a source of truth for the static code that’s in use on Vets.gov. Rather than copy and paste code from an existing file, or re-inventing the wheel, come to this reference first.</p>
+<h4 id="as-a-writer-a-name-use-writer-a-">As a writer <a name="use-writer"></a></h4>
+<p>Writers are responsible not just for words, but often for the markup that renders static pages on Vets.gov. You should be able to come to this system to find the code that drives a given layout element you want to use. It also functions as a catalog of available patterns and their documentation, so you can be sure to choose the appropriate component.</p>
+<h4 id="as-a-researcher-a-name-use-researcher-a-">As a researcher <a name="use-researcher"></a></h4>
+<p>Want to know what new patterns are in development that may need to be tested? Look no further than Jean Pants’ WIP labels. This system should also provide another connection between research and design, in that the research team’s process is documented here for designers and other teammates to reference.</p>
+<h3 id="definitions-a-name-definitions-a-">Definitions <a name="definitions"></a></h3>
+<p><strong>Core</strong>: The tried &amp; true, tested parts of our design system. Comprises a subset of USWDS’ core code, plus the patterns in production on Vets.gov</p>
+<p><strong>Component</strong>: An element that is visible on the design system. Differs from a React component in that it might or might not actually _be_ React code. So named because that’s Fractal’s default, but maybe we should look into finding a new term?</p>
+<p><strong>Static component</strong>: A Fractal component that is static HTML — not React — that up until recently has been hand-copied-and-pasted into <code>.md</code> files</p>
+<p><strong>React component:</strong> A Fractal component that _is_ React. Is also, technically, a React component in the usual sense of the phrase. Is called upon in React apps.</p>
+<h2 id="contribution-a-name-contribution-a-">Contribution <a name="contribution"></a></h2>
+<p>We welcome feedback and other contribution to Jean Pants. This section will develop over time – for now, this is meant to guide Vets.gov teammates’ contribution to the system. <em>With thanks to USWDS’ own contribution guidelines.</em></p>
+<p>When you want to create a new component on Jean Pants, please open a PR onto master after reading the guidelines below.</p>
+<h3 id="creating-new-components-a-name-create-a-">Creating new components <a name="create"></a></h3>
+<p>Loosely, the process for bringing a new component into the design system mirrors the creation of a new design pattern. New components should result from a demonstrated need for a new visual or user-interaction pattern.</p>
+<h4 id="required-questions-a-name-required-a-">Required questions <a name="required"></a></h4>
+<ul>
+<li>Are there any similar or related patterns in the system already? How is this one materially different?</li>
+<li>Describe the pattern: what’s its purpose and functionality?</li>
+<li>What user need does it solve?</li>
+<li>Does it adhere to existing Vets.gov standards of color, padding, grid, typography, etc.?</li>
+<li>Does it follow best practices for accessibility, design, and user experience?<blockquote>
+<p>as defined by whom? Could we point to relevant USWDS/18F/Vets.gov playbook documentation?</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="optional-questions-a-name-optional-a-">Optional questions <a name="optional"></a></h4>
+<ul>
+<li>Have you conducted primary research? If so, provide this as part of the documentation.</li>
+<li>Do you have secondary research (e.g. articles, outside research)? If so, provide this as part of the documentation.</li>
+</ul>
+<p>New components <strong>should</strong>:</p>
+<ul>
+<li>Have gone through review with both the product-owning team, and the design teams. Doesn’t matter if it’s a formal review or not — but there need to be eyes on it other than yours.</li>
+<li>Have gone through basic research, either in concert with the product housing the new component, or on its own.</li>
+<li>Have been tested for accessibility / 508 compliance, with the awareness that those are <em>not</em> the same thing!</li>
+<li>Have been assessed for best practices in code.</li>
+</ul>
+<p>New components <strong>should not</strong>:</p>
+<ul>
+<li>Duplicate existing function or the visual pattern of an existing pattern or component</li>
+<li>Violate accessibility rules and standards as defined by the 508 office and our own best practices</li>
+<li>Violate Vets.gov visual rules as set forth by the design system and the design team</li>
+<li>Be integrated into the product, and by extension the system, without having undergone design, accessibility, and code review</li>
+</ul>
+<h3 id="moving-new-components-into-fractal-a-name-move-a-">Moving new components into Fractal <a name="move"></a></h3>
+<p>New design system components should follow this general path:</p>
+<p><code>idea/design sketch</code> » <code>code (static or React)</code> » <code>Fractal&#39;s kitchen sink</code> » <code>Some assessment period where we decide if it&#39;s a one-off or not</code> »  <code>if one-off, should stay in kitchen sink; else should be integrated into the appropriate place in Core</code></p>
+<blockquote>
+<p>Mel: Moving new components into Fractal – I love this process flow. What do you think about making it into a more visual flow chart?</p>
+</blockquote>
+<h4 id="the-prototype-label-a-name-kitchen-sink-a-">The <code>prototype</code> label <a name="kitchen-sink"></a></h4>
+<p>The design system includes three labels you can use to describe components:</p>
+<ul>
+<li><code>ready</code> shows as a green dot, and means the component is fully developed and in production</li>
+<li><code>wip</code> shows as an orange dot, and currently means that the component is in the process of being integrated into production</li>
+<li><code>prototype</code> shows as a red light, and means that a component is in development. This is the label any new components should start under.</li>
+</ul>
+<p>You should use the <code>prototype</code> label if:</p>
+<ul>
+<li>You have a one-off component that will go into production on Vets.gov, <em>even if it will only ever be used once</em>. This helps us keep track of what exists on the site.</li>
+<li>You have a one-off component that might be developed into a more generic component for Vets.gov</li>
+</ul>
+<h4 id="at-what-point-is-a-component-ready-to-become-part-of-the-core-a-name-core-a-">At what point is a component ready to become part of the Core? <a name="core"></a></h4>
+<p>A component is ready to become part of Jean Pants’ Core when it:</p>
+<ul>
+<li>Has been used in more than two discrete places on Vets.gov (ie, shows once in Education, and again in Healthcare — not twice on the same page / in the same file), AND we can see a future use case</li>
+<li>Has been refined by the design team, as needed</li>
+<li>Has been refined by the engineering team, as needed</li>
+<li>Has passed accessibility and 508 testing</li>
+</ul>
+<h4 id="at-what-point-do-we-feed-back-into-uswds-a-name-uswds-a-">At what point do we feed back into USWDS? <a name="uswds"></a></h4>
+<p>This is an open question that we need to further discuss, but suggest that if we have a component that is not already represented in USWDS’s system and has potential to be useful, that we fork their repo and go from there.</p>
+<h4 id="what-files-should-all-components-have-a-name-files-a-">What files should all components have? <a name="files"></a></h4>
+<ul>
+<li>React<ul>
+<li><code>.config.yml</code> (Fractal labeling and props used in the component example)</li>
+<li><code>.jsx</code> (the React component itself)</li>
+<li><code>.njk</code> (jsx code that creates an example use of the component from props in the config file)</li>
+<li><code>.unit.spec.test.js</code> (tests for the React component)</li>
+<li><code>README.md</code> (will display in <strong>Notes</strong> tab and carries relevant context for design + content to know when to use a given pattern)</li>
+</ul>
+</li>
+<li>Static HTML<ul>
+<li><code>.config.yml</code> (Fractal labeling and props used in the component example)</li>
+<li><code>.njk</code> (carries HTML markup)</li>
+<li><code>README.md</code> (will display in <strong>Notes</strong> tab; carries relevant context for design + content to know when to use a given pattern)</li>
+</ul>
+</li>
+</ul>
+<h4 id="naming-conventions-a-name-naming-a-">Naming Conventions <a name="naming"></a></h4>
+<p>How do we name components in our design system? These names should be recognizable and unique.</p>
+<p>Because this system is based on USWDS’ system, we should maintain the names that USWDS has set, to make it easier to upgrade the USWDS core in the future.</p>
+<p>Additional components have been brought in that are currently in use on Vets.gov. Those also have existing naming conventions that go beyond the codebase — we use them to verbally communicate patterns as we work through design. As these components get moved into the design system, their names (based on the filenames that house the code) should be maintained.</p>
+<blockquote>
+<p>If there is a conflict between Vets.gov’s code and USWDS’ code, <strong>how should we proceed?</strong></p>
+</blockquote>
+<p>New components should have names that:</p>
+<ul>
+<li>do not conflict with the existing codebase</li>
+<li>are descriptive of the component (ie, “errorable checkbox”)</li>
+<li>are plain-language (call a list a list.)</li>
+</ul>
+<hr>
+<h2 id="maintenance-a-name-maintenance-a-">Maintenance <a name="maintenance"></a></h2>
+<h3 id="who-is-responsible-for-ongoing-maintenance-a-name-responsible-a-">Who is responsible for ongoing maintenance? <a name="responsible"></a></h3>
+<p>Rather than appointing specific people from each team, every designer and FE should be responsible and comfortable with maintenance. Otherwise bottlenecking may be a concern.</p>
+<ul>
+<li>The responsible individuals should make it part of their offboarding process to transfer their design system responsibilities to their successor.</li>
+<li>Consider making a turn on design system part of standard Ad Hoc/DSVA onboarding — best way to get familiar with our patterns and best practices</li>
+</ul>
+<h3 id="who-owns-the-design-system-where-does-the-buck-stop-a-name-ownership-a-">Who owns the design system? Where does the buck stop? <a name="ownership"></a></h3>
+<p>The design system is owned by the team that owns sitewide responsibilities: Nebula. Nebula is responsible for making sure that each team is prioritizing maintenance work into their PI, particularly if a component is being expanded or modified by a particular product team.</p>
+<h3 id="timing-a-name-timing-a-">Timing <a name="timing"></a></h3>
+<ul>
+<li>How often do we update components?<ul>
+<li>This should probably be on an as-needed basis. If you see that a component needs to be updated, ticket it and work it into the next sprint.</li>
+</ul>
+</li>
+<li>How often to we assess maintenance needs?<ul>
+<li>Once a PI, everyone with design system assigned to them should take a look at their constituent components and assess whether they need to be hardened in any way. That work should be ticketed, and those tickets should work their way into the next sprint in the PI.</li>
+</ul>
+</li>
+<li>How often do we integrate new components?<ul>
+<li>If a component is ready to move from <code>prototype</code>, it should be ticketed and worked into the next sprint/PI (which one depends on the existing workload).</li>
+</ul>
+</li>
+</ul>
+<h3 id="maintenance-tasks-a-name-tasks-a-">Maintenance tasks <a name="tasks"></a></h3>
+<ul>
+<li>Possible maintenance tasks:<ul>
+<li>Unit testing: are the tests still making sense and passing?</li>
+<li>CSS hardening</li>
+<li>Has the component been modified in any way to accommodate an outside task? (IE the way the alert box component was extended to become a collapsible “one-off” crisis box, implemented by hand)</li>
+<li>Is this component still in use?</li>
+<li>Is this component being used outside of the recommended context?<ul>
+<li>might another pattern be developed instead?</li>
+<li>should the existing pattern’s docs be modified to reflect the new reality?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="deprecation-a-name-deprecation-a-">Deprecation <a name="deprecation"></a></h3>
+<p>Realistically, Vets.gov will outgrow components over time. This process should govern how components are deprecated and ultimately removed from Jean Pants and by extension, our catalog of available visual patterns.</p>
+<h4 id="why-bother-deprecating-">Why bother deprecating?</h4>
+<p>Keeping outdated components – and their code – in Jean Pants not only adds file weight to the system when it’s used on Vets.gov (and elsewhere, if we release at large), but also can produce a source of confusion to new teammates who might not be familiar with the tribal knowledge that often governs our design.</p>
+<p>Deprecating and subsequently removing a component has three steps, and all three should be documented in Jean Pants in perpetuity, for institutional knowledge’s sake.</p>
+<p><strong>Step 1:</strong></p>
+<ul>
+<li>Someone raises a flag that a component is no longer useful. This is usually a designer, but not always.<ul>
+<li>We need to answer: Does this component need to be replaced by a new one to satisfy user needs?<ul>
+<li>If yes, the new component should be <a href="#create">prototyped</a></li>
+<li>If no, please document why this component isn’t useful anymore, and add it to the component folder’s README.md</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>We agree as a team that this component needs to be deprecated.</li>
+</ul>
+<p><strong>Step 2:</strong></p>
+<ul>
+<li>The component is flagged as <code>deprecated</code> in Jean Pants. This gives another indicator to the entire Vets.gov team as well as any external users that the component is on its way out the door.</li>
+<li>Any pages using the component should be updated, with the component either removed or replaced (for example, we now use left-nav in place of piano keys).</li>
+<li>Visual regression tests should be run to ensure that the above change doesn’t cause unanticipated changes.</li>
+<li>Documentation of the decision to deprecate and supporting arguments should be added to Jean Pants.</li>
+</ul>
+<p>Allow at least two sprint cycles to pass before continuing to Step 3.</p>
+<p><strong>Step 3:</strong></p>
+<ul>
+<li>Component should not exist on any Vets.gov pages.</li>
+<li>Component’s function should have been replaced by a new pattern OR it should be documented that the use case is no longer valid.</li>
+<li>Component’s React files and any single-use CSS should be removed.</li>
+</ul>
+<blockquote>
+<p>Note: Need to ensure that we can keep a visual record and a README in the system without associated React files. Also need to add the <code>deprecated</code> label to the system.</p>
+</blockquote>
+
+    
+
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+        
+        <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
+            <nav class="Navigation">
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../index.html" data-pjax>
+                <span>Overview</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="quickstart.html" data-pjax>
+                <span>Quickstart</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Design System Docs V 3</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="moving-a-component.html" data-pjax>
+                <span>Moving A Component</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-user-research">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>User Research</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="user-research/new-planning-issue-template.html" data-pjax>
+                <span>New Planning Issue Template</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="user-research/reporting-out-templates.html" data-pjax>
+                <span>Reporting Out Templates</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="user-research/research-lead-checklist.html" data-pjax>
+                <span>Research Lead Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="user-research/session-report-template.html" data-pjax>
+                <span>Session Report Template</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-messaging-and-error-handling">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Messaging And Error Handling</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="messaging-and-error-handling/error-message-standardization-content-style-guide.html" data-pjax>
+                <span>Error Message Standardization Content Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="messaging-and-error-handling/messaging-design-guide.html" data-pjax>
+                <span>Messaging Design Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="messaging-and-error-handling/messaging-dictionary.html" data-pjax>
+                <span>Messaging Dictionary</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-content-guides">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Content Guides</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/pdf_resources.html" data-pjax>
+                <span>PDF Resources</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/before-after-pl-examples.html" data-pjax>
+                <span>Before After PL Examples</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/checklist-for-reviewing-staged-content-errors_kr_05162017.html" data-pjax>
+                <span>Checklist For Reviewing Staged Content Errors KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/content-team-process-and-tools.html" data-pjax>
+                <span>Content Team Process And Tools</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/content-update-form-process.html" data-pjax>
+                <span>Content Update Form Process</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/copyediting-checklist.html" data-pjax>
+                <span>Copyediting Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/creating-title-tags.html" data-pjax>
+                <span>Creating Title Tags</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/editorial_style_guide.html" data-pjax>
+                <span>Editorial Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/file-locations-in-design-elements.html" data-pjax>
+                <span>File Locations In Design Elements</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/md-and-html-style.html" data-pjax>
+                <span>MD And HTML Style</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/pivotal_tracker_process_v1-1.html" data-pjax>
+                <span>Pivotal Tracker Process V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/plain_language_checklist_v1.1" data-pjax>
+                <span>Plain Language Checklist V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/proof_qa_checklist.html" data-pjax>
+                <span>Proof QA Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/qa-for-staged-content-before-proofing_kr_05162017.html" data-pjax>
+                <span>QA For Staged Content BEFORE PROOFING KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/staging-log-in-info.html" data-pjax>
+                <span>Staging Log In Info</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/uploading_a_story_into_github.html" data-pjax>
+                <span>Uploading A Story Into Github</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="content-guides/working_with_templates.html" data-pjax>
+                <span>Working With Templates</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-accessibility-and-508">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Accessibility And 508</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accessibility-and-508/accessibilityreviewlist.html" data-pjax>
+                <span>Accessibility Review List</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accessibility-and-508/mac-voiceover-guide.html" data-pjax>
+                <span>Mac Voice Over Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accessibility-and-508/readme.html" data-pjax>
+                <span>README</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-components">
+    <h3 class="Tree-title">components</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/colors.html" data-pjax>
+                <span>Color palette</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-type">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Typography</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/fonts.html" data-pjax>
+                <span>Fonts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/links.html" data-pjax>
+                <span>Links</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/lists.html" data-pjax>
+                <span>Lists</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/typesetting.html" data-pjax>
+                <span>Typesetting</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/grid.html" data-pjax>
+                <span>Grid</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/buttons.html" data-pjax>
+                <span>Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/tables.html" data-pjax>
+                <span>Tables</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-alerts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Alerts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/alertbox.html" data-pjax>
+                <span>AlertBox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/crisis-alerts.html" data-pjax>
+                <span>Crisis Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/standard-alerts.html" data-pjax>
+                <span>Standard Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-form">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/best-practice.html" data-pjax>
+                <span>How to build a good form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-templates">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Templates</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/address-form.html" data-pjax>
+                <span>Address Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/name-form.html" data-pjax>
+                <span>Name Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-controls">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Form Controls</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorablecheckbox.html" data-pjax>
+                <span>ErrorableCheckbox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorabledate.html" data-pjax>
+                <span>Errorable Date</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorablefileinput.html" data-pjax>
+                <span>Errorable File Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorablenumberinput.html" data-pjax>
+                <span>Errorable Number Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorableradiobuttons.html" data-pjax>
+                <span>Errorable Radio Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorableselect.html" data-pjax>
+                <span>Errorable Select</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/errorabletextinput.html" data-pjax>
+                <span>Errorable Text Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/expandinggroup.html" data-pjax>
+                <span>ExpandingGroup</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/progressbutton.html" data-pjax>
+                <span>Progress Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/progressbar.html" data-pjax>
+                <span>Progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/segmentedprogressbar.html" data-pjax>
+                <span>Segmented progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-header">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Header</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/header.html" data-pjax>
+                <span>Vets.gov Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/banner.html" data-pjax>
+                <span>U.S. Government banner</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/helpmenu.html" data-pjax>
+                <span>Help Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-search">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Search</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/search--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/search--header.html" data-pjax>
+                <span>Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/searchmenu.html" data-pjax>
+                <span>Search Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/vcl.html" data-pjax>
+                <span>Veterans Crisis Line modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/footer.html" data-pjax>
+                <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/accepttermsprompt.html" data-pjax>
+                <span>Accept Terms Prompt</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/additionalinfo.html" data-pjax>
+                <span>Additional Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/addressblock.html" data-pjax>
+                <span>Address block</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/collapsiblepanel.html" data-pjax>
+                <span>Collapsible Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-layouts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Page layouts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/layout--docs.html" data-pjax>
+                <span>Documentation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/layout--landing.html" data-pjax>
+                <span>Landing</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/vets-l2.html" data-pjax>
+                <span>Vets.gov Level 2</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/vets-l3.html" data-pjax>
+                <span>Vets.gov Level 3</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/loadingindicator.html" data-pjax>
+                <span>Loading Indicator</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/modal.html" data-pjax>
+                <span>Modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-navigation">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Navigation</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/navigation.html" data-pjax>
+                <span>Global Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/breadcrumbs.html" data-pjax>
+                <span>Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/dropdownpanel.html" data-pjax>
+                <span>Dropdown Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/pagination.html" data-pjax>
+                <span>Pagination</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/sidenav.html" data-pjax>
+                <span>Side navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/omb-info.html" data-pjax>
+                <span>OMB Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/privacyagreement.html" data-pjax>
+                <span>PrivacyAgreement</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/sortabletable.html" data-pjax>
+                <span>Sortable Table</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-svgicons">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Svgicons</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/iconhelp.html" data-pjax>
+                <span>IconHelp</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/iconsearch.html" data-pjax>
+                <span>IconSearch</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/iconuser.html" data-pjax>
+                <span>IconUser</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/systemdownview.html" data-pjax>
+                <span>System Down View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../components/detail/tooltip.html" data-pjax>
+                <span>Tooltip</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+</nav>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+
+
+
+</body>
+</html>

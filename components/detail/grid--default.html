@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../themes/mandelbrot/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../../themes/mandelbrot/css/navy.css?cachebust=1.2.0" type="text/css">
+
+<link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
+
+
+<title>Grid: Examples | Jean Pants</title>
+
+</head>
+<body>
+
+
+
+<div class="Frame" id="frame">
+
+    <div class="Frame-header">
+        <div class="Header">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
+</svg>
+
+        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+</svg>
+
+    </button>
+    <a href="../../index.html" class="Header-title" data-pjax>
+      <svg class="fractal-vets-logo" width="206" height="50" viewBox="0 0 206 50" xmlns="http://www.w3.org/2000/svg" pointer-events="none"><title>Vets dot gov from the U S Department of Veteran Affairs</title><g fill="none" fill-rule="evenodd"><g class="vets-logo-vetsdotgov"><path d="M194.04 37h3.84l6.88-19.44h-3.24l-3.68 11.04c-.56 1.92-1.2 3.88-1.76 5.72h-.16c-.6-1.84-1.24-3.8-1.8-5.72l-3.68-11.04h-3.4l7 19.44zM167.32 27.32c0 6.44 4.24 10.16 9 10.16s9-3.72 9-10.16c0-6.52-4.24-10.24-9-10.24s-9 3.72-9 10.24zm3.4 0c0-4.48 2.28-7.52 5.6-7.52 3.36 0 5.6 3.04 5.6 7.52 0 4.44-2.24 7.44-5.6 7.44-3.32 0-5.6-3-5.6-7.44zM148.28 40.72c0 3.36 3.28 5.24 8.04 5.24 6.04 0 9.84-3.12 9.84-6.72 0-3.24-2.28-4.64-6.8-4.64h-3.76c-2.64 0-3.44-.88-3.44-2.12 0-1.08.56-1.72 1.24-2.32.88.44 1.96.68 2.92.68 3.96 0 7.12-2.6 7.12-6.76 0-1.64-.68-3.12-1.6-4h4v-2.52h-6.76c-.72-.28-1.68-.48-2.76-.48-3.96 0-7.32 2.68-7.32 6.92 0 2.32 1.24 4.2 2.52 5.24v.16c-1 .68-2.12 1.96-2.12 3.6 0 1.52.76 2.56 1.72 3.16v.16c-1.76 1.2-2.84 2.76-2.84 4.4zm8.04-12.08c-2.24 0-4.12-1.8-4.12-4.64s1.84-4.52 4.12-4.52c2.28 0 4.12 1.68 4.12 4.52s-1.88 4.64-4.12 4.64zm-5.16 11.64c0-1.12.6-2.28 2-3.28.84.24 1.76.32 2.52.32h3.36c2.52 0 3.92.6 3.92 2.4 0 2.04-2.44 3.96-6.16 3.96-3.52 0-5.64-1.32-5.64-3.4zM137.52 33.8c0 2.08 1.52 3.68 3.56 3.68s3.56-1.6 3.56-3.68c0-2.12-1.52-3.72-3.56-3.72s-3.56 1.6-3.56 3.72zM118.8 34.72c2 1.64 5 2.76 7.6 2.76 5.32 0 8.16-2.8 8.16-6.4 0-3.64-2.84-5.04-5.36-5.96-2.04-.76-3.88-1.24-3.88-2.52 0-1 .72-1.56 2.24-1.56 1.4 0 2.76.64 4.2 1.68l2.64-3.52c-1.72-1.28-3.96-2.52-7-2.52-4.6 0-7.6 2.52-7.6 6.2 0 3.28 2.84 4.92 5.24 5.84 2.04.8 4.04 1.4 4.04 2.72 0 1.04-.76 1.68-2.52 1.68-1.68 0-3.32-.72-5.12-2.08l-2.64 3.68zM106.64 29.8c0 4.6 1.92 7.68 6.84 7.68 1.92 0 3.36-.4 4.4-.72l-.92-4.28c-.52.2-1.24.4-1.88.4-1.56 0-2.56-.92-2.56-3.16v-7.96h4.76v-4.6h-4.76v-5.28h-4.88l-.68 5.28-3.04.24v4.36h2.72v8.04zM85.28 27.08c0 6.56 4.36 10.4 10.04 10.4 2.36 0 5-.84 7.04-2.24l-1.96-3.56c-1.44.88-2.8 1.32-4.28 1.32-2.64 0-4.64-1.32-5.16-4.32h11.88c.12-.48.24-1.44.24-2.48 0-5.4-2.8-9.52-8.44-9.52-4.76 0-9.36 3.96-9.36 10.4zm5.64-2.04c.4-2.64 2-3.88 3.84-3.88 2.36 0 3.32 1.6 3.32 3.88h-7.16zM70.56 37h7.08l7.88-26.08h-6.04L76.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36l-3.16-12.16h-6.24L70.56 37zM53 5h1v40h-1z"></path></g><g class="vets-logo-va"><path d="M38.12 37h6.24l-8.2-26.08h-7.04L20.92 37h6l1.6-6.2h8l1.6 6.2zm-8.4-10.8l.64-2.4c.72-2.6 1.44-5.64 2.04-8.4h.16c.72 2.72 1.4 5.8 2.12 8.4l.64 2.4h-5.6zM9.56 37h7.08l7.88-26.08h-6.04L15.4 23.08c-.76 2.84-1.28 5.48-2.08 8.36h-.16c-.8-2.88-1.32-5.52-2.08-8.36L7.92 10.92H1.68L9.56 37z"></path></g></g></svg></a><span class='f-pipe'> | </span> <h2>&nbsp;&nbsp;&nbsp;Jean Pants</h2>
+</div>
+
+    </div>
+
+    <div class="Frame-body" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            
+
+
+    
+    
+
+<div class="Pen" data-behaviour="pen" id="pen-1b4904f3f4c618754014c5c4abfd1361">
+
+    
+
+    <div class="Pen-panel Pen-header">
+    <h1 class="Pen-title">
+        <a class="Pen-previewLink" href="../preview/grid--default.html" title="Component preview">
+            Grid: Examples
+            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+
+        </a>
+    </h1>
+    
+
+<div class="Status Status--tag">
+
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
+
+</div>
+
+
+</div>
+
+
+    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-1b4904f3f4c618754014c5c4abfd1361">
+    <div class="Preview-wrapper" data-role="resizer">
+        <div class="Preview-resizer">
+            
+             <iframe
+                class="Preview-iframe"
+                data-role="window"
+                src="../preview/grid--default.html"
+                sandbox="allow-same-origin allow-scripts allow-forms"
+                 style=""
+                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
+            </iframe>
+        </div>
+        <div class="Preview-handle" data-role="resize-handle"></div>
+        <div class="Preview-overlay"></div>
+    </div>
+</div>
+
+
+    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
+
+    <div class="Pen-panel Pen-info" data-role="info">
+    <div class="Browser" data-behaviour="browser" id="browser-1b4904f3f4c618754014c5c4abfd1361">
+
+    
+
+<div class="Browser-controls">
+    <ul class="Browser-tabs">
+        
+        
+        <li class="Browser-tab Browser-tab--notes is-active " data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-notes">Notes</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--props" data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-props">Props</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-html">HTML</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--view" data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-view">View</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--context" data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-context">Context</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        <li class="Browser-tab Browser-tab--info" data-role="tab">
+            <a href="#browser-1b4904f3f4c618754014c5c4abfd1361-panel-info">Info</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+    
+    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-notes">
+    <div class="Prose Prose--condensed">
+        
+        <h2 id="grid">Grid</h2>
+<p>This 12-column, responsive grid provides structure for website content.</p>
+<h3 id="implementation">Implementation</h3>
+<p>To use the grid, wrap each grid row in a <code>&lt;div&gt;</code> with the <code>usa-grid</code> class. To use a grid without padding on the right and left, use the <code>usa-grid-full</code> class instead.</p>
+<p>Each grid item is written semantically by its width. For example: <code>usa-width-one-half</code> = 1/2 grid item, <code>usa-width-two-thirds</code> = 2/3 grid item.</p>
+<p>Medium breakpoints are used for 1/6 and 1/12 grid items, which both transform into a 1/3 grid item at medium screen sizes.</p>
+<p>All grid items are full-width at small screen sizes.</p>
+<h3 id="offsets">Offsets</h3>
+<p>To move grid columns to the right, use the <code>usa-offset-*</code> classes. For example: <code>&lt;div class=&quot;usa-width-one-third usa-offset-one-fourth&quot;&gt;</code> would create a column that is 1/3rd the width of the grid and moved 1/4th of the width of the grid from the left margin.</p>
+
+        
+    </div>
+</div>
+
+    
+    <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-props">
+    <div class="Prose Prose--condensed">
+        <table>
+          <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
+          
+        </table>
+    </div>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-example"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-heading"</span>&gt;</span>Grid Sizes<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>1/1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>1/2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>1/2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>1/3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>1/3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>1/3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>1/4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>1/4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>1/4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>1/4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;</span>1/6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;</span>1/12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-example"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-heading"</span>&gt;</span>Grid Examples<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Half<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Georgia is a state located in the southeastern United States. It was established in 1732 and was the last of the original Thirteen Colonies. Named after King George II of Great Britain, Georgia was the fourth state to ratify the United States
+                Constitution, on January 2, 1788. Georgia declared its secession from the Union on January 19, 1861, and was one of the original seven Confederate states. Georgia was the last state to be restored to the Union, on July 15, 1870. Georgia
+                is the 24th largest and the 8th most populous of the 50 United States.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Half<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Michigan is a state in the Great Lakes region of the Midwestern United States. The name Michigan is the French form of the Ojibwa word mishigamaa, meaning "large water" or "large lake". Michigan is the tenth most populous state, with the 11th
+                most extensive total area (the largest state by total area east of the Mississippi River). Its capital is Lansing, and the largest city is Detroit. Michigan is the only state to consist of two peninsulas. A person in the state is never
+                more than six miles from a natural water source or 85 miles from a Great Lakes shoreline.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Third<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Maryland is a state located in the Mid-Atlantic region of the United States, bordering Virginia, West Virginia, and Washington, D.C. to its south and west; Pennsylvania to its north; and Delaware to its east.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Third<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Massachusetts is a state in the northeastern United States, bordered by Rhode Island and Connecticut to the south, New York to the west, Vermont and New Hampshire to the north, and the Atlantic Ocean to the east.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Third<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>North Carolina is a state in the Southeastern United States. North Carolina borders South Carolina and Georgia to the south, Tennessee to the west, Virginia to the north, and the Atlantic Ocean to the east.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>California is a state located on the West Coast of the United States. It is the most populous U.S. state, with 38 million people, and the third largest state by area (after Alaska and Texas).<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Illinois is a state in the Midwestern United States. It is the 5th most populous state and 25th largest state in terms of land area, and is often noted as a microcosm of the entire country.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Maine is a state in the New England region of the northeastern United States. In spite of its maritime position, it has a continental climate even in coastal cities such as its largest city Portland.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Indiana is a U.S. state located in the midwestern and Great Lakes regions of North America. Indiana is the 38th largest by area and the 16th most populous of the 50 United States.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-two-thirds"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Two Thirds<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Oregon is a state in the Pacific Northwest of the United States. Oregon is bordered on the west by the Pacific Ocean, on the north by Washington, on the south by California, on the east by Idaho, and on the southeast by Nevada. The Columbia
+                River delineates much of Oregon's northern boundary, and the Snake River delineates much of the eastern boundary. It is one of only three states of the contiguous United States to have a coastline on the Pacific Ocean. The capital of Oregon
+                is Salem, the second most populous of its cities, with 160,614 residents (2013 estimate).<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Third<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Minnesota is a state in the Midwestern United States. Minnesota was admitted as the 32nd state on May 11, 1858, created from the eastern half of the Minnesota Territory. Its name comes from the Dakota word for "clear blue water".<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Half<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Virginia, is a U.S. state located in the South Atlantic region of the United States. Virginia, formally the Commonwealth of Virginia, is nicknamed the "Old Dominion" due to its status as the first colonial possession established in mainland
+                British America, and "Mother of Presidents" because eight U.S. presidents were born there, more than any other state. The geography and climate of the Commonwealth are shaped by the Blue Ridge Mountains and the Chesapeake Bay, which provide
+                habitat for much of its flora and fauna.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>New York is a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the twenty-seventh-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>One Fourth<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Washington, D.C. is the capital of the United States, bordered by the states of Maryland and Virginia. Formally known as the District of Columbia, it is also commonly referred to as "Washington", "the District", or simply "D.C."<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.grid-example</span>&gt;<span class="hljs-selector-tag">div</span> {
+        <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span> <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-selector-class">.grid-example</span>&gt;<span class="hljs-selector-tag">div</span>&gt;<span class="hljs-selector-tag">div</span> {
+        <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ccc</span>;
+        <span class="hljs-attribute">padding</span>: .<span class="hljs-number">75em</span>;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></pre>
+        
+    </code>
+</div>
+
+    
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-view">
+    <code class="Code Code--lang-text">
+        <pre>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"grid-example"</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;h2 <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-heading"</span>&gt;Grid Sizes&lt;/h2&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">1</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">2</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">2</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">3</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">3</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">3</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">4</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">4</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">4</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">4</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-sixth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-twelfth"</span>&gt;<span class="hljs-number">1</span>/<span class="hljs-number">12</span>&lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">div</span>&gt;
+
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"grid-example"</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;h2 <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-heading"</span>&gt;Grid Examples&lt;/h2&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;
+      &lt;h3&gt;One Half&lt;/h3&gt;
+      &lt;p&gt;Georgia <span class="hljs-keyword">is</span> a state located <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> southeastern United States. It was established <span class="hljs-keyword">in</span> <span class="hljs-number">1732</span> <span class="hljs-keyword">and</span> was <span class="hljs-keyword">the</span> <span class="hljs-keyword">last</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> original Thirteen Colonies. Named <span class="hljs-keyword">after</span> King George II <span class="hljs-keyword">of</span> Great Britain, Georgia was <span class="hljs-keyword">the</span> <span class="hljs-keyword">fourth</span> state <span class="hljs-keyword">to</span> ratify <span class="hljs-keyword">the</span> United States Constitution, <span class="hljs-keyword">on</span> January <span class="hljs-number">2</span>, <span class="hljs-number">1788.</span> Georgia declared <span class="hljs-keyword">its</span> secession <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> Union <span class="hljs-keyword">on</span> January <span class="hljs-number">19</span>, <span class="hljs-number">1861</span>, <span class="hljs-keyword">and</span> was one <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> original seven Confederate states. Georgia was <span class="hljs-keyword">the</span> <span class="hljs-keyword">last</span> state <span class="hljs-keyword">to</span> be restored <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> Union, <span class="hljs-keyword">on</span> July <span class="hljs-number">15</span>, <span class="hljs-number">1870.</span> Georgia <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> <span class="hljs-number">24</span>th largest <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-number">8</span>th most populous <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-number">50</span> United States.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;
+      &lt;h3&gt;One Half&lt;/h3&gt;
+      &lt;p&gt;Michigan <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Great Lakes region <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Midwestern United States. The <span class="hljs-built_in">name</span> Michigan <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> French form <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Ojibwa <span class="hljs-built_in">word</span> mishigamaa, meaning <span class="hljs-string">"large water"</span> <span class="hljs-keyword">or</span> <span class="hljs-string">"large lake"</span>. Michigan <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">tenth</span> most populous state, <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> <span class="hljs-number">11</span>th most extensive total area (<span class="hljs-keyword">the</span> largest state <span class="hljs-keyword">by</span> total area east <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Mississippi River). Its capital <span class="hljs-keyword">is</span> Lansing, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> largest city <span class="hljs-keyword">is</span> Detroit. Michigan <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> only state <span class="hljs-keyword">to</span> consist <span class="hljs-keyword">of</span> two peninsulas. A person <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> state <span class="hljs-keyword">is</span> never more than six miles <span class="hljs-keyword">from</span> a natural water source <span class="hljs-keyword">or</span> <span class="hljs-number">85</span> miles <span class="hljs-keyword">from</span> a Great Lakes shoreline.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;
+      &lt;h3&gt;One Third&lt;/h3&gt;
+      &lt;p&gt;Maryland <span class="hljs-keyword">is</span> a state located <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Mid-Atlantic region <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States, bordering Virginia, West Virginia, <span class="hljs-keyword">and</span> Washington, D.C. <span class="hljs-keyword">to</span> <span class="hljs-keyword">its</span> south <span class="hljs-keyword">and</span> west; Pennsylvania <span class="hljs-keyword">to</span> <span class="hljs-keyword">its</span> north; <span class="hljs-keyword">and</span> Delaware <span class="hljs-keyword">to</span> <span class="hljs-keyword">its</span> east.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;
+      &lt;h3&gt;One Third&lt;/h3&gt;
+      &lt;p&gt;Massachusetts <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> northeastern United States, bordered <span class="hljs-keyword">by</span> Rhode Island <span class="hljs-keyword">and</span> Connecticut <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> south, New York <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> west, Vermont <span class="hljs-keyword">and</span> New Hampshire <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> north, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> Atlantic Ocean <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> east.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;
+      &lt;h3&gt;One Third&lt;/h3&gt;
+      &lt;p&gt;North Carolina <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Southeastern United States. North Carolina borders South Carolina <span class="hljs-keyword">and</span> Georgia <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> south, Tennessee <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> west, Virginia <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> north, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> Atlantic Ocean <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> east.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;California <span class="hljs-keyword">is</span> a state located <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> West Coast <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States. It <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> most populous U.S. state, <span class="hljs-keyword">with</span> <span class="hljs-number">38</span> million people, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">third</span> largest state <span class="hljs-keyword">by</span> area (<span class="hljs-keyword">after</span> Alaska <span class="hljs-keyword">and</span> Texas).&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;Illinois <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Midwestern United States. It <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> <span class="hljs-number">5</span>th most populous state <span class="hljs-keyword">and</span> <span class="hljs-number">25</span>th largest state <span class="hljs-keyword">in</span> terms <span class="hljs-keyword">of</span> land area, <span class="hljs-keyword">and</span> <span class="hljs-keyword">is</span> often noted <span class="hljs-keyword">as</span> a microcosm <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> entire country.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;Maine <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> New England region <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> northeastern United States. In spite <span class="hljs-keyword">of</span> <span class="hljs-keyword">its</span> maritime position, <span class="hljs-keyword">it</span> has a continental climate even <span class="hljs-keyword">in</span> coastal cities such <span class="hljs-keyword">as</span> <span class="hljs-keyword">its</span> largest city Portland.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;Indiana <span class="hljs-keyword">is</span> a U.S. state located <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> midwestern <span class="hljs-keyword">and</span> Great Lakes regions <span class="hljs-keyword">of</span> North America. Indiana <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> <span class="hljs-number">38</span>th largest <span class="hljs-keyword">by</span> area <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-number">16</span>th most populous <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-number">50</span> United States.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-two-thirds"</span>&gt;
+      &lt;h3&gt;Two Thirds&lt;/h3&gt;
+      &lt;p&gt;Oregon <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Pacific Northwest <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States. Oregon <span class="hljs-keyword">is</span> bordered <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> west <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> Pacific Ocean, <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> north <span class="hljs-keyword">by</span> Washington, <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> south <span class="hljs-keyword">by</span> California, <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> east <span class="hljs-keyword">by</span> Idaho, <span class="hljs-keyword">and</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> southeast <span class="hljs-keyword">by</span> Nevada. The Columbia River delineates much <span class="hljs-keyword">of</span> Oregon's northern boundary, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> Snake River delineates much <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> eastern boundary. It <span class="hljs-keyword">is</span> one <span class="hljs-keyword">of</span> only three states <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> contiguous United States <span class="hljs-keyword">to</span> have a coastline <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> Pacific Ocean. The capital <span class="hljs-keyword">of</span> Oregon <span class="hljs-keyword">is</span> Salem, <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> most populous <span class="hljs-keyword">of</span> <span class="hljs-keyword">its</span> cities, <span class="hljs-keyword">with</span> <span class="hljs-number">160</span>,<span class="hljs-number">614</span> residents (<span class="hljs-number">2013</span> estimate).&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-third"</span>&gt;
+      &lt;h3&gt;One Third&lt;/h3&gt;
+      &lt;p&gt;Minnesota <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Midwestern United States. Minnesota was admitted <span class="hljs-keyword">as</span> <span class="hljs-keyword">the</span> <span class="hljs-number">32</span>nd state <span class="hljs-keyword">on</span> May <span class="hljs-number">11</span>, <span class="hljs-number">1858</span>, created <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> eastern half <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Minnesota Territory. Its <span class="hljs-built_in">name</span> comes <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> Dakota <span class="hljs-built_in">word</span> <span class="hljs-keyword">for</span> <span class="hljs-string">"clear blue water"</span>.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;
+      &lt;h3&gt;One Half&lt;/h3&gt;
+      &lt;p&gt;Virginia, <span class="hljs-keyword">is</span> a U.S. state located <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> South Atlantic region <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States. Virginia, formally <span class="hljs-keyword">the</span> Commonwealth <span class="hljs-keyword">of</span> Virginia, <span class="hljs-keyword">is</span> nicknamed <span class="hljs-keyword">the</span> <span class="hljs-string">"Old Dominion"</span> due <span class="hljs-keyword">to</span> <span class="hljs-keyword">its</span> status <span class="hljs-keyword">as</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> colonial possession established <span class="hljs-keyword">in</span> mainland British America, <span class="hljs-keyword">and</span> <span class="hljs-string">"Mother of Presidents"</span> because eight U.S. presidents were born there, more than any other state. The geography <span class="hljs-keyword">and</span> climate <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> Commonwealth are shaped <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> Blue Ridge Mountains <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> Chesapeake Bay, which provide habitat <span class="hljs-keyword">for</span> much <span class="hljs-keyword">of</span> <span class="hljs-keyword">its</span> flora <span class="hljs-keyword">and</span> fauna.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;New York <span class="hljs-keyword">is</span> a state <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Northeastern <span class="hljs-keyword">and</span> Mid-Atlantic regions <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States. New York <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> twenty-<span class="hljs-keyword">seventh</span>-most extensive, <span class="hljs-keyword">the</span> <span class="hljs-keyword">fourth</span>-most populous, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">seventh</span>-most densely populated <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-number">50</span> United States.&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"usa-width-one-fourth"</span>&gt;
+      &lt;h3&gt;One Fourth&lt;/h3&gt;
+      &lt;p&gt;Washington, D.C. <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> capital <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> United States, bordered <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> states <span class="hljs-keyword">of</span> Maryland <span class="hljs-keyword">and</span> Virginia. Formally known <span class="hljs-keyword">as</span> <span class="hljs-keyword">the</span> District <span class="hljs-keyword">of</span> Columbia, <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> also commonly referred <span class="hljs-keyword">to</span> <span class="hljs-keyword">as</span> <span class="hljs-string">"Washington"</span>, <span class="hljs-string">"the District"</span>, <span class="hljs-keyword">or</span> simply <span class="hljs-string">"D.C."</span>&lt;/p&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">div</span>&gt;
+
+&lt;style scoped&gt;
+
+.grid-example &gt; <span class="hljs-keyword">div</span> {
+  margin: <span class="hljs-number">2</span>em <span class="hljs-number">0</span>;
+}
+
+.grid-example &gt; <span class="hljs-keyword">div</span> &gt; <span class="hljs-keyword">div</span> {
+  border: <span class="hljs-number">1</span>px solid <span class="hljs-comment">#ccc;</span>
+  padding: <span class="hljs-number">.75</span>em;
+}
+
+&lt;/style&gt;</pre>
+    </code>
+</div>
+
+    
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-context">
+    <code class="Code Code--lang-yaml">
+        
+            
+            <pre><span class="hljs-attr">package:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
+<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
+</pre>
+            
+        
+    </code>
+</div>
+
+    
+    
+
+
+    
+    <div class="Browser-panel" data-role="tab-panel" id="browser-1b4904f3f4c618754014c5c4abfd1361-panel-info">
+    <ul class="Meta">
+        <li class="Meta-item">
+            <strong class="Meta-key">Handle:</strong>
+            <span class="Meta-value">@grid--default</span>
+        </li>
+        
+        
+        
+        
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="">
+                    <span>Examples</span>
+                </a>, 
+            
+                <a href="grid--offsets.html">
+                    <span>Offsets</span>
+                </a>
+            
+            </span>
+        </li>
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Preview:</strong>
+            <span class="Meta-value">
+                <ul>
+                    <li><a data-no-pjax href="../preview/grid--default.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+</a></li>
+                    <li><a data-no-pjax href="../render/grid--default.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+</a></li>
+                </ul>
+            </span>
+        </li>
+        <li class="Meta-item">
+            <strong class="Meta-key">Filesystem Path:</strong>
+            <span class="Meta-value">src/components/grid/grid.njk</span>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    
+
+</div>
+
+</div>
+
+
+    
+
+</div>
+
+
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+        
+        <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
+            <nav class="Navigation">
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../index.html" data-pjax>
+                <span>Overview</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/quickstart.html" data-pjax>
+                <span>Quickstart</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/design-system-docs-v3.html" data-pjax>
+                <span>Design System Docs V 3</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/moving-a-component.html" data-pjax>
+                <span>Moving A Component</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-user-research">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>User Research</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/new-planning-issue-template.html" data-pjax>
+                <span>New Planning Issue Template</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/reporting-out-templates.html" data-pjax>
+                <span>Reporting Out Templates</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/research-lead-checklist.html" data-pjax>
+                <span>Research Lead Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/user-research/session-report-template.html" data-pjax>
+                <span>Session Report Template</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-messaging-and-error-handling">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Messaging And Error Handling</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/error-message-standardization-content-style-guide.html" data-pjax>
+                <span>Error Message Standardization Content Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/messaging-design-guide.html" data-pjax>
+                <span>Messaging Design Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/messaging-and-error-handling/messaging-dictionary.html" data-pjax>
+                <span>Messaging Dictionary</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-content-guides">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Content Guides</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/pdf_resources.html" data-pjax>
+                <span>PDF Resources</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/before-after-pl-examples.html" data-pjax>
+                <span>Before After PL Examples</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/checklist-for-reviewing-staged-content-errors_kr_05162017.html" data-pjax>
+                <span>Checklist For Reviewing Staged Content Errors KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/content-team-process-and-tools.html" data-pjax>
+                <span>Content Team Process And Tools</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/content-update-form-process.html" data-pjax>
+                <span>Content Update Form Process</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/copyediting-checklist.html" data-pjax>
+                <span>Copyediting Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/creating-title-tags.html" data-pjax>
+                <span>Creating Title Tags</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/editorial_style_guide.html" data-pjax>
+                <span>Editorial Style Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/file-locations-in-design-elements.html" data-pjax>
+                <span>File Locations In Design Elements</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/md-and-html-style.html" data-pjax>
+                <span>MD And HTML Style</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/pivotal_tracker_process_v1-1.html" data-pjax>
+                <span>Pivotal Tracker Process V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/plain_language_checklist_v1.1" data-pjax>
+                <span>Plain Language Checklist V 1 1</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/proof_qa_checklist.html" data-pjax>
+                <span>Proof QA Checklist</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/qa-for-staged-content-before-proofing_kr_05162017.html" data-pjax>
+                <span>QA For Staged Content BEFORE PROOFING KR 05162017</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/staging-log-in-info.html" data-pjax>
+                <span>Staging Log In Info</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/uploading_a_story_into_github.html" data-pjax>
+                <span>Uploading A Story Into Github</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/content-guides/working_with_templates.html" data-pjax>
+                <span>Working With Templates</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-accessibility-and-508">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Accessibility And 508</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/accessibilityreviewlist.html" data-pjax>
+                <span>Accessibility Review List</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/mac-voiceover-guide.html" data-pjax>
+                <span>Mac Voice Over Guide</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/accessibility-and-508/readme.html" data-pjax>
+                <span>README</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-components">
+    <h3 class="Tree-title">components</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="colors.html" data-pjax>
+                <span>Color palette</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-type">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Typography</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+                <span>Fonts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="links.html" data-pjax>
+                <span>Links</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="lists.html" data-pjax>
+                <span>Lists</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+                <span>Typesetting</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="grid.html" data-pjax>
+                <span>Grid</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="buttons.html" data-pjax>
+                <span>Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tables.html" data-pjax>
+                <span>Tables</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-alerts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Alerts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+                <span>AlertBox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
+                <span>Crisis Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="standard-alerts.html" data-pjax>
+                <span>Standard Alerts</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-form">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="best-practice.html" data-pjax>
+                <span>How to build a good form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-templates">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Templates</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+                <span>Address Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+                <span>Name Form</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-controls">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Form Controls</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablecheckbox.html" data-pjax>
+                <span>ErrorableCheckbox</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorabledate.html" data-pjax>
+                <span>Errorable Date</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablefileinput.html" data-pjax>
+                <span>Errorable File Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorablenumberinput.html" data-pjax>
+                <span>Errorable Number Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorableradiobuttons.html" data-pjax>
+                <span>Errorable Radio Buttons</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorableselect.html" data-pjax>
+                <span>Errorable Select</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="errorabletextinput.html" data-pjax>
+                <span>Errorable Text Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="expandinggroup.html" data-pjax>
+                <span>ExpandingGroup</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+                <span>Progress Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="progressbar.html" data-pjax>
+                <span>Progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="segmentedprogressbar.html" data-pjax>
+                <span>Segmented progress bar</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-header">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Header</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="header.html" data-pjax>
+                <span>Vets.gov Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="banner.html" data-pjax>
+                <span>U.S. Government banner</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="helpmenu.html" data-pjax>
+                <span>Help Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-search">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Search</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="search--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+                <span>Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="searchmenu.html" data-pjax>
+                <span>Search Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vcl.html" data-pjax>
+                <span>Veterans Crisis Line modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="footer.html" data-pjax>
+                <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+                <span>Accept Terms Prompt</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
+                <span>Additional Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+                <span>Address block</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+                <span>Collapsible Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-layouts">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Page layouts</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+                <span>Documentation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+                <span>Landing</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-l2.html" data-pjax>
+                <span>Vets.gov Level 2</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-l3.html" data-pjax>
+                <span>Vets.gov Level 3</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+                <span>Loading Indicator</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal.html" data-pjax>
+                <span>Modal</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-navigation">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Navigation</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="navigation.html" data-pjax>
+                <span>Global Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="breadcrumbs.html" data-pjax>
+                <span>Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+                <span>Dropdown Panel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pagination.html" data-pjax>
+                <span>Pagination</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="sidenav.html" data-pjax>
+                <span>Side navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="omb-info.html" data-pjax>
+                <span>OMB Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+                <span>PrivacyAgreement</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="sortabletable.html" data-pjax>
+                <span>Sortable Table</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-svgicons">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Svgicons</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconhelp.html" data-pjax>
+                <span>IconHelp</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconsearch.html" data-pjax>
+                <span>IconSearch</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="iconuser.html" data-pjax>
+                <span>IconUser</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="systemdownview.html" data-pjax>
+                <span>System Down View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+                <span>Tooltip</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+</nav>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+
+
+
+</body>
+</html>
