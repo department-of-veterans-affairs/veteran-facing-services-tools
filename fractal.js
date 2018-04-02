@@ -77,7 +77,7 @@ const theme = require('@frctl/mandelbrot')({
   ],
   styles: [
     'default',
-    '/fractal.css'
+    '/fractal-styles.css'
   ],
 });
 
