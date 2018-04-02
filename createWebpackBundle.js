@@ -28,7 +28,7 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   fs.writeFileSync('./fractalEntry.js', output);
 
   const componentCSS = new ExtractTextPlugin('[name].css');
-  const fractalCSS = new ExtractTextPlugin('[name]-fractal.css');
+  const fractalCSS = new ExtractTextPlugin('fractal.css');
 
   const compiler = webpack({
     entry: {
