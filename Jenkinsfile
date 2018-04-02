@@ -6,12 +6,13 @@ pipeline {
   }
   environment {
     BABEL_CACHE_PATH = '${env.WORKSPACE}'
+    NODE_ENV = 'production'
   }
 
   stages {
     stage('setup') {
       steps {
-        sh 'yarn install'
+        sh 'yarn install --production=false'
       }
     }
 
@@ -40,7 +41,7 @@ pipeline {
           usernameVariable: 'GIT_USERNAME',
           passwordVariable: 'GIT_PASSWORD'
         ]]) {
-          sh 'NODE_ENV=production npm run site'
+          sh 'npm run site'
         }
       }
     }
