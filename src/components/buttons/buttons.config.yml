@@ -3,7 +3,7 @@ status: wip
 collated: true
 default: primary
 preview: '@uswds-framed'
-order: 3
+order: 6
 
 variants:
   - name: primary

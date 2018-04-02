@@ -1,5 +1,8 @@
 label: Search Menu
 status: wip
+preview: '@uswds'
+display:
+  max-width: 330px
 
 context:
   componentSourcePath: 'SearchMenu.jsx'

@@ -1,6 +1,7 @@
 label: Address block
 status: wip
 preview: '@vets-l2'
+order: 16
 
 context:
   address:
