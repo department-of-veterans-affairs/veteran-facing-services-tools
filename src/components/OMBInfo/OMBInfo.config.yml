@@ -1,6 +1,7 @@
 label: OMB Info
 status: wip
 handle: omb-info
+order: 18
 
 context:
   componentSourcePath: 'OMBInfo.jsx'
