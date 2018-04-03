@@ -1,18 +1,22 @@
 {% for c in category %}
 
 <h3>{{ c.name }}</h3>
-<section class='palette-container'>
-
+<table class="icon-table usa-table-borderless">
+  <thead>
+    <tr>
+        <th scope="col">Icon</th>
+        <th scope="col">ID</th>
+        <th scope="col">Usage</th>
+    </tr>
+  </thead>
+  <tbody>
   {% for i in c.icon %}
-
-  <div class='palette-swatch'>
-    <h6>{{ i.id }}</h6>
-    <div class='swatch {{ i.id }}'></div>
-    <p>{{ i.html }}</p>
-    <p>{{ i.usage }}</p>
-  </div>
-
+    <tr>
+        <th scope="row">icon here {{ i.id }}</th>
+        <td>{{ i.id }} | {{ i.html }}</td>
+        <td>{{ i.usage }}</td>
+    </tr>
   {% endfor %}
-
-</section>
+</tbody>
+</table>
 {% endfor %}
