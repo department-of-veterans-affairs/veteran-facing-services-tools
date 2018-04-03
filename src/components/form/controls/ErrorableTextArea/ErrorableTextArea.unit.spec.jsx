@@ -3,59 +3,46 @@ import {
   shallow,
   mount
 } from 'enzyme';
-import ReactTestUtils from 'react-dom/test-utils';
-import chaiAsPromised from 'chai-as-promised';
-import chai, { expect } from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 
 import ErrorableTextArea from './ErrorableTextArea';
 import { makeField } from '../../../../helpers/fields';
 import { axeCheck } from '../../../../../lib/testing/helpers';
 
-chai.use(chaiAsPromised);
-
 describe('<ErrorableTextArea>', () => {
   it('ensure value changes propagate', () => {
-    let errorableInput;
+    let valueChanged;
 
-    const updatePromise = new Promise((resolve, _reject) => {
-      errorableInput = ReactTestUtils.renderIntoDocument(
-        <ErrorableTextArea field={makeField(1)} label="test" onValueChange={(update) => { resolve(update); }}/>
-      );
-    });
+    const tree = mount(<ErrorableTextArea field={makeField(1)} label="test" onValueChange={(value) => { valueChanged = value; }}/>);
 
-    const textarea = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'textarea');
-    textarea.value = 'newValue';
-    ReactTestUtils.Simulate.change(textarea);
+    tree.find('textarea').first().simulate('change', { target: { value: 'hello' } });
 
-    return expect(updatePromise).to.eventually.eql(makeField('newValue', false));
+    expect(valueChanged.value).to.eql('hello');
+    expect(valueChanged.dirty).to.eql(false);
   });
 
   it('ensure blur makes field dirty', () => {
     let valueChanged;
 
-    const tree = mount(<ErrorableTextArea field={makeField(1)} label="test" onValueChange={(update) => { resolve(update); }}/>);
+    const tree = mount(<ErrorableTextArea field={makeField(1)} label="test" onValueChange={(value) => { valueChanged = value; }}/>);
 
     tree.find('textarea').first().simulate('blur');
-
-    /*const textarea = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'textarea');
-    ReactTestUtils.Simulate.blur(textarea);*/
-    expect(valueChanged).to.eql(true);
+    expect(valueChanged.dirty).to.eql(true);
   });
 
   it('ensure value doesn\'t propagate when using more than charMax', () => {
     const valueChangedSpy = sinon.spy();
 
-    const errorableInput = ReactTestUtils.renderIntoDocument(
-      <ErrorableTextArea field={makeField(1)} charMax={1} label="test" onValueChange={valueChangedSpy}/>
-    );
+    const tree = mount(<ErrorableTextArea field={makeField(1)} charMax={1} label="test" onValueChange={valueChangedSpy}/>);
 
-    errorableInput.handleChange({
+    const event = {
       target: {
         value: 'Testing'
       }
-    });
+    };
 
+    tree.instance().handleChange(event);
     expect(valueChangedSpy.called).to.equal(false);
   });
 
