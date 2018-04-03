@@ -1,0 +1,18 @@
+{% for c in category %}
+
+<h3>{{ c.name }}</h3>
+<section class='palette-container'>
+
+  {% for i in c.icon %}
+
+  <div class='palette-swatch'>
+    <h6>{{ i.id }}</h6>
+    <div class='swatch {{ i.id }}'></div>
+    <p>{{ i.html }}</p>
+    <p>{{ i.usage }}</p>
+  </div>
+
+  {% endfor %}
+
+</section>
+{% endfor %}
