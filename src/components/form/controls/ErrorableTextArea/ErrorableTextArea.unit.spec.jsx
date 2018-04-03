@@ -32,18 +32,15 @@ describe('<ErrorableTextArea>', () => {
   });
 
   it('ensure blur makes field dirty', () => {
-    let errorableInput;
+    let valueChanged;
 
-    const updatePromise = new Promise((resolve, _reject) => {
-      errorableInput = ReactTestUtils.renderIntoDocument(
-        <ErrorableTextArea field={makeField(1)} label="test" onValueChange={(update) => { resolve(update); }}/>
-      );
-    });
+    const tree = mount(<ErrorableTextArea field={makeField(1)} label="test" onValueChange={(update) => { resolve(update); }}/>);
 
-    const textarea = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'textarea');
-    ReactTestUtils.Simulate.blur(textarea);
+    tree.find('textarea').first().simulate('blur');
 
-    return expect(updatePromise).to.eventually.eql(makeField(1, true));
+    /*const textarea = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'textarea');
+    ReactTestUtils.Simulate.blur(textarea);*/
+    expect(valueChanged).to.eql(true);
   });
 
   it('ensure value doesn\'t propagate when using more than charMax', () => {
