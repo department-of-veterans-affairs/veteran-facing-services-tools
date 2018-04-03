@@ -362,6 +362,7 @@ describe(<span class="hljs-string">'&lt;SegmentedProgressBar/&gt;'</span>, () =&
   it(<span class="hljs-string">'should render'</span>, () =&gt; {
     <span class="hljs-keyword">const</span> tree = shallow(&lt;SegmentedProgressBar current={2} total={5}/&gt;);
     expect(tree.find('.progress-segment')).to.have.length(5);
+    expect(tree.find('.progress-segment-complete').length).to.equal(2);
   });
 
   it('should pass aXe check', () =&gt; {
@@ -384,7 +385,7 @@ describe(<span class="hljs-string">'&lt;SegmentedProgressBar/&gt;'</span>, () =&
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">549 Bytes</span>
+                    <span class="Meta-value">621 Bytes</span>
                 </li>
             </ul>
         </div>
