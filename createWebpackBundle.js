@@ -186,6 +186,7 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
         logger.error(info.errors);
         throw new Error('Webpack compilation error');
       }
+      logger.log(stats.toString('minimal'));
     });
   }
 }
