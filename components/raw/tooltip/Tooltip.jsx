@@ -16,24 +16,11 @@ class ToolTip extends React.Component {
     super(props);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.state = {
-      closed: !this.props.open
-    };
+    this.state = {};
   }
 
   componentWillMount() {
     this.setState({ closed: true });
-  }
-
-  onBlur(e) {
-    if (!this.state.closed) {
-      const { currentTarget } = e;
-      setTimeout(() => {
-        if (!currentTarget.contains(document.activeElement)) {
-          this.setState({ closed: true });
-        }
-      });
-    }
   }
 
   handleOpen() {
@@ -46,7 +33,7 @@ class ToolTip extends React.Component {
 
   render() {
     return (
-      <div onBlur={this.onBlur}>
+      <div className="hca-tooltip">
         <button tabIndex={this.props.tabIndex} onFocus={this.handleOpen} onClick={this.handleOpen}>More Info</button>
         <div aria-hidden={this.state.closed}>
           {this.props.toolTipText}
@@ -63,13 +50,7 @@ ToolTip.propTypes = {
    * tabIndex for the tooltip toggle
    */
   /* eslint-disable consistent-return */
-  tabIndex(props, propName, componentName) {
-    if (!/^\d+$/.test(props[propName])) {
-      return new Error(`Invalid prop \`${propName}\` supplied to` +
-        ` \`${componentName}\`. Validation failed.`);
-    }
-  /* eslint-enable consistent-return */
-  },
+  tabIndex: PropTypes.number,
   /**
    * Text of the tooltip
    */

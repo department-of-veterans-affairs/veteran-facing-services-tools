@@ -217,6 +217,30 @@
             </tr>
           
             <tr>
+              <td>primaryButton</td>
+              <td>No</td>
+              <td>{ <br/>&nbsp;&nbsp;text: string,<br/> &nbsp;&nbsp;action: func }</td>
+              <td></td>
+              <td>primary button text and action</td>
+            </tr>
+          
+            <tr>
+              <td>secondaryButton</td>
+              <td>No</td>
+              <td>{ <br/>&nbsp;&nbsp;text: string,<br/> &nbsp;&nbsp;action: func }</td>
+              <td></td>
+              <td>secondary button text and action</td>
+            </tr>
+          
+            <tr>
+              <td>status</td>
+              <td>No</td>
+              <td>enum</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
+            <tr>
               <td>title</td>
               <td>No</td>
               <td>string</td>
@@ -253,10 +277,16 @@ modal is opened</td>
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"modal"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"default"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"default-title"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-inner"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"default-title"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-title"</span>&gt;</span>Default Modal<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-body"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-undefined"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"default-title"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-title va-modal-title-undefined"</span>&gt;</span>Default Modal<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+                    <span class="hljs-attr">class</span>=<span class="hljs-string">"alert-actions"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.currentProps = {
@@ -351,6 +381,8 @@ modal is opened</td>
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> classNames <span class="hljs-keyword">from</span> <span class="hljs-string">'classnames'</span>;
 
+<span class="hljs-keyword">const</span> ESCAPE_KEY = <span class="hljs-number">27</span>;
+
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">focusListener</span>(<span class="hljs-params">selector</span>) </span>{
   <span class="hljs-keyword">const</span> listener = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
     <span class="hljs-keyword">const</span> modal = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.va-modal'</span>);
@@ -370,6 +402,7 @@ modal is opened</td>
   <span class="hljs-keyword">constructor</span>(props) {
     <span class="hljs-keyword">super</span>(props);
     <span class="hljs-keyword">this</span>.handleClose = <span class="hljs-keyword">this</span>.handleClose.bind(<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">this</span>.handleDocumentKeyUp = <span class="hljs-keyword">this</span>.handleDocumentKeyUp.bind(<span class="hljs-keyword">this</span>);
     <span class="hljs-keyword">this</span>.state = { <span class="hljs-attr">lastFocus</span>: <span class="hljs-literal">null</span>, <span class="hljs-attr">focusListener</span>: <span class="hljs-literal">null</span> };
   }
 
@@ -381,8 +414,10 @@ modal is opened</td>
 
   componentWillReceiveProps(newProps) {
     <span class="hljs-keyword">if</span> (newProps.visible &amp;&amp; !<span class="hljs-keyword">this</span>.props.visible) {
+      <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'keyup'</span>, <span class="hljs-keyword">this</span>.handleDocumentKeyUp, <span class="hljs-literal">false</span>);
       <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">lastFocus</span>: <span class="hljs-built_in">document</span>.activeElement, <span class="hljs-attr">focusListener</span>: focusListener(newProps.focusSelector) });
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!newProps.visible &amp;&amp; <span class="hljs-keyword">this</span>.props.visible) {
+      <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'keyup'</span>, <span class="hljs-keyword">this</span>.handleDocumentKeyUp, <span class="hljs-literal">false</span>);
       <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'focus'</span>, <span class="hljs-keyword">this</span>.state.focusListener, <span class="hljs-literal">true</span>);
       <span class="hljs-keyword">this</span>.state.lastFocus.focus();
       <span class="hljs-built_in">document</span>.body.classList.remove(<span class="hljs-string">'modal-open'</span>);
@@ -399,8 +434,15 @@ modal is opened</td>
   }
 
   componentWillUnmount() {
+    <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'keyup'</span>, <span class="hljs-keyword">this</span>.handleDocumentKeyUp, <span class="hljs-literal">false</span>);
     <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'focus'</span>, <span class="hljs-keyword">this</span>.state.focusListener, <span class="hljs-literal">true</span>);
     <span class="hljs-built_in">document</span>.body.classList.remove(<span class="hljs-string">'modal-open'</span>);
+  }
+
+  handleDocumentKeyUp(event) {
+    <span class="hljs-keyword">if</span> (event.keyCode === ESCAPE_KEY) {
+      <span class="hljs-keyword">this</span>.handleClose(event);
+    }
   }
 
   handleClose(e) {
@@ -410,24 +452,34 @@ modal is opened</td>
 
   render() {
     <span class="hljs-keyword">const</span> { id, title, visible } = <span class="hljs-keyword">this</span>.props;
+    <span class="hljs-keyword">const</span> alertClass = classNames(
+      <span class="hljs-string">'usa-alert'</span>,
+      <span class="hljs-string">`usa-alert-<span class="hljs-subst">${<span class="hljs-keyword">this</span>.props.status}</span>`</span>
+    );
+
+    <span class="hljs-keyword">const</span> titleClass = classNames(
+      <span class="hljs-string">'va-modal-title'</span>,
+      <span class="hljs-string">`va-modal-title-<span class="hljs-subst">${<span class="hljs-keyword">this</span>.props.status}</span>`</span>
+    );
+
     <span class="hljs-keyword">const</span> modalCss = classNames(<span class="hljs-string">'va-modal'</span>, <span class="hljs-keyword">this</span>.props.cssClass);
     <span class="hljs-keyword">const</span> modalTitle = title &amp;&amp; (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">id</span>}<span class="hljs-attr">-title</span>`} <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-title"</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span>
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{alertClass}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">id</span>}<span class="hljs-attr">-title</span>`} <span class="hljs-attr">className</span>=<span class="hljs-string">{titleClass}</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
 
     <span class="hljs-keyword">if</span> (!visible) { <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>/&gt;</span></span>; }
 
     <span class="hljs-keyword">let</span> closeButton;
     <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.props.hideCloseButton) {
-      closeButton = (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-          <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-close"</span>
-          <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
-          <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClose}</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
-      );
+      closeButton = (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+        <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-close"</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
+        <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClose}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Close this modal<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>);
     }
 
     <span class="hljs-keyword">return</span> (
@@ -436,8 +488,15 @@ modal is opened</td>
           {modalTitle}
           {closeButton}
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-body"</span>&gt;</span>
-            {this.props.contents || this.props.children}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+              {this.props.contents || this.props.children}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"alert-actions"</span>&gt;</span>
+              {this.props.primaryButton &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-button"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.props.primaryButton.action}</span>&gt;</span>{this.props.primaryButton.text}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>}
+              {this.props.secondaryButton &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-button-secondary"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.props.secondaryButton.action}</span>&gt;</span>{this.props.secondaryButton.text}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
@@ -465,6 +524,29 @@ Modal.propTypes = {
    * Id of the modal, used for aria attributes
    */</span>
   id: PropTypes.string,
+  <span class="hljs-comment">/**
+   * primary button text and action
+   */</span>
+  primaryButton: PropTypes.shape({
+    <span class="hljs-attr">text</span>: PropTypes.string.isRequired,
+    <span class="hljs-attr">action</span>: PropTypes.func.isRequired,
+  }),
+  <span class="hljs-comment">/**
+   * secondary button text and action
+   */</span>
+  secondaryButton: PropTypes.shape({
+    <span class="hljs-attr">text</span>: PropTypes.string.isRequired,
+    <span class="hljs-attr">action</span>: PropTypes.func.isRequired,
+  }),
+  <span class="hljs-comment">/*
+   * Style of modal alert
+   */</span>
+  status: PropTypes.oneOf([
+    <span class="hljs-string">'info'</span>,
+    <span class="hljs-string">'error'</span>,
+    <span class="hljs-string">'success'</span>,
+    <span class="hljs-string">'warning'</span>
+  ]),
   <span class="hljs-comment">/**
    * Title/header text for the modal
    */</span>
@@ -501,7 +583,7 @@ Modal.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.6 KB</span>
+                    <span class="Meta-value">5.2 KB</span>
                 </li>
             </ul>
         </div>

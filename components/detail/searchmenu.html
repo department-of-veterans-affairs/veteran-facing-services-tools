@@ -315,17 +315,6 @@
     <span class="hljs-keyword">this</span>.refs.searchField.focus();
   }
 
-  onBlur = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.state.closed) {
-      <span class="hljs-keyword">const</span> { currentTarget } = e;
-      setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-        <span class="hljs-keyword">if</span> (!currentTarget.contains(<span class="hljs-built_in">document</span>.activeElement)) {
-          <span class="hljs-keyword">this</span>.toggleSearchForm();
-        }
-      });
-    }
-  }
-
   toggleSearchForm = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">this</span>.props.clickHandler();
   }
@@ -411,7 +400,7 @@ export default SearchMenu;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2 KB</span>
                 </li>
             </ul>
         </div>

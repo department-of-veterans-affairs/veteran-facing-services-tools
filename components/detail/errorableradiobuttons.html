@@ -241,6 +241,22 @@
             </tr>
           
             <tr>
+              <td>onMouseDown</td>
+              <td>No</td>
+              <td>func</td>
+              <td></td>
+              <td>Mouse Down handler</td>
+            </tr>
+          
+            <tr>
+              <td>onKeyDown</td>
+              <td>No</td>
+              <td>func</td>
+              <td></td>
+              <td>Key Down handler</td>
+            </tr>
+          
+            <tr>
               <td>options</td>
               <td>Yes</td>
               <td>[union]</td>
@@ -506,18 +522,18 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
 
     const options = _.isArray(this.props.options) ? this.props.options : [];
     const storedValue = this.props.value.value;
-    const optionElements = options.map((obj, index) =&gt; {
+    const optionElements = options.map((option, optionIndex) =&gt; {
       let optionLabel;
       let optionValue;
       let optionAdditional;
-      if (_.isString(obj)) {
-        optionLabel = obj;
-        optionValue = obj;
+      if (_.isString(option)) {
+        optionLabel = option;
+        optionValue = option;
       } else {
-        optionLabel = obj.label;
-        optionValue = obj.value;
-        if (obj.additional) {
-          optionAdditional = <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{obj.additional}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+        optionLabel = option.label;
+        optionValue = option.value;
+        if (option.additional) {
+          optionAdditional = <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{option.additional}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
         }
       }
       const checked = optionValue === storedValue ? 'checked=true' : '';
@@ -527,22 +543,25 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
       );
       const radioButton = (
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-          <span class="hljs-attr">key</span>=<span class="hljs-string">{optionAdditional</span> ? <span class="hljs-attr">undefined</span> <span class="hljs-attr">:</span> <span class="hljs-attr">index</span>}
+          <span class="hljs-attr">key</span>=<span class="hljs-string">{optionAdditional</span> ? <span class="hljs-attr">undefined</span> <span class="hljs-attr">:</span> <span class="hljs-attr">optionIndex</span>}
           <span class="hljs-attr">className</span>=<span class="hljs-string">"form-radio-buttons"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
             <span class="hljs-attr">autoComplete</span>=<span class="hljs-string">"false"</span>
             <span class="hljs-attr">checked</span>=<span class="hljs-string">{checked}</span>
-            <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.inputId</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">index</span>}`}
+            <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.inputId</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">optionIndex</span>}`}
             <span class="hljs-attr">name</span>=<span class="hljs-string">{this.props.name}</span>
             <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span>
+            <span class="hljs-attr">onMouseDown</span>=<span class="hljs-string">{this.props.onMouseDown}</span>
+            <span class="hljs-attr">onKeyDown</span>=<span class="hljs-string">{this.props.onKeyDown}</span>
             <span class="hljs-attr">value</span>=<span class="hljs-string">{optionValue}</span>
             <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}/</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>
-            <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.props.name</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">index</span>}<span class="hljs-attr">-label</span>`}
-            <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.inputId</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">index</span>}`}&gt;</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.props.name</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">optionIndex</span>}<span class="hljs-attr">-label</span>`}
+            <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.inputId</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">optionIndex</span>}`}&gt;</span>
             {optionLabel}
           <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
           {matchingSubSection}
+          {option.content}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       );
 
@@ -554,7 +573,7 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
           <span class="hljs-tag">&lt;<span class="hljs-name">ExpandingGroup</span>
             <span class="hljs-attr">additionalClass</span>=<span class="hljs-string">"form-expanding-group-active-radio"</span>
             <span class="hljs-attr">open</span>=<span class="hljs-string">{!!checked}</span>
-            <span class="hljs-attr">key</span>=<span class="hljs-string">{index}</span>&gt;</span>
+            <span class="hljs-attr">key</span>=<span class="hljs-string">{optionIndex}</span>&gt;</span>
             {radioButton}
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{optionAdditional}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ExpandingGroup</span>&gt;</span>
@@ -619,6 +638,14 @@ ErrorableRadioButtons.propTypes = {
    */
   tabIndex: PropTypes.number,
   /**
+   * Mouse Down handler
+   */
+  onMouseDown: PropTypes.func,
+  /**
+   * Key Down handler
+   */
+  onKeyDown: PropTypes.func,
+  /**
    * array of options to populate group- each item is a string or an object representing an Expanding Group
    *
    */
@@ -673,7 +700,7 @@ export default ErrorableRadioButtons;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.9 KB</span>
+                    <span class="Meta-value">7.2 KB</span>
                 </li>
             </ul>
         </div>

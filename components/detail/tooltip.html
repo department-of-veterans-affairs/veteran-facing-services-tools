@@ -179,7 +179,7 @@
             <tr>
               <td>tabIndex</td>
               <td>No</td>
-              <td>custom</td>
+              <td>number</td>
               <td></td>
               <td>tabIndex for the tooltip toggle</td>
             </tr>
@@ -202,7 +202,7 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"tooltip"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"1"</span>&gt;</span>More Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hca-tooltip"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"1"</span>&gt;</span>More Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>Tooltip text<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"1"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -307,24 +307,11 @@
     <span class="hljs-keyword">super</span>(props);
     <span class="hljs-keyword">this</span>.handleOpen = <span class="hljs-keyword">this</span>.handleOpen.bind(<span class="hljs-keyword">this</span>);
     <span class="hljs-keyword">this</span>.handleClose = <span class="hljs-keyword">this</span>.handleClose.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.state = {
-      <span class="hljs-attr">closed</span>: !<span class="hljs-keyword">this</span>.props.open
-    };
+    <span class="hljs-keyword">this</span>.state = {};
   }
 
   componentWillMount() {
     <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">closed</span>: <span class="hljs-literal">true</span> });
-  }
-
-  onBlur(e) {
-    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.state.closed) {
-      <span class="hljs-keyword">const</span> { currentTarget } = e;
-      setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-        <span class="hljs-keyword">if</span> (!currentTarget.contains(<span class="hljs-built_in">document</span>.activeElement)) {
-          <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">closed</span>: <span class="hljs-literal">true</span> });
-        }
-      });
-    }
   }
 
   handleOpen() {
@@ -337,7 +324,7 @@
 
   render() {
     <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">onBlur</span>=<span class="hljs-string">{this.onBlur}</span>&gt;</span>
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"hca-tooltip"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">tabIndex</span>=<span class="hljs-string">{this.props.tabIndex}</span> <span class="hljs-attr">onFocus</span>=<span class="hljs-string">{this.handleOpen}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleOpen}</span>&gt;</span>More Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">{this.state.closed}</span>&gt;</span>
           {this.props.toolTipText}
@@ -354,13 +341,7 @@ ToolTip.propTypes = {
    * tabIndex for the tooltip toggle
    */</span>
   <span class="hljs-comment">/* eslint-disable consistent-return */</span>
-  tabIndex(props, propName, componentName) {
-    <span class="hljs-keyword">if</span> (!<span class="hljs-regexp">/^\d+$/</span>.test(props[propName])) {
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">`Invalid prop \`<span class="hljs-subst">${propName}</span>\` supplied to`</span> +
-        <span class="hljs-string">` \`<span class="hljs-subst">${componentName}</span>\`. Validation failed.`</span>);
-    }
-  <span class="hljs-comment">/* eslint-enable consistent-return */</span>
-  },
+  tabIndex: PropTypes.number,
   <span class="hljs-comment">/**
    * Text of the tooltip
    */</span>
@@ -384,7 +365,7 @@ ToolTip.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">1.5 KB</span>
                 </li>
             </ul>
         </div>
