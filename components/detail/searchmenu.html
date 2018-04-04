@@ -310,14 +310,13 @@
 <span class="hljs-keyword">import</span> DropDown <span class="hljs-keyword">from</span> <span class="hljs-string">'../../form/controls/dropdown/DropDown'</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SearchMenu</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-
   componentDidUpdate() {
     <span class="hljs-keyword">this</span>.refs.searchField.focus();
   }
 
   toggleSearchForm = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">this</span>.props.clickHandler();
-  }
+  };
 
   makeForm = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">return</span> (
@@ -329,22 +328,31 @@
         &lt;div className="csp-inline-patch-header"&gt;
           &lt;input name="utf8" type="hidden" value="&amp;#x2713;"/&gt;
         &lt;/div&gt;
-        &lt;input id="affiliate" name="affiliate" type="hidden" value="vets.gov_search"/&gt;
-        &lt;label // eslint-disable-line jsx-a11y/label-has-for
-          htmlFor="query"
-          className="usa-sr-only"&gt;
+        &lt;input
+          id="affiliate"
+          name="affiliate"
+          type="hidden"
+          value="vets.gov_search"/&gt;
+        &lt;label htmlFor="query" className="usa-sr-only"&gt;
           Search:
         &lt;/label&gt;
 
         &lt;div className="va-flex"&gt;
-          &lt;input autoComplete="off" ref="searchField" className="usagov-search-autocomplete" id="query" name="query" type="text"/&gt;
+          &lt;input
+            autoComplete="off"
+            ref="searchField"
+            className="usagov-search-autocomplete"
+            id="query"
+            name="query"
+            type="text"/&gt;
           &lt;button type="submit"&gt;
             &lt;IconSearch color="#fff"/&gt;
             &lt;span className="usa-sr-only"&gt;Search&lt;/span&gt;
           &lt;/button&gt;
         &lt;/div&gt;
-      &lt;/form&gt;);
-  }
+      &lt;/form&gt;
+    );
+  };
 
   render() {
     const buttonClasses = classNames(
@@ -400,7 +408,7 @@ export default SearchMenu;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">2.1 KB</span>
                 </li>
             </ul>
         </div>

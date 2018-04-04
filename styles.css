@@ -14075,33 +14075,6 @@ h6 {
   font-family: "Bitter", "Georgia", "Cambria", "Times New Roman", "Times", serif;
 }
 
-/* stylelint-disable selector-no-qualifying-type */
-
-input,
-textarea,
-select {
-  -webkit-appearance: none;
-  border: 0.1rem solid #5b616b;
-  border-radius: 0;
-  box-sizing: border-box;
-  color: #212121;
-  display: block;
-  font-size: 1.6rem;
-  height: 4.2rem;
-  line-height: 1.3;
-  margin: 0.2em 0;
-  max-width: 46rem;
-  outline: none;
-  padding: 1rem 0.7em;
-  width: 100%;
-}
-
-input.usa-input-success,
-textarea.usa-input-success,
-select.usa-input-success {
-  border: 3px solid #4aa564;
-}
-
 .loading-message {
   padding: 2em 0;
   text-align: center;
@@ -14163,9 +14136,6 @@ body .row {
 }
 
 .usa-input-error select {
-  -webkit-appearance: none;
-  padding-top: 3px;
-  padding-bottom: 3px;
   border: 3px solid #cd2026;
   width: calc(100% + 1.5rem);
 }
@@ -14220,12 +14190,12 @@ body .row {
   background-image: url("/img/arrow-down-white.svg");
   background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: 0.6em auto;
+  background-size: .6em auto;
   content: "";
   display: inline-block;
   height: 1em;
-  margin-left: 0.5em;
-  margin-right: -0.3em;
+  margin-left: .5em;
+  margin-right: -.3em;
   text-indent: -9999em;
   width: 1em;
 }
@@ -14282,12 +14252,12 @@ input[type="radio"] {
   left: auto;
 }
 
-[hidden="false"] {
+[hidden=false] {
   display: block !important;
 }
 
 @media screen and (min-width: 768px) {
-  form [type="submit"] {
+  form [type=submit] {
     padding-left: 2rem;
     padding-right: 2rem;
     width: 100%;
