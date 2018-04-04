@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class LoadingIndicator extends React.Component {
   componentDidMount() {
-    if (this.props.setFocus) {
+    if (this.props.setFocus && this.spinnerDiv) {
       this.spinnerDiv.focus();
     }
   }

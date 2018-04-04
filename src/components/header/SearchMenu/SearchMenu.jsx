@@ -11,17 +11,6 @@ class SearchMenu extends React.Component {
     this.refs.searchField.focus();
   }
 
-  onBlur = (e) => {
-    if (!this.state.closed) {
-      const { currentTarget } = e;
-      setTimeout(() => {
-        if (!currentTarget.contains(document.activeElement)) {
-          this.toggleSearchForm();
-        }
-      });
-    }
-  }
-
   toggleSearchForm = () => {
     this.props.clickHandler();
   }

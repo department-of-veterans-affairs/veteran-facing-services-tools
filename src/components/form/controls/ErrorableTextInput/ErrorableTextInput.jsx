@@ -74,7 +74,7 @@ class ErrorableTextInput extends React.Component {
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
-        maxCharacters = <small>(Max. {this.props.charMax} characters)</small>;
+        maxCharacters = (<small>(Max. {this.props.charMax} characters)</small>);
       }
     }
 
