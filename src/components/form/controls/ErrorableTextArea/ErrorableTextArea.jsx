@@ -1,28 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
+import classNames from 'classnames';
+
 import ToolTip from '../../../Tooltip/Tooltip';
 import { makeField } from '../../../../helpers/fields';
 
 /**
  * A form input with a label that can display error messages.
- *
- * Props:
- * `errorMessage` - Error string to display in the component.
- *                  When defined, indicates input has a validation error.
- * `label` - String for the input field label.
- * `name` - String for the input name attribute.
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `autocomplete` - String for the input autocomplete attribute.
- * `placeholder` - placeholder string for input field.
- * `required` - boolean. Render marker indicating field is required.
- * `field` - string. Value of the input field.
- * `additionalClass` - Extra attribute for use by CSS selector, specifically
- *                     by tests
- * `onValueChange` - a function with this prototype: (newValue)
  */
-class ErrorableTextInput extends React.Component {
+class ErrorableTextArea extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
@@ -30,13 +17,15 @@ class ErrorableTextInput extends React.Component {
   }
 
   componentWillMount() {
-    this.inputId = _.uniqueId('errorable-text-input-');
+    this.inputId = _.uniqueId('errorable-textarea-');
   }
 
   handleChange(domEvent) {
-    this.props.onValueChange(
-      makeField(domEvent.target.value, this.props.field.dirty)
-    );
+    const val = domEvent.target.value;
+    // IE9 doesn’t support max length on textareas
+    if (!this.props.charMax || val.length <= this.props.charMax) {
+      this.props.onValueChange(makeField(val, this.props.field.dirty));
+    }
   }
 
   handleBlur() {
@@ -61,7 +50,7 @@ class ErrorableTextInput extends React.Component {
       labelErrorClass = 'usa-input-error-label';
     }
 
-    // Addes ToolTip if text is provided.
+    // Adds ToolTip if text is provided.
     let toolTip;
     if (this.props.toolTipText) {
       toolTip = (
@@ -81,25 +70,32 @@ class ErrorableTextInput extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = <span className="form-required-span">*</span>;
+      requiredSpan = <span className="hca-required-span">*</span>;
     }
+
+    const classes = classNames(this.props.additionalClass, {
+      'input-disabled': this.props.disabled,
+    });
 
     return (
       <div className={inputErrorClass}>
-        <label className={labelErrorClass} htmlFor={this.inputId}>
+        <label
+          id={`${this.inputId}-label`}
+          className={labelErrorClass}
+          htmlFor={this.inputId}>
           {this.props.label}
           {requiredSpan}
         </label>
         {errorSpan}
-        <input
-          className={this.props.additionalClass}
+        <textarea
+          disabled={this.props.disabled}
+          className={classes}
           aria-describedby={errorSpanId}
+          aria-labelledby={`${this.inputId}-label`}
           id={this.inputId}
           placeholder={this.props.placeholder}
           name={this.props.name}
           tabIndex={this.props.tabIndex}
-          autoComplete={this.props.autocomplete}
-          type={this.props.type}
           maxLength={this.props.charMax}
           value={this.props.field.value}
           onChange={this.handleChange}
@@ -111,58 +107,41 @@ class ErrorableTextInput extends React.Component {
   }
 }
 
-ErrorableTextInput.propTypes = {
-  /**
-   * display error message for input that indicates a validation error
-   */
+ErrorableTextArea.propTypes = {
+  disabled: PropTypes.bool,
+
+  /* Error string to display in the component. When defined, indicates input has a */
   errorMessage: PropTypes.string,
-  /**
-   * label for input field
-   */
-  label: PropTypes.any.isRequired,
-  /**
-   * text displayed when input has no user provided value
-   */
+
+  /* String for the input field label. */
+  label: PropTypes.string.isRequired,
+
+  /* placeholder string for input field. */
   placeholder: PropTypes.string,
-  /**
-   * input name attribute
-   */
+
+  /* String for the input name attribute. */
   name: PropTypes.string,
-  /**
-   * input autocomplete attribute
-   */
-  autocomplete: PropTypes.string,
-  /**
-   * render marker indicating field is required
-   */
+
+  /* Render marker indicating field is required. */
   required: PropTypes.bool,
-  /**
-   * value of the input field and if its dirty status
-   */
+
+  /* Value of the input field. */
   field: PropTypes.shape({
     value: PropTypes.string,
     dirty: PropTypes.bool
   }).isRequired,
-  /**
-   * extra attribute for use by CSS selector, specifically by tests
-   */
+
+  /* Extra attribute for use by CSS selector, specifically by tests */
   additionalClass: PropTypes.string,
-  /**
-   * maximum permitted input length
-   */
+
+  /* max number of characters the field will accept */
   charMax: PropTypes.number,
-  /**
-   * called when input value is changed
-   */
+
+  /* a function with this prototype: (newValue) */
   onValueChange: PropTypes.func.isRequired,
-  /**
-   * type attribute for input field
-   */
-  type: PropTypes.string
+
+  /* String with help text for user. */
+  toolTipText: PropTypes.string
 };
 
-ErrorableTextInput.defaultProps = {
-  type: 'text'
-};
-
-export default ErrorableTextInput;
+export default ErrorableTextArea;

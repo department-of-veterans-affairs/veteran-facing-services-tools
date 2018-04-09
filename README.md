@@ -68,11 +68,15 @@ Follow these [instructions](https://docs.npmjs.com/getting-started/publishing-np
 
 If you are unsure of which to use, do a major version update.
 
+* Update [npm module readme](module-readme.md)
+
 4. Pull master and publish
 
-* Switch to master and pull
+* Switch to master and pull. Run preblish:
 
-Verify that you have the new version number locally in `package.json`
+`npm run pre-publish`
+
+Change directory to `dist/jean-pants` and verify that you have the new version number locally in `package.json`
 
 * Publish changes
 

@@ -6,25 +6,13 @@ import IconSearch from '../../svgicons/IconSearch/IconSearch';
 import DropDown from '../../form/controls/dropdown/DropDown';
 
 class SearchMenu extends React.Component {
-
   componentDidUpdate() {
     this.refs.searchField.focus();
   }
 
-  onBlur = (e) => {
-    if (!this.state.closed) {
-      const { currentTarget } = e;
-      setTimeout(() => {
-        if (!currentTarget.contains(document.activeElement)) {
-          this.toggleSearchForm();
-        }
-      });
-    }
-  }
-
   toggleSearchForm = () => {
     this.props.clickHandler();
-  }
+  };
 
   makeForm = () => {
     return (
@@ -36,22 +24,31 @@ class SearchMenu extends React.Component {
         <div className="csp-inline-patch-header">
           <input name="utf8" type="hidden" value="&#x2713;"/>
         </div>
-        <input id="affiliate" name="affiliate" type="hidden" value="vets.gov_search"/>
-        <label // eslint-disable-line jsx-a11y/label-has-for
-          htmlFor="query"
-          className="usa-sr-only">
+        <input
+          id="affiliate"
+          name="affiliate"
+          type="hidden"
+          value="vets.gov_search"/>
+        <label htmlFor="query" className="usa-sr-only">
           Search:
         </label>
 
         <div className="va-flex">
-          <input autoComplete="off" ref="searchField" className="usagov-search-autocomplete" id="query" name="query" type="text"/>
+          <input
+            autoComplete="off"
+            ref="searchField"
+            className="usagov-search-autocomplete"
+            id="query"
+            name="query"
+            type="text"/>
           <button type="submit">
             <IconSearch color="#fff"/>
             <span className="usa-sr-only">Search</span>
           </button>
         </div>
-      </form>);
-  }
+      </form>
+    );
+  };
 
   render() {
     const buttonClasses = classNames(

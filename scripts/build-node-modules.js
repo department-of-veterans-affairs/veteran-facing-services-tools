@@ -7,8 +7,8 @@ const babel = require('babel-core');
 const recast = require('recast');
 const path = require('path');
 
-console.log('Starting build'.blue);
-console.log('Cleaning old build'.white);
+console.log('Starting build');
+console.log('Cleaning old build');
 rimraf.sync('./dist/jean-pants');
 mkdirp.sync('./dist/jean-pants');
 
@@ -55,7 +55,7 @@ fileNames.forEach(fileName => {
 
   // write file to dist/build
   fs.writeFileSync(`./dist/jean-pants/${newFileName}`, requireFlattenedBuffer);
-  console.log(`${newFileName} built`.cyan);
+  console.log(`${newFileName} built`);
 });
 
-console.log('Build complete'.blue);
+console.log('Build complete');
