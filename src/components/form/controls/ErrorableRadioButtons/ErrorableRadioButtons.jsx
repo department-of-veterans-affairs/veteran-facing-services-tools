@@ -86,18 +86,18 @@ class ErrorableRadioButtons extends React.Component {
 
     const options = _.isArray(this.props.options) ? this.props.options : [];
     const storedValue = this.props.value.value;
-    const optionElements = options.map((obj, index) => {
+    const optionElements = options.map((option, optionIndex) => {
       let optionLabel;
       let optionValue;
       let optionAdditional;
-      if (_.isString(obj)) {
-        optionLabel = obj;
-        optionValue = obj;
+      if (_.isString(option)) {
+        optionLabel = option;
+        optionValue = option;
       } else {
-        optionLabel = obj.label;
-        optionValue = obj.value;
-        if (obj.additional) {
-          optionAdditional = <div>{obj.additional}</div>;
+        optionLabel = option.label;
+        optionValue = option.value;
+        if (option.additional) {
+          optionAdditional = <div>{option.additional}</div>;
         }
       }
       const checked = optionValue === storedValue ? 'checked=true' : '';
@@ -107,22 +107,25 @@ class ErrorableRadioButtons extends React.Component {
       );
       const radioButton = (
         <div
-          key={optionAdditional ? undefined : index}
+          key={optionAdditional ? undefined : optionIndex}
           className="form-radio-buttons">
           <input
             autoComplete="false"
             checked={checked}
-            id={`${this.inputId}-${index}`}
+            id={`${this.inputId}-${optionIndex}`}
             name={this.props.name}
             type="radio"
+            onMouseDown={this.props.onMouseDown}
+            onKeyDown={this.props.onKeyDown}
             value={optionValue}
             onChange={this.handleChange}/>
           <label
-            name={`${this.props.name}-${index}-label`}
-            htmlFor={`${this.inputId}-${index}`}>
+            name={`${this.props.name}-${optionIndex}-label`}
+            htmlFor={`${this.inputId}-${optionIndex}`}>
             {optionLabel}
           </label>
           {matchingSubSection}
+          {option.content}
         </div>
       );
 
@@ -134,7 +137,7 @@ class ErrorableRadioButtons extends React.Component {
           <ExpandingGroup
             additionalClass="form-expanding-group-active-radio"
             open={!!checked}
-            key={index}>
+            key={optionIndex}>
             {radioButton}
             <div>{optionAdditional}</div>
           </ExpandingGroup>
@@ -198,6 +201,14 @@ ErrorableRadioButtons.propTypes = {
    * keyboard tab order for radio button group
    */
   tabIndex: PropTypes.number,
+  /**
+   * Mouse Down handler
+   */
+  onMouseDown: PropTypes.func,
+  /**
+   * Key Down handler
+   */
+  onKeyDown: PropTypes.func,
   /**
    * array of options to populate group- each item is a string or an object representing an Expanding Group
    *

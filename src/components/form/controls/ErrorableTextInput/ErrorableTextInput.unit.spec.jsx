@@ -124,7 +124,7 @@ describe('<ErrorableTextInput>', () => {
     expect(wrapper.find('.usa-input-error-message')).to.have.lengthOf(0);
   });
 
-  it('renders a required asterick when required is true', () => {
+  it('renders a required asterisk when required is true', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
@@ -134,7 +134,7 @@ describe('<ErrorableTextInput>', () => {
     expect(wrapper.find('label').text()).to.eql('test*');
   });
 
-  it('renders no required asterick when required is false', () => {
+  it('renders no required asterisk when required is false', () => {
     const wrapper = shallow(<ErrorableTextInput
       field={makeField('')}
       label="test"
@@ -153,7 +153,6 @@ describe('<ErrorableTextInput>', () => {
     const labelFor = wrapper.find('label').first().prop('htmlFor');
     expect(inputId).to.eql(labelFor);
   });
-
 
   it('passes aXe check when no error present', () => {
     const check = axeCheck(<ErrorableTextInput

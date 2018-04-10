@@ -12,7 +12,7 @@ export default function ErrorableSelectExample(props) {
       required={props.required}
       includeBlankOption={props.includeBlankOption}
       value={props.value}
-      onValueChange={props.onValueChange}
+      onValueChange={newValue => newValue}
       additionalClass={props.additionalClass}
       emptyDescription={props.emptyDescription}
   />)

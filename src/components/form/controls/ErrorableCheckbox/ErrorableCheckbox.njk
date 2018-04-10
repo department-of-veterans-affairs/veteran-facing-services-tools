@@ -5,7 +5,7 @@ export default function ErrorableCheckboxExample(props) {
   return (
     <ErrorableCheckbox
       label='Errorable Checkbox'
-      onValueChange={(e) => {e.target.checked}}
+      onValueChange={(value) => value}
       {...props}/>
   );
 }

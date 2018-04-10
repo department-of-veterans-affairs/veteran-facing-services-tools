@@ -1,6 +1,6 @@
 {
-  "name": "@department-of-veteran-affairs/jean-pants",
-  "version": "0.1.0",
+  "name": "@department-of-veterans-affairs/jean-pants",
+  "version": "0.2.1",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -14,6 +14,7 @@
     "test": "karma start --single-run",
     "build-site": "fractal build-site",
     "site": "fractal build-site && gh-pages -d build",
+    "pre-publish": "npm run-script export-components && cp package.json dist/jean-pants/package.json && cp module-readme.md dist/jean-pants/README.md && echo && echo Pre-publish complete. Change directory to dist/jean-pants and check package.json before publishing.",
     "test-publish": "cp package.json dist/jean-pants/package.json && cd dist/jean-pants && yalc publish && cd ../../",
     "test-watch": "karma start --auto-watch",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
