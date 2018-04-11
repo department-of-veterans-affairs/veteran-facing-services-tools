@@ -13,7 +13,10 @@ Jean Pants’ purpose is to provide accepted guidance for:
 - use guidelines for existing components (when and when not to use a thing)
 - implementation of new visual patterns and components
 
-[See the complete documentation.](/docs/design-system-docs-v3)
+## Get started:
+- [Quickstart](/docs/quickstart)
+- [Jean Pants User Guide](/docs/design-system-docs-v3)
+- [Designing Good User Experiences](/docs/playbook)
 
 ---
 
