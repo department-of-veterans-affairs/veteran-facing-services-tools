@@ -16,7 +16,7 @@ Jean Pants’ purpose is to provide accepted guidance for:
 ## Get started:
 - [Quickstart](/docs/quickstart)
 - [Jean Pants User Guide](/docs/user-guide)
-- [Designing Good User Experiences](/docs/playbook)
+- [Designing Good User Experiences](/docs/playbook/designing-good-user-experiences)
 
 ---
 
