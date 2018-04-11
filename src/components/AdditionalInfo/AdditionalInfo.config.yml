@@ -1,5 +1,6 @@
-label: Additional Info
+label: Additional Info / Tooltip
 status: wip
+order: 14
 
 context:
   componentSourcePath: './AdditionalInfo.jsx'

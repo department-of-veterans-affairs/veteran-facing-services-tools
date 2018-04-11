@@ -13,7 +13,10 @@ Jean Pants’ purpose is to provide accepted guidance for:
 - use guidelines for existing components (when and when not to use a thing)
 - implementation of new visual patterns and components
 
-[See the complete documentation.](/docs/design-system-docs-v3)
+[Quickstart](/docs/design-system-docs/v3)
+[Complete documentation](/docs/design-system-docs-v3)
+[On Github](https://github.com/department-of-veterans-affairs/design-system)
+[Submit an issue or feedback](https://github.com/department-of-veterans-affairs/design-system/issues)
 
 ---
 
