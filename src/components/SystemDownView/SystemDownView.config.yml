@@ -1,5 +1,6 @@
 label: System Down View
 status: wip
+order: 9
 
 context:
   componentSourcePath: 'SystemDownView.jsx'
