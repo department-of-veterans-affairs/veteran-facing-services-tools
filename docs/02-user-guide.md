@@ -1,3 +1,8 @@
+---
+title: Jean Pants User Guide
+---
+
+
 **Table of Contents:**
 - [What is this document?](#what-is-doc)
 - [What is the design system?](#what-is-system)
