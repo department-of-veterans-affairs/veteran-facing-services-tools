@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/jean-pants",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -29,7 +29,6 @@
     "moment": "^2.21.0",
     "prop-types": "^15.6.0",
     "react-transition-group": "^1.x",
-    "uswds": "^1.6.1",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
@@ -81,9 +80,11 @@
     "style-loader": "^0.19.0",
     "svg-url-loader": "^2.3.0",
     "url-loader": "^0.6.2",
+    "uswds": "1.4.2",
     "webpack": "2"
   },
   "peerDependencies": {
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "uswds": "^1.4.2"
   }
 }

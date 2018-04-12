@@ -8,7 +8,7 @@ The components that make up Vets.gov's pattern library should all be documented 
 
 Each component is rendered in Fractal in a small preview window, but it's also available as a full-screen preview without interference from the system's UI. Click the blue icon to the right of the component's name to see this view.
 
-<img src="/img/docs/preview-icon.png"/>
+<img src="{{ assetPath }}img/docs/preview-icon.png"/>
 
 <br>
 Each component has a few key pieces of information associated with it, located in the upper-right corner of the UI or in the tabs beneath the visual demo.

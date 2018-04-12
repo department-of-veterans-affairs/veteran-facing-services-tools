@@ -38,7 +38,7 @@ For **alerts**, **modals**, and **inline validation**, the visual state should m
 
 #### Informational
 
-<img src="/img/docs/state-info.png" width="208">
+<img src="{{ assetPath }}img/docs/state-info.png" width="208">
 
 ##### When to use
 
@@ -52,7 +52,7 @@ For **alerts**, **modals**, and **inline validation**, the visual state should m
 
 #### Success
 
-<img src="/img/docs/state-success.png" width="208">
+<img src="{{ assetPath }}img/docs/state-success.png" width="208">
 
 ##### When to use
 
@@ -60,7 +60,7 @@ For **alerts**, **modals**, and **inline validation**, the visual state should m
 
 #### Warning
 
-<img src="/img/docs/state-warning.png" width="208">
+<img src="{{ assetPath }}img/docs/state-warning.png" width="208">
 
 ##### When to use
 
@@ -69,7 +69,7 @@ For **alerts**, **modals**, and **inline validation**, the visual state should m
 
 #### Error
 
-<img src="/img/docs/state-error.png" width="208">
+<img src="{{ assetPath }}img/docs/state-error.png" width="208">
 
 ##### When to use
 
@@ -81,7 +81,7 @@ Actions dictate if and what a user needs to do in response to a message.
 
 #### Dismissible (alerts and modals)
 
-<img src="/img/docs/alert-action-dismissible.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-action-dismissible.png" width="480">
 
 ##### When to use
 
@@ -90,7 +90,7 @@ Actions dictate if and what a user needs to do in response to a message.
 
 #### Single button
 
-<img src="/img/docs/alert-action-single.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-action-single.png" width="480">
 
 ##### When to use
 
@@ -98,7 +98,7 @@ Actions dictate if and what a user needs to do in response to a message.
 
 #### Binary button
 
-<img src="/img/docs/modal-warning.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-warning.png" width="816">
 
 ##### When to use
 
@@ -106,7 +106,7 @@ Actions dictate if and what a user needs to do in response to a message.
 
 #### Accordion (alerts only)
 
-<img src="/img/docs/alert-action-accordion.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-action-accordion.png" width="480">
 
 
 ##### When to use
@@ -119,13 +119,13 @@ Actions dictate if and what a user needs to do in response to a message.
 
 Alerts keep users informed of important and sometimes time-sensitive changes.
 
-<img src="/img/docs/alert-info.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-info.png" width="480">
 
-<img src="/img/docs/alert-success.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-success.png" width="480">
 
-<img src="/img/docs/alert-warning.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-warning.png" width="480">
 
-<img src="/img/docs/alert-error.png" width="480">
+<img src="{{ assetPath }}img/docs/alert-error.png" width="480">
 
 #### When to use
 
@@ -142,38 +142,38 @@ Alerts keep users informed of important and sometimes time-sensitive changes.
 
 ##### Above page title
 
-<img src="/img/docs/alert-location-above-title.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-above-title.png" width="1152">
 
 Indicates the outcome of a user-initiated action, typically CRUD tasks (create/read/update/delete).
 
 ##### Below page title
 
-<img src="/img/docs/alert-location-below-title.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-below-title.png" width="1152">
 
 Conveys important status information or calls to action related to the page or application as a whole.
 
 ##### Above component
 
-<img src="/img/docs/alert-location-above-component.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-above-component.png" width="1152">
 
 Conveys important status information or calls to action related to a specific component.
 
 ##### Below component
 
-<img src="/img/docs/alert-location-below-component.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-below-component.png" width="1152">
 
 Conveys lower importance status information related to a specific component.
 
 ##### Replaces component
 
-<img src="/img/docs/alert-location-replace-component.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-replace-component.png" width="1152">
 
 - Indicates the system's inability to display the affected component due to transient access issues such as downtime or connection loss, **or**
 - Replaces the component due to a change in its status, e.g. saved application
 
 ##### Banner
 
-<img src="/img/docs/alert-location-banner.png" width="1152">
+<img src="{{ assetPath }}img/docs/alert-location-banner.png" width="1152">
 
 Communicates important system- or business-related information to users, such as emergency alerts
 
@@ -187,15 +187,15 @@ Modals perform a similar function to alerts, but should be used when it is parti
 - Alerting users to important system-related issues and updates that affect their access to a service or ability to complete a task.
 - Providing supplemental information related to a task (for example, a glossary definition)
 
-<img src="/img/docs/modal-plain.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-plain.png" width="816">
 
-<img src="/img/docs/modal-info.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-info.png" width="816">
 
-<img src="/img/docs/modal-success.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-success.png" width="816">
 
-<img src="/img/docs/modal-warning.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-warning.png" width="816">
 
-<img src="/img/docs/modal-error.png" width="816">
+<img src="{{ assetPath }}img/docs/modal-error.png" width="816">
 
 ### Plain text
 
@@ -210,13 +210,13 @@ Plain text messaging is used primarily to communicate system status in access sc
 
 ##### Replace page content
 
-<img src="/img/docs/plain-text-replace-page.png" width="1152">
+<img src="{{ assetPath }}img/docs/plain-text-replace-page.png" width="1152">
 
 Shown when an entire application or page is unavailable
 
 ##### Replace component
 
-<img src="/img/docs/plain-text-replace-component.png" width="1152">
+<img src="{{ assetPath }}img/docs/plain-text-replace-component.png" width="1152">
 
 Shown when a component is unavailable due to access issues or lack of data
 
@@ -228,4 +228,4 @@ Inline validation provides feedback to user input within a form component
 
 - Indicating inadequate or incorrect input in a field
 
-<img src="/img/docs/inline-error.png" width="368">
+<img src="{{ assetPath }}img/docs/inline-error.png" width="368">

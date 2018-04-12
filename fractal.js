@@ -1,5 +1,3 @@
-const { ncp } = require('ncp');
-
 const pkg = require('./package.json');
 const fractal = require('@frctl/fractal').create();
 const generatePropDocs = require('./lib/helpers/generatePropDocs');
@@ -57,6 +55,7 @@ const vetsAdapter = require('./lib/vets-adapter')({
 fractal.components.engine(vetsAdapter);
 
 docs.set('path', 'docs');
+docs.set('default.context', context);
 
 const theme = require('@frctl/mandelbrot')({
   lang: 'en-US',
@@ -77,7 +76,7 @@ const theme = require('@frctl/mandelbrot')({
   ],
   styles: [
     'default',
-    '/fractal-styles.css'
+    '/dist/fractal-styles.css'
   ],
 });
 
@@ -93,13 +92,6 @@ fractal.cli.command('watch', () => {
     sync: true
   });
   server.on('error', err => logger.error(err.message));
-
-  ncp('./src/img', './dist/img', (err) => {
-    if (err) {
-      logger.error(`Failed to copy images: ${err}`);
-    }
-
-  });
 
   return server.start().then(() => {
     logger.success(`Fractal server is now running at ${server.url}`);
@@ -122,20 +114,13 @@ fractal.cli.command('build-site', (args, done) => {
     logger.update('Building React components');
     createWebpackBundle(logger, fractal.components, false);
 
-    ncp('./src/img', './dist/img', (err) => {
-      if (err) {
-        logger.error(`Failed to copy images: ${err}`);
-        throw new Error(err);
-      }
-
-      done();
-    });
+    done();
   });
 });
 
 web.theme(theme);
 
-web.set('static.path', 'dist');
+web.set('static.path', 'public');
 // output files to /build
 web.set('builder.dest', 'build');
 

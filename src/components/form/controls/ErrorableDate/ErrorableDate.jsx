@@ -15,8 +15,8 @@ import {
   isValidPartialDate,
   isNotBlankDateField,
   validateCustomFormComponent
-} from '../../../../utils/validations';
-import { months, days } from '../../../../utils/options-for-select.js';
+} from '../../../../helpers/validations';
+import { months, days } from '../../../../helpers/options-for-select.js';
 
 /**
  * A date input field that accepts values for month and year

@@ -6,11 +6,13 @@ const fs = require('fs');
 const babel = require('babel-core');
 const recast = require('recast');
 const path = require('path');
+const { ncp } = require('ncp');
 
 console.log('Starting build');
 console.log('Cleaning old build');
 rimraf.sync('./dist/jean-pants');
 mkdirp.sync('./dist/jean-pants');
+mkdirp.sync('./dist/jean-pants/sass');
 
 // this comes from gulp-flatten-requires
 // https://github.com/insin/gulp-flatten-requires/blob/master/index.js
@@ -58,4 +60,10 @@ fileNames.forEach(fileName => {
   console.log(`${newFileName} built`);
 });
 
-console.log('Build complete');
+ncp('./src/sass', './dist/jean-pants/sass', (err) => {
+  if (err) {
+    throw new Error(`Failed to copy styles: ${err}`);
+  }
+  console.log('Build complete');
+});
+

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ meta.title | default('USWDS Fractal example document') }}</title>
-    <link rel="stylesheet" href="{{ uswds.path }}/css/uswds.min.css">
+    <script src="https://unpkg.com/uswds/dist/css/uswds.min.css"></script>
     {% block styles %}{% endblock %}
   </head>
   <body>
@@ -31,7 +31,7 @@
       {% render '@footer' %}
     {% endblock %}
 
-    <script src="{{ uswds.path }}/js/uswds.min.js"></script>
+    <script src="https://unpkg.com/uswds/dist/js/uswds.min.js"></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>

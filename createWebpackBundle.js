@@ -33,12 +33,12 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   const compiler = webpack({
     entry: {
       components: './fractalEntry.js',
-      styles: './sass/site.scss',
-      fractal: './sass/style.fractal.scss'
+      styles: './src/sass/site.scss',
+      fractal: './src/sass/style.fractal.scss'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.join(__dirname, 'dist')
+      path: path.join(__dirname, 'public/dist')
     },
     resolve: {
       extensions: ['.js', '.json', '.jsx']
