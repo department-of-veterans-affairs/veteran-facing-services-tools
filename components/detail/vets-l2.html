@@ -478,19 +478,19 @@
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Primary"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Breadcrumb"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-breadcrumbs"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-breadcrumbs-list"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#1"</span>&gt;</span>link1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#2"</span>&gt;</span>link2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#3"</span>&gt;</span>link3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-current</span>=<span class="hljs-string">"page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#3"</span>&gt;</span>link3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
         <span class="hljs-built_in">window</span>.currentProps = {
             <span class="hljs-string">"package"</span>: {
                 <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/jean-pants"</span>,
-                <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.4.0"</span>
+                <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.5.0"</span>
             },
             <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
             <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -506,8 +506,10 @@
             }, {
                 <span class="hljs-string">"link"</span>: <span class="hljs-string">"#3"</span>,
                 <span class="hljs-string">"key"</span>: <span class="hljs-string">"key3"</span>,
-                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link3"</span>
+                <span class="hljs-string">"label"</span>: <span class="hljs-string">"link3"</span>,
+                <span class="hljs-string">"ariaCurrent"</span>: <span class="hljs-literal">true</span>
             }],
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"va-breadcrumbs"</span>,
             <span class="hljs-string">"_env"</span>: {
                 <span class="hljs-string">"request"</span>: {
                     <span class="hljs-string">"headers"</span>: {},
@@ -839,7 +841,7 @@ Should display with header, footer, no sidenav
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/jean-pants</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.4</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">0.5</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 </pre>
