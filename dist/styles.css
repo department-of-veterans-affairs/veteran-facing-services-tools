@@ -10876,6 +10876,12 @@ p.info-message {
   margin-top: 0.5em;
 }
 
+.usa-label.va-label-primary,
+.va-label-primary.usa-label-big {
+  background-color: #2e8540;
+  color: #fff;
+}
+
 .va-alert-close {
   background: transparent;
   color: #212121;
