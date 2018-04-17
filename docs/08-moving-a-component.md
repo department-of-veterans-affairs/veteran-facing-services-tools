@@ -26,4 +26,6 @@ As we transfer components from vets-website into the design system, we will need
 
 8. Run vets-website locally. Find a place where the component is used within vets-website, and instead test importing the component from design-system. Make sure it renders and functions correctly when testing vets-website locally.
 
-9. Submit a PR!
+9. Update any relevant paths in generator-vets-website.
+
+10. Submit a PR!
