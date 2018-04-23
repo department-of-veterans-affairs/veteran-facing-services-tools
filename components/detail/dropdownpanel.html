@@ -201,14 +201,6 @@
             </tr>
           
             <tr>
-              <td>contents</td>
-              <td>Yes</td>
-              <td>node</td>
-              <td></td>
-              <td></td>
-            </tr>
-          
-            <tr>
               <td>icon</td>
               <td>No</td>
               <td>node</td>
@@ -240,14 +232,6 @@
               <td></td>
             </tr>
           
-            <tr>
-              <td>container</td>
-              <td>No</td>
-              <td>union</td>
-              <td>root.document</td>
-              <td></td>
-            </tr>
-          
         </table>
     </div>
 </div>
@@ -258,8 +242,10 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"dropdownpanel"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown va-dropdown-trigger"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Helpdesk<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown-panel"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color:#112e51;"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown va-dropdown-trigger"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Helpdesk<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-dropdown-panel"</span> <span class="hljs-attr">hidden</span>=<span class="hljs-string">""</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
@@ -274,7 +260,6 @@
         <span class="hljs-string">"id"</span>: <span class="hljs-string">"default"</span>,
         <span class="hljs-string">"buttonText"</span>: <span class="hljs-string">"Helpdesk"</span>,
         <span class="hljs-string">"cssClass"</span>: <span class="hljs-string">"va-dropdown"</span>,
-        <span class="hljs-string">"isOpen"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-string">"contents"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium."</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
@@ -285,19 +270,29 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e7d7767d3e6ed05a95a00d877ed92718-panel-view">
     <code class="Code Code--lang-text">
-        <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> DropDownPanel <span class="hljs-keyword">from</span> <span class="hljs-string">'./DropDownPanel'</span>;
+        <pre><span class="hljs-keyword">import</span> React from <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> DropDownPanel from <span class="hljs-string">'./DropDownPanel'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DropDownPanelExample</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">DropDownPanel</span>
-      <span class="hljs-attr">buttonText</span>=<span class="hljs-string">{props.buttonText}</span>
-      <span class="hljs-attr">cssClass</span>=<span class="hljs-string">{props.cssClass}</span>
-      <span class="hljs-attr">isOpen</span>=<span class="hljs-string">{props.isOpen}</span>
-      <span class="hljs-attr">contents</span>=<span class="hljs-string">{props.contents}</span>
-      <span class="hljs-attr">clickHandler</span>=<span class="hljs-string">{(e)</span> =&gt;</span> {}}
-    /&gt;);
-}</span></pre>
+export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownPanelExample</span> <span class="hljs-title">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">super</span>();
+    <span class="hljs-keyword">this</span>.state = { <span class="hljs-keyword">open</span>: <span class="hljs-literal">false</span> };
+  }
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;div style={{ backgroundColor: <span class="hljs-string">'#112e51'</span> }}&gt;
+        &lt;DropDownPanel
+          buttonText={<span class="hljs-keyword">this</span>.props.buttonText}
+          cssClass={<span class="hljs-keyword">this</span>.props.cssClass}
+          isOpen={<span class="hljs-keyword">this</span>.state.<span class="hljs-keyword">open</span>}
+          contents={<span class="hljs-keyword">this</span>.props.contents}
+          clickHandler={() =&gt; <span class="hljs-keyword">this</span>.setState({ <span class="hljs-keyword">open</span>: !<span class="hljs-keyword">this</span>.state.<span class="hljs-keyword">open</span> })}&gt;
+          {<span class="hljs-keyword">this</span>.props.contents}
+        &lt;/DropDownPanel&gt;
+      &lt;/div&gt;
+    );
+  }
+}</pre>
     </code>
 </div>
 
@@ -315,7 +310,6 @@
 <span class="hljs-attr">id:</span> <span class="hljs-string">default</span>
 <span class="hljs-attr">buttonText:</span> <span class="hljs-string">Helpdesk</span>
 <span class="hljs-attr">cssClass:</span> <span class="hljs-string">va-dropdown</span>
-<span class="hljs-attr">isOpen:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">contents:</span> <span class="hljs-string">&gt;-</span>
   <span class="hljs-string">Lorem</span> <span class="hljs-string">ipsum</span> <span class="hljs-string">dolor</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet,</span> <span class="hljs-string">consectetur</span> <span class="hljs-string">adipiscing</span> <span class="hljs-string">elit.</span> <span class="hljs-string">Fusce</span> <span class="hljs-string">ullamcorper</span> <span class="hljs-string">at</span>
   <span class="hljs-string">eros</span> <span class="hljs-string">eu</span> <span class="hljs-string">suscipit.</span> <span class="hljs-string">Ut</span> <span class="hljs-string">imperdiet</span> <span class="hljs-string">libero</span> <span class="hljs-string">et</span> <span class="hljs-string">luctus</span> <span class="hljs-string">pretium.</span>
@@ -355,25 +349,17 @@
                                 <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> classNames <span class="hljs-keyword">from</span> <span class="hljs-string">'classnames'</span>;
-<span class="hljs-keyword">import</span> root <span class="hljs-keyword">from</span> <span class="hljs-string">'window-or-global'</span>;
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownPanel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-
-  <span class="hljs-keyword">constructor</span>(props) {
-    <span class="hljs-keyword">super</span>(props);
-    <span class="hljs-keyword">this</span>.toggleDropDown = <span class="hljs-keyword">this</span>.toggleDropDown.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.handleDocumentClick = <span class="hljs-keyword">this</span>.handleDocumentClick.bind(<span class="hljs-keyword">this</span>);
-  }
-
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DropDownPanel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
   componentDidMount() {
-    <span class="hljs-keyword">this</span>.props.container.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
   }
 
   componentWillUnmount() {
-    <span class="hljs-keyword">this</span>.props.container.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">document</span>.body.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
   }
 
-  handleDocumentClick(event) {
+  handleDocumentClick = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
     <span class="hljs-comment">// If this dropdown is open, and it's not an element within this dropdown being clicked,</span>
     <span class="hljs-comment">// then the user clicked elsewhere and we should invoke the click handler to toggle this</span>
     <span class="hljs-comment">// dropdown to closed.</span>
@@ -382,7 +368,7 @@
     }
   }
 
-  toggleDropDown() {
+  toggleDropDown = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">this</span>.props.clickHandler();
   }
 
@@ -406,7 +392,7 @@
           <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-dropdown-panel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{this.props.id}</span> <span class="hljs-attr">hidden</span>=<span class="hljs-string">{!this.props.isOpen}</span>&gt;</span>
-          {this.props.contents}
+          {this.props.children}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
@@ -417,27 +403,15 @@ DropDownPanel.propTypes = {
   <span class="hljs-attr">buttonText</span>: PropTypes.string.isRequired,
   <span class="hljs-attr">clickHandler</span>: PropTypes.func.isRequired,
   <span class="hljs-attr">cssClass</span>: PropTypes.string,
-  <span class="hljs-attr">contents</span>: PropTypes.node.isRequired,
   <span class="hljs-attr">icon</span>: PropTypes.node, <span class="hljs-comment">/* Should be SVG markup */</span>
   id: PropTypes.string,
   <span class="hljs-attr">isOpen</span>: PropTypes.bool.isRequired,
   <span class="hljs-attr">disabled</span>: PropTypes.bool,
-  <span class="hljs-comment">// 'container' is the parent DOM element that will close the dropdown when clicked,</span>
-  <span class="hljs-comment">// assuming the child element is not contained by the dropdown's element.</span>
-  <span class="hljs-comment">// This is a DOM element, not a React element, because the dropdown may need to respond</span>
-  <span class="hljs-comment">// to events occurring outside of the React context.</span>
-  container: PropTypes.oneOfType([
-    PropTypes.instanceOf(root.HTMLDocument),
-    PropTypes.instanceOf(root.HTMLElement)
-  ])
 };
 
 DropDownPanel.defaultProps = {
-  <span class="hljs-attr">container</span>: root.document,
   <span class="hljs-attr">disabled</span>: <span class="hljs-literal">false</span>
 };
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> DropDownPanel;
 </pre>
                             </code>
                             
@@ -454,7 +428,7 @@ DropDownPanel.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">1.9 KB</span>
                 </li>
             </ul>
         </div>
@@ -468,60 +442,82 @@ DropDownPanel.defaultProps = {
                             
                             <code class="Code Code--lang-JSX FileBrowser-code">
                                 <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
 <span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">'chai'</span>;
 <span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">'sinon'</span>;
+<span class="hljs-keyword">import</span> { mount } <span class="hljs-keyword">from</span> <span class="hljs-string">'enzyme'</span>;
+<span class="hljs-keyword">import</span> { axeCheck } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../lib/testing/helpers'</span>;
 
 <span class="hljs-keyword">import</span> DropDown <span class="hljs-keyword">from</span> <span class="hljs-string">'./DropDownPanel.jsx'</span>;
 
 describe(<span class="hljs-string">'&lt;DropDownPanel&gt;'</span>, () =&gt; {
+  <span class="hljs-keyword">let</span> dropDown;
   <span class="hljs-keyword">let</span> clickHandler;
-  <span class="hljs-keyword">let</span> container;
+  <span class="hljs-keyword">let</span> div;
   <span class="hljs-keyword">let</span> props;
 
   beforeEach(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    clickHandler = sinon.stub();
-    container = <span class="hljs-built_in">window</span>.document.createElement(<span class="hljs-string">'div'</span>);
+    sinon.spy(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">'addEventListener'</span>);
+    sinon.spy(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">'removeEventListener'</span>);
 
-    container.addEventListener = sinon.spy(container.addEventListener.bind(container));
-    container.removeEventListener = sinon.spy(container.removeEventListener.bind(container));
+    clickHandler = sinon.spy();
 
     props = {
       <span class="hljs-attr">buttonText</span>: <span class="hljs-string">'Button text'</span>,
       clickHandler,
-      container,
-      <span class="hljs-attr">contents</span>: (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hi<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>),
       <span class="hljs-attr">cssClass</span>: <span class="hljs-string">'testClass'</span>,
       <span class="hljs-attr">isOpen</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">icon</span>: (&lt;svg&gt;&lt;rect x="50" y="50" width="50" height="50"/&gt;&lt;/svg&gt;),
+      <span class="hljs-attr">icon</span>: (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">rect</span> <span class="hljs-attr">x</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">y</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"50"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>),
       id: 'testId'
     };
 
-    ReactDOM.render(&lt;DropDown {...props}/&gt;, container);
+    div = document.createElement('div');
+    div.setAttribute('id', 'dropdownContainer');
+    document.body.appendChild(div);
+
+    dropDown = mount(<span class="hljs-tag">&lt;<span class="hljs-name">DropDown</span> {<span class="hljs-attr">...props</span>}&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hi<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">DropDown</span>&gt;</span>, {
+      attachTo: div
+    });
+  });
+
+  afterEach(() =&gt; {
+    document.body.addEventListener.restore();
+    document.body.removeEventListener.restore();
+    document.body.removeChild(div);
   });
 
   it('should render', () =&gt; {
-  //  const dropdownDOM = ReactDOM.findDOMNode(container);
-  //  expect(dropdownDOM).to.not.be.undefined;
+    expect(dropDown.find('.va-dropdown-panel').text()).to.equal('Hi');
+    expect(dropDown.find('.va-dropdown-trigger').text()).to.equal('Button text');
   });
 
   it('should register event listeners on the parent element', () =&gt; {
-    expect(container.addEventListener.called).to.be.true;
+    expect(document.body.addEventListener.called).to.be.true;
   });
 
   it('should call clickHandler when the parent element\'s click event occurs', () =&gt; {
     expect(clickHandler.called).to.be.false;
-    container.dispatchEvent(new window.MouseEvent('click'));
+    document.body.dispatchEvent(new window.MouseEvent('click'));
     expect(clickHandler.called).to.be.true;
   });
 
   it('should unregister event listeners on the parent element', () =&gt; {
-    ReactDOM.unmountComponentAtNode(container);
-    expect(container.removeEventListener.called).to.be.true;
+    dropDown.unmount();
+    expect(document.body.removeEventListener.called).to.be.true;
   });
 
+  it('should pass axe check when open', () =&gt; {
+    return axeCheck(
+      <span class="hljs-tag">&lt;<span class="hljs-name">DropDown</span> {<span class="hljs-attr">...props</span>} <span class="hljs-attr">id</span>=<span class="hljs-string">"testId2"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hi<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">DropDown</span>&gt;</span>
+    );
+  });
+
+  it('should pass axe check when closed', () =&gt; {
+    return axeCheck(
+      <span class="hljs-tag">&lt;<span class="hljs-name">DropDown</span> {<span class="hljs-attr">...props</span>} <span class="hljs-attr">id</span>=<span class="hljs-string">"testId2"</span> <span class="hljs-attr">isOpen</span>=<span class="hljs-string">{false}</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hi<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">DropDown</span>&gt;</span>
+    );
+  });
 });
-</pre>
+</span></pre>
                             </code>
                             
                         </div>
@@ -537,7 +533,7 @@ describe(<span class="hljs-string">'&lt;DropDownPanel&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.6 KB</span>
+                    <span class="Meta-value">2.1 KB</span>
                 </li>
             </ul>
         </div>

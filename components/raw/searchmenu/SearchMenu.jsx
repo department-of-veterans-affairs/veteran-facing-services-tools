@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import IconSearch from '../../svgicons/IconSearch/IconSearch';
-import DropDown from '../../form/controls/dropdown/DropDown';
+import DropDownPanel from '../../navigation/DropDownPanel/DropDownPanel';
 
 class SearchMenu extends React.Component {
   componentDidUpdate() {
@@ -60,14 +60,15 @@ class SearchMenu extends React.Component {
     const icon = <IconSearch color="#fff"/>;
 
     return (
-      <DropDown
+      <DropDownPanel
         buttonText="Search"
         clickHandler={this.props.clickHandler}
         cssClass={buttonClasses}
-        contents={this.makeForm()}
         id="searchmenu"
         icon={icon}
-        isOpen={this.props.isOpen}/>
+        isOpen={this.props.isOpen}>
+        {this.makeForm()}
+      </DropDownPanel>
     );
   }
 }

@@ -9473,6 +9473,14 @@ input.usa-input-medium {
   cursor: pointer;
 }
 
+.js-visual {
+  visibility: hidden !important;
+}
+
+.js-hide {
+  display: none !important;
+}
+
 /* latin */
 
 @font-face {
@@ -10108,9 +10116,23 @@ ol.va-callout li {
   background: rgba(0, 0, 0, 0.05);
 }
 
+.va-nav-breadcrumbs a[aria-current="page"] {
+  color: #323a45 !important;
+  cursor: default;
+  font-weight: bold;
+  pointer-events: none;
+  text-decoration: none;
+}
+
 .va-nav-breadcrumbs-list {
-  float: none;
+  float: none !important;
   position: relative;
+}
+
+.va-nav-breadcrumbs-list__mobile-link::before {
+  content: " \2039   ";
+  display: inline-block;
+  padding: 0 0.15em;
 }
 
 .va-nav-breadcrumbs--playbook {
@@ -10874,6 +10896,12 @@ p.info-message {
 .usa-alert .alert-actions,
 .plaintext-message .alert-actions {
   margin-top: 0.5em;
+}
+
+.usa-label.va-label-primary,
+.va-label-primary.usa-label-big {
+  background-color: #2e8540;
+  color: #fff;
 }
 
 .va-alert-close {
