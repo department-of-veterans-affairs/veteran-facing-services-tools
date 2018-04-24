@@ -215,7 +215,7 @@
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/jean-pants"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.5.0"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.6.0"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -258,7 +258,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/jean-pants</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.5</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">0.6</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">CollapsiblePanel.jsx</span>
@@ -317,8 +317,7 @@
   }
 
   scrollToTop() {
-  <span class="hljs-comment">//  console.log('undefined?', window.VetsGov.scroll);</span>
-    scroller.scrollTo(<span class="hljs-string">`collapsible-panel-<span class="hljs-subst">${<span class="hljs-keyword">this</span>.id}</span>-scroll-element`</span>, {
+    scroller.scrollTo(<span class="hljs-string">`collapsible-panel-<span class="hljs-subst">${<span class="hljs-keyword">this</span>.id}</span>-scroll-element`</span>, <span class="hljs-built_in">window</span>.VetsGov.scroll || {
       <span class="hljs-attr">duration</span>: <span class="hljs-number">500</span>,
       <span class="hljs-attr">delay</span>: <span class="hljs-number">2</span>,
       <span class="hljs-attr">smooth</span>: <span class="hljs-literal">true</span>,
@@ -410,6 +409,15 @@ export default CollapsiblePanel;
 <span class="hljs-keyword">import</span> CollapsiblePanel <span class="hljs-keyword">from</span> <span class="hljs-string">'./CollapsiblePanel'</span>;
 
 describe(<span class="hljs-string">'&lt;CollapsiblePanel&gt;'</span>, () =&gt; {
+  beforeEach(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">window</span>.VetsGov = {
+      ...window.VetsGov,
+      ...{
+        <span class="hljs-attr">scroll</span>: <span class="hljs-literal">false</span>
+      }
+    };
+  });
+
   it(<span class="hljs-string">'should render the correct panel header'</span>, () =&gt; {
     <span class="hljs-keyword">const</span> testHeaderText = <span class="hljs-string">'Test panel'</span>;
     <span class="hljs-keyword">const</span> wrapper = shallow(&lt;CollapsiblePanel panelName={testHeaderText}/&gt;);
@@ -461,6 +469,10 @@ describe(<span class="hljs-string">'&lt;CollapsiblePanel&gt;'</span>, () =&gt; {
   it('should pass aXe check when open', () =&gt; {
     return axeCheck(&lt;CollapsiblePanel panelName={'Test'} startOpen/&gt;);
   });
+
+  afterEach(() =&gt; {
+    delete window.VetsGov.scroll;
+  });
 });
 </pre>
                             </code>
@@ -478,7 +490,7 @@ describe(<span class="hljs-string">'&lt;CollapsiblePanel&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2.5 KB</span>
                 </li>
             </ul>
         </div>

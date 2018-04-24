@@ -50867,7 +50867,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function BreadcrumbsExample(props) {
   return _react2.default.createElement(_Breadcrumbs2.default, {
-    id: props.id,
     includeSearch: props.includeSearch,
     crumbs: props.crumbs });
 }
@@ -54366,28 +54365,20 @@ var Breadcrumbs = function (_React$Component) {
   _createClass(Breadcrumbs, [{
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          crumbs = _props.crumbs,
-          id = _props.id;
-
+      var crumbs = this.props.crumbs;
       return _react2.default.createElement(
         'nav',
-        {
-          'aria-label': 'Breadcrumb',
-          className: 'va-nav-breadcrumbs',
-          id: id },
+        { className: 'va-nav-breadcrumbs' },
         _react2.default.createElement(
-          'ol',
-          { className: 'row va-nav-breadcrumbs-list columns', id: id + '-list' },
+          'ul',
+          { className: 'row va-nav-breadcrumbs-list columns', role: 'menubar', 'aria-label': 'Primary' },
           crumbs.map(function (c) {
             return _react2.default.createElement(
               'li',
               { key: c.key },
               _react2.default.createElement(
                 'a',
-                {
-                  'aria-current': c.ariaCurrent ? 'page' : null,
-                  href: c.link },
+                { href: c.link },
                 c.label
               )
             );
@@ -54401,13 +54392,10 @@ var Breadcrumbs = function (_React$Component) {
 }(_react2.default.Component);
 
 Breadcrumbs.propTypes = {
+
   // array should contain objects that contain each breadcrumb's
   // key, href, and plain-text label
-  crumbs: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired,
-  // Passing a prop `id='STRING'` into the `<Breadcrumb>` component
-  // will append that ID to the `<nav>` element, and concatenate the
-  // ID plus `-list` to the `<ol>` element.
-  id: _propTypes2.default.string
+  crumbs: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired
 };
 
 exports.default = Breadcrumbs;
