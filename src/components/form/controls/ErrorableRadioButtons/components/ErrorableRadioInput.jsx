@@ -12,6 +12,15 @@ class ErrorableRadioInput extends React.Component {
     };
   }
 
+  handleOnBlur() {
+    this.setState({
+      focusStyle: {
+        ...this.state.focusStyle,
+        background: 'none',
+      }
+    });
+  }
+
   handleOnFocus(e) {
     this.props.handleChange(e);
 
@@ -36,6 +45,7 @@ class ErrorableRadioInput extends React.Component {
           onKeyDown={this.props.onKeyDown}
           value={this.props.optionValue}
           onChange={this.props.handleChange}
+          onBlur={() => this.handleOnBlur()}
           onFocus={(e) => this.handleOnFocus(e)}/>
         <label
           name={`${this.props.name}-${this.props.optionIndex}-label`}
