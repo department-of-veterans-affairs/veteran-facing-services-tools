@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import ToolTip from '../../../Tooltip/Tooltip';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
+import ErrorableRadioInput from './components/ErrorableRadioInput';
 
 import { makeField } from '../../../../helpers/fields';
 
@@ -105,27 +106,21 @@ class ErrorableRadioButtons extends React.Component {
         optionValue === storedValue,
         optionValue
       );
+
       const radioButton = (
         <div
           key={optionAdditional ? undefined : optionIndex}
           className="form-radio-buttons">
-          <input
-            autoComplete="false"
+          <ErrorableRadioInput
+            {...this.props}
+            optionIndex={optionIndex}
+            optionValue={optionValue}
+            optionLabel={optionLabel}
+            inputId={this.inputId}
             checked={checked}
-            id={`${this.inputId}-${optionIndex}`}
-            name={this.props.name}
-            type="radio"
-            onMouseDown={this.props.onMouseDown}
-            onKeyDown={this.props.onKeyDown}
-            value={optionValue}
-            onChange={this.handleChange}/>
-          <label
-            name={`${this.props.name}-${optionIndex}-label`}
-            htmlFor={`${this.inputId}-${optionIndex}`}>
-            {optionLabel}
-          </label>
-          {matchingSubSection}
-          {option.content}
+            matchingSubSection={matchingSubSection}
+            option={option}
+            handleChange={this.handleChange}/>
         </div>
       );
 
