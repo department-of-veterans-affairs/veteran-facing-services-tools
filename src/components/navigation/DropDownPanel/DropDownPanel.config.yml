@@ -6,5 +6,4 @@ context:
   id: default
   buttonText: 'Helpdesk'
   cssClass: 'va-dropdown'
-  isOpen: true
   contents: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium.'

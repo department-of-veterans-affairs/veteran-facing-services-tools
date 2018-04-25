@@ -1,8 +1,6 @@
 label: Help Menu
 status: wip
 preview: '@uswds'
-display:
-  max-width: 400px
 
 context:
   componentSourcePath: 'HelpMenu.jsx'
