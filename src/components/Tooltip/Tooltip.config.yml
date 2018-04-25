@@ -1,6 +1,6 @@
 label: Tooltip
 status: wip
-order: 15
+order: 16
 
 context:
   componentSourcePath: './Tooltip.jsx'
