@@ -328,22 +328,7 @@
                                 <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
 
-<span class="hljs-comment">/**
- * A form checkbox with a label that can display error messages.
- *
- * Validation has the following props.
- * `checked` - Boolean. Whether or not the checkbox is checked.
- * `errorMessage` - Error string to display in the component.
- *                  When defined, indicates checkbox has a validation error.
- * `label` - String for the checkbox label.
- * `name` - String for name attribute.
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `onValueChange` - a function with this prototype: (newValue)
- * `required` - boolean. Render marker indicating field is required.
- */</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ErrorableCheckbox</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
   <span class="hljs-keyword">constructor</span>() {
     <span class="hljs-keyword">super</span>();
@@ -372,51 +357,40 @@
       );
     }
 
-    <span class="hljs-comment">// Addes ToolTip if text is provided.</span>
-    <span class="hljs-keyword">let</span> toolTip;
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.toolTipText) {
-      toolTip = (
-        &lt;ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/&gt;
-      );
+    <span class="hljs-comment">// Calculate required.</span>
+    <span class="hljs-keyword">let</span> requiredSpan = <span class="hljs-literal">undefined</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.required) {
+      requiredSpan = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
     }
 
-    // Calculate required.
-    let requiredSpan = undefined;
-    if (this.props.required) {
-      requiredSpan = &lt;span className="form-required-span"&gt;*&lt;/span&gt;;
+    <span class="hljs-keyword">let</span> className = <span class="hljs-string">`form-checkbox<span class="hljs-subst">${
+      <span class="hljs-keyword">this</span>.props.errorMessage ? <span class="hljs-string">' usa-input-error'</span> : <span class="hljs-string">''</span>
+    }</span>`</span>;
+    <span class="hljs-keyword">if</span> (!_.isUndefined(<span class="hljs-keyword">this</span>.props.className)) {
+      className = <span class="hljs-string">`<span class="hljs-subst">${className}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.props.className}</span>`</span>;
     }
 
-    let className = `form-checkbox${
-      this.props.errorMessage ? ' usa-input-error' : ''
-    }`;
-    if (!_.isUndefined(this.props.className)) {
-      className = `${className} ${this.props.className}`;
-    }
-
-    return (
-      &lt;div className={className}&gt;
-        &lt;input
-          autoComplete="false"
-          aria-describedby={errorSpanId}
-          checked={this.props.checked}
-          id={this.inputId}
-          name={this.props.name}
-          type="checkbox"
-          onChange={this.handleChange}/&gt;
-        &lt;label
-          className={
-            this.props.errorMessage ? 'usa-input-error-label' : undefined
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{className}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          <span class="hljs-attr">autoComplete</span>=<span class="hljs-string">"false"</span>
+          <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">{errorSpanId}</span>
+          <span class="hljs-attr">checked</span>=<span class="hljs-string">{this.props.checked}</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">{this.inputId}</span>
+          <span class="hljs-attr">name</span>=<span class="hljs-string">{this.props.name}</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>
+          <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}/</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>
+          <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>
+            <span class="hljs-attr">this.props.errorMessage</span> ? '<span class="hljs-attr">usa-input-error-label</span>' <span class="hljs-attr">:</span> <span class="hljs-attr">undefined</span>
           }
-          name={`${this.props.name}-label`}
-          htmlFor={this.inputId}&gt;
+          <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.props.name</span>}<span class="hljs-attr">-label</span>`}
+          <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">{this.inputId}</span>&gt;</span>
           {this.props.label}
           {requiredSpan}
-        &lt;/label&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
         {errorSpan}
-        {toolTip}
-      &lt;/div&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     );
   }
 }
@@ -449,7 +423,7 @@ ErrorableCheckbox.propTypes = {
 };
 
 export default ErrorableCheckbox;
-</pre>
+</span></pre>
                             </code>
                             
                         </div>
@@ -465,7 +439,7 @@ export default ErrorableCheckbox;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.4 KB</span>
+                    <span class="Meta-value">2.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -2214,30 +2188,6 @@ describe(<span class="hljs-string">'&lt;ErrorableCheckbox/&gt;'</span>, () =&gt;
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
                 <span>Additional Info / Tooltip</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
-                <span>Tooltip</span>
                 
 
 <div class="Status Status--unlabelled">

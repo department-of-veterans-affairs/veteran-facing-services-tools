@@ -225,14 +225,6 @@
             </tr>
           
             <tr>
-              <td>toolTipText</td>
-              <td>No</td>
-              <td>string</td>
-              <td></td>
-              <td></td>
-            </tr>
-          
-            <tr>
               <td>requiredMessage</td>
               <td>No</td>
               <td>string</td>
@@ -271,9 +263,6 @@
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-number-input-45"</span>&gt;</span>Year<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"1900"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"2118"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-number-input-45"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Errorable DateYear"</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"[0-9]{4}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1983"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hca-tooltip"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>More Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>This is a tool tip<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -303,7 +292,6 @@
                 <span class="hljs-string">"dirty"</span>: <span class="hljs-literal">null</span>
             }
         },
-        <span class="hljs-string">"toolTipText"</span>: <span class="hljs-string">"This is a tool tip"</span>,
         <span class="hljs-string">"requiredMessage"</span>: <span class="hljs-string">"Please provide a response"</span>,
         <span class="hljs-string">"invalidMessage"</span>: <span class="hljs-string">"Please provide a valid date"</span>
     }
@@ -353,7 +341,6 @@
 <span class="hljs-attr">  year:</span>
 <span class="hljs-attr">    value:</span> <span class="hljs-string">'1983'</span>
 <span class="hljs-attr">    dirty:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">toolTipText:</span> <span class="hljs-string">This</span> <span class="hljs-string">is</span> <span class="hljs-string">a</span> <span class="hljs-string">tool</span> <span class="hljs-string">tip</span>
 <span class="hljs-attr">requiredMessage:</span> <span class="hljs-string">Please</span> <span class="hljs-string">provide</span> <span class="hljs-string">a</span> <span class="hljs-string">response</span>
 <span class="hljs-attr">invalidMessage:</span> <span class="hljs-string">Please</span> <span class="hljs-string">provide</span> <span class="hljs-string">a</span> <span class="hljs-string">valid</span> <span class="hljs-string">date</span>
 </pre>
@@ -398,8 +385,6 @@
 
 <span class="hljs-keyword">import</span> ErrorableSelect <span class="hljs-keyword">from</span> <span class="hljs-string">'../ErrorableSelect/ErrorableSelect'</span>;
 <span class="hljs-keyword">import</span> ErrorableNumberInput <span class="hljs-keyword">from</span> <span class="hljs-string">'../ErrorableNumberInput/ErrorableNumberInput'</span>;
-
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
 
 <span class="hljs-keyword">import</span> {
   isDirtyDate,
@@ -473,17 +458,7 @@
       );
     }
 
-    <span class="hljs-comment">// Adds ToolTip if text is provided.</span>
-    <span class="hljs-keyword">let</span> toolTip;
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.toolTipText) {
-      toolTip = (
-        &lt;ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/&gt;
-      );
-    }
-
-    return (
+    <span class="hljs-keyword">return</span> (
       &lt;div className={!isValid &amp;&amp; 'input-error-date'}&gt;
         &lt;label&gt;
           {this.props.label ? this.props.label : 'Date of birth'}
@@ -534,7 +509,6 @@
                 }}/&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-          {toolTip}
         &lt;/div&gt;
       &lt;/div&gt;
     );
@@ -570,8 +544,6 @@ ErrorableDate.propTypes = {
   }).isRequired,
   /* a function with this prototype: (newValue) */
   onValueChange: PropTypes.func.isRequired,
-  /* String with help text for user. */
-  toolTipText: PropTypes.string,
   requiredMessage: PropTypes.string,
   invalidMessage: PropTypes.string
 };
@@ -598,7 +570,7 @@ export default ErrorableDate;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.9 KB</span>
+                    <span class="Meta-value">5.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -2355,30 +2327,6 @@ describe(<span class="hljs-string">'&lt;ErrorableDate&gt;'</span>, () =&gt; {
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
                 <span>Additional Info / Tooltip</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
-                <span>Tooltip</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -3,7 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../Tooltip/Tooltip';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 
 import { makeField } from '../../../../helpers/fields';
@@ -18,7 +17,6 @@ import { makeField } from '../../../../helpers/fields';
  * `errorMessage' - String Error message for the radio button group
  * `label` - String for the group field label.
  * `name` - String for the name attribute.
- * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tab order.
  * `options` - Array of options to populate group.
  * `required` - is this field required.
@@ -65,16 +63,6 @@ class ErrorableRadioButtons extends React.Component {
         <span className="usa-input-error-message" role="alert" id={errorSpanId}>
           <span className="sr-only">Error</span> {this.props.errorMessage}
         </span>
-      );
-    }
-
-    // Addes ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
       );
     }
 
@@ -165,7 +153,6 @@ class ErrorableRadioButtons extends React.Component {
         </legend>
         {errorSpan}
         {optionElements}
-        {toolTip}
       </fieldset>
     );
   }
@@ -193,10 +180,6 @@ ErrorableRadioButtons.propTypes = {
    */
   name: PropTypes.string,
   id: PropTypes.string,
-  /**
-   * help text for user
-   */
-  toolTipText: PropTypes.string,
   /**
    * keyboard tab order for radio button group
    */

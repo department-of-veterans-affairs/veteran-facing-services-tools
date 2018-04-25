@@ -282,9 +282,9 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"errorableselect"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-select-55"</span>&gt;</span>select label<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-select-55-error-message"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>This is the error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-select-54"</span>&gt;</span>select label<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-select-54-error-message"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>This is the error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">select</span>
-            <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"errorable-select-55-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-select-55"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Attribute name"</span>&gt;</span>
+            <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"errorable-select-54-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-select-54"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Attribute name"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"first option"</span>&gt;</span>first option<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"second option"</span>&gt;</span>second option<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
@@ -399,7 +399,6 @@
                                 <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
 <span class="hljs-keyword">import</span> { makeField } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../helpers/fields'</span>;
 
 <span class="hljs-comment">/**
@@ -438,45 +437,35 @@
       );
     }
 
-    <span class="hljs-comment">// Addes ToolTip if text is provided.</span>
-    <span class="hljs-keyword">let</span> toolTip;
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.toolTipText) {
-      toolTip = (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ToolTip</span>
-          <span class="hljs-attr">tabIndex</span>=<span class="hljs-string">{this.props.tabIndex}</span>
-          <span class="hljs-attr">toolTipText</span>=<span class="hljs-string">{this.props.toolTipText}/</span>&gt;</span>
-      );
+    <span class="hljs-comment">// Calculate required.</span>
+    <span class="hljs-keyword">let</span> requiredSpan = <span class="hljs-literal">undefined</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.required) {
+      requiredSpan = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>;
     }
 
-    // Calculate required.
-    let requiredSpan = undefined;
-    if (this.props.required) {
-      requiredSpan = <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>;
-    }
-
-    // Calculate options for select
-    let reactKey = 0;
-    // TODO(awong): Remove this hack to handle options prop and use invariants instead.
-    const options = _.isArray(this.props.options) ? this.props.options : [];
-    const optionElements = options.map(obj =&gt; {
-      let label;
-      let value;
-      if (_.isString(obj)) {
+    <span class="hljs-comment">// Calculate options for select</span>
+    <span class="hljs-keyword">let</span> reactKey = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// TODO(awong): Remove this hack to handle options prop and use invariants instead.</span>
+    <span class="hljs-keyword">const</span> options = _.isArray(<span class="hljs-keyword">this</span>.props.options) ? <span class="hljs-keyword">this</span>.props.options : [];
+    <span class="hljs-keyword">const</span> optionElements = options.map(<span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span> {
+      <span class="hljs-keyword">let</span> label;
+      <span class="hljs-keyword">let</span> value;
+      <span class="hljs-keyword">if</span> (_.isString(obj)) {
         label = obj;
         value = obj;
-      } else {
+      } <span class="hljs-keyword">else</span> {
         label = obj.label;
         value = obj.value;
       }
-      return (
-        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{++reactKey}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{value}</span>&gt;</span>
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{++reactKey}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{value}</span>&gt;</span>
           {label}
-        <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span></span>
       );
     });
 
-    return (
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{this.props.errorMessage</span> ? '<span class="hljs-attr">usa-input-error</span>' <span class="hljs-attr">:</span> <span class="hljs-attr">undefined</span>}&gt;</span>
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{this.props.errorMessage</span> ? '<span class="hljs-attr">usa-input-error</span>' <span class="hljs-attr">:</span> <span class="hljs-attr">undefined</span>}&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">label</span>
           <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>
             <span class="hljs-attr">this.props.errorMessage</span> !== <span class="hljs-string">undefined</span>
@@ -502,76 +491,75 @@
           )}
           {optionElements}
         <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-        {toolTip}
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
   }
 }
 
 ErrorableSelect.propTypes = {
-  // Error string to display in the component.
-  // When defined, indicates select has a validation error.
+  <span class="hljs-comment">// Error string to display in the component.</span>
+  <span class="hljs-comment">// When defined, indicates select has a validation error.</span>
   errorMessage: PropTypes.string,
 
-  // Select name attribute.
+  <span class="hljs-comment">// Select name attribute.</span>
   name: PropTypes.string,
 
-  // Select autocomplete attribute.
+  <span class="hljs-comment">// Select autocomplete attribute.</span>
   autocomplete: PropTypes.string,
 
-  // Select field label.
+  <span class="hljs-comment">// Select field label.</span>
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 
-  /*
+  <span class="hljs-comment">/*
    * KeyDown handler
-   */
+   */</span>
   onKeyDown: PropTypes.func,
-  // Array of options to populate select.
+  <span class="hljs-comment">// Array of options to populate select.</span>
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.number
+        <span class="hljs-attr">label</span>: PropTypes.string,
+        <span class="hljs-attr">value</span>: PropTypes.number
       }),
       PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
+        <span class="hljs-attr">label</span>: PropTypes.string,
+        <span class="hljs-attr">value</span>: PropTypes.string
       })
     ])
   ).isRequired,
 
-  // Render marker indicating field is required.
+  <span class="hljs-comment">// Render marker indicating field is required.</span>
   required: PropTypes.bool,
 
-  // is there an empty selectable thing
+  <span class="hljs-comment">// is there an empty selectable thing</span>
   includeBlankOption: PropTypes.bool,
 
-  // Description that shows up for the blank option, when includeBlankOption is true
+  <span class="hljs-comment">// Description that shows up for the blank option, when includeBlankOption is true</span>
   emptyDescription: PropTypes.string,
 
-  /* `value` - object containing:
+  <span class="hljs-comment">/* `value` - object containing:
    *   - `value`: Value of the select field.
    *   - `dirty`: boolean. Whether a field has been touched by the user.
-   */
+   */</span>
   value: PropTypes.shape({
-    value: PropTypes.string,
-    dirty: PropTypes.bool
+    <span class="hljs-attr">value</span>: PropTypes.string,
+    <span class="hljs-attr">dirty</span>: PropTypes.bool
   }).isRequired,
 
-  // a function with this prototype: (newValue)
+  <span class="hljs-comment">// a function with this prototype: (newValue)</span>
   onValueChange: PropTypes.func.isRequired,
 
-  // Additional css class that is added to the select element.
+  <span class="hljs-comment">// Additional css class that is added to the select element.</span>
   additionalClass: PropTypes.string
 };
 
 ErrorableSelect.defaultProps = {
-  includeBlankOption: true
+  <span class="hljs-attr">includeBlankOption</span>: <span class="hljs-literal">true</span>
 };
 
-export default ErrorableSelect;
-</span></pre>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ErrorableSelect;
+</pre>
                             </code>
                             
                         </div>
@@ -587,7 +575,7 @@ export default ErrorableSelect;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.6 KB</span>
+                    <span class="Meta-value">4.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -2325,30 +2313,6 @@ describe(<span class="hljs-string">'&lt;ErrorableSelect&gt;'</span>, () =&gt; {
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
                 <span>Additional Info / Tooltip</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
-                <span>Tooltip</span>
                 
 
 <div class="Status Status--unlabelled">

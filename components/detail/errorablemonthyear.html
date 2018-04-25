@@ -225,14 +225,6 @@
             </tr>
           
             <tr>
-              <td>toolTipText</td>
-              <td>No</td>
-              <td>string</td>
-              <td></td>
-              <td></td>
-            </tr>
-          
-            <tr>
               <td>requiredMessage</td>
               <td>No</td>
               <td>string</td>
@@ -382,8 +374,6 @@
 <span class="hljs-keyword">import</span> ErrorableSelect <span class="hljs-keyword">from</span> <span class="hljs-string">'../ErrorableSelect/ErrorableSelect'</span>;
 <span class="hljs-keyword">import</span> ErrorableNumberInput <span class="hljs-keyword">from</span> <span class="hljs-string">'../ErrorableNumberInput/ErrorableNumberInput'</span>;
 
-<span class="hljs-keyword">import</span> ToolTip <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../Tooltip/Tooltip'</span>;
-
 <span class="hljs-keyword">import</span> { isValidPartialMonthYear, validateCustomFormComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../helpers/validations'</span>;
 <span class="hljs-keyword">import</span> { months } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../helpers/options-for-select.js'</span>;
 
@@ -395,7 +385,6 @@
  * `validation` - object or array. Result of custom validation. Should include a valid prop and a message prop
  * `label` - string. Label for entire question.
  * `name` - string. Used to create unique name attributes for each input.
- * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tab order.
  * `date` - object. Date value. Should have month, day, and year props
  * `onValueChange` - a function with this prototype: (newValue)
@@ -450,17 +439,7 @@
       );
     }
 
-    <span class="hljs-comment">// Adds ToolTip if text is provided.</span>
-    <span class="hljs-keyword">let</span> toolTip;
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.toolTipText) {
-      toolTip = (
-        &lt;ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/&gt;
-      );
-    }
-
-    return (
+    <span class="hljs-keyword">return</span> (
       &lt;div className={!isValid &amp;&amp; 'input-error-date'}&gt;
         &lt;label&gt;
           {this.props.label}
@@ -490,7 +469,6 @@
                 onValueChange={(update) =&gt; {this.handleChange('year', update);}}/&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-          {toolTip}
         &lt;/div&gt;
       &lt;/div&gt;
     );
@@ -513,7 +491,6 @@ ErrorableMonthYear.propTypes = {
     })
   }).isRequired,
   onValueChange: PropTypes.func.isRequired,
-  toolTipText: PropTypes.string,
   requiredMessage: PropTypes.string,
   invalidMessage: PropTypes.string
 };
@@ -540,7 +517,7 @@ export default ErrorableMonthYear;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5 KB</span>
+                    <span class="Meta-value">4.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -2284,30 +2261,6 @@ describe(<span class="hljs-string">'&lt;ErrorableMonthYear&gt;'</span>, () =&gt;
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
                 <span>Additional Info / Tooltip</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
-                <span>Tooltip</span>
                 
 
 <div class="Status Status--unlabelled">
