@@ -3,7 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import ToolTip from '../../../Tooltip/Tooltip';
 import { makeField } from '../../../../helpers/fields';
 
 /**
@@ -50,16 +49,6 @@ class ErrorableTextArea extends React.Component {
       labelErrorClass = 'usa-input-error-label';
     }
 
-    // Adds ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
-      );
-    }
-
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
@@ -101,7 +90,6 @@ class ErrorableTextArea extends React.Component {
           onChange={this.handleChange}
           onBlur={this.handleBlur}/>
         {maxCharacters}
-        {toolTip}
       </div>
     );
   }
@@ -138,10 +126,7 @@ ErrorableTextArea.propTypes = {
   charMax: PropTypes.number,
 
   /* a function with this prototype: (newValue) */
-  onValueChange: PropTypes.func.isRequired,
-
-  /* String with help text for user. */
-  toolTipText: PropTypes.string
+  onValueChange: PropTypes.func.isRequired
 };
 
 export default ErrorableTextArea;
