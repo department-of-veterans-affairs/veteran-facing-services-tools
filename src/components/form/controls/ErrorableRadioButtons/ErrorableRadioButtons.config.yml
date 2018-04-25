@@ -17,3 +17,4 @@ context:
     value: 'option 2'
     dirty: false
   required: false
+  toolTipText: 'this triggers a tooltip'
