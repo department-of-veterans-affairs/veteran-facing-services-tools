@@ -1,6 +1,6 @@
 label: Collapsible Panel
 status: wip
-order: 13
+order: 18
 
 context:
   componentSourcePath: 'CollapsiblePanel.jsx'
