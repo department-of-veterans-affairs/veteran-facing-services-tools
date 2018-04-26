@@ -322,7 +322,8 @@ dirty: indicates if form is dirty; should be true after any user input</td>
             <span class="hljs-string">"value"</span>: <span class="hljs-string">"option 2"</span>,
             <span class="hljs-string">"dirty"</span>: <span class="hljs-literal">null</span>
         },
-        <span class="hljs-string">"required"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-string">"required"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">"toolTipText"</span>: <span class="hljs-string">"this triggers a tooltip"</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
         
@@ -393,6 +394,7 @@ export <span class="hljs-keyword">default</span> function <span class="hljs-type
 <span class="hljs-attr">  value:</span> <span class="hljs-string">option</span> <span class="hljs-number">2</span>
 <span class="hljs-attr">  dirty:</span> <span class="hljs-literal">null</span>
 <span class="hljs-attr">required:</span> <span class="hljs-literal">null</span>
+<span class="hljs-attr">toolTipText:</span> <span class="hljs-string">this</span> <span class="hljs-string">triggers</span> <span class="hljs-string">a</span> <span class="hljs-string">tooltip</span>
 </pre>
             
         
@@ -2264,10 +2266,21 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-modal">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Modal</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal.html" data-pjax>
-                <span>Modal</span>
+            <a class="Tree-entityLink" href="modal--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2284,6 +2297,107 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
 
 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal--info.html" data-pjax>
+                <span>Info</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal--success.html" data-pjax>
+                <span>Success</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal--warning.html" data-pjax>
+                <span>Warning</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="modal--error.html" data-pjax>
+                <span>Error</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2338,8 +2452,8 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
-                <span>Collapsible Panel</span>
+            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+                <span>Address block</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2386,8 +2500,8 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
-                <span>Address block</span>
+            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+                <span>Loading Indicator</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2410,8 +2524,8 @@ describe(<span class="hljs-string">'&lt;ErrorableRadioButtons&gt;'</span>, () =&
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
-                <span>Loading Indicator</span>
+            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+                <span>Collapsible Panel</span>
                 
 
 <div class="Status Status--unlabelled">
