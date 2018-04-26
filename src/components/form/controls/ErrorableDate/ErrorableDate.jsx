@@ -8,8 +8,6 @@ import moment from 'moment';
 import ErrorableSelect from '../ErrorableSelect/ErrorableSelect';
 import ErrorableNumberInput from '../ErrorableNumberInput/ErrorableNumberInput';
 
-import ToolTip from '../../../Tooltip/Tooltip';
-
 import {
   isDirtyDate,
   isValidPartialDate,
@@ -82,16 +80,6 @@ class ErrorableDate extends React.Component {
       );
     }
 
-    // Adds ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
-      );
-    }
-
     return (
       <div className={!isValid && 'input-error-date'}>
         <label>
@@ -143,7 +131,6 @@ class ErrorableDate extends React.Component {
                 }}/>
             </div>
           </div>
-          {toolTip}
         </div>
       </div>
     );
@@ -179,8 +166,6 @@ ErrorableDate.propTypes = {
   }).isRequired,
   /* a function with this prototype: (newValue) */
   onValueChange: PropTypes.func.isRequired,
-  /* String with help text for user. */
-  toolTipText: PropTypes.string,
   requiredMessage: PropTypes.string,
   invalidMessage: PropTypes.string
 };
