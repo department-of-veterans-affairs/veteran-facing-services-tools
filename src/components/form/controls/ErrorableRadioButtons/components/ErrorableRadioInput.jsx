@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ErrorableRadioInput extends React.Component {
   constructor() {
@@ -61,5 +62,26 @@ class ErrorableRadioInput extends React.Component {
     );
   }
 }
+
+ErrorableRadioInput.propTypes = {
+  /**
+   * Mouse Down handler
+   */
+  onMouseDown: PropTypes.func,
+  /**
+   * Key Down handler
+   */
+  onKeyDown: PropTypes.func,
+  optionValue: PropTypes.string,
+  handleChange: PropTypes.func,
+  optionIndex: PropTypes.number,
+  name: PropTypes.string,
+  optionLabel: PropTypes.string,
+  matchingSubSection: PropTypes.func,
+  option: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+};
 
 export default ErrorableRadioInput;
