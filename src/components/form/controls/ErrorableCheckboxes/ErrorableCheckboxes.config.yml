@@ -4,7 +4,16 @@ status: wip
 context:
   componentSourcePath: './ErrorableCheckboxes.jsx'
   id: default
-  errorMessage: 'Error message'
+  errorMessage: 'This is an error message'
   label: 'Errorable Checkboxes'
   required: true
-  title: 'ErrorableCheckboxes'
+  options:
+    - label: 'Checkbox label'
+      value: 'value'
+      content: 'a string'
+      additional: 'another thing'
+    - label: 'Checkbox label'
+      value: 'value'
+      content: 'some more content'
+      additional: 'and another thing'
+  values: { key:value }
