@@ -17,7 +17,7 @@ If you're familiar with cloning repos from Github using Terminal, skip ahead to 
 
 You can put the repo anywhere on your computer, but as a suggestion:
 - In Terminal, navigate to your desktop: `cd ~/desktop`
-- Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/design-system.git` 
+- Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/design-system.git`
 - Then: `cd design-system`
 
 **Install Fractal**
@@ -44,9 +44,12 @@ Builds all JSX files in `src/components` and all js files in `src/helpers` and a
 
 [yalc](https://github.com/whitecolor/yalc) is recommended for testing module publication- see installation instructions.
 
+* Install Yalc globally if you don't have it.
+      $ yarn global add yalc
+
 * With yalc installed, run `npm run test-publish`
 
-Copies `package.json` to the `dist/jean-pants` directory and publishes the exported components to the local yalc directory as a `@department-of-veteran-affairs/jean-pants` module.
+Copies `package.json` to the `dist/jean-pants` directory and publishes the exported components to the local yalc directory as a `@department-of-veterans-affairs/jean-pants` module.
 
 * In the `vets-website` project, run `yalc link @department-of-veteran-affairs/jean-pants` and subsequently `yalc update`
 
