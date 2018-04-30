@@ -50,7 +50,7 @@ class ErrorableRadioInput extends React.Component {
           onFocus={(e) => this.handleOnFocus(e)}/>
         <label
           name={`${this.props.name}-${this.props.optionIndex}-label`}
-          htmlFor={`${this.inputId}-${this.props.optionIndex}`}
+          htmlFor={`${this.props.inputId}-${this.props.optionIndex}`}
           ref="labelIput"
           style={this.state.focusStyle}>
 
