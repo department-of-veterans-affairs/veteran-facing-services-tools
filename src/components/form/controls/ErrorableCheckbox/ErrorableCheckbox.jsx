@@ -1,22 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import ToolTip from '../../../Tooltip/Tooltip';
 
-/**
- * A form checkbox with a label that can display error messages.
- *
- * Validation has the following props.
- * `checked` - Boolean. Whether or not the checkbox is checked.
- * `errorMessage` - Error string to display in the component.
- *                  When defined, indicates checkbox has a validation error.
- * `label` - String for the checkbox label.
- * `name` - String for name attribute.
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `onValueChange` - a function with this prototype: (newValue)
- * `required` - boolean. Render marker indicating field is required.
- */
 class ErrorableCheckbox extends React.Component {
   constructor() {
     super();
@@ -42,16 +27,6 @@ class ErrorableCheckbox extends React.Component {
         <span className="usa-input-error-message" role="alert" id={errorSpanId}>
           <span className="sr-only">Error</span> {this.props.errorMessage}
         </span>
-      );
-    }
-
-    // Addes ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
       );
     }
 
@@ -88,7 +63,6 @@ class ErrorableCheckbox extends React.Component {
           {requiredSpan}
         </label>
         {errorSpan}
-        {toolTip}
       </div>
     );
   }

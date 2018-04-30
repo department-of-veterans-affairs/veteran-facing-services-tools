@@ -8,8 +8,6 @@ import moment from 'moment';
 import ErrorableSelect from '../ErrorableSelect/ErrorableSelect';
 import ErrorableNumberInput from '../ErrorableNumberInput/ErrorableNumberInput';
 
-import ToolTip from '../../../Tooltip/Tooltip';
-
 import { isValidPartialMonthYear, validateCustomFormComponent } from '../../../../helpers/validations';
 import { months } from '../../../../helpers/options-for-select.js';
 
@@ -21,7 +19,6 @@ import { months } from '../../../../helpers/options-for-select.js';
  * `validation` - object or array. Result of custom validation. Should include a valid prop and a message prop
  * `label` - string. Label for entire question.
  * `name` - string. Used to create unique name attributes for each input.
- * `toolTipText` - String with help text for user.
  * `tabIndex` - Number for keyboard tab order.
  * `date` - object. Date value. Should have month, day, and year props
  * `onValueChange` - a function with this prototype: (newValue)
@@ -76,16 +73,6 @@ class ErrorableMonthYear extends React.Component {
       );
     }
 
-    // Adds ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
-      );
-    }
-
     return (
       <div className={!isValid && 'input-error-date'}>
         <label>
@@ -116,7 +103,6 @@ class ErrorableMonthYear extends React.Component {
                 onValueChange={(update) => {this.handleChange('year', update);}}/>
             </div>
           </div>
-          {toolTip}
         </div>
       </div>
     );
@@ -139,7 +125,6 @@ ErrorableMonthYear.propTypes = {
     })
   }).isRequired,
   onValueChange: PropTypes.func.isRequired,
-  toolTipText: PropTypes.string,
   requiredMessage: PropTypes.string,
   invalidMessage: PropTypes.string
 };

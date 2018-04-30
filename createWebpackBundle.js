@@ -33,8 +33,8 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
   const compiler = webpack({
     entry: {
       components: './fractalEntry.js',
-      styles: './src/sass/site.scss',
-      fractal: './src/sass/style.fractal.scss'
+      styles: './src/sass/site/site.scss',
+      fractal: './src/sass/site/style.fractal.scss'
     },
     output: {
       filename: '[name].bundle.js',
@@ -91,17 +91,8 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
             fallback: 'style-loader',
             use: [
               { loader: 'css-loader' },
-              { loader: 'resolve-url-loader' },
-              {
-                loader: 'sass-loader',
-                options: {
-                  includePaths: [
-                    '~/uswds/src/stylesheets&sourceMap'
-                  ],
-                  sourceMap: true,
-                }
-              }
-            ],
+              { loader: 'sass-loader' }
+            ]
           })
         },
         {
@@ -110,17 +101,8 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
             fallback: 'style-loader',
             use: [
               { loader: 'css-loader' },
-              { loader: 'resolve-url-loader' },
-              {
-                loader: 'sass-loader',
-                options: {
-                  includePaths: [
-                    '~/uswds/src/stylesheets&sourceMap'
-                  ],
-                  sourceMap: true,
-                }
-              }
-            ],
+              { loader: 'sass-loader' }
+            ]
           })
         },
         {

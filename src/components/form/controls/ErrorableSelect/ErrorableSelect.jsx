@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import ToolTip from '../../../Tooltip/Tooltip';
 import { makeField } from '../../../../helpers/fields';
 
 /**
@@ -37,16 +36,6 @@ class ErrorableSelect extends React.Component {
           role="alert">
           {this.props.errorMessage}
         </span>
-      );
-    }
-
-    // Addes ToolTip if text is provided.
-    let toolTip;
-    if (this.props.toolTipText) {
-      toolTip = (
-        <ToolTip
-          tabIndex={this.props.tabIndex}
-          toolTipText={this.props.toolTipText}/>
       );
     }
 
@@ -104,7 +93,6 @@ class ErrorableSelect extends React.Component {
           )}
           {optionElements}
         </select>
-        {toolTip}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 label: Sortable Table
 status: wip
-order: 12
+order: 15
 
 context:
   componentSourcePath: 'SortableTable.jsx'

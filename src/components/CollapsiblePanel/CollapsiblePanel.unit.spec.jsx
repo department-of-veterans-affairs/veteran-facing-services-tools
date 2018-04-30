@@ -7,6 +7,15 @@ import { axeCheck } from '../../../lib/testing/helpers';
 import CollapsiblePanel from './CollapsiblePanel';
 
 describe('<CollapsiblePanel>', () => {
+  beforeEach(() => {
+    window.VetsGov = {
+      ...window.VetsGov,
+      ...{
+        scroll: false
+      }
+    };
+  });
+
   it('should render the correct panel header', () => {
     const testHeaderText = 'Test panel';
     const wrapper = shallow(<CollapsiblePanel panelName={testHeaderText}/>);
@@ -57,5 +66,9 @@ describe('<CollapsiblePanel>', () => {
 
   it('should pass aXe check when open', () => {
     return axeCheck(<CollapsiblePanel panelName={'Test'} startOpen/>);
+  });
+
+  afterEach(() => {
+    delete window.VetsGov.scroll;
   });
 });

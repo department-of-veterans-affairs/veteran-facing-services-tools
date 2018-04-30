@@ -12,4 +12,3 @@ context:
   field:
     dirty: false
   charMax: 255
-  toolTipText: 'This is the tooltip.'
