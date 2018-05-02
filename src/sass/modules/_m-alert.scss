@@ -175,3 +175,10 @@ p.usa-alert-heading {
     margin-bottom: 2em;
   }
 }
+
+// icon fixes
+.va-alert-body {
+  div:first-child, p:first-child {
+    margin-top:.3em;
+  }
+}
