@@ -29,7 +29,8 @@
     "moment": "^2.21.0",
     "prop-types": "^15.6.0",
     "react-transition-group": "^1.x",
-    "window-or-global": "^1.0.1"
+    "window-or-global": "^1.0.1",
+    "yalc": "^1.0.0-pre.21"
   },
   "devDependencies": {
     "@frctl/fractal": "^1.1.7",
