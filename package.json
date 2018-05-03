@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/jean-pants",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -86,5 +86,5 @@
   "peerDependencies": {
     "react": "^15.5.4",
     "uswds": "^1.4.2"
-  }
+  } 
 }
