@@ -179,8 +179,8 @@ p.usa-alert-heading {
 // icon fixes
 .va-alert-body,
 .usa-alert-body {
-  div:first-child,
-  p:first-child {
+  > div:first-child,
+  > p:first-child {
     margin-top:.3em;
   }
 }
