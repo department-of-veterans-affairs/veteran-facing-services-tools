@@ -6,7 +6,7 @@ The design system (affectionately named “Formation”) is a Fractal implementa
 
 Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Formation is a single source of documentation and truth for people looking to use the Vets.gov components.
 
-Formation’ purpose is to provide accepted guidance for:
+Formation’s purpose is to provide accepted guidance for:
 
 - code implementations for existing components
 - visual design for existing components
