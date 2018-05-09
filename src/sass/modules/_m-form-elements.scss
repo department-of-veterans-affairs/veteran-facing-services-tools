@@ -1,10 +1,20 @@
 .form-radio-buttons {
   label {
     margin-top: 1em;
+    outline: none;
+    padding: 6px 12px;
+    display: inline-block;
+    margin: 0;
 
     // Make links in radio button labels clickable
     a {
       position: relative;
+    }
+  }
+
+  input:focus {
+    &+label {
+      background: #fad980;
     }
   }
 }

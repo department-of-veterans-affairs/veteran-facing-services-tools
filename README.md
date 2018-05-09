@@ -46,6 +46,9 @@ If the `fractal watch` task fails, remove the `dist` directory and try running `
 
 [yalc](https://github.com/whitecolor/yalc) is recommended for testing module publication- see installation instructions.
 
+* Install Yalc globally if you don't have it.
+      $ yarn global add yalc
+
 * With yalc installed, run `npm run test-publish`
 
 > Copies `package.json` to the `dist/jean-pants` directory and publishes the exported components to the local yalc directory as a `@department-of-veterans-affairs/jean-pants` module.
