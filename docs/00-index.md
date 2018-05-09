@@ -1,12 +1,12 @@
 ---
-title: Welcome to Jean Pants!
+title: Welcome to Formation!
 ---
 
-The design system (affectionately named “Jean Pants”) is a Fractal implementation for Vets.gov. It’s based on USWDS’ own system, and modified for the unique needs of Vets.gov.
+The design system (affectionately named “Formation”) is a Fractal implementation for Vets.gov. It’s based on USWDS’ own system, and modified for the unique needs of Vets.gov.
 
-Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Jean Pants is a single source of documentation and truth for people looking to use the Vets.gov components.
+Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Formation is a single source of documentation and truth for people looking to use the Vets.gov components.
 
-Jean Pants’ purpose is to provide accepted guidance for:
+Formation’s purpose is to provide accepted guidance for:
 
 - code implementations for existing components
 - visual design for existing components
@@ -15,7 +15,7 @@ Jean Pants’ purpose is to provide accepted guidance for:
 
 ## Get started:
 - [Quickstart](/docs/quickstart)
-- [Jean Pants User Guide](/docs/user-guide)
+- [Formation User Guide](/docs/user-guide)
 - [Designing Good User Experiences](/docs/playbook/designing-good-user-experiences)
 
 ---
