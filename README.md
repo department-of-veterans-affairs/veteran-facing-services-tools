@@ -4,7 +4,7 @@ Stable URL: https://department-of-veterans-affairs.github.io/design-system
 
 These instructions assume you're using Terminal, and that you're starting from scratch as far as a development environment is concerned. If you've already got dependencies installed, move on to **Install Fractal**.
 
-> Please note: If you're on a VA laptop, and don't have Administrator access, you may not be able to install & run Jean Pants locally. Please visit the [stable URL](https://department-of-veterans-affairs.github.io/design-system) to use the system as a reference.
+> Please note: If you're on a VA laptop, and don't have Administrator access, you may not be able to install & run Formation locally. Please visit the [stable URL](https://department-of-veterans-affairs.github.io/design-system) to use the system as a reference.
 
 **Start here:**
 
