@@ -38,9 +38,9 @@ If the `fractal watch` task fails, remove the `dist` directory and try running `
 
 * Run `npm run export-components`
 
-> Builds all JSX files in `src/components` and all js files in `src/helpers` and add them to the `dist/jean-pants` folder.
+> Builds all JSX files in `src/components` and all js files in `src/helpers` and add them to the `dist/formation` folder.
 
-> `dist/jean-pants` is the root directory of the npm module.
+> `dist/formation` is the root directory of the npm module.
 
 2. Test the components
 
@@ -51,11 +51,11 @@ If the `fractal watch` task fails, remove the `dist` directory and try running `
 
 * With yalc installed, run `npm run test-publish`
 
-> Copies `package.json` to the `dist/jean-pants` directory and publishes the exported components to the local yalc directory as a `@department-of-veterans-affairs/jean-pants` module.
+> Copies `package.json` to the `dist/formation` directory and publishes the exported components to the local yalc directory as a `@department-of-veterans-affairs/formation` module.
 
-* In the `vets-website` project, run `yalc link @department-of-veterans-affairs/jean-pants` and subsequently `yalc update`
+* In the `vets-website` project, run `yalc link @department-of-veterans-affairs/formation` and subsequently `yalc update`
 
-> Installs `jean-pants` to `node_modules` making it available for importing and testing locally.
+> Installs `formation` to `node_modules` making it available for importing and testing locally.
 
 > See yalc documentation for advanced usage such as automatic updating on publish
 
@@ -78,7 +78,7 @@ If the `fractal watch` task fails, remove the `dist` directory and try running `
 4. Pull master and publish
 
 * Switch to master and pull. Run preblish: `npm run pre-publish`
-* Change directory to `dist/jean-pants` and verify that you have the new version number locally in `package.json`
+* Change directory to `dist/formation` and verify that you have the new version number locally in `package.json`
 * Publish: changes `npm publish`
 
 ## Deployment

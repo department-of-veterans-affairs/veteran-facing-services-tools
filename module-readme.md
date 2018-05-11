@@ -4,9 +4,9 @@ This module contains reusable react components from [vets-website](https://githu
 
 ## Quick start
 
-`npm install @department-of-veterans-affairs/jean-pants`
+`npm install @department-of-veterans-affairs/formation`
 
-`import @department-of-veterans-affairs/jean-pants/COMPONENTNAME`
+`import @department-of-veterans-affairs/formation/COMPONENTNAME`
 
 See [design system](https://department-of-veterans-affairs.github.io/design-system/) and its [repo](https://github.com/department-of-veterans-affairs/design-system) for more info on components.
 

@@ -1,6 +1,6 @@
 {
-  "name": "@department-of-veterans-affairs/jean-pants",
-  "version": "0.6.1",
+  "name": "@department-of-veterans-affairs/formation",
+  "version": "0.7.0",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -14,8 +14,8 @@
     "test": "karma start --single-run",
     "build-site": "fractal build-site",
     "site": "fractal build-site && gh-pages -d build",
-    "pre-publish": "npm run-script export-components && cp package.json dist/jean-pants/package.json && cp module-readme.md dist/jean-pants/README.md && echo && echo Pre-publish complete. Change directory to dist/jean-pants and check package.json before publishing.",
-    "test-publish": "cp package.json dist/jean-pants/package.json && cd dist/jean-pants && yalc publish && cd ../../",
+    "pre-publish": "npm run-script export-components && cp package.json dist/formation/package.json && cp module-readme.md dist/formation/README.md && echo && echo Pre-publish complete. Change directory to dist/formation and check package.json before publishing.",
+    "test-publish": "cp package.json dist/formation/package.json && cd dist/formation && yalc publish && cd ../../",
     "test-watch": "karma start --auto-watch",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "test-debug": "karma start --browsers Chrome"
@@ -86,5 +86,5 @@
   "peerDependencies": {
     "react": "^15.5.4",
     "uswds": "^1.4.2"
-  } 
+  }
 }

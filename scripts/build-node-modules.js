@@ -10,9 +10,9 @@ const { ncp } = require('ncp');
 
 console.log('Starting build');
 console.log('Cleaning old build');
-rimraf.sync('./dist/jean-pants');
-mkdirp.sync('./dist/jean-pants');
-mkdirp.sync('./dist/jean-pants/sass');
+rimraf.sync('./dist/formation');
+mkdirp.sync('./dist/formation');
+mkdirp.sync('./dist/formation/sass');
 
 // this comes from gulp-flatten-requires
 // https://github.com/insin/gulp-flatten-requires/blob/master/index.js
@@ -56,12 +56,12 @@ fileNames.forEach(fileName => {
   const newFileName = `${path.parse(fileName).name}.js`;
 
   // write file to dist/build
-  fs.writeFileSync(`./dist/jean-pants/${newFileName}`, requireFlattenedBuffer);
+  fs.writeFileSync(`./dist/formation/${newFileName}`, requireFlattenedBuffer);
   console.log(`${newFileName} built`);
 });
 
 ncp('./src/sass',
-  './dist/jean-pants/sass',
+  './dist/formation/sass',
   { filter: (filename) => !filename.includes('/site') },
   (err) => {
     if (err) {
