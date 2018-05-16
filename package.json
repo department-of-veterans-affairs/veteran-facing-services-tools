@@ -1,12 +1,12 @@
 {
   "name": "@department-of-veterans-affairs/formation",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/design-system.git"
   },
-  "main": "dist/jeanpants",
+  "main": "dist/formation",
   "scripts": {
     "prestart": "node prebuild.js",
     "export-components": "node ./scripts/build-node-modules.js",
