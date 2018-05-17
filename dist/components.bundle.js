@@ -52829,7 +52829,7 @@ var ErrorableRadioButtons = function (_React$Component) {
             className: 'form-radio-buttons' },
           _react2.default.createElement(
             'div',
-            { className: 'errorable-radio-button' },
+            null,
             _react2.default.createElement('input', {
               autoComplete: 'false',
               checked: checked,

@@ -7651,17 +7651,15 @@ button.short {
   width: 1rem; }
 
 .form-radio-buttons label {
-  margin-top: 1em; }
-  .form-radio-buttons label a {
-    position: relative; }
-
-.form-radio-buttons .errorable-radio-button label {
+  margin-top: 1em;
   outline: none;
   padding: 6px 12px;
   display: inline-block;
   margin: 0; }
+  .form-radio-buttons label a {
+    position: relative; }
 
-.form-radio-buttons .errorable-radio-button input:focus + label {
+.form-radio-buttons input:focus + label {
   background: #fad980; }
 
 .form-required-span {
