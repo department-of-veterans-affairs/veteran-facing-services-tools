@@ -36,7 +36,7 @@ context:
     color:
     - var: color-primary
       name: "$color-primary"
-      hex: "#0071bc"
+      hex: "#0071bb"
       contrast: AA
     - var: color-primary-darker
       name: "$color-primary-darker"
