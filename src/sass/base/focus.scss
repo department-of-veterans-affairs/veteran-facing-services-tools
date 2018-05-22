@@ -3,3 +3,16 @@
     outline: none;
   }
 }
+
+a:focus {
+  @include focus-gold-light-outline;
+  outline-offset: 0;
+}
+
+input:focus {
+  @include focus-gold-light-outline;
+}
+
+select:focus {
+  @include focus-gold-light-outline;
+}
