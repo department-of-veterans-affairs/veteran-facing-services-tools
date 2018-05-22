@@ -177,19 +177,11 @@
           <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
           
             <tr>
-              <td>headline</td>
-              <td>No</td>
-              <td>node</td>
-              <td></td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>content</td>
+              <td>status</td>
               <td>Yes</td>
-              <td>node</td>
+              <td>enum</td>
               <td></td>
-              <td></td>
+              <td>determines the color of the alert box: blue, red, green, yellow respectively</td>
             </tr>
           
             <tr>
@@ -197,7 +189,24 @@
               <td>Yes</td>
               <td>bool</td>
               <td></td>
+              <td>is the alert visible? useful for alerts triggered by app interaction</td>
+            </tr>
+          
+            <tr>
+              <td>content</td>
+              <td>No</td>
+              <td>node</td>
               <td></td>
+              <td>This is the body content of the alert, which can also be passed via
+children</td>
+            </tr>
+          
+            <tr>
+              <td>headline</td>
+              <td>No</td>
+              <td>node</td>
+              <td></td>
+              <td>optional headline</td>
             </tr>
           
             <tr>
@@ -205,7 +214,7 @@
               <td>No</td>
               <td>func</td>
               <td></td>
-              <td></td>
+              <td>this is useful if the alerbox can be dismissed or closed</td>
             </tr>
           
             <tr>
@@ -213,15 +222,15 @@
               <td>No</td>
               <td>bool</td>
               <td></td>
-              <td></td>
+              <td>if true, page scrolls to alert when it is shown</td>
             </tr>
           
             <tr>
-              <td>status</td>
-              <td>Yes</td>
-              <td>enum</td>
+              <td>className</td>
+              <td>No</td>
+              <td>string</td>
               <td></td>
-              <td></td>
+              <td>Optional class name to add to the alert box</td>
             </tr>
           
         </table>
@@ -265,7 +274,7 @@
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.7.2"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.8.0"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -322,7 +331,7 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.7</span><span class="hljs-number">.2</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">0.8</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./AlertBox.jsx</span>
@@ -408,7 +417,8 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
 
     const alertClass = classNames(
       'usa-alert',
-      `usa-alert-${this.props.status}`
+      `usa-alert-${this.props.status}`,
+      this.props.className
     );
 
     let closeButton;
@@ -429,7 +439,7 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
         <span class="hljs-attr">ref</span>=<span class="hljs-string">{(ref)</span> =&gt;</span> { this._ref = ref; }}&gt;
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
           {headline}
-          {this.props.content}
+          {this.props.content || this.props.children}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         {closeButton}
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -441,28 +451,46 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
 
 AlertBox.propTypes = {
 
-  // optional headline
-  headline: PropTypes.node,
-
-  // body content is required -- this is the bulk of the alert
-  content: PropTypes.node.isRequired,
-
-  // is the alert visible? useful for alerts triggered by app interaction
-  isVisible: PropTypes.bool.isRequired,
-
-  // this is useful if the alerbox can be dismissed or closed
-  onCloseAlert: PropTypes.func,
-
-  // if true, page scrolls to alert
-  scrollOnShow: PropTypes.bool,
-
-  // determines the color of the alert box: blue, red, green, yellow respectively
+  /**
+   * determines the color of the alert box: blue, red, green, yellow respectively
+   */
   status: PropTypes.oneOf([
     'info',
     'error',
     'success',
     'warning'
-  ]).isRequired
+  ]).isRequired,
+
+  /**
+   * is the alert visible? useful for alerts triggered by app interaction
+   */
+  isVisible: PropTypes.bool.isRequired,
+
+  /**
+   * This is the body content of the alert, which can also be passed via
+   * children
+   */
+  content: PropTypes.node,
+
+  /**
+   * optional headline
+   */
+  headline: PropTypes.node,
+
+  /**
+   * this is useful if the alerbox can be dismissed or closed
+   */
+  onCloseAlert: PropTypes.func,
+
+  /**
+   * if true, page scrolls to alert when it is shown
+   */
+  scrollOnShow: PropTypes.bool,
+
+  /**
+   * Optional class name to add to the alert box
+   */
+  className: PropTypes.string
 };
 
 export default AlertBox;
@@ -482,7 +510,7 @@ export default AlertBox;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
