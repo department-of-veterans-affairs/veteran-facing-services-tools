@@ -16,3 +16,33 @@ input:focus {
 select:focus {
   @include focus-gold-light-outline;
 }
+
+button:focus {
+  @include focus-gold-light-outline;
+  position: relative;
+  z-index: 3;
+}
+
+input[type="radio"]:focus {
+  & + label {
+    &::before {
+      @include focus-gold-light-outline;
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  & ~ div {
+    width: 50%;
+    height: 25px;
+    position: absolute;
+    background: $color-gold-light;
+    top: -2;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+nav button:focus {
+  outline-offset: 0;
+}
