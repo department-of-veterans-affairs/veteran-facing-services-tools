@@ -46,3 +46,8 @@ input[type="radio"]:focus {
 nav button:focus {
   outline-offset: 0;
 }
+
+[type="checkbox"]:focus + label::before {
+  color: $color-gold-light;
+  outline: 2px solid $color-gold-light;
+}
