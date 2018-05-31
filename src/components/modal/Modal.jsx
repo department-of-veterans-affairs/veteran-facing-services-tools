@@ -24,9 +24,9 @@ class Modal extends React.Component {
     super(props);
     this.handleClose = this.handleClose.bind(this);
     this.handleDocumentKeyUp = this.handleDocumentKeyUp.bind(this);
-    this.state = { 
-      lastFocus: document.activeElement, 
-      focusListener: null 
+    this.state = {
+      lastFocus: document.activeElement,
+      focusListener: null
     };
   }
 
