@@ -24,7 +24,10 @@ class Modal extends React.Component {
     super(props);
     this.handleClose = this.handleClose.bind(this);
     this.handleDocumentKeyUp = this.handleDocumentKeyUp.bind(this);
-    this.state = { lastFocus: null, focusListener: null };
+    this.state = { 
+      lastFocus: document.activeElement, 
+      focusListener: null 
+    };
   }
 
   componentDidMount() {
@@ -40,9 +43,7 @@ class Modal extends React.Component {
     } else if (!newProps.visible && this.props.visible) {
       document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
       document.removeEventListener('focus', this.state.focusListener, true);
-      if (this.state.lastFocus) {
-        this.state.lastFocus.focus(); 
-      }
+      this.state.lastFocus.focus(); 
       document.body.classList.remove('modal-open');
     }
   }
