@@ -51868,7 +51868,7 @@ var AlertBox = function (_React$Component) {
         return _react2.default.createElement('div', { 'aria-live': 'polite' });
       }
 
-      var alertClass = (0, _classnames2.default)('usa-alert', 'usa-alert-' + this.props.status, this.props.className);
+      var alertClass = (0, _classnames2.default)('usa-alert', 'usa-alert-' + this.props.status);
 
       var closeButton = void 0;
       if (this.props.onCloseAlert) {
@@ -51910,40 +51910,23 @@ var AlertBox = function (_React$Component) {
 
 AlertBox.propTypes = {
 
-  /**
-   * determines the color of the alert box: blue, red, green, yellow respectively
-   */
-  status: _propTypes2.default.oneOf(['info', 'error', 'success', 'warning']).isRequired,
-
-  /**
-   * body content is required -- this is the bulk of the alert
-   */
-  content: _propTypes2.default.node.isRequired,
-
-  /**
-   * is the alert visible? useful for alerts triggered by app interaction
-   */
-  isVisible: _propTypes2.default.bool.isRequired,
-
-  /**
-   * optional headline
-   */
+  // optional headline
   headline: _propTypes2.default.node,
 
-  /**
-   * this is useful if the alerbox can be dismissed or closed
-   */
+  // body content is required -- this is the bulk of the alert
+  content: _propTypes2.default.node.isRequired,
+
+  // is the alert visible? useful for alerts triggered by app interaction
+  isVisible: _propTypes2.default.bool.isRequired,
+
+  // this is useful if the alerbox can be dismissed or closed
   onCloseAlert: _propTypes2.default.func,
 
-  /**
-   * if true, page scrolls to alert when it is shown
-   */
+  // if true, page scrolls to alert
   scrollOnShow: _propTypes2.default.bool,
 
-  /**
-   * Optional class name to add to the alert box
-   */
-  className: _propTypes2.default.string
+  // determines the color of the alert box: blue, red, green, yellow respectively
+  status: _propTypes2.default.oneOf(['info', 'error', 'success', 'warning']).isRequired
 };
 
 exports.default = AlertBox;
