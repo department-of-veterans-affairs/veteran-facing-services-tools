@@ -26,6 +26,9 @@ class MenuSection extends React.Component {
 
 MenuSection.propTypes = {
   title: PropTypes.string.isRequired,
+  updateCurrentSection: PropTypes.func.isRequired,
+  links: PropTypes.array.isRequired,
+  defaultSection: PropTypes.string.isRequired,
 };
 
 MenuSection.defaultProps = {

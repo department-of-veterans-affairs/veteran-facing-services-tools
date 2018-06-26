@@ -3,5 +3,3 @@ status: wip
 
 context:
   componentSourcePath: './MegaMenu.jsx'
-  title: 'Health and Benefits'
-  currentDropdown: 'Health and Benefits'

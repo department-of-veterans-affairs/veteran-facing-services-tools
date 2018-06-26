@@ -766,28 +766,31 @@ const data = [
 ]
 
 export default class MegaMenuExample extends React.Component {
+  constructor() {
+    super();
+  }
+
+  handleOnClick(title) {
+    this.setState({
+      currentDropdown: title,
+    })
+  }
+
+  updateCurrentSection(title) {
+    this.setState({
+      currentSection: title,
+    })
+  }
+
   render() {
     return (
       <div id="mega-menu">
-        <div className="login-container">
-          <div className="row va-flex">
-            <div id="vetnav" role="navigation">
-              <ul id="vetnav-menu" role="menubar">
-                <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
-                {
-                  data.map((item, i) => (
-                    <MegaMenu
-                      {...this.props}
-                      key={`${i}-main-dropdown`}
-                      title={item.title}
-                      data={item}>
-                    </MegaMenu>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-        </div>
+        <MegaMenu
+          {...this.state}
+          data={data}
+          handleOnClick={(title) => this.handleOnClick(title)}
+          updateCurrentSection={(title) => this.updateCurrentSection(title)}
+        ></MegaMenu>
       </div>
     );
   }

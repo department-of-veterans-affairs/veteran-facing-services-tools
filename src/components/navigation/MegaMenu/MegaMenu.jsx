@@ -8,10 +8,16 @@ const defaultSection = (sections) => {
 };
 
 export default class MegaMenu extends React.Component {
+  handleOnClick(title) {
+    if (this.props.currentDropdown === title) {
+      this.props.handleOnClick('');
+    } else {
+      this.props.handleOnClick(title);
+    }
+  }
+
   render() {
     const {
-      handleOnClick,
-      title,
       currentDropdown,
       currentSection,
       data,
@@ -19,44 +25,65 @@ export default class MegaMenu extends React.Component {
     } = this.props;
 
     return (
-      <li>
-        {
-          data.menuSections ? <button
-            aria-expanded={currentDropdown === title}
-            aria-controls="vetnav-explore"
-            aria-haspopup="true"
-            className="vetnav-level1"
-            onClick={() => handleOnClick(title)}>{title}</button>
-            : <a href={data.href} className="vetnav-level1" id="pgdpevffu88i">{title}</a>
-        }
-
-        {
-          title === currentDropdown && data.menuSections && <div id="vetnav-explore" className="vetnav-panel" role="none">
-            <ul role="menu" aria-label="Explore benefits">
+      <div className="login-container">
+        <div className="row va-flex">
+          <div id="vetnav" role="navigation">
+            <ul id="vetnav-menu" role="menubar">
+              <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
               {
-                data.menuSections.constructor.name === 'Array' ? data.menuSections.map((section, j) => {
+                data.map((item, i) => {
                   return (
-                    <MenuSection
-                      key={section + j}
-                      title={section.title}
-                      defaultSection={defaultSection(data.menuSections)}
-                      currentSection={currentSection}
-                      updateCurrentSection={updateCurrentSection}
-                      links={section.links}></MenuSection>
+                    <li key={`${item.title.toLowerCase().replace(/ /g, '-')}-${i}`}>
+                      {
+                        item.menuSections ? <button
+                          aria-expanded={currentDropdown === item.title}
+                          aria-controls="vetnav-explore"
+                          aria-haspopup="true"
+                          className="vetnav-level1"
+                          onClick={() => this.handleOnClick(item.title)}>{item.title}</button>
+                          : <a href={item.href} className="vetnav-level1" id="pgdpevffu88i">{item.title}</a>
+                      }
+
+                      {
+                        item.title === currentDropdown && item.menuSections && <div id="vetnav-explore" className="vetnav-panel" role="none">
+                          <ul role="menu" aria-label="Explore benefits">
+                            {
+                              item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) => {
+                                return (
+                                  <MenuSection
+                                    key={`${section}-${j}`}
+                                    title={section.title}
+                                    defaultSection={defaultSection(item.menuSections)}
+                                    currentSection={currentSection}
+                                    updateCurrentSection={updateCurrentSection}
+                                    links={section.links}></MenuSection>
+                                );
+                              }) : <SubMenu data={item.menuSections} show></SubMenu>
+                            }
+                          </ul>
+                        </div>
+                      }
+                    </li>
                   );
-                }) : <SubMenu data={data.menuSections} show></SubMenu>
+                })
               }
             </ul>
           </div>
-        }
-      </li>
+        </div>
+      </div>
     );
   }
 }
 
 MegaMenu.propTypes = {
-  title: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  updateCurrentSection: PropTypes.func.isRequired,
+  handleOnClick: PropTypes.func.isRequired,
+  currentDropdown: PropTypes.string,
+  currentSection: PropTypes.string,
 };
 
 MegaMenu.defaultProps = {
+  currentDropdown: '',
+  currentSection: '',
 };
