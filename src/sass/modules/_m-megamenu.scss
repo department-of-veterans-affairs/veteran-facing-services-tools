@@ -3,6 +3,7 @@
 #mega-menu {
   flex: 1 0 100%;
   color: $color-primary;
+  width: 100%;
   z-index: 2;
 
   @include media($medium-large-screen) {

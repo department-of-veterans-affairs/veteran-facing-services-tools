@@ -16,12 +16,15 @@ export default class MegaMenu extends React.Component {
     }
   }
 
+  updateCurrentSection(title) {
+    this.props.updateCurrentSection(title);
+  }
+
   render() {
     const {
       currentDropdown,
       currentSection,
       data,
-      updateCurrentSection,
     } = this.props;
 
     return (
@@ -55,7 +58,7 @@ export default class MegaMenu extends React.Component {
                                     title={section.title}
                                     defaultSection={defaultSection(item.menuSections)}
                                     currentSection={currentSection}
-                                    updateCurrentSection={updateCurrentSection}
+                                    updateCurrentSection={() => this.updateCurrentSection(section.title)}
                                     links={section.links}></MenuSection>
                                 );
                               }) : <SubMenu data={item.menuSections} show></SubMenu>

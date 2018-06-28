@@ -39,6 +39,7 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 - SortableTable.js
 - SystemDownView.js
 - Tooltip.js
+- MegaMenu.js
 
 ## Styles
 
