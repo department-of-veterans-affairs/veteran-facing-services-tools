@@ -1,0 +1,69 @@
+// Breadcrumbs
+.va-nav-breadcrumbs {
+  background: $color-white;
+  color: $color-link-default;
+  font-size: inherit;
+  padding: 1em 0;
+
+  // Gate / Sign-in pages only
+  &--gate {
+    margin-bottom: -1em;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0.25em 0;
+    padding: 0.25em 0 0.25em 0;
+    vertical-align: middle;
+
+    &:after {
+      content: " › ";
+      display: inline-block;
+      padding: 0 0.35em;
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+
+    &.active {
+      font-weight: bold;
+      padding: 0.3em 0;
+
+      &:after {
+        content: "";
+      }
+    }
+  }
+
+  a {
+    color: $color-link-default;
+    display: inline-block;
+    padding: 2px;
+
+    &:hover {
+      background: $color-link-default-hover;
+    }
+  }
+
+  a[aria-current="page"] {
+    color: $color-gray-dark !important;
+    cursor: default;
+    font-weight: bold;
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+
+.va-nav-breadcrumbs-list {
+  float: none !important;
+  position: relative;
+}
+
+.va-nav-breadcrumbs-list__mobile-link {
+  &::before {
+    content: " \2039 ";
+    display: inline-block;
+    padding: 0 0.15em;
+  }
+}

@@ -1,17 +1,66 @@
-## Intent
+# Intent
 
-Breadcrumbs are intended to provide users an understanding of where their are located in a rich information structure. They work well in situations where users may have clicked several layers deep, and would want to move back toward the top in linear steps.
+Breadcrumbs are intended to provide users an understanding of where they are located in a rich information structure. They work well in situations where users may have clicked several layers deep, and would want to move back toward the top in linear steps.
 
-## Optional Attributes
+## Using the Breadcrumbs Component
 
-### aria-current (attribute)
+The `<Breadrumbs />` component accepts a number of different `children` props and will render them correctly:
 
-Passing an `ariaCurrent: true` key-value pair into the last `crumbs` object will trigger the `a[aria-current="page"]` CSS selector. This will make the last breadcrumb link bold, remove the underline, and change to a black text color. Current [WAI-ARIA authoring practices](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/breadcrumb/index.html) recommend an `aria-current="page"` attribute for screen reader context.
+* An array of comma-separated `<a>` tags
+* An array of comma-separated `<Link />` components (React router)
+* Hard-coded HTML `<a>` tags
+* A combination of HTML and React router components
 
-### Id (prop)
+You do not need to wrap your code in `<li>` or `<ul>` elements. The proper markup is included in the `<Breadcrumbs />` component and will be output when the `render()` method is executed.
 
-Passing a prop `id='STRING'` into the `<Breadcrumb>` component will append that ID to the `<nav>` element, and concatenate the ID plus `-list` to the `<ol>` element.
+## Mobile Width Adaptation
 
-### mobile link (CSS)
+The breadcrumb component switches to a single previous step link when the screen is collapsed or zoomed smaller than 481 device pixels or a custom `props.mobileWidth` declaration. This adaptation is designed to minizime the breadcrumb's footprint on smaller screens and is beneficial for sites with many layers.
 
-If you want to provide a mobile-first, one-step at a time breadcrumb for smaller screens, you can apply the class `.va-nav-breadcrumbs-list__mobile-link` to a secondary breadcrumb link. This mobile-first experience will require a custom script to either hide the desktop breadcrumb, or replace it with a list tailored to mobile screens.
+## Optional Props
+
+### ariaLabel (STRING)
+
+Passing prop `ariaLabel="<STRING>"` to the `<Breadcrumbs />` component will override the default `aria-label="Breadcrumb"` declaration. If you plan to add a unique aria-label, please consider testing with one or more assistive devices to ensure proper context.
+
+### customClasses (STRING)
+
+Passing prop `customClasses="<STRING STRING>"` to the `<Breadcrumbs />` component will append your space-separated classes to the `<nav class="va-nav-breadcrumbs">` class list.
+
+### id (STRING)
+
+Passing prop `id="<STRING>"` to the `<Breadcrumbs />` component will append that ID to the `<nav>` element. If no `id` is passed, a unique id will be created by concatnating the string `va-breadcrumbs-` with a string returned by `lodash.uniqueid`.
+
+### listId (STRING)
+
+Passing prop `listId="<STRING>"` to the `<Breadcrumbs />` component will append that list ID to the `<ul>` element. If no `listId` is passed, a unique id will be created by concatnating the string `va-breadcrumbs-list-` with a string returned by `lodash.uniqueid`.
+
+### mobileFirst (BOOLEAN)
+
+Passing prop `mobileFirstProp` to the `<Breadcrumbs />` component will override `state.mobileShow` and present the back by one mobile breadcrumb link on initial render or subsequent renders. This prop could be used in cases where developers want absolute control over which breadcrumb UI to show, instead of letting the user's viewport width toggle the correct view.
+
+### mobileWidth (NUMBER)
+
+Passing prop `mobileWidth={NUMBER}` to the `<Breadcrumbs />` component will modify the breakpoint width for swapping the full breadcrumb with the mobile "back by one" breadcrumb link. For instance, passing `mobileWidth="375"` to the Breadcrumb will trigger the mobile breadcrumb when a user resizes their window width to 375px or less.
+
+Zooming will also trigger the mobile breadcrumb. If a user zooms their window to 400% at 1200px wide, the mobile breadcrumb would be triggered, because 1200/4 = 300px.
+
+## Accessibility
+
+The `<Breadcrumbs />` component has been tested for accessibility. It is fully keyboard accessible, and announces the current page correctly in the following screen reader combinations:
+
+* MacOS + Safari + VoiceOver
+* MacOS + Chrome + VoiceOver
+* iOS + Safari + VoiceOver
+* Windows 7/10 + Firefox + NVDA
+* Windows 10 + Chrome + NVDA
+* Windows 7/10 + IE11 + JAWS
+* Windows 10 + Chrome + JAWS
+
+### aria-label (ATTRIBUTE)
+
+The `<Breadcrumbs />` component automatically adds an `aria-label="Breadcrumb"` attribute to the containing `<nav>` element. This will be read out as "Breadcrumb" to assistive devices like JAWS, NVDA, and VoiceOver. The label can be changed to fit your needs by passing a custom string to the `ariaLabel` prop.
+
+### aria-current (ATTRIBUTE)
+
+The `<Breadcrumbs />` component automatically adds an `aria-current="page"` attribute to the last link rendered by the full breadcrumb list. This attribute triggers an `a[aria-current="page"]` CSS selector, makes the link bold, removes the underline, and changes it to a black text color. Current [WAI-ARIA authoring practices](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/breadcrumb/index.html) recommend this `aria-current="page"` attribute for screen reader context.
