@@ -79,7 +79,4 @@ SubMenu.propTypes = {
   show: PropTypes.bool.isRequired,
 };
 
-SubMenu.defaultProps = {
-};
-
 export default SubMenu;

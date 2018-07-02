@@ -27,11 +27,29 @@ class MenuSection extends React.Component {
 MenuSection.propTypes = {
   title: PropTypes.string.isRequired,
   updateCurrentSection: PropTypes.func.isRequired,
-  links: PropTypes.object.isRequired,
+  links: PropTypes.shape({
+    mainColumn: {
+      title: PropTypes.string,
+      links: PropTypes.object,
+    },
+    columnOne: {
+      title: PropTypes.string.isRequired,
+      links: PropTypes.object.isRequired,
+    },
+    columnTwo: {
+      title: PropTypes.string.isRequired,
+      links: PropTypes.object.isRequired,
+    },
+    columnThree: {
+      title: PropTypes.string.isRequired,
+      links: PropTypes.object.isRequired,
+    },
+    seeAllLink: {
+      text: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+    }
+  }).isRequired,
   defaultSection: PropTypes.string.isRequired,
-};
-
-MenuSection.defaultProps = {
 };
 
 export default MenuSection;

@@ -8,11 +8,11 @@ const defaultSection = (sections) => {
 };
 
 export default class MegaMenu extends React.Component {
-  handleOnClick(title) {
+  toggleDropDown(title) {
     if (this.props.currentDropdown === title) {
-      this.props.handleOnClick('');
+      this.props.toggleDropDown('');
     } else {
-      this.props.handleOnClick(title);
+      this.props.toggleDropDown(title);
     }
   }
 
@@ -43,7 +43,7 @@ export default class MegaMenu extends React.Component {
                           aria-controls="vetnav-explore"
                           aria-haspopup="true"
                           className="vetnav-level1"
-                          onClick={() => this.handleOnClick(item.title)}>{item.title}</button>
+                          onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
                           : <a href={item.href} className="vetnav-level1" id="pgdpevffu88i">{item.title}</a>
                       }
 
@@ -79,10 +79,35 @@ export default class MegaMenu extends React.Component {
 }
 
 MegaMenu.propTypes = {
-  data: PropTypes.array.isRequired,
+  /**
+   * This is the data that will generate the navigation<br/>
+   * Data is made up an array of objects </br>
+   * Read Notes tab to see the structure of the data prop
+   */
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      menuSections: PropTypes.oneOfType([
+        PropTypes.array.isRequired,
+        PropTypes.object.isRequired,
+      ]),
+    }),
+  ).isRequired,
+  /**
+   * Function to update currentSection in state
+   */
   updateCurrentSection: PropTypes.func.isRequired,
-  handleOnClick: PropTypes.func.isRequired,
+  /**
+   * Function to update currentDropdown in state
+   */
+  toggleDropDown: PropTypes.func.isRequired,
+  /**
+   * String value of current dropdown
+   */
   currentDropdown: PropTypes.string,
+  /**
+   * String value of current dropdown section
+   */
   currentSection: PropTypes.string,
 };
 
