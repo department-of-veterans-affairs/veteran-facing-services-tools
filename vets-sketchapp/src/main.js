@@ -11,7 +11,7 @@ import Palette from './components/Palette';
 import Section from './components/Section';
 import TypeSpecimen from './components/TypeSpecimen';
 import BasicButton from './components/buttons/BasicButton';
-import AlertBox from '@department-of-veterans-affairs/jean-pants/AlertBox';
+import AlertBox from '@department-of-veterans-affairs/formation/AlertBox';
 
 const Document = ({ system }: { system: DesignSystem }) => (
 

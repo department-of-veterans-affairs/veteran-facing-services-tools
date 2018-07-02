@@ -14,6 +14,7 @@
 @import "~font-awesome/scss/variables";
 @import "~font-awesome/scss/core";
 @import "~font-awesome/scss/icons";
+@import "~font-awesome/scss/animated";
 @font-face {
   font-family: "FontAwesome";
   src: url("~font-awesome/fonts/fontawesome-webfont.woff2") format("woff2"),
@@ -61,3 +62,4 @@
 
 // ----- VA GENERAL (MAIN FILE/OTHER) ---- //
 @import "base/va";
+@import "base/focus";

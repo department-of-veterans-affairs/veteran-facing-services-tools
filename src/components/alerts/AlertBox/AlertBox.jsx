@@ -39,7 +39,8 @@ class AlertBox extends React.Component {
 
     const alertClass = classNames(
       'usa-alert',
-      `usa-alert-${this.props.status}`
+      `usa-alert-${this.props.status}`,
+      this.props.className
     );
 
     let closeButton;
@@ -60,7 +61,7 @@ class AlertBox extends React.Component {
         ref={(ref) => { this._ref = ref; }}>
         <div className="usa-alert-body va-alert-body">
           {headline}
-          {this.props.content}
+          {this.props.content || this.props.children}
         </div>
         {closeButton}
         <div className="cf"></div>
@@ -72,28 +73,46 @@ class AlertBox extends React.Component {
 
 AlertBox.propTypes = {
 
-  // optional headline
-  headline: PropTypes.node,
-
-  // body content is required -- this is the bulk of the alert
-  content: PropTypes.node.isRequired,
-
-  // is the alert visible? useful for alerts triggered by app interaction
-  isVisible: PropTypes.bool.isRequired,
-
-  // this is useful if the alerbox can be dismissed or closed
-  onCloseAlert: PropTypes.func,
-
-  // if true, page scrolls to alert
-  scrollOnShow: PropTypes.bool,
-
-  // determines the color of the alert box: blue, red, green, yellow respectively
+  /**
+   * determines the color of the alert box: blue, red, green, yellow respectively
+   */
   status: PropTypes.oneOf([
     'info',
     'error',
     'success',
     'warning'
-  ]).isRequired
+  ]).isRequired,
+
+  /**
+   * is the alert visible? useful for alerts triggered by app interaction
+   */
+  isVisible: PropTypes.bool.isRequired,
+
+  /**
+   * This is the body content of the alert, which can also be passed via
+   * children
+   */
+  content: PropTypes.node,
+
+  /**
+   * optional headline
+   */
+  headline: PropTypes.node,
+
+  /**
+   * this is useful if the alerbox can be dismissed or closed
+   */
+  onCloseAlert: PropTypes.func,
+
+  /**
+   * if true, page scrolls to alert when it is shown
+   */
+  scrollOnShow: PropTypes.bool,
+
+  /**
+   * Optional class name to add to the alert box
+   */
+  className: PropTypes.string
 };
 
 export default AlertBox;

@@ -93,27 +93,32 @@ class ErrorableRadioButtons extends React.Component {
         optionValue === storedValue,
         optionValue
       );
+
       const radioButton = (
         <div
           key={optionAdditional ? undefined : optionIndex}
           className="form-radio-buttons">
-          <input
-            autoComplete="false"
-            checked={checked}
-            id={`${this.inputId}-${optionIndex}`}
-            name={this.props.name}
-            type="radio"
-            onMouseDown={this.props.onMouseDown}
-            onKeyDown={this.props.onKeyDown}
-            value={optionValue}
-            onChange={this.handleChange}/>
-          <label
-            name={`${this.props.name}-${optionIndex}-label`}
-            htmlFor={`${this.inputId}-${optionIndex}`}>
-            {optionLabel}
-          </label>
-          {matchingSubSection}
-          {option.content}
+          <div className="errorable-radio-button">
+            <input
+              autoComplete="false"
+              checked={checked}
+              id={`${this.inputId}-${optionIndex}`}
+              name={this.props.name}
+              type="radio"
+              onMouseDown={this.props.onMouseDown}
+              onKeyDown={this.props.onKeyDown}
+              value={optionValue}
+              onChange={this.handleChange}/>
+
+            <label
+              name={`${this.props.name}-${optionIndex}-label`}
+              htmlFor={`${this.inputId}-${optionIndex}`}>
+
+              {optionLabel}
+            </label>
+            {matchingSubSection}
+            {option.content}
+          </div>
         </div>
       );
 

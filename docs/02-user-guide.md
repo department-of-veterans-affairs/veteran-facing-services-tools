@@ -1,5 +1,5 @@
 ---
-title: Jean Pants User Guide
+title: Formation User Guide
 ---
 
 
@@ -43,18 +43,18 @@ A draft of recommended governance for the Vets.gov design system. [Feedback welc
 
 ## What is the design system? <a name="what-is-system"></a>
 
-The design system (affectionately named "Jean Pants") is a Fractal implementation for Vets.gov. It's based on USWDS' own system, and modified for the unique needs of Vets.gov.
+The design system (affectionately named "Formation") is a Fractal implementation for Vets.gov. It's based on USWDS' own system, and modified for the unique needs of Vets.gov.
 
-Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Jean Pants is a single source of documentation and truth for people looking to use the Vets.gov components.
+Vets.gov has a collection of components that make up the website. These components have a visual styleguide associated with them, as well as reviewed and refined code that drives them, and best practices for when to use them. Formation is a single source of documentation and truth for people looking to use the Vets.gov components.
 
-Jean Pants' purpose is to provide accepted guidance for:
+Formation's purpose is to provide accepted guidance for:
 
 * code implementations for existing components
 * visual design for existing components
 * use guidelines for existing components (when and when *not* to use a thing)
 * implementation of new visual patterns and components
 
-Its purpose is _not_ to limit the creation of new components and applications. If you need something, and it's not already a part of Jean Pants, we have a [process](#contribution) for you!
+Its purpose is _not_ to limit the creation of new components and applications. If you need something, and it's not already a part of Formation, we have a [process](#contribution) for you!
 
 ### Component contents <a name="component-contents"></a>
 
@@ -71,7 +71,7 @@ Each component included in the design system has the same core files and views a
 
 ### Organization <a name="organization"></a>
 
-Jean Pants is very loosely organized according to the principles of atomic design, which is the idea that small atoms (like colors, typography, links, fieldforms, and buttons) can be combined into larger atoms (like forms) and then even larger organisms (like templates and pages).
+Formation is very loosely organized according to the principles of atomic design, which is the idea that small atoms (like colors, typography, links, fieldforms, and buttons) can be combined into larger atoms (like forms) and then even larger organisms (like templates and pages).
 
 We don't totally adhere to the structure of atomic design with this sytem, but we have something akin to it. For example, all the form elements are grouped together, and all the basics of the Vets visual language are also grouped together.
 
@@ -79,9 +79,9 @@ This organization is very much subject to change as we work out the specifics of
 
 ### How does it work? <a name="how-it-works"></a>
 
-Jean Pants is built on a piece of software called [Fractal](https://fractal.build), which is effectively a static site generator, similar to Metalsmith or Jekyll. A component is defined by a collection of [files](#files) with the same name, but different extensions.
+Formation is built on a piece of software called [Fractal](https://fractal.build), which is effectively a static site generator, similar to Metalsmith or Jekyll. A component is defined by a collection of [files](#files) with the same name, but different extensions.
 
-The different components can be referenced within Jean Pants to build larger templates and layouts.
+The different components can be referenced within Formation to build larger templates and layouts.
 
 > Need some help explaining how this connects to Vets.gov
 
@@ -103,7 +103,7 @@ Writers are responsible not just for words, but often for the markup that render
 
 #### As a researcher <a name="use-researcher"></a>
 
-Want to know what new patterns are in development that may need to be tested? Look no further than Jean Pants' WIP labels. This system should also provide another connection between research and design, in that the research team's process is documented here for designers and other teammates to reference.
+Want to know what new patterns are in development that may need to be tested? Look no further than Formation's WIP labels. This system should also provide another connection between research and design, in that the research team's process is documented here for designers and other teammates to reference.
 
 ### Definitions <a name="definitions"></a>
 
@@ -117,9 +117,9 @@ Want to know what new patterns are in development that may need to be tested? Lo
 
 ## Contribution <a name="contribution"></a>
 
-We welcome feedback and other contribution to Jean Pants. This section will develop over time -- for now, this is meant to guide Vets.gov teammates' contribution to the system. _With thanks to USWDS' own contribution guidelines._
+We welcome feedback and other contribution to Formation. This section will develop over time -- for now, this is meant to guide Vets.gov teammates' contribution to the system. _With thanks to USWDS' own contribution guidelines._
 
-When you want to create a new component on Jean Pants, please open a PR onto master after reading the guidelines below.
+When you want to create a new component on Formation, please open a PR onto master after reading the guidelines below.
 
 ### Creating new components <a name="create"></a>
 
@@ -176,7 +176,7 @@ You should use the `prototype` label if:
 
 #### At what point is a component ready to become part of the Core? <a name="core"></a>
 
-A component is ready to become part of Jean Pants' Core when it:
+A component is ready to become part of Formation's Core when it:
 - Has been used in more than two discrete places on Vets.gov (ie, shows once in Education, and again in Healthcare — not twice on the same page / in the same file), AND we can see a future use case
 - Has been refined by the design team, as needed
 - Has been refined by the engineering team, as needed
@@ -257,13 +257,13 @@ The design system is owned by the team that owns sitewide responsibilities: Nebu
 
 ### Deprecation <a name="deprecation"></a>
 
-Realistically, Vets.gov will outgrow components over time. This process should govern how components are deprecated and ultimately removed from Jean Pants and by extension, our catalog of available visual patterns.
+Realistically, Vets.gov will outgrow components over time. This process should govern how components are deprecated and ultimately removed from Formation and by extension, our catalog of available visual patterns.
 
 #### Why bother deprecating?
 
-Keeping outdated components -- and their code -- in Jean Pants not only adds file weight to the system when it's used on Vets.gov (and elsewhere, if we release at large), but also can produce a source of confusion to new teammates who might not be familiar with the tribal knowledge that often governs our design.
+Keeping outdated components -- and their code -- in Formation not only adds file weight to the system when it's used on Vets.gov (and elsewhere, if we release at large), but also can produce a source of confusion to new teammates who might not be familiar with the tribal knowledge that often governs our design.
 
-Deprecating and subsequently removing a component has three steps, and all three should be documented in Jean Pants in perpetuity, for institutional knowledge's sake.
+Deprecating and subsequently removing a component has three steps, and all three should be documented in Formation in perpetuity, for institutional knowledge's sake.
 
 **Step 1:**
 
@@ -275,10 +275,10 @@ Deprecating and subsequently removing a component has three steps, and all three
 
 **Step 2:**
 
-- The component is flagged as `deprecated` in Jean Pants. This gives another indicator to the entire Vets.gov team as well as any external users that the component is on its way out the door.
+- The component is flagged as `deprecated` in Formation. This gives another indicator to the entire Vets.gov team as well as any external users that the component is on its way out the door.
 - Any pages using the component should be updated, with the component either removed or replaced (for example, we now use left-nav in place of piano keys).
 - Visual regression tests should be run to ensure that the above change doesn't cause unanticipated changes.
-- Documentation of the decision to deprecate and supporting arguments should be added to Jean Pants.
+- Documentation of the decision to deprecate and supporting arguments should be added to Formation.
 
 Allow at least two sprint cycles to pass before continuing to Step 3.
 

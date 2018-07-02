@@ -2,7 +2,7 @@
 title: Quickstart
 ---
 
-The components that make up Vets.gov's pattern library should all be documented in Jean Pants. You can access each component using the navigation to the left.
+The components that make up Vets.gov's pattern library should all be documented in Formation. You can access each component using the navigation to the left.
 
 ## Component Preview
 
@@ -15,7 +15,7 @@ Each component has a few key pieces of information associated with it, located i
 
 ### The label
 
-Jean Pants has four labels that can be applied to each component:
+Formation has four labels that can be applied to each component:
 
 - **Ready**: Implement at will. This component is mature and well-developed.
 - **WIP**: This component can be implemented on Vets.gov (it may already have been), but may still be in active development. Proceed with caution.
@@ -44,4 +44,4 @@ These three tabs are specific to Fractal (the software that underpins JP).
 
 ## Installing JP locally
 
-To install Jean Pants locally, please visit this [README](https://github.com/department-of-veterans-affairs/design-system/blob/master/README.md).
+To install Formation locally, please visit this [README](https://github.com/department-of-veterans-affairs/design-system/blob/master/README.md).

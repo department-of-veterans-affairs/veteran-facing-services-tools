@@ -7,6 +7,21 @@
       position: relative;
     }
   }
+
+  .errorable-radio-button {
+    label {
+      outline: none;
+      padding: 6px 12px;
+      display: inline-block;
+      margin: 0;
+    }
+
+    input:focus {
+      &+label {
+        background: #fad980;
+      }
+    }
+  }
 }
 
 .form-required-span {
