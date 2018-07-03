@@ -88,8 +88,8 @@ MegaMenu.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       menuSections: PropTypes.oneOfType([
-        PropTypes.array.isRequired,
-        PropTypes.object.isRequired,
+        PropTypes.array,
+        PropTypes.object,
       ]),
     }),
   ).isRequired,

@@ -14,9 +14,9 @@ class SubMenu extends React.Component {
               id="vetnav-disability"
               role="menu"
               aria-label="Disability">
-              <li className="panel-title">{mainColumn.title}</li>
+              <li className="panel-title mm-link-container">{mainColumn.title}</li>
               { mainColumn.links.map((link, i) => (
-                <li key={`${link.href}-${i}`}><a href={link.href}>{link.text}</a></li>
+                <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
               ))}
             </ul>
           }
@@ -25,15 +25,15 @@ class SubMenu extends React.Component {
             id="vetnav-disability"
             role="menu"
             aria-label="Disability">
-            <li className="panel-title">{columnOne.title}</li>
+            <li className="panel-title mm-link-container">{columnOne.title}</li>
             { columnOne.links.map((link, i) => (
-              <li key={`${link.href}-${i}`}><a href={link.href}>{link.text}</a></li>
+              <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
             ))}
 
             {
               !mainColumn && <div className="panel-bottom-link">
                 {
-                  seeAllLink && <a href={seeAllLink.href}>View All in {seeAllLink.text}</a>
+                  seeAllLink && <a className="mm-links" href={seeAllLink.href}>View All in {seeAllLink.text}</a>
                 }
               </div>
             }
@@ -44,9 +44,9 @@ class SubMenu extends React.Component {
               id="vetnav-disability"
               role="menu"
               aria-label="Disability">
-              <li className="panel-title">{columnTwo.title}</li>
+              <li className="panel-title mm-link-container">{columnTwo.title}</li>
               { columnTwo.links.map((link, i) => (
-                <li key={`${link.href}-${i}`}><a href={link.href}>{link.text}</a></li>
+                <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
               ))}
             </ul> : <ul
               className={`vetnav-panel vetnav-panel--submenu panel-2 ${mainColumn && 'panel-white'}`}
@@ -61,7 +61,7 @@ class SubMenu extends React.Component {
             role="menu"
             aria-label="Disability">
             <img src={columnThree.img.src} alt={columnThree.img.alt}></img>
-            <a href={columnThree.link.href}>{columnThree.link.text}</a>
+            <a className="mm-links" href={columnThree.link.href}>{columnThree.link.text}</a>
             <p>{columnThree.description}</p>
           </div>
         </div>

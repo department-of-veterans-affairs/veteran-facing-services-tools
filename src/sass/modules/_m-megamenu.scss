@@ -1,5 +1,3 @@
-@import "../shared-variables";
-
 #mega-menu {
   flex: 1 0 100%;
   color: $color-primary;
@@ -29,11 +27,11 @@
     .vetnav-panel {
       left: 0;
 
-      a {
+      .mm-links {
         padding: 0.8rem 0;
       }
 
-      li {
+      .mm-link-container {
         width: 225px;
         margin-bottom: 0;
       }

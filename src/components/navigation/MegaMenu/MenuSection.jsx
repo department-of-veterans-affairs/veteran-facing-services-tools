@@ -11,7 +11,7 @@ class MenuSection extends React.Component {
     const show = this.getCurrentSection(this.props) === this.props.title;
 
     return (
-      <li>
+      <li className="mm-link-container">
         <button
           className="vetnav-level2"
           aria-haspopup="true"
@@ -28,26 +28,39 @@ MenuSection.propTypes = {
   title: PropTypes.string.isRequired,
   updateCurrentSection: PropTypes.func.isRequired,
   links: PropTypes.shape({
-    mainColumn: {
-      title: PropTypes.string,
-      links: PropTypes.object,
-    },
-    columnOne: {
+    columnOne: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      links: PropTypes.object.isRequired,
-    },
-    columnTwo: {
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          text: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+        })
+      ),
+    }),
+    columnTwo: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      links: PropTypes.object.isRequired,
-    },
-    columnThree: {
-      title: PropTypes.string.isRequired,
-      links: PropTypes.object.isRequired,
-    },
-    seeAllLink: {
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          text: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+        })
+      ),
+    }),
+    columnThree: PropTypes.shape({
+      img: PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      }),
+      link: PropTypes.shape({
+        href: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+      }),
+      description: PropTypes.string.isRequired,
+    }),
+    seeAllLink: PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
-    }
+    }),
   }).isRequired,
   defaultSection: PropTypes.string.isRequired,
 };
