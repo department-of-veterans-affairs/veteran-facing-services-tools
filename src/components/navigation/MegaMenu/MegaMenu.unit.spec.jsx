@@ -150,7 +150,7 @@ describe('<MegaMenu>', () => {
     megaMenu = mount(
       <MegaMenu
         data={data}
-        handleOnClick={(title) => { title; }}
+        toggleDropDown={(title) => { title; }}
         updateCurrentSection={(title) => { title; }}></MegaMenu>,
       {
         attachTo: div
@@ -163,7 +163,7 @@ describe('<MegaMenu>', () => {
   });
 
   it('should render', () => {
-    const menuTexts = ['Home', 'Health and Benefits', 'About VA', 'Find a VA Location'];
+    const menuTexts = ['Home', 'Nav Title 1', 'Nav Title 2', 'Nav Title 3 link only'];
 
     expect(megaMenu.find('.login-container').exists()).to.be.true;
 
@@ -172,12 +172,12 @@ describe('<MegaMenu>', () => {
     });
   });
 
-  it('should run handleOnClick if clicked on', () => {
-    const spy = sinon.spy(megaMenu.instance(), 'handleOnClick');
+  it('should run toggleDropDown if clicked on', () => {
+    const spy = sinon.spy(megaMenu.instance(), 'toggleDropDown');
     megaMenu.find('button').first().simulate('click');
 
     expect(spy.calledOnce).to.be.true;
-    expect(spy.getCall(0).args[0]).to.equal('Health and Benefits');
+    expect(spy.getCall(0).args[0]).to.equal('Nav Title 1');
   });
 
   it('should not show dropdown on initial load', () => {
@@ -187,36 +187,36 @@ describe('<MegaMenu>', () => {
   it('should show dropdown if state.currentDropdown is = menu title', () => {
     megaMenu.setProps({
       ...megaMenu.props(),
-      currentDropdown: 'Health and Benefits',
+      currentDropdown: 'Nav Title 1',
     });
 
-    expect(megaMenu.find('.vetnav-level2').first().text()).to.equal('Health Care');
+    expect(megaMenu.find('.vetnav-level2').first().text()).to.equal('Section Title 1');
   });
 
   it('should run updateCurrentSection if menu section is clicked on', () => {
     const spy = sinon.spy(megaMenu.instance(), 'updateCurrentSection');
 
     megaMenu.setProps({
-      currentDropdown: 'Health and Benefits',
+      currentDropdown: 'Nav Title 1',
     });
 
     megaMenu.find('.vetnav-level2').at(1).simulate('click');
 
     expect(spy.calledOnce).to.be.true;
-    expect(spy.getCall(0).args[0]).to.equal('Disability');
+    expect(spy.getCall(0).args[0]).to.equal('Section Title 2');
   });
 
   it('should show Disability section if state.currentSection is = Disability', () => {
     megaMenu.setProps({
       ...megaMenu.props(),
-      currentDropdown: 'Health and Benefits',
-      currentSection: 'Disability',
+      currentDropdown: 'Nav Title 1',
+      currentSection: 'Section Title 2',
     });
 
-    expect(megaMenu.find('.panel-title').at(0).text()).to.equal('Get Disability Benefits');
+    expect(megaMenu.find('.panel-title').at(0).text()).to.equal('Menu Item 1');
   });
 
-  it.only('should pass axe check when open', () => {
+  it('should pass axe check when open', () => {
     return axeCheck(
       <MegaMenu
         data={data}
