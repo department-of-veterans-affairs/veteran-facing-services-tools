@@ -206,14 +206,14 @@ describe('<MegaMenu>', () => {
     expect(spy.getCall(0).args[0]).to.equal('Section Title 2');
   });
 
-  it('should show Disability section if state.currentSection is = Disability', () => {
+  it.only('should show Nav Title 1 section if state.currentSection is = Section Title 2', () => {
     megaMenu.setProps({
       ...megaMenu.props(),
       currentDropdown: 'Nav Title 1',
       currentSection: 'Section Title 2',
     });
 
-    expect(megaMenu.find('.panel-title').at(0).text()).to.equal('Menu Item 1');
+    expect(megaMenu.find('h3').at(0).text()).to.equal('Menu Item 1');
   });
 
   it('should pass axe check when open', () => {

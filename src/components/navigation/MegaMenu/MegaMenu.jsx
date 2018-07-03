@@ -7,73 +7,75 @@ const defaultSection = (sections) => {
   return sections[0].title;
 };
 
-const toggleDropDown = (props, title) => {
-  if (props.currentDropdown === title) {
-    props.toggleDropDown('');
-  } else {
-    props.toggleDropDown(title);
+export default class MegaMenu extends React.Component {
+  toggleDropDown(title) {
+    if (this.props.currentDropdown === title) {
+      this.props.toggleDropDown('');
+    } else {
+      this.props.toggleDropDown(title);
+    }
   }
-};
 
-const updateCurrentSection = (props, title) => {
-  props.updateCurrentSection(title);
-};
+  updateCurrentSection(title) {
+    this.props.updateCurrentSection(title);
+  }
 
-const MegaMenu = (props) => {
-  const {
-    currentDropdown,
-    currentSection,
-    data,
-  } = props;
+  render() {
+    const {
+      currentDropdown,
+      currentSection,
+      data,
+    } = this.props;
 
-  return (
-    <div className="login-container">
-      <div className="row va-flex">
-        <div id="vetnav" role="navigation">
-          <ul id="vetnav-menu" role="menubar">
-            <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
-            {
-              data.map((item, i) => {
-                return (
-                  <li key={`${item.title.toLowerCase().replace(/ /g, '-')}-${i}`}>
-                    {
-                      item.menuSections ? <button
-                        aria-expanded={currentDropdown === item.title}
-                        aria-controls="vetnav-explore"
-                        aria-haspopup="true"
-                        className="vetnav-level1"
-                        onClick={() => toggleDropDown(props, item.title)}>{item.title}</button>
-                        : <a href={item.href} className="vetnav-level1" >{item.title}</a>
-                    }
-                    <div id="vetnav-explore" className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
+    return (
+      <div className="login-container">
+        <div className="row va-flex">
+          <div id="vetnav" role="navigation">
+            <ul id="vetnav-menu" role="menubar">
+              <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
+              {
+                data.map((item, i) => {
+                  return (
+                    <li key={`${item.title.toLowerCase().replace(/ /g, '-')}-${i}`}>
                       {
-                        item.title === currentDropdown && item.menuSections && <ul aria-label="Explore benefits">
-                          {
-                            item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) => {
-                              return (
-                                <MenuSection
-                                  key={`${section}-${j}`}
-                                  title={section.title}
-                                  defaultSection={defaultSection(item.menuSections)}
-                                  currentSection={currentSection}
-                                  updateCurrentSection={() => updateCurrentSection(props, section.title)}
-                                  links={section.links}></MenuSection>
-                              );
-                            }) : <SubMenu data={item.menuSections} navTitle={item.title} show></SubMenu>
-                          }
-                        </ul>
+                        item.menuSections ? <button
+                          aria-expanded={currentDropdown === item.title}
+                          aria-controls="vetnav-explore"
+                          aria-haspopup="true"
+                          className="vetnav-level1"
+                          onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
+                          : <a href={item.href} className="vetnav-level1" >{item.title}</a>
                       }
-                    </div>
-                  </li>
-                );
-              })
-            }
-          </ul>
+                      <div id="vetnav-explore" className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
+                        {
+                          item.title === currentDropdown && item.menuSections && <ul aria-label="Explore benefits">
+                            {
+                              item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) => {
+                                return (
+                                  <MenuSection
+                                    key={`${section}-${j}`}
+                                    title={section.title}
+                                    defaultSection={defaultSection(item.menuSections)}
+                                    currentSection={currentSection}
+                                    updateCurrentSection={() => this.updateCurrentSection(section.title)}
+                                    links={section.links}></MenuSection>
+                                );
+                              }) : <SubMenu data={item.menuSections} navTitle={item.title} show></SubMenu>
+                            }
+                          </ul>
+                        }
+                      </div>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 MegaMenu.propTypes = {
   /**
@@ -112,5 +114,3 @@ MegaMenu.defaultProps = {
   currentDropdown: '',
   currentSection: '',
 };
-
-export default MegaMenu;
