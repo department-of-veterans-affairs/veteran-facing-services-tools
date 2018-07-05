@@ -188,10 +188,7 @@
 <h3 id="listid-string-">listId (STRING)</h3>
 <p>Passing prop <code>listId=&quot;&lt;STRING&gt;&quot;</code> to the <code>&lt;Breadcrumbs /&gt;</code> component will append that list ID to the <code>&lt;ul&gt;</code> element. If no <code>listId</code> is passed, a unique id will be created by concatnating the string <code>va-breadcrumbs-list-</code> with a string returned by <code>lodash.uniqueid</code>.</p>
 <h3 id="mobilefirst-boolean-">mobileFirst (BOOLEAN)</h3>
-<p>Passing prop <code>mobileFirstProp</code> to the <code>&lt;Breadcrumbs /&gt;</code> component will override <code>state.mobileShow</code> and present the back by one mobile breadcrumb link on initial render or subsequent renders. This prop could be used in cases where developers want absolute control over which breadcrumb UI to show, instead of letting the user’s viewport width toggle the correct view.</p>
-<h3 id="mobilewidth-number-">mobileWidth (NUMBER)</h3>
-<p>Passing prop <code>mobileWidth={NUMBER}</code> to the <code>&lt;Breadcrumbs /&gt;</code> component will modify the breakpoint width for swapping the full breadcrumb with the mobile “back by one” breadcrumb link. For instance, passing <code>mobileWidth=&quot;375&quot;</code> to the Breadcrumb will trigger the mobile breadcrumb when a user resizes their window width to 375px or less.</p>
-<p>Zooming will also trigger the mobile breadcrumb. If a user zooms their window to 400% at 1200px wide, the mobile breadcrumb would be triggered, because 1200/4 = 300px.</p>
+<p>Passing prop <code>mobileFirstProp</code> to the <code>&lt;Breadcrumbs /&gt;</code> component will add a class <code>va-nav-breadcrumbs--mobile</code> to the <code>&lt;nav&gt;</code> element, and hide all breadcrumb links except the previous step. This prop could be used in cases where developers want absolute control over which breadcrumb UI to show, instead of letting the user’s viewport width toggle the correct view.</p>
 <h2 id="accessibility">Accessibility</h2>
 <p>The <code>&lt;Breadcrumbs /&gt;</code> component has been tested for accessibility. It is fully keyboard accessible, and announces the current page correctly in the following screen reader combinations:</p>
 <ul>
@@ -257,18 +254,9 @@ The aria-label will be read out when users navigate the
               <td>No</td>
               <td>bool</td>
               <td></td>
-              <td>Overrides the state object Boolean state.mobileShow.
-The mobile breadcrumb will always be rendered while
-mobileFirstProp is True.</td>
-            </tr>
-          
-            <tr>
-              <td>mobileWidth</td>
-              <td>No</td>
-              <td>number</td>
-              <td>481</td>
-              <td>Changes viewport width to update state.mobileShow
-and toggle breadcrumb UI change</td>
+              <td>Adds CSS class `.va-nav-breadcrumbs--mobile` to the
+NAV element. The mobile breadcrumb will always
+be displayed while mobileFirstProp is True.</td>
             </tr>
           
         </table>
@@ -281,11 +269,11 @@ and toggle breadcrumb UI change</td>
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Breadcrumb"</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span> <span class="hljs-attr">data-mobile-width</span>=<span class="hljs-string">"481"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-breadcrumbs-97"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Breadcrumb"</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-nav-breadcrumbs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-breadcrumbs-97"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"va-breadcrumbs-list-98"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Link 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Link 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-current</span>=<span class="hljs-string">"page"</span>&gt;</span>Link 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Level One<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">aria-current</span>=<span class="hljs-string">"page"</span>&gt;</span>Level Two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -312,9 +300,9 @@ and toggle breadcrumb UI change</td>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> BreadcrumbsExample(props) {
   <span class="hljs-keyword">const</span> crumbs = [
-    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"1"</span>&gt;Link <span class="hljs-number">1</span>&lt;/a&gt;,
-    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"2"</span>&gt;Link <span class="hljs-number">2</span>&lt;/a&gt;,
-    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"3"</span>&gt;Link <span class="hljs-number">3</span>&lt;/a&gt;
+    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"1"</span>&gt;Home&lt;/a&gt;,
+    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"2"</span>&gt;Level One&lt;/a&gt;,
+    &lt;a href=<span class="hljs-string">"#"</span> key=<span class="hljs-string">"3"</span>&gt;Level Two&lt;/a&gt;
   ];
 
   <span class="hljs-keyword">return</span> (
@@ -373,7 +361,7 @@ and toggle breadcrumb UI change</td>
                                 <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> classNames <span class="hljs-keyword">from</span> <span class="hljs-string">'classnames'</span>;
-<span class="hljs-keyword">import</span> { debounce, uniqueId } <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+<span class="hljs-keyword">import</span> { uniqueId } <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
 
 <span class="hljs-comment">/**
  * React component to dynamically build breadcrumb links.
@@ -383,52 +371,16 @@ and toggle breadcrumb UI change</td>
  * as props.children.
  */</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Breadcrumbs</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-  <span class="hljs-keyword">constructor</span>(props) {
-    <span class="hljs-keyword">super</span>(props);
-
-    <span class="hljs-keyword">this</span>.breadcrumbId = <span class="hljs-keyword">this</span>.props.id || uniqueId(<span class="hljs-string">'va-breadcrumbs-'</span>);
-    <span class="hljs-keyword">this</span>.breadcrumbListId = <span class="hljs-keyword">this</span>.props.listId || uniqueId(<span class="hljs-string">'va-breadcrumbs-list-'</span>);
-
-    <span class="hljs-keyword">this</span>.state = {
-      <span class="hljs-attr">mobileShow</span>: <span class="hljs-literal">false</span>,
-    };
-  }
-
-  componentDidMount() {
-    <span class="hljs-keyword">const</span> mobileWidth = <span class="hljs-keyword">this</span>.props.mobileWidth;
-
-    <span class="hljs-keyword">this</span>.toggleDisplay(mobileWidth);
-    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.debouncedToggleDisplay);
-  }
-
-  componentWillUnmount() {
-    <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.debouncedToggleDisplay);
-  }
-
-  debouncedToggleDisplay = debounce(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-keyword">const</span> mobileWidth = <span class="hljs-keyword">this</span>.props.mobileWidth;
-
-    <span class="hljs-keyword">this</span>.toggleDisplay(mobileWidth);
-  }, <span class="hljs-number">500</span>);
-
   <span class="hljs-comment">/**
    * Provide a means to add overriding classes
    */</span>
   classNames() {
     <span class="hljs-keyword">const</span> customClass = <span class="hljs-keyword">this</span>.props.customClasses;
+    <span class="hljs-keyword">const</span> mobileFirst = <span class="hljs-keyword">this</span>.props.mobileFirstProp
+      ? <span class="hljs-string">'va-nav-breadcrumbs--mobile'</span>
+      : <span class="hljs-literal">null</span>;
 
-    <span class="hljs-keyword">return</span> classNames(
-      <span class="hljs-string">'va-nav-breadcrumbs'</span>,
-      customClass
-    );
-  }
-
-  <span class="hljs-comment">/**
-   * Manage state to show all breadcrumb links or
-   * just the mobile "Back by one" link
-   */</span>
-  toggleDisplay = <span class="hljs-function"><span class="hljs-params">breakpoint</span> =&gt;</span> {
-    <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">mobileShow</span>: <span class="hljs-built_in">window</span>.innerWidth &lt;= breakpoint });
+    <span class="hljs-keyword">return</span> classNames(<span class="hljs-string">'va-nav-breadcrumbs'</span>, mobileFirst, customClass);
   }
 
   <span class="hljs-comment">/**
@@ -439,69 +391,43 @@ and toggle breadcrumb UI change</td>
     <span class="hljs-keyword">return</span> React.Children.map(<span class="hljs-keyword">this</span>.props.children, (child, i) =&gt; {
       <span class="hljs-keyword">if</span> (i === <span class="hljs-keyword">this</span>.props.children.length - <span class="hljs-number">1</span>) {
         <span class="hljs-keyword">return</span> (
-          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{React.cloneElement(child, {
-            'aria-current': 'page',
-          })}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+            {React.cloneElement(child, {
+              'aria-current': 'page'
+            })}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
         );
       }
 
       <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{child}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>;
     });
-  }
-
-  <span class="hljs-comment">/**
-   * The second to last link being sliced from the crumbs array
-   * prop to create the "Back by one" mobile breadcrumb link
-   */</span>
-  renderMobileLink = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> React.Children.map(<span class="hljs-keyword">this</span>.props.children, (child, i) =&gt; {
-      <span class="hljs-keyword">if</span> (i === <span class="hljs-keyword">this</span>.props.children.length - <span class="hljs-number">2</span>) {
-        <span class="hljs-keyword">return</span> (
-          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{React.cloneElement(child, {
-            'aria-label': `Previous page: ${child.props.children}`,
-            className: 'va-nav-breadcrumbs-list__mobile-link',
-          })}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
-        );
-      }
-
-      <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    });
-  }
+  };
 
   render() {
-    <span class="hljs-keyword">const</span> mobileShow = <span class="hljs-keyword">this</span>.props.mobileFirstProp || <span class="hljs-keyword">this</span>.state.mobileShow;
-    <span class="hljs-keyword">const</span> shownList = mobileShow
-      ? (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>
-          <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span>
-          <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">this.breadcrumbListId</span>}<span class="hljs-attr">-clone</span>`}&gt;</span>
-          {this.renderMobileLink()}
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
-      ) : (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>
-          <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span>
-          <span class="hljs-attr">id</span>=<span class="hljs-string">{this.breadcrumbListId}</span>&gt;</span>
-          {this.renderBreadcrumbLinks()}
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
-      );
+    <span class="hljs-keyword">const</span> { ariaLabel, mobileFirstProp } = <span class="hljs-keyword">this</span>.props;
+    <span class="hljs-keyword">const</span> breadcrumbId = <span class="hljs-keyword">this</span>.props.id || uniqueId(<span class="hljs-string">'va-breadcrumbs-'</span>);
+    <span class="hljs-keyword">const</span> breadcrumbListId =
+      <span class="hljs-keyword">this</span>.props.listId || uniqueId(<span class="hljs-string">'va-breadcrumbs-list-'</span>);
 
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span>
-        <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{this.props.ariaLabel}</span>
+        <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{ariaLabel}</span>
         <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>
         <span class="hljs-attr">className</span>=<span class="hljs-string">{this.classNames()}</span>
-        <span class="hljs-attr">data-mobile-first</span>=<span class="hljs-string">{this.props.mobileFirstProp}</span>
-        <span class="hljs-attr">data-mobile-width</span>=<span class="hljs-string">{this.props.mobileWidth}</span>
-        <span class="hljs-attr">id</span>=<span class="hljs-string">{this.breadcrumbId}</span>&gt;</span>
-        { shownList }
+        <span class="hljs-attr">data-mobile-first</span>=<span class="hljs-string">{mobileFirstProp}</span>
+        <span class="hljs-attr">id</span>=<span class="hljs-string">{breadcrumbId}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>
+          <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-nav-breadcrumbs-list columns"</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">{breadcrumbListId}</span>&gt;</span>
+          {this.renderBreadcrumbLinks()}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span>
     );
   }
 }
 
 Breadcrumbs.defaultProps = {
-  <span class="hljs-attr">ariaLabel</span>: <span class="hljs-string">'Breadcrumb'</span>,
-  <span class="hljs-attr">mobileWidth</span>: <span class="hljs-number">481</span>,
+  <span class="hljs-attr">ariaLabel</span>: <span class="hljs-string">'Breadcrumb'</span>
 };
 
 Breadcrumbs.propTypes = {
@@ -524,16 +450,11 @@ Breadcrumbs.propTypes = {
    */</span>
   listId: PropTypes.string,
   <span class="hljs-comment">/**
-   * Overrides the state object Boolean state.mobileShow.
-   * The mobile breadcrumb will always be rendered while
-   * mobileFirstProp is True.
+   * Adds CSS class `.va-nav-breadcrumbs--mobile` to the
+   * NAV element. The mobile breadcrumb will always
+   * be displayed while mobileFirstProp is True.
    */</span>
-  mobileFirstProp: PropTypes.bool,
-  <span class="hljs-comment">/**
-   * Changes viewport width to update state.mobileShow
-   * and toggle breadcrumb UI change
-   */</span>
-  mobileWidth: PropTypes.number.isRequired,
+  mobileFirstProp: PropTypes.bool
 };
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Breadcrumbs;
@@ -553,7 +474,7 @@ Breadcrumbs.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.4 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -586,16 +507,6 @@ const routerCrumbs = [
   &lt;Link to="/test2" key="3"&gt;Link 3&lt;/Link&gt;,
 ];
 
-const test = shallow(
-  &lt;Breadcrumbs&gt;
-    &lt;a href="/" key="1"&gt;Link 1&lt;/a&gt;
-    &lt;a href="/test1" key="2"&gt;Link 2&lt;/a&gt;
-    &lt;a href="/test2" key="3"&gt;Link 3&lt;/a&gt;
-  &lt;/Breadcrumbs&gt;
-);
-
-test.setState({ mobileShow: true });
-
 describe('&lt;Breadcrumbs&gt;', () =&gt; {
   it('should render', () =&gt; {
     const tree = shallow(
@@ -610,10 +521,10 @@ describe('&lt;Breadcrumbs&gt;', () =&gt; {
   it('should render custom props', () =&gt; {
     const tree = shallow(
       &lt;Breadcrumbs
+        ariaLabel="Breadcrumb foo"
         customClasses="foo test"
         id="foo"
-        listId="foo-list"
-        mobileWidth={375}&gt;
+        listId="foo-list"&gt;
         {crumbs}
       &lt;/Breadcrumbs&gt;
     );
@@ -621,10 +532,10 @@ describe('&lt;Breadcrumbs&gt;', () =&gt; {
     const navElem = tree.find('nav');
     const listElem = tree.find('ul');
 
+    expect(navElem.props()['aria-label']).to.equal('Breadcrumb foo');
     expect(navElem.props().className).to.include('va-nav-breadcrumbs');
     expect(navElem.props().className).to.include('foo test');
     expect(navElem.props().id).to.equal('foo');
-    expect(navElem.props()['data-mobile-width']).to.equal(375);
     expect(listElem.props().id).to.equal('foo-list');
   });
 
@@ -731,7 +642,7 @@ describe('&lt;Breadcrumbs&gt;', () =&gt; {
   it('should render individual children correctly', () =&gt; {
     const tree = shallow(
       &lt;Breadcrumbs&gt;
-        &lt;a href="/" key="1"&gt;Link 1&lt;/a&gt;
+        &lt;a href="/" onClick={() =&gt; { const result = {}; return result; }} key="1"&gt;Link 1&lt;/a&gt;
         &lt;a href="/test1" key="2"&gt;Link 2&lt;/a&gt;
         &lt;a href="/test2" key="3"&gt;Link 3&lt;/a&gt;
       &lt;/Breadcrumbs&gt;
@@ -764,48 +675,16 @@ describe('&lt;Breadcrumbs&gt;', () =&gt; {
     expect(linkElem.length).to.equal(3);
   });
 
-  it('should render mobile breadcrumb when state is updated', () =&gt; {
+  it('should add mobile-only class when mobileFirstProp is true', () =&gt; {
     const tree = shallow(
-      &lt;Breadcrumbs&gt;
+      &lt;Breadcrumbs mobileFirstProp&gt;
         {crumbs}
       &lt;/Breadcrumbs&gt;
     );
 
-    const linkElem = tree.find('a');
+    const navElem = tree.find('nav');
 
-    expect(linkElem.at(0).props()['aria-current']).to.be.undefined;
-    expect(linkElem.at(1).props()['aria-current']).to.be.undefined;
-    expect(linkElem.at(2).props()['aria-current']).to.equal('page');
-
-    tree.setState({ mobileShow: true });
-
-    const linkElemMobile = tree.find('a');
-
-    expect(linkElemMobile.length).to.equal(1);
-    expect(linkElemMobile.at(0).props()['aria-current']).to.be.undefined;
-    expect(linkElemMobile.props().className).to.equal('va-nav-breadcrumbs-list__mobile-link');
-  });
-
-  it('should render mobile breadcrumb when mobileFirstProp is true', () =&gt; {
-    const tree = shallow(
-      &lt;Breadcrumbs&gt;
-        {crumbs}
-      &lt;/Breadcrumbs&gt;
-    );
-
-    const linkElem = tree.find('a');
-
-    expect(linkElem.at(0).props()['aria-current']).to.be.undefined;
-    expect(linkElem.at(1).props()['aria-current']).to.be.undefined;
-    expect(linkElem.at(2).props()['aria-current']).to.equal('page');
-
-    tree.setProps({ mobileFirstProp: true });
-
-    const linkElemMobile = tree.find('a');
-
-    expect(linkElemMobile.length).to.equal(1);
-    expect(linkElemMobile.at(0).props()['aria-current']).to.be.undefined;
-    expect(linkElemMobile.props().className).to.equal('va-nav-breadcrumbs-list__mobile-link');
+    expect(navElem.props().className).to.equal('va-nav-breadcrumbs va-nav-breadcrumbs--mobile');
   });
 
   it('should pass aXe check when showing full breadcrumb', () =&gt; {
@@ -840,7 +719,7 @@ describe('&lt;Breadcrumbs&gt;', () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.4 KB</span>
+                    <span class="Meta-value">5.2 KB</span>
                 </li>
             </ul>
         </div>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { debounce, uniqueId } from 'lodash';
+import { uniqueId } from 'lodash';
 
 /**
  * React component to dynamically build breadcrumb links.
@@ -11,52 +11,16 @@ import { debounce, uniqueId } from 'lodash';
  * as props.children.
  */
 class Breadcrumbs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.breadcrumbId = this.props.id || uniqueId('va-breadcrumbs-');
-    this.breadcrumbListId = this.props.listId || uniqueId('va-breadcrumbs-list-');
-
-    this.state = {
-      mobileShow: false,
-    };
-  }
-
-  componentDidMount() {
-    const mobileWidth = this.props.mobileWidth;
-
-    this.toggleDisplay(mobileWidth);
-    window.addEventListener('resize', this.debouncedToggleDisplay);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.debouncedToggleDisplay);
-  }
-
-  debouncedToggleDisplay = debounce(() => {
-    const mobileWidth = this.props.mobileWidth;
-
-    this.toggleDisplay(mobileWidth);
-  }, 500);
-
   /**
    * Provide a means to add overriding classes
    */
   classNames() {
     const customClass = this.props.customClasses;
+    const mobileFirst = this.props.mobileFirstProp
+      ? 'va-nav-breadcrumbs--mobile'
+      : null;
 
-    return classNames(
-      'va-nav-breadcrumbs',
-      customClass
-    );
-  }
-
-  /**
-   * Manage state to show all breadcrumb links or
-   * just the mobile "Back by one" link
-   */
-  toggleDisplay = breakpoint => {
-    this.setState({ mobileShow: window.innerWidth <= breakpoint });
+    return classNames('va-nav-breadcrumbs', mobileFirst, customClass);
   }
 
   /**
@@ -67,69 +31,43 @@ class Breadcrumbs extends React.Component {
     return React.Children.map(this.props.children, (child, i) => {
       if (i === this.props.children.length - 1) {
         return (
-          <li>{React.cloneElement(child, {
-            'aria-current': 'page',
-          })}</li>
+          <li>
+            {React.cloneElement(child, {
+              'aria-current': 'page'
+            })}
+          </li>
         );
       }
 
       return <li>{child}</li>;
     });
-  }
-
-  /**
-   * The second to last link being sliced from the crumbs array
-   * prop to create the "Back by one" mobile breadcrumb link
-   */
-  renderMobileLink = () => {
-    return React.Children.map(this.props.children, (child, i) => {
-      if (i === this.props.children.length - 2) {
-        return (
-          <li>{React.cloneElement(child, {
-            'aria-label': `Previous page: ${child.props.children}`,
-            className: 'va-nav-breadcrumbs-list__mobile-link',
-          })}</li>
-        );
-      }
-
-      return null;
-    });
-  }
+  };
 
   render() {
-    const mobileShow = this.props.mobileFirstProp || this.state.mobileShow;
-    const shownList = mobileShow
-      ? (
-        <ul
-          className="row va-nav-breadcrumbs-list columns"
-          id={`${this.breadcrumbListId}-clone`}>
-          {this.renderMobileLink()}
-        </ul>
-      ) : (
-        <ul
-          className="row va-nav-breadcrumbs-list columns"
-          id={this.breadcrumbListId}>
-          {this.renderBreadcrumbLinks()}
-        </ul>
-      );
+    const { ariaLabel, mobileFirstProp } = this.props;
+    const breadcrumbId = this.props.id || uniqueId('va-breadcrumbs-');
+    const breadcrumbListId =
+      this.props.listId || uniqueId('va-breadcrumbs-list-');
 
     return (
       <nav
-        aria-label={this.props.ariaLabel}
+        aria-label={ariaLabel}
         aria-live="polite"
         className={this.classNames()}
-        data-mobile-first={this.props.mobileFirstProp}
-        data-mobile-width={this.props.mobileWidth}
-        id={this.breadcrumbId}>
-        { shownList }
+        data-mobile-first={mobileFirstProp}
+        id={breadcrumbId}>
+        <ul
+          className="row va-nav-breadcrumbs-list columns"
+          id={breadcrumbListId}>
+          {this.renderBreadcrumbLinks()}
+        </ul>
       </nav>
     );
   }
 }
 
 Breadcrumbs.defaultProps = {
-  ariaLabel: 'Breadcrumb',
-  mobileWidth: 481,
+  ariaLabel: 'Breadcrumb'
 };
 
 Breadcrumbs.propTypes = {
@@ -152,16 +90,11 @@ Breadcrumbs.propTypes = {
    */
   listId: PropTypes.string,
   /**
-   * Overrides the state object Boolean state.mobileShow.
-   * The mobile breadcrumb will always be rendered while
-   * mobileFirstProp is True.
+   * Adds CSS class `.va-nav-breadcrumbs--mobile` to the
+   * NAV element. The mobile breadcrumb will always
+   * be displayed while mobileFirstProp is True.
    */
-  mobileFirstProp: PropTypes.bool,
-  /**
-   * Changes viewport width to update state.mobileShow
-   * and toggle breadcrumb UI change
-   */
-  mobileWidth: PropTypes.number.isRequired,
+  mobileFirstProp: PropTypes.bool
 };
 
 export default Breadcrumbs;
