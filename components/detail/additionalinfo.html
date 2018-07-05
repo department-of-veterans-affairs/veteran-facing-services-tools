@@ -184,6 +184,14 @@
               <td></td>
             </tr>
           
+            <tr>
+              <td>onClick</td>
+              <td>No</td>
+              <td>func</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
         </table>
     </div>
 </div>
@@ -200,7 +208,7 @@
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.1.0"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.1.1"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -240,7 +248,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.1</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.1</span><span class="hljs-number">.1</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./AdditionalInfo.jsx</span>
@@ -293,6 +301,7 @@
 
   toggle = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">open</span>: !<span class="hljs-keyword">this</span>.state.open });
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.props.onClick &amp;&amp; <span class="hljs-keyword">this</span>.props.onClick();
   };
 
   render() {
@@ -329,7 +338,8 @@
 
 AdditionalInfo.propTypes = {
   // this is the text displayed for AdditionalInfo link or button
-  triggerText: PropTypes.string.isRequired
+  triggerText: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 </span></pre>
                             </code>
@@ -347,7 +357,7 @@ AdditionalInfo.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.4 KB</span>
+                    <span class="Meta-value">1.5 KB</span>
                 </li>
             </ul>
         </div>
