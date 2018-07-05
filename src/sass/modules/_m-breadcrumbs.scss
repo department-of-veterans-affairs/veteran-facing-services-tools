@@ -60,10 +60,48 @@
   position: relative;
 }
 
-.va-nav-breadcrumbs-list__mobile-link {
-  &::before {
-    content: " \2039 ";
+/* Mobile class declaration for React apps, manual override */
+.va-nav-breadcrumbs--mobile {
+  li {
+    display: none;
+  }
+
+  li:nth-last-child(2) {
     display: inline-block;
-    padding: 0 0.15em;
+
+    &::before {
+      content: " \2039 ";
+      display: inline-block;
+      padding: 0 0.15em;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      padding: 0;
+    }
+  }
+}
+
+/* Activate the mobile breadcrumb at $small-screen breakpoint */
+@media screen and (max-width: $small-screen) {
+  .va-nav-breadcrumbs li {
+    display: none;
+  }
+
+  .va-nav-breadcrumbs li:nth-last-child(2) {
+    display: inline-block;
+
+    &::before {
+      content: " \2039 ";
+      display: inline-block;
+      padding: 0 0.15em;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      padding: 0;
+    }
   }
 }
