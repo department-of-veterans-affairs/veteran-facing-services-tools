@@ -50455,15 +50455,15 @@ function BreadcrumbsExample(props) {
   var crumbs = [_react2.default.createElement(
     'a',
     { href: '#', key: '1' },
-    'Link 1'
+    'Home'
   ), _react2.default.createElement(
     'a',
     { href: '#', key: '2' },
-    'Link 2'
+    'Level One'
   ), _react2.default.createElement(
     'a',
     { href: '#', key: '3' },
-    'Link 3'
+    'Level Two'
   )];
 
   return _react2.default.createElement(
@@ -54100,22 +54100,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Breadcrumbs = function (_React$Component) {
   _inherits(Breadcrumbs, _React$Component);
 
-  function Breadcrumbs(props) {
+  function Breadcrumbs() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Breadcrumbs);
 
-    var _this = _possibleConstructorReturn(this, (Breadcrumbs.__proto__ || Object.getPrototypeOf(Breadcrumbs)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.debouncedToggleDisplay = (0, _lodash.debounce)(function () {
-      var mobileWidth = _this.props.mobileWidth;
-
-      _this.toggleDisplay(mobileWidth);
-    }, 500);
-
-    _this.toggleDisplay = function (breakpoint) {
-      _this.setState({ mobileShow: window.innerWidth <= breakpoint });
-    };
-
-    _this.renderBreadcrumbLinks = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Breadcrumbs.__proto__ || Object.getPrototypeOf(Breadcrumbs)).call.apply(_ref, [this].concat(args))), _this), _this.renderBreadcrumbLinks = function () {
       return _react2.default.Children.map(_this.props.children, function (child, i) {
         if (i === _this.props.children.length - 1) {
           return _react2.default.createElement(
@@ -54133,105 +54129,52 @@ var Breadcrumbs = function (_React$Component) {
           child
         );
       });
-    };
-
-    _this.renderMobileLink = function () {
-      return _react2.default.Children.map(_this.props.children, function (child, i) {
-        if (i === _this.props.children.length - 2) {
-          return _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.cloneElement(child, {
-              'aria-label': 'Previous page: ' + child.props.children,
-              className: 'va-nav-breadcrumbs-list__mobile-link'
-            })
-          );
-        }
-
-        return null;
-      });
-    };
-
-    _this.breadcrumbId = _this.props.id || (0, _lodash.uniqueId)('va-breadcrumbs-');
-    _this.breadcrumbListId = _this.props.listId || (0, _lodash.uniqueId)('va-breadcrumbs-list-');
-
-    _this.state = {
-      mobileShow: false
-    };
-    return _this;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Breadcrumbs, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var mobileWidth = this.props.mobileWidth;
-
-      this.toggleDisplay(mobileWidth);
-      window.addEventListener('resize', this.debouncedToggleDisplay);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.removeEventListener('resize', this.debouncedToggleDisplay);
-    }
-  }, {
     key: 'classNames',
-
 
     /**
      * Provide a means to add overriding classes
      */
     value: function classNames() {
       var customClass = this.props.customClasses;
+      var mobileFirst = this.props.mobileFirstProp ? 'va-nav-breadcrumbs--mobile' : null;
 
-      return (0, _classnames2.default)('va-nav-breadcrumbs', customClass);
+      return (0, _classnames2.default)('va-nav-breadcrumbs', mobileFirst, customClass);
     }
-
-    /**
-     * Manage state to show all breadcrumb links or
-     * just the mobile "Back by one" link
-     */
-
 
     /**
      * Build the breadcrumb links. Check the array length
      * and add an `aria-current` attribute to the last link.
      */
 
-
-    /**
-     * The second to last link being sliced from the crumbs array
-     * prop to create the "Back by one" mobile breadcrumb link
-     */
-
   }, {
     key: 'render',
     value: function render() {
-      var mobileShow = this.props.mobileFirstProp || this.state.mobileShow;
-      var shownList = mobileShow ? _react2.default.createElement(
-        'ul',
-        {
-          className: 'row va-nav-breadcrumbs-list columns',
-          id: this.breadcrumbListId + '-clone' },
-        this.renderMobileLink()
-      ) : _react2.default.createElement(
-        'ul',
-        {
-          className: 'row va-nav-breadcrumbs-list columns',
-          id: this.breadcrumbListId },
-        this.renderBreadcrumbLinks()
-      );
+      var _props = this.props,
+          ariaLabel = _props.ariaLabel,
+          mobileFirstProp = _props.mobileFirstProp;
+
+      var breadcrumbId = this.props.id || (0, _lodash.uniqueId)('va-breadcrumbs-');
+      var breadcrumbListId = this.props.listId || (0, _lodash.uniqueId)('va-breadcrumbs-list-');
 
       return _react2.default.createElement(
         'nav',
         {
-          'aria-label': this.props.ariaLabel,
+          'aria-label': ariaLabel,
           'aria-live': 'polite',
           className: this.classNames(),
-          'data-mobile-first': this.props.mobileFirstProp,
-          'data-mobile-width': this.props.mobileWidth,
-          id: this.breadcrumbId },
-        shownList
+          'data-mobile-first': mobileFirstProp,
+          id: breadcrumbId },
+        _react2.default.createElement(
+          'ul',
+          {
+            className: 'row va-nav-breadcrumbs-list columns',
+            id: breadcrumbListId },
+          this.renderBreadcrumbLinks()
+        )
       );
     }
   }]);
@@ -54240,8 +54183,7 @@ var Breadcrumbs = function (_React$Component) {
 }(_react2.default.Component);
 
 Breadcrumbs.defaultProps = {
-  ariaLabel: 'Breadcrumb',
-  mobileWidth: 481
+  ariaLabel: 'Breadcrumb'
 };
 
 Breadcrumbs.propTypes = {
@@ -54264,16 +54206,11 @@ Breadcrumbs.propTypes = {
    */
   listId: _propTypes2.default.string,
   /**
-   * Overrides the state object Boolean state.mobileShow.
-   * The mobile breadcrumb will always be rendered while
-   * mobileFirstProp is True.
+   * Adds CSS class `.va-nav-breadcrumbs--mobile` to the
+   * NAV element. The mobile breadcrumb will always
+   * be displayed while mobileFirstProp is True.
    */
-  mobileFirstProp: _propTypes2.default.bool,
-  /**
-   * Changes viewport width to update state.mobileShow
-   * and toggle breadcrumb UI change
-   */
-  mobileWidth: _propTypes2.default.number.isRequired
+  mobileFirstProp: _propTypes2.default.bool
 };
 
 exports.default = Breadcrumbs;

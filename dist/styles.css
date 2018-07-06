@@ -7402,10 +7402,35 @@ p.usa-alert-heading {
   float: none !important;
   position: relative; }
 
-.va-nav-breadcrumbs-list__mobile-link::before {
-  content: " \2039   ";
-  display: inline-block;
-  padding: 0 0.15em; }
+/* Mobile class declaration for React apps, manual override */
+.va-nav-breadcrumbs--mobile li {
+  display: none; }
+
+.va-nav-breadcrumbs--mobile li:nth-last-child(2) {
+  display: inline-block; }
+  .va-nav-breadcrumbs--mobile li:nth-last-child(2)::before {
+    content: " \2039   ";
+    display: inline-block;
+    padding: 0 0.15em; }
+  .va-nav-breadcrumbs--mobile li:nth-last-child(2)::after {
+    content: "";
+    display: none;
+    padding: 0; }
+
+/* Activate the mobile breadcrumb at $small-screen breakpoint */
+@media screen and (max-width: 481px) {
+  .va-nav-breadcrumbs li {
+    display: none; }
+  .va-nav-breadcrumbs li:nth-last-child(2) {
+    display: inline-block; }
+    .va-nav-breadcrumbs li:nth-last-child(2)::before {
+      content: " \2039   ";
+      display: inline-block;
+      padding: 0 0.15em; }
+    .va-nav-breadcrumbs li:nth-last-child(2)::after {
+      content: "";
+      display: none;
+      padding: 0; } }
 
 @media screen and (min-width: 768px) {
   .va-crisis-line {
