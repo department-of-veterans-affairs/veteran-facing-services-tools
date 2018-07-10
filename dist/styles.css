@@ -6189,9 +6189,8 @@ input.usa-input-medium {
   .va-button-link:active {
     background: rgba(0, 0, 0, 0.05); }
   .va-button-link:focus {
-    outline: 2px solid #f9c642;
-    outline-offset: 2px;
-    outline-offset: 0; }
+    outline: 2px dotted #aeb0b5;
+    outline-offset: 3px; }
 
 .dashed-underline {
   text-decoration: none;
@@ -7219,32 +7218,6 @@ p.info-message {
 .form-radio-buttons [type=radio]:focus + label::before {
   outline: none; }
 
-a:focus {
-  outline: 2px solid #f9c642;
-  outline-offset: 2px;
-  outline-offset: 0; }
-
-input:focus {
-  outline: 2px solid #f9c642;
-  outline-offset: 2px; }
-
-select:focus {
-  outline: 2px solid #f9c642;
-  outline-offset: 2px; }
-
-button:focus {
-  outline: 2px solid #f9c642;
-  outline-offset: 2px;
-  position: relative;
-  z-index: 3; }
-
-nav button:focus {
-  outline-offset: 0; }
-
-[type=checkbox]:focus + label::before {
-  color: #f9c642;
-  outline: 2px solid #f9c642; }
-
 .va-alert-close {
   background: transparent;
   color: #212121;
@@ -7402,35 +7375,10 @@ p.usa-alert-heading {
   float: none !important;
   position: relative; }
 
-/* Mobile class declaration for React apps, manual override */
-.va-nav-breadcrumbs--mobile li {
-  display: none; }
-
-.va-nav-breadcrumbs--mobile li:nth-last-child(2) {
-  display: inline-block; }
-  .va-nav-breadcrumbs--mobile li:nth-last-child(2)::before {
-    content: " \2039   ";
-    display: inline-block;
-    padding: 0 0.15em; }
-  .va-nav-breadcrumbs--mobile li:nth-last-child(2)::after {
-    content: "";
-    display: none;
-    padding: 0; }
-
-/* Activate the mobile breadcrumb at $small-screen breakpoint */
-@media screen and (max-width: 481px) {
-  .va-nav-breadcrumbs li {
-    display: none; }
-  .va-nav-breadcrumbs li:nth-last-child(2) {
-    display: inline-block; }
-    .va-nav-breadcrumbs li:nth-last-child(2)::before {
-      content: " \2039   ";
-      display: inline-block;
-      padding: 0 0.15em; }
-    .va-nav-breadcrumbs li:nth-last-child(2)::after {
-      content: "";
-      display: none;
-      padding: 0; } }
+.va-nav-breadcrumbs-list__mobile-link::before {
+  content: " \2039   ";
+  display: inline-block;
+  padding: 0 0.15em; }
 
 @media screen and (min-width: 768px) {
   .va-crisis-line {
