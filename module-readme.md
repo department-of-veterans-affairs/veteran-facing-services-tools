@@ -1,4 +1,4 @@
-Version 0.2.0
+Version 1.2.0
 
 This module contains reusable react components from [vets-website](https://github.com/department-of-veterans-affairs/vets-website) housed in its design system [repo](https://github.com/department-of-veterans-affairs/design-system).
 
@@ -14,6 +14,7 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 
 - AdditionalInfo.js
 - AlertBox.js
+- Breadcrumbs.js
 - ExpandingGroup.js
 - ErrorableDate.js
 - ErrorableCheckbox.js

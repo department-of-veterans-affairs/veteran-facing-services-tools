@@ -37,13 +37,7 @@ Passing prop `listId="<STRING>"` to the `<Breadcrumbs />` component will append 
 
 ### mobileFirst (BOOLEAN)
 
-Passing prop `mobileFirstProp` to the `<Breadcrumbs />` component will override `state.mobileShow` and present the back by one mobile breadcrumb link on initial render or subsequent renders. This prop could be used in cases where developers want absolute control over which breadcrumb UI to show, instead of letting the user's viewport width toggle the correct view.
-
-### mobileWidth (NUMBER)
-
-Passing prop `mobileWidth={NUMBER}` to the `<Breadcrumbs />` component will modify the breakpoint width for swapping the full breadcrumb with the mobile "back by one" breadcrumb link. For instance, passing `mobileWidth="375"` to the Breadcrumb will trigger the mobile breadcrumb when a user resizes their window width to 375px or less.
-
-Zooming will also trigger the mobile breadcrumb. If a user zooms their window to 400% at 1200px wide, the mobile breadcrumb would be triggered, because 1200/4 = 300px.
+Passing prop `mobileFirstProp` to the `<Breadcrumbs />` component will add a class `va-nav-breadcrumbs--mobile` to the `<nav>` element, and hide all breadcrumb links except the previous step. This prop could be used in cases where developers want absolute control over which breadcrumb UI to show, instead of letting the user's viewport width toggle the correct view.
 
 ## Accessibility
 

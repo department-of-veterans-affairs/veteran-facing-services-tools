@@ -13,6 +13,7 @@ export default class AdditionalInfo extends React.Component {
 
   toggle = () => {
     this.setState({ open: !this.state.open });
+    return this.props.onClick && this.props.onClick();
   };
 
   render() {
@@ -49,5 +50,6 @@ export default class AdditionalInfo extends React.Component {
 
 AdditionalInfo.propTypes = {
   // this is the text displayed for AdditionalInfo link or button
-  triggerText: PropTypes.string.isRequired
+  triggerText: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
