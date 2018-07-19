@@ -21,7 +21,11 @@ export default class MegaMenu extends React.Component {
   }
 
   updateCurrentSection(title) {
-    const sectionTitle = this.props.currentSection === title ? '' : title;
+    let sectionTitle = title;
+
+    if (window.innerWidth < 768) {
+      sectionTitle = this.props.currentSection === title ? '' : title;
+    }
 
     this.props.updateCurrentSection(sectionTitle);
   }
