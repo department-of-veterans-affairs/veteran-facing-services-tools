@@ -20,7 +20,7 @@ As we transfer components from vets-website into the design system, we will need
 
 5. Specify the props in the config file.
 
-6. Add some unit tests (those may also be able to be copied from vets-website if they exist). Be sure to follow the [accessibility guidelines](./Accessibility%20and%20508/README.md) for automated a11y tests as well. 
+6. Add some unit tests (those may also be able to be copied from vets-website if they exist). Be sure to follow the [accessibility guidelines](_accessibility.md) for automated a11y tests as well. 
 
 7. Run design-system locally and make sure that the component is rendered correctly
 
