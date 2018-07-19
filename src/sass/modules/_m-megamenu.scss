@@ -117,5 +117,52 @@
       display: inline-block;
       padding-right: 25px;
     }
+
+    .panel-top-link {
+      display: none;
+    }
+
+    .back-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .column-three {
+      display: none;
+    }
+
+    .vetnav-level2 {
+      width: 100%;
+    }
+
+    .vetnav-panel--submenu:not([hidden]) {
+      position: initial;
+
+      h3 {
+        display: none;
+      }
+
+      .panel-bottom-link {
+        display: none;
+      }
+
+      .panel-top-link {
+        display: block;
+      }
+
+      .back-button {
+        display: block;
+      }
+    }
+
+    // #vetnav-explore {
+    //   position: absolute;
+    //   top: 0;
+    //   width: 100%;
+    //   background: #102f51;
+    //   height: 100%;
+    //   z-index: 200;
+    // }
   }
 }

@@ -4,6 +4,10 @@ import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
 
 const defaultSection = (sections) => {
+  if (window.innerWidth < 768) {
+    return '';
+  }
+
   return sections[0].title;
 };
 
@@ -17,7 +21,9 @@ export default class MegaMenu extends React.Component {
   }
 
   updateCurrentSection(title) {
-    this.props.updateCurrentSection(title);
+    const sectionTitle = this.props.currentSection === title ? '' : title;
+
+    this.props.updateCurrentSection(sectionTitle);
   }
 
   render() {

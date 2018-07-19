@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Column from './Column';
+import _ from 'lodash';
 
 const SubMenu = ({ data, show, navTitle }) => {
   const { seeAllLink, ...columns } = data;
@@ -8,6 +9,9 @@ const SubMenu = ({ data, show, navTitle }) => {
   if (show) {
     return (
       <div>
+        <div>
+          <button className="back-button" aria-controls={`vetnav-${_.kebabCase(navTitle)}`}>Back to Menu</button>
+        </div>
         {Object.keys(columns).map((keyName) => {
           return (
             <Column
@@ -17,7 +21,7 @@ const SubMenu = ({ data, show, navTitle }) => {
               navTitle={navTitle}
               panelWhite={Object.prototype.hasOwnProperty.call(data, 'mainColumn')}>
               {
-                keyName === 'columnOne' && <div className="panel-bottom-link">
+                keyName === 'columnOne' && <div>
                   {
                     seeAllLink && <a href={seeAllLink.href}>View All in {seeAllLink.text}</a>
                   }
