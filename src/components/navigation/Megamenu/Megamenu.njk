@@ -1,0 +1,14 @@
+import React from 'react';
+import Megamenu from './Megamenu';
+
+export default function MegamenuExample(props) {
+  return (
+    <Megamenu
+      onPageSelect={(e) => {}}
+      page={props.page}
+      pages={props.pages}
+      maxPageListLength={props.maxPageListLength}
+      showLastPage={props.showLastPage}
+      />
+  );
+}

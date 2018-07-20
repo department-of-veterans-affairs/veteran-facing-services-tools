@@ -14,9 +14,8 @@ Formation’s purpose is to provide accepted guidance for:
 - implementation of new visual patterns and components
 
 ## Get started:
-- [Quickstart](/docs/quickstart)
-- [Formation User Guide](/docs/user-guide)
-- [Designing Good User Experiences](/docs/playbook/designing-good-user-experiences)
+- [Quickstart](/design-system/docs/quickstart)
+- [Formation User Guide](/design-system/docs/user-guide)
 
 ---
 
