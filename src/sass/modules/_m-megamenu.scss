@@ -156,13 +156,12 @@
       }
     }
 
-    // #vetnav-explore {
-    //   position: absolute;
-    //   top: 0;
-    //   width: 100%;
-    //   background: #102f51;
-    //   height: 100%;
-    //   z-index: 200;
-    // }
+    .mm-link-container-small {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      background: #102f51;
+    }
   }
 }

@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import Column from './Column';
 import _ from 'lodash';
 
-const SubMenu = ({ data, show, navTitle }) => {
+const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
   const { seeAllLink, ...columns } = data;
 
   if (show) {
     return (
       <div>
         <div>
-          <button className="back-button" aria-controls={`vetnav-${_.kebabCase(navTitle)}`}>Back to Menu</button>
+          <button
+            className="back-button"
+            aria-controls={`vetnav-${_.kebabCase(navTitle)}`}
+            onClick={() => handleBackToMenu()}>
+            Back to Menu
+          </button>
         </div>
         {Object.keys(columns).map((keyName) => {
           return (

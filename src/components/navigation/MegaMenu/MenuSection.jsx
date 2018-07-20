@@ -2,30 +2,64 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SubMenu from './SubMenu';
 
-const getCurrentSection = (props) => {
-  return props.currentSection ? props.currentSection : props.defaultSection;
-};
+class MenuSection extends React.Component {
+  constructor() {
+    super();
 
-const getId = (title) => {
-  return `vetnav-${title.toLowerCase().replace(/ /g, '-')}`;
-};
+    this.state = {
+      title: {},
+    };
+  }
 
-const MenuSection = (props) => {
-  const show = getCurrentSection(props) === props.title;
+  getCurrentSection() {
+    return this.props.currentSection ? this.props.currentSection : this.props.defaultSection;
+  }
 
-  return (
-    <li className="mm-link-container" role="menuitem">
-      <button
-        id={getId(props.title)}
-        className="vetnav-level2"
-        aria-haspopup="true"
-        aria-controls={show ? getId(props.title) : null}
-        aria-expanded={show}
-        onClick={() => props.updateCurrentSection(props.title)}>{props.title}</button>
-      <SubMenu id="vetnav-explore" data={props.links} navTitle={props.title} show={show}></SubMenu>
-    </li>
-  );
-};
+  getId(title) {
+    return `vetnav-${title.toLowerCase().replace(/ /g, '-')}`;
+  }
+
+  updateCurrentSection() {
+    this.setState({
+      title: {
+        hidden: true,
+      },
+    });
+
+    this.props.updateCurrentSection();
+  }
+
+  handleBackToMenu() {
+    this.updateCurrentSection('');
+    this.setState({
+      title: {},
+    });
+  }
+
+  render() {
+    const show = this.getCurrentSection(this.props) === this.props.title;
+
+    return (
+      <li className={`mm-link-container${this.state.title.hidden ? '-small' : ''}`} role="menuitem">
+        <button
+          {...this.state.title}
+          id={this.getId(this.props.title)}
+          className="vetnav-level2"
+          aria-haspopup="true"
+          aria-controls={show ? this.getId(this.props.title) : null}
+          aria-expanded={show}
+          onClick={() => this.updateCurrentSection()}>{this.props.title}</button>
+        <SubMenu
+          id="vetnav-explore"
+          data={this.props.links}
+          navTitle={this.props.title}
+          show={show}
+          handleBackToMenu={() => this.handleBackToMenu()}>
+        </SubMenu>
+      </li>
+    );
+  }
+}
 
 MenuSection.propTypes = {
   title: PropTypes.string.isRequired,

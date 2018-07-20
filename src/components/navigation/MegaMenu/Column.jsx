@@ -25,7 +25,7 @@ const Column = (props) => {
   }
 
   return (
-    <div className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)} ${panelWhite && 'panel-white'}`}>
+    <div className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${panelWhite ? ' panel-white' : ''}`}>
       <h3 id={`vetnav-${strToDash(navTitle)}-header`}>{data.title}</h3>
       <ul id={`vetnav-${strToDash(navTitle)}`} aria-labelledby={`vetnav-${strToDash(navTitle)}-header`}>
         <li className="panel-top-link">{props.children}</li>
