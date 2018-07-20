@@ -56,8 +56,8 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    outline: 2px dotted $color-gray-light;
-    outline-offset: 3px;
+    @include focus-gold-light-outline;
+    outline-offset: 0;
   }
 }
 

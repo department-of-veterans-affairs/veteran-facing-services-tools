@@ -20,39 +20,4 @@ Formation’s purpose is to provide accepted guidance for:
 
 ---
 
-## To Do:
-
-- incorporate Vets CSS
-- Get the CSS working properly
-- Incorporate documentation for Foundation grid
-- Match styles:
-  - ~~Tables~~
-  - Fonts
-  - Alerts
-  - ~~Accordions~~
-  - Header -- so broken.
-  - Footer
-  - Links
-  - Buttons > Primary Alt (replace with green)
-  - Buttons > Secondary (replace with outline)
-  - Serif font: Bitter
-
-
-- Add components that we _are_ using on Vets that are not on USWDS (what are these?)
-  - Subway map
-  - Logos
-  - Grey callouts
-  - Blue cards (deprecated?)
-  - Need help? sidebar/footer
-  - Iconography
-  - ~~Header > Get Help (VCL)~~
-  - Homepage template (unsure whether to break this down into smaller components, since so many of them _only_ live on Home)
-  - Navigation > Next/prev
-  - Log in landing page (prompt to ID.me)
-  - Alert/accordion hybrid (see Prescription Refills)
-  - Data visualizations
-  - Add Source Sans Pro Bold
-  - Responsive table
-  - Expandable alert box (https://www.vets.gov/health-care/health-conditions/mental-health/)
-
 Edit this page's contents at `docs/01-index.hbs`

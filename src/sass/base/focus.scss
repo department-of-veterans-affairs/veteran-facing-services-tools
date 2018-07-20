@@ -3,3 +3,31 @@
     outline: none;
   }
 }
+
+a:focus {
+  @include focus-gold-light-outline;
+  outline-offset: 0;
+}
+
+input:focus {
+  @include focus-gold-light-outline;
+}
+
+select:focus {
+  @include focus-gold-light-outline;
+}
+
+button:focus {
+  @include focus-gold-light-outline;
+  position: relative;
+  z-index: 3;
+}
+
+nav button:focus {
+  outline-offset: 0;
+}
+
+[type="checkbox"]:focus + label::before {
+  color: $color-gold-light;
+  outline: 2px solid $color-gold-light;
+}
