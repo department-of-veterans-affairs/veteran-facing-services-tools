@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 import { makeField } from '../../../../helpers/fields';
 
-class ErrorableCheckboxes extends React.Component {
+class ErrorableCheckboxGroup extends React.Component {
 
   componentWillMount() {
     this.inputId = this.props.id || _.uniqueId('errorable-checkbox-buttons-');
@@ -136,7 +136,7 @@ class ErrorableCheckboxes extends React.Component {
  * `onValueChange` - a function with this prototype: (newValue)
  */
 
-ErrorableCheckboxes.propTypes = {
+ErrorableCheckboxGroup.propTypes = {
   // String for any additional fieldset classes.
   additionalFieldsetClass: PropTypes.string,
 
@@ -185,4 +185,4 @@ ErrorableCheckboxes.propTypes = {
   required: PropTypes.bool,
 };
 
-export default ErrorableCheckboxes;
+export default ErrorableCheckboxGroup;

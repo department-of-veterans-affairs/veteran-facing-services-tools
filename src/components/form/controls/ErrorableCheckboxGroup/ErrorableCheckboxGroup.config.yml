@@ -1,8 +1,8 @@
-label: ErrorableCheckboxes
+label: ErrorableCheckboxGroup
 status: wip
 
 context:
-  componentSourcePath: './ErrorableCheckboxes.jsx'
+  componentSourcePath: './ErrorableCheckboxGroup.jsx'
   id: default
   errorMessage: 'This is an error message'
   label: 'Errorable Checkboxes'

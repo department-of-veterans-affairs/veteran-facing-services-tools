@@ -2,15 +2,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { axeCheck } from '../../../../../lib/testing/helpers';
-import ErrorableCheckboxes from './ErrorableCheckboxes.jsx';
+import ErrorableCheckboxGroup from './ErrorableCheckboxGroup.jsx';
 
-describe('<ErrorableCheckboxes>', () => {
+describe('<ErrorableCheckboxGroup>', () => {
   const options = [{ value: 'yes', label: 'Yes', additional: <p>additional content</p> }, { value: 'no', label: 'No' }];
 
   it('should render', () => {
     const state = { yes: false, no: false };
     const tree = mount(
-      <ErrorableCheckboxes label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>
+      <ErrorableCheckboxGroup label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>
     );
 
     expect(tree.find('input').length).to.equal(2);
@@ -22,7 +22,7 @@ describe('<ErrorableCheckboxes>', () => {
   it('should reveal additional content', () => {
     const state = { yes: true, no: false };
     const tree = mount(
-      <ErrorableCheckboxes label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>
+      <ErrorableCheckboxGroup label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>
     );
 
     expect(tree.find('p').text()).to.equal('additional content');
@@ -31,7 +31,7 @@ describe('<ErrorableCheckboxes>', () => {
   it('should pass aXe check', () => {
     const state = { yes: false, no: false };
 
-    return axeCheck(<ErrorableCheckboxes label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>);
+    return axeCheck(<ErrorableCheckboxGroup label="my label" options={options} values={state} onValueChange={(option, checked) => { state[option.value] = checked; }}/>);
   });
 
 });
