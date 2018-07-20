@@ -51021,6 +51021,7 @@ var AdditionalInfo = function (_React$Component) {
 
     _this.toggle = function () {
       _this.setState({ open: !_this.state.open });
+      return _this.props.onClick && _this.props.onClick();
     };
 
     _this.expandedContentId = _fp2.default.uniqueId('tooltip-');
@@ -51079,7 +51080,8 @@ exports.default = AdditionalInfo;
 
 AdditionalInfo.propTypes = {
   // this is the text displayed for AdditionalInfo link or button
-  triggerText: _propTypes2.default.string.isRequired
+  triggerText: _propTypes2.default.string.isRequired,
+  onClick: _propTypes2.default.func
 };
 
 /***/ }),
