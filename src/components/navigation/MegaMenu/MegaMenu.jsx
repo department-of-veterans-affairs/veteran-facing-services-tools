@@ -12,6 +12,22 @@ const defaultSection = (sections) => {
 };
 
 export default class MegaMenu extends React.Component {
+  componentDidMount() {
+    window.addEventListener('resize', this.resetDefaultState.bind(this));
+  }
+
+  /**
+   * Remove event listener
+   */
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resetDefaultState.bind(this));
+  }
+
+  resetDefaultState() {
+    this.props.updateCurrentSection('');
+    this.props.toggleDropDown('');
+  }
+
   toggleDropDown(title) {
     if (this.props.currentDropdown === title) {
       this.props.toggleDropDown('');
@@ -70,7 +86,11 @@ export default class MegaMenu extends React.Component {
                                     updateCurrentSection={() => this.updateCurrentSection(section.title)}
                                     links={section.links}></MenuSection>
                                 );
-                              }) : <SubMenu data={item.menuSections} navTitle={item.title} show></SubMenu>
+                              }) : <SubMenu
+                                data={item.menuSections}
+                                navTitle={item.title}
+                                handleBackToMenu={() => this.toggleDropDown('')}
+                                show={this.props.currentDropdown !== ''}></SubMenu>
                             }
                           </ul>
                         }
