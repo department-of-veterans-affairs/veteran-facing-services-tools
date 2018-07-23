@@ -5,6 +5,20 @@ import classNames from 'classnames';
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 import { makeField } from '../../../../helpers/fields';
 
+/**
+ * A checkbox button group with a label.
+ *
+ * Validation has the following props.
+ * `additionalFieldsetClass` - String for any additional fieldset classes.
+ * `additionalLegendClass` - String for any additional legend classes.
+ * `label` - String for the group field label.
+ * `name` - String for the name attribute.
+ * `tabIndex` - Number for keyboard tab order.
+ * `options` - Array of options to populate group.
+ * `required` - is this field required.
+ * `values` - object. Values of the checkbox field.
+ * `onValueChange` - a function with this prototype: (newValue)
+ */
 class ErrorableCheckboxGroup extends React.Component {
 
   componentWillMount() {
@@ -127,35 +141,16 @@ class ErrorableCheckboxGroup extends React.Component {
   }
 }
 
-/**
- * `toolTipText` - String with help text for user.
- * `tabIndex` - Number for keyboard tab order.
- * `options` -
- * `required` - is this field required.
- * `values` - object. Values of the checkbox field.
- * `onValueChange` - a function with this prototype: (newValue)
- */
-
 ErrorableCheckboxGroup.propTypes = {
-  // String for any additional fieldset classes.
   additionalFieldsetClass: PropTypes.string,
-
-  // String for any additional legend classes.
   additionalLegendClass: PropTypes.string,
-
   errorMessage: PropTypes.string,
-
-  // String for the group field label.
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]).isRequired,
-
-  // String for the name attribute.
   name: PropTypes.string,
   id: PropTypes.string,
-
-  // Array of options to populate group.
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
