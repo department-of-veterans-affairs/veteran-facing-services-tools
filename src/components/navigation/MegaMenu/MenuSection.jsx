@@ -20,20 +20,25 @@ class MenuSection extends React.Component {
   }
 
   updateCurrentSection() {
-    this.setState({
-      title: {
-        hidden: true,
-      },
-    });
+    if (window.innerWidth === 768) {
+      this.setState({
+        title: {
+          hidden: true,
+        },
+      });
+    }
 
     this.props.updateCurrentSection();
   }
 
   handleBackToMenu() {
     this.updateCurrentSection('');
-    this.setState({
-      title: {},
-    });
+
+    if (window.innerWidth === 768) {
+      this.setState({
+        title: {},
+      });
+    }
   }
 
   render() {
