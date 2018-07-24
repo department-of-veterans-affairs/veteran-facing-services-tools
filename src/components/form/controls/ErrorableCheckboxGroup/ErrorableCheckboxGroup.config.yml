@@ -1,5 +1,5 @@
 label: ErrorableCheckboxGroup
-status: wip
+status: ready
 
 context:
   componentSourcePath: './ErrorableCheckboxGroup.jsx'
