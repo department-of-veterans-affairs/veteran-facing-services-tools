@@ -23,11 +23,13 @@ const Column = (props) => {
   if (keyName === 'columnThree') {
     return (
       <div
-        className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}`}
+        className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${isPanelWhite(panelWhite)}`}
         aria-label={navTitle}>
-        <img src={data.img.src} alt={data.img.alt}></img>
-        <a className="mm-links" href={data.link.href}>{data.link.text}</a>
-        <p>{data.description}</p>
+        <div className="mm-marketing-container">
+          <img src={data.img.src} alt={data.img.alt}></img>
+          <a className="mm-links" href={data.link.href}>{data.link.text}</a>
+          <p>{data.description}</p>
+        </div>
       </div>
     );
   }

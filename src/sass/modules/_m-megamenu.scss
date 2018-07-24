@@ -75,6 +75,11 @@
         width: 26rem;
       }
 
+      &.panel-white {
+        background-color: $color-white;
+        border-left: none;
+      }
+
       a {
         font-weight: bold;
         padding: 14px 0px 0px 0px;
@@ -128,6 +133,12 @@
 
   .back-button {
     display: none;
+  }
+
+  .mm-marketing-container {
+    background-color: $light-blue;
+    padding: 20px;
+    height: 80%;
   }
 
   @media (max-width: 768px) {
