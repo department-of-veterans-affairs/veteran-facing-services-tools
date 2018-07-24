@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const toDash = (keyName) => {
-  return keyName.replace(/([A-Z])/g, (str) => { return `-${str.toLowerCase()}`;});
-};
-
-const strToDash = (keyName) => {
-  return keyName.toLowerCase().replace(/ /g, '-');
-};
+import _ from 'lodash';
 
 const isPanelWhite = (panelWhite) => {
   if (window.innerWidth < 768) {
@@ -23,7 +16,7 @@ const Column = (props) => {
   if (keyName === 'columnThree') {
     return (
       <div
-        className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${isPanelWhite(panelWhite)}`}
+        className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}
         aria-label={navTitle}>
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
@@ -35,9 +28,9 @@ const Column = (props) => {
   }
 
   return (
-    <div className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${isPanelWhite(panelWhite)}`}>
-      <h3 id={`vetnav-${strToDash(navTitle)}-header`}>{data.title}</h3>
-      <ul id={`vetnav-${strToDash(navTitle)}`} aria-labelledby={`vetnav-${strToDash(navTitle)}-header`}>
+    <div className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}>
+      <h3 id={`vetnav-${_.kebabCase(navTitle)}-header`}>{data.title}</h3>
+      <ul id={`vetnav-${_.kebabCase(navTitle)}`} aria-labelledby={`vetnav-${_.kebabCase(navTitle)}-header`}>
         <li className="panel-top-link">{props.children}</li>
 
         { data.links.map((link, i) => (

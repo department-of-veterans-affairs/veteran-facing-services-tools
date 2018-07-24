@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubMenu from './SubMenu';
+import _ from 'lodash';
 
 class MenuSection extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class MenuSection extends React.Component {
   }
 
   getId(title) {
-    return `vetnav-${title.toLowerCase().replace(/ /g, '-')}`;
+    return `vetnav-${_.kebabCase(title)}`;
   }
 
   updateCurrentSection() {
