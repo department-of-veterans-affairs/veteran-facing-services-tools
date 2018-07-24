@@ -9,33 +9,23 @@ const strToDash = (keyName) => {
   return keyName.toLowerCase().replace(/ /g, '-');
 };
 
-const isPanelWhite = (panelWhite) => {
-  if (window.innerWidth < 768) {
-    return '';
-  }
-
-  return panelWhite ? ' panel-white' : '';
-};
-
 const Column = (props) => {
   const { data, keyName, navTitle, panelWhite } = props;
 
   if (keyName === 'columnThree') {
     return (
       <div
-        className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${isPanelWhite(panelWhite)}`}
+        className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}`}
         aria-label={navTitle}>
-        <div className="mm-marketing-container">
-          <img src={data.img.src} alt={data.img.alt}></img>
-          <a className="mm-links" href={data.link.href}>{data.link.text}</a>
-          <p>{data.description}</p>
-        </div>
+        <img src={data.img.src} alt={data.img.alt}></img>
+        <a className="mm-links" href={data.link.href}>{data.link.text}</a>
+        <p>{data.description}</p>
       </div>
     );
   }
 
   return (
-    <div className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${isPanelWhite(panelWhite)}`}>
+    <div className={`vetnav-panel vetnav-panel--submenu ${toDash(keyName)}${panelWhite ? ' panel-white' : ''}`}>
       <h3 id={`vetnav-${strToDash(navTitle)}-header`}>{data.title}</h3>
       <ul id={`vetnav-${strToDash(navTitle)}`} aria-labelledby={`vetnav-${strToDash(navTitle)}-header`}>
         <li className="panel-top-link">{props.children}</li>

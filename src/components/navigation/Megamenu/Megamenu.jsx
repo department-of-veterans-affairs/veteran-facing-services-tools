@@ -1,151 +1,126 @@
-/* eslint-disable */
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import range from 'lodash/fp/range';
+import MenuSection from './MenuSection';
+import SubMenu from './SubMenu';
 
-/* rely on the dropdownpanel component */
-/* create a panel component? */
-/* footer component is just a list of links dropped in columns */
-
-class Megamenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
-    this.last = this.last.bind(this);
-    this.pageNumbers = this.pageNumbers.bind(this);
+const defaultSection = (sections) => {
+  if (window.innerWidth < 768) {
+    return '';
   }
 
-  next() {
-    let nextPage;
-    if (this.props.pages > this.props.page) {
-      nextPage = (
-        <a aria-label="Next page" onClick={() => {this.props.onPageSelect(this.props.page + 1);}}>
-          Next
-        </a>
-      );
-    }
-    return nextPage;
-  }
+  return sections[0].title;
+};
 
-  prev() {
-    let prevPage;
-    if (this.props.page > 1) {
-      prevPage = (
-        <a aria-label="Previous page" onClick={() => {this.props.onPageSelect(this.props.page - 1);}}>
-          <abbr title="Previous">Prev</abbr>
-        </a>
-      );
-    }
-    return prevPage;
-  }
-
-  last() {
-    const {
-      maxPageListLength,
-      page: currentPage,
-      pages: totalPages,
-      showLastPage
-    } = this.props;
-
-    let lastPage;
-    if (showLastPage && currentPage < totalPages - maxPageListLength + 1) {
-      lastPage = (
-        <span>
-          <a aria-label="...">
-            ...
-          </a>
-          <a aria-label="Last page" onClick={() => {this.props.onPageSelect(totalPages);}}>
-            {totalPages}
-          </a>
-        </span>
-      );
-    }
-    return lastPage;
-  }
-
-  pageNumbers() {
-    const {
-      maxPageListLength,
-      page: currentPage,
-      pages: totalPages,
-      showLastPage
-    } = this.props;
-
-    // Make space for "... (last page number)" if not in range of the last page.
-    const showEllipsisAndLastPage =
-      showLastPage &&
-      currentPage < totalPages - maxPageListLength + 1;
-
-    const limit = showEllipsisAndLastPage
-      ? maxPageListLength - 2
-      : maxPageListLength;
-
-    let end;
-    let start;
-
-    // If there are more pages returned than the limit to show
-    // cap the upper range at limit + the page number.
-    if (totalPages > limit) {
-      start = currentPage;
-      end = limit + currentPage;
-      // treat the last pages specially
-      if (start >= totalPages - limit + 1) {
-        start = totalPages - limit + 1;
-        end = totalPages + 1;
-      }
+export default class MegaMenu extends React.Component {
+  toggleDropDown(title) {
+    if (this.props.currentDropdown === title) {
+      this.props.toggleDropDown('');
     } else {
-      start = 1;
-      end = totalPages + 1;
+      this.props.toggleDropDown(title);
+    }
+  }
+
+  updateCurrentSection(title) {
+    let sectionTitle = title;
+
+    if (window.innerWidth < 768) {
+      sectionTitle = this.props.currentSection === title ? '' : title;
     }
 
-    return range(start, end);
+    this.props.updateCurrentSection(sectionTitle);
   }
 
   render() {
-    if (this.props.pages === 1) {
-      return <div/>;
-    }
-
-    const pageList = this.pageNumbers().map((pageNumber) => {
-      const pageClass = classNames({
-        'va-pagination-active': this.props.page === pageNumber
-      });
-
-      return (
-        <a
-          key={pageNumber}
-          className={pageClass}
-          aria-label={`Page ${pageNumber}`}
-          onClick={() => this.props.onPageSelect(pageNumber)}>
-          {pageNumber}
-        </a>
-      );
-    });
+    const {
+      currentDropdown,
+      currentSection,
+      data,
+    } = this.props;
 
     return (
-      <div className="va-pagination">
-        <span className="va-pagination-prev">{this.prev()}</span>
-        <div className="va-pagination-inner">
-          {pageList} {this.last()}
+      <div className="login-container">
+        <div className="row va-flex">
+          <div id="vetnav" role="navigation">
+            <ul id="vetnav-menu" role="menubar">
+              <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
+              {
+                data.map((item, i) => {
+                  return (
+                    <li key={`${item.title.toLowerCase().replace(/ /g, '-')}-${i}`}>
+                      {
+                        item.menuSections ? <button
+                          aria-expanded={currentDropdown === item.title}
+                          aria-controls="vetnav-explore"
+                          aria-haspopup="true"
+                          className="vetnav-level1"
+                          onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
+                          : <a href={item.href} className="vetnav-level1" >{item.title}</a>
+                      }
+                      <div id="vetnav-explore" className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
+                        {
+                          item.title === currentDropdown && item.menuSections && <ul aria-label="Explore benefits">
+                            {
+                              item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) => {
+                                return (
+                                  <MenuSection
+                                    key={`${section}-${j}`}
+                                    title={section.title}
+                                    defaultSection={defaultSection(item.menuSections)}
+                                    currentSection={currentSection}
+                                    updateCurrentSection={() => this.updateCurrentSection(section.title)}
+                                    links={section.links}></MenuSection>
+                                );
+                              }) : <SubMenu data={item.menuSections} navTitle={item.title} show></SubMenu>
+                            }
+                          </ul>
+                        }
+                      </div>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
         </div>
-        <span className="va-pagination-next">{this.next()}</span>
       </div>
     );
   }
 }
 
-Pagination.propTypes = {
-  onPageSelect: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
-  maxPageListLength: PropTypes.number.isRequired,
-  showLastPage: PropTypes.bool,
+MegaMenu.propTypes = {
+  /**
+   * This is the data that will generate the navigation<br/>
+   * Data is made up an array of objects </br>
+   * Read Notes tab to see the structure of the data prop
+   */
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      menuSections: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+      ]),
+    }),
+  ).isRequired,
+  /**
+   * Function to update currentSection in state
+   */
+  updateCurrentSection: PropTypes.func.isRequired,
+  /**
+   * Function to update currentDropdown in state
+   */
+  toggleDropDown: PropTypes.func.isRequired,
+  /**
+   * String value of current dropdown
+   */
+  currentDropdown: PropTypes.string,
+  /**
+   * String value of current dropdown section
+   */
+  currentSection: PropTypes.string,
 };
 
-Pagination.defaultProps = {
-  maxPageListLength: 10,
+MegaMenu.defaultProps = {
+  currentDropdown: '',
+  currentSection: '',
 };
-
-export default Pagination;
