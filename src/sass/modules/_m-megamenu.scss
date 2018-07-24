@@ -6,7 +6,7 @@
 
   @include media($medium-large-screen) {
     #vetnav-explore {
-        height: 565px;
+        min-height: 565px;
         width: 1028px;
     }
 

@@ -1,10 +1,5 @@
-label: Megamenu
-status: prototype
-handle: Megamenu
+label: Mega Menu
+status: wip
 
 context:
-  componentSourcePath: './Megamenu.jsx'
-  page: 2
-  pages: 3
-  maxPageListLength: 3
-  showLastPage: true
+  componentSourcePath: './MegaMenu.jsx'
