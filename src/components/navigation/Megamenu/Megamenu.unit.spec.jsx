@@ -206,7 +206,7 @@ describe('<MegaMenu>', () => {
     expect(spy.getCall(0).args[0]).to.equal('Section Title 2');
   });
 
-  it('should show Nav Title 1 section if state.currentSection is = Section Title 2', () => {
+  it.only('should show Nav Title 1 section if state.currentSection is = Section Title 2', () => {
     megaMenu.setProps({
       ...megaMenu.props(),
       currentDropdown: 'Nav Title 1',
