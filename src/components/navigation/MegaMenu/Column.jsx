@@ -37,7 +37,7 @@ const Column = (props) => {
           <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
         ))}
 
-        <div className="panel-bottom-link">{props.children}</div>
+        <li className="panel-bottom-link">{props.children}</li>
       </ul>
     </div>
   );
