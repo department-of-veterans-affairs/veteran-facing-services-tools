@@ -5,11 +5,6 @@
   z-index: 2;
 
   @include media($medium-large-screen) {
-    #vetnav-explore {
-        height: 565px;
-        width: 1028px;
-    }
-
     .vetnav-panel--submenu:not([hidden]) {
       width: 26rem;
       padding: 28px 0px 0px 28px;
@@ -33,6 +28,8 @@
     }
 
     .vetnav-panel {
+      height: 565px;
+      width: 1028px;
       left: 0;
 
       .mm-links {

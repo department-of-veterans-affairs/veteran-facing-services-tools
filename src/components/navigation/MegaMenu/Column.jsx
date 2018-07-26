@@ -11,13 +11,13 @@ const isPanelWhite = (panelWhite) => {
 };
 
 const Column = (props) => {
-  const { data, keyName, navTitle, panelWhite } = props;
+  const { data, keyName, panelWhite } = props;
 
   if (keyName === 'columnThree') {
     return (
       <div
         className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}
-        aria-label={navTitle}>
+        aria-label={keyName}>
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
           <a className="mm-links" href={data.link.href}>{data.link.text}</a>
@@ -29,8 +29,8 @@ const Column = (props) => {
 
   return (
     <div className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}>
-      <h3 id={`vetnav-${_.kebabCase(navTitle)}-header`}>{data.title}</h3>
-      <ul id={`vetnav-${_.kebabCase(navTitle)}`} aria-labelledby={`vetnav-${_.kebabCase(navTitle)}-header`}>
+      <h3 id={`vetnav-${_.kebabCase(keyName)}-header`}>{data.title}</h3>
+      <ul id={`vetnav-${_.kebabCase(keyName)}`} aria-labelledby={`vetnav-${_.kebabCase(keyName)}-header`}>
         <li className="panel-top-link">{props.children}</li>
 
         { data.links.map((link, i) => (

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
+import _ from 'lodash';
 
 const defaultSection = (sections) => {
   if (window.innerWidth < 768) {
@@ -62,19 +63,19 @@ export default class MegaMenu extends React.Component {
               {
                 data.map((item, i) => {
                   return (
-                    <li key={`${item.title.toLowerCase().replace(/ /g, '-')}-${i}`}>
+                    <li key={`${_.kebabCase(item.title)}-${i}`}>
                       {
                         item.menuSections ? <button
                           aria-expanded={currentDropdown === item.title}
-                          aria-controls="vetnav-explore"
+                          aria-controls={`vetnav-${_.kebabCase(item.title)}`}
                           aria-haspopup="true"
                           className="vetnav-level1"
                           onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
                           : <a href={item.href} className="vetnav-level1" >{item.title}</a>
                       }
-                      <div id="vetnav-explore" className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
+                      <div id={`vetnav-${_.kebabCase(item.title)}`} className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
                         {
-                          item.title === currentDropdown && item.menuSections && <ul aria-label="Explore benefits">
+                          item.title === currentDropdown && item.menuSections && <ul aria-label={item.title}>
                             {
                               item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) => {
                                 return (
