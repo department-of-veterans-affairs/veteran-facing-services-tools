@@ -217,10 +217,12 @@ describe('<MegaMenu>', () => {
   });
 
   it('should pass axe check when open', () => {
+    megaMenu.unmount();
+
     return axeCheck(
       <MegaMenu
         data={data}
-        handleOnClick={(title) => { title; }}
+        toggleDropDown={(title) => { title; }}
         updateCurrentSection={(title) => { title; }}></MegaMenu>
     );
   });

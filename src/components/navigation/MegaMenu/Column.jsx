@@ -30,7 +30,7 @@ const Column = (props) => {
   return (
     <div className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}>
       <h3 id={`vetnav-${_.kebabCase(keyName)}-header`}>{data.title}</h3>
-      <ul id={`vetnav-${_.kebabCase(keyName)}`} aria-labelledby={`vetnav-${_.kebabCase(keyName)}-header`}>
+      <ul id={`vetnav-${_.kebabCase(keyName)}-col`} aria-labelledby={`vetnav-${_.kebabCase(keyName)}-header`}>
         <li className="panel-top-link">{props.children}</li>
 
         { data.links.map((link, i) => (

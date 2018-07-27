@@ -17,7 +17,7 @@ class MenuSection extends React.Component {
   }
 
   getId(title) {
-    return `vetnav-${_.kebabCase(title)}`;
+    return `vetnav-${_.kebabCase(title)}-ms`;
   }
 
   updateCurrentSection() {
@@ -56,7 +56,7 @@ class MenuSection extends React.Component {
           aria-expanded={show}
           onClick={() => this.updateCurrentSection()}>{this.props.title}</button>
         <SubMenu
-          id="vetnav-explore"
+          id={this.getId(this.props.title)}
           data={this.props.links}
           navTitle={this.props.title}
           show={show}
