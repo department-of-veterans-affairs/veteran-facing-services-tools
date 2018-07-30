@@ -7290,7 +7290,8 @@ p.usa-alert-heading {
   margin-top: 0; }
 
 .usa-alert-body, .usa-alert-header {
-  padding-left: 2.2rem; }
+  padding-left: 2.2rem;
+  padding-right: 2.2rem; }
   .usa-alert-body > h3:first-child, .usa-alert-body > h4:first-child, .usa-alert-body > h5:first-child, .usa-alert-header > h3:first-child, .usa-alert-header > h4:first-child, .usa-alert-header > h5:first-child {
     margin-top: .5rem;
     padding-top: 0; }
@@ -8535,14 +8536,6 @@ body.va-pos-fixed {
   .va-sidebarnav .usa-sidenav-list {
     margin-right: 1.6rem; } }
 
-.va-overlay-close--icon {
-  display: inline;
-  margin: 0;
-  padding: 1rem;
-  width: auto; }
-  .va-overlay-close--icon:hover {
-    background: transparent; }
-
 .va-overlay {
   background: rgba(50, 58, 69, 0.8);
   height: 100%;
@@ -9289,3 +9282,115 @@ button.va-modal-close {
   background-color: #f1f1f1;
   color: #cd2026;
   padding: 2px; }
+
+#mega-menu {
+  flex: 1 0 100%;
+  color: #0071BB;
+  width: 100%;
+  z-index: 2; }
+  @media screen and (min-width: 768px) {
+    #mega-menu .vetnav-panel--submenu:not([hidden]) {
+      width: 26rem;
+      padding: 28px 0px 0px 28px;
+      white-space: normal; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 4px;
+        padding: 0; }
+    #mega-menu .vetnav-level1[aria-expanded="true"] {
+      border-top-color: #988530; }
+    #mega-menu .vetnav-level2[aria-expanded="true"] {
+      box-shadow: -3px 0 #988530; }
+    #mega-menu .vetnav-panel {
+      height: 565px;
+      width: 1028px;
+      left: 0; }
+      #mega-menu .vetnav-panel .mm-links {
+        padding: 0.8rem 0; }
+      #mega-menu .vetnav-panel .mm-link-container {
+        width: 225px;
+        margin-bottom: 0; }
+    #mega-menu .column-one {
+      left: 20px; }
+      #mega-menu .column-one.panel-white {
+        background-color: #fff;
+        border-left: none; }
+    #mega-menu .column-two {
+      border-left: none;
+      left: 280px; }
+      #mega-menu .column-two.panel-white {
+        background-color: #fff;
+        border-left: none; }
+    #mega-menu .column-three {
+      border-left: none;
+      color: #000;
+      left: 540px;
+      white-space: normal; }
+      #mega-menu .column-three.vetnav-panel--submenu:not([hidden]) {
+        padding: 28px 20px 20px 14px;
+        width: 26rem; }
+      #mega-menu .column-three.panel-white {
+        background-color: #fff;
+        border-left: none; }
+      #mega-menu .column-three a {
+        font-weight: bold;
+        padding: 14px 0px 0px 0px; } }
+  #mega-menu .panel-title {
+    font-weight: bold;
+    color: #000; }
+  #mega-menu .vetnav-level2 {
+    width: 24.3rem; }
+  #mega-menu a.vetnav-level1 {
+    color: #fff; }
+  #mega-menu .main-column {
+    left: -230px; }
+    #mega-menu .main-column.panel-white {
+      background-color: #fff; }
+  #mega-menu .panel-bottom-link {
+    position: absolute;
+    bottom: 0px;
+    width: 750px;
+    left: 0;
+    margin-left: 14px;
+    border-top: 1px solid #d0d0d0;
+    z-index: 3; }
+    #mega-menu .panel-bottom-link a {
+      background: transparent url(/img/arrow-right-blue.svg) right 1rem center no-repeat;
+      background-size: 13px;
+      font-weight: bold;
+      padding: 20px 0px;
+      display: inline-block;
+      padding-right: 25px; }
+  #mega-menu .panel-top-link {
+    display: none; }
+  #mega-menu .back-button {
+    display: none; }
+  #mega-menu .mm-marketing-container {
+    background-color: #e1f3f8;
+    padding: 20px;
+    height: 80%; }
+  @media (max-width: 768px) {
+    #mega-menu .column-three {
+      display: none; }
+    #mega-menu .vetnav-level2 {
+      width: 100%; }
+    #mega-menu .panel-top-link:nth-of-type(1) {
+      display: block;
+      font-weight: bold; }
+    #mega-menu .vetnav-panel--submenu:not([hidden]) {
+      position: initial; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+        display: none; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]) .panel-bottom-link {
+        display: none; }
+    #mega-menu .back-button {
+      display: block; }
+    #mega-menu .mm-link-container-small {
+      background: #112e51;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 200; } }
