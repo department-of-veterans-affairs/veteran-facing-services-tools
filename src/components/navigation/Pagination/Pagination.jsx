@@ -17,7 +17,11 @@ class Pagination extends React.Component {
     let nextPage;
     if (this.props.pages > this.props.page) {
       nextPage = (
-        <a aria-label="Next page" onClick={() => {this.props.onPageSelect(this.props.page + 1);}}>
+        <a
+          aria-label="Next page"
+          onClick={() => {this.props.onPageSelect(this.props.page + 1);}}
+          onKeyDown={e => this.handleKeyDown(e, this.props.page + 1)}
+          tabIndex="0">
           Next
         </a>
       );
@@ -29,7 +33,11 @@ class Pagination extends React.Component {
     let prevPage;
     if (this.props.page > 1) {
       prevPage = (
-        <a aria-label="Previous page" onClick={() => {this.props.onPageSelect(this.props.page - 1);}}>
+        <a
+          aria-label="Previous page"
+          onClick={() => {this.props.onPageSelect(this.props.page - 1);}}
+          onKeyDown={e => this.handleKeyDown(e, this.props.page - 1)}
+          tabIndex="0">
           <abbr title="Previous">Prev</abbr>
         </a>
       );
@@ -99,6 +107,15 @@ class Pagination extends React.Component {
     return range(start, end);
   }
 
+  handleKeyDown = (e, pageNumber) => {
+
+    const keyCode = e.which || e.keyCode;
+    if (keyCode === 13 || keyCode === 32) {
+      e.preventDefault();
+      this.props.onPageSelect(pageNumber)
+    }
+  }
+
   render() {
     if (this.props.pages === 1) {
       return <div/>;
@@ -114,7 +131,9 @@ class Pagination extends React.Component {
           key={pageNumber}
           className={pageClass}
           aria-label={`Page ${pageNumber}`}
-          onClick={() => this.props.onPageSelect(pageNumber)}>
+          onClick={() => this.props.onPageSelect(pageNumber)}
+          onKeyDown={e => this.handleKeyDown(e, pageNumber)}
+          tabIndex="0">
           {pageNumber}
         </a>
       );
