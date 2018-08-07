@@ -14,8 +14,20 @@ function focusListener(selector) {
         focusableElement.focus();
       }
     }
+
   };
   document.addEventListener('focus', listener, true);
+  return listener;
+}
+
+function closeClickListener(closeCallback) {
+  const listener = event => {
+    const modalInner = document.querySelector('.va-modal-inner');
+    if (!modalInner.contains(event.target)) {
+      closeCallback();
+    }
+  };
+  document.addEventListener('click', listener, true);
   return listener;
 }
 
@@ -26,7 +38,8 @@ class Modal extends React.Component {
     this.handleDocumentKeyUp = this.handleDocumentKeyUp.bind(this);
     this.state = {
       lastFocus: document.activeElement,
-      focusListener: null
+      focusListener: null,
+      closeClickListener: null
     };
   }
 
@@ -39,10 +52,17 @@ class Modal extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.visible && !this.props.visible) {
       document.addEventListener('keyup', this.handleDocumentKeyUp, false);
-      this.setState({ lastFocus: document.activeElement, focusListener: focusListener(newProps.focusSelector) });
+      this.setState({
+        lastFocus: document.activeElement,
+        closeClickListener: this.props.clickToClose && closeClickListener(() => this.props.onClose()),
+        focusListener: focusListener(newProps.focusSelector)
+      });
     } else if (!newProps.visible && this.props.visible) {
       document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
       document.removeEventListener('focus', this.state.focusListener, true);
+      if (this.props.clickToClose) {
+        document.removeEventListener('click', this.state.closeClickListener, true);
+      }
       this.state.lastFocus.focus();
       document.body.classList.remove('modal-open');
     }
@@ -137,6 +157,10 @@ Modal.propTypes = {
    */
   onClose: PropTypes.func.isRequired,
   /**
+   * Click outside modal will call onClose prop
+   */
+  clickToClose: PropTypes.bool,
+  /**
    * Contents of modal when displayed. You can also pass the contents as children, which is preferred
    */
   contents: PropTypes.node,
@@ -187,6 +211,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+  clickToClose: false,
   focusSelector: 'button, input, select, a'
 };
 

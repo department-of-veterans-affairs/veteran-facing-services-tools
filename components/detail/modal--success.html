@@ -218,7 +218,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.2</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.3</span><span class="hljs-number">.1</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">Modal.jsx</span>
@@ -247,15 +247,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-a86685499ddb211a898e2c3f1b778404">Modal.jsx</option>
+                <option value="file-b42c00d9ffd6d2d2bf91a7449f4baf55">Modal.jsx</option>
                 
-                <option value="file-1de012fd85c9bf37d645fbf4b8d6ef28">Modal.unit.spec.jsx</option>
+                <option value="file-1d32d3010b8855c6c1ee56733320eb01">Modal.unit.spec.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-a86685499ddb211a898e2c3f1b778404" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-b42c00d9ffd6d2d2bf91a7449f4baf55" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -279,8 +279,20 @@
         focusableElement.focus();
       }
     }
+
   };
   <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'focus'</span>, listener, <span class="hljs-literal">true</span>);
+  <span class="hljs-keyword">return</span> listener;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">closeClickListener</span>(<span class="hljs-params">closeCallback</span>) </span>{
+  <span class="hljs-keyword">const</span> listener = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> modalInner = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.va-modal-inner'</span>);
+    <span class="hljs-keyword">if</span> (!modalInner.contains(event.target)) {
+      closeCallback();
+    }
+  };
+  <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'click'</span>, listener, <span class="hljs-literal">true</span>);
   <span class="hljs-keyword">return</span> listener;
 }
 
@@ -291,7 +303,8 @@
     <span class="hljs-keyword">this</span>.handleDocumentKeyUp = <span class="hljs-keyword">this</span>.handleDocumentKeyUp.bind(<span class="hljs-keyword">this</span>);
     <span class="hljs-keyword">this</span>.state = {
       <span class="hljs-attr">lastFocus</span>: <span class="hljs-built_in">document</span>.activeElement,
-      <span class="hljs-attr">focusListener</span>: <span class="hljs-literal">null</span>
+      <span class="hljs-attr">focusListener</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">closeClickListener</span>: <span class="hljs-literal">null</span>
     };
   }
 
@@ -304,10 +317,17 @@
   componentWillReceiveProps(newProps) {
     <span class="hljs-keyword">if</span> (newProps.visible &amp;&amp; !<span class="hljs-keyword">this</span>.props.visible) {
       <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'keyup'</span>, <span class="hljs-keyword">this</span>.handleDocumentKeyUp, <span class="hljs-literal">false</span>);
-      <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">lastFocus</span>: <span class="hljs-built_in">document</span>.activeElement, <span class="hljs-attr">focusListener</span>: focusListener(newProps.focusSelector) });
+      <span class="hljs-keyword">this</span>.setState({
+        <span class="hljs-attr">lastFocus</span>: <span class="hljs-built_in">document</span>.activeElement,
+        <span class="hljs-attr">closeClickListener</span>: <span class="hljs-keyword">this</span>.props.clickToClose &amp;&amp; closeClickListener(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.props.onClose()),
+        <span class="hljs-attr">focusListener</span>: focusListener(newProps.focusSelector)
+      });
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!newProps.visible &amp;&amp; <span class="hljs-keyword">this</span>.props.visible) {
       <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'keyup'</span>, <span class="hljs-keyword">this</span>.handleDocumentKeyUp, <span class="hljs-literal">false</span>);
       <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'focus'</span>, <span class="hljs-keyword">this</span>.state.focusListener, <span class="hljs-literal">true</span>);
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.clickToClose) {
+        <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.state.closeClickListener, <span class="hljs-literal">true</span>);
+      }
       <span class="hljs-keyword">this</span>.state.lastFocus.focus();
       <span class="hljs-built_in">document</span>.body.classList.remove(<span class="hljs-string">'modal-open'</span>);
     }
@@ -402,6 +422,10 @@ Modal.propTypes = {
    */</span>
   onClose: PropTypes.func.isRequired,
   <span class="hljs-comment">/**
+   * Click outside modal will call onClose prop
+   */</span>
+  clickToClose: PropTypes.bool,
+  <span class="hljs-comment">/**
    * Contents of modal when displayed. You can also pass the contents as children, which is preferred
    */</span>
   contents: PropTypes.node,
@@ -452,6 +476,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+  <span class="hljs-attr">clickToClose</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">focusSelector</span>: <span class="hljs-string">'button, input, select, a'</span>
 };
 
@@ -472,12 +497,12 @@ Modal.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.2 KB</span>
+                    <span class="Meta-value">5.9 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-1de012fd85c9bf37d645fbf4b8d6ef28" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-1d32d3010b8855c6c1ee56733320eb01" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>

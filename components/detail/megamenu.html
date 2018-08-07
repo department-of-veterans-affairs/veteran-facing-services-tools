@@ -342,6 +342,14 @@ Read Notes tab to see the structure of the data prop</td>
             </tr>
           
             <tr>
+              <td>toggleDisplayHidden</td>
+              <td>Yes</td>
+              <td>func</td>
+              <td></td>
+              <td>Function to update if the MegaMenu is displayed or not</td>
+            </tr>
+          
+            <tr>
               <td>currentDropdown</td>
               <td>No</td>
               <td>string</td>
@@ -357,6 +365,14 @@ Read Notes tab to see the structure of the data prop</td>
               <td>String value of current dropdown section</td>
             </tr>
           
+            <tr>
+              <td>display</td>
+              <td>No</td>
+              <td>{ <br/>&nbsp;&nbsp;hidden: custom }</td>
+              <td>{}</td>
+              <td></td>
+            </tr>
+          
         </table>
     </div>
 </div>
@@ -368,6 +384,7 @@ Read Notes tab to see the structure of the data prop</td>
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"megamenu"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mega-menu"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:inline-block;margin:20px;padding:8px 15px;border:1px solid;border-radius:15px;"</span>&gt;</span>Mobile Menu Toggle Button<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-container"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row va-flex"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
@@ -392,7 +409,7 @@ Read Notes tab to see the structure of the data prop</td>
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.2.3"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.3.1"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -623,6 +640,28 @@ const <span class="hljs-keyword">data</span> = [
 export default class MegaMenuExample extends React.Component {
   constructor() {
     super();
+
+    this.state = { display: {} }
+  }
+
+  toggleDisplayHidden(hidden) {
+    <span class="hljs-keyword">if</span> (window.innerWidth &gt; <span class="hljs-number">768</span>) {
+      this.setState({
+        display: {},
+      });
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (hidden) {
+      this.setState({
+        display: { hidden: <span class="hljs-literal">true</span> },
+      });
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!this.state.display.hasOwnProperty(<span class="hljs-string">'hidden'</span>)) {
+      this.setState({
+        display: { hidden: <span class="hljs-literal">true</span> },
+      })
+    } <span class="hljs-keyword">else</span> {
+      this.setState({
+        display: {},
+      })
+    }
   }
 
   toggleDropDown(<span class="hljs-built_in">title</span>) {
@@ -640,9 +679,20 @@ export default class MegaMenuExample extends React.Component {
   render() {
     return (
       &lt;div id=<span class="hljs-string">"mega-menu"</span>&gt;
+        &lt;div
+          onClick={() =&gt; this.toggleDisplayHidden()}
+          style={{
+            display: <span class="hljs-string">'inline-block'</span>,
+            margin: <span class="hljs-string">'20px'</span>,
+            padding: <span class="hljs-string">'8px 15px'</span>,
+            border: <span class="hljs-string">'1px solid'</span>,
+            borderRadius: <span class="hljs-string">'15px'</span>}}&gt;
+          Mobile Menu Toggle Button
+        &lt;/div&gt;
         &lt;MegaMenu
           {...this.state}
           <span class="hljs-keyword">data</span>={<span class="hljs-keyword">data</span>}
+          toggleDisplayHidden={(show) =&gt; this.toggleDisplayHidden(show)}
           toggleDropDown={(<span class="hljs-built_in">title</span>) =&gt; this.toggleDropDown(<span class="hljs-built_in">title</span>)}
           updateCurrentSection={(<span class="hljs-built_in">title</span>) =&gt; this.updateCurrentSection(<span class="hljs-built_in">title</span>)}
         &gt;&lt;/MegaMenu&gt;
@@ -660,7 +710,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.2</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.3</span><span class="hljs-number">.1</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -681,21 +731,21 @@ export default class MegaMenuExample extends React.Component {
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8bcfbff5b5d8fffae4b72d5ecf9e64ff">Column.jsx</option>
+                <option value="file-8a87e13d613403ac39e3c19a8429c7cb">Column.jsx</option>
                 
-                <option value="file-e2728799e831b3be6b9ea2d42b0ea991">MegaMenu.jsx</option>
+                <option value="file-e07ad8907bdf9fdf99882c074d299ca3">MegaMenu.jsx</option>
                 
-                <option value="file-e8c84540ff3c8b0d87b7adebcc7812b4">MegaMenu.unit.spec.jsx</option>
+                <option value="file-aae4c436bd97c527725c870317d9c63a">MegaMenu.unit.spec.jsx</option>
                 
-                <option value="file-70aebaf0ef1167cc12c8896f257ea969">MenuSection.jsx</option>
+                <option value="file-cb17a0518807965f534842faa73e82b0">MenuSection.jsx</option>
                 
-                <option value="file-fd564ec3db16e268783d3b24de63f683">SubMenu.jsx</option>
+                <option value="file-36cdd6c09846c41b5f01e725e067ff2a">SubMenu.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8bcfbff5b5d8fffae4b72d5ecf9e64ff" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-8a87e13d613403ac39e3c19a8429c7cb" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -785,7 +835,7 @@ Column.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/navigation/Megamenu/Column.jsx</span>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/Column.jsx</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
@@ -794,7 +844,7 @@ Column.propTypes = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-e2728799e831b3be6b9ea2d42b0ea991" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-e07ad8907bdf9fdf99882c074d299ca3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -818,6 +868,10 @@ Column.propTypes = {
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MegaMenu</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
   componentDidMount() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) {
+      <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">true</span>);
+    }
+
     <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.resetDefaultState.bind(<span class="hljs-keyword">this</span>));
   }
 
@@ -829,6 +883,12 @@ Column.propTypes = {
   }
 
   resetDefaultState() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &gt; <span class="hljs-number">768</span>) {
+      <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">false</span>);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">true</span>);
+    }
+
     <span class="hljs-keyword">this</span>.props.updateCurrentSection(<span class="hljs-string">''</span>);
     <span class="hljs-keyword">this</span>.props.toggleDropDown(<span class="hljs-string">''</span>);
   }
@@ -856,10 +916,13 @@ Column.propTypes = {
       currentDropdown,
       currentSection,
       data,
+      display,
     } = <span class="hljs-keyword">this</span>.props;
 
     <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"login-container"</span>&gt;</span>
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">className</span>=<span class="hljs-string">"login-container"</span>
+        {<span class="hljs-attr">...display</span>}&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-flex"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-menu"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span>&gt;</span>
@@ -936,18 +999,26 @@ MegaMenu.propTypes = {
    */</span>
   toggleDropDown: PropTypes.func.isRequired,
   <span class="hljs-comment">/**
-   * String value of current dropdown
+   * Function to update if the MegaMenu is displayed or not
    */</span>
+  toggleDisplayHidden: PropTypes.func.isRequired,
+  <span class="hljs-comment">/**
+    * String value of current dropdown
+    */</span>
   currentDropdown: PropTypes.string,
   <span class="hljs-comment">/**
    * String value of current dropdown section
    */</span>
   currentSection: PropTypes.string,
+  <span class="hljs-attr">display</span>: PropTypes.shape({
+    <span class="hljs-attr">hidden</span>: PropTypes.boolean
+  }),
 };
 
 MegaMenu.defaultProps = {
   <span class="hljs-attr">currentDropdown</span>: <span class="hljs-string">''</span>,
   <span class="hljs-attr">currentSection</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-attr">display</span>: {},
 };
 </pre>
                             </code>
@@ -961,16 +1032,16 @@ MegaMenu.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/navigation/Megamenu/MegaMenu.jsx</span>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/MegaMenu.jsx</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.7 KB</span>
+                    <span class="Meta-value">5.1 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-e8c84540ff3c8b0d87b7adebcc7812b4" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-aae4c436bd97c527725c870317d9c63a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1219,7 +1290,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/navigation/Megamenu/MegaMenu.unit.spec.jsx</span>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/MegaMenu.unit.spec.jsx</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
@@ -1228,7 +1299,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-70aebaf0ef1167cc12c8896f257ea969" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-cb17a0518807965f534842faa73e82b0" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1359,7 +1430,7 @@ MenuSection.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/navigation/Megamenu/MenuSection.jsx</span>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/MenuSection.jsx</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
@@ -1368,7 +1439,7 @@ MenuSection.propTypes = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-fd564ec3db16e268783d3b24de63f683" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-36cdd6c09846c41b5f01e725e067ff2a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1486,7 +1557,7 @@ SubMenu.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/navigation/Megamenu/SubMenu.jsx</span>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/SubMenu.jsx</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
@@ -1531,7 +1602,7 @@ SubMenu.propTypes = {
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">src/components/navigation/Megamenu/Megamenu.njk</span>
+            <span class="Meta-value">src/components/navigation/MegaMenu/MegaMenu.njk</span>
         </li>
         
         
