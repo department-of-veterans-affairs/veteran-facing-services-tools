@@ -255,7 +255,7 @@ export default class MegaMenuExample extends React.Component {
     return (
       <div id="mega-menu">
         <div
-          onClick={() => this.toggleDisplay()}
+          onClick={() => this.toggleDisplayHidden()}
           style={{
             display: 'inline-block',
             margin: '20px',
@@ -267,7 +267,7 @@ export default class MegaMenuExample extends React.Component {
         <MegaMenu
           {...this.state}
           data={data}
-          toggleDisplay={(show) => this.toggleDisplay(show)}
+          toggleDisplayHidden={(show) => this.toggleDisplayHidden(show)}
           toggleDropDown={(title) => this.toggleDropDown(title)}
           updateCurrentSection={(title) => this.updateCurrentSection(title)}
         ></MegaMenu>

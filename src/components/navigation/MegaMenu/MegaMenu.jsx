@@ -15,7 +15,7 @@ const defaultSection = (sections) => {
 export default class MegaMenu extends React.Component {
   componentDidMount() {
     if (window.innerWidth < 768) {
-      this.props.toggleDisplay(true);
+      this.props.toggleDisplayHidden(true);
     }
 
     window.addEventListener('resize', this.resetDefaultState.bind(this));
@@ -30,9 +30,9 @@ export default class MegaMenu extends React.Component {
 
   resetDefaultState() {
     if (window.innerWidth > 768) {
-      this.props.toggleDisplay(false);
+      this.props.toggleDisplayHidden(false);
     } else {
-      this.props.toggleDisplay(true);
+      this.props.toggleDisplayHidden(true);
     }
 
     this.props.updateCurrentSection('');
@@ -147,7 +147,7 @@ MegaMenu.propTypes = {
   /**
    * Function to update if the MegaMenu is displayed or not
    */
-  toggleDisplay: PropTypes.func.isRequired,
+  toggleDisplayHidden: PropTypes.func.isRequired,
   /**
     * String value of current dropdown
     */
