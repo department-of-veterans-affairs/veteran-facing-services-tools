@@ -145,8 +145,12 @@ MegaMenu.propTypes = {
    */
   toggleDropDown: PropTypes.func.isRequired,
   /**
-   * String value of current dropdown
+   * Function to update if the MegaMenu is displayed or not
    */
+  toggleDisplay: PropTypes.func.isRequired,
+  /**
+    * String value of current dropdown
+    */
   currentDropdown: PropTypes.string,
   /**
    * String value of current dropdown section

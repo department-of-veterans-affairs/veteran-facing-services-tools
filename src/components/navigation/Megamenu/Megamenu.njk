@@ -219,12 +219,12 @@ export default class MegaMenuExample extends React.Component {
     this.state = { display: {} }
   }
 
-  toggleDisplay(show) {
+  toggleDisplayHidden(hidden) {
     if (window.innerWidth > 768) {
       this.setState({
         display: {},
       });
-    } else if (show) {
+    } else if (hidden) {
       this.setState({
         display: { hidden: true },
       });
