@@ -215,6 +215,20 @@ const data = [
 export default class MegaMenuExample extends React.Component {
   constructor() {
     super();
+
+    this.state = { display: { hidden: '' } }
+  }
+
+  toggleDisplay() {
+    if (this.state.hasOwnProperty('hidden')) {
+      this.setState({
+        display: {},
+      })
+    }
+
+    this.setState({
+      display: { hidden: '' },
+    })
   }
 
   toggleDropDown(title) {
@@ -230,10 +244,23 @@ export default class MegaMenuExample extends React.Component {
   }
 
   render() {
+    const { display, ...restState } = this.state;
     return (
       <div id="mega-menu">
+        <div
+          {...this.state.display}
+          onClick={() => this.toggleDisplay()}
+          style={{
+            display: 'inline-block',
+            margin: '20px',
+            padding: '8px 15px',
+            border: '1px solid',
+            borderRadius: '15px'}}>
+          Menu
+        </div>
         <MegaMenu
-          {...this.state}
+          {...this.restState}
+          {...display}
           data={data}
           toggleDropDown={(title) => this.toggleDropDown(title)}
           updateCurrentSection={(title) => this.updateCurrentSection(title)}
