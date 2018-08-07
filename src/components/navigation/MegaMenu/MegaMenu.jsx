@@ -14,6 +14,10 @@ const defaultSection = (sections) => {
 
 export default class MegaMenu extends React.Component {
   componentDidMount() {
+    if (window.innerWidth < 768) {
+      this.props.toggleDisplay(true);
+    }
+
     window.addEventListener('resize', this.resetDefaultState.bind(this));
   }
 
@@ -25,6 +29,12 @@ export default class MegaMenu extends React.Component {
   }
 
   resetDefaultState() {
+    if (window.innerWidth > 768) {
+      this.props.toggleDisplay(false);
+    } else {
+      this.props.toggleDisplay(true);
+    }
+
     this.props.updateCurrentSection('');
     this.props.toggleDropDown('');
   }
@@ -52,10 +62,13 @@ export default class MegaMenu extends React.Component {
       currentDropdown,
       currentSection,
       data,
+      display,
     } = this.props;
 
     return (
-      <div className="login-container">
+      <div
+        className="login-container"
+        {...display}>
         <div className="row va-flex">
           <div id="vetnav" role="navigation">
             <ul id="vetnav-menu" role="menubar">
@@ -139,9 +152,13 @@ MegaMenu.propTypes = {
    * String value of current dropdown section
    */
   currentSection: PropTypes.string,
+  display: PropTypes.shape({
+    hidden: PropTypes.boolean
+  }),
 };
 
 MegaMenu.defaultProps = {
   currentDropdown: '',
   currentSection: '',
+  display: {},
 };
