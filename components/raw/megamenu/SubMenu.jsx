@@ -13,31 +13,13 @@ const onSmallScreen = () => {
 
 const getColumns = (columns) => {
   if (window.innerWidth < 768) {
-    if (Object.hasOwnProperty.call(columns, 'mainColumn')) {
-      return {
-        mainColumn: {
-          title: columns.mainColumn.title,
-          links: [
-            ...columns.mainColumn.links,
-            ...columns.columnOne.links,
-            ...columns.columnTwo.links
-          ].filter((link, i) => {
-            return i < 8;
-          })
-        },
-        columnThree: columns.columnThree,
-      };
-    }
-
     return {
       columnOne: {
         title: columns.columnOne.title,
         links: [
           ...columns.columnOne.links,
           ...columns.columnTwo.links,
-        ].filter((links, i) => {
-          return i < 5;
-        })
+        ],
       }
     };
   }

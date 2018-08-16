@@ -28,6 +28,52 @@ export default class MegaMenu extends React.Component {
     window.removeEventListener('resize', this.resetDefaultState.bind(this));
   }
 
+  getSubmenu(item, currentSection) {
+    if (window.innerWidth < 768) {
+      const menuSections = [
+        item.menuSections.mainColumn,
+        item.menuSections.columnOne,
+        item.menuSections.columnTwo,
+      ].reduce((acc, column) => {
+        acc.push({
+          title: column.title,
+          links: {
+            columnOne: {
+              title: '',
+              links: column.links,
+            },
+            columnTwo: {
+              title: '',
+              links: [],
+            }
+          }
+        });
+
+        return acc;
+      }, []);
+
+      return menuSections.map((section, i) => {
+        return (
+          <MenuSection
+            key={`${section}-${i}`}
+            title={section.title}
+            defaultSection={defaultSection(item.menuSections)}
+            currentSection={currentSection}
+            updateCurrentSection={() => this.updateCurrentSection(section.title)}
+            links={section.links}></MenuSection>
+        );
+      });
+    }
+
+    return (
+      <SubMenu
+        data={item.menuSections}
+        navTitle={item.title}
+        handleBackToMenu={() => this.toggleDropDown('')}
+        show={this.props.currentDropdown !== ''}></SubMenu>
+    );
+  }
+
   resetDefaultState() {
     if (window.innerWidth > 768) {
       this.props.toggleDisplayHidden(false);
@@ -100,11 +146,7 @@ export default class MegaMenu extends React.Component {
                                     updateCurrentSection={() => this.updateCurrentSection(section.title)}
                                     links={section.links}></MenuSection>
                                 );
-                              }) : <SubMenu
-                                data={item.menuSections}
-                                navTitle={item.title}
-                                handleBackToMenu={() => this.toggleDropDown('')}
-                                show={this.props.currentDropdown !== ''}></SubMenu>
+                              }) : this.getSubmenu(item,  currentSection)
                             }
                           </ul>
                         }
