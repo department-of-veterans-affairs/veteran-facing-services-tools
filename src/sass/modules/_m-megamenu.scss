@@ -6,13 +6,15 @@
 
   @include media($medium-large-screen) {
     .vetnav-panel--submenu:not([hidden]) {
+      box-shadow: none;
       width: 26rem;
       padding: 28px 0px 0px 28px;
       white-space: normal;
 
       h3 {
         color: $color-black;
-        font-size: 1.5rem;
+        font-family: Source Sans Pro, sans serif;
+        font-size: 1.6rem;
         font-weight: bold;
         margin-top: 4px;
         padding: 0;
@@ -28,12 +30,13 @@
     }
 
     .vetnav-panel {
-      height: 565px;
+      box-shadow: 0 7px 25px -11px $color-black;
+      height: 470px;
       width: 1028px;
       left: 0;
 
       .mm-links {
-        padding: 0.8rem 0;
+        padding: 0;
       }
 
       .mm-link-container {
@@ -108,11 +111,16 @@
   .panel-bottom-link {
     position: absolute;
     bottom: 0px;
-    width: 750px;
+    height: 60px;
+    width: 100%;
     left: 0;
     margin-left: 14px;
     border-top: 1px solid #d0d0d0;
     z-index: 3;
+
+    &:nth-child(2) {
+      width: 87%;
+    }
 
     a {
       background: transparent url(/img/arrow-right-blue.svg) right 1rem center no-repeat;
@@ -135,7 +143,15 @@
   .mm-marketing-container {
     background-color: $light-blue;
     padding: 20px;
-    height: 80%;
+    height: 350px;
+
+    img {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-top: 5px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -151,6 +167,7 @@
       &:nth-of-type(1) {
         display: block;
         font-weight: bold;
+        padding-top: 15px;
       }
     }
 
@@ -168,6 +185,10 @@
 
     .back-button {
       display: block;
+    }
+
+    .vetnav-panel {
+      height: auto;
     }
 
     .mm-link-container-small {
