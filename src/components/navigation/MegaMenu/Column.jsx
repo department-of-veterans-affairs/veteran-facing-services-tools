@@ -23,6 +23,8 @@ const Column = (props) => {
           <a className="mm-links" href={data.link.href}>{data.link.text}</a>
           <p>{data.description}</p>
         </div>
+
+        <li className="panel-bottom-link"></li>
       </div>
     );
   }
