@@ -13,6 +13,11 @@ const defaultSection = (sections) => {
 };
 
 export default class MegaMenu extends React.Component {
+  constructor() {
+    super();
+    this.originalSize = window.innerWidth;
+  }
+
   componentDidMount() {
     if (window.innerWidth < 768) {
       this.props.toggleDisplayHidden(true);
@@ -75,10 +80,12 @@ export default class MegaMenu extends React.Component {
   }
 
   resetDefaultState() {
-    if (window.innerWidth > 768) {
-      this.props.toggleDisplayHidden(false);
-    } else {
-      this.props.toggleDisplayHidden(true);
+    if (this.originalSize !== window.innerWidth) {
+      if (window.innerWidth > 768) {
+        this.props.toggleDisplayHidden(false);
+      } else {
+        this.props.toggleDisplayHidden(true);
+      }
     }
 
     this.props.updateCurrentSection('');
