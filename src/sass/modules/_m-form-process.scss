@@ -78,9 +78,6 @@
     &:active {
       background-color: $color-primary-darkest;
     }
-    &:focus {
-      outline: initial;
-    }
   }
   button.usa-button-secondary {
     color: $color-primary;
