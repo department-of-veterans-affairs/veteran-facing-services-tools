@@ -17,7 +17,6 @@ class ProgressButton extends React.Component {
 
     return (
       <button
-        form="myform"
         type={this.props.submitButton ? 'submit' : 'button'}
         disabled={this.props.disabled}
         className={`${this.props.buttonClass} ${this.props.disabled ? 'usa-button-disabled' : null}`}
