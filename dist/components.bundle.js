@@ -31542,10 +31542,24 @@ var onSmallScreen = function onSmallScreen() {
 
 var getColumns = function getColumns(columns) {
   if (window.innerWidth < 768) {
+    if (Object.hasOwnProperty.call(columns, 'mainColumn')) {
+      return {
+        mainColumn: {
+          title: columns.mainColumn.title,
+          links: [].concat(_toConsumableArray(columns.mainColumn.links), _toConsumableArray(columns.columnOne.links), _toConsumableArray(columns.columnTwo.links)).filter(function (link, i) {
+            return i < 8;
+          })
+        },
+        columnThree: columns.columnThree
+      };
+    }
+
     return {
       columnOne: {
         title: columns.columnOne.title,
-        links: [].concat(_toConsumableArray(columns.columnOne.links), _toConsumableArray(columns.columnTwo.links))
+        links: [].concat(_toConsumableArray(columns.columnOne.links), _toConsumableArray(columns.columnTwo.links)).filter(function (links, i) {
+          return i < 5;
+        })
       }
     };
   }
@@ -54997,8 +55011,7 @@ var Column = function Column(props) {
           null,
           data.description
         )
-      ),
-      _react2.default.createElement('li', { className: 'panel-bottom-link' })
+      )
     );
   }
 
@@ -55142,51 +55155,6 @@ var MegaMenu = function (_React$Component) {
       window.removeEventListener('resize', this.resetDefaultState.bind(this));
     }
   }, {
-    key: 'getSubmenu',
-    value: function getSubmenu(item, currentSection) {
-      var _this2 = this;
-
-      if (window.innerWidth < 768) {
-        var menuSections = [item.menuSections.mainColumn, item.menuSections.columnOne, item.menuSections.columnTwo].reduce(function (acc, column) {
-          acc.push({
-            title: column.title,
-            links: {
-              columnOne: {
-                title: '',
-                links: column.links
-              },
-              columnTwo: {
-                title: '',
-                links: []
-              }
-            }
-          });
-
-          return acc;
-        }, []);
-
-        return menuSections.map(function (section, i) {
-          return _react2.default.createElement(_MenuSection2.default, {
-            key: section + '-' + i,
-            title: section.title,
-            defaultSection: defaultSection(item.menuSections),
-            currentSection: currentSection,
-            updateCurrentSection: function updateCurrentSection() {
-              return _this2.updateCurrentSection(section.title);
-            },
-            links: section.links });
-        });
-      }
-
-      return _react2.default.createElement(_SubMenu2.default, {
-        data: item.menuSections,
-        navTitle: item.title,
-        handleBackToMenu: function handleBackToMenu() {
-          return _this2.toggleDropDown('');
-        },
-        show: this.props.currentDropdown !== '' });
-    }
-  }, {
     key: 'resetDefaultState',
     value: function resetDefaultState() {
       if (window.innerWidth > 768) {
@@ -55221,7 +55189,7 @@ var MegaMenu = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var _props = this.props,
           currentDropdown = _props.currentDropdown,
@@ -55265,7 +55233,7 @@ var MegaMenu = function (_React$Component) {
                       'aria-haspopup': 'true',
                       className: 'vetnav-level1',
                       onClick: function onClick() {
-                        return _this3.toggleDropDown(item.title);
+                        return _this2.toggleDropDown(item.title);
                       } },
                     item.title
                   ) : _react2.default.createElement(
@@ -55286,10 +55254,16 @@ var MegaMenu = function (_React$Component) {
                           defaultSection: defaultSection(item.menuSections),
                           currentSection: currentSection,
                           updateCurrentSection: function updateCurrentSection() {
-                            return _this3.updateCurrentSection(section.title);
+                            return _this2.updateCurrentSection(section.title);
                           },
                           links: section.links });
-                      }) : _this3.getSubmenu(item, currentSection)
+                      }) : _react2.default.createElement(_SubMenu2.default, {
+                        data: item.menuSections,
+                        navTitle: item.title,
+                        handleBackToMenu: function handleBackToMenu() {
+                          return _this2.toggleDropDown('');
+                        },
+                        show: _this2.props.currentDropdown !== '' })
                     )
                   )
                 );

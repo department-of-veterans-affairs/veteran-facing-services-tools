@@ -9290,14 +9290,12 @@ button.va-modal-close {
   z-index: 2; }
   @media screen and (min-width: 768px) {
     #mega-menu .vetnav-panel--submenu:not([hidden]) {
-      box-shadow: none;
       width: 26rem;
       padding: 28px 0px 0px 28px;
       white-space: normal; }
       #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
         color: #000;
-        font-family: Source Sans Pro, sans serif;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: bold;
         margin-top: 4px;
         padding: 0; }
@@ -9306,12 +9304,11 @@ button.va-modal-close {
     #mega-menu .vetnav-level2[aria-expanded="true"] {
       box-shadow: -3px 0 #988530; }
     #mega-menu .vetnav-panel {
-      box-shadow: 0 7px 25px -11px #000;
-      height: 470px;
+      height: 565px;
       width: 1028px;
       left: 0; }
       #mega-menu .vetnav-panel .mm-links {
-        padding: 0; }
+        padding: 0.8rem 0; }
       #mega-menu .vetnav-panel .mm-link-container {
         width: 225px;
         margin-bottom: 0; }
@@ -9354,14 +9351,11 @@ button.va-modal-close {
   #mega-menu .panel-bottom-link {
     position: absolute;
     bottom: 0px;
-    height: 60px;
-    width: 100%;
+    width: 750px;
     left: 0;
     margin-left: 14px;
     border-top: 1px solid #d0d0d0;
     z-index: 3; }
-    #mega-menu .panel-bottom-link:nth-child(2) {
-      width: 87%; }
     #mega-menu .panel-bottom-link a {
       background: transparent url(/img/arrow-right-blue.svg) right 1rem center no-repeat;
       background-size: 13px;
@@ -9376,11 +9370,7 @@ button.va-modal-close {
   #mega-menu .mm-marketing-container {
     background-color: #e1f3f8;
     padding: 20px;
-    height: 350px; }
-    #mega-menu .mm-marketing-container img {
-      margin-bottom: 20px; }
-    #mega-menu .mm-marketing-container p {
-      margin-top: 5px; }
+    height: 80%; }
   @media (max-width: 768px) {
     #mega-menu .column-three {
       display: none; }
@@ -9388,8 +9378,7 @@ button.va-modal-close {
       width: 100%; }
     #mega-menu .panel-top-link:nth-of-type(1) {
       display: block;
-      font-weight: bold;
-      padding-top: 15px; }
+      font-weight: bold; }
     #mega-menu .vetnav-panel--submenu:not([hidden]) {
       position: initial; }
       #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
@@ -9398,8 +9387,6 @@ button.va-modal-close {
         display: none; }
     #mega-menu .back-button {
       display: block; }
-    #mega-menu .vetnav-panel {
-      height: auto; }
     #mega-menu .mm-link-container-small {
       background: #112e51;
       height: 100%;
