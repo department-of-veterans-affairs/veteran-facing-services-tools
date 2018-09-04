@@ -88,9 +88,9 @@
   }
 }
 
-@mixin focus-gold-light-outline {
+@mixin focus-gold-light-outline($offset: 2) {
   outline: 2px solid $color-gold-light;
-  outline-offset: 2px;
+  outline-offset: #{$offset}px;
 }
 
 @mixin focus-gold-lighter-highlight {

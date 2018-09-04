@@ -26,7 +26,7 @@ Still in Terminal, run `yarn install`. This will download and install all the de
 
 **Start up Fractal**
 
-* Run `npm run start` and navigate to `localhost:3000` in your favorite browser. You should be all set!
+* Run `npm run start` and navigate to `localhost:3002` in your favorite browser. You should be all set!
 
 If the `fractal watch` task fails, remove the `dist` directory and try running `npm run start` again.
 

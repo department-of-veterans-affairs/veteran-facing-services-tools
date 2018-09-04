@@ -1,9 +1,3 @@
-.form-radio-buttons {
-  [type=radio]:focus + label::before {
-    outline: none;
-  }
-}
-
 a:focus {
   @include focus-gold-light-outline;
   outline-offset: 0;
@@ -29,5 +23,10 @@ nav button:focus {
 
 [type="checkbox"]:focus + label::before {
   color: $color-gold-light;
-  outline: 2px solid $color-gold-light;
+  @include focus-gold-light-outline;
+}
+
+[type="radio"]:focus + label::before {
+  color: $color-gold-light;
+  @include focus-gold-light-outline(6); // Increase the offset to account for circular shape
 }
