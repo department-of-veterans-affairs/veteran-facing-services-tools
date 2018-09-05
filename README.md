@@ -56,7 +56,7 @@ Run: `npm run export-components`
 
 > Installs the locally published version of `formation` to the Vets Website's `node_modules` folder, making it available for importing and testing locally.
 
-* With each new change you make, you'll need to re-run `yalc update` to see the changes reflected in your locally-running version of `vets-website`.
+* With each new change you make to the design system code, you'll need to re-run `yalc update` to see the changes reflected in your locally-running version of `vets-website`.
 
 > See [yalc documentation](https://www.npmjs.com/package/yalc#usage) for advanced usage such as [automatic updating on publish](https://www.npmjs.com/package/yalc#pushing-updates-automatically-to-all-installations)
 
@@ -64,7 +64,7 @@ Run: `npm run export-components`
 
 After you've tested and previewed your changes locally it's time to publish a new version of the package to NPM.
 
-> Prerequisite: you must be [registered](https://docs.npmjs.com/getting-started/publishing-npm-packages) with NPM to publish an update to the module. Verify that you are logged in correctly by running `npm whoami`.
+> Prerequisite: you must be [registered](https://docs.npmjs.com/getting-started/publishing-npm-packages) with NPM, be a member of the "department-of-veterans-affairs" organization, and have the appropriate organization role to publish an update to the module. Verify that you are logged in correctly by running `npm whoami`. If you are unable to publish an update, confirm you are a member of the "department-of-veterans-affairs" organization by going to your Profile page on [npmjs.com](https://www.npmjs.com).
 
 ### 1. Update the package version number
 
@@ -87,26 +87,26 @@ Submit a PR that includes all of your code changes, including the version bump, 
 ### 3. Pull `master` and publish
 
 * Switch to `master` and run `git pull`
-* Run the prepublish script to publish everything to `dist/formation`: `npm run pre-publish`
-* Change directory to `dist/formation` and verify that you have the new version number locally in `package.json`
+* Run the prepublish script: `npm run pre-publish`. This builds the module's assets and copies everything to `dist/formation`
+* Change directory to `dist/formation` and verify that the version number is correct in the `package.json` file.
 * Publish changes to NPM: `npm publish`.
 
 > As mentioned above, you must be registered with NPM and have the proper rights to publish the `@department-of-veterans-affairs/formation` package.
 
 ### 4. Update consuming apps
 
-The last step is to update the `package.json` files of consuming apps to use the new version of `@department-of-veterans-affairs/formation`.
+The last step is to update the `package.json` files of consuming apps to use the latest version of `@department-of-veterans-affairs/formation`. For example, if you are working with the `vets-website` project, open the `vets-website`'s `package.json` to update the version number of the `@department-of-veterans-affairs/formation` entry listed in the `dependencies` section. The version number should match what you just published to NPM.
 
 ## Deployment
 
-Jenkins automatically publishes the content to GitHub Pages (the `gh-pages` branch on this repository) on pushes to `master`.
+Jenkins automatically publishes the content to GitHub Pages (the `gh-pages` branch on this repository) on pushes/merges to `master`.
 
 To make changes:
 
 - create a branch off `master`
 - make changes
 - create a PR
-- ensure PR is approved and Jenkins tests pass (GitHub will not let you merge without these two)
+- ensure the PR is approved and Jenkins tests pass (GitHub will not let you merge without these two)
 - merge to `master` and Jenkins will automatically deploy.
 
 ## Choosing a design system for Vets.gov
