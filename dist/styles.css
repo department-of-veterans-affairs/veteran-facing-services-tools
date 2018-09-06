@@ -7216,9 +7216,6 @@ p.info-message {
   background-color: #2e8540;
   color: #fff; }
 
-.form-radio-buttons [type=radio]:focus + label::before {
-  outline: none; }
-
 a:focus {
   outline: 2px solid #f9c642;
   outline-offset: 2px;
@@ -7243,7 +7240,13 @@ nav button:focus {
 
 [type=checkbox]:focus + label::before {
   color: #f9c642;
-  outline: 2px solid #f9c642; }
+  outline: 2px solid #f9c642;
+  outline-offset: 2px; }
+
+[type=radio]:focus + label::before {
+  color: #f9c642;
+  outline: 2px solid #f9c642;
+  outline-offset: 6px; }
 
 .va-alert-close {
   background: transparent;

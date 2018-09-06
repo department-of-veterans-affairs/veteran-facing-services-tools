@@ -55119,7 +55119,10 @@ var MegaMenu = function (_React$Component) {
   function MegaMenu() {
     _classCallCheck(this, MegaMenu);
 
-    return _possibleConstructorReturn(this, (MegaMenu.__proto__ || Object.getPrototypeOf(MegaMenu)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (MegaMenu.__proto__ || Object.getPrototypeOf(MegaMenu)).call(this));
+
+    _this.originalSize = window.innerWidth;
+    return _this;
   }
 
   _createClass(MegaMenu, [{
@@ -55189,10 +55192,12 @@ var MegaMenu = function (_React$Component) {
   }, {
     key: 'resetDefaultState',
     value: function resetDefaultState() {
-      if (window.innerWidth > 768) {
-        this.props.toggleDisplayHidden(false);
-      } else {
-        this.props.toggleDisplayHidden(true);
+      if (this.originalSize !== window.innerWidth) {
+        if (window.innerWidth > 768) {
+          this.props.toggleDisplayHidden(false);
+        } else {
+          this.props.toggleDisplayHidden(true);
+        }
       }
 
       this.props.updateCurrentSection('');
