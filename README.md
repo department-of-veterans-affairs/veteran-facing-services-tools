@@ -32,33 +32,7 @@ If the `fractal watch` task fails, remove the `dist` directory and try running `
 
 ## Previewing Changes
 
-As you make changes to this design system, you'll likely want to see how your changes look in a consuming app, such as the `vets-website` app. Follow these instructions to see your changes locally in the Vets Website.
-
-### 1. Build the components:
-
-Run: `npm run export-components`
-
-> Builds all JSX files in `src/components` and all js files in `src/helpers` and adds them to the `dist/formation` folder.
-
-> `dist/formation` is the root directory of the NPM module.
-
-### 2. Preview the components locally with Yalc:
-
-[yalc](https://github.com/whitecolor/yalc) is recommended for testing modules locally.
-
-* Install Yalc globally if you don't have it: `yarn global add yalc`
-
-* With Yalc installed, run: `npm run test-publish`
-
-> Copies `package.json` to the `dist/formation` directory and publishes the exported components to the local yalc directory as a `@department-of-veterans-affairs/formation` module.
-
-* In the `vets-website` project, run `yalc link @department-of-veterans-affairs/formation` and subsequently `yalc update`
-
-> Installs the locally published version of `formation` to the Vets Website's `node_modules` folder, making it available for importing and testing locally.
-
-* With each new change you make to the design system code, you'll need to re-run `yalc update` to see the changes reflected in your locally-running version of `vets-website`.
-
-> See [yalc documentation](https://www.npmjs.com/package/yalc#usage) for advanced usage such as [automatic updating on publish](https://www.npmjs.com/package/yalc#pushing-updates-automatically-to-all-installations)
+As you make changes to this design system, you'll likely want to see how your changes look in a consuming app, such as the `vets-website` app. [Check out these instructions on how to do so](./previewing-changes.md).
 
 ## Publishing Module to NPM
 
