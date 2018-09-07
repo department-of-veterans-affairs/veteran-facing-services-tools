@@ -209,6 +209,14 @@
             </tr>
           
             <tr>
+              <td>labelAboveCheckbox</td>
+              <td>No</td>
+              <td>string</td>
+              <td></td>
+              <td>Descriptive text to sit above the checkbox and label</td>
+            </tr>
+          
+            <tr>
               <td>onValueChange</td>
               <td>Yes</td>
               <td>func</td>
@@ -234,16 +242,21 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"errorablecheckbox"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-checkbox usa-input-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"errorable-checkbox-114-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-114"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-label"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"undefined-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-checkbox-114"</span>&gt;</span>Errorable Checkbox<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-message"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-114-error-message"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Error<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> Error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-checkbox usa-input-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"errorable-checkbox-123-error-message"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-123"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-label"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"undefined-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-checkbox-123"</span>&gt;</span>Errorable Checkbox<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-message"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-123-error-message"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Error<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> Error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-checkbox usa-input-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"label-above-checkbox"</span>&gt;</span>If you don&amp;#x27;t find your school in the search results, then check the box to enter in your school information manually.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"errorable-checkbox-124-error-message"</span>
+                <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-124"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-label"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"undefined-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"errorable-checkbox-124"</span>&gt;</span>Errorable Checkbox<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-required-span"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-input-error-message"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"errorable-checkbox-124-error-message"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Error<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>            Error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.4.10"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.4.11"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -262,17 +275,24 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-70675b92980c2d4222ee8a8296e3d7fc-panel-view">
     <code class="Code Code--lang-text">
-        <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> ErrorableCheckbox <span class="hljs-keyword">from</span> <span class="hljs-string">'./ErrorableCheckbox'</span>;
+        <pre><span class="hljs-keyword">import</span> React from <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ErrorableCheckbox from <span class="hljs-string">'./ErrorableCheckbox'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ErrorableCheckboxExample</span>(<span class="hljs-params">props</span>) </span>{
+export <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> ErrorableCheckboxExample(props) {
   <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ErrorableCheckbox</span>
-      <span class="hljs-attr">label</span>=<span class="hljs-string">'Errorable Checkbox'</span>
-      <span class="hljs-attr">onValueChange</span>=<span class="hljs-string">{(value)</span> =&gt;</span> value}
-      {...props}/&gt;
+    &lt;div&gt;
+      &lt;ErrorableCheckbox
+        label=<span class="hljs-string">'Errorable Checkbox'</span>
+        onValueChange={(<span class="hljs-keyword">value</span>) =&gt; <span class="hljs-keyword">value</span>}
+        {...props}/&gt;
+      &lt;ErrorableCheckbox
+        label=<span class="hljs-string">"I want to type in my school's name and address."</span>
+        labelAboveCheckbox=<span class="hljs-string">"If you don't find your school in the search results, then check the box to enter in your school information manually."</span>
+        onValueChange={(<span class="hljs-keyword">value</span>) =&gt; <span class="hljs-keyword">value</span>}
+        {...props}/&gt;
+    &lt;/div&gt;
   );
-}</span></pre>
+}</pre>
     </code>
 </div>
 
@@ -283,7 +303,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.10</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.11</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./ErrorableCheckbox.jsx</span>
@@ -372,6 +392,9 @@
 
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{className}</span>&gt;</span>
+        {this.props.labelAboveCheckbox &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"label-above-checkbox"</span>&gt;</span>
+          {this.props.labelAboveCheckbox}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>}
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
           <span class="hljs-attr">autoComplete</span>=<span class="hljs-string">"false"</span>
           <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">{errorSpanId}</span>
@@ -413,6 +436,10 @@ ErrorableCheckbox.propTypes = {
    */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   /**
+   * Descriptive text to sit above the checkbox and label
+   */
+  labelAboveCheckbox: PropTypes.string,
+  /**
    * Handler for when the checkbox is changed
    */
   onValueChange: PropTypes.func.isRequired,
@@ -439,7 +466,7 @@ export default ErrorableCheckbox;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -460,11 +487,19 @@ export default ErrorableCheckbox;
 <span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">'sinon'</span>;
 
 describe(<span class="hljs-string">'&lt;ErrorableCheckbox/&gt;'</span>, () =&gt; {
-  it(<span class="hljs-string">'should render'</span>, () =&gt; {
+  it(<span class="hljs-string">'should render without the labelAboveCheckbox'</span>, () =&gt; {
     <span class="hljs-keyword">const</span> tree = shallow(
       &lt;ErrorableCheckbox label="test" onValueChange={() =&gt; {}}/&gt;
     );
     expect(tree.text()).to.contain('test');
+  });
+
+  it('should render with the labelAboveCheckbox', () =&gt; {
+    const tree = shallow(
+      &lt;ErrorableCheckbox label="test" labelAboveCheckbox="this is a checkbox" onValueChange={() =&gt; {}}/&gt;
+    );
+    expect(tree.text()).to.contain('test');
+    expect(tree.text()).to.contain('this is a checkbox');
   });
 
   it('should pass aXe check', () =&gt; {
@@ -591,7 +626,7 @@ describe(<span class="hljs-string">'&lt;ErrorableCheckbox/&gt;'</span>, () =&gt;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4 KB</span>
+                    <span class="Meta-value">4.4 KB</span>
                 </li>
             </ul>
         </div>

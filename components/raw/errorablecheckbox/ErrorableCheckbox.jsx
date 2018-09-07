@@ -45,6 +45,9 @@ class ErrorableCheckbox extends React.Component {
 
     return (
       <div className={className}>
+        {this.props.labelAboveCheckbox && <span className="label-above-checkbox">
+          {this.props.labelAboveCheckbox}
+        </span>}
         <input
           autoComplete="false"
           aria-describedby={errorSpanId}
@@ -85,6 +88,10 @@ ErrorableCheckbox.propTypes = {
    * Label for the checkbox
    */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  /**
+   * Descriptive text to sit above the checkbox and label
+   */
+  labelAboveCheckbox: PropTypes.string,
   /**
    * Handler for when the checkbox is changed
    */
