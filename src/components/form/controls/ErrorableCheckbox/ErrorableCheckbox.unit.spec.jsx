@@ -6,11 +6,19 @@ import ErrorableCheckbox from './ErrorableCheckbox.jsx';
 import sinon from 'sinon';
 
 describe('<ErrorableCheckbox/>', () => {
-  it('should render', () => {
+  it('should render without the labelAboveCheckbox', () => {
     const tree = shallow(
       <ErrorableCheckbox label="test" onValueChange={() => {}}/>
     );
     expect(tree.text()).to.contain('test');
+  });
+
+  it('should render with the labelAboveCheckbox', () => {
+    const tree = shallow(
+      <ErrorableCheckbox label="test" labelAboveCheckbox="this is a checkbox" onValueChange={() => {}}/>
+    );
+    expect(tree.text()).to.contain('test');
+    expect(tree.text()).to.contain('this is a checkbox');
   });
 
   it('should pass aXe check', () => {
