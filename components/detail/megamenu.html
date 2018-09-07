@@ -677,7 +677,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.11</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.12</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -847,6 +847,7 @@ Column.propTypes = {
     }
 
     <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.resetDefaultState.bind(<span class="hljs-keyword">this</span>));
+    <span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
   }
 
   <span class="hljs-comment">/**
@@ -854,6 +855,7 @@ Column.propTypes = {
    */</span>
   componentWillUnmount() {
     <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.resetDefaultState.bind(<span class="hljs-keyword">this</span>));
+    <span class="hljs-built_in">document</span>.body.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
   }
 
   getSubmenu(item, currentSection) {
@@ -901,6 +903,12 @@ Column.propTypes = {
         show={this.props.currentDropdown !== ''}&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">SubMenu</span>&gt;</span></span>
     );
   }
+  handleDocumentClick = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.currentDropdown &amp;&amp; !<span class="hljs-keyword">this</span>.menuRef.contains(event.target)) {
+      <span class="hljs-keyword">this</span>.props.toggleDropDown(<span class="hljs-string">''</span>);
+    }
+
+  }
 
   resetDefaultState() {
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.originalSize !== <span class="hljs-built_in">window</span>.innerWidth) {
@@ -945,7 +953,7 @@ Column.propTypes = {
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
         <span class="hljs-attr">className</span>=<span class="hljs-string">"login-container"</span>
         {<span class="hljs-attr">...display</span>}&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-flex"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-flex"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{el</span> =&gt;</span> {this.menuRef = el;}}&gt;
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-menu"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menuitem"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -1054,7 +1062,7 @@ MegaMenu.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.3 KB</span>
+                    <span class="Meta-value">6.6 KB</span>
                 </li>
             </ul>
         </div>
