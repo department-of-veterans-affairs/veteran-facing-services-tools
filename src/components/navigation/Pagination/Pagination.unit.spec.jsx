@@ -15,7 +15,7 @@ describe('<Pagination>', () => {
         {...props}
         page={1}
         pages={5}
-        ariaLabelSpecifier="of search results"/>
+        ariaLabelSuffix="of search results"/>
     );
     const links = tree.find('a[aria-label*="of search results"]');
     expect(links).to.have.length(6);
