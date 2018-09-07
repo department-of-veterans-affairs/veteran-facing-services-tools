@@ -216,6 +216,14 @@
               <td></td>
             </tr>
           
+            <tr>
+              <td>ariaLabelSuffix</td>
+              <td>No</td>
+              <td>string</td>
+              <td></td>
+              <td></td>
+            </tr>
+          
         </table>
     </div>
 </div>
@@ -226,14 +234,14 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"pagination"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-prev"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Previous page"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Previous"</span>&gt;</span>Prev<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-inner"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Page 1"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-active"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Page 2"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Page 3"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-next"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Next page"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Next<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-prev"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Load previous page undefined"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Previous"</span>&gt;</span>Prev<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-inner"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Load page 1 undefined"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-active"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Load page 2 undefined"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Load page 3 undefined"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-pagination-next"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Load next page undefined"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Next<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.4.9"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.4.10"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -275,7 +283,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.9</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.4</span><span class="hljs-number">.10</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./Pagination.jsx</span>
@@ -336,7 +344,7 @@
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.pages &gt; <span class="hljs-keyword">this</span>.props.page) {
       nextPage = (
         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Next page"</span>
+          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Load</span> <span class="hljs-attr">next</span> <span class="hljs-attr">page</span> ${<span class="hljs-attr">this.props.ariaLabelSuffix</span>}`}
           <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> {this.props.onPageSelect(this.props.page + 1);}}
           onKeyDown={e =&gt; this.handleKeyDown(e, this.props.page + 1)}
           tabIndex="0"&gt;
@@ -352,7 +360,7 @@
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.page &gt; <span class="hljs-number">1</span>) {
       prevPage = (
         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Previous page"</span>
+          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Load</span> <span class="hljs-attr">previous</span> <span class="hljs-attr">page</span> ${<span class="hljs-attr">this.props.ariaLabelSuffix</span>}`}
           <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> {this.props.onPageSelect(this.props.page - 1);}}
           onKeyDown={e =&gt; this.handleKeyDown(e, this.props.page - 1)}
           tabIndex="0"&gt;
@@ -378,7 +386,7 @@
           <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
             ...
           <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Last page"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> {this.props.onPageSelect(totalPages);}}&gt;
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Load</span> <span class="hljs-attr">last</span> <span class="hljs-attr">page</span> ${<span class="hljs-attr">this.props.ariaLabelSuffix</span>}`} <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> {this.props.onPageSelect(totalPages);}}&gt;
             {totalPages}
           <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
@@ -448,7 +456,7 @@
         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
           <span class="hljs-attr">key</span>=<span class="hljs-string">{pageNumber}</span>
           <span class="hljs-attr">className</span>=<span class="hljs-string">{pageClass}</span>
-          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Page</span> ${<span class="hljs-attr">pageNumber</span>}`}
+          <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">Load</span> <span class="hljs-attr">page</span> ${<span class="hljs-attr">pageNumber</span>} ${<span class="hljs-attr">this.props.ariaLabelSuffix</span>}`}
           <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> this.props.onPageSelect(pageNumber)}
           onKeyDown={e =&gt; this.handleKeyDown(e, pageNumber)}
           tabIndex="0"&gt;
@@ -475,6 +483,7 @@ Pagination.propTypes = {
   <span class="hljs-attr">pages</span>: PropTypes.number.isRequired,
   <span class="hljs-attr">maxPageListLength</span>: PropTypes.number.isRequired,
   <span class="hljs-attr">showLastPage</span>: PropTypes.bool,
+  <span class="hljs-attr">ariaLabelSuffix</span>: PropTypes.string,
 };
 
 Pagination.defaultProps = {
@@ -498,7 +507,7 @@ Pagination.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4 KB</span>
+                    <span class="Meta-value">4.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -527,9 +536,10 @@ describe(<span class="hljs-string">'&lt;Pagination&gt;'</span>, () =&gt; {
       &lt;Pagination
         {...props}
         page={1}
-        pages={5}/&gt;
+        pages={5}
+        ariaLabelSuffix="of search results"/&gt;
     );
-    const links = tree.find('a');
+    const links = tree.find('a[aria-label*="of search results"]');
     expect(links).to.have.length(6);
     links.forEach((link, index) =&gt; {
       if (index === 5) {
@@ -680,7 +690,7 @@ describe(<span class="hljs-string">'&lt;Pagination&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.1 KB</span>
+                    <span class="Meta-value">4.2 KB</span>
                 </li>
             </ul>
         </div>

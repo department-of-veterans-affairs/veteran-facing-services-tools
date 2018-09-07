@@ -18,7 +18,7 @@ class Pagination extends React.Component {
     if (this.props.pages > this.props.page) {
       nextPage = (
         <a
-          aria-label="Next page"
+          aria-label={`Load next page ${this.props.ariaLabelSuffix}`}
           onClick={() => {this.props.onPageSelect(this.props.page + 1);}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page + 1)}
           tabIndex="0">
@@ -34,7 +34,7 @@ class Pagination extends React.Component {
     if (this.props.page > 1) {
       prevPage = (
         <a
-          aria-label="Previous page"
+          aria-label={`Load previous page ${this.props.ariaLabelSuffix}`}
           onClick={() => {this.props.onPageSelect(this.props.page - 1);}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page - 1)}
           tabIndex="0">
@@ -60,7 +60,7 @@ class Pagination extends React.Component {
           <a aria-label="...">
             ...
           </a>
-          <a aria-label="Last page" onClick={() => {this.props.onPageSelect(totalPages);}}>
+          <a aria-label={`Load last page ${this.props.ariaLabelSuffix}`} onClick={() => {this.props.onPageSelect(totalPages);}}>
             {totalPages}
           </a>
         </span>
@@ -130,7 +130,7 @@ class Pagination extends React.Component {
         <a
           key={pageNumber}
           className={pageClass}
-          aria-label={`Page ${pageNumber}`}
+          aria-label={`Load page ${pageNumber} ${this.props.ariaLabelSuffix}`}
           onClick={() => this.props.onPageSelect(pageNumber)}
           onKeyDown={e => this.handleKeyDown(e, pageNumber)}
           tabIndex="0">
@@ -157,6 +157,7 @@ Pagination.propTypes = {
   pages: PropTypes.number.isRequired,
   maxPageListLength: PropTypes.number.isRequired,
   showLastPage: PropTypes.bool,
+  ariaLabelSuffix: PropTypes.string,
 };
 
 Pagination.defaultProps = {
