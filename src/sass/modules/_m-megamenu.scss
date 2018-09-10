@@ -32,7 +32,7 @@
     .vetnav-panel {
       box-shadow: 0 7px 25px -11px $color-black;
       height: 470px;
-      width: 1028px;
+      width: 1008px;
       left: 0;
 
       .mm-links {
@@ -72,7 +72,7 @@
 
       &.vetnav-panel--submenu:not([hidden]) {
         padding: 28px 20px 20px 14px;
-        width: 26rem;
+        width: 24rem;
       }
 
       &.panel-white {

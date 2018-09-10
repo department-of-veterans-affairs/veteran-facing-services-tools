@@ -24,6 +24,7 @@ export default class MegaMenu extends React.Component {
     }
 
     window.addEventListener('resize', this.resetDefaultState.bind(this));
+    document.body.addEventListener('click', this.handleDocumentClick, false);
   }
 
   /**
@@ -31,6 +32,7 @@ export default class MegaMenu extends React.Component {
    */
   componentWillUnmount() {
     window.removeEventListener('resize', this.resetDefaultState.bind(this));
+    document.body.removeEventListener('click', this.handleDocumentClick, false);
   }
 
   getSubmenu(item, currentSection) {
@@ -78,6 +80,12 @@ export default class MegaMenu extends React.Component {
         show={this.props.currentDropdown !== ''}></SubMenu>
     );
   }
+  handleDocumentClick = (event) => {
+    if (this.props.currentDropdown && !this.menuRef.contains(event.target)) {
+      this.props.toggleDropDown('');
+    }
+
+  }
 
   resetDefaultState() {
     if (this.originalSize !== window.innerWidth) {
@@ -122,7 +130,7 @@ export default class MegaMenu extends React.Component {
       <div
         className="login-container"
         {...display}>
-        <div className="row va-flex">
+        <div className="row va-flex" ref={el => {this.menuRef = el;}}>
           <div id="vetnav" role="navigation">
             <ul id="vetnav-menu" role="menubar">
               <li><a href="/" className="vetnav-level1" role="menuitem">Home</a></li>
