@@ -55589,7 +55589,7 @@ var Pagination = function (_React$Component) {
         nextPage = _react2.default.createElement(
           'a',
           {
-            'aria-label': 'Next page',
+            'aria-label': 'Load next page ' + this.props.ariaLabelSuffix,
             onClick: function onClick() {
               _this2.props.onPageSelect(_this2.props.page + 1);
             },
@@ -55612,7 +55612,7 @@ var Pagination = function (_React$Component) {
         prevPage = _react2.default.createElement(
           'a',
           {
-            'aria-label': 'Previous page',
+            'aria-label': 'Load previous page ' + this.props.ariaLabelSuffix,
             onClick: function onClick() {
               _this3.props.onPageSelect(_this3.props.page - 1);
             },
@@ -55653,7 +55653,7 @@ var Pagination = function (_React$Component) {
           ),
           _react2.default.createElement(
             'a',
-            { 'aria-label': 'Last page', onClick: function onClick() {
+            { 'aria-label': 'Load last page ' + this.props.ariaLabelSuffix, onClick: function onClick() {
                 _this4.props.onPageSelect(totalPages);
               } },
             totalPages
@@ -55716,7 +55716,7 @@ var Pagination = function (_React$Component) {
           {
             key: pageNumber,
             className: pageClass,
-            'aria-label': 'Page ' + pageNumber,
+            'aria-label': 'Load page ' + pageNumber + ' ' + _this5.props.ariaLabelSuffix,
             onClick: function onClick() {
               return _this5.props.onPageSelect(pageNumber);
             },
@@ -55760,7 +55760,8 @@ Pagination.propTypes = {
   page: _propTypes2.default.number.isRequired,
   pages: _propTypes2.default.number.isRequired,
   maxPageListLength: _propTypes2.default.number.isRequired,
-  showLastPage: _propTypes2.default.bool
+  showLastPage: _propTypes2.default.bool,
+  ariaLabelSuffix: _propTypes2.default.string
 };
 
 Pagination.defaultProps = {
