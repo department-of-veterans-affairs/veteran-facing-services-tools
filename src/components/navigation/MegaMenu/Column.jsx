@@ -36,7 +36,11 @@ const Column = (props) => {
         <li className="panel-top-link">{props.children}</li>
 
         { data.links.map((link, i) => (
-          <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
+          <li className="mm-link-container" key={`${link.href}-${i}`}>
+            <a className="mm-links" href={link.href} target={link.target}>
+              {link.text}
+            </a>
+          </li>
         ))}
 
         <li className="panel-bottom-link">{props.children}</li>
@@ -61,6 +65,7 @@ Column.propTypes = {
     link: PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
+      target: PropTypes.string,
     }),
     description: PropTypes.string,
   }),
