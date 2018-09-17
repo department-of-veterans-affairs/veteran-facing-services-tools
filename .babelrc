@@ -9,5 +9,11 @@
     }],
     "react",
     "stage-2",
+  ],
+  "plugins": [
+    "lodash",
+    ["transform-react-remove-prop-types", {
+      "removeImport": true
+    }]
   ]
 }

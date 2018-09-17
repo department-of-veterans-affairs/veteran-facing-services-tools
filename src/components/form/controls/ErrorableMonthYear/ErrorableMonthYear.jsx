@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import { set } from 'lodash/fp';
 import moment from 'moment';
 
 import ErrorableSelect from '../ErrorableSelect/ErrorableSelect';
@@ -34,7 +33,10 @@ class ErrorableMonthYear extends React.Component {
   }
 
   handleChange(path, update) {
-    const date = set(path, update, this.props.date);
+    const date = {
+      ...this.props.date,
+      [path]: update
+    };
 
     this.props.onValueChange(date);
   }
