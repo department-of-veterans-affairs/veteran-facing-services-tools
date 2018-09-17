@@ -51,6 +51,7 @@ class CollapsiblePanel extends React.Component {
         <Element name={`collapsible-panel-${this.id}-scroll-element`}/>
         <div className="accordion-header clearfix">
           <button
+            type="button"
             className="usa-accordion-button usa-button-unstyled"
             aria-expanded={this.state.open ? 'true' : 'false'}
             aria-controls={`collapsible-${this.id}`}
