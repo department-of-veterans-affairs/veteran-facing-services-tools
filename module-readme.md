@@ -1,4 +1,4 @@
-Version 1.4.12
+Version 1.5.2
 
 This module contains reusable react components from [vets-website](https://github.com/department-of-veterans-affairs/vets-website) housed in its design system [repo](https://github.com/department-of-veterans-affairs/design-system).
 
@@ -25,6 +25,7 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 - ErrorableSelect.js
 - ErrorableTextArea.js
 - ErrorableTextInput.js
+- IconBase.js
 - IconHelp.js
 - IconSearch.js
 - IconUser.js

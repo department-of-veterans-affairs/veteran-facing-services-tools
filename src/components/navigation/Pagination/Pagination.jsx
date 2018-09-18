@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import range from 'lodash/fp/range';
+import range from 'lodash/range';
 
 class Pagination extends React.Component {
   constructor(props) {

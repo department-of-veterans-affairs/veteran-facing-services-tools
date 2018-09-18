@@ -63,6 +63,7 @@
       }],
     'no-plusplus': 0,
     'react/jsx-indent-props': 0,
+    'no-restricted-imports': ['error', 'lodash/fp'],
 
     // TODO: evaluate and potentially turn these rules back on
     'import/extensions': 0,
