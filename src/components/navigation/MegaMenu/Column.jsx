@@ -20,7 +20,9 @@ const Column = (props) => {
         aria-label={keyName}>
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
-          <a className="mm-links" href={data.link.href}>{data.link.text}</a>
+          <a className="mm-links" href={data.link.href} target={data.link.target || '_self'}>
+            {data.link.text}
+          </a>
           <p>{data.description}</p>
         </div>
 
@@ -36,7 +38,11 @@ const Column = (props) => {
         <li className="panel-top-link">{props.children}</li>
 
         { data.links.map((link, i) => (
-          <li className="mm-link-container" key={`${link.href}-${i}`}><a className="mm-links" href={link.href}>{link.text}</a></li>
+          <li className="mm-link-container" key={`${link.href}-${i}`}>
+            <a className="mm-links" href={link.href} target={link.target || '_self'}>
+              {link.text}
+            </a>
+          </li>
         ))}
 
         <li className="panel-bottom-link">{props.children}</li>
@@ -61,6 +67,7 @@ Column.propTypes = {
     link: PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
+      target: PropTypes.string,
     }),
     description: PropTypes.string,
   }),
