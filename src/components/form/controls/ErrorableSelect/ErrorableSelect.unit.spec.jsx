@@ -87,7 +87,7 @@ describe('<ErrorableSelect>', () => {
 
   it('required=true has required asterisk', () => {
     const tree = shallow(<ErrorableSelect label="my label" options={options} required value={testValue} onValueChange={(_update) => {}}/>);
-    expect(tree.find('label').text()).to.equal('my label*');
+    expect(tree.find('label').text()).to.equal('my label(*Required)');
   });
 
   it('should pass aXe check when it is required', () => {
