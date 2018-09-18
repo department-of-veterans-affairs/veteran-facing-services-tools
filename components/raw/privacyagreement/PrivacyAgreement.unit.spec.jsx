@@ -16,7 +16,7 @@ describe('<PrivacyAgreement/>', () => {
     );
   });
   it('should render', () => {
-    expect(wrapper.text()).to.eql('I have read and accept the privacy policy*');
+    expect(wrapper.text()).to.eql('I have read and accept the privacy policy(*Required)');
   });
 
   it('should pass aXe check', () => {

@@ -99,7 +99,7 @@ describe('<ErrorableTextArea>', () => {
       <ErrorableTextArea field={makeField(1)} label="my label" required onValueChange={(_update) => {}}/>);
 
     const label = tree.find('label');
-    expect(label.text()).to.equal('my label*');
+    expect(label.text()).to.equal('my label(*Required)');
   });
 
   it('label attribute propagates', () => {

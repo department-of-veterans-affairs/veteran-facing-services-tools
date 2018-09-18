@@ -69,7 +69,9 @@ class ErrorableRadioButtons extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = <span className="form-required-span">*</span>;
+      requiredSpan = (
+        <span className="form-required-span">(*Required)</span>
+      );
     }
 
     const options = _.isArray(this.props.options) ? this.props.options : [];

@@ -98,7 +98,7 @@ describe('<ErrorableNumberInput>', () => {
       <ErrorableNumberInput field={testValue} label="my label" required onValueChange={(_update) => {}}/>);
 
     const label = tree.find('label');
-    expect(label.text()).to.equal('my label*');
+    expect(label.text()).to.equal('my label(*Required)');
   });
 
   it('label attribute propagates', () => {
