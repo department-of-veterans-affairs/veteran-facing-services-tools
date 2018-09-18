@@ -131,7 +131,7 @@ describe('<ErrorableTextInput>', () => {
       required
       onValueChange={(value) => value}/>);
 
-    expect(wrapper.find('label').text()).to.eql('test*');
+    expect(wrapper.find('label').text()).to.eql('test(*Required)');
   });
 
   it('renders no required asterisk when required is false', () => {

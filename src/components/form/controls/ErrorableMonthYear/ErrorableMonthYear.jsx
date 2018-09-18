@@ -79,7 +79,7 @@ class ErrorableMonthYear extends React.Component {
       <div className={!isValid && 'input-error-date'}>
         <label>
           {this.props.label}
-          {this.props.required && <span className="form-required-span">*</span>}
+          {this.props.required && <span className="form-required-span">(*Required)</span>}
         </label>
         {errorSpan}
         <div className={isValid ? undefined : 'usa-input-error form-error-date'}>
