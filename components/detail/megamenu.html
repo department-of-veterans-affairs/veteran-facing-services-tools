@@ -677,7 +677,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.6</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.6</span><span class="hljs-number">.2</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -742,7 +742,9 @@ export default class MegaMenuExample extends React.Component {
         <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{keyName}</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-marketing-container"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{data.img.src}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">{data.img.alt}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{data.link.href}</span>&gt;</span>{data.link.text}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{data.link.href}</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{data.link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
+            {data.link.text}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{data.description}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -758,7 +760,11 @@ export default class MegaMenuExample extends React.Component {
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"panel-top-link"</span>&gt;</span>{props.children}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
         { data.links.map((link, i) =&gt; (
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-link-container"</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">link.href</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{link.href}</span>&gt;</span>{link.text}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-link-container"</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">link.href</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{link.href}</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
+              {link.text}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
         ))}
 
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"panel-bottom-link"</span>&gt;</span>{props.children}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -783,6 +789,7 @@ Column.propTypes = {
     <span class="hljs-attr">link</span>: PropTypes.shape({
       <span class="hljs-attr">text</span>: PropTypes.string.isRequired,
       <span class="hljs-attr">href</span>: PropTypes.string.isRequired,
+      <span class="hljs-attr">target</span>: PropTypes.string,
     }),
     <span class="hljs-attr">description</span>: PropTypes.string,
   }),
@@ -808,7 +815,7 @@ Column.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.1 KB</span>
+                    <span class="Meta-value">2.3 KB</span>
                 </li>
             </ul>
         </div>
