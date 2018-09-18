@@ -16,6 +16,8 @@ describe('<CollapsiblePanel>', () => {
     };
   });
 
+  const event = { preventDefault: () => {} };
+
   it('should render the correct panel header', () => {
     const testHeaderText = 'Test panel';
     const wrapper = shallow(<CollapsiblePanel panelName={testHeaderText}/>);
@@ -29,10 +31,10 @@ describe('<CollapsiblePanel>', () => {
     const toggleButton = wrapper.find('button');
     expect(wrapper.find('.usa-accordion-content').length).to.equal(0);
 
-    toggleButton.simulate('click');
+    toggleButton.simulate('click', event);
     expect(wrapper.find('.usa-accordion-content').length).to.equal(1);
 
-    toggleButton.simulate('click');
+    toggleButton.simulate('click', event);
     expect(wrapper.find('.usa-accordion-content').length).to.equal(0);
   });
 
@@ -42,10 +44,10 @@ describe('<CollapsiblePanel>', () => {
 
     expect(wrapper.find('.usa-accordion-content').length).to.equal(1);
 
-    toggleButton.simulate('click');
+    toggleButton.simulate('click', event);
     expect(wrapper.find('.usa-accordion-content').length).to.equal(0);
 
-    toggleButton.simulate('click');
+    toggleButton.simulate('click', event);
     expect(wrapper.find('.usa-accordion-content').length).to.equal(1);
   });
 
@@ -56,7 +58,7 @@ describe('<CollapsiblePanel>', () => {
     const button = wrapper.find('button');
     expect(scrollSpy.called).to.be.false;
 
-    button.simulate('click');
+    button.simulate('click', event);
     expect(scrollSpy.calledOnce).to.be.true;
   });
 

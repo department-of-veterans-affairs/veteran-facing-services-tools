@@ -26,7 +26,11 @@ class CollapsiblePanel extends React.Component {
     });
   }
 
-  toggleChapter() {
+  toggleChapter(e) {
+    // USWDS styles make it difficult to add a type=button attribute to the toggle button.
+    // Until this changes, we need to ensure that accordions used in forms don't
+    // default to submitting a form page when toggled.
+    e.preventDefault();
     const isOpening = !this.state.open;
     this.setState((prevState) => ({ open: !prevState.open }), () => {
       if (isOpening) {
