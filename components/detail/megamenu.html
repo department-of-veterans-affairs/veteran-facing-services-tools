@@ -677,7 +677,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.6</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.7</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -967,7 +967,9 @@ Column.propTypes = {
               {
                 data.map((item, i) =&gt; {
                   return (
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
+                      <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}
+                      <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">item.className</span> || ''} ${<span class="hljs-attr">item.currentPage</span> ? '<span class="hljs-attr">current-page</span>' <span class="hljs-attr">:</span> ''}`}&gt;</span>
                       {
                         item.menuSections ? <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
                           <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">{currentDropdown</span> === <span class="hljs-string">item.title}</span>
@@ -975,7 +977,7 @@ Column.propTypes = {
                           <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span>
                           <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span>
                           <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> this.toggleDropDown(item.title)}&gt;{item.title}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                          : <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{item.href}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span> &gt;</span>{item.title}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                          : <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{item.href}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{item.target</span> || <span class="hljs-attr">null</span>}&gt;</span>{item.title}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                       }
                       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">vetnav-</span>${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}`} <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-panel"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"none"</span> <span class="hljs-attr">hidden</span>=<span class="hljs-string">{currentDropdown</span> !== <span class="hljs-string">item.title}</span>&gt;</span>
                         {
@@ -1069,7 +1071,7 @@ MegaMenu.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.6 KB</span>
+                    <span class="Meta-value">6.8 KB</span>
                 </li>
             </ul>
         </div>

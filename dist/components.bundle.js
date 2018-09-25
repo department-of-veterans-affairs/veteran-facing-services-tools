@@ -10113,7 +10113,7 @@ var ErrorableNumberInput = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -10243,7 +10243,7 @@ var ErrorableSelect = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -13519,7 +13519,7 @@ var ErrorableCheckbox = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -30731,6 +30731,7 @@ var ErrorableMonthYearExample = function (_React$Component) {
       return _react2.default.createElement(_ErrorableMonthYear2.default, {
         required: true,
         date: date,
+        label: 'Field label',
         name: 'ErrorableMonthYear',
         onValueChange: this.handleChange });
     }
@@ -32207,9 +32208,13 @@ var CollapsiblePanel = function (_React$Component) {
     }
   }, {
     key: 'toggleChapter',
-    value: function toggleChapter() {
+    value: function toggleChapter(e) {
       var _this2 = this;
 
+      // USWDS styles make it difficult to add a type=button attribute to the toggle button.
+      // Until this changes, we need to ensure that accordions used in forms don't
+      // default to submitting a form page when toggled.
+      e.preventDefault();
       var isOpening = !this.state.open;
       this.setState(function (prevState) {
         return { open: !prevState.open };
@@ -33080,7 +33085,7 @@ var ErrorableCheckboxGroup = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -33326,7 +33331,7 @@ var ErrorableDate = function (_React$Component) {
           this.props.required && _react2.default.createElement(
             'span',
             { className: 'form-required-span' },
-            '*'
+            '(*Required)'
           )
         ),
         errorSpan,
@@ -33484,7 +33489,7 @@ var ErrorableFileInput = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -33680,7 +33685,7 @@ var ErrorableMonthYear = function (_React$Component) {
           this.props.required && _react2.default.createElement(
             'span',
             { className: 'form-required-span' },
-            '*'
+            '(*Required)'
           )
         ),
         errorSpan,
@@ -33865,7 +33870,7 @@ var ErrorableRadioButtons = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -34086,8 +34091,8 @@ var ErrorableTextArea = function (_React$Component) {
       if (this.props.required) {
         requiredSpan = _react2.default.createElement(
           'span',
-          { className: 'hca-required-span' },
-          '*'
+          { className: 'form-required-span' },
+          '(*Required)'
         );
       }
 
@@ -34252,7 +34257,7 @@ var ErrorableTextInput = function (_React$Component) {
         requiredSpan = _react2.default.createElement(
           'span',
           { className: 'form-required-span' },
-          '*'
+          '(*Required)'
         );
       }
 
@@ -35010,7 +35015,7 @@ var Column = function Column(props) {
         _react2.default.createElement('img', { src: data.img.src, alt: data.img.alt }),
         _react2.default.createElement(
           'a',
-          { className: 'mm-links', href: data.link.href },
+          { className: 'mm-links', href: data.link.href, target: data.link.target || '_self' },
           data.link.text
         ),
         _react2.default.createElement(
@@ -35045,7 +35050,7 @@ var Column = function Column(props) {
           { className: 'mm-link-container', key: link.href + '-' + i },
           _react2.default.createElement(
             'a',
-            { className: 'mm-links', href: link.href },
+            { className: 'mm-links', href: link.href, target: link.target || '_self' },
             link.text
           )
         );
