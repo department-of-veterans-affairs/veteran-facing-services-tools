@@ -137,7 +137,9 @@ export default class MegaMenu extends React.Component {
               {
                 data.map((item, i) => {
                   return (
-                    <li key={`${_.kebabCase(item.title)}-${i}`}>
+                    <li
+                      key={`${_.kebabCase(item.title)}-${i}`}
+                      className={`${item.className || ''} ${item.currentPage ? 'current-page' : ''}`}>
                       {
                         item.menuSections ? <button
                           aria-expanded={currentDropdown === item.title}
@@ -145,7 +147,7 @@ export default class MegaMenu extends React.Component {
                           aria-haspopup="true"
                           className="vetnav-level1"
                           onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
-                          : <a href={item.href} className="vetnav-level1" >{item.title}</a>
+                          : <a href={item.href} className="vetnav-level1" target={item.target || null}>{item.title}</a>
                       }
                       <div id={`vetnav-${_.kebabCase(item.title)}`} className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
                         {
