@@ -44,14 +44,14 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
           </button>
         </div>
 
-        <div className="panel-bottom-link">
-          {
-            seeAllLink && <a href={seeAllLink.href}>
+        {
+          seeAllLink && <div className="panel-bottom-link">
+            <a href={seeAllLink.href}>
               View All in {seeAllLink.text}
               <img src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
             </a>
-          }
-        </div>
+          </div>
+        }
 
         {Object.keys(filteredColumns).map((keyName) => {
           return (

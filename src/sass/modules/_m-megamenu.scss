@@ -31,7 +31,7 @@
 
     .vetnav-panel {
       box-shadow: 0 7px 25px -11px $color-black;
-      height: 470px;
+      height: 460px;
       width: 1008px;
       left: 0;
 
@@ -140,12 +140,12 @@
   }
 
   .mm-marketing-container {
-    background-color: $light-blue;
-    padding: 20px;
+    background-color: $color-white;
     height: 350px;
+    overflow: hidden;
 
-    img {
-      margin-bottom: 20px;
+    .mm-marketing-text {
+      padding: 20px;
     }
 
     p {
