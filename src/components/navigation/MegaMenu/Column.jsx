@@ -25,8 +25,6 @@ const Column = (props) => {
           </a>
           <p>{data.description}</p>
         </div>
-
-        <li className="panel-bottom-link"></li>
       </div>
     );
   }
@@ -44,8 +42,6 @@ const Column = (props) => {
             </a>
           </li>
         ))}
-
-        <li className="panel-bottom-link">{props.children}</li>
       </ul>
     </div>
   );
