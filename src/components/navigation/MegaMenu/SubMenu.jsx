@@ -44,6 +44,15 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
           </button>
         </div>
 
+        {
+          seeAllLink && <div className="panel-bottom-link">
+            <a href={seeAllLink.href}>
+              View All in {seeAllLink.text}
+              <img src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
+            </a>
+          </div>
+        }
+
         {Object.keys(filteredColumns).map((keyName) => {
           return (
             <Column
@@ -52,13 +61,6 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
               keyName={keyName}
               navTitle={navTitle}
               panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}>
-              {
-                keyName === 'columnOne' && <div>
-                  {
-                    seeAllLink && <a href={seeAllLink.href}>View All in {seeAllLink.text}</a>
-                  }
-                </div>
-              }
             </Column>
           );
         })}

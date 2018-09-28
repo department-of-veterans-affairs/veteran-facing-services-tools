@@ -20,13 +20,13 @@ const Column = (props) => {
         aria-label={keyName}>
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
-          <a className="mm-links" href={data.link.href} target={data.link.target || '_self'}>
-            {data.link.text}
-          </a>
-          <p>{data.description}</p>
+          <div className="mm-marketing-text">
+            <a className="mm-links" href={data.link.href} target={data.link.target || '_self'}>
+              {data.link.text}
+            </a>
+            <p>{data.description}</p>
+          </div>
         </div>
-
-        <li className="panel-bottom-link"></li>
       </div>
     );
   }
@@ -44,8 +44,6 @@ const Column = (props) => {
             </a>
           </li>
         ))}
-
-        <li className="panel-bottom-link">{props.children}</li>
       </ul>
     </div>
   );

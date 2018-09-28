@@ -8,7 +8,7 @@
     .vetnav-panel--submenu:not([hidden]) {
       box-shadow: none;
       width: 26rem;
-      padding: 28px 0px 0px 28px;
+      padding: 72px 0px 0px 28px;
       white-space: normal;
 
       h3 {
@@ -31,7 +31,7 @@
 
     .vetnav-panel {
       box-shadow: 0 7px 25px -11px $color-black;
-      height: 470px;
+      height: 460px;
       width: 1008px;
       left: 0;
 
@@ -71,7 +71,7 @@
       white-space: normal;
 
       &.vetnav-panel--submenu:not([hidden]) {
-        padding: 28px 20px 20px 14px;
+        padding: 86px 20px 20px 14px;
         width: 24rem;
       }
 
@@ -110,25 +110,24 @@
 
   .panel-bottom-link {
     position: absolute;
-    bottom: 0px;
     height: 60px;
-    width: 100%;
-    left: 0;
-    margin-left: 14px;
-    border-top: 1px solid #d0d0d0;
+    width: 711px;
+    left: 28rem;
+    border-bottom: 1px solid #d0d0d0;
     z-index: 3;
-
-    &:nth-child(2) {
-      width: 87%;
-    }
+    top: 0;
 
     a {
-      background: transparent url(/img/arrow-right-blue.svg) right 1rem center no-repeat;
       background-size: 13px;
       font-weight: bold;
       padding: 20px 0px;
       display: inline-block;
       padding-right: 25px;
+
+      img {
+        width: 11px;
+        margin-left: 5px;
+      }
     }
   }
 
@@ -141,12 +140,12 @@
   }
 
   .mm-marketing-container {
-    background-color: $light-blue;
-    padding: 20px;
+    background-color: $color-white;
     height: 350px;
+    overflow: hidden;
 
-    img {
-      margin-bottom: 20px;
+    .mm-marketing-text {
+      padding: 20px;
     }
 
     p {
@@ -155,6 +154,23 @@
   }
 
   @media (max-width: 768px) {
+    .panel-bottom-link {
+      position: unset;
+      height: 25px;
+      margin-left: 10px;
+      margin-bottom: 3px;
+      border: none;
+
+      a {
+        padding: 20px 25px 20px 7px;
+        width: 111%;
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+
     .column-three {
       display: none;
     }
@@ -175,10 +191,6 @@
       position: initial;
 
       h3 {
-        display: none;
-      }
-
-      .panel-bottom-link {
         display: none;
       }
     }
