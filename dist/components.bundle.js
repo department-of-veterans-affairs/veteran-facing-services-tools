@@ -35015,7 +35015,7 @@ var Column = function Column(props) {
         _react2.default.createElement('img', { src: data.img.src, alt: data.img.alt }),
         _react2.default.createElement(
           'a',
-          { className: 'mm-links', href: data.link.href, target: data.link.target || '_self' },
+          { className: 'mm-links', href: data.link.href },
           data.link.text
         ),
         _react2.default.createElement(
@@ -35050,7 +35050,7 @@ var Column = function Column(props) {
           { className: 'mm-link-container', key: link.href + '-' + i },
           _react2.default.createElement(
             'a',
-            { className: 'mm-links', href: link.href, target: link.target || '_self' },
+            { className: 'mm-links', href: link.href },
             link.text
           )
         );
