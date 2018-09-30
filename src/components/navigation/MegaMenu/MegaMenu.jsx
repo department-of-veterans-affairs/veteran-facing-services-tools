@@ -124,6 +124,8 @@ export default class MegaMenu extends React.Component {
       currentSection,
       data,
       display,
+      linkClicked,
+      columnThreeLinkClicked
     } = this.props;
 
     return (
@@ -147,7 +149,7 @@ export default class MegaMenu extends React.Component {
                           aria-haspopup="true"
                           className="vetnav-level1"
                           onClick={() => this.toggleDropDown(item.title)}>{item.title}</button>
-                          : <a href={item.href} className="vetnav-level1" target={item.target || null}>{item.title}</a>
+                          : <a href={item.href} onClick={linkClicked} className="vetnav-level1" target={item.target || null}>{item.title}</a>
                       }
                       <div id={`vetnav-${_.kebabCase(item.title)}`} className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}>
                         {
@@ -161,7 +163,9 @@ export default class MegaMenu extends React.Component {
                                     defaultSection={defaultSection(item.menuSections)}
                                     currentSection={currentSection}
                                     updateCurrentSection={() => this.updateCurrentSection(section.title)}
-                                    links={section.links}></MenuSection>
+                                    links={section.links}
+                                    linkClicked={linkClicked}
+                                    columnThreeLinkClicked={columnThreeLinkClicked}/>
                                 );
                               }) : this.getSubmenu(item,  currentSection)
                             }
@@ -215,6 +219,17 @@ MegaMenu.propTypes = {
    * String value of current dropdown section
    */
   currentSection: PropTypes.string,
+
+  /**
+   * Optional function to intercept links clicked
+   */
+  linkClicked: PropTypes.func,
+
+  /**
+   * Optional function to intercept links clicked at column three
+   */
+  columnThreeLinkClicked: PropTypes.func,
+
   display: PropTypes.shape({
     hidden: PropTypes.boolean
   }),
@@ -224,4 +239,6 @@ MegaMenu.defaultProps = {
   currentDropdown: '',
   currentSection: '',
   display: {},
+  linkClicked() {},
+  columnThreeLinkClicked() {}
 };

@@ -21,7 +21,7 @@ const Column = (props) => {
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
           <div className="mm-marketing-text">
-            <a className="mm-links" href={data.link.href} target={data.link.target || '_self'}>
+            <a className="mm-links" href={data.link.href} onClick={this.props.columnThreeLinkClicked} target={data.link.target || '_self'}>
               {data.link.text}
             </a>
             <p>{data.description}</p>
@@ -39,7 +39,7 @@ const Column = (props) => {
 
         { data.links.map((link, i) => (
           <li className="mm-link-container" key={`${link.href}-${i}`}>
-            <a className="mm-links" href={link.href} target={link.target || '_self'}>
+            <a className="mm-links" href={link.href} onClick={this.props.linkClicked} target={link.target || '_self'}>
               {link.text}
             </a>
           </li>
@@ -72,6 +72,8 @@ Column.propTypes = {
   keyName: PropTypes.string.isRequired,
   navTitle: PropTypes.string.isRequired,
   panelWhite: PropTypes.bool.isRequired,
+  linkClicked: PropTypes.func.isRequired,
+  columnThreeLinkClicked: PropTypes.func.isRequired
 };
 
 export default Column;
