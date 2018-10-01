@@ -27,7 +27,7 @@ const getColumns = (columns) => {
   return columns;
 };
 
-const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
+const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnThreeLinkClicked }) => {
   const { seeAllLink, ...columns } = data;
 
   if (show) {
@@ -46,7 +46,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
 
         {
           seeAllLink && <div className="panel-bottom-link">
-            <a href={seeAllLink.href}>
+            <a href={seeAllLink.href} onClick={linkClicked.bind(null, seeAllLink)}>
               View All in {seeAllLink.text}
               <img src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
             </a>
@@ -60,7 +60,9 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
               data={filteredColumns[keyName]}
               keyName={keyName}
               navTitle={navTitle}
-              panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}>
+              panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}
+              linkClicked={linkClicked}
+              columnThreeLinkClicked={columnThreeLinkClicked}>
             </Column>
           );
         })}
@@ -77,6 +79,8 @@ SubMenu.propTypes = {
   data: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
   navTitle: PropTypes.string.isRequired,
+  linkClicked: PropTypes.func.isRequired,
+  columnThreeLinkClicked: PropTypes.func.isRequired
 };
 
 export default SubMenu;
