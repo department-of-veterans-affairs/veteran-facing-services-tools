@@ -11,7 +11,7 @@ const isPanelWhite = (panelWhite) => {
 };
 
 const Column = (props) => {
-  const { data, keyName, panelWhite } = props;
+  const { data, keyName, panelWhite, columnThreeLinkClicked, linkClicked } = props;
 
   if (keyName === 'columnThree') {
     return (
@@ -21,7 +21,7 @@ const Column = (props) => {
         <div className="mm-marketing-container">
           <img src={data.img.src} alt={data.img.alt}></img>
           <div className="mm-marketing-text">
-            <a className="mm-links" href={data.link.href} onClick={props.columnThreeLinkClicked.bind(null, link)} target={data.link.target || '_self'}>
+            <a className="mm-links" href={data.link.href} onClick={columnThreeLinkClicked.bind(null, data.link)} target={data.link.target || '_self'}>
               {data.link.text}
             </a>
             <p>{data.description}</p>
@@ -39,7 +39,7 @@ const Column = (props) => {
 
         { data.links.map((link, i) => (
           <li className="mm-link-container" key={`${link.href}-${i}`}>
-            <a className="mm-links" href={link.href} onClick={props.linkClicked.bind(null, link)} target={link.target || '_self'}>
+            <a className="mm-links" href={link.href} onClick={linkClicked.bind(null, link)} target={link.target || '_self'}>
               {link.text}
             </a>
           </li>
