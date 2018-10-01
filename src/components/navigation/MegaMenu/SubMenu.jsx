@@ -27,7 +27,7 @@ const getColumns = (columns) => {
   return columns;
 };
 
-const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
+const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnThreeLinkClicked }) => {
   const { seeAllLink, ...columns } = data;
 
   if (show) {
@@ -46,7 +46,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
 
         {
           seeAllLink && <div className="panel-bottom-link">
-            <a href={seeAllLink.href} onClick={this.props.linkClicked}>
+            <a href={seeAllLink.href} onClick={linkClicked.bind(null, seeAllLink)}>
               View All in {seeAllLink.text}
               <img src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
             </a>
@@ -61,8 +61,8 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu }) => {
               keyName={keyName}
               navTitle={navTitle}
               panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}
-              linkClicked={this.props.linkClicked}
-              columnThreeLinkClicked={this.props.columnThreeLinkClicked}>
+              linkClicked={linkClicked}
+              columnThreeLinkClicked={columnThreeLinkClicked}>
             </Column>
           );
         })}
