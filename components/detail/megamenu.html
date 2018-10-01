@@ -366,6 +366,22 @@ Read Notes tab to see the structure of the data prop</td>
             </tr>
           
             <tr>
+              <td>linkClicked</td>
+              <td>No</td>
+              <td>func</td>
+              <td>function() {}</td>
+              <td>Optional function to intercept links clicked</td>
+            </tr>
+          
+            <tr>
+              <td>columnThreeLinkClicked</td>
+              <td>No</td>
+              <td>func</td>
+              <td>function() {}</td>
+              <td>Optional function to intercept links clicked at column three</td>
+            </tr>
+          
+            <tr>
               <td>display</td>
               <td>No</td>
               <td>{ <br/>&nbsp;&nbsp;hidden: custom }</td>
@@ -677,7 +693,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.7</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.7</span><span class="hljs-number">.2</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -733,7 +749,7 @@ export default class MegaMenuExample extends React.Component {
 };
 
 <span class="hljs-keyword">const</span> Column = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
-  <span class="hljs-keyword">const</span> { data, keyName, panelWhite } = props;
+  <span class="hljs-keyword">const</span> { data, keyName, panelWhite, columnThreeLinkClicked, linkClicked } = props;
 
   <span class="hljs-keyword">if</span> (keyName === <span class="hljs-string">'columnThree'</span>) {
     <span class="hljs-keyword">return</span> (
@@ -743,7 +759,7 @@ export default class MegaMenuExample extends React.Component {
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-marketing-container"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{data.img.src}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">{data.img.alt}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-marketing-text"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{data.link.href}</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{data.link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{data.link.href}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{columnThreeLinkClicked.bind(null,</span> <span class="hljs-attr">data.link</span>)} <span class="hljs-attr">target</span>=<span class="hljs-string">{data.link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
               {data.link.text}
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{data.description}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -761,7 +777,7 @@ export default class MegaMenuExample extends React.Component {
 
         { data.links.map((link, i) =&gt; (
           <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-link-container"</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">link.href</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{link.href}</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{link.href}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{linkClicked.bind(null,</span> <span class="hljs-attr">link</span>)} <span class="hljs-attr">target</span>=<span class="hljs-string">{link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
               {link.text}
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -794,6 +810,8 @@ Column.propTypes = {
   <span class="hljs-attr">keyName</span>: PropTypes.string.isRequired,
   <span class="hljs-attr">navTitle</span>: PropTypes.string.isRequired,
   <span class="hljs-attr">panelWhite</span>: PropTypes.bool.isRequired,
+  <span class="hljs-attr">linkClicked</span>: PropTypes.func.isRequired,
+  <span class="hljs-attr">columnThreeLinkClicked</span>: PropTypes.func.isRequired
 };
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Column;
@@ -813,7 +831,7 @@ Column.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.2 KB</span>
+                    <span class="Meta-value">2.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -826,232 +844,249 @@ Column.propTypes = {
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-JSX FileBrowser-code">
-                                <pre><span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
-<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> MenuSection <span class="hljs-keyword">from</span> <span class="hljs-string">'./MenuSection'</span>;
-<span class="hljs-keyword">import</span> SubMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'./SubMenu'</span>;
-<span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+                                <pre>import PropTypes from 'prop-types';
+import React from 'react';
+import MenuSection from './MenuSection';
+import SubMenu from './SubMenu';
+import _ from 'lodash';
 
-<span class="hljs-keyword">const</span> defaultSection = <span class="hljs-function">(<span class="hljs-params">sections</span>) =&gt;</span> {
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
+const defaultSection = (sections) =&gt; {
+  if (window.innerWidth &lt; 768) {
+    return '';
   }
 
-  <span class="hljs-keyword">return</span> sections[<span class="hljs-number">0</span>].title;
+  return sections[0].title;
 };
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MegaMenu</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-  <span class="hljs-keyword">constructor</span>() {
-    <span class="hljs-keyword">super</span>();
-    <span class="hljs-keyword">this</span>.originalSize = <span class="hljs-built_in">window</span>.innerWidth;
+export default class MegaMenu extends React.Component {
+  constructor() {
+    super();
+    this.originalSize = window.innerWidth;
   }
 
   componentDidMount() {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) {
-      <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">true</span>);
+    if (window.innerWidth &lt; 768) {
+      this.props.toggleDisplayHidden(true);
     }
 
-    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.resetDefaultState.bind(<span class="hljs-keyword">this</span>));
-    <span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
+    window.addEventListener('resize', this.resetDefaultState.bind(this));
+    document.body.addEventListener('click', this.handleDocumentClick, false);
   }
 
-  <span class="hljs-comment">/**
+  /**
    * Remove event listener
-   */</span>
+   */
   componentWillUnmount() {
-    <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'resize'</span>, <span class="hljs-keyword">this</span>.resetDefaultState.bind(<span class="hljs-keyword">this</span>));
-    <span class="hljs-built_in">document</span>.body.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">this</span>.handleDocumentClick, <span class="hljs-literal">false</span>);
+    window.removeEventListener('resize', this.resetDefaultState.bind(this));
+    document.body.removeEventListener('click', this.handleDocumentClick, false);
   }
 
   getSubmenu(item, currentSection) {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) {
-      <span class="hljs-keyword">const</span> menuSections = [
+    if (window.innerWidth &lt; 768) {
+      const menuSections = [
         item.menuSections.mainColumn,
         item.menuSections.columnOne,
         item.menuSections.columnTwo,
-      ].reduce(<span class="hljs-function">(<span class="hljs-params">acc, column</span>) =&gt;</span> {
+      ].reduce((acc, column) =&gt; {
         acc.push({
-          <span class="hljs-attr">title</span>: column.title,
-          <span class="hljs-attr">links</span>: {
-            <span class="hljs-attr">columnOne</span>: {
-              <span class="hljs-attr">title</span>: <span class="hljs-string">''</span>,
-              <span class="hljs-attr">links</span>: column.links,
+          title: column.title,
+          links: {
+            columnOne: {
+              title: '',
+              links: column.links,
             },
-            <span class="hljs-attr">columnTwo</span>: {
-              <span class="hljs-attr">title</span>: <span class="hljs-string">''</span>,
-              <span class="hljs-attr">links</span>: [],
+            columnTwo: {
+              title: '',
+              links: [],
             }
           }
         });
 
-        <span class="hljs-keyword">return</span> acc;
+        return acc;
       }, []);
 
-      <span class="hljs-keyword">return</span> menuSections.map(<span class="hljs-function">(<span class="hljs-params">section, i</span>) =&gt;</span> {
-        <span class="hljs-keyword">return</span> (
-          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MenuSection</span>
-            <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">section</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}
-            <span class="hljs-attr">title</span>=<span class="hljs-string">{section.title}</span>
-            <span class="hljs-attr">defaultSection</span>=<span class="hljs-string">{defaultSection(item.menuSections)}</span>
-            <span class="hljs-attr">currentSection</span>=<span class="hljs-string">{currentSection}</span>
-            <span class="hljs-attr">updateCurrentSection</span>=<span class="hljs-string">{()</span> =&gt;</span> this.updateCurrentSection(section.title)}
-            links={section.links}&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">MenuSection</span>&gt;</span></span>
+      return menuSections.map((section, i) =&gt; {
+        return (
+          &lt;MenuSection
+            key={`${section}-${i}`}
+            title={section.title}
+            defaultSection={defaultSection(item.menuSections)}
+            currentSection={currentSection}
+            updateCurrentSection={() =&gt; this.updateCurrentSection(section.title)}
+            links={section.links}&gt;&lt;/MenuSection&gt;
         );
       });
     }
 
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SubMenu</span>
-        <span class="hljs-attr">data</span>=<span class="hljs-string">{item.menuSections}</span>
-        <span class="hljs-attr">navTitle</span>=<span class="hljs-string">{item.title}</span>
-        <span class="hljs-attr">handleBackToMenu</span>=<span class="hljs-string">{()</span> =&gt;</span> this.toggleDropDown('')}
-        show={this.props.currentDropdown !== ''}&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">SubMenu</span>&gt;</span></span>
+    return (
+      &lt;SubMenu
+        data={item.menuSections}
+        navTitle={item.title}
+        handleBackToMenu={() =&gt; this.toggleDropDown('')}
+        show={this.props.currentDropdown !== ''}&gt;&lt;/SubMenu&gt;
     );
   }
-  handleDocumentClick = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.currentDropdown &amp;&amp; !<span class="hljs-keyword">this</span>.menuRef.contains(event.target)) {
-      <span class="hljs-keyword">this</span>.props.toggleDropDown(<span class="hljs-string">''</span>);
+  handleDocumentClick = (event) =&gt; {
+    if (this.props.currentDropdown &amp;&amp; !this.menuRef.contains(event.target)) {
+      this.props.toggleDropDown('');
     }
 
   }
 
   resetDefaultState() {
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.originalSize !== <span class="hljs-built_in">window</span>.innerWidth) {
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &gt; <span class="hljs-number">768</span>) {
-        <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">false</span>);
-      } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">this</span>.props.toggleDisplayHidden(<span class="hljs-literal">true</span>);
+    if (this.originalSize !== window.innerWidth) {
+      if (window.innerWidth &gt; 768) {
+        this.props.toggleDisplayHidden(false);
+      } else {
+        this.props.toggleDisplayHidden(true);
       }
     }
 
-    <span class="hljs-keyword">this</span>.props.updateCurrentSection(<span class="hljs-string">''</span>);
-    <span class="hljs-keyword">this</span>.props.toggleDropDown(<span class="hljs-string">''</span>);
+    this.props.updateCurrentSection('');
+    this.props.toggleDropDown('');
   }
 
   toggleDropDown(title) {
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.currentDropdown === title) {
-      <span class="hljs-keyword">this</span>.props.toggleDropDown(<span class="hljs-string">''</span>);
-    } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">this</span>.props.toggleDropDown(title);
+    if (this.props.currentDropdown === title) {
+      this.props.toggleDropDown('');
+    } else {
+      this.props.toggleDropDown(title);
     }
   }
 
   updateCurrentSection(title) {
-    <span class="hljs-keyword">let</span> sectionTitle = title;
+    let sectionTitle = title;
 
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) {
-      sectionTitle = <span class="hljs-keyword">this</span>.props.currentSection === title ? <span class="hljs-string">''</span> : title;
+    if (window.innerWidth &lt; 768) {
+      sectionTitle = this.props.currentSection === title ? '' : title;
     }
 
-    <span class="hljs-keyword">this</span>.props.updateCurrentSection(sectionTitle);
+    this.props.updateCurrentSection(sectionTitle);
   }
 
   render() {
-    <span class="hljs-keyword">const</span> {
+    const {
       currentDropdown,
       currentSection,
       data,
       display,
-    } = <span class="hljs-keyword">this</span>.props;
+      linkClicked,
+      columnThreeLinkClicked
+    } = this.props;
 
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-        <span class="hljs-attr">className</span>=<span class="hljs-string">"login-container"</span>
-        {<span class="hljs-attr">...display</span>}&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"row va-flex"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{el</span> =&gt;</span> {this.menuRef = el;}}&gt;
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vetnav-menu"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menubar"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"menuitem"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    return (
+      &lt;div
+        className="login-container"
+        {...display}&gt;
+        &lt;div className="row va-flex" ref={el =&gt; {this.menuRef = el;}}&gt;
+          &lt;div id="vetnav" role="navigation"&gt;
+            &lt;ul id="vetnav-menu" role="menubar"&gt;
+              &lt;li&gt;&lt;a href="/" className="vetnav-level1" role="menuitem"&gt;Home&lt;/a&gt;&lt;/li&gt;
               {
                 data.map((item, i) =&gt; {
                   return (
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
-                      <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}<span class="hljs-attr">-</span>${<span class="hljs-attr">i</span>}`}
-                      <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">item.className</span> || ''} ${<span class="hljs-attr">item.currentPage</span> ? '<span class="hljs-attr">current-page</span>' <span class="hljs-attr">:</span> ''}`}&gt;</span>
+                    &lt;li
+                      key={`${_.kebabCase(item.title)}-${i}`}
+                      className={`${item.className || ''} ${item.currentPage ? 'current-page' : ''}`}&gt;
                       {
-                        item.menuSections ? <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-                          <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">{currentDropdown</span> === <span class="hljs-string">item.title}</span>
-                          <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">vetnav-</span>${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}`}
-                          <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span>
-                          <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span>
-                          <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> this.toggleDropDown(item.title)}&gt;{item.title}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                          : <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{item.href}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-level1"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">{item.target</span> || <span class="hljs-attr">null</span>}&gt;</span>{item.title}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        item.menuSections ? &lt;button
+                          aria-expanded={currentDropdown === item.title}
+                          aria-controls={`vetnav-${_.kebabCase(item.title)}`}
+                          aria-haspopup="true"
+                          className="vetnav-level1"
+                          onClick={() =&gt; this.toggleDropDown(item.title)}&gt;{item.title}&lt;/button&gt;
+                          : &lt;a href={item.href} onClick={linkClicked.bind(null, item)} className="vetnav-level1" target={item.target || null}&gt;{item.title}&lt;/a&gt;
                       }
-                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">vetnav-</span>${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">item.title</span>)}`} <span class="hljs-attr">className</span>=<span class="hljs-string">"vetnav-panel"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"none"</span> <span class="hljs-attr">hidden</span>=<span class="hljs-string">{currentDropdown</span> !== <span class="hljs-string">item.title}</span>&gt;</span>
+                      &lt;div id={`vetnav-${_.kebabCase(item.title)}`} className="vetnav-panel" role="none" hidden={currentDropdown !== item.title}&gt;
                         {
-                          item.title === currentDropdown &amp;&amp; item.menuSections &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{item.title}</span>&gt;</span>
+                          item.title === currentDropdown &amp;&amp; item.menuSections &amp;&amp; &lt;ul aria-label={item.title}&gt;
                             {
                               item.menuSections.constructor.name === 'Array' ? item.menuSections.map((section, j) =&gt; {
                                 return (
-                                  <span class="hljs-tag">&lt;<span class="hljs-name">MenuSection</span>
-                                    <span class="hljs-attr">key</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">section</span>}<span class="hljs-attr">-</span>${<span class="hljs-attr">j</span>}`}
-                                    <span class="hljs-attr">title</span>=<span class="hljs-string">{section.title}</span>
-                                    <span class="hljs-attr">defaultSection</span>=<span class="hljs-string">{defaultSection(item.menuSections)}</span>
-                                    <span class="hljs-attr">currentSection</span>=<span class="hljs-string">{currentSection}</span>
-                                    <span class="hljs-attr">updateCurrentSection</span>=<span class="hljs-string">{()</span> =&gt;</span> this.updateCurrentSection(section.title)}
-                                    links={section.links}&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">MenuSection</span>&gt;</span>
+                                  &lt;MenuSection
+                                    key={`${section}-${j}`}
+                                    title={section.title}
+                                    defaultSection={defaultSection(item.menuSections)}
+                                    currentSection={currentSection}
+                                    updateCurrentSection={() =&gt; this.updateCurrentSection(section.title)}
+                                    links={section.links}
+                                    linkClicked={linkClicked}
+                                    columnThreeLinkClicked={columnThreeLinkClicked}/&gt;
                                 );
                               }) : this.getSubmenu(item,  currentSection)
                             }
-                          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                          &lt;/ul&gt;
                         }
-                      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                      &lt;/div&gt;
+                    &lt;/li&gt;
                   );
                 })
               }
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     );
   }
 }
 
 MegaMenu.propTypes = {
-  <span class="hljs-comment">/**
+  /**
    * This is the data that will generate the navigation&lt;br/&gt;
    * Data is made up an array of objects &lt;/br&gt;
    * Read Notes tab to see the structure of the data prop
-   */</span>
+   */
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      <span class="hljs-attr">title</span>: PropTypes.string.isRequired,
-      <span class="hljs-attr">menuSections</span>: PropTypes.oneOfType([
+      title: PropTypes.string.isRequired,
+      menuSections: PropTypes.oneOfType([
         PropTypes.array,
         PropTypes.object,
       ]),
     }),
   ).isRequired,
-  <span class="hljs-comment">/**
+  /**
    * Function to update currentSection in state
-   */</span>
+   */
   updateCurrentSection: PropTypes.func.isRequired,
-  <span class="hljs-comment">/**
+  /**
    * Function to update currentDropdown in state
-   */</span>
+   */
   toggleDropDown: PropTypes.func.isRequired,
-  <span class="hljs-comment">/**
+  /**
    * Function to update if the MegaMenu is displayed or not
-   */</span>
+   */
   toggleDisplayHidden: PropTypes.func.isRequired,
-  <span class="hljs-comment">/**
+  /**
     * String value of current dropdown
-    */</span>
+    */
   currentDropdown: PropTypes.string,
-  <span class="hljs-comment">/**
+  /**
    * String value of current dropdown section
-   */</span>
+   */
   currentSection: PropTypes.string,
-  <span class="hljs-attr">display</span>: PropTypes.shape({
-    <span class="hljs-attr">hidden</span>: PropTypes.boolean
+
+  /**
+   * Optional function to intercept links clicked
+   */
+  linkClicked: PropTypes.func,
+
+  /**
+   * Optional function to intercept links clicked at column three
+   */
+  columnThreeLinkClicked: PropTypes.func,
+
+  display: PropTypes.shape({
+    hidden: PropTypes.boolean
   }),
 };
 
 MegaMenu.defaultProps = {
-  <span class="hljs-attr">currentDropdown</span>: <span class="hljs-string">''</span>,
-  <span class="hljs-attr">currentSection</span>: <span class="hljs-string">''</span>,
-  <span class="hljs-attr">display</span>: {},
+  currentDropdown: '',
+  currentSection: '',
+  display: {},
+  linkClicked() {},
+  columnThreeLinkClicked() {}
 };
 </pre>
                             </code>
@@ -1069,7 +1104,7 @@ MegaMenu.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.8 KB</span>
+                    <span class="Meta-value">7.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -1402,7 +1437,9 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
           <span class="hljs-attr">data</span>=<span class="hljs-string">{this.props.links}</span>
           <span class="hljs-attr">navTitle</span>=<span class="hljs-string">{this.props.title}</span>
           <span class="hljs-attr">show</span>=<span class="hljs-string">{show}</span>
-          <span class="hljs-attr">handleBackToMenu</span>=<span class="hljs-string">{()</span> =&gt;</span> this.handleBackToMenu()}&gt;
+          <span class="hljs-attr">handleBackToMenu</span>=<span class="hljs-string">{()</span> =&gt;</span> this.handleBackToMenu()}
+          linkClicked={this.props.linkClicked}
+          columnThreeLinkClicked={this.props.columnThreeLinkClicked}&gt;
         <span class="hljs-tag">&lt;/<span class="hljs-name">SubMenu</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
     );
@@ -1448,6 +1485,8 @@ MenuSection.propTypes = {
     }),
   }).isRequired,
   <span class="hljs-attr">defaultSection</span>: PropTypes.string.isRequired,
+  <span class="hljs-attr">linkClicked</span>: PropTypes.func.isRequired,
+  <span class="hljs-attr">columnThreeLinkClicked</span>: PropTypes.func.isRequired
 };
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> MenuSection;
@@ -1467,7 +1506,7 @@ MenuSection.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.8 KB</span>
+                    <span class="Meta-value">3 KB</span>
                 </li>
             </ul>
         </div>
@@ -1509,7 +1548,7 @@ MenuSection.propTypes = {
   <span class="hljs-keyword">return</span> columns;
 };
 
-<span class="hljs-keyword">const</span> SubMenu = <span class="hljs-function">(<span class="hljs-params">{ data, show, navTitle, handleBackToMenu }</span>) =&gt;</span> {
+<span class="hljs-keyword">const</span> SubMenu = <span class="hljs-function">(<span class="hljs-params">{ data, show, navTitle, handleBackToMenu, linkClicked, columnThreeLinkClicked }</span>) =&gt;</span> {
   <span class="hljs-keyword">const</span> { seeAllLink, ...columns } = data;
 
   <span class="hljs-keyword">if</span> (show) {
@@ -1528,7 +1567,7 @@ MenuSection.propTypes = {
 
         {
           seeAllLink &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"panel-bottom-link"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{seeAllLink.href}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{seeAllLink.href}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{linkClicked.bind(null,</span> <span class="hljs-attr">seeAllLink</span>)}&gt;</span>
               View All in {seeAllLink.text}
               <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/arrow-right-blue.svg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"right-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -1542,7 +1581,9 @@ MenuSection.propTypes = {
               <span class="hljs-attr">data</span>=<span class="hljs-string">{filteredColumns[keyName]}</span>
               <span class="hljs-attr">keyName</span>=<span class="hljs-string">{keyName}</span>
               <span class="hljs-attr">navTitle</span>=<span class="hljs-string">{navTitle}</span>
-              <span class="hljs-attr">panelWhite</span>=<span class="hljs-string">{Object.prototype.hasOwnProperty.call(filteredColumns,</span> '<span class="hljs-attr">mainColumn</span>')}&gt;</span>
+              <span class="hljs-attr">panelWhite</span>=<span class="hljs-string">{Object.prototype.hasOwnProperty.call(filteredColumns,</span> '<span class="hljs-attr">mainColumn</span>')}
+              <span class="hljs-attr">linkClicked</span>=<span class="hljs-string">{linkClicked}</span>
+              <span class="hljs-attr">columnThreeLinkClicked</span>=<span class="hljs-string">{columnThreeLinkClicked}</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">Column</span>&gt;</span>
           );
         })}
@@ -1559,6 +1600,8 @@ SubMenu.propTypes = {
   <span class="hljs-attr">data</span>: PropTypes.object.isRequired,
   <span class="hljs-attr">show</span>: PropTypes.bool.isRequired,
   <span class="hljs-attr">navTitle</span>: PropTypes.string.isRequired,
+  <span class="hljs-attr">linkClicked</span>: PropTypes.func.isRequired,
+  <span class="hljs-attr">columnThreeLinkClicked</span>: PropTypes.func.isRequired
 };
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> SubMenu;
@@ -1578,7 +1621,7 @@ SubMenu.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.9 KB</span>
+                    <span class="Meta-value">2.2 KB</span>
                 </li>
             </ul>
         </div>
