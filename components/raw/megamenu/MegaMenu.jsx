@@ -67,7 +67,9 @@ export default class MegaMenu extends React.Component {
             defaultSection={defaultSection(item.menuSections)}
             currentSection={currentSection}
             updateCurrentSection={() => this.updateCurrentSection(section.title)}
-            links={section.links}></MenuSection>
+            links={section.links}
+            linkClicked={this.props.linkClicked}
+            columnThreeLinkClicked={this.props.columnThreeLinkClicked}></MenuSection>
         );
       });
     }
@@ -77,7 +79,9 @@ export default class MegaMenu extends React.Component {
         data={item.menuSections}
         navTitle={item.title}
         handleBackToMenu={() => this.toggleDropDown('')}
-        show={this.props.currentDropdown !== ''}></SubMenu>
+        show={this.props.currentDropdown !== ''}
+        linkClicked={this.props.linkClicked}
+        columnThreeLinkClicked={this.props.columnThreeLinkClicked}></SubMenu>
     );
   }
   handleDocumentClick = (event) => {
