@@ -9310,6 +9310,8 @@ button.va-modal-close {
         font-weight: bold;
         margin-top: 4px;
         padding: 0; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]).panel-white {
+        padding-top: 22px; }
     #mega-menu .vetnav-level1[aria-expanded="true"] {
       border-top-color: #988530; }
     #mega-menu .vetnav-level2[aria-expanded="true"] {
@@ -9320,7 +9322,7 @@ button.va-modal-close {
       width: 1008px;
       left: 0; }
       #mega-menu .vetnav-panel .mm-links {
-        padding: 0; }
+        padding: 5px 0px; }
       #mega-menu .vetnav-panel .mm-link-container {
         width: 225px;
         margin-bottom: 0; }
@@ -9343,9 +9345,10 @@ button.va-modal-close {
       #mega-menu .column-three.vetnav-panel--submenu:not([hidden]) {
         padding: 86px 20px 20px 14px;
         width: 24rem; }
-      #mega-menu .column-three.panel-white {
-        background-color: #fff;
-        border-left: none; }
+        #mega-menu .column-three.vetnav-panel--submenu:not([hidden]).panel-white {
+          padding-top: 30px;
+          background-color: #fff;
+          border-left: none; }
       #mega-menu .column-three a {
         font-weight: bold;
         padding: 14px 0px 0px 0px; } }
@@ -9387,6 +9390,29 @@ button.va-modal-close {
     overflow: hidden; }
     #mega-menu .mm-marketing-container .mm-marketing-text {
       padding: 20px; }
+    #mega-menu .mm-marketing-container p {
+      margin-top: 5px; }
+  #mega-menu #vetnav-column-one-col .panel-bottom-link {
+    width: 200%; }
+  @media screen and (min-width: 768px) {
+    #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+      font-family: Source Sans Pro, sans serif;
+      font-size: 1.6rem; } }
+  #mega-menu #vetnav-menu, #mega-menu #vetnav {
+    margin-top: 0; }
+  #mega-menu .my-va-top-nav {
+    margin-left: auto; }
+    #mega-menu .my-va-top-nav.current-page {
+      margin-left: auto; }
+  #mega-menu .current-page {
+    border-bottom: 5px solid;
+    border-color: #0071BB;
+    margin-left: 1.6rem;
+    margin-right: 1.6rem; }
+    #mega-menu .current-page a {
+      padding: 1.6rem 0; }
+  #mega-menu .mm-marketing-container {
+    height: 350px; }
     #mega-menu .mm-marketing-container p {
       margin-top: 5px; }
   @media (max-width: 768px) {

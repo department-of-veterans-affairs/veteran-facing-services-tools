@@ -13617,7 +13617,9 @@ var SubMenu = function SubMenu(_ref) {
   var data = _ref.data,
       show = _ref.show,
       navTitle = _ref.navTitle,
-      handleBackToMenu = _ref.handleBackToMenu;
+      handleBackToMenu = _ref.handleBackToMenu,
+      linkClicked = _ref.linkClicked,
+      columnThreeLinkClicked = _ref.columnThreeLinkClicked;
 
   var seeAllLink = data.seeAllLink,
       columns = _objectWithoutProperties(data, ['seeAllLink']);
@@ -13647,7 +13649,7 @@ var SubMenu = function SubMenu(_ref) {
         { className: 'panel-bottom-link' },
         _react2.default.createElement(
           'a',
-          { href: seeAllLink.href },
+          { href: seeAllLink.href, onClick: linkClicked.bind(null, seeAllLink) },
           'View All in ',
           seeAllLink.text,
           _react2.default.createElement('img', { src: '/img/arrow-right-blue.svg', alt: 'right-arrow' })
@@ -13659,7 +13661,9 @@ var SubMenu = function SubMenu(_ref) {
           data: filteredColumns[keyName],
           keyName: keyName,
           navTitle: navTitle,
-          panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn') });
+          panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn'),
+          linkClicked: linkClicked,
+          columnThreeLinkClicked: columnThreeLinkClicked });
       })
     );
   }
@@ -34998,7 +35002,9 @@ var isPanelWhite = function isPanelWhite(panelWhite) {
 var Column = function Column(props) {
   var data = props.data,
       keyName = props.keyName,
-      panelWhite = props.panelWhite;
+      panelWhite = props.panelWhite,
+      columnThreeLinkClicked = props.columnThreeLinkClicked,
+      linkClicked = props.linkClicked;
 
 
   if (keyName === 'columnThree') {
@@ -35016,7 +35022,7 @@ var Column = function Column(props) {
           { className: 'mm-marketing-text' },
           _react2.default.createElement(
             'a',
-            { className: 'mm-links', href: data.link.href, target: data.link.target || '_self' },
+            { className: 'mm-links', href: data.link.href, onClick: columnThreeLinkClicked.bind(null, data.link), target: data.link.target || '_self' },
             data.link.text
           ),
           _react2.default.createElement(
@@ -35051,7 +35057,7 @@ var Column = function Column(props) {
           { className: 'mm-link-container', key: link.href + '-' + i },
           _react2.default.createElement(
             'a',
-            { className: 'mm-links', href: link.href, target: link.target || '_self' },
+            { className: 'mm-links', href: link.href, onClick: linkClicked.bind(null, link), target: link.target || '_self' },
             link.text
           )
         );
@@ -35236,7 +35242,9 @@ var MegaMenu = function (_React$Component) {
           currentDropdown = _props.currentDropdown,
           currentSection = _props.currentSection,
           data = _props.data,
-          display = _props.display;
+          display = _props.display,
+          linkClicked = _props.linkClicked,
+          columnThreeLinkClicked = _props.columnThreeLinkClicked;
 
 
       return _react2.default.createElement(
@@ -35283,7 +35291,7 @@ var MegaMenu = function (_React$Component) {
                     item.title
                   ) : _react2.default.createElement(
                     'a',
-                    { href: item.href, className: 'vetnav-level1', target: item.target || null },
+                    { href: item.href, onClick: linkClicked.bind(null, item), className: 'vetnav-level1', target: item.target || null },
                     item.title
                   ),
                   _react2.default.createElement(
@@ -35301,7 +35309,9 @@ var MegaMenu = function (_React$Component) {
                           updateCurrentSection: function updateCurrentSection() {
                             return _this3.updateCurrentSection(section.title);
                           },
-                          links: section.links });
+                          links: section.links,
+                          linkClicked: linkClicked,
+                          columnThreeLinkClicked: columnThreeLinkClicked });
                       }) : _this3.getSubmenu(item, currentSection)
                     )
                   )
@@ -35323,7 +35333,9 @@ exports.default = MegaMenu;
 MegaMenu.defaultProps = {
   currentDropdown: '',
   currentSection: '',
-  display: {}
+  display: {},
+  linkClicked: function linkClicked() {},
+  columnThreeLinkClicked: function columnThreeLinkClicked() {}
 };
 
 /***/ }),
@@ -35439,7 +35451,9 @@ var MenuSection = function (_React$Component) {
           show: show,
           handleBackToMenu: function handleBackToMenu() {
             return _this2.handleBackToMenu();
-          } })
+          },
+          linkClicked: this.props.linkClicked,
+          columnThreeLinkClicked: this.props.columnThreeLinkClicked })
       );
     }
   }]);

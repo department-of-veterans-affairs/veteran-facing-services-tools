@@ -693,7 +693,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.7</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.7</span><span class="hljs-number">.4</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -756,7 +756,7 @@ export default class MegaMenuExample extends React.Component {
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
         <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>`<span class="hljs-attr">vetnav-panel</span> <span class="hljs-attr">vetnav-panel--submenu</span> ${<span class="hljs-attr">_.kebabCase</span>(<span class="hljs-attr">keyName</span>)}${<span class="hljs-attr">isPanelWhite</span>(<span class="hljs-attr">panelWhite</span>)}`}
         <span class="hljs-attr">aria-label</span>=<span class="hljs-string">{keyName}</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-marketing-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">panelWhite</span> ? '<span class="hljs-attr">mm-marketing-container</span> <span class="hljs-attr">mm-marketing-gray</span>' <span class="hljs-attr">:</span> '<span class="hljs-attr">mm-marketing-container</span>'}`}&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{data.img.src}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">{data.img.alt}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-marketing-text"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mm-links"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{data.link.href}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{columnThreeLinkClicked.bind(null,</span> <span class="hljs-attr">data.link</span>)} <span class="hljs-attr">target</span>=<span class="hljs-string">{data.link.target</span> || '<span class="hljs-attr">_self</span>'}&gt;</span>
