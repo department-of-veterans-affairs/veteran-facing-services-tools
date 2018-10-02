@@ -13,7 +13,6 @@ select:focus {
 
 [role="button"]:focus, button:focus {
   @include focus-gold-light-outline;
-  position: relative;
   z-index: 3;
 }
 
