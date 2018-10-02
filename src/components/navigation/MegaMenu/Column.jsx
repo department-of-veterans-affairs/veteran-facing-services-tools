@@ -18,7 +18,7 @@ const Column = (props) => {
       <div
         className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}
         aria-label={keyName}>
-        <div className="mm-marketing-container">
+        <div className={`${panelWhite ? 'mm-marketing-container mm-marketing-gray' : 'mm-marketing-container'}`}>
           <img src={data.img.src} alt={data.img.alt}></img>
           <div className="mm-marketing-text">
             <a className="mm-links" href={data.link.href} onClick={columnThreeLinkClicked.bind(null, data.link)} target={data.link.target || '_self'}>
