@@ -149,6 +149,10 @@
     height: 350px;
     overflow: hidden;
 
+    &.mm-marketing-gray {
+      background-color: $mm-gray;
+    }
+
     .mm-marketing-text {
       padding: 20px;
     }
