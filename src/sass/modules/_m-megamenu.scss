@@ -149,6 +149,10 @@
     height: 350px;
     overflow: hidden;
 
+    &.mm-marketing-gray {
+      background-color: $mm-gray;
+    }
+
     .mm-marketing-text {
       padding: 20px;
     }
@@ -260,6 +264,34 @@
       width: 100%;
       top: 0;
       z-index: 200;
+    }
+  }
+
+  // IPad: fix for weirdness at 768 breakpoint on IPad
+  @media (min-width:768px) and (max-width:769px) {
+    .panel-bottom-link {
+      position: absolute;
+    }
+
+    .vetnav-panel--submenu:not([hidden]) {
+      position: absolute;
+      padding: 35px 0px 0px 28px;
+    }
+
+    .vetnav-panel {
+      height: 380px;
+    }
+
+    .mm-link-container {
+      width: 210px;
+
+      &[role="menuitem"] {
+        width: 243px;
+      }
+    }
+
+    .panel-bottom-link {
+      left: 26rem;
     }
   }
 }
