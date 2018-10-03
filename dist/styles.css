@@ -9301,7 +9301,7 @@ button.va-modal-close {
     #mega-menu .vetnav-panel--submenu:not([hidden]) {
       box-shadow: none;
       width: 26rem;
-      padding: 72px 0px 0px 28px;
+      padding: 28px 0px 0px 28px;
       white-space: normal; }
       #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
         color: #000;
@@ -9310,19 +9310,17 @@ button.va-modal-close {
         font-weight: bold;
         margin-top: 4px;
         padding: 0; }
-      #mega-menu .vetnav-panel--submenu:not([hidden]).panel-white {
-        padding-top: 22px; }
     #mega-menu .vetnav-level1[aria-expanded="true"] {
       border-top-color: #988530; }
     #mega-menu .vetnav-level2[aria-expanded="true"] {
       box-shadow: -3px 0 #988530; }
     #mega-menu .vetnav-panel {
       box-shadow: 0 7px 25px -11px #000;
-      height: 460px;
+      height: 470px;
       width: 1008px;
       left: 0; }
       #mega-menu .vetnav-panel .mm-links {
-        padding: 5px 0px; }
+        padding: 0; }
       #mega-menu .vetnav-panel .mm-link-container {
         width: 225px;
         margin-bottom: 0; }
@@ -9343,12 +9341,11 @@ button.va-modal-close {
       left: 540px;
       white-space: normal; }
       #mega-menu .column-three.vetnav-panel--submenu:not([hidden]) {
-        padding: 86px 20px 20px 14px;
+        padding: 28px 20px 20px 14px;
         width: 24rem; }
-        #mega-menu .column-three.vetnav-panel--submenu:not([hidden]).panel-white {
-          padding-top: 30px;
-          background-color: #fff;
-          border-left: none; }
+      #mega-menu .column-three.panel-white {
+        background-color: #fff;
+        border-left: none; }
       #mega-menu .column-three a {
         font-weight: bold;
         padding: 14px 0px 0px 0px; } }
@@ -9365,68 +9362,35 @@ button.va-modal-close {
       background-color: #fff; }
   #mega-menu .panel-bottom-link {
     position: absolute;
+    bottom: 0px;
     height: 60px;
-    width: 711px;
-    left: 28rem;
-    border-bottom: 1px solid #d0d0d0;
-    z-index: 3;
-    top: 0; }
+    width: 100%;
+    left: 0;
+    margin-left: 14px;
+    border-top: 1px solid #d0d0d0;
+    z-index: 3; }
+    #mega-menu .panel-bottom-link:nth-child(2) {
+      width: 87%; }
     #mega-menu .panel-bottom-link a {
+      background: transparent url(/img/arrow-right-blue.svg) right 1rem center no-repeat;
       background-size: 13px;
       font-weight: bold;
       padding: 20px 0px;
       display: inline-block;
       padding-right: 25px; }
-      #mega-menu .panel-bottom-link a img {
-        width: 11px;
-        margin-left: 5px; }
   #mega-menu .panel-top-link {
     display: none; }
   #mega-menu .back-button {
     display: none; }
   #mega-menu .mm-marketing-container {
-    background-color: #fff;
-    height: 350px;
-    overflow: hidden; }
-    #mega-menu .mm-marketing-container .mm-marketing-text {
-      padding: 20px; }
-    #mega-menu .mm-marketing-container p {
-      margin-top: 5px; }
-  #mega-menu #vetnav-column-one-col .panel-bottom-link {
-    width: 200%; }
-  @media screen and (min-width: 768px) {
-    #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
-      font-family: Source Sans Pro, sans serif;
-      font-size: 1.6rem; } }
-  #mega-menu #vetnav-menu, #mega-menu #vetnav {
-    margin-top: 0; }
-  #mega-menu .my-va-top-nav {
-    margin-left: auto; }
-    #mega-menu .my-va-top-nav.current-page {
-      margin-left: auto; }
-  #mega-menu .current-page {
-    border-bottom: 5px solid;
-    border-color: #0071BB;
-    margin-left: 1.6rem;
-    margin-right: 1.6rem; }
-    #mega-menu .current-page a {
-      padding: 1.6rem 0; }
-  #mega-menu .mm-marketing-container {
+    background-color: #e1f3f8;
+    padding: 20px;
     height: 350px; }
+    #mega-menu .mm-marketing-container img {
+      margin-bottom: 20px; }
     #mega-menu .mm-marketing-container p {
       margin-top: 5px; }
   @media (max-width: 768px) {
-    #mega-menu .panel-bottom-link {
-      position: unset;
-      height: 25px;
-      margin-left: 10px;
-      margin-bottom: 3px;
-      border: none; }
-      #mega-menu .panel-bottom-link a {
-        padding: 20px 25px 20px 7px;
-        width: 111%; }
-        #mega-menu .panel-bottom-link a img {
-          width: 15px; }
     #mega-menu .column-three {
       display: none; }
     #mega-menu .vetnav-level2 {
@@ -9438,6 +9402,8 @@ button.va-modal-close {
     #mega-menu .vetnav-panel--submenu:not([hidden]) {
       position: initial; }
       #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+        display: none; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]) .panel-bottom-link {
         display: none; }
     #mega-menu .back-button {
       display: block; }
