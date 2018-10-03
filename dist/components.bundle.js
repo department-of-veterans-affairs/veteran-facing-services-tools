@@ -35187,7 +35187,9 @@ var MegaMenu = function (_React$Component) {
             updateCurrentSection: function updateCurrentSection() {
               return _this2.updateCurrentSection(section.title);
             },
-            links: section.links });
+            links: section.links,
+            linkClicked: _this2.props.linkClicked,
+            columnThreeLinkClicked: _this2.props.columnThreeLinkClicked });
         });
       }
 
@@ -35197,7 +35199,9 @@ var MegaMenu = function (_React$Component) {
         handleBackToMenu: function handleBackToMenu() {
           return _this2.toggleDropDown('');
         },
-        show: this.props.currentDropdown !== '' });
+        show: this.props.currentDropdown !== '',
+        linkClicked: this.props.linkClicked,
+        columnThreeLinkClicked: this.props.columnThreeLinkClicked });
     }
   }, {
     key: 'resetDefaultState',
