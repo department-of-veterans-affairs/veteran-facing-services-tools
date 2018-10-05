@@ -265,6 +265,10 @@
       top: 0;
       z-index: 200;
     }
+
+    .all-link-arrow {
+      display: none;
+    }
   }
 
   // IPad: fix for weirdness at 768 breakpoint on IPad
