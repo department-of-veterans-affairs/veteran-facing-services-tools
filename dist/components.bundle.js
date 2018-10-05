@@ -13617,7 +13617,9 @@ var SubMenu = function SubMenu(_ref) {
   var data = _ref.data,
       show = _ref.show,
       navTitle = _ref.navTitle,
-      handleBackToMenu = _ref.handleBackToMenu;
+      handleBackToMenu = _ref.handleBackToMenu,
+      linkClicked = _ref.linkClicked,
+      columnThreeLinkClicked = _ref.columnThreeLinkClicked;
 
   var seeAllLink = data.seeAllLink,
       columns = _objectWithoutProperties(data, ['seeAllLink']);
@@ -13642,26 +13644,26 @@ var SubMenu = function SubMenu(_ref) {
           'Back to Menu'
         )
       ),
+      seeAllLink && _react2.default.createElement(
+        'div',
+        { className: 'panel-bottom-link' },
+        _react2.default.createElement(
+          'a',
+          { href: seeAllLink.href, onClick: linkClicked.bind(null, seeAllLink) },
+          'View All in ',
+          seeAllLink.text,
+          _react2.default.createElement('img', { src: '/img/arrow-right-blue.svg', alt: 'right-arrow' })
+        )
+      ),
       Object.keys(filteredColumns).map(function (keyName) {
-        return _react2.default.createElement(
-          _Column2.default,
-          {
-            key: keyName,
-            data: filteredColumns[keyName],
-            keyName: keyName,
-            navTitle: navTitle,
-            panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn') },
-          keyName === 'columnOne' && _react2.default.createElement(
-            'div',
-            null,
-            seeAllLink && _react2.default.createElement(
-              'a',
-              { href: seeAllLink.href },
-              'View All in ',
-              seeAllLink.text
-            )
-          )
-        );
+        return _react2.default.createElement(_Column2.default, {
+          key: keyName,
+          data: filteredColumns[keyName],
+          keyName: keyName,
+          navTitle: navTitle,
+          panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn'),
+          linkClicked: linkClicked,
+          columnThreeLinkClicked: columnThreeLinkClicked });
       })
     );
   }
@@ -32208,9 +32210,13 @@ var CollapsiblePanel = function (_React$Component) {
     }
   }, {
     key: 'toggleChapter',
-    value: function toggleChapter() {
+    value: function toggleChapter(e) {
       var _this2 = this;
 
+      // USWDS styles make it difficult to add a type=button attribute to the toggle button.
+      // Until this changes, we need to ensure that accordions used in forms don't
+      // default to submitting a form page when toggled.
+      e.preventDefault();
       var isOpening = !this.state.open;
       this.setState(function (prevState) {
         return { open: !prevState.open };
@@ -34996,7 +35002,9 @@ var isPanelWhite = function isPanelWhite(panelWhite) {
 var Column = function Column(props) {
   var data = props.data,
       keyName = props.keyName,
-      panelWhite = props.panelWhite;
+      panelWhite = props.panelWhite,
+      columnThreeLinkClicked = props.columnThreeLinkClicked,
+      linkClicked = props.linkClicked;
 
 
   if (keyName === 'columnThree') {
@@ -35007,20 +35015,23 @@ var Column = function Column(props) {
         'aria-label': keyName },
       _react2.default.createElement(
         'div',
-        { className: 'mm-marketing-container' },
+        { className: '' + (panelWhite ? 'mm-marketing-container mm-marketing-gray' : 'mm-marketing-container') },
         _react2.default.createElement('img', { src: data.img.src, alt: data.img.alt }),
         _react2.default.createElement(
-          'a',
-          { className: 'mm-links', href: data.link.href },
-          data.link.text
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          data.description
+          'div',
+          { className: 'mm-marketing-text' },
+          _react2.default.createElement(
+            'a',
+            { className: 'mm-links', href: data.link.href, onClick: columnThreeLinkClicked.bind(null, data.link), target: data.link.target || '_self' },
+            data.link.text
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            data.description
+          )
         )
-      ),
-      _react2.default.createElement('li', { className: 'panel-bottom-link' })
+      )
     );
   }
 
@@ -35046,16 +35057,11 @@ var Column = function Column(props) {
           { className: 'mm-link-container', key: link.href + '-' + i },
           _react2.default.createElement(
             'a',
-            { className: 'mm-links', href: link.href },
+            { className: 'mm-links', href: link.href, onClick: linkClicked.bind(null, link), target: link.target || '_self' },
             link.text
           )
         );
-      }),
-      _react2.default.createElement(
-        'li',
-        { className: 'panel-bottom-link' },
-        props.children
-      )
+      })
     )
   );
 };
@@ -35181,7 +35187,9 @@ var MegaMenu = function (_React$Component) {
             updateCurrentSection: function updateCurrentSection() {
               return _this2.updateCurrentSection(section.title);
             },
-            links: section.links });
+            links: section.links,
+            linkClicked: _this2.props.linkClicked,
+            columnThreeLinkClicked: _this2.props.columnThreeLinkClicked });
         });
       }
 
@@ -35191,7 +35199,9 @@ var MegaMenu = function (_React$Component) {
         handleBackToMenu: function handleBackToMenu() {
           return _this2.toggleDropDown('');
         },
-        show: this.props.currentDropdown !== '' });
+        show: this.props.currentDropdown !== '',
+        linkClicked: this.props.linkClicked,
+        columnThreeLinkClicked: this.props.columnThreeLinkClicked });
     }
   }, {
     key: 'resetDefaultState',
@@ -35236,7 +35246,9 @@ var MegaMenu = function (_React$Component) {
           currentDropdown = _props.currentDropdown,
           currentSection = _props.currentSection,
           data = _props.data,
-          display = _props.display;
+          display = _props.display,
+          linkClicked = _props.linkClicked,
+          columnThreeLinkClicked = _props.columnThreeLinkClicked;
 
 
       return _react2.default.createElement(
@@ -35267,7 +35279,9 @@ var MegaMenu = function (_React$Component) {
               data.map(function (item, i) {
                 return _react2.default.createElement(
                   'li',
-                  { key: (0, _kebabCase3.default)(item.title) + '-' + i },
+                  {
+                    key: (0, _kebabCase3.default)(item.title) + '-' + i,
+                    className: (item.className || '') + ' ' + (item.currentPage ? 'current-page' : '') },
                   item.menuSections ? _react2.default.createElement(
                     'button',
                     {
@@ -35281,7 +35295,7 @@ var MegaMenu = function (_React$Component) {
                     item.title
                   ) : _react2.default.createElement(
                     'a',
-                    { href: item.href, className: 'vetnav-level1' },
+                    { href: item.href, onClick: linkClicked.bind(null, item), className: 'vetnav-level1', target: item.target || null },
                     item.title
                   ),
                   _react2.default.createElement(
@@ -35299,7 +35313,9 @@ var MegaMenu = function (_React$Component) {
                           updateCurrentSection: function updateCurrentSection() {
                             return _this3.updateCurrentSection(section.title);
                           },
-                          links: section.links });
+                          links: section.links,
+                          linkClicked: linkClicked,
+                          columnThreeLinkClicked: columnThreeLinkClicked });
                       }) : _this3.getSubmenu(item, currentSection)
                     )
                   )
@@ -35321,7 +35337,9 @@ exports.default = MegaMenu;
 MegaMenu.defaultProps = {
   currentDropdown: '',
   currentSection: '',
-  display: {}
+  display: {},
+  linkClicked: function linkClicked() {},
+  columnThreeLinkClicked: function columnThreeLinkClicked() {}
 };
 
 /***/ }),
@@ -35437,7 +35455,9 @@ var MenuSection = function (_React$Component) {
           show: show,
           handleBackToMenu: function handleBackToMenu() {
             return _this2.handleBackToMenu();
-          } })
+          },
+          linkClicked: this.props.linkClicked,
+          columnThreeLinkClicked: this.props.columnThreeLinkClicked })
       );
     }
   }]);
@@ -35826,7 +35846,6 @@ var IconSearch = function (_React$Component) {
           role: role,
           viewBox: '0 0 216 146',
           width: '24' },
-        '>',
         svgTitle,
         _react2.default.createElement('path', { fill: color, d: 'M172.77 123.025L144.825 95.08c6.735-9.722 10.104-20.56 10.104-32.508 0-7.767-1.51-15.195-4.527-22.283-3.014-7.09-7.088-13.2-12.22-18.336s-11.243-9.207-18.33-12.22c-7.09-3.016-14.52-4.523-22.286-4.523-7.768 0-15.196 1.508-22.284 4.523-7.09 3.014-13.2 7.088-18.332 12.22-5.132 5.134-9.206 11.245-12.22 18.333-3.015 7.088-4.522 14.515-4.522 22.282 0 7.766 1.507 15.192 4.522 22.282 3.014 7.088 7.088 13.197 12.22 18.33 5.134 5.134 11.245 9.207 18.333 12.222 7.09 3.015 14.516 4.522 22.283 4.522 11.95 0 22.786-3.37 32.51-10.105l27.943 27.863c1.955 2.064 4.397 3.096 7.332 3.096 2.824 0 5.27-1.03 7.332-3.096 2.064-2.063 3.096-4.508 3.096-7.332 0-2.877-1.002-5.322-3.013-7.33zm-49.413-34.668C116.214 95.5 107.62 99.07 97.57 99.07c-10.048 0-18.643-3.57-25.786-10.713C64.64 81.214 61.07 72.62 61.07 62.57c0-10.047 3.572-18.643 10.714-25.785C78.926 29.642 87.522 26.07 97.57 26.07c10.048 0 18.643 3.573 25.787 10.715 7.143 7.142 10.715 15.738 10.715 25.786 0 10.05-3.573 18.647-10.715 25.79z' })
       );

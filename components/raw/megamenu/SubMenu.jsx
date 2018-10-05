@@ -48,7 +48,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnTh
           seeAllLink && <div className="panel-bottom-link">
             <a href={seeAllLink.href} onClick={linkClicked.bind(null, seeAllLink)}>
               View All in {seeAllLink.text}
-              <img src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
+              <img className="all-link-arrow" src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
             </a>
           </div>
         }
