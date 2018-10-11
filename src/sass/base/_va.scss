@@ -211,8 +211,7 @@ table {
 // Adds external icon to all links that begin
 // with http (including https)
 // Using this selector makes it easier for the content team to write content
-[href^="http"],
-[rel="external"] {
+a[href^="http"]:not([href*="va.gov"], [href*="vets.gov"]):not(.no-external-icon) {
   @include exit-icon;
 }
 
