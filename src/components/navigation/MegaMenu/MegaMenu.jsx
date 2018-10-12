@@ -98,10 +98,10 @@ export default class MegaMenu extends React.Component {
       } else {
         this.props.toggleDisplayHidden(true);
       }
+      this.props.updateCurrentSection('');
+      this.props.toggleDropDown('');
+      this.originalSize = document.body.clientWidth;
     }
-
-    this.props.updateCurrentSection('');
-    this.props.toggleDropDown('');
   }
 
   toggleDropDown(title) {
