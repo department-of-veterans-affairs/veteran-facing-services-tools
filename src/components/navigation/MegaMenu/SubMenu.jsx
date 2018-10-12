@@ -4,7 +4,7 @@ import Column from './Column';
 import _ from 'lodash';
 
 const onSmallScreen = () => {
-  if (window.innerWidth < 768) {
+  if (document.body.clientWidth < 768) {
     return true;
   }
 
@@ -12,7 +12,7 @@ const onSmallScreen = () => {
 };
 
 const getColumns = (columns) => {
-  if (window.innerWidth < 768) {
+  if (document.body.clientWidth < 768) {
     return {
       columnOne: {
         title: columns.columnOne.title,

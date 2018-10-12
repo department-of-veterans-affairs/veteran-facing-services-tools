@@ -5,7 +5,7 @@ import SubMenu from './SubMenu';
 import _ from 'lodash';
 
 const defaultSection = (sections) => {
-  if (window.innerWidth < 768) {
+  if (document.body.clientWidth < 768) {
     return '';
   }
 
@@ -15,11 +15,11 @@ const defaultSection = (sections) => {
 export default class MegaMenu extends React.Component {
   constructor() {
     super();
-    this.originalSize = window.innerWidth;
+    this.originalSize = document.body.clientWidth;
   }
 
   componentDidMount() {
-    if (window.innerWidth < 768) {
+    if (document.body.clientWidth < 768) {
       this.props.toggleDisplayHidden(true);
     }
 
@@ -36,7 +36,7 @@ export default class MegaMenu extends React.Component {
   }
 
   getSubmenu(item, currentSection) {
-    if (window.innerWidth < 768) {
+    if (document.body.clientWidth < 768) {
       const menuSections = [
         item.menuSections.mainColumn,
         item.menuSections.columnOne,
@@ -92,8 +92,8 @@ export default class MegaMenu extends React.Component {
   }
 
   resetDefaultState() {
-    if (this.originalSize !== window.innerWidth) {
-      if (window.innerWidth > 768) {
+    if (this.originalSize !== document.body.clientWidth) {
+      if (document.body.clientWidth > 768) {
         this.props.toggleDisplayHidden(false);
       } else {
         this.props.toggleDisplayHidden(true);
@@ -115,7 +115,7 @@ export default class MegaMenu extends React.Component {
   updateCurrentSection(title) {
     let sectionTitle = title;
 
-    if (window.innerWidth < 768) {
+    if (document.body.clientWidth < 768) {
       sectionTitle = this.props.currentSection === title ? '' : title;
     }
 

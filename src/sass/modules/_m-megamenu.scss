@@ -4,14 +4,82 @@
   width: 100%;
   z-index: 2;
 
+  .panel-bottom-link {
+    position: unset;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    border: none;
+
+    a {
+      padding: 20px 25px 20px 7px;
+      width: 111%;
+
+      img {
+        width: 15px;
+      }
+    }
+  }
+
+  .column-three {
+    display: none;
+  }
+
+  .vetnav-level2 {
+    width: 100%;
+  }
+
+  .panel-top-link {
+    &:nth-of-type(1) {
+      display: block;
+      font-weight: bold;
+      padding-top: 15px;
+    }
+  }
+
+  .vetnav-panel--submenu:not([hidden]) {
+    h3 {
+      display: none;
+    }
+  }
+
+  .back-button {
+    display: block;
+  }
+
+  .vetnav-panel {
+    height: auto;
+  }
+
+  .mm-link-container-small {
+    background: $color-primary-darkest;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 200;
+  }
+
+  .all-link-arrow {
+    display: none;
+  }
+
+  .vetnav-level1 {
+    &:active, &:visited, &:focus, &:hover {
+      color: $color-white;
+    }
+  }
+
   @include media($medium-large-screen) {
     .vetnav-panel--submenu:not([hidden]) {
+      position: absolute;
       box-shadow: none;
       width: 26rem;
       padding: 72px 0px 0px 28px;
       white-space: normal;
 
       h3 {
+        display: initial;
         color: $color-black;
         font-family: Source Sans Pro, sans serif;
         font-size: 1.6rem;
@@ -27,6 +95,9 @@
 
     .vetnav-level1[aria-expanded="true"] {
       border-top-color: $color-va-accent;
+      &:active, &:visited, &:focus, &:hover {
+        color: $color-base;
+      }
     }
 
     .vetnav-level2[aria-expanded="true"] {
@@ -90,15 +161,27 @@
         padding: 14px 0px 0px 0px;
       }
     }
+
+    .panel-bottom-link {
+      margin: 0;
+    }
+
+    .all-link-arrow {
+      display: initial;
+    }
+
+    .panel-top-link {
+      display: none !important;
+    }
+
+    .vetnav-level2 {
+      width: 24.3rem;
+    }
   }
 
   .panel-title {
     font-weight: bold;
     color: $color-black;
-  }
-
-  .vetnav-level2 {
-    width: 24.3rem;
   }
 
   a.vetnav-level1 {
@@ -207,95 +290,51 @@
     }
   }
 
-  @media (max-width: 768px) {
+
+  @include media($medium-large-screen) {
+    .vetnav-panel {
+      width: $medium-large-screen;
+      height: 380px;
+    }
+
     .panel-bottom-link {
-      position: unset;
-      height: 25px;
-      margin-left: 10px;
-      margin-bottom: 3px;
-      border: none;
+      width: $medium-large-screen - 297px;
+    }
 
-      a {
-        padding: 20px 25px 20px 7px;
-        width: 111%;
+    .column-one {
+      width: 39rem;
+    }
 
-        img {
-          width: 15px;
-        }
-      }
+    .column-two {
+      width: 39rem;
     }
 
     .column-three {
       display: none;
     }
-
-    .vetnav-level2 {
-      width: 100%;
-    }
-
-    .panel-top-link {
-      &:nth-of-type(1) {
-        display: block;
-        font-weight: bold;
-        padding-top: 15px;
-      }
-    }
-
-    .vetnav-panel--submenu:not([hidden]) {
-      position: initial;
-
-      h3 {
-        display: none;
-      }
-    }
-
-    .back-button {
-      display: block;
-    }
-
-    .vetnav-panel {
-      height: auto;
-    }
-
-    .mm-link-container-small {
-      background: $color-primary-darkest;
-      height: 100%;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      z-index: 200;
-    }
-
-    .all-link-arrow {
-      display: none;
-    }
   }
 
-  // IPad: fix for weirdness at 768 breakpoint on IPad
-  @media (min-width:768px) and (max-width:769px) {
-    .panel-bottom-link {
-      position: absolute;
-    }
-
-    .vetnav-panel--submenu:not([hidden]) {
-      position: absolute;
-      padding: 35px 0px 0px 28px;
-    }
-
+  @include media($small-desktop-screen) {
     .vetnav-panel {
-      height: 380px;
-    }
-
-    .mm-link-container {
-      width: 210px;
-
-      &[role="menuitem"] {
-        width: 243px;
-      }
+      width: $small-desktop-screen;
+      height: 460px;
     }
 
     .panel-bottom-link {
-      left: 26rem;
+      position: absolute;
+      width: $small-desktop-screen - 297px;
+    }
+
+    .column-one {
+      width: 26rem;
+    }
+
+    .column-two {
+      width: 26rem;
+    }
+
+    .column-three {
+      display: block;
     }
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 const isPanelWhite = (panelWhite) => {
-  if (window.innerWidth < 768) {
+  if (document.body.clientWidth < 768) {
     return '';
   }
 
