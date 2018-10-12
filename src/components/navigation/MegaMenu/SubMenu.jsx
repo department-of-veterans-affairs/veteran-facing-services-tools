@@ -11,8 +11,12 @@ const onSmallScreen = () => {
   return false;
 };
 
+const onSmallDesktopOrLargeTablet = () => {
+  return !onSmallScreen() && document.body.clientWidth < 1008;
+};
+
 const getColumns = (columns) => {
-  if (document.body.clientWidth < 768) {
+  if (onSmallScreen()) {
     return {
       columnOne: {
         title: columns.columnOne.title,
@@ -62,6 +66,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnTh
               navTitle={navTitle}
               panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}
               linkClicked={linkClicked}
+              hidden={keyName === 'columnThree' && onSmallDesktopOrLargeTablet()}
               columnThreeLinkClicked={columnThreeLinkClicked}>
             </Column>
           );
