@@ -13,6 +13,7 @@
 
     a {
       padding: 20px 25px 20px 7px;
+      font-weight: bold;
       width: 111%;
 
       img {
@@ -38,6 +39,7 @@
   }
 
   .vetnav-panel--submenu:not([hidden]) {
+    position: static;
     h3 {
       display: none;
     }
@@ -71,6 +73,8 @@
   }
 
   @include media($medium-large-screen) {
+    min-height: 51px;
+
     .vetnav-panel--submenu:not([hidden]) {
       position: absolute;
       box-shadow: none;
@@ -196,37 +200,6 @@
     }
   }
 
-  .panel-bottom-link {
-    position: absolute;
-    height: 60px;
-    width: 711px;
-    left: 28rem;
-    border-bottom: 1px solid #d0d0d0;
-    z-index: 3;
-    top: 0;
-
-    a {
-      background-size: 13px;
-      font-weight: bold;
-      padding: 20px 0px;
-      display: inline-block;
-      padding-right: 25px;
-
-      img {
-        width: 11px;
-        margin-left: 5px;
-      }
-    }
-  }
-
-  .panel-top-link {
-    display: none;
-  }
-
-  .back-button {
-    display: none;
-  }
-
   .mm-marketing-container {
     background-color: $color-white;
     height: 350px;
@@ -252,6 +225,14 @@
   }
 
   @include media($medium-large-screen) {
+    .panel-top-link {
+      display: none;
+    }
+
+    .back-button {
+      display: none;
+    }
+
     .vetnav-panel--submenu:not([hidden]) {
       h3 {
         font-family: Source Sans Pro, sans serif;
@@ -272,16 +253,6 @@
     }
   }
 
-  .current-page {
-    border-bottom: 5px solid;
-    border-color: $color-blue;
-    margin-left: 1.6rem;
-    margin-right: 1.6rem;
-    a {
-      padding: 1.6rem 0;
-    }
-  }
-
   .mm-marketing-container {
     height: 350px;
 
@@ -292,13 +263,19 @@
 
 
   @include media($medium-large-screen) {
+    .current-page {
+      border-bottom: 5px solid;
+      border-color: $color-blue;
+      margin-left: 1.6rem;
+      margin-right: 1.6rem;
+      a {
+        padding: 1.6rem 0;
+      }
+    }
+
     .vetnav-panel {
       width: $medium-large-screen;
       height: 380px;
-    }
-
-    .panel-bottom-link {
-      width: $medium-large-screen - 297px;
     }
 
     .column-one {
@@ -312,6 +289,29 @@
     .column-three {
       display: none;
     }
+
+    .panel-bottom-link {
+      position: absolute;
+      height: 60px;
+      width: $medium-large-screen - 297px;
+      left: 28rem;
+      border-bottom: 1px solid #d0d0d0;
+      z-index: 3;
+      top: 0;
+
+      a {
+        background-size: 13px;
+        padding: 20px 0px;
+        display: inline-block;
+        padding-right: 25px;
+
+        img {
+          width: 11px;
+          margin-left: 5px;
+        }
+      }
+    }
+
   }
 
   @include media($small-desktop-screen) {
