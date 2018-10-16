@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 const isPanelWhite = (panelWhite) => {
-  if (window.innerWidth < 768) {
+  if (document.body.clientWidth < 768) {
     return '';
   }
 
@@ -11,11 +11,12 @@ const isPanelWhite = (panelWhite) => {
 };
 
 const Column = (props) => {
-  const { data, keyName, panelWhite, columnThreeLinkClicked, linkClicked } = props;
+  const { data, keyName, panelWhite, columnThreeLinkClicked, linkClicked, hidden } = props;
 
   if (keyName === 'columnThree') {
     return (
       <div
+        aria-hidden={hidden ? 'true' : 'false'}
         className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}
         aria-label={keyName}>
         <div className={`${panelWhite ? 'mm-marketing-container mm-marketing-gray' : 'mm-marketing-container'}`}>
@@ -32,7 +33,7 @@ const Column = (props) => {
   }
 
   return (
-    <div className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}>
+    <div aria-hidden={hidden ? 'true' : 'false'} className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(keyName)}${isPanelWhite(panelWhite)}`}>
       <h3 id={`vetnav-${_.kebabCase(keyName)}-header`}>{data.title}</h3>
       <ul id={`vetnav-${_.kebabCase(keyName)}-col`} aria-labelledby={`vetnav-${_.kebabCase(keyName)}-header`}>
         <li className="panel-top-link">{props.children}</li>
