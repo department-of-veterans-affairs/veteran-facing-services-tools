@@ -21,7 +21,7 @@ class MenuSection extends React.Component {
   }
 
   updateCurrentSection() {
-    if (window.innerWidth === 768) {
+    if (document.body.clientWidth < 768) {
       this.setState({
         title: {
           hidden: true,
@@ -35,7 +35,7 @@ class MenuSection extends React.Component {
   handleBackToMenu() {
     this.updateCurrentSection('');
 
-    if (window.innerWidth === 768) {
+    if (document.body.clientWidth < 768) {
       this.setState({
         title: {},
       });
