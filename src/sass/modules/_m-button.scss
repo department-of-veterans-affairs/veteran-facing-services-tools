@@ -36,6 +36,10 @@ button,
   }
 }
 
+.usa-accordion-button:active {
+  background-color: inherit;
+}
+
 .usa-button-secondary-exit {
   &::after {
     background-image: url(/img/icons/exit-icon-primary.png);
