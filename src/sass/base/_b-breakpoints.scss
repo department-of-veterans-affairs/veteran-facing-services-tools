@@ -21,6 +21,7 @@ $large: new-breakpoint(min-width $large-screen $grid-columns-large);
 $xsmall-screen:       320px; // QVGA display
 $medium-large-screen: 768px;
 $medium-screen:       $medium-large-screen;
+$small-desktop-screen: 1008px;
 
 $medium: new-breakpoint(min-width $medium-large-screen 6);
 

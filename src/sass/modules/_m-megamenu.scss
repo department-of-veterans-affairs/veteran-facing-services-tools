@@ -4,14 +4,86 @@
   width: 100%;
   z-index: 2;
 
+  .panel-bottom-link {
+    position: unset;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    border: none;
+
+    a {
+      padding: 20px 25px 20px 7px;
+      font-weight: bold;
+      width: 111%;
+
+      img {
+        width: 15px;
+      }
+    }
+  }
+
+  .column-three {
+    display: none;
+  }
+
+  .vetnav-level2 {
+    width: 100%;
+  }
+
+  .panel-top-link {
+    &:nth-of-type(1) {
+      display: block;
+      font-weight: bold;
+      padding-top: 15px;
+    }
+  }
+
+  .vetnav-panel--submenu:not([hidden]) {
+    position: static;
+    h3 {
+      display: none;
+    }
+  }
+
+  .back-button {
+    display: block;
+  }
+
+  .vetnav-panel {
+    height: auto;
+  }
+
+  .mm-link-container-small {
+    background: $color-primary-darkest;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 200;
+  }
+
+  .all-link-arrow {
+    display: none;
+  }
+
+  .vetnav-level1 {
+    &:active, &:visited, &:focus, &:hover {
+      color: $color-white;
+    }
+  }
+
   @include media($medium-large-screen) {
+    min-height: 51px;
+
     .vetnav-panel--submenu:not([hidden]) {
+      position: absolute;
       box-shadow: none;
       width: 26rem;
       padding: 72px 0px 0px 28px;
       white-space: normal;
 
       h3 {
+        display: initial;
         color: $color-black;
         font-family: Source Sans Pro, sans serif;
         font-size: 1.6rem;
@@ -27,6 +99,9 @@
 
     .vetnav-level1[aria-expanded="true"] {
       border-top-color: $color-va-accent;
+      &:active, &:visited, &:focus, &:hover {
+        color: $color-base;
+      }
     }
 
     .vetnav-level2[aria-expanded="true"] {
@@ -90,15 +165,27 @@
         padding: 14px 0px 0px 0px;
       }
     }
+
+    .panel-bottom-link {
+      margin: 0;
+    }
+
+    .all-link-arrow {
+      display: initial;
+    }
+
+    .panel-top-link {
+      display: none !important;
+    }
+
+    .vetnav-level2 {
+      width: 24.3rem;
+    }
   }
 
   .panel-title {
     font-weight: bold;
     color: $color-black;
-  }
-
-  .vetnav-level2 {
-    width: 24.3rem;
   }
 
   a.vetnav-level1 {
@@ -111,37 +198,6 @@
     &.panel-white {
       background-color: $color-white;
     }
-  }
-
-  .panel-bottom-link {
-    position: absolute;
-    height: 60px;
-    width: 711px;
-    left: 28rem;
-    border-bottom: 1px solid #d0d0d0;
-    z-index: 3;
-    top: 0;
-
-    a {
-      background-size: 13px;
-      font-weight: bold;
-      padding: 20px 0px;
-      display: inline-block;
-      padding-right: 25px;
-
-      img {
-        width: 11px;
-        margin-left: 5px;
-      }
-    }
-  }
-
-  .panel-top-link {
-    display: none;
-  }
-
-  .back-button {
-    display: none;
   }
 
   .mm-marketing-container {
@@ -169,6 +225,14 @@
   }
 
   @include media($medium-large-screen) {
+    .panel-top-link {
+      display: none;
+    }
+
+    .back-button {
+      display: none;
+    }
+
     .vetnav-panel--submenu:not([hidden]) {
       h3 {
         font-family: Source Sans Pro, sans serif;
@@ -189,16 +253,6 @@
     }
   }
 
-  .current-page {
-    border-bottom: 5px solid;
-    border-color: $color-blue;
-    margin-left: 1.6rem;
-    margin-right: 1.6rem;
-    a {
-      padding: 1.6rem 0;
-    }
-  }
-
   .mm-marketing-container {
     height: 350px;
 
@@ -207,95 +261,80 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .panel-bottom-link {
-      position: unset;
-      height: 25px;
-      margin-left: 10px;
-      margin-bottom: 3px;
-      border: none;
 
+  @include media($medium-large-screen) {
+    .current-page {
+      border-bottom: 5px solid;
+      border-color: $color-blue;
+      margin-left: 1.6rem;
+      margin-right: 1.6rem;
       a {
-        padding: 20px 25px 20px 7px;
-        width: 111%;
-
-        img {
-          width: 15px;
-        }
+        padding: 1.6rem 0;
       }
+    }
+
+    .vetnav-panel {
+      width: $medium-large-screen;
+      height: 380px;
+    }
+
+    .column-one {
+      width: 39rem;
+    }
+
+    .column-two {
+      width: 39rem;
     }
 
     .column-three {
       display: none;
     }
 
-    .vetnav-level2 {
-      width: 100%;
-    }
-
-    .panel-top-link {
-      &:nth-of-type(1) {
-        display: block;
-        font-weight: bold;
-        padding-top: 15px;
-      }
-    }
-
-    .vetnav-panel--submenu:not([hidden]) {
-      position: initial;
-
-      h3 {
-        display: none;
-      }
-    }
-
-    .back-button {
-      display: block;
-    }
-
-    .vetnav-panel {
-      height: auto;
-    }
-
-    .mm-link-container-small {
-      background: $color-primary-darkest;
-      height: 100%;
+    .panel-bottom-link {
       position: absolute;
-      width: 100%;
+      height: 60px;
+      width: $medium-large-screen - 297px;
+      left: 28rem;
+      border-bottom: 1px solid #d0d0d0;
+      z-index: 3;
       top: 0;
-      z-index: 200;
+
+      a {
+        background-size: 13px;
+        padding: 20px 0px;
+        display: inline-block;
+        padding-right: 25px;
+
+        img {
+          width: 11px;
+          margin-left: 5px;
+        }
+      }
     }
 
-    .all-link-arrow {
-      display: none;
-    }
   }
 
-  // IPad: fix for weirdness at 768 breakpoint on IPad
-  @media (min-width:768px) and (max-width:769px) {
-    .panel-bottom-link {
-      position: absolute;
-    }
-
-    .vetnav-panel--submenu:not([hidden]) {
-      position: absolute;
-      padding: 35px 0px 0px 28px;
-    }
-
+  @include media($small-desktop-screen) {
     .vetnav-panel {
-      height: 380px;
-    }
-
-    .mm-link-container {
-      width: 210px;
-
-      &[role="menuitem"] {
-        width: 243px;
-      }
+      width: $small-desktop-screen;
+      height: 460px;
     }
 
     .panel-bottom-link {
-      left: 26rem;
+      position: absolute;
+      width: $small-desktop-screen - 297px;
+    }
+
+    .column-one {
+      width: 26rem;
+    }
+
+    .column-two {
+      width: 26rem;
+    }
+
+    .column-three {
+      display: block;
     }
   }
 }
