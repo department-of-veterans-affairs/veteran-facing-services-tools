@@ -1,4 +1,4 @@
-Version 1.7.8
+Version 1.7.9
 
 This module contains reusable react components from [vets-website](https://github.com/department-of-veterans-affairs/vets-website) housed in its design system [repo](https://github.com/department-of-veterans-affairs/design-system).
 
