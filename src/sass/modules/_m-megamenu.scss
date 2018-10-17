@@ -72,6 +72,10 @@
     }
   }
 
+  .mm-links {
+    white-space: pre-wrap;
+  }
+
   @include media($medium-large-screen) {
     min-height: 51px;
 
