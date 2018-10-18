@@ -268,8 +268,7 @@
 
   @include media($medium-large-screen) {
     .current-page {
-      border-bottom: 5px solid;
-      border-color: $color-blue;
+      box-shadow: inset 0 -5px 0 $color-blue;
       margin-left: 1.6rem;
       margin-right: 1.6rem;
       a {
