@@ -7625,6 +7625,9 @@ button,
 .usa-accordion .usa-button-secondary:focus {
   box-shadow: inset 0 0 0 2px #112e51, 0 0 3px #3e94cf, 0 0 7px #3e94cf; }
 
+.usa-accordion-button:active {
+  background-color: inherit; }
+
 .usa-button-secondary-exit::after {
   background-image: url(/img/icons/exit-icon-primary.png);
   background-size: 1em auto;
