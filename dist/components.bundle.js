@@ -13593,19 +13593,15 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var onSmallScreen = function onSmallScreen() {
-  if (document.body.clientWidth < 768) {
+  if (window.innerWidth < 768) {
     return true;
   }
 
   return false;
 };
 
-var onSmallDesktopOrLargeTablet = function onSmallDesktopOrLargeTablet() {
-  return !onSmallScreen() && document.body.clientWidth < 1008;
-};
-
 var getColumns = function getColumns(columns) {
-  if (onSmallScreen()) {
+  if (window.innerWidth < 768) {
     return {
       columnOne: {
         title: columns.columnOne.title,
@@ -13667,7 +13663,6 @@ var SubMenu = function SubMenu(_ref) {
           navTitle: navTitle,
           panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn'),
           linkClicked: linkClicked,
-          hidden: keyName === 'columnThree' && onSmallDesktopOrLargeTablet(),
           columnThreeLinkClicked: columnThreeLinkClicked });
       })
     );
@@ -31543,7 +31538,7 @@ var MegaMenuExample = function (_React$Component) {
   _createClass(MegaMenuExample, [{
     key: 'toggleDisplayHidden',
     value: function toggleDisplayHidden(hidden) {
-      if (document.body.clientWidth > 768) {
+      if (window.innerWidth > 768) {
         this.setState({
           display: {}
         });
@@ -34997,7 +34992,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var isPanelWhite = function isPanelWhite(panelWhite) {
-  if (document.body.clientWidth < 768) {
+  if (window.innerWidth < 768) {
     return '';
   }
 
@@ -35009,15 +35004,13 @@ var Column = function Column(props) {
       keyName = props.keyName,
       panelWhite = props.panelWhite,
       columnThreeLinkClicked = props.columnThreeLinkClicked,
-      linkClicked = props.linkClicked,
-      hidden = props.hidden;
+      linkClicked = props.linkClicked;
 
 
   if (keyName === 'columnThree') {
     return _react2.default.createElement(
       'div',
       {
-        'aria-hidden': hidden ? 'true' : 'false',
         className: 'vetnav-panel vetnav-panel--submenu ' + (0, _kebabCase3.default)(keyName) + isPanelWhite(panelWhite),
         'aria-label': keyName },
       _react2.default.createElement(
@@ -35044,7 +35037,7 @@ var Column = function Column(props) {
 
   return _react2.default.createElement(
     'div',
-    { 'aria-hidden': hidden ? 'true' : 'false', className: 'vetnav-panel vetnav-panel--submenu ' + (0, _kebabCase3.default)(keyName) + isPanelWhite(panelWhite) },
+    { className: 'vetnav-panel vetnav-panel--submenu ' + (0, _kebabCase3.default)(keyName) + isPanelWhite(panelWhite) },
     _react2.default.createElement(
       'h3',
       { id: 'vetnav-' + (0, _kebabCase3.default)(keyName) + '-header' },
@@ -35115,7 +35108,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var defaultSection = function defaultSection(sections) {
-  if (document.body.clientWidth < 768) {
+  if (window.innerWidth < 768) {
     return '';
   }
 
@@ -35136,14 +35129,14 @@ var MegaMenu = function (_React$Component) {
       }
     };
 
-    _this.originalSize = document.body.clientWidth;
+    _this.originalSize = window.innerWidth;
     return _this;
   }
 
   _createClass(MegaMenu, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (document.body.clientWidth < 768) {
+      if (window.innerWidth < 768) {
         this.props.toggleDisplayHidden(true);
       }
 
@@ -35166,7 +35159,7 @@ var MegaMenu = function (_React$Component) {
     value: function getSubmenu(item, currentSection) {
       var _this2 = this;
 
-      if (document.body.clientWidth < 768) {
+      if (window.innerWidth < 768) {
         var menuSections = [item.menuSections.mainColumn, item.menuSections.columnOne, item.menuSections.columnTwo].reduce(function (acc, column) {
           acc.push({
             title: column.title,
@@ -35213,16 +35206,16 @@ var MegaMenu = function (_React$Component) {
   }, {
     key: 'resetDefaultState',
     value: function resetDefaultState() {
-      if (this.originalSize !== document.body.clientWidth) {
-        if (document.body.clientWidth > 768) {
+      if (this.originalSize !== window.innerWidth) {
+        if (window.innerWidth > 768) {
           this.props.toggleDisplayHidden(false);
         } else {
           this.props.toggleDisplayHidden(true);
         }
-        this.props.updateCurrentSection('');
-        this.props.toggleDropDown('');
-        this.originalSize = document.body.clientWidth;
       }
+
+      this.props.updateCurrentSection('');
+      this.props.toggleDropDown('');
     }
   }, {
     key: 'toggleDropDown',
@@ -35238,7 +35231,7 @@ var MegaMenu = function (_React$Component) {
     value: function updateCurrentSection(title) {
       var sectionTitle = title;
 
-      if (document.body.clientWidth < 768) {
+      if (window.innerWidth < 768) {
         sectionTitle = this.props.currentSection === title ? '' : title;
       }
 
@@ -35411,7 +35404,7 @@ var MenuSection = function (_React$Component) {
   }, {
     key: 'updateCurrentSection',
     value: function updateCurrentSection() {
-      if (document.body.clientWidth < 768) {
+      if (window.innerWidth === 768) {
         this.setState({
           title: {
             hidden: true
@@ -35426,7 +35419,7 @@ var MenuSection = function (_React$Component) {
     value: function handleBackToMenu() {
       this.updateCurrentSection('');
 
-      if (document.body.clientWidth < 768) {
+      if (window.innerWidth === 768) {
         this.setState({
           title: {}
         });
