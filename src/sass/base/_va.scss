@@ -762,12 +762,18 @@ li {
   @include media($medium-large-screen) {
     background: $color-gray-lightest;
     .usa-banner-inner {
-      padding-left: 0;
+      padding-left: 1.5rem;
     }
 
     .usa-banner-content {
       padding-left: 0;
       padding-right: 0;
+    }
+  }
+
+  @include media($small-desktop-screen) {
+    .usa-banner-inner {
+      padding-left: 0rem;
     }
   }
 
