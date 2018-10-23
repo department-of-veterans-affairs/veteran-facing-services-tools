@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Column from './Column';
 import _ from 'lodash';
+import { ArrowRightBlueSVG }  from './arrow-right-blue';
 
 const onSmallScreen = () => {
   if (document.body.clientWidth < 768) {
@@ -52,7 +53,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnTh
           seeAllLink && <div className="panel-bottom-link">
             <a href={seeAllLink.href} onClick={linkClicked.bind(null, seeAllLink)}>
               View All in {seeAllLink.text}
-              <img className="all-link-arrow" src="/img/arrow-right-blue.svg" alt="right-arrow"></img>
+              <ArrowRightBlueSVG/>
             </a>
           </div>
         }

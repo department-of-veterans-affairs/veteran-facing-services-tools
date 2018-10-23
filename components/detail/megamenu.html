@@ -693,7 +693,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.8</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.8</span><span class="hljs-number">.4</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -723,6 +723,8 @@ export default class MegaMenuExample extends React.Component {
                 <option value="file-cb17a0518807965f534842faa73e82b0">MenuSection.jsx</option>
                 
                 <option value="file-36cdd6c09846c41b5f01e725e067ff2a">SubMenu.jsx</option>
+                
+                <option value="file-81efe2bb397518541354cc1a4cf04a46">arrow-right-blue.jsx</option>
                 
             </select>
         </div>
@@ -1528,6 +1530,7 @@ MenuSection.propTypes = {
 <span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> Column <span class="hljs-keyword">from</span> <span class="hljs-string">'./Column'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+<span class="hljs-keyword">import</span> { ArrowRightBlueSVG }  <span class="hljs-keyword">from</span> <span class="hljs-string">'./arrow-right-blue'</span>;
 
 <span class="hljs-keyword">const</span> onSmallScreen = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">768</span>) {
@@ -1578,7 +1581,7 @@ MenuSection.propTypes = {
           seeAllLink &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"panel-bottom-link"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">{seeAllLink.href}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{linkClicked.bind(null,</span> <span class="hljs-attr">seeAllLink</span>)}&gt;</span>
               View All in {seeAllLink.text}
-              <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"all-link-arrow"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/arrow-right-blue.svg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"right-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">img</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ArrowRightBlueSVG</span>/&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         }
@@ -1632,6 +1635,46 @@ SubMenu.propTypes = {
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
                     <span class="Meta-value">2.4 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-81efe2bb397518541354cc1a4cf04a46" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JSX FileBrowser-code">
+                                <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ArrowRightBlueSVG = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+    <span class="hljs-attr">width</span>=<span class="hljs-string">"444.819"</span>
+    <span class="hljs-attr">height</span>=<span class="hljs-string">"444.819"</span>
+    <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 444.819 444.819"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">"#004795"</span>
+      <span class="hljs-attr">d</span>=<span class="hljs-string">"M352.025 196.712L165.885 10.848C159.028 3.615 150.468 0 140.185 0s-18.84 3.62-25.696 10.848l-21.7 21.416c-7.045 7.043-10.567 15.604-10.567 25.692 0 9.897 3.52 18.56 10.566 25.98L231.544 222.41 92.785 361.168c-7.04 7.043-10.563 15.604-10.563 25.693 0 9.9 3.52 18.566 10.564 25.98l21.7 21.417c7.043 7.043 15.612 10.564 25.697 10.564 10.09 0 18.656-3.52 25.697-10.564L352.025 248.39c7.046-7.423 10.57-16.084 10.57-25.98.002-10.09-3.524-18.655-10.57-25.698z"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>);
+</span></pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/megamenu/arrow-right-blue.jsx"><span>/components/raw/megamenu/arrow-right-blue.jsx</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">src/components/navigation/MegaMenu/arrow-right-blue.jsx</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">660 Bytes</span>
                 </li>
             </ul>
         </div>
