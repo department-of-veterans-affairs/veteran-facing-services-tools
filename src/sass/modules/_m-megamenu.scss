@@ -308,9 +308,11 @@
         display: inline-block;
         padding-right: 25px;
 
-        img {
+        svg {
+          height: 11px;
           width: 11px;
           margin-left: 5px;
+          vertical-align: middle;
         }
       }
     }
