@@ -6406,7 +6406,6 @@ a[href^="http"]:not([href*="va.gov"]):not([href*="vets.gov"]):not(.no-external-i
       position: relative;
       min-height: 159px; } }
   .header .login-container {
-    z-index: 2;
     background: #112e51;
     flex-wrap: wrap;
     white-space: nowrap; }
@@ -6761,10 +6760,13 @@ li span.meta {
     .va-notice--banner {
       background: #f1f1f1; }
       .va-notice--banner .usa-banner-inner {
-        padding-left: 0; }
+        padding-left: 1.5rem; }
       .va-notice--banner .usa-banner-content {
         padding-left: 0;
         padding-right: 0; } }
+  @media screen and (min-width: 1008px) {
+    .va-notice--banner .usa-banner-inner {
+      padding-left: 0rem; } }
   .va-notice--banner-inner {
     margin: auto;
     max-width: 97.5rem;
@@ -7625,6 +7627,9 @@ button,
 .usa-accordion .usa-button-secondary:focus {
   box-shadow: inset 0 0 0 2px #112e51, 0 0 3px #3e94cf, 0 0 7px #3e94cf; }
 
+.usa-accordion-button:active {
+  background-color: inherit; }
+
 .usa-button-secondary-exit::after {
   background-image: url(/img/icons/exit-icon-primary.png);
   background-size: 1em auto;
@@ -7965,7 +7970,6 @@ body.va-pos-fixed {
 
 #vetnav {
   background-color: #112e51;
-  left: -0.9rem;
   overflow-y: scroll;
   position: absolute;
   width: 100%;
@@ -9294,93 +9298,125 @@ button.va-modal-close {
   color: #0071BB;
   width: 100%;
   z-index: 2; }
+  #mega-menu .panel-bottom-link {
+    position: unset;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    border: none; }
+    #mega-menu .panel-bottom-link a {
+      padding: 20px 25px 20px 7px;
+      font-weight: bold;
+      width: 111%; }
+      #mega-menu .panel-bottom-link a img {
+        width: 15px; }
+  #mega-menu .column-three {
+    display: none; }
+  #mega-menu .vetnav-level2 {
+    width: 100%; }
+  #mega-menu .panel-top-link:nth-of-type(1) {
+    display: block;
+    font-weight: bold;
+    padding-top: 15px; }
+  #mega-menu .vetnav-panel--submenu:not([hidden]) {
+    position: static; }
+    #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+      display: none; }
+  #mega-menu .back-button {
+    display: block; }
+  #mega-menu .vetnav-panel {
+    height: auto; }
+  #mega-menu .mm-link-container-small {
+    background: #112e51;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 200; }
+  #mega-menu .all-link-arrow {
+    display: none; }
+  #mega-menu .vetnav-level1:active, #mega-menu .vetnav-level1:visited, #mega-menu .vetnav-level1:focus, #mega-menu .vetnav-level1:hover {
+    color: #fff; }
+  #mega-menu .mm-links {
+    white-space: pre-wrap; }
   @media screen and (min-width: 768px) {
-    #mega-menu .vetnav-panel--submenu:not([hidden]) {
-      box-shadow: none;
-      width: 26rem;
-      padding: 72px 0px 0px 28px;
-      white-space: normal; }
-      #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
-        color: #000;
-        font-family: Source Sans Pro, sans serif;
-        font-size: 1.6rem;
-        font-weight: bold;
-        margin-top: 4px;
-        padding: 0; }
-      #mega-menu .vetnav-panel--submenu:not([hidden]).panel-white {
-        padding-top: 22px; }
-    #mega-menu .vetnav-level1[aria-expanded="true"] {
-      border-top-color: #988530; }
-    #mega-menu .vetnav-level2[aria-expanded="true"] {
-      box-shadow: -3px 0 #988530; }
-    #mega-menu .vetnav-panel {
-      box-shadow: 0 7px 25px -11px #000;
-      height: 460px;
-      width: 1008px;
-      left: 0; }
-      #mega-menu .vetnav-panel .mm-links {
-        padding: 5px 0px; }
-      #mega-menu .vetnav-panel .mm-link-container {
-        width: 225px;
-        margin-bottom: 0; }
-    #mega-menu .column-one {
-      left: 20px; }
-      #mega-menu .column-one.panel-white {
-        background-color: #fff;
-        border-left: none; }
-    #mega-menu .column-two {
-      border-left: none;
-      left: 280px; }
-      #mega-menu .column-two.panel-white {
-        background-color: #fff;
-        border-left: none; }
-    #mega-menu .column-three {
-      border-left: none;
-      color: #000;
-      left: 540px;
-      white-space: normal; }
-      #mega-menu .column-three.vetnav-panel--submenu:not([hidden]) {
-        padding: 86px 20px 20px 14px;
-        width: 24rem; }
-        #mega-menu .column-three.vetnav-panel--submenu:not([hidden]).panel-white {
-          padding-top: 30px;
+    #mega-menu {
+      min-height: 51px; }
+      #mega-menu .vetnav-panel--submenu:not([hidden]) {
+        position: absolute;
+        box-shadow: none;
+        width: 26rem;
+        padding: 72px 0px 0px 28px;
+        white-space: normal; }
+        #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
+          display: initial;
+          color: #000;
+          font-family: Source Sans Pro, sans serif;
+          font-size: 1.6rem;
+          font-weight: bold;
+          margin-top: 4px;
+          padding: 0; }
+        #mega-menu .vetnav-panel--submenu:not([hidden]).panel-white {
+          padding-top: 22px; }
+      #mega-menu .vetnav-level1[aria-expanded="true"] {
+        border-top-color: #988530; }
+        #mega-menu .vetnav-level1[aria-expanded="true"]:active, #mega-menu .vetnav-level1[aria-expanded="true"]:visited, #mega-menu .vetnav-level1[aria-expanded="true"]:focus, #mega-menu .vetnav-level1[aria-expanded="true"]:hover {
+          color: #212121; }
+      #mega-menu .vetnav-level2[aria-expanded="true"] {
+        box-shadow: -3px 0 #988530; }
+      #mega-menu .vetnav-panel {
+        box-shadow: 0 7px 25px -11px #000;
+        height: 460px;
+        width: 1008px;
+        left: 0; }
+        #mega-menu .vetnav-panel .mm-links {
+          padding: 5px 0px; }
+        #mega-menu .vetnav-panel .mm-link-container {
+          width: 225px;
+          margin-bottom: 0; }
+      #mega-menu .column-one {
+        left: 20px; }
+        #mega-menu .column-one.panel-white {
           background-color: #fff;
           border-left: none; }
-      #mega-menu .column-three a {
-        font-weight: bold;
-        padding: 14px 0px 0px 0px; } }
+      #mega-menu .column-two {
+        border-left: none;
+        left: 280px; }
+        #mega-menu .column-two.panel-white {
+          background-color: #fff;
+          border-left: none; }
+      #mega-menu .column-three {
+        border-left: none;
+        color: #000;
+        left: 540px;
+        white-space: normal; }
+        #mega-menu .column-three.vetnav-panel--submenu:not([hidden]) {
+          padding: 86px 20px 20px 14px;
+          width: 24rem; }
+          #mega-menu .column-three.vetnav-panel--submenu:not([hidden]).panel-white {
+            padding-top: 30px;
+            background-color: #fff;
+            border-left: none; }
+        #mega-menu .column-three a {
+          font-weight: bold;
+          padding: 14px 0px 0px 0px; }
+      #mega-menu .panel-bottom-link {
+        margin: 0; }
+      #mega-menu .all-link-arrow {
+        display: initial; }
+      #mega-menu .panel-top-link {
+        display: none !important; }
+      #mega-menu .vetnav-level2 {
+        width: 24.3rem; } }
   #mega-menu .panel-title {
     font-weight: bold;
     color: #000; }
-  #mega-menu .vetnav-level2 {
-    width: 24.3rem; }
   #mega-menu a.vetnav-level1 {
     color: #fff; }
   #mega-menu .main-column {
     left: -230px; }
     #mega-menu .main-column.panel-white {
       background-color: #fff; }
-  #mega-menu .panel-bottom-link {
-    position: absolute;
-    height: 60px;
-    width: 711px;
-    left: 28rem;
-    border-bottom: 1px solid #d0d0d0;
-    z-index: 3;
-    top: 0; }
-    #mega-menu .panel-bottom-link a {
-      background-size: 13px;
-      font-weight: bold;
-      padding: 20px 0px;
-      display: inline-block;
-      padding-right: 25px; }
-      #mega-menu .panel-bottom-link a img {
-        width: 11px;
-        margin-left: 5px; }
-  #mega-menu .panel-top-link {
-    display: none; }
-  #mega-menu .back-button {
-    display: none; }
   #mega-menu .mm-marketing-container {
     background-color: #fff;
     height: 350px;
@@ -9394,6 +9430,10 @@ button.va-modal-close {
   #mega-menu #vetnav-column-one-col .panel-bottom-link {
     width: 200%; }
   @media screen and (min-width: 768px) {
+    #mega-menu .panel-top-link {
+      display: none; }
+    #mega-menu .back-button {
+      display: none; }
     #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
       font-family: Source Sans Pro, sans serif;
       font-size: 1.6rem; } }
@@ -9403,65 +9443,54 @@ button.va-modal-close {
     margin-left: auto; }
     #mega-menu .my-va-top-nav.current-page {
       margin-left: auto; }
-  #mega-menu .current-page {
-    border-bottom: 5px solid;
-    border-color: #0071BB;
-    margin-left: 1.6rem;
-    margin-right: 1.6rem; }
-    #mega-menu .current-page a {
-      padding: 1.6rem 0; }
   #mega-menu .mm-marketing-container {
     height: 350px; }
     #mega-menu .mm-marketing-container p {
       margin-top: 5px; }
-  @media (max-width: 768px) {
-    #mega-menu .panel-bottom-link {
-      position: unset;
-      height: 25px;
-      margin-left: 10px;
-      margin-bottom: 3px;
-      border: none; }
-      #mega-menu .panel-bottom-link a {
-        padding: 20px 25px 20px 7px;
-        width: 111%; }
-        #mega-menu .panel-bottom-link a img {
-          width: 15px; }
+  @media screen and (min-width: 768px) {
+    #mega-menu .current-page {
+      box-shadow: inset 0 -5px 0 #0071BB;
+      margin-left: 1.6rem;
+      margin-right: 1.6rem; }
+      #mega-menu .current-page a {
+        padding: 1.6rem 0; }
+    #mega-menu .vetnav-panel {
+      width: 768px;
+      height: 380px; }
+    #mega-menu .column-one {
+      width: 39rem; }
+    #mega-menu .column-two {
+      width: 39rem; }
     #mega-menu .column-three {
       display: none; }
-    #mega-menu .vetnav-level2 {
-      width: 100%; }
-    #mega-menu .panel-top-link:nth-of-type(1) {
-      display: block;
-      font-weight: bold;
-      padding-top: 15px; }
-    #mega-menu .vetnav-panel--submenu:not([hidden]) {
-      position: initial; }
-      #mega-menu .vetnav-panel--submenu:not([hidden]) h3 {
-        display: none; }
-    #mega-menu .back-button {
-      display: block; }
-    #mega-menu .vetnav-panel {
-      height: auto; }
-    #mega-menu .mm-link-container-small {
-      background: #112e51;
-      height: 100%;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      z-index: 200; }
-    #mega-menu .all-link-arrow {
-      display: none; } }
-  @media (min-width: 768px) and (max-width: 769px) {
     #mega-menu .panel-bottom-link {
-      position: absolute; }
-    #mega-menu .vetnav-panel--submenu:not([hidden]) {
       position: absolute;
-      padding: 35px 0px 0px 28px; }
+      height: 60px;
+      width: 471px;
+      left: 28rem;
+      border-bottom: 1px solid #d0d0d0;
+      z-index: 3;
+      top: 0; }
+      #mega-menu .panel-bottom-link a {
+        background-size: 13px;
+        padding: 20px 0px;
+        display: inline-block;
+        padding-right: 25px; }
+        #mega-menu .panel-bottom-link a svg {
+          height: 11px;
+          width: 11px;
+          margin-left: 5px;
+          vertical-align: middle; } }
+  @media screen and (min-width: 1008px) {
     #mega-menu .vetnav-panel {
-      height: 380px; }
-    #mega-menu .mm-link-container {
-      width: 210px; }
-      #mega-menu .mm-link-container[role="menuitem"] {
-        width: 243px; }
+      width: 1008px;
+      height: 460px; }
     #mega-menu .panel-bottom-link {
-      left: 26rem; } }
+      position: absolute;
+      width: 711px; }
+    #mega-menu .column-one {
+      width: 26rem; }
+    #mega-menu .column-two {
+      width: 26rem; }
+    #mega-menu .column-three {
+      display: block; } }
