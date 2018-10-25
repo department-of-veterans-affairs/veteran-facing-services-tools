@@ -33470,6 +33470,8 @@ var ErrorableFileInput = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var errorSpan = '';
       var errorSpanId = undefined;
       var inputErrorClass = undefined;
@@ -33523,6 +33525,11 @@ var ErrorableFileInput = function (_React$Component) {
               role: 'button',
               tabIndex: '0',
               htmlFor: this.inputId,
+              onKeyPress: function onKeyPress(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  document.getElementById(_this2.inputId).click();
+                }
+              },
               'aria-describedby': this.props['aria-describedby'],
               className: this.props.triggerClass || 'usa-button usa-button-secondary' },
             this.props.buttonText
