@@ -1,0 +1,34 @@
+.hub-page-link-list {
+  // override default ul styles
+  list-style: none;
+  padding: 0;
+  .hub-page-link-list--item {
+    margin-bottom: 1em;
+    margin: 1.6rem 0;
+    > a {
+      text-decoration: none;
+      &:hover, &:focus {
+        .all-link-arrow {
+          margin-left: 10px;
+          content: url("/img/arrow-right.svg");
+        }
+        .hub-page-link-list--header {
+          text-decoration: underline;
+        }
+      }
+      .all-link-arrow {
+        width: 11px;
+        margin-left: 5px;
+        transition: all 0.15s ease;
+        margin-bottom: 2px;
+      }
+    }
+    .hub-page-link-list--description {
+      color: $color-black;
+      margin: 0;
+    }
+  }
+  .hub-page-link-list--header {
+    font-weight: bold;
+  }
+}

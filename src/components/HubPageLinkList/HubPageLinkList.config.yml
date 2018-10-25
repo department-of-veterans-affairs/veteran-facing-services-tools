@@ -1,0 +1,14 @@
+label: Hub Page link List
+status: wip
+collated: true
+order: 0
+preview: '@uswds-framed'
+context:
+  title: Get Veterans Burial Benefits
+  links:
+    - url: "/burials-memorials/eligibility/"
+      label: Eligibility
+      description: Find out if you qualify for burial in a VA national cemetery and for other burial honors.
+    - url: "/burials-memorials/pre-need-eligibility/"
+      label: Pre-Need Burial Eligibility Determination
+      description: Apply for a pre-need eligibility decision letter. This can help you pre-plan for burial in a VA national cemetery, and make the process easier for your family members in their time of need.
