@@ -35505,6 +35505,7 @@ var ArrowRightBlueSVG = exports.ArrowRightBlueSVG = function ArrowRightBlueSVG()
   return _react2.default.createElement(
     "svg",
     {
+      className: "all-link-arrow",
       width: "444.819",
       height: "444.819",
       viewBox: "0 0 444.819 444.819" },
