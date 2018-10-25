@@ -2,7 +2,7 @@
   // override default ul styles
   list-style: none;
   padding: 0;
-  .hub-page-link-list--item {
+  .hub-page-link-list__item {
     margin-bottom: 1em;
     margin: 1.6rem 0;
     > a {
@@ -12,7 +12,7 @@
           margin-left: 10px;
           content: url("/img/arrow-right.svg");
         }
-        .hub-page-link-list--header {
+        .hub-page-link-list__header {
           text-decoration: underline;
         }
       }
@@ -23,12 +23,12 @@
         margin-bottom: 2px;
       }
     }
-    .hub-page-link-list--description {
+    .hub-page-link-list__description {
       color: $color-black;
       margin: 0;
     }
   }
-  .hub-page-link-list--header {
+  .hub-page-link-list__header {
     font-weight: bold;
   }
 }

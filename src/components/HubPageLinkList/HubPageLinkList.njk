@@ -1,15 +1,15 @@
-<h2 class="hub-page-link-list--title">
+<h2 class="hub-page-link-list__title">
  {{ title }}
 </h2>
 <ul id="get" class="hub-page-link-list">
 {% for link in links %}
-  <li class="hub-page-link-list--item">
+  <li class="hub-page-link-list__item">
     <a href="{{ link.url }}">
-      <span class="hub-page-link-list--header">
+      <span class="hub-page-link-list__header">
        {{ link.label }}
        <img class="all-link-arrow" src="/img/arrow-right-blue.svg" alt="right-arrow" /> 
       </span>
-      <p class="hub-page-link-list--description">
+      <p class="hub-page-link-list__description">
       {{ link.description }}
       </p>
     </a>
