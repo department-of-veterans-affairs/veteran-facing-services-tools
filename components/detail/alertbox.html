@@ -181,15 +181,15 @@
               <td>Yes</td>
               <td>enum</td>
               <td></td>
-              <td>determines the color of the alert box: blue, red, green, yellow respectively</td>
+              <td>Determines the color and icon of the alert box.</td>
             </tr>
           
             <tr>
               <td>isVisible</td>
-              <td>Yes</td>
+              <td>No</td>
               <td>bool</td>
-              <td></td>
-              <td>is the alert visible? useful for alerts triggered by app interaction</td>
+              <td>true</td>
+              <td>Show or hide the alert. Useful for alerts triggered by app interaction.</td>
             </tr>
           
             <tr>
@@ -197,8 +197,7 @@
               <td>No</td>
               <td>node</td>
               <td></td>
-              <td>This is the body content of the alert, which can also be passed via
-children</td>
+              <td>Body content of the alert, which can also be passed via children.</td>
             </tr>
           
             <tr>
@@ -206,7 +205,7 @@ children</td>
               <td>No</td>
               <td>node</td>
               <td></td>
-              <td>optional headline</td>
+              <td>Optional headline.</td>
             </tr>
           
             <tr>
@@ -214,7 +213,7 @@ children</td>
               <td>No</td>
               <td>func</td>
               <td></td>
-              <td>this is useful if the alerbox can be dismissed or closed</td>
+              <td>Close event handler if the alert  can be dismissed or closed.</td>
             </tr>
           
             <tr>
@@ -222,7 +221,7 @@ children</td>
               <td>No</td>
               <td>bool</td>
               <td></td>
-              <td>if true, page scrolls to alert when it is shown</td>
+              <td>If true, page scrolls to alert when it is shown.</td>
             </tr>
           
             <tr>
@@ -230,7 +229,7 @@ children</td>
               <td>No</td>
               <td>string</td>
               <td></td>
-              <td>Optional class name to add to the alert box</td>
+              <td>Optional class name to add to the alert box.</td>
             </tr>
           
         </table>
@@ -244,28 +243,55 @@ children</td>
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"alertbox"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-whole"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Informational alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-warning"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-alert-title"</span>&gt;</span>Default alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin
-                auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Warning alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-error"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-alert-title"</span>&gt;</span>Default alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin
-                auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Error alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-success"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-alert-title"</span>&gt;</span>Default alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin
-                auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Success alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-continue"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Continue alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-info"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-alert-title"</span>&gt;</span>Default alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin
-                auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>Dismissable alert<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-alert-close"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close notification"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>Content without heading.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -274,14 +300,14 @@ children</td>
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.9.0"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.10.0"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"./AlertBox.jsx"</span>,
-        <span class="hljs-string">"headline"</span>: <span class="hljs-string">"Default alert"</span>,
+        <span class="hljs-string">"headline"</span>: <span class="hljs-string">"Informational alert"</span>,
         <span class="hljs-string">"content"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis."</span>,
-        <span class="hljs-string">"status"</span>: <span class="hljs-string">"warning"</span>,
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"info"</span>,
         <span class="hljs-string">"isVisible"</span>: <span class="hljs-literal">true</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
@@ -304,20 +330,35 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
         <span class="hljs-built_in">status</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">status</span>}
         isVisible={<span class="hljs-built_in">props</span>.isVisible}/&gt;
       &lt;AlertBox
-        headline={<span class="hljs-built_in">props</span>.headline}
+        headline=<span class="hljs-string">"Warning alert"</span>
         <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
-        <span class="hljs-built_in">status</span>={'<span class="hljs-built_in">error</span>'}
-        isVisible={<span class="hljs-built_in">props</span>.isVisible}/&gt;
+        <span class="hljs-built_in">status</span>=<span class="hljs-string">"warning"</span>/&gt;
       &lt;AlertBox
-        headline={<span class="hljs-built_in">props</span>.headline}
+        headline=<span class="hljs-string">"Error alert"</span>
         <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
-        <span class="hljs-built_in">status</span>={'success'}
-        isVisible={<span class="hljs-built_in">props</span>.isVisible}/&gt;
+        <span class="hljs-built_in">status</span>=<span class="hljs-string">"error"</span>/&gt;
       &lt;AlertBox
-        headline={<span class="hljs-built_in">props</span>.headline}
+        headline=<span class="hljs-string">"Success alert"</span>
         <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
-        <span class="hljs-built_in">status</span>={'info'}
-        isVisible={<span class="hljs-built_in">props</span>.isVisible}/&gt;
+        <span class="hljs-built_in">status</span>=<span class="hljs-string">"success"</span>/&gt;
+      &lt;AlertBox
+        headline=<span class="hljs-string">"Continue alert"</span>
+        <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
+        <span class="hljs-built_in">status</span>=<span class="hljs-string">"continue"</span>/&gt;
+      &lt;AlertBox
+        headline=<span class="hljs-string">"Dismissable alert"</span>
+        <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
+        <span class="hljs-built_in">status</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">status</span>}
+        isVisible={<span class="hljs-built_in">props</span>.isVisible}
+        onCloseAlert={() =&gt; {}}/&gt;
+      &lt;AlertBox
+        headline=<span class="hljs-string">"Hidden alert"</span>
+        <span class="hljs-built_in">content</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">content</span>}
+        <span class="hljs-built_in">status</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">status</span>}
+        isVisible={<span class="hljs-literal">false</span>}/&gt;
+      &lt;AlertBox
+        <span class="hljs-built_in">content</span>={&lt;p className=<span class="hljs-string">"usa-alert-text"</span>&gt;Content without heading.&lt;/p&gt;}
+        <span class="hljs-built_in">status</span>={<span class="hljs-built_in">props</span>.<span class="hljs-built_in">status</span>}/&gt;
     &lt;/div&gt;
   );
 }</pre>
@@ -331,17 +372,17 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.9</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.10</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./AlertBox.jsx</span>
-<span class="hljs-attr">headline:</span> <span class="hljs-string">Default</span> <span class="hljs-string">alert</span>
+<span class="hljs-attr">headline:</span> <span class="hljs-string">Informational</span> <span class="hljs-string">alert</span>
 <span class="hljs-attr">content:</span> <span class="hljs-string">&gt;-</span>
   <span class="hljs-string">Lorem</span> <span class="hljs-string">ipsum</span> <span class="hljs-string">dolor</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet,</span> <span class="hljs-string">consectetur</span> <span class="hljs-string">adipiscing</span> <span class="hljs-string">elit.</span> <span class="hljs-string">Aliquam</span> <span class="hljs-string">id</span> <span class="hljs-string">felis</span>
   <span class="hljs-string">pulvinar</span> <span class="hljs-string">ligula</span> <span class="hljs-string">ultricies</span> <span class="hljs-string">sollicitudin</span> <span class="hljs-string">eget</span> <span class="hljs-string">nec</span> <span class="hljs-string">dui.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">augue</span> <span class="hljs-string">velit,</span>
   <span class="hljs-string">pellentesque</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet</span> <span class="hljs-string">nisl</span> <span class="hljs-string">ut,</span> <span class="hljs-string">tristique</span> <span class="hljs-string">suscipit</span> <span class="hljs-string">sem.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">sollicitudin</span>
   <span class="hljs-string">auctor</span> <span class="hljs-string">mattis.</span>
-<span class="hljs-attr">status:</span> <span class="hljs-string">warning</span>
+<span class="hljs-attr">status:</span> <span class="hljs-string">info</span>
 <span class="hljs-attr">isVisible:</span> <span class="hljs-literal">true</span>
 </pre>
             
@@ -411,9 +452,7 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
   }
 
   render() {
-    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.props.isVisible) {
-      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>/&gt;</span>;
-    }
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.props.isVisible) <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>/&gt;</span>;
 
     const alertClass = classNames(
       'usa-alert',
@@ -430,16 +469,17 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
       );
     }
 
-    const headline = this.props.headline &amp;&amp; (<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-alert-title"</span>&gt;</span>{this.props.headline}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>);
+    const alertHeading = this.props.headline;
+    const alertText = this.props.content || this.props.children;
 
     return (
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
         <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>
         <span class="hljs-attr">className</span>=<span class="hljs-string">{alertClass}</span>
         <span class="hljs-attr">ref</span>=<span class="hljs-string">{(ref)</span> =&gt;</span> { this._ref = ref; }}&gt;
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-alert-body va-alert-body"</span>&gt;</span>
-          {headline}
-          {this.props.content || this.props.children}
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-alert-body"</span>&gt;</span>
+          {alertHeading &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-alert-heading"</span>&gt;</span>{alertHeading}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>}
+          {alertText &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"usa-alert-text"</span>&gt;</span>{alertText}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         {closeButton}
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"cf"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -450,47 +490,50 @@ export default function AlertBoxExample(<span class="hljs-built_in">props</span>
 }
 
 AlertBox.propTypes = {
-
   /**
-   * determines the color of the alert box: blue, red, green, yellow respectively
+   * Determines the color and icon of the alert box.
    */
   status: PropTypes.oneOf([
-    'info',
-    'error',
-    'success',
-    'warning'
+    'info',      // Blue border, black circled 'i'
+    'error',     // Red border, red circled exclamation
+    'success',   // Green border, green checkmark
+    'warning',   // Yellow border, black triangle exclamation
+    'continue',  // Green border, green lock
   ]).isRequired,
 
   /**
-   * is the alert visible? useful for alerts triggered by app interaction
+   * Show or hide the alert. Useful for alerts triggered by app interaction.
    */
-  isVisible: PropTypes.bool.isRequired,
+  isVisible: PropTypes.bool,
 
   /**
-   * This is the body content of the alert, which can also be passed via
-   * children
+   * Body content of the alert, which can also be passed via children.
    */
   content: PropTypes.node,
 
   /**
-   * optional headline
+   * Optional headline.
    */
   headline: PropTypes.node,
 
   /**
-   * this is useful if the alerbox can be dismissed or closed
+   * Close event handler if the alert  can be dismissed or closed.
    */
   onCloseAlert: PropTypes.func,
 
   /**
-   * if true, page scrolls to alert when it is shown
+   * If true, page scrolls to alert when it is shown.
    */
   scrollOnShow: PropTypes.bool,
 
   /**
-   * Optional class name to add to the alert box
+   * Optional class name to add to the alert box.
    */
   className: PropTypes.string
+};
+
+AlertBox.defaultProps = {
+  isVisible: true
 };
 
 export default AlertBox;
@@ -510,7 +553,7 @@ export default AlertBox;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.7 KB</span>
+                    <span class="Meta-value">3 KB</span>
                 </li>
             </ul>
         </div>
