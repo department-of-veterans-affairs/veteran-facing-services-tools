@@ -2,7 +2,7 @@
   // override default ul styles
   list-style: none;
   padding: 0;
-  .hub-page-link-list__item {
+  &__item {
     margin-bottom: 1em;
     margin: 1.6rem 0;
     > a {
@@ -23,13 +23,13 @@
         margin-bottom: 2px;
       }
     }
-    .hub-page-link-list__description {
-      color: $color-black;
-      margin: 0;
-    }
   }
-  .hub-page-link-list__header {
+  &__header {
     font-weight: bold;
+  }
+  &__description {
+    color: $color-black;
+    margin: 0;
   }
 }
 .external-link-icon-black {
