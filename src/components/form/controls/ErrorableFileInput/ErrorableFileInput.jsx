@@ -60,6 +60,11 @@ class ErrorableFileInput extends React.Component {
             role="button"
             tabIndex="0"
             htmlFor={this.inputId}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                document.getElementById(this.inputId).click();
+              }
+            }}
             aria-describedby={this.props['aria-describedby']}
             className={this.props.triggerClass || 'usa-button usa-button-secondary'}>
             {this.props.buttonText}
