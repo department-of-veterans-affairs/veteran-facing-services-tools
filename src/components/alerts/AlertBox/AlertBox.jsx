@@ -76,17 +76,17 @@ AlertBox.propTypes = {
    * Determines the color and icon of the alert box.
    */
   status: PropTypes.oneOf([
-    'info',
-    'error',
-    'success',
-    'warning',
-    'continue',
+    'info',      // Blue border, black circled 'i'
+    'error',     // Red border, red circled exclamation
+    'success',   // Green border, green checkmark
+    'warning',   // Yellow border, black triangle exclamation
+    'continue',  // Green border, green lock
   ]).isRequired,
 
   /**
    * Show or hide the alert. Useful for alerts triggered by app interaction.
    */
-  isVisible: PropTypes.bool.isRequired,
+  isVisible: PropTypes.bool,
 
   /**
    * Body content of the alert, which can also be passed via children.
