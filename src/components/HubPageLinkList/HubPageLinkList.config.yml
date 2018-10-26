@@ -1,0 +1,63 @@
+label: Hub Page link List
+status: wip
+collated: true
+order: 0
+preview: '@uswds-framed'
+context:
+  hublinks:
+    - id: get
+      title: Get Veterans Burial Benefits
+      links:
+      - url: "/burials-memorials/eligibility/"
+        label: Eligibility
+        description: Find out if you qualify for burial in a VA national cemetery and
+          for other burial honors.
+        external: false
+      - url: "/burials-memorials/pre-need-eligibility/"
+        label: Pre-Need Burial Eligibility Determination
+        description: Apply for a pre-need eligibility decision letter. This can help you
+          pre-plan for burial in a VA national cemetery, and make the process easier for
+          your family members in their time of need.
+        external: false
+      - url: "/burials-memorials/veterans-burial-allowance/"
+        label: Veteran Burial Allowance
+        description: Learn how to apply for a burial allowance to help pay for a Veteran's
+          funeral services, burial, and transportation costs.
+        external: false
+      - url: "/burials-memorials/memorial-items/"
+        label: Memorial Items
+        description: Find out how to apply for grave markers, headstones, Presidential
+          Memorial Certificates, and other memorial items to honor a Veteran's service.
+        external: false
+      - url: "/burials-memorials/dependency-indemnity-compensation/"
+        label: Compensation Benefits for Surviving Spouse and Dependents (VA DIC)
+        description: Learn about getting VA disability benefits for a surviving spouse
+          or a dependent child or parent.
+        external: false
+      - url: "/burials-memorials/bereavement-counseling/"
+        label: Bereavement Counseling
+        description: See if you qualify for grief counseling and transition support after
+          the loss of an active-duty Servicemember, Reservist, or National Guard Soldier.
+        external: false
+    - id: manage
+      title: Plan a Burial
+      links:
+      - url: "/burials-memorials/plan-a-burial/"
+        label: Plan a Burial for a Veteran, Spouse, or Dependent Family Member
+        description: Get step-by-step guidance on how to request and apply for a burial
+          in a VA national cemetery, or in a state or tribal government Veterans cemetery.
+        external: false
+      - url: https://www.cem.va.gov/cem/burial_benefits/need.asp
+        label: Schedule a Burial in a VA National Cemetery
+        description: Learn how to work with the VA National Cemetery Scheduling Office
+          to schedule a burial.
+        external: false
+      - url: https://www.cem.va.gov/cems/listcem.asp
+        label: Find a National, State, or Tribal Government Veterans Cemetery
+        description: Search for national, state, or tribal government Veterans cemeteries.
+        external: false
+      - url: "/records/get-military-service-records/"
+        label: Request Military Records (DD214)
+        description: View and print documents from your official military personnel file
+          (including your DD214).
+        external: false
