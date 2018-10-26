@@ -52,14 +52,14 @@ class AlertBox extends React.Component {
       );
     }
 
-    const headline = this.props.headline && (<h3 className="va-alert-title">{this.props.headline}</h3>);
+    const headline = this.props.headline && (<h3 className="usa-alert-heading">{this.props.headline}</h3>);
 
     return (
       <div
         aria-live="polite"
         className={alertClass}
         ref={(ref) => { this._ref = ref; }}>
-        <div className="usa-alert-body va-alert-body">
+        <div className="usa-alert-body">
           {headline}
           {this.props.content || this.props.children}
         </div>
@@ -116,6 +116,6 @@ AlertBox.propTypes = {
 
 AlertBox.defaultProps = {
   isVisible: true
-}
+};
 
 export default AlertBox;
