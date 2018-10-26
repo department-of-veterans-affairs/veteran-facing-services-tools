@@ -9308,7 +9308,7 @@ button.va-modal-close {
       padding: 20px 25px 20px 7px;
       font-weight: bold;
       width: 111%; }
-      #mega-menu .panel-bottom-link a svg {
+      #mega-menu .panel-bottom-link a img {
         width: 15px; }
   #mega-menu .column-three {
     display: none; }
@@ -9476,11 +9476,9 @@ button.va-modal-close {
         padding: 20px 0px;
         display: inline-block;
         padding-right: 25px; }
-        #mega-menu .panel-bottom-link a svg {
-          height: 11px;
+        #mega-menu .panel-bottom-link a img {
           width: 11px;
-          margin-left: 5px;
-          vertical-align: middle; } }
+          margin-left: 5px; } }
   @media screen and (min-width: 1008px) {
     #mega-menu .vetnav-panel {
       width: 1008px;
