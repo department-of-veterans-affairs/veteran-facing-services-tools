@@ -33,9 +33,7 @@ class AlertBox extends React.Component {
   }
 
   render() {
-    if (!this.props.isVisible) {
-      return <div aria-live="polite"/>;
-    }
+    if (!this.props.isVisible) return <div aria-live="polite"/>;
 
     const alertClass = classNames(
       'usa-alert',
@@ -52,16 +50,17 @@ class AlertBox extends React.Component {
       );
     }
 
-    const headline = this.props.headline && (<h3 className="va-alert-title">{this.props.headline}</h3>);
+    const alertHeading = this.props.headline;
+    const alertText = this.props.content || this.props.children;
 
     return (
       <div
         aria-live="polite"
         className={alertClass}
         ref={(ref) => { this._ref = ref; }}>
-        <div className="usa-alert-body va-alert-body">
-          {headline}
-          {this.props.content || this.props.children}
+        <div className="usa-alert-body">
+          {alertHeading && <h3 className="usa-alert-heading">{alertHeading}</h3>}
+          {alertText && <div className="usa-alert-text">{alertText}</div>}
         </div>
         {closeButton}
         <div className="cf"></div>
@@ -72,47 +71,50 @@ class AlertBox extends React.Component {
 }
 
 AlertBox.propTypes = {
-
   /**
-   * determines the color of the alert box: blue, red, green, yellow respectively
+   * Determines the color and icon of the alert box.
    */
   status: PropTypes.oneOf([
-    'info',
-    'error',
-    'success',
-    'warning'
+    'info',      // Blue border, black circled 'i'
+    'error',     // Red border, red circled exclamation
+    'success',   // Green border, green checkmark
+    'warning',   // Yellow border, black triangle exclamation
+    'continue',  // Green border, green lock
   ]).isRequired,
 
   /**
-   * is the alert visible? useful for alerts triggered by app interaction
+   * Show or hide the alert. Useful for alerts triggered by app interaction.
    */
-  isVisible: PropTypes.bool.isRequired,
+  isVisible: PropTypes.bool,
 
   /**
-   * This is the body content of the alert, which can also be passed via
-   * children
+   * Body content of the alert, which can also be passed via children.
    */
   content: PropTypes.node,
 
   /**
-   * optional headline
+   * Optional headline.
    */
   headline: PropTypes.node,
 
   /**
-   * this is useful if the alerbox can be dismissed or closed
+   * Close event handler if the alert  can be dismissed or closed.
    */
   onCloseAlert: PropTypes.func,
 
   /**
-   * if true, page scrolls to alert when it is shown
+   * If true, page scrolls to alert when it is shown.
    */
   scrollOnShow: PropTypes.bool,
 
   /**
-   * Optional class name to add to the alert box
+   * Optional class name to add to the alert box.
    */
   className: PropTypes.string
+};
+
+AlertBox.defaultProps = {
+  isVisible: true
 };
 
 export default AlertBox;
