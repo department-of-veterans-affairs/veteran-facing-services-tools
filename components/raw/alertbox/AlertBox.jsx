@@ -63,7 +63,6 @@ class AlertBox extends React.Component {
           {alertText && <div className="usa-alert-text">{alertText}</div>}
         </div>
         {closeButton}
-        <div className="cf"></div>
       </div>
     );
   }
