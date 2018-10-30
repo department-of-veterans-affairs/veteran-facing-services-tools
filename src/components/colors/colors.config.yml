@@ -49,7 +49,7 @@ context:
   - name: Primary Alt
     color:
     - var: color-primary-alt-lightest
-      name: "$color-primary-lightest"
+      name: "$color-primary-alt-lightest"
       hex: "#e1f3f8"
       contrast: AAA
     - var: color-primary-alt-light

@@ -4,26 +4,22 @@
   border-left-style: solid;
   border-left-width: 10px;
   display: table;
-  min-height: 74px;
-  padding: 2rem;
-  padding-left: 4rem;
+  padding: 2rem 2rem 2rem 1.5rem;
   width: 100%;
 
   &::before {
     background: none;
     font-family: "FontAwesome";
     font-size: 2rem;
-    height: auto;
-    left: 1rem;
-    text-align: center;
-    top: 2rem;
-    width: 4rem;
+    margin-right: 1.5rem;
+    position: static;
   }
 
   &-body {
     display: table-cell;
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
     vertical-align: middle;
   }
 
@@ -38,7 +34,6 @@
 
     &:only-child {
       margin: 0;
-      margin-top: 0.2rem;
       padding: 0;
     }
 
@@ -62,39 +57,69 @@
 
   &-info {
     border-left-color: $color-primary-alt-dark;
+
     &::before {
       content: "\f05a";
+    }
+
+    &.background-color-only {
+      background-color: $color-primary-alt-lightest;
     }
   }
 
   &-error {
     border-left-color: $color-secondary-dark;
+
     &::before {
       color: $color-secondary-dark;
       content: "\f06a"
+    }
+
+    &.background-color-only {
+      background-color: $color-secondary-lightest;
     }
   }
 
   &-success {
     border-left-color: $color-green;
+
     &::before {
       color: $color-green;
       content: "\f00c";
+    }
+
+    &.background-color-only {
+      background-color: $color-green-lightest;
     }
   }
 
   &-warning {
     border-left-color: $color-gold;
+
     &::before {
       content: "\f071";
+    }
+
+    &.background-color-only {
+      background-color: $color-gold-lightest;
     }
   }
 
   &-continue {
     border-left-color: $color-green;
+
     &::before {
       color: $color-green;
       content: "\f023";
+    }
+  }
+
+  &.background-color-only {
+    border-left: none;
+    padding: 2rem;
+
+    &::before {
+      content: none;
     }
   }
 }
