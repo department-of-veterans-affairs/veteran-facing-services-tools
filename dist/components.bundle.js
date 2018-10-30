@@ -30461,20 +30461,39 @@ function AlertBoxExample(props) {
       status: props.status,
       isVisible: props.isVisible }),
     _react2.default.createElement(_AlertBox2.default, {
-      headline: props.headline,
+      headline: 'Warning alert',
       content: props.content,
-      status: 'error',
-      isVisible: props.isVisible }),
+      status: 'warning' }),
     _react2.default.createElement(_AlertBox2.default, {
-      headline: props.headline,
+      headline: 'Error alert',
       content: props.content,
-      status: 'success',
-      isVisible: props.isVisible }),
+      status: 'error' }),
     _react2.default.createElement(_AlertBox2.default, {
-      headline: props.headline,
+      headline: 'Success alert',
       content: props.content,
-      status: 'info',
-      isVisible: props.isVisible })
+      status: 'success' }),
+    _react2.default.createElement(_AlertBox2.default, {
+      headline: 'Continue alert',
+      content: props.content,
+      status: 'continue' }),
+    _react2.default.createElement(_AlertBox2.default, {
+      headline: 'Dismissable alert',
+      content: props.content,
+      status: props.status,
+      isVisible: props.isVisible,
+      onCloseAlert: function onCloseAlert() {} }),
+    _react2.default.createElement(_AlertBox2.default, {
+      headline: 'Hidden alert',
+      content: props.content,
+      status: props.status,
+      isVisible: false }),
+    _react2.default.createElement(_AlertBox2.default, {
+      content: _react2.default.createElement(
+        'p',
+        { className: 'usa-alert-text' },
+        'Content without heading.'
+      ),
+      status: props.status })
   );
 }
 
@@ -32851,9 +32870,7 @@ var AlertBox = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      if (!this.props.isVisible) {
-        return _react2.default.createElement('div', { 'aria-live': 'polite' });
-      }
+      if (!this.props.isVisible) return _react2.default.createElement('div', { 'aria-live': 'polite' });
 
       var alertClass = (0, _classnames2.default)('usa-alert', 'usa-alert-' + this.props.status, this.props.className);
 
@@ -32866,11 +32883,8 @@ var AlertBox = function (_React$Component) {
         );
       }
 
-      var headline = this.props.headline && _react2.default.createElement(
-        'h3',
-        { className: 'va-alert-title' },
-        this.props.headline
-      );
+      var alertHeading = this.props.headline;
+      var alertText = this.props.content || this.props.children;
 
       return _react2.default.createElement(
         'div',
@@ -32882,9 +32896,17 @@ var AlertBox = function (_React$Component) {
           } },
         _react2.default.createElement(
           'div',
-          { className: 'usa-alert-body va-alert-body' },
-          headline,
-          this.props.content || this.props.children
+          { className: 'usa-alert-body' },
+          alertHeading && _react2.default.createElement(
+            'h3',
+            { className: 'usa-alert-heading' },
+            alertHeading
+          ),
+          alertText && _react2.default.createElement(
+            'div',
+            { className: 'usa-alert-text' },
+            alertText
+          )
         ),
         closeButton,
         _react2.default.createElement('div', { className: 'cf' })
@@ -32894,6 +32916,10 @@ var AlertBox = function (_React$Component) {
 
   return AlertBox;
 }(_react2.default.Component);
+
+AlertBox.defaultProps = {
+  isVisible: true
+};
 
 exports.default = AlertBox;
 
