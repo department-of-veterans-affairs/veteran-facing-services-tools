@@ -4,8 +4,10 @@ import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
 import _ from 'lodash';
 
+const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+
 const defaultSection = (sections) => {
-  if (document.body.clientWidth < 768) {
+  if (mobileMediaQuery.matches) {
     return '';
   }
 
@@ -13,17 +15,12 @@ const defaultSection = (sections) => {
 };
 
 export default class MegaMenu extends React.Component {
-  constructor() {
-    super();
-    this.originalSize = document.body.clientWidth;
-  }
-
   componentDidMount() {
-    if (document.body.clientWidth < 768) {
+    if (mobileMediaQuery.matches) {
       this.props.toggleDisplayHidden(true);
     }
 
-    window.addEventListener('resize', this.resetDefaultState.bind(this));
+    mobileMediaQuery.addListener(this.resetDefaultState);
     document.body.addEventListener('click', this.handleDocumentClick, false);
   }
 
@@ -31,12 +28,12 @@ export default class MegaMenu extends React.Component {
    * Remove event listener
    */
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resetDefaultState.bind(this));
+    mobileMediaQuery.removeListener(this.resetDefaultState);
     document.body.removeEventListener('click', this.handleDocumentClick, false);
   }
 
   getSubmenu(item, currentSection) {
-    if (document.body.clientWidth < 768) {
+    if (mobileMediaQuery.matches) {
       const menuSections = [
         item.menuSections.mainColumn,
         item.menuSections.columnOne,
@@ -91,17 +88,14 @@ export default class MegaMenu extends React.Component {
 
   }
 
-  resetDefaultState() {
-    if (this.originalSize !== document.body.clientWidth) {
-      if (document.body.clientWidth > 768) {
-        this.props.toggleDisplayHidden(false);
-      } else {
-        this.props.toggleDisplayHidden(true);
-      }
-      this.props.updateCurrentSection('');
-      this.props.toggleDropDown('');
-      this.originalSize = document.body.clientWidth;
+  resetDefaultState = () => {
+    if (mobileMediaQuery.matches) {
+      this.props.toggleDisplayHidden(true);
+    } else {
+      this.props.toggleDisplayHidden(false);
     }
+    this.props.updateCurrentSection('');
+    this.props.toggleDropDown('');
   }
 
   toggleDropDown(title) {
@@ -115,7 +109,7 @@ export default class MegaMenu extends React.Component {
   updateCurrentSection(title) {
     let sectionTitle = title;
 
-    if (document.body.clientWidth < 768) {
+    if (mobileMediaQuery.matches) {
       sectionTitle = this.props.currentSection === title ? '' : title;
     }
 

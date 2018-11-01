@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+
 const isPanelWhite = (panelWhite) => {
-  if (document.body.clientWidth < 768) {
+  if (mobileMediaQuery.matches) {
     return '';
   }
 
