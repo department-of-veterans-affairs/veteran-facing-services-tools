@@ -398,7 +398,7 @@ Read Notes tab to see the structure of the data prop</td>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-686085466690bf930d58fa73022ced90-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre>document is not defined</pre>
+        <pre>window is not defined</pre>
         
     </code>
 </div>
@@ -693,7 +693,7 @@ export default class MegaMenuExample extends React.Component {
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.10</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.10</span><span class="hljs-number">.4</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
@@ -714,23 +714,23 @@ export default class MegaMenuExample extends React.Component {
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-194a2143b7c169de731ae83e42c71c80">Column.jsx</option>
+                <option value="file-8a87e13d613403ac39e3c19a8429c7cb">Column.jsx</option>
                 
-                <option value="file-358971f53bfde340706056b8796f1594">MegaMenu.jsx</option>
+                <option value="file-e07ad8907bdf9fdf99882c074d299ca3">MegaMenu.jsx</option>
                 
-                <option value="file-291e295a2f6e7e8a84441cf10e5a02be">MegaMenu.unit.spec.jsx</option>
+                <option value="file-aae4c436bd97c527725c870317d9c63a">MegaMenu.unit.spec.jsx</option>
                 
-                <option value="file-db0545cf02b778858798b1cd85256977">MenuSection.jsx</option>
+                <option value="file-cb17a0518807965f534842faa73e82b0">MenuSection.jsx</option>
                 
-                <option value="file-c8b3f4a6d8671e62b0437679c13bd27b">SubMenu.jsx</option>
+                <option value="file-36cdd6c09846c41b5f01e725e067ff2a">SubMenu.jsx</option>
                 
-                <option value="file-de0930cad680c3743005b0da642fa0b9">arrow-right-blue.jsx</option>
+                <option value="file-81efe2bb397518541354cc1a4cf04a46">arrow-right-blue.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-194a2143b7c169de731ae83e42c71c80" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-8a87e13d613403ac39e3c19a8429c7cb" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -742,8 +742,10 @@ export default class MegaMenuExample extends React.Component {
 <span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
 
+<span class="hljs-keyword">const</span> mobileMediaQuery = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">'(max-width: 767px)'</span>);
+
 <span class="hljs-keyword">const</span> isPanelWhite = <span class="hljs-function">(<span class="hljs-params">panelWhite</span>) =&gt;</span> {
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">768</span>) {
+  <span class="hljs-keyword">if</span> (mobileMediaQuery.matches) {
     <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
   }
 
@@ -834,12 +836,12 @@ Column.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-358971f53bfde340706056b8796f1594" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-e07ad8907bdf9fdf99882c074d299ca3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -853,8 +855,10 @@ import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
 import _ from 'lodash';
 
+const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+
 const defaultSection = (sections) =&gt; {
-  if (document.body.clientWidth &lt; 768) {
+  if (mobileMediaQuery.matches) {
     return '';
   }
 
@@ -862,17 +866,12 @@ const defaultSection = (sections) =&gt; {
 };
 
 export default class MegaMenu extends React.Component {
-  constructor() {
-    super();
-    this.originalSize = document.body.clientWidth;
-  }
-
   componentDidMount() {
-    if (document.body.clientWidth &lt; 768) {
+    if (mobileMediaQuery.matches) {
       this.props.toggleDisplayHidden(true);
     }
 
-    window.addEventListener('resize', this.resetDefaultState.bind(this));
+    mobileMediaQuery.addListener(this.resetDefaultState);
     document.body.addEventListener('click', this.handleDocumentClick, false);
   }
 
@@ -880,12 +879,12 @@ export default class MegaMenu extends React.Component {
    * Remove event listener
    */
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resetDefaultState.bind(this));
+    mobileMediaQuery.removeListener(this.resetDefaultState);
     document.body.removeEventListener('click', this.handleDocumentClick, false);
   }
 
   getSubmenu(item, currentSection) {
-    if (document.body.clientWidth &lt; 768) {
+    if (mobileMediaQuery.matches) {
       const menuSections = [
         item.menuSections.mainColumn,
         item.menuSections.columnOne,
@@ -940,17 +939,14 @@ export default class MegaMenu extends React.Component {
 
   }
 
-  resetDefaultState() {
-    if (this.originalSize !== document.body.clientWidth) {
-      if (document.body.clientWidth &gt; 768) {
-        this.props.toggleDisplayHidden(false);
-      } else {
-        this.props.toggleDisplayHidden(true);
-      }
-      this.props.updateCurrentSection('');
-      this.props.toggleDropDown('');
-      this.originalSize = document.body.clientWidth;
+  resetDefaultState = () =&gt; {
+    if (mobileMediaQuery.matches) {
+      this.props.toggleDisplayHidden(true);
+    } else {
+      this.props.toggleDisplayHidden(false);
     }
+    this.props.updateCurrentSection('');
+    this.props.toggleDropDown('');
   }
 
   toggleDropDown(title) {
@@ -964,7 +960,7 @@ export default class MegaMenu extends React.Component {
   updateCurrentSection(title) {
     let sectionTitle = title;
 
-    if (document.body.clientWidth &lt; 768) {
+    if (mobileMediaQuery.matches) {
       sectionTitle = this.props.currentSection === title ? '' : title;
     }
 
@@ -1111,12 +1107,12 @@ MegaMenu.defaultProps = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">7.6 KB</span>
+                    <span class="Meta-value">7.4 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-291e295a2f6e7e8a84441cf10e5a02be" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-aae4c436bd97c527725c870317d9c63a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1374,7 +1370,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-db0545cf02b778858798b1cd85256977" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-cb17a0518807965f534842faa73e82b0" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1386,6 +1382,8 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
 <span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
 <span class="hljs-keyword">import</span> SubMenu <span class="hljs-keyword">from</span> <span class="hljs-string">'./SubMenu'</span>;
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+
+<span class="hljs-keyword">const</span> mobileMediaQuery = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">'(max-width: 767px)'</span>);
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MenuSection</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
   <span class="hljs-keyword">constructor</span>() {
@@ -1405,7 +1403,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
   }
 
   updateCurrentSection() {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">768</span>) {
+    <span class="hljs-keyword">if</span> (mobileMediaQuery.matches) {
       <span class="hljs-keyword">this</span>.setState({
         <span class="hljs-attr">title</span>: {
           <span class="hljs-attr">hidden</span>: <span class="hljs-literal">true</span>,
@@ -1419,7 +1417,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
   handleBackToMenu() {
     <span class="hljs-keyword">this</span>.updateCurrentSection(<span class="hljs-string">''</span>);
 
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">768</span>) {
+    <span class="hljs-keyword">if</span> (mobileMediaQuery.matches) {
       <span class="hljs-keyword">this</span>.setState({
         <span class="hljs-attr">title</span>: {},
       });
@@ -1513,12 +1511,12 @@ MenuSection.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3 KB</span>
+                    <span class="Meta-value">3.1 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-c8b3f4a6d8671e62b0437679c13bd27b" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-36cdd6c09846c41b5f01e725e067ff2a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1532,20 +1530,11 @@ MenuSection.propTypes = {
 <span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
 <span class="hljs-keyword">import</span> { ArrowRightBlueSVG }  <span class="hljs-keyword">from</span> <span class="hljs-string">'./arrow-right-blue'</span>;
 
-<span class="hljs-keyword">const</span> onSmallScreen = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">768</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-  }
-
-  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-};
-
-<span class="hljs-keyword">const</span> onSmallDesktopOrLargeTablet = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> !onSmallScreen() &amp;&amp; <span class="hljs-built_in">document</span>.body.clientWidth &lt; <span class="hljs-number">1008</span>;
-};
+<span class="hljs-keyword">const</span> mobileMediaQuery = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">'(max-width: 767px)'</span>);
+<span class="hljs-keyword">const</span> smallDesktopMediaQuery = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">'(min-width: 768px and max-width: 1007px)'</span>);
 
 <span class="hljs-keyword">const</span> getColumns = <span class="hljs-function">(<span class="hljs-params">columns</span>) =&gt;</span> {
-  <span class="hljs-keyword">if</span> (onSmallScreen()) {
+  <span class="hljs-keyword">if</span> (mobileMediaQuery.matches) {
     <span class="hljs-keyword">return</span> {
       <span class="hljs-attr">columnOne</span>: {
         <span class="hljs-attr">title</span>: columns.columnOne.title,
@@ -1567,7 +1556,7 @@ MenuSection.propTypes = {
     <span class="hljs-keyword">const</span> filteredColumns = getColumns(columns);
 
     <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{onSmallScreen()</span> ? '<span class="hljs-attr">mm-link-container-small</span>' <span class="hljs-attr">:</span> ''}&gt;</span>
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{mobileMediaQuery.matches</span> ? '<span class="hljs-attr">mm-link-container-small</span>' <span class="hljs-attr">:</span> ''}&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
             <span class="hljs-attr">className</span>=<span class="hljs-string">"back-button"</span>
@@ -1595,7 +1584,7 @@ MenuSection.propTypes = {
               <span class="hljs-attr">navTitle</span>=<span class="hljs-string">{navTitle}</span>
               <span class="hljs-attr">panelWhite</span>=<span class="hljs-string">{Object.prototype.hasOwnProperty.call(filteredColumns,</span> '<span class="hljs-attr">mainColumn</span>')}
               <span class="hljs-attr">linkClicked</span>=<span class="hljs-string">{linkClicked}</span>
-              <span class="hljs-attr">hidden</span>=<span class="hljs-string">{keyName</span> === <span class="hljs-string">'columnThree'</span> &amp;&amp; <span class="hljs-attr">onSmallDesktopOrLargeTablet</span>()}
+              <span class="hljs-attr">hidden</span>=<span class="hljs-string">{keyName</span> === <span class="hljs-string">'columnThree'</span> &amp;&amp; <span class="hljs-attr">smallDesktopMediaQuery.matches</span>}
               <span class="hljs-attr">columnThreeLinkClicked</span>=<span class="hljs-string">{columnThreeLinkClicked}</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">Column</span>&gt;</span>
           );
@@ -1634,12 +1623,12 @@ SubMenu.propTypes = {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.3 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-de0930cad680c3743005b0da642fa0b9" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-81efe2bb397518541354cc1a4cf04a46" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>

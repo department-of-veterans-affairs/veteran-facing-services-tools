@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import SubMenu from './SubMenu';
 import _ from 'lodash';
 
+const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+
 class MenuSection extends React.Component {
   constructor() {
     super();
@@ -21,7 +23,7 @@ class MenuSection extends React.Component {
   }
 
   updateCurrentSection() {
-    if (document.body.clientWidth < 768) {
+    if (mobileMediaQuery.matches) {
       this.setState({
         title: {
           hidden: true,
@@ -35,7 +37,7 @@ class MenuSection extends React.Component {
   handleBackToMenu() {
     this.updateCurrentSection('');
 
-    if (document.body.clientWidth < 768) {
+    if (mobileMediaQuery.matches) {
       this.setState({
         title: {},
       });

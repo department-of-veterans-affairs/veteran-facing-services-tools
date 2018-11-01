@@ -4,20 +4,11 @@ import Column from './Column';
 import _ from 'lodash';
 import { ArrowRightBlueSVG }  from './arrow-right-blue';
 
-const onSmallScreen = () => {
-  if (document.body.clientWidth < 768) {
-    return true;
-  }
-
-  return false;
-};
-
-const onSmallDesktopOrLargeTablet = () => {
-  return !onSmallScreen() && document.body.clientWidth < 1008;
-};
+const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+const smallDesktopMediaQuery = window.matchMedia('(min-width: 768px and max-width: 1007px)');
 
 const getColumns = (columns) => {
-  if (onSmallScreen()) {
+  if (mobileMediaQuery.matches) {
     return {
       columnOne: {
         title: columns.columnOne.title,
@@ -39,7 +30,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnTh
     const filteredColumns = getColumns(columns);
 
     return (
-      <div className={onSmallScreen() ? 'mm-link-container-small' : ''}>
+      <div className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}>
         <div>
           <button
             className="back-button"
@@ -67,7 +58,7 @@ const SubMenu = ({ data, show, navTitle, handleBackToMenu, linkClicked, columnTh
               navTitle={navTitle}
               panelWhite={Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn')}
               linkClicked={linkClicked}
-              hidden={keyName === 'columnThree' && onSmallDesktopOrLargeTablet()}
+              hidden={keyName === 'columnThree' && smallDesktopMediaQuery.matches}
               columnThreeLinkClicked={columnThreeLinkClicked}>
             </Column>
           );

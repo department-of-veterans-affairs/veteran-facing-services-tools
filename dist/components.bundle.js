@@ -30490,7 +30490,7 @@ function AlertBoxExample(props) {
     _react2.default.createElement(_AlertBox2.default, {
       content: _react2.default.createElement(
         'p',
-        { className: 'usa-alert-text' },
+        null,
         'Content without heading.'
       ),
       status: props.status })
@@ -32908,8 +32908,7 @@ var AlertBox = function (_React$Component) {
             alertText
           )
         ),
-        closeButton,
-        _react2.default.createElement('div', { className: 'cf' })
+        closeButton
       );
     }
   }]);
