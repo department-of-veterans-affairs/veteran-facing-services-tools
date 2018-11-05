@@ -57,7 +57,6 @@
 @mixin exit-icon {
   // Using longhand properties instead of the shorthand to limit
   // risk and impact of side effects
-  background-image: url(/img/icons/exit-icon.png);
   background-position: 100% 50%;
   background-repeat: no-repeat;
   background-size: 1em auto;
@@ -105,7 +104,7 @@
   background: -webkit-linear-gradient(top, $from 0%,$to 63%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, $from 0%,$to 63%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$from, endColorstr=$to,GradientType=0 ); /* IE6-9 */
-} 
+}
 
 @mixin button-link {
   background: none;
