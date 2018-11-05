@@ -40,26 +40,6 @@ button,
   background-color: inherit;
 }
 
-.usa-button-secondary-exit {
-  &::after {
-    background-image: url(/img/icons/exit-icon-primary.png);
-    background-size: 1em auto;
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    // Content must have a decender in it
-    content: "leave vets.gov";
-    background-repeat: no-repeat;
-    background-position: top center;
-    margin-left: .3em;
-    text-indent: -9999em;
-    padding-right: 1.1em;
-  }
-  &:hover::after {
-    background-image: url(/img/icons/exit-icon-primary-darker.png);
-  }
-}
-
 .usa-button-disabled {
   background-color: $color-gray-lighter;
 }

@@ -208,13 +208,6 @@ table {
   position: fixed;
 }
 
-// Adds external icon to all links that begin
-// with http (including https)
-// Using this selector makes it easier for the content team to write content
-a[href^="http"]:not([href*="va.gov"], [href*="vets.gov"]):not(.no-external-icon) {
-  @include exit-icon;
-}
-
 // Logo and Header
 .header {
   background: $color-primary-darkest;

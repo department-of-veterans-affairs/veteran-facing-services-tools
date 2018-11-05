@@ -37,17 +37,6 @@
       display: block;
       padding: 0;
       text-decoration: none;
-
-      &[href^=http],
-      &[rel=external] {
-        h1, h2, h3, h4, h5, span {
-          &:first-child{
-            @include exit-icon;
-
-            display: inline-block;
-          }
-        }
-      }
     }
 
     li {
