@@ -40,3 +40,25 @@
 .js-hide {
   display: none !important;
 }
+
+.heading-level {
+  &-1 {
+    @include h1();
+  }
+  &-2 {
+    @include h2();
+  }
+  &-3 {
+    @include h3();
+  }
+  &-4 {
+    @include h4();
+  }
+  &-5 {
+    @include h5();
+  }
+  &-6 {
+    @include h6();
+    font-family: $font-sans;
+  }
+}
