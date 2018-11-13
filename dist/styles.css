@@ -6369,6 +6369,25 @@ table {
 .va-pos-fixed {
   position: fixed; }
 
+a[href^="http"]:not([href*="va.gov"]):not([href*="vets.gov"]):not(.no-external-icon) {
+  background-image: url(/img/icons/exit-icon.png);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 1em auto;
+  padding-right: 1.2em;
+  position: relative; }
+  a[href^="http"] :not(.no-external-icon):after {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    content: "this will open a new website"; }
+
 .header {
   background: #112e51;
   color: #fff;
@@ -7638,6 +7657,22 @@ button,
 
 .usa-accordion-button:active {
   background-color: inherit; }
+
+.usa-button-secondary-exit::after {
+  background-image: url(/img/icons/exit-icon-primary.png);
+  background-size: 1em auto;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  content: "leave vets.gov";
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-left: .3em;
+  text-indent: -9999em;
+  padding-right: 1.1em; }
+
+.usa-button-secondary-exit:hover::after {
+  background-image: url(/img/icons/exit-icon-primary-darker.png); }
 
 .usa-button-disabled {
   background-color: #d6d7d9; }
@@ -8911,6 +8946,12 @@ select {
     .va-modal-large .va-modal-inner .va-modal-body {
       max-height: 95vh;
       overflow-y: auto; }
+  .va-modal span.exit-icon {
+    background-image: url(/img/icons/exit-icon-primary.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 1em auto;
+    padding-right: 1.2em; }
 
 .va-modal-body h3 {
   margin-top: 0; }
@@ -9505,3 +9546,11 @@ button.va-modal-close {
   .hub-page-link-list__description {
     color: #000;
     margin: 0; }
+
+.external-link-icon-black {
+  background-image: url(/img/icons/exit-icon.png);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 1em auto;
+  padding-right: 1.2em;
+  position: relative; }

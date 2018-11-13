@@ -13594,11 +13594,20 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var mobileMediaQuery = window.matchMedia('(max-width: 767px)');
-var smallDesktopMediaQuery = window.matchMedia('(min-width: 768px and max-width: 1007px)');
+var onSmallScreen = function onSmallScreen() {
+  if (document.body.clientWidth < 768) {
+    return true;
+  }
+
+  return false;
+};
+
+var onSmallDesktopOrLargeTablet = function onSmallDesktopOrLargeTablet() {
+  return !onSmallScreen() && document.body.clientWidth < 1008;
+};
 
 var getColumns = function getColumns(columns) {
-  if (mobileMediaQuery.matches) {
+  if (onSmallScreen()) {
     return {
       columnOne: {
         title: columns.columnOne.title,
@@ -13626,7 +13635,7 @@ var SubMenu = function SubMenu(_ref) {
 
     return _react2.default.createElement(
       'div',
-      { className: mobileMediaQuery.matches ? 'mm-link-container-small' : '' },
+      { className: onSmallScreen() ? 'mm-link-container-small' : '' },
       _react2.default.createElement(
         'div',
         null,
@@ -13660,7 +13669,7 @@ var SubMenu = function SubMenu(_ref) {
           navTitle: navTitle,
           panelWhite: Object.prototype.hasOwnProperty.call(filteredColumns, 'mainColumn'),
           linkClicked: linkClicked,
-          hidden: keyName === 'columnThree' && smallDesktopMediaQuery.matches,
+          hidden: keyName === 'columnThree' && onSmallDesktopOrLargeTablet(),
           columnThreeLinkClicked: columnThreeLinkClicked });
       })
     );
@@ -35021,10 +35030,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMediaQuery = window.matchMedia('(max-width: 767px)');
-
 var isPanelWhite = function isPanelWhite(panelWhite) {
-  if (mobileMediaQuery.matches) {
+  if (document.body.clientWidth < 768) {
     return '';
   }
 
@@ -35141,10 +35148,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var mobileMediaQuery = window.matchMedia('(max-width: 767px)');
-
 var defaultSection = function defaultSection(sections) {
-  if (mobileMediaQuery.matches) {
+  if (document.body.clientWidth < 768) {
     return '';
   }
 
@@ -35155,39 +35160,28 @@ var MegaMenu = function (_React$Component) {
   _inherits(MegaMenu, _React$Component);
 
   function MegaMenu() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, MegaMenu);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (MegaMenu.__proto__ || Object.getPrototypeOf(MegaMenu)).call(this));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MegaMenu.__proto__ || Object.getPrototypeOf(MegaMenu)).call.apply(_ref, [this].concat(args))), _this), _this.handleDocumentClick = function (event) {
+    _this.handleDocumentClick = function (event) {
       if (_this.props.currentDropdown && !_this.menuRef.contains(event.target)) {
         _this.props.toggleDropDown('');
       }
-    }, _this.resetDefaultState = function () {
-      if (mobileMediaQuery.matches) {
-        _this.props.toggleDisplayHidden(true);
-      } else {
-        _this.props.toggleDisplayHidden(false);
-      }
-      _this.props.updateCurrentSection('');
-      _this.props.toggleDropDown('');
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.originalSize = document.body.clientWidth;
+    return _this;
   }
 
   _createClass(MegaMenu, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (mobileMediaQuery.matches) {
+      if (document.body.clientWidth < 768) {
         this.props.toggleDisplayHidden(true);
       }
 
-      mobileMediaQuery.addListener(this.resetDefaultState);
+      window.addEventListener('resize', this.resetDefaultState.bind(this));
       document.body.addEventListener('click', this.handleDocumentClick, false);
     }
 
@@ -35198,7 +35192,7 @@ var MegaMenu = function (_React$Component) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      mobileMediaQuery.removeListener(this.resetDefaultState);
+      window.removeEventListener('resize', this.resetDefaultState.bind(this));
       document.body.removeEventListener('click', this.handleDocumentClick, false);
     }
   }, {
@@ -35206,7 +35200,7 @@ var MegaMenu = function (_React$Component) {
     value: function getSubmenu(item, currentSection) {
       var _this2 = this;
 
-      if (mobileMediaQuery.matches) {
+      if (document.body.clientWidth < 768) {
         var menuSections = [item.menuSections.mainColumn, item.menuSections.columnOne, item.menuSections.columnTwo].reduce(function (acc, column) {
           acc.push({
             title: column.title,
@@ -35251,6 +35245,20 @@ var MegaMenu = function (_React$Component) {
         columnThreeLinkClicked: this.props.columnThreeLinkClicked });
     }
   }, {
+    key: 'resetDefaultState',
+    value: function resetDefaultState() {
+      if (this.originalSize !== document.body.clientWidth) {
+        if (document.body.clientWidth > 768) {
+          this.props.toggleDisplayHidden(false);
+        } else {
+          this.props.toggleDisplayHidden(true);
+        }
+        this.props.updateCurrentSection('');
+        this.props.toggleDropDown('');
+        this.originalSize = document.body.clientWidth;
+      }
+    }
+  }, {
     key: 'toggleDropDown',
     value: function toggleDropDown(title) {
       if (this.props.currentDropdown === title) {
@@ -35264,7 +35272,7 @@ var MegaMenu = function (_React$Component) {
     value: function updateCurrentSection(title) {
       var sectionTitle = title;
 
-      if (mobileMediaQuery.matches) {
+      if (document.body.clientWidth < 768) {
         sectionTitle = this.props.currentSection === title ? '' : title;
       }
 
@@ -35410,8 +35418,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var mobileMediaQuery = window.matchMedia('(max-width: 767px)');
-
 var MenuSection = function (_React$Component) {
   _inherits(MenuSection, _React$Component);
 
@@ -35439,7 +35445,7 @@ var MenuSection = function (_React$Component) {
   }, {
     key: 'updateCurrentSection',
     value: function updateCurrentSection() {
-      if (mobileMediaQuery.matches) {
+      if (document.body.clientWidth < 768) {
         this.setState({
           title: {
             hidden: true
@@ -35454,7 +35460,7 @@ var MenuSection = function (_React$Component) {
     value: function handleBackToMenu() {
       this.updateCurrentSection('');
 
-      if (mobileMediaQuery.matches) {
+      if (document.body.clientWidth < 768) {
         this.setState({
           title: {}
         });
