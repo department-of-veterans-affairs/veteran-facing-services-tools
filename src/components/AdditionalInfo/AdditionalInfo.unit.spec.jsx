@@ -18,9 +18,16 @@ describe('<AdditionalInfo/>', () => {
 
   it('should render', () => {
     expect(wrapper.text()).to.contain('test');
+    expect(wrapper.find('h4').length).to.equal(0);
   });
   it('should pass aXe check', () => {
     return axeCheck(<AdditionalInfo triggerText="test"/>);
+  });
+  it('should render title container as heading', () => {
+    wrapper = mount(<AdditionalInfo isHeading triggerText="test"/>).setState({
+      open: true
+    });
+    expect(wrapper.find('h4').length).to.equal(1);
   });
   it('renders both children when open is true', () => {
     const first = wrapper.find('ExpandingGroup').props();
