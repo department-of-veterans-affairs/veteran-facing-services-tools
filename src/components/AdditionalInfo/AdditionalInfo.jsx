@@ -23,6 +23,8 @@ export default class AdditionalInfo extends React.Component {
       'fa-angle-down': true,
       open: this.state.open
     });
+    const { tagName: TagName = 'span' } = this.props;
+
     const trigger = (
       <button
         type="button"
@@ -30,10 +32,10 @@ export default class AdditionalInfo extends React.Component {
         aria-expanded={this.state.open ? 'true' : 'false'}
         aria-controls={this.expandedContentId}
         onClick={this.toggle}>
-        <span className="additional-info-title">
+        <TagName className="additional-info-title">
           {triggerText}
           <i className={iconClass}/>
-        </span>
+        </TagName>
       </button>
     );
 
