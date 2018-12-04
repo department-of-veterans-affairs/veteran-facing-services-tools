@@ -24,7 +24,7 @@ describe('<AdditionalInfo/>', () => {
     return axeCheck(<AdditionalInfo triggerText="test"/>);
   });
   it('should render title container as heading', () => {
-    wrapper = mount(<AdditionalInfo isHeading triggerText="test"/>).setState({
+    wrapper = mount(<AdditionalInfo tagName={'h4'} triggerText="test"/>).setState({
       open: true
     });
     expect(wrapper.find('h4').length).to.equal(1);
