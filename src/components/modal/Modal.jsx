@@ -9,7 +9,7 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       lastFocus: null,
-    }
+    };
   }
 
   componentDidMount() {
@@ -43,7 +43,9 @@ class Modal extends React.Component {
   }
 
   teardownModal() {
-    this.state.lastFocus && this.state.lastFocus.focus();
+    if (this.state.lastFocus) {
+      this.state.lastFocus.focus();
+    }
     document.body.classList.remove('modal-open');
     document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
     document.removeEventListener('focus', this.handleDocumentFocus, true);
@@ -117,7 +119,7 @@ class Modal extends React.Component {
     }
 
     return (
-      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`} ref={el => this.element = el}>
+      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`} ref={el => { this.element = el; }}>
         <div className="va-modal-inner">
           {modalTitle}
           {closeButton}
