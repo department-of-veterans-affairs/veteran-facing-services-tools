@@ -32125,10 +32125,6 @@ var AdditionalInfo = function (_React$Component) {
         'fa-angle-down': true,
         open: this.state.open
       });
-      var _props$tagName = this.props.tagName,
-          TagName = _props$tagName === undefined ? 'span' : _props$tagName;
-
-
       var trigger = _react2.default.createElement(
         'button',
         {
@@ -32138,7 +32134,7 @@ var AdditionalInfo = function (_React$Component) {
           'aria-controls': this.expandedContentId,
           onClick: this.toggle },
         _react2.default.createElement(
-          TagName,
+          'span',
           { className: 'additional-info-title' },
           triggerText,
           _react2.default.createElement('i', { className: iconClass })
