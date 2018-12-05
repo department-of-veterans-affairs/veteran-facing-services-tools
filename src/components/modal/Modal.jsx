@@ -5,6 +5,13 @@ import classNames from 'classnames';
 const ESCAPE_KEY = 27;
 
 class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lastFocus: null,
+    }
+  }
+
   componentDidMount() {
     if (this.props.visible) {
       this.setupModal();
@@ -20,7 +27,9 @@ class Modal extends React.Component {
   }
 
   componentWillUnmount() {
-    this.teardownModal();
+    if (this.props.visible) {
+      this.teardownModal();
+    }
   }
 
   setupModal() {
@@ -34,7 +43,7 @@ class Modal extends React.Component {
   }
 
   teardownModal() {
-    this.state.lastFocus.focus();
+    this.state.lastFocus && this.state.lastFocus.focus();
     document.body.classList.remove('modal-open');
     document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
     document.removeEventListener('focus', this.handleDocumentFocus, true);
