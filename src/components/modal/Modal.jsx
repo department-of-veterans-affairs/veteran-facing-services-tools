@@ -4,94 +4,75 @@ import classNames from 'classnames';
 
 const ESCAPE_KEY = 27;
 
-function focusListener(selector) {
-  const listener = event => {
-    const modal = document.querySelector('.va-modal');
-    if (!modal.contains(event.target)) {
-      event.stopPropagation();
-      const focusableElement = modal.querySelector(selector);
-      if (focusableElement) {
-        focusableElement.focus();
-      }
-    }
-
-  };
-  document.addEventListener('focus', listener, true);
-  return listener;
-}
-
-function closeClickListener(closeCallback) {
-  const listener = event => {
-    const modalInner = document.querySelector('.va-modal-inner');
-    if (!modalInner.contains(event.target)) {
-      closeCallback();
-    }
-  };
-  document.addEventListener('click', listener, true);
-  return listener;
-}
-
 class Modal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleDocumentKeyUp = this.handleDocumentKeyUp.bind(this);
-    this.state = {
-      lastFocus: document.activeElement,
-      focusListener: null,
-      closeClickListener: null
-    };
-  }
-
   componentDidMount() {
     if (this.props.visible) {
-      document.body.classList.add('modal-open');
-    }
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.visible && !this.props.visible) {
-      document.addEventListener('keyup', this.handleDocumentKeyUp, false);
-      this.setState({
-        lastFocus: document.activeElement,
-        closeClickListener: this.props.clickToClose && closeClickListener(() => this.props.onClose()),
-        focusListener: focusListener(newProps.focusSelector)
-      });
-    } else if (!newProps.visible && this.props.visible) {
-      document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
-      document.removeEventListener('focus', this.state.focusListener, true);
-      if (this.props.clickToClose) {
-        document.removeEventListener('click', this.state.closeClickListener, true);
-      }
-      this.state.lastFocus.focus();
-      document.body.classList.remove('modal-open');
+      this.setupModal();
     }
   }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.visible && this.props.visible) {
-      const focusableElement = document.querySelector('.va-modal').querySelector(this.props.focusSelector);
-      if (focusableElement) {
-        focusableElement.focus();
-      }
+      this.setupModal();
+    } else if (prevProps.visible && !this.props.visible) {
+      this.teardownModal();
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
-    document.removeEventListener('focus', this.state.focusListener, true);
-    document.body.classList.remove('modal-open');
+    this.teardownModal();
   }
 
-  handleDocumentKeyUp(event) {
+  setupModal() {
+    this.applyFocusToModal();
+    document.body.classList.add('modal-open');
+    document.addEventListener('keyup', this.handleDocumentKeyUp, false);
+    document.addEventListener('focus', this.handleDocumentFocus, true);
+    if (this.props.clickToClose) {
+      document.addEventListener('click', this.handleDocumentClicked, true);
+    }
+  }
+
+  teardownModal() {
+    this.state.lastFocus.focus();
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
+    document.removeEventListener('focus', this.handleDocumentFocus, true);
+    if (this.props.clickToClose) {
+      document.removeEventListener('click', this.handleDocumentClicked, true);
+    }
+  }
+
+  handleDocumentKeyUp = (event) => {
     if (event.keyCode === ESCAPE_KEY) {
       this.handleClose(event);
     }
   }
 
-  handleClose(e) {
+  handleClose = (e) => {
     e.preventDefault();
     this.props.onClose();
+  }
+
+  handleDocumentFocus = (event) => {
+    if (!this.element.contains(event.target)) {
+      event.stopPropagation();
+      this.applyFocusToModal();
+    }
+  }
+
+  handleDocumentClicked = (event) => {
+    if (!this.element.contains(event.target)) {
+      this.props.onClose();
+    }
+  }
+
+  applyFocusToModal() {
+    const focusableElement = this.element.querySelector(this.props.focusSelector);
+    if (focusableElement) {
+      this.setState({ lastFocus: document.activeElement });
+      focusableElement.focus();
+    }
   }
 
   render() {
@@ -127,7 +108,7 @@ class Modal extends React.Component {
     }
 
     return (
-      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`}>
+      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`} ref={el => this.element = el}>
         <div className="va-modal-inner">
           {modalTitle}
           {closeButton}
