@@ -10,6 +10,7 @@ describe('<Modal/>', () => {
   it('should render', () => {
     const tree = mount(<Modal id="modal" title="Modal title" visible onClose={() => {}}>Modal contents</Modal>);
     expect(tree.text()).to.contain('Modal contents');
+    tree.unmount();
   });
 
   it('should setup event listeners and tear them down', () => {
