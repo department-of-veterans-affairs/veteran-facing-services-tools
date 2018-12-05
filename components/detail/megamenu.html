@@ -398,7 +398,18 @@ Read Notes tab to see the structure of the data prop</td>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-686085466690bf930d58fa73022ced90-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre>window is not defined</pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"megamenu"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">window</span>.currentProps = {
+        <span class="hljs-string">"package"</span>: {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.12.1"</span>
+        },
+        <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/"</span>,
+        <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"./MegaMenu.jsx"</span>
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -694,8 +705,8 @@ export default class MegaMenuExample extends React.Component {
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
 <span class="hljs-attr">  version:</span> <span class="hljs-number">1.12</span><span class="hljs-number">.1</span>
-<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
-<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/</span>
+<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">null</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">./MegaMenu.jsx</span>
 </pre>
             
@@ -714,23 +725,23 @@ export default class MegaMenuExample extends React.Component {
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-a5d9fe88fbd9d5d0a47b9123043c1978">Column.jsx</option>
+                <option value="file-786aad0fc77abe7d26ec672546dc42bb">Column.jsx</option>
                 
-                <option value="file-447a00e61ed44e024ad5c5776e7fea0f">MegaMenu.jsx</option>
+                <option value="file-1c2e6bb4c882d5dbdcc30d95199a52e7">MegaMenu.jsx</option>
                 
-                <option value="file-d3a6bcb8574809f267c2bf3805de0d27">MegaMenu.unit.spec.jsx</option>
+                <option value="file-c431b956c2309c66eaee5f9fe4f6aa3d">MegaMenu.unit.spec.jsx</option>
                 
-                <option value="file-572741a654a7adc6a74fe28451371f0c">MenuSection.jsx</option>
+                <option value="file-7b627386b9bd969110a5b0399755d429">MenuSection.jsx</option>
                 
-                <option value="file-efb03caba0eef24ffc48e48246f6df41">SubMenu.jsx</option>
+                <option value="file-088956f050aa19eea7f37cf5ef00d668">SubMenu.jsx</option>
                 
-                <option value="file-124f11fccc9ff2648b0e0fe81ff01564">arrow-right-blue.jsx</option>
+                <option value="file-bc9cbb8400f44898e0d8529b74bc1583">arrow-right-blue.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-a5d9fe88fbd9d5d0a47b9123043c1978" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-786aad0fc77abe7d26ec672546dc42bb" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -841,7 +852,7 @@ Column.propTypes = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-447a00e61ed44e024ad5c5776e7fea0f" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-1c2e6bb4c882d5dbdcc30d95199a52e7" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1112,7 +1123,7 @@ MegaMenu.defaultProps = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-d3a6bcb8574809f267c2bf3805de0d27" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-c431b956c2309c66eaee5f9fe4f6aa3d" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1370,7 +1381,7 @@ describe(<span class="hljs-string">'&lt;MegaMenu&gt;'</span>, () =&gt; {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-572741a654a7adc6a74fe28451371f0c" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-7b627386b9bd969110a5b0399755d429" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1516,7 +1527,7 @@ MenuSection.propTypes = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-efb03caba0eef24ffc48e48246f6df41" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-088956f050aa19eea7f37cf5ef00d668" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1628,7 +1639,7 @@ SubMenu.propTypes = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-124f11fccc9ff2648b0e0fe81ff01564" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-bc9cbb8400f44898e0d8529b74bc1583" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
