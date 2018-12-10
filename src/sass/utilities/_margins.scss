@@ -65,6 +65,10 @@ Use the margin utility to change an element's margin.
   }
 
   //Negative values
+  .vads-u-margin--neg#{$name} {
+    margin: $value !important;
+  }
+
   .vads-u-margin-x--neg#{$name} {
     margin-left: -$value !important;
     margin-right: -$value !important;
@@ -128,6 +132,10 @@ Use the margin utility to change an element's margin.
       }
 
       //Negative values
+      .#{$bp_name}\:vads-u-margin--neg#{$name} {
+        margin: $value !important;
+      }
+
       .#{$bp_name}\:vads-u-margin-x--neg#{$name} {
         margin-left: -$value !important;
         margin-right: -$value !important;
