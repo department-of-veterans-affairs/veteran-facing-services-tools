@@ -86,22 +86,22 @@ Use the margin utility to change an element's margin.
 
 @each $bp_name, $bp_value in $breakpoints {
 
+  // Auto values
+  .#{$bp_name}\:vads-u-margin-x--auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .#{$bp_name}\:vads-u-margin-right--auto {
+    margin-right: auto !important;
+  }
+
+  .#{$bp_name}\:vads-u-margin-left--auto {
+    margin-left: auto !important;
+  }
+
   @media (min-width: $bp_value) {
     @each $name, $value in $spacers {
-
-      // Auto values
-      .#{$bp_name}\:vads-u-margin-x--auto {
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-
-      .#{$bp_name}\:vads-u-margin-right--auto {
-        margin-right: auto !important;
-      }
-
-      .#{$bp_name}\:vads-u-margin-left--auto {
-        margin-left: auto !important;
-      }
 
       // Positive Values
       .#{$bp_name}\:vads-u-margin--#{$name} {
