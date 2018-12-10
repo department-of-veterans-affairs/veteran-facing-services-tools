@@ -10,21 +10,8 @@ Use the margin utility to change an element's margin.
   margin-right: auto !important;
 }
 
-.vads-u-margin-y--auto {
-  margin-top: auto !important;
-  margin-bottom: auto !important;
-}
-
-.vads-u-margin-top--auto {
-  margin-top: auto !important;
-}
-
 .vads-u-margin-right--auto {
   margin-right: auto !important;
-}
-
-.vads-u-margin-bottom--auto {
-  margin-bottom: auto !important;
 }
 
 .vads-u-margin-left--auto {
@@ -33,11 +20,12 @@ Use the margin utility to change an element's margin.
 
 // Responsive classes
 @each $name, $value in $spacers {
+
+  // Positive Values
   .vads-u-margin--#{$name} {
     margin: $value !important;
   }
 
-  // Positive Values
   .vads-u-margin-x--#{$name} {
     margin-left: $value !important;
     margin-right: $value !important;
@@ -66,7 +54,7 @@ Use the margin utility to change an element's margin.
 
   //Negative values
   .vads-u-margin--neg#{$name} {
-    margin: $value !important;
+    margin: -$value !important;
   }
 
   .vads-u-margin-x--neg#{$name} {
@@ -100,11 +88,26 @@ Use the margin utility to change an element's margin.
 
   @media (min-width: $bp_value) {
     @each $name, $value in $spacers {
+
+      // Auto values
+      .#{$bp_name}\:vads-u-margin-x--auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .#{$bp_name}\:vads-u-margin-right--auto {
+        margin-right: auto !important;
+      }
+
+      .#{$bp_name}\:vads-u-margin-left--auto {
+        margin-left: auto !important;
+      }
+
+      // Positive Values
       .#{$bp_name}\:vads-u-margin--#{$name} {
         margin: $value !important;
       }
 
-      // Positive Values
       .#{$bp_name}\:vads-u-margin-x--#{$name} {
         margin-left: $value !important;
         margin-right: $value !important;
@@ -133,7 +136,7 @@ Use the margin utility to change an element's margin.
 
       //Negative values
       .#{$bp_name}\:vads-u-margin--neg#{$name} {
-        margin: $value !important;
+        margin: -$value !important;
       }
 
       .#{$bp_name}\:vads-u-margin-x--neg#{$name} {
