@@ -77,7 +77,7 @@ $color-old-browser-background-end: #112e51;
 
 //===================================
 // Hub Icon colors for BC
-// 
+//
 //===================================
 
 $red-70v: #8b1303;
@@ -112,3 +112,31 @@ $low-layer: 100;
 $middle-layer: 200;
 $top-layer: 300;
 $modal-layer: 400;
+
+
+//===================================
+// Spacing
+//===================================
+/*
+## Learn more
+- [The 8-Point Grid](https://spec.fm/specifics/8-pt-grid)
+*/
+$multiple: 8px !default;
+
+$spacers: (
+  0:    0,
+  1px:  1px,
+  0p25: $multiple / 4,
+  0p5:  $multiple / 2,
+  1:    $multiple,
+  1p5:  $multiple * 1.5,
+  2:    $multiple * 2,
+  2p5:  $multiple * 2.5,
+  3:    $multiple * 3,
+  4:    $multiple * 4,
+  5:    $multiple * 5,
+  6:    $multiple * 6,
+  7:    $multiple * 7,
+  8:    $multiple * 8,
+  9:    $multiple * 9
+) !default;

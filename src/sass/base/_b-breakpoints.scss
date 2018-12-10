@@ -25,6 +25,15 @@ $small-desktop-screen: 1008px;
 
 $medium: new-breakpoint(min-width $medium-large-screen 6);
 
+
+$breakpoints: (
+  xsmall-screen:        $xsmall-screen,
+  small-screen:         $small-screen,
+  medium-screen:        $medium-screen,
+  small-desktop-screen: $small-desktop-screen,
+  large-screen:         $large-screen
+);
+
 // This is an override on Neat's media mixin to create media queries for both screen and print
 // https://github.com/thoughtbot/neat/blob/v1.8.0/app/assets/stylesheets/grid/_media.scss
 @mixin media($query: $feature $value $columns, $total-columns: $grid-columns) {
