@@ -1,4 +1,4 @@
-Version 1.12.3
+Version 1.14.0
 
 This module contains reusable react components from [vets-website](https://github.com/department-of-veterans-affairs/vets-website) housed in its design system [repo](https://github.com/department-of-veterans-affairs/design-system).
 
@@ -43,6 +43,16 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 - Tooltip.js
 - MegaMenu.js
 
+## Included utilities:
+
+- Margins
+
 ## Styles
 
 Our components are styled with sass, which is exported in the `sass` directory in the module. There's a `core.scss` file that includes uswds styles and our changes on top of it. Many of the components also have individual scss files in `sass/modules`, which you should make sure to import when using a particular component.
+
+Also included is a full build of all the styles, including component styles, at `dist/formation.min.css`.
+
+## Assets
+
+Image and font assets used by Formation are included in the `dist` folder.

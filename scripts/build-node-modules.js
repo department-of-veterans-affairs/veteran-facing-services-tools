@@ -2,17 +2,20 @@
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const glob = require('glob');
-const fs = require('fs');
+const fs = require('fs-extra');
 const babel = require('babel-core');
 const recast = require('recast');
 const path = require('path');
-const { ncp } = require('ncp');
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config.prod.js');
 
 console.log('Starting build');
 console.log('Cleaning old build');
 rimraf.sync('./dist/formation');
 mkdirp.sync('./dist/formation');
 mkdirp.sync('./dist/formation/sass');
+mkdirp.sync('./dist/formation/dist/img');
+mkdirp.sync('./dist/formation/dist/fonts');
 
 // this comes from gulp-flatten-requires
 // https://github.com/insin/gulp-flatten-requires/blob/master/index.js
@@ -60,14 +63,18 @@ fileNames.forEach(fileName => {
   console.log(`${newFileName} built`);
 });
 
-ncp('./src/sass',
-  './dist/formation/sass',
-  { filter: (filename) => !filename.includes('/site') },
-  (err) => {
-    if (err) {
-      throw new Error(`Failed to copy styles: ${err}`);
-    }
-    console.log('Build complete');
-  }
-);
+const compiler = webpack(webpackConfig);
 
+compiler.run((err, stats) => {
+  if (err || stats.hasErrors()) {
+    const info = stats.toJson();
+    console.error(info.errors);
+    throw new Error('Webpack compilation error');
+  }
+  console.log(stats.toString('minimal'));
+});
+
+fs.copySync('./src/sass', './dist/formation/sass');
+fs.removeSync('./dist/formation/sass/site');
+fs.copySync('./public/img', './dist/formation/dist/img');
+fs.copySync('./public/fonts', './dist/formation/dist/fonts');
