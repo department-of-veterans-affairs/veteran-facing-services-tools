@@ -57,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "5.1",
     "eslint-plugin-react": "7.2.1",
     "extract-text-webpack-plugin": "2",
+    "fs-extra": "^7.0.1",
     "gh-pages": "^1.1.0",
     "glob": "^7.1.2",
     "karma": "1.6",
