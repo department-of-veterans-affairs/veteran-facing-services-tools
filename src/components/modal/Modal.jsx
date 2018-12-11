@@ -66,7 +66,7 @@ class Modal extends React.Component {
   }
 
   handleDocumentFocus = (event) => {
-    if (!this.element.contains(event.target)) {
+    if (this.props.visible && !this.element.contains(event.target)) {
       event.stopPropagation();
       this.applyFocusToModal();
     }
