@@ -73,7 +73,7 @@ class Modal extends React.Component {
   }
 
   handleDocumentClicked = (event) => {
-    if (!this.element.contains(event.target)) {
+    if (this.props.visible && !this.element.contains(event.target)) {
       this.props.onClose();
     }
   }
@@ -119,8 +119,8 @@ class Modal extends React.Component {
     }
 
     return (
-      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`} ref={el => { this.element = el; }}>
-        <div className="va-modal-inner">
+      <div className={modalCss} id={id} role="alertdialog" aria-labelledby={`${id}-title`}>
+        <div className="va-modal-inner" ref={el => { this.element = el; }}>
           {modalTitle}
           {closeButton}
           <div className="va-modal-body">
