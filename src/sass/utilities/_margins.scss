@@ -18,7 +18,6 @@ Use the margin utility to change an element's margin.
   margin-left: auto !important;
 }
 
-// Responsive classes
 @each $name, $value in $spacers {
 
   // Positive Values
@@ -80,6 +79,7 @@ Use the margin utility to change an element's margin.
   }
 }
 
+// Responsive classes
 @each $bp_name, $bp_value in $breakpoints {
   @media (min-width: $bp_value) {
     // Auto values
