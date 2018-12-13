@@ -1,0 +1,43 @@
+.vads-u-visibility--hidden {
+  visibility: hidden !important;
+}
+
+.vads-u-visibility--visible {
+  visibility: visible !important;
+}
+
+.vads-u-visibility--screen-reader {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1241631
+  word-wrap: normal;
+}
+
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    .#{$bp_name}\:vads-u-visibility--hidden {
+      visibility: hidden !important;
+    }
+
+    .#{$bp_name}\:vads-u-visibility--visible {
+      visibility: visible !important;
+    }
+
+    .#{$bp_name}\:vads-u-visibility--screen-reader {
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute !important;
+      width: 1px;
+      // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1241631
+      word-wrap: normal;
+    }
+  }
+}
