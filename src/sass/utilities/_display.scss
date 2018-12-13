@@ -15,7 +15,6 @@
 }
 
 /* Repsonsive prefixes */
-/* Repsonsive prefixes */
 @each $bp_name, $bp_value in $breakpoints {
   @media (min-width: $bp_value) {
     .#{$bp_name}\:vads-u-display--block {
