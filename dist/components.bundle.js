@@ -34702,14 +34702,14 @@ var Modal = function (_React$Component) {
     };
 
     _this.handleDocumentFocus = function (event) {
-      if (!_this.element.contains(event.target)) {
+      if (_this.props.visible && !_this.element.contains(event.target)) {
         event.stopPropagation();
         _this.applyFocusToModal();
       }
     };
 
     _this.handleDocumentClicked = function (event) {
-      if (!_this.element.contains(event.target)) {
+      if (_this.props.visible && !_this.element.contains(event.target)) {
         _this.props.onClose();
       }
     };
@@ -34820,12 +34820,12 @@ var Modal = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: modalCss, id: id, role: 'alertdialog', 'aria-labelledby': id + '-title', ref: function ref(el) {
-            _this2.element = el;
-          } },
+        { className: modalCss, id: id, role: 'alertdialog', 'aria-labelledby': id + '-title' },
         _react2.default.createElement(
           'div',
-          { className: 'va-modal-inner' },
+          { className: 'va-modal-inner', ref: function ref(el) {
+              _this2.element = el;
+            } },
           modalTitle,
           closeButton,
           _react2.default.createElement(
