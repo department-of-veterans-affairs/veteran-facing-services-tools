@@ -238,14 +238,13 @@
 
       &:focus {
         @include focus-gold-light-outline(0);
-        background-color: $mm-gray;
-        font-weight: bold;
       }
 
-      &:hover {
+      &:hover, &:focus {
         text-decoration: underline;
-        background-color: $mm-gray;
-        font-weight: bold;
+        background-color: $light-blue;
+        padding: 8px 14px 8px 30px;
+        border-color: $color-link-default;
       }
 
       &.usa-current {
