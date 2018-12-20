@@ -246,6 +246,7 @@
       color: $color-link-default;
       font-weight: normal;
       font-size: 17px;
+      padding-left: 1rem;
 
       &:focus {
         outline: 0;
@@ -255,8 +256,7 @@
       }
 
       &:hover {
-        background-color: $mm-gray;
-        font-weight: bold;
+        background-color: $light-blue;
       }
 
       &[aria-expanded=false] {
