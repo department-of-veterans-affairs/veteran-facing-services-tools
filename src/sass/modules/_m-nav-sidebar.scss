@@ -3,6 +3,7 @@
 //====================================
 
 .va-sidebarnav {
+  color: $color-link-default;
 
   h4 {
     margin-top: 0;
@@ -92,9 +93,7 @@
       margin-right: 1.6rem;
     }
   }
-}
 
-.va-sidebarnav {
   ul.usa-accordion {
     > li {
       margin-bottom: -1px;
@@ -237,38 +236,6 @@
       }
     }
   }
-}
-
-.va-btn-sidebarnav-trigger {
-  color: $color-white;
-  background-color: $color-primary;
-
-  &:hover {
-    background-color: $color-primary-darker;
-  }
-
-  &:focus,
-  &:hover {
-    svg {
-      fill: $color-white;
-    }
-  }
-
-  &.fixed-trigger {
-    margin: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: $top-layer;
-  }
-
-  svg {
-    margin: 5px 0 0 3px;
-  }
-}
-
-.va-sidebarnav {
-  color: $color-link-default;
 
   .usa-accordion {
     .usa-accordion-button {
@@ -334,5 +301,35 @@
 
   .usa-accordion-button-dark {
     background-color: $color-gray-lightest;
+  }
+
+}
+
+// This is the trigger-button on mobile
+.va-btn-sidebarnav-trigger {
+  color: $color-white;
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-darker;
+  }
+
+  &:focus,
+  &:hover {
+    svg {
+      fill: $color-white;
+    }
+  }
+
+  &.fixed-trigger {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $top-layer;
+  }
+
+  svg {
+    margin: 5px 0 0 3px;
   }
 }
