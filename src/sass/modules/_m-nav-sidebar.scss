@@ -192,6 +192,14 @@
       .usa-sidenav-sub_list {
         margin-top: 2px;
         margin-bottom: 2px;
+        li {
+          > a {
+            padding: 8px 14px 8px 28px;
+          }
+          &:last-child a {
+            padding-bottom: 12px;
+          }
+        }
       }
     }
   }
