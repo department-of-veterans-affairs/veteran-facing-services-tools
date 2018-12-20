@@ -124,6 +124,7 @@
         display: inline-block;
         vertical-align: middle;
         width: 100%;
+        border-left: 4px solid transparent;
 
         &:focus {
           background-color: $mm-gray;
@@ -131,8 +132,13 @@
         }
 
         &:hover {
-          background-color: $mm-gray;
-          font-weight: bold;
+          background-color: $light-blue;
+          padding: 8px 14px 8px 14px;
+          border-color: $color-link-default;
+          transition:
+            background-color .1s ease-in-out 0s,
+            border-color .1s ease-in-out 0s,
+            padding .1s ease-in-out 0s;
         }
       }
 
