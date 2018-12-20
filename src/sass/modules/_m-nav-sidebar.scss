@@ -278,6 +278,9 @@
     .usa-sidenav-list {
       a {
         font-size: 15px;
+        padding: 8px 14px 8px 14px;
+        text-decoration: none;
+
         // added to deal with accordian overflow
         // and outline not showing correctly
         &:focus {
