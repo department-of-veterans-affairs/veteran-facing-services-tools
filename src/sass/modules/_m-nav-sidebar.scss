@@ -7,6 +7,18 @@ $level-2-hover-padding: 8px 14px;
 $level-3-default-padding: 8px 14px 8px 28px;
 $level-3-hover-padding: 8px 12px 8px 30px;
 
+.usa-sidenav-list {
+  a {
+    font-size: 15px;
+    text-decoration: none;
+    padding: $level-2-default-padding;
+
+    &.va-button-primary {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
 .va-sidebarnav {
   color: $color-link-default;
 
@@ -357,14 +369,3 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   }
 }
 
-.usa-sidenav-list {
-  a {
-    font-size: 15px;
-    text-decoration: none;
-    padding: $level-2-default-padding;
-
-    &.va-button-primary {
-      padding: 1rem 2rem;
-    }
-  }
-}
