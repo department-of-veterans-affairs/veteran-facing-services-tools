@@ -2,7 +2,25 @@
 // SCSS for content/components/navigation-sidebar.html
 //====================================
 
+$level-2-default-padding: 8px 16px 8px 12px;
+$level-2-hover-padding: 8px 14px;
+$level-3-default-padding: 8px 14px 8px 28px;
+$level-3-hover-padding: 8px 12px 8px 30px;
+
+.usa-sidenav-list {
+  a {
+    font-size: 15px;
+    text-decoration: none;
+    padding: $level-2-default-padding;
+
+    &.va-button-primary {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
 .va-sidebarnav {
+  color: $color-link-default;
 
   h4 {
     margin-top: 0;
@@ -10,14 +28,14 @@
 
   li {
     border-top-color: $color-gray-lighter;
-   a {
-      &:visited {
-       color: $color-base;
-      }
-      &.usa-current:visited {
-        color: $color-primary;
-      }
-    }
+  //  a {
+  //     &:visited {
+  //      color: $color-base;
+  //     }
+  //     &.usa-current:visited {
+  //       color: $color-primary;
+  //     }
+  //   }
   }
 
   @include media-maxwidth($medium-screen - 1) {
@@ -92,4 +110,257 @@
       margin-right: 1.6rem;
     }
   }
+
+  ul.usa-accordion {
+    > li {
+      margin-bottom: -1px;
+    }
+  }
+  .left-side-nav-title {
+    padding-bottom: 25px;
+    > .icon-small {
+      vertical-align: middle;
+      padding-left: initial;
+      margin-right: 5px;
+      font-size: 1.7rem;
+    }
+  }
+
+  .usa-sidenav-list {
+    margin-right: 0;
+
+    & > li {
+      border-top: 0;
+
+      .active-menu {
+        border-bottom: 0;
+      }
+
+      a {
+        color: $color-link-default;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        border-left: 4px solid transparent;
+
+        &:hover, &:focus {
+          background-color: $light-blue;
+          padding: $level-2-hover-padding;
+          border-color: $color-link-default;
+          transition:
+            background-color .1s ease-in-out 0s,
+            border-color .1s ease-in-out 0s,
+            padding .1s ease-in-out 0s;
+        }
+      }
+
+      i {
+        color: $color-black;
+        vertical-align: middle;
+        font-size: 15px;
+        padding-left: 0;
+      }
+    }
+
+    & .menu-item-container {
+      & > a {
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: $color-gray-lightest;
+        color: $color-blue;
+      }
+
+      &:focus {
+        outline: 2px solid $color-gold;
+        outline-offset: 3px;
+      }
+    }
+
+    a.usa-current {
+      color: $color-base;
+      border-left: 4px solid $color-base;
+      padding-left: 12px;
+      margin-left: 16px;
+      background-color: $mm-gray;
+      cursor: auto;
+
+      &.level-one {
+        padding-left: 14px;
+        margin-left: 0;
+      }
+
+      &:hover {
+        background-color: $mm-gray;
+        font-weight: bold;
+      }
+    }
+
+    .active-level {
+      background-color: $mm-gray;
+
+      .usa-sidenav-sub_list {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        li {
+          > a {
+            padding: $level-3-default-padding;
+            &:hover {
+              padding: $level-3-hover-padding;
+            }
+          }
+          &:last-child a {
+            padding-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  h4 {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    width: 75%;
+  }
+
+  .usa-sidenav-list > li {
+    i {
+      position: relative;
+      right: -20px;
+    }
+
+    .menu-item-container > a {
+      font-weight: initial;
+    }
+
+    a.usa-current {
+      font-weight: bold;
+      margin-left: 0;
+      padding-left: 25px;
+    }
+  }
+
+  .usa-sidenav-sub_list{
+    a {
+      width: 100% !important; // sorry this is temporary
+      padding-left: 40px;
+      font-size: 15px;
+
+      &:focus {
+        @include focus-gold-light-outline(0);
+      }
+
+      &:hover, &:focus {
+        background-color: $light-blue;
+        padding: $level-3-hover-padding;
+        border-color: $color-link-default;
+      }
+
+      &.usa-current {
+        margin-left: 16px !important; // sorry this is temporary
+      }
+    }
+  }
+
+  .usa-accordion {
+    .usa-accordion-button {
+      background-color: $color-white;
+      border-top: 1px solid $color-gray-lighter;
+      border-bottom: 1px solid $color-gray-lighter;
+      background-size: 1.1rem;
+      color: $color-link-default;
+      font-weight: normal;
+      font-size: 17px;
+      padding-left: 1rem;
+
+      &:focus {
+        outline: 0;
+        border: 2px solid $color-gold;
+        background-color: $mm-gray;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: $light-blue;
+      }
+
+      &[aria-expanded=false] {
+        background-image: url("/img/plus-blue.svg");
+      }
+
+      &[aria-expanded=true] {
+        border-bottom: 0;
+        background-image: url("/img/minus-blue.svg");
+
+        &:focus {
+          border: 2px solid $color-gold;
+        }
+      }
+    }
+
+    .usa-accordion-content {
+      padding: 0;
+    }
+
+    .usa-sidenav-list {
+      a {
+        font-size: 15px;
+        padding: $level-2-default-padding;
+
+        // added to deal with accordian overflow
+        // and outline not showing correctly
+        &:focus {
+          width: 98% !important;
+          margin: 2px;
+        }
+      }
+    }
+
+    .usa-current {
+      // added to deal with accordian overflow
+      // and outline not showing correctly
+      &:focus {
+        width: 99% !important;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .usa-accordion-button-dark {
+    background-color: $color-gray-lightest;
+  }
+
 }
+
+// This is the trigger-button on mobile
+.va-btn-sidebarnav-trigger {
+  color: $color-white;
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-darker;
+  }
+
+  &:focus,
+  &:hover {
+    svg {
+      fill: $color-white;
+    }
+  }
+
+  &.fixed-trigger {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $top-layer;
+  }
+
+  svg {
+    margin: 5px 0 0 3px;
+  }
+}
+
