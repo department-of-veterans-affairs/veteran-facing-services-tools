@@ -2,6 +2,9 @@
 // SCSS for content/components/navigation-sidebar.html
 //====================================
 
+$level-2-default-padding: 8px 16px 8px 12px;
+$level-2-hover-padding: 8px 14px;
+
 .va-sidebarnav {
   color: $color-link-default;
 
@@ -133,7 +136,7 @@
 
         &:hover {
           background-color: $light-blue;
-          padding: 8px 14px 8px 12px;
+          padding: $level-2-hover-padding;
           border-color: $color-link-default;
           transition:
             background-color .1s ease-in-out 0s,
@@ -296,7 +299,7 @@
     .usa-sidenav-list {
       a {
         font-size: 15px;
-        padding: 8px 14px 8px 12px;
+        padding: $level-2-default-padding;
         text-decoration: none;
 
         // added to deal with accordian overflow
