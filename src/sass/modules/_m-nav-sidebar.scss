@@ -11,14 +11,14 @@
 
   li {
     border-top-color: $color-gray-lighter;
-   a {
-      &:visited {
-       color: $color-base;
-      }
-      &.usa-current:visited {
-        color: $color-primary;
-      }
-    }
+  //  a {
+  //     &:visited {
+  //      color: $color-base;
+  //     }
+  //     &.usa-current:visited {
+  //       color: $color-primary;
+  //     }
+  //   }
   }
 
   @include media-maxwidth($medium-screen - 1) {
