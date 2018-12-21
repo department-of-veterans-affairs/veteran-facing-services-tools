@@ -5,7 +5,7 @@
 $level-2-default-padding: 8px 16px 8px 12px;
 $level-2-hover-padding: 8px 14px;
 $level-3-default-padding: 8px 14px 8px 28px;
-$level-3-hover-padding: 8px 14px 8px 30px;
+$level-3-hover-padding: 8px 12px 8px 30px;
 
 .va-sidebarnav {
   color: $color-link-default;
@@ -199,6 +199,9 @@ $level-3-hover-padding: 8px 14px 8px 30px;
         li {
           > a {
             padding: $level-3-default-padding;
+            &:hover {
+              padding: $level-3-hover-padding;
+            }
           }
           &:last-child a {
             padding-bottom: 12px;
