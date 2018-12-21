@@ -146,7 +146,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
         &:hover, &:focus {
           background-color: $light-blue;
           padding: $level-2-hover-padding;
-          border-color: $color-link-default;
+          // border-color: $color-link-default;
           transition:
             background-color .1s ease-in-out 0s,
             border-color .1s ease-in-out 0s,
