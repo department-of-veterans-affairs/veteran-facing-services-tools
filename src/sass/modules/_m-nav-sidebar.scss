@@ -239,7 +239,10 @@ $level-3-hover-padding: 8px 12px 8px 30px;
     a.usa-current {
       font-weight: bold;
       margin-left: 0;
-      padding-left: 25px;
+      &:hover, &:focus {
+        border-color: $color-base;
+        padding: $level-2-default-padding;
+      }
     }
   }
 
