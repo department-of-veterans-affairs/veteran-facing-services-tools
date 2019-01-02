@@ -209,7 +209,7 @@
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.16.2"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.17.0"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -246,7 +246,7 @@
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.16</span><span class="hljs-number">.2</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.17</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">LoadingIndicator.jsx</span>
@@ -363,16 +363,18 @@ LoadingIndicator.defaultProps = {
 describe(<span class="hljs-string">'&lt;LoadingIndicator&gt;'</span>, () =&gt; {
   it(<span class="hljs-string">'should not focus if setFocus is not set'</span>, () =&gt; {
     <span class="hljs-keyword">const</span> component = &lt;LoadingIndicator message="Loading"/&gt;;
-    mountToDiv(component, 'loadingContainer');
+    const mountedComponent = mountToDiv(component, 'loadingContainer');
 
     expect(document.activeElement.classList.contains('loading-indicator')).to.be.false;
+    mountedComponent.unmount();
   });
 
   it('should focus if setFocus is set', () =&gt; {
     const component = &lt;LoadingIndicator setFocus message="Loading"/&gt;;
-    mountToDiv(component, 'loadingContainer');
+    const mountedComponent = mountToDiv(component, 'loadingContainer');
 
     expect(document.activeElement.classList.contains('loading-indicator')).to.be.true;
+    mountedComponent.unmount();
   });
 
   it('should pass aXe check', () =&gt; {
@@ -395,7 +397,7 @@ describe(<span class="hljs-string">'&lt;LoadingIndicator&gt;'</span>, () =&gt; {
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">851 Bytes</span>
+                    <span class="Meta-value">965 Bytes</span>
                 </li>
             </ul>
         </div>
