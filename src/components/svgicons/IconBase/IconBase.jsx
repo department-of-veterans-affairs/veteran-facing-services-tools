@@ -20,7 +20,7 @@ class IconBase extends React.Component {
   }
 }
 
-IconBase.PropTypes = {
+IconBase.propTypes = {
   focusable: PropTypes.bool.isRequired,
   role: PropTypes.string,
 };

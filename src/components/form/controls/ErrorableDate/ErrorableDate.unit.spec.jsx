@@ -31,7 +31,7 @@ describe('<ErrorableDate>', () => {
     const tree = shallow(
       <ErrorableDate required date={date} onValueChange={(_update) => {}}/>);
 
-    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a response');
   });
   it('displays invalid message', () => {
@@ -47,7 +47,7 @@ describe('<ErrorableDate>', () => {
     const tree = shallow(
       <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
 
-    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a valid date');
   });
 
@@ -79,7 +79,7 @@ describe('<ErrorableDate>', () => {
     const tree = shallow(
       <ErrorableDate date={date} validation={{ valid: false, message: 'Test' }} onValueChange={(_update) => {}}/>);
 
-    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
   });
   it('displays custom message from array', () => {
@@ -102,7 +102,7 @@ describe('<ErrorableDate>', () => {
         onValueChange={(_update) => {}}/>
     );
 
-    expect(tree.find('.usa-input-error')).not.to.be.empty;
+    expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
   });
 
