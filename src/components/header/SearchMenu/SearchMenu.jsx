@@ -54,7 +54,7 @@ class SearchMenu extends React.Component {
     const buttonClasses = classNames(
       this.props.cssClass,
       'va-btn-withicon',
-      'va-dropdown-trigger'
+      ''
     );
 
     const icon = <IconSearch color="#fff" role="presentation"/>;
