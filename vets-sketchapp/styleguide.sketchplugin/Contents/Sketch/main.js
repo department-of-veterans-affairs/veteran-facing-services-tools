@@ -34386,7 +34386,7 @@ var AlertBox = function (_React$Component) {
         closeButton = _react2.default.createElement(
           'button',
           { className: 'va-alert-close', 'aria-label': 'Close notification', onClick: this.props.onCloseAlert },
-          _react2.default.createElement('i', { className: 'fa fa-close', 'aria-label': 'Close icon' })
+          _react2.default.createElement('i', { className: 'fa fa-times-circle', 'aria-label': 'Close icon' })
         );
       }
 
