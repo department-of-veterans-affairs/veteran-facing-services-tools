@@ -283,18 +283,12 @@ modal is opened</td>
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"modal"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"default"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alertdialog"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"default-title"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-inner"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-alert usa-alert-null"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"default-title"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-title va-modal-title-null"</span>&gt;</span>Default Modal<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-close"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close this modal"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"va-modal-body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-                    <span class="hljs-attr">class</span>=<span class="hljs-string">"alert-actions"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Show Default Modal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Show Info Modal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Show Error Modal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Show Warning Modal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.currentProps = {
@@ -306,8 +300,6 @@ modal is opened</td>
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"Modal.jsx"</span>,
         <span class="hljs-string">"id"</span>: <span class="hljs-string">"default"</span>,
-        <span class="hljs-string">"title"</span>: <span class="hljs-string">"Default Modal"</span>,
-        <span class="hljs-string">"status"</span>: <span class="hljs-literal">null</span>,
         <span class="hljs-string">"content"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id felis pulvinar ligula ultricies sollicitudin eget nec dui. Cras augue velit, pellentesque sit amet nisl ut, tristique suscipit sem. Cras sollicitudin auctor mattis."</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
@@ -318,20 +310,61 @@ modal is opened</td>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-56bf16899fbbfe434b440cf6d514c656-panel-view">
     <code class="Code Code--lang-text">
-        <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> Modal <span class="hljs-keyword">from</span> <span class="hljs-string">'./Modal'</span>;
+        <pre><span class="hljs-keyword">import</span> React from <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> Modal from <span class="hljs-string">'./Modal'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ModalExample</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Modal</span>
-      <span class="hljs-attr">title</span>=<span class="hljs-string">{props.title}</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">{props.id}</span>
-      <span class="hljs-attr">status</span>=<span class="hljs-string">{props.status}</span>
-      <span class="hljs-attr">visible</span>
-      <span class="hljs-attr">onClose</span>=<span class="hljs-string">{()</span> =&gt;</span> {}}&gt;
-      {props.content}
-    <span class="hljs-tag">&lt;/<span class="hljs-name">Modal</span>&gt;</span></span>
-  );
+export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModalExample</span> <span class="hljs-title">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+      showDefault: <span class="hljs-literal">false</span>,
+      showInfo: <span class="hljs-literal">false</span>,
+      showWarning: <span class="hljs-literal">false</span>,
+      showError: <span class="hljs-literal">false</span>
+    };
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;div&gt;
+        &lt;button onClick={() =&gt; <span class="hljs-keyword">this</span>.setState({showDefault: <span class="hljs-literal">true</span>})}&gt;Show Default Modal&lt;/button&gt;
+        &lt;Modal
+          title=<span class="hljs-string">"Default Modal"</span>
+          id=<span class="hljs-string">"default"</span>
+          visible={<span class="hljs-keyword">this</span>.state.showDefault}
+          onClose={() =&gt; <span class="hljs-keyword">this</span>.setState({showDefault: <span class="hljs-literal">false</span>})}&gt;
+          {<span class="hljs-keyword">this</span>.props.content}
+        &lt;/Modal&gt;
+        &lt;button onClick={() =&gt; <span class="hljs-keyword">this</span>.setState({showInfo: <span class="hljs-literal">true</span>})}&gt;Show Info Modal&lt;/button&gt;
+        &lt;Modal
+          title=<span class="hljs-string">"Info Modal"</span>
+          id=<span class="hljs-string">"info"</span>
+          status=<span class="hljs-string">"info"</span>
+          visible={<span class="hljs-keyword">this</span>.state.showInfo}
+          onClose={() =&gt; <span class="hljs-keyword">this</span>.setState({showInfo: <span class="hljs-literal">false</span>})}&gt;
+          {<span class="hljs-keyword">this</span>.props.content}
+        &lt;/Modal&gt;
+        &lt;button onClick={() =&gt; <span class="hljs-keyword">this</span>.setState({showError: <span class="hljs-literal">true</span>})}&gt;Show Error Modal&lt;/button&gt;
+        &lt;Modal
+          title=<span class="hljs-string">"Error Modal"</span>
+          id=<span class="hljs-string">"error"</span>
+          status=<span class="hljs-string">"error"</span>
+          visible={<span class="hljs-keyword">this</span>.state.showError}
+          onClose={() =&gt; <span class="hljs-keyword">this</span>.setState({showError: <span class="hljs-literal">false</span>})}&gt;
+          {<span class="hljs-keyword">this</span>.props.content}
+        &lt;/Modal&gt;
+        &lt;button onClick={() =&gt; <span class="hljs-keyword">this</span>.setState({showWarning: <span class="hljs-literal">true</span>})}&gt;Show Warning Modal&lt;/button&gt;
+        &lt;Modal
+          title=<span class="hljs-string">"Warning Modal"</span>
+          id=<span class="hljs-string">"warning"</span>
+          status=<span class="hljs-string">"warning"</span>
+          visible={<span class="hljs-keyword">this</span>.state.showWarning}
+          onClose={() =&gt; <span class="hljs-keyword">this</span>.setState({showWarning: <span class="hljs-literal">false</span>})}&gt;
+          {<span class="hljs-keyword">this</span>.props.content}
+        &lt;/Modal&gt;
+      &lt;/div&gt;
+    );
+  }
 }</pre>
     </code>
 </div>
@@ -346,6 +379,13 @@ modal is opened</td>
 <span class="hljs-attr">  version:</span> <span class="hljs-number">1.17</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">Modal.jsx</span>
+<span class="hljs-attr">id:</span> <span class="hljs-string">default</span>
+<span class="hljs-attr">content:</span> <span class="hljs-string">&gt;-</span>
+  <span class="hljs-string">Lorem</span> <span class="hljs-string">ipsum</span> <span class="hljs-string">dolor</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet,</span> <span class="hljs-string">consectetur</span> <span class="hljs-string">adipiscing</span> <span class="hljs-string">elit.</span> <span class="hljs-string">Aliquam</span> <span class="hljs-string">id</span> <span class="hljs-string">felis</span>
+  <span class="hljs-string">pulvinar</span> <span class="hljs-string">ligula</span> <span class="hljs-string">ultricies</span> <span class="hljs-string">sollicitudin</span> <span class="hljs-string">eget</span> <span class="hljs-string">nec</span> <span class="hljs-string">dui.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">augue</span> <span class="hljs-string">velit,</span>
+  <span class="hljs-string">pellentesque</span> <span class="hljs-string">sit</span> <span class="hljs-string">amet</span> <span class="hljs-string">nisl</span> <span class="hljs-string">ut,</span> <span class="hljs-string">tristique</span> <span class="hljs-string">suscipit</span> <span class="hljs-string">sem.</span> <span class="hljs-string">Cras</span> <span class="hljs-string">sollicitudin</span>
+  <span class="hljs-string">auctor</span> <span class="hljs-string">mattis.</span>
 </pre>
             
         
@@ -690,33 +730,6 @@ describe(<span class="hljs-string">'&lt;Modal/&gt;'</span>, () =&gt; {
         
         
         
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(5)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="modal--default.html">
-                    <span>Default</span>
-                </a>, 
-            
-                <a href="modal--info.html">
-                    <span>Info</span>
-                </a>, 
-            
-                <a href="modal--success.html">
-                    <span>Success</span>
-                </a>, 
-            
-                <a href="modal--warning.html">
-                    <span>Warning</span>
-                </a>, 
-            
-                <a href="modal--error.html">
-                    <span>Error</span>
-                </a>
-            
-            </span>
-        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1875,21 +1888,10 @@ describe(<span class="hljs-string">'&lt;Modal/&gt;'</span>, () =&gt; {
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-modal">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Modal</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal--default.html" data-pjax>
-                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1906,107 +1908,6 @@ describe(<span class="hljs-string">'&lt;Modal/&gt;'</span>, () =&gt; {
 
 
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal--info.html" data-pjax>
-                <span>Info</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal--success.html" data-pjax>
-                <span>Success</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal--warning.html" data-pjax>
-                <span>Warning</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal--error.html" data-pjax>
-                <span>Error</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #f9c642;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
