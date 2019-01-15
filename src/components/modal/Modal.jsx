@@ -114,7 +114,7 @@ class Modal extends React.Component {
         type="button"
         aria-label="Close this modal"
         onClick={this.handleClose}>
-        <i className="far fa-times"></i>
+        <i className="far fa-times" aria-hidden="true"></i>
       </button>);
     }
 
@@ -123,7 +123,7 @@ class Modal extends React.Component {
         <div className="va-modal-inner" ref={el => { this.element = el; }}>
           {modalTitle}
           {closeButton}
-          <div className="va-modal-body">
+          <div className="va-modal-body" role="document">
             <div>
               {this.props.contents || this.props.children}
             </div>
