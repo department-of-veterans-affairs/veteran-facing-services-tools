@@ -21,6 +21,7 @@
     "test-debug": "karma start --browsers Chrome"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
     "classnames": "^2.2.5",
     "foundation-sites": "5",
     "is-docker": "^1.1.0",
@@ -31,7 +32,6 @@
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.0",
     "@frctl/nunjucks": "^1.0.3",
