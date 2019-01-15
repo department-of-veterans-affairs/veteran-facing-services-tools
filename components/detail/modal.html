@@ -294,7 +294,7 @@ modal is opened</td>
     <span class="hljs-built_in">window</span>.currentProps = {
         <span class="hljs-string">"package"</span>: {
             <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veterans-affairs/formation"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.17.0"</span>
+            <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.18.0"</span>
         },
         <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
         <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
@@ -376,7 +376,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
             
             <pre><span class="hljs-attr">package:</span>
 <span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veterans-affairs/formation</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">1.17</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">  version:</span> <span class="hljs-number">1.18</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
 <span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">Modal.jsx</span>
@@ -403,15 +403,15 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-bd790242af73b4c0fb1968cdc4a36ef2">Modal.jsx</option>
+                <option value="file-7a625306303ec7467c83f073021f1a89">Modal.jsx</option>
                 
-                <option value="file-07930b45feda361f14ea01336382b0ca">Modal.unit.spec.jsx</option>
+                <option value="file-f646b0ac4206f3c58ab7f1a9fe4646ca">Modal.unit.spec.jsx</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-bd790242af73b4c0fb1968cdc4a36ef2" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-7a625306303ec7467c83f073021f1a89" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -535,7 +535,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
         <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
         <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close this modal"</span>
         <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClose}</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"fa fa-close"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>);
     }
 
@@ -544,7 +544,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-inner"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{el</span> =&gt;</span> { this.element = el; }}&gt;
           {modalTitle}
           {closeButton}
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-body"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"va-modal-body"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"document"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
               {this.props.contents || this.props.children}
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -650,7 +650,7 @@ Modal.defaultProps = {
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-07930b45feda361f14ea01336382b0ca" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-f646b0ac4206f3c58ab7f1a9fe4646ca" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
