@@ -20,7 +20,7 @@ export default class AdditionalInfo extends React.Component {
     const { triggerText, children } = this.props;
     const iconClass = classNames({
       fa: true,
-      'fa-angle-down': true,
+      'fas fa-angle-down': true,
       open: this.state.open
     });
     const { tagName: TagName = 'span' } = this.props;

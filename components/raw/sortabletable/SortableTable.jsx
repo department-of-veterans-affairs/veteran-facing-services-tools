@@ -31,8 +31,8 @@ class SortableTable extends React.Component {
     if (this.props.currentSort.value === field.value) {
       const iconClass = classNames({
         fa: true,
-        'fa-caret-down': this.props.currentSort.order === 'DESC',
-        'fa-caret-up': this.props.currentSort.order === 'ASC'
+        'fas fa-caret-down': this.props.currentSort.order === 'DESC',
+        'fas fa-caret-up': this.props.currentSort.order === 'ASC'
       });
 
       sortIcon = <i className={iconClass}></i>;
