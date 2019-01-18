@@ -114,7 +114,7 @@ class Modal extends React.Component {
         type="button"
         aria-label="Close this modal"
         onClick={this.handleClose}>
-        <i className="fa fa-close" aria-hidden="true"></i>
+        <i className="far fa-times" aria-hidden="true"></i>
       </button>);
     }
 

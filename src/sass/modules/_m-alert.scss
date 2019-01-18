@@ -9,7 +9,7 @@
 
   &::before {
     background: none;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-size: 2rem;
     margin-right: 1.5rem;
     position: static;
@@ -98,6 +98,7 @@
     border-left-color: $color-gold;
 
     &::before {
+      font-family: "Font Awesome 5 Free";
       content: "\f071";
     }
 
@@ -126,6 +127,7 @@
 }
 
 .va-alert-close {
+  font-family: "Font Awesome 5 Free";
   background: transparent;
   color: $color-base;
   margin: 0;
