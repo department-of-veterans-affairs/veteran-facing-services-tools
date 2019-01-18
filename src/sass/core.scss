@@ -26,6 +26,12 @@
   font-style: normal;
 }
 
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
 // ============ SETTINGS ============//
 // Order matters here! Please don't change it.
 @import "~uswds/src/stylesheets/core/variables";
