@@ -13,6 +13,7 @@ pipeline {
     stage('setup') {
       steps {
         sh 'yarn install --production=false'
+        sh 'yarn bootstrap'
       }
     }
 
@@ -20,30 +21,33 @@ pipeline {
       steps {
         parallel (
           'lint': {
-            sh 'npm run lint:js'
+            sh 'npm run lint'
           },
           'test': {
             sh 'npm run test'
+          },
+          'build': {
+            sh 'npm run build'
           }
         )
       }
     }
 
-    stage('build and publish') {
-      when { branch 'master' }
-      steps {
-        sh 'git config --global user.email james.kassemi+vabot@adhocteam.us'
-        sh 'git config --global user.name va-bot'
-        sh 'git config --global credential.helper "/bin/bash ' + env.WORKSPACE + '/scripts/credential-helper.sh"'
-        withCredentials([[
-          $class: 'UsernamePasswordMultiBinding',
-          credentialsId: 'va-bot',
-          usernameVariable: 'GIT_USERNAME',
-          passwordVariable: 'GIT_PASSWORD'
-        ]]) {
-          sh 'npm run site'
-        }
-      }
-    }
+    /* stage('build and publish') { */
+    /*   when { branch 'master' } */
+    /*   steps { */
+    /*     sh 'git config --global user.email james.kassemi+vabot@adhocteam.us' */
+    /*     sh 'git config --global user.name va-bot' */
+    /*     sh 'git config --global credential.helper "/bin/bash ' + env.WORKSPACE + '/scripts/credential-helper.sh"' */
+    /*     withCredentials([[ */
+    /*       $class: 'UsernamePasswordMultiBinding', */
+    /*       credentialsId: 'va-bot', */
+    /*       usernameVariable: 'GIT_USERNAME', */
+    /*       passwordVariable: 'GIT_PASSWORD' */
+    /*     ]]) { */
+    /*       sh 'npm run site' */
+    /*     } */
+    /*   } */
+    /* } */
   }
 }

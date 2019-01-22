@@ -7,3 +7,5 @@ dist/
 .DS_Store
 npm-debug.log
 public/dist
+packages/formation-react/*.js
+lerna-debug.log
