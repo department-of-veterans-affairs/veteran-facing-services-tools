@@ -7904,7 +7904,7 @@ var Modal = function (_React$Component) {
             type: 'button',
             'aria-label': 'Close this modal',
             onClick: this.handleClose },
-          _react2.default.createElement('i', { className: 'far fa-times', 'aria-hidden': 'true' })
+          _react2.default.createElement('i', { className: 'fa fa-close', 'aria-hidden': 'true' })
         );
       }
 
@@ -23088,7 +23088,7 @@ var AdditionalInfo = function (_React$Component) {
 
       var iconClass = (0, _classnames2.default)({
         fa: true,
-        'fas fa-angle-down': true,
+        'fa-angle-down': true,
         open: this.state.open
       });
       var _props$tagName = this.props.tagName,
@@ -23611,8 +23611,8 @@ var SortableTable = function (_React$Component) {
       if (this.props.currentSort.value === field.value) {
         var iconClass = (0, _classnames2.default)({
           fa: true,
-          'fas fa-caret-down': this.props.currentSort.order === 'DESC',
-          'fas fa-caret-up': this.props.currentSort.order === 'ASC'
+          'fa-caret-down': this.props.currentSort.order === 'DESC',
+          'fa-caret-up': this.props.currentSort.order === 'ASC'
         });
 
         sortIcon = _react2.default.createElement('i', { className: iconClass });
@@ -23840,7 +23840,7 @@ var AlertBox = function (_React$Component) {
         closeButton = _react2.default.createElement(
           'button',
           { className: 'va-alert-close', 'aria-label': 'Close notification', onClick: this.props.onCloseAlert },
-          _react2.default.createElement('i', { className: 'fas fa-times-circle', 'aria-label': 'Close icon' })
+          _react2.default.createElement('i', { className: 'fa fa-close', 'aria-label': 'Close icon' })
         );
       }
 
@@ -25594,7 +25594,7 @@ var SearchMenu = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var buttonClasses = (0, _classnames2.default)(this.props.cssClass, 'va-btn-withicon', '');
+      var buttonClasses = (0, _classnames2.default)(this.props.cssClass, 'va-btn-withicon', 'va-dropdown-trigger');
 
       var icon = _react2.default.createElement(_IconSearch2.default, { color: '#fff', role: 'presentation' });
 
