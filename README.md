@@ -41,21 +41,9 @@ After you've tested and previewed your changes locally it's time to publish a ne
 
 ### 1. Submit your PR
 
-Submit a PR that includes all of your code changes, without the version bump, and merge into `master` when approved.
+Submit a PR that includes all of your code changes. This should include the bump in versions you need, which you can update easily by running `npm run version`. Modules like `formation-react` depend on `formation` via a peer dependency, so you may need to update that as well. We try to keep the peer dependency loose and only update it for breaking changes.
 
-### 2. Merge your PR to master
-
-Once your changes are approved, squash merge them to master. Also, if your change is a breaking change, please prefix your commit message with `BREAKING CHANGE: `. Also keep in mind that your commit messages will be in a changelog that people use to figure out what has changed between releases, so make sure it accurately describes your changes.
-
-Releases should not necessarily happen after every PR is merged, it's up to you and the needs of the consuming applications.
-
-### 3. Build and publish
-
-* Run `npm run build`
-* If you have made a major version update, check to see if peerDependencies need to be updated in any of the modules, and make those changes if they do. You'll need to commit them before running the next step.
-* Run `npm run publish`. This will publish to npm and also commit and push the version changes to Github.
-
-You'll be asked to choose what version to update:
+You'll be asked to choose what type of version update to make:
 
 - `patch` - for bug fixes and minor changes
 - `minor` - for new features that don't break current features or require changes in consuming applications
@@ -64,6 +52,15 @@ You'll be asked to choose what version to update:
 You'll also be asked with packages you want to update. Our modules are versioned independently, so you'll need to update their verisons depending on where you made changes.
 
 > If you are unsure of what to pick, do a major version update on both modules.
+
+### 2. Merge your PR to master
+
+Once your changes are approved, squash merge them to master. Also, if your change is a breaking change, please prefix your commit message with `BREAKING CHANGE: `. Also keep in mind that your commit messages will be in a changelog that people use to figure out what has changed between releases, so make sure it accurately describes your changes.
+
+### 3. Build and publish
+
+* Run `npm run build`
+* For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
 
 ### 4. Update consuming apps
 
