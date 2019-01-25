@@ -65,6 +65,14 @@
 
 // Overriding the accordion button styles that are too broad
 .form-review-panel {
+  @media (max-width: $medium-screen) {
+    .form-review-array {
+      .edit-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
   button:not(.usa-button-unstyled) {
     background-image: none;
     background-color: $color-primary;
