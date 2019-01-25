@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/formation",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "The VA design system",
   "keywords": [
     "va",
@@ -29,6 +29,8 @@
     "moment": "^2.23.0"
   },
   "peerDependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "foundation-sites": "5",
     "uswds": "^1.4.2"
   }
 }
