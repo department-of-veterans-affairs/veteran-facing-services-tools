@@ -1,0 +1,209 @@
+---
+title: "Notes on Writing MDX with Gatsby"
+content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium."
+---
+
+import PropsTable from '../components/propstable'
+
+## MDX Props available to this page
+
+```javascript
+{
+  path: "/*",
+  '*': "new-component",
+  uri: "/",
+  location: {
+    href: "http://localhost:8000/new-component",
+    ancestorOrigins: {},
+    origin: "http://localhost:8000",
+    protocol: "http:",
+    host: "localhost:8000",
+    hostname: "localhost",
+    port: "8000",
+    pathname: "/new-component",
+    search: "",
+    hash: "",
+    state: null,
+    key: "initial"
+  },
+  pageResources: {
+    page: {
+      componentChunkName: "component---src-pages-new-component-mdx",
+      jsonName: "new-component-437",
+      path: "/new-component/"
+    }
+  },
+  data: {
+    site: {
+      siteMetadata: {
+        title: "Gatsby Default Starter"
+      }
+    }
+  },
+  pageContext: {
+    frontmatter: {
+      title: "Contributing",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium."
+    }
+  },
+  pathContext: {
+    frontmatter: {
+      title: "Contributing",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium."
+    }
+  }
+}
+```
+
+## Layout Template for MDX
+This is how you create your layout for your pages. The `defaultLayouts` is the file for all MDX files
+
+```javascript
+// gatsby-config.js
+
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.js")
+        }
+      }
+    }
+  ]
+}
+```
+
+### Adding a different Layout to a Subdirectory
+Let's say we wanted to add a specific layout for a specific subdirectory like src/pages/examples
+
+- Create a folder names `src/pages/examples`
+- Create a file `src/components/example-layout.js`
+- Create a simple React component for your layouts in this file.
+
+This is how it should look like. The StaticQuery is used for getting page data from graphql
+
+```javascript
+// src/components/example-layout.js
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+
+const ExampleLayout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query ExampleSiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => {
+      return (
+        <>
+          <h1>Example Layout Heading</h1>
+          <div
+            style={{
+              margin: `0 auto`,
+              maxWidth: 960,
+              padding: `0px 1.0875rem 1.45rem`,
+              paddingTop: 0,
+            }}
+          >
+            {children}
+          </div>
+        </>
+      )
+    }}
+  />
+)
+
+ExampleLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default ExampleLayout
+```
+
+- Now let's create our MDX file
+- Create a file src/pages/examples/how-to.mdx
+- Add some markdown/MDX code
+
+```markdown
+// src/pages/examples/how-to.mdx
+
+This project uses [yarn
+workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) to manage
+multiple packages within one repository. Check out the `workspaces`
+key within `package.json` to view all possible workspace
+directories. Some workspaces of note:
+
+- `packages/gatsby-mdx`: the source for the gatsby-mdx plugin
+- `examples/docs`: the gatsby-mdx docs site (built with [Gatsby](https://next.gatsbyjs.org/))
+
+## Submitting a bug report
+
+To submit a bug report, follow [this
+link](https://github.com/ChristopherBiscardi/gatsby-mdx/issues/new?template=bug_report.md),
+which will prepopulate a new GitHub issue with the bug report
+template.
+
+## Submitting a feature request
+
+To submit a feature request, follow [this
+link](https://github.com/ChristopherBiscardi/gatsby-mdx/issues/new?template=feature_request.md),
+which will prepopulate a new GitHub issue with the feature request
+template.
+
+## Writing Tests
+
+If you write tests, write them colocated with the file they're testing
+using the `filename.test.js` convention.
+
+## Doc blocks are written like this. We will have to change our syntax on the comonents to match this.
+
+```javascript
+AcceptTermsPrompt.propTypes = {
+  /**
+  * content shown as the actual terms and conditions
+  */
+  terms: PropTypes.object,
+  /**
+  * cancel button click handler
+  */
+  onCancel: PropTypes.func
+};
+```
+### Things we need to update on the jsx files to show up on propstable
+We need to convert the prop notes to jsDoc format.
+This will not show up in the proptypes if you don't correct it.
+Here is an examples:
+
+Current code:
+```javascript
+  YourComponent.propTypes = {
+    /* content shown as the actual terms and conditions */
+    user: PropTypes.object,
+
+    /* cancel button click handler */
+    onCancel: PropTypes.func
+  };
+```
+
+Changed code:
+```javascript
+  YourComponent.propTypes = {
+    /**
+     * content shown as the actual terms and conditions
+     */
+    user: PropTypes.object,
+    /**
+     * cancel button click handler
+     */
+    onCancel: PropTypes.func
+  };
+```

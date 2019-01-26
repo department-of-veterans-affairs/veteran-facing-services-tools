@@ -1,0 +1,233 @@
+---
+title: Internal Tools
+---
+
+# Internal Tools
+
+This document describes tools available internally to the vets.gov team and configuration required to access them. You'll need access to these tools if you need:
+
+* Build logs and details from Jenkins (linked to from GitHub PRs for each project)
+* System metrics for diagnostic/troubleshooting purposes
+* Exception reports and tracebacks
+
+These internal tools are available on the `vetsgov-internal` domain, which is only accessible while your system is running a SOCKS proxy locally. Your SOCKS proxy will tunnel traffic over a secure channel to vets.gov servers, providing access to:
+
+| Name                 | URL                                              |
+|----------------------|--------------------------------------------------|
+| Jenkins              | http://jenkins.vetsgov-internal                  |
+| Grafana              | http://grafana.vetsgov-internal                  |
+| Sentry               | http://sentry.vetsgov-internal                   |
+| Prometheus (dev)     | http://prometheus-dev.vetsgov-internal:9090/     |
+| Prometheus (staging) | http://prometheus-staging.vetsgov-internal:9090/ |
+| Prometheus (prod)    | http://prometheus-prod.vetsgov-internal:9090/    |
+| Prometheus (utility) | http://prometheus-utility.vetsgov-internal:9090/ |
+
+You do not need to run the SOCKS proxy while you're developing unless you need access to one of the above tools.
+
+## Design Rationale
+
+Some utilities, such as metrics dashboards, error reporting, and deployment
+tools should not be made available to the public. While such a utility may lock
+functionality behind a user login system, these vary among implementations and
+may be vulnerable to exploits. Additionally, due to the difficulty of creating
+subdomains for vets.gov, it may be problematic to host some of these utilities
+when they do not support relative path installations.
+
+The preferred solution is to host these systems on an internal network that
+prevents public access. While the VA maintains an internal network, the vets.gov
+team operates within the AWS environment. Installation of a utility like this on
+the VA network would require additional authority to operate extensions,
+a server within the VA, and mapping new connections from AWS to the VA. Since
+these tools are for use exclusively by the vets.gov services installed within
+AWS, utilizing the VA's internal network is both unnecessary, more complex,
+time intensive, and would likely impact performance of the utility and
+application requiring it.
+
+To address this issue we've configured an internal DNS server which can be
+accessed via a SOCKS proxy. The SOCKS proxy is a server on your local system
+which tunnels HTTP and DNS traffic to a jumpbox on the vets.gov AWS network.
+Once connected, a developer will have access to the `*.vetsgov-internal` TLD,
+and can use their browser to connect to tools such as Sentry.
+
+Internal systems will not require any modification to connectivity, and should
+communicate with the utilities directly. They may use a `/etc/hosts` entry for
+the corresponding `*.vetsgov-internal` address when necessary.
+
+
+
+## Configuring the SOCKS proxy
+
+These steps assume you're running on Linux or OSX. There are slightly
+different commands to connect to the proxy depending on whether you
+are connected to the VA network or not. You will need to run the SOCKS
+proxy on your local system whenever you need access to tools on the
+`vetsgov-internal` domain.
+
+#### Create an SSH public key
+
+If you don't already have a SSH public key, or you're not sure if you do,
+here are the steps to create one:
+
+1. First run the following comman in your terminal: `cd ~/.ssh`.
+  If this command returns the following error message, `cd: no such file or directory`,
+  you will need to create a .ssh directory by following these steps:
+  1. Create the directory by running `mkdir ~/.ssh`.
+  2. Run `chmod 700 .ssh`. This sets the permissions on that directory to readable
+  only by you since it has your private keys.
+  3. Once the directory exists, cd into that directory by running `cd ~/.ssh`.
+
+2. Once you have cd-ed into `~/.ssh`, check to see if you already have your
+  SSH keys by running `ls`. If you see `id_rsa_vetsgov` and `id_rsa_vetsgov.pub`
+  returned, you already have your keys and you can skip steps 3 and 4. If you don't see
+  `id_rsa_vetsgov` or `id_rsa_vetsgov.pub` continue onto the next steps.
+
+3. Run the following command `ssh-keygen -f id_rsa_vetsgov` to generate your public
+   and private keys. It will prompt you for a passphrase; you should enter a secure passphrase
+   to protect your private key.
+
+4. Run `ls ~/.ssh` and confirm that you see `id_rsa_vetsgov` and `id_rsa_vetsgov.pub`.
+   It's normal to see several other files, as well. Seeing `id_rsa_vetsgov` and `id_rsa_vetsgov.pub`
+   means you now have your private and public (the one with the `.pub` extension) keys! Your
+   private key should never leave your computer, and it's unnecessary and inadvisable to share it
+   with anybody.
+
+#### Configure the SOCKS proxy - for internal developers
+
+Once you have a SSH public key, follow these steps:
+
+1. Create a Pull Request to the <a href="https://github.com/department-of-veterans-affairs/devops">devops repository</a> with your SSH public key.
+ 	  1. Create a new branch named `add-key-X`, where X is a unique identifier for your name. Your lower-cased first/last name is fine.
+	  1. Get the contents of your `id_rsa_vetsgov.pub` by running `pbcopy < ~/.ssh/id_rsa_vetsgov.pub`
+ 	  1. Create file with your email address as the name containing the contents of `id_rsa_vetsgov.pub` in https://github.com/department-of-veterans-affairs/devops/tree/master/ansible/roles/dsva-config/files/authorized_keys
+ 	  1. Add your email address to the list of emails under the appropriate group (`developers:`, `devops`, etc.) in the https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/global/config.yml file. Please try to keep this list alphebetized.
+ 	  1. Create a PR for this branch and comment in the #vetsgov-devops channel on the DSVA Slack.
+1. Copy down the SSH configuration that you'll need locally to access the remote SSH servers.
+ 	  1. Visit https://github.com/department-of-veterans-affairs/devops/blob/master/ssh/config
+ 	  1. Click the "Raw" button, and copy the URL that's in your browser.
+ 	  1. Run `curl URL > ~/.ssh/config`, where URL is the URL that you copied in the previous step. This will overwrite any existing ssh config without warning; please back up any existing file if it exists.
+1. Add your SSH key to your local agent with `ssh-add -K ~/.ssh/id_rsa_vetsgov`.
+1. If you're on OSX you can configure the ssh client to automatically add your keys with the following in `~/.ssh/config`:
+    ```
+      Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_rsa_vetsgov
+    ```
+1. Once your PR is merged, an update job should automatically run to update the jumpboxes and SOCKS proxy endpoints. This job takes about 5 minutes to run. Wait five minutes, then proceed to the instructions below about accessing the SOCKS proxy.
+    * If your key doesn't seem to be working, contact the Platform team in the *#vetsgov-devops* Slack channel.
+
+
+#### Configure the SOCKS proxy - for external developers
+
+1. As part of onboarding, you should have provided your **public SSH key** to DSVA. If you haven't, do that now.
+2. DSVA will add your public SSH key to the list of authorized keys.
+3. When that process is completed (24 hours), you will receive a Github notification that your key has been added. Once you receive the notification, continue with the steps below.
+    * If your key doesn't seem to be working, ask for help in the *#devsupport-external* Slack channel
+
+### Accessing SOCKS proxy from VA network
+
+The `~/.ssh/config` file on your local system contains configuration to access the SOCKS proxy from the VA network (https://github.com/department-of-veterans-affairs/devops/blob/master/ssh/config#L34).
+
+1. Run `ssh socks-va -D 2001 -N &`
+   _Note: the first time you connect to the jumpbox, ssh will prompt to ask
+   if you are sure you want to connect to a new host. You will be unable to
+   respond "yes" if ssh is in the background, so either bring it to the
+   foreground with `fg` or omit the `&` character from the above command._
+
+1. Follow the instructions below to configure your browser.
+
+### Accessing SOCKS proxy from the internet
+
+The `~/.ssh/config` file on your local system contains configuration to access the SOCKS proxy from outside the VA network (https://github.com/department-of-veterans-affairs/devops/blob/master/ssh/config#L28).
+
+1. Run `ssh socks -D 2001 -N &`
+   _Note: the first time you connect to the jumpbox, ssh will prompt to ask
+   if you are sure you want to connect to a new host. You will be unable to
+   respond "yes" if ssh is in the background, so either bring it to the
+   foreground with `fg` or omit the `&` character from the above command._
+
+1. Follow the instructions below to configure your browser.
+
+## Testing and Using the SOCKS proxy
+Use the following steps to verify that the proxy connection is working, and to configure your
+browser to use the proxy connection. Note that the proxy only allows access to our internal
+tools, not to the internet at large. So you need to configure your browser to either use the proxy
+only for the `vetsgov-internal` domain (as described below for Chrome); enable/disable the proxy
+connection as needed; or use a separate browser for accessing the internal tools vs. for general
+use.
+
+### Curl
+
+To test your proxy connectivity, the best option is to run the following command:
+
+`$ curl -v --proxy socks5h://127.0.0.1:2001 sentry.vetsgov-internal`
+
+You should get output that includes `HTTP/1.1 302 FOUND`. If not, check that the
+SOCKS proxy server is running. You can `$ nc -z 127.0.0.1 2001` as a first step.
+
+### Chrome
+
+1. Install Proxy SwitchyOmega
+
+   https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif
+
+1. Configure the `proxy` profile like this:
+
+   ![](https://raw.githubusercontent.com/department-of-veterans-affairs/vets.gov-team/2367c66731458dd59daceb4ebba246fa59cf2fdf/Work%20Practices/Engineering/images/switchy-omega-config-1.png?token=AFIOcLzeC3WGA22Dw7kZVcoH2Axw-uYlks5cTsu7wA%3D%3D)
+
+1. Configure the `auto switch` profile like this:
+
+   ![](images/switchy-omega-config-2.png)
+
+1. In Chrome's menu bar, click on the proxy app and change the setting to 'auto switch':
+
+   ![](images/switch-omega-auto-switch.png)
+
+1. Be sure to hit the Apply Changes button to save your changes!
+
+   ![](images/switchy-omega-config-3.png)
+
+1. NOTE: You may have to uncheck a settings flag in Chrome, see
+
+   https://github.com/FelisCatus/SwitchyOmega/wiki/DNS-and-SOCKS-proxy
+
+1. Check your connection by navigating to Sentry at
+   http://sentry.vetsgov-internal.
+
+### Firefox
+
+1. Install Proxy Switcher
+   https://addons.mozilla.org/en-US/firefox/addon/proxy-switcher/
+1. create a file on your system with the following contents
+    ```
+    function FindProxyForURL(url, host) {
+		     if( /.*\.vetsgov-internal$/.test(host) ) {
+    		 	 return 'SOCKS5 localhost:2001';
+		     }
+    		 return 'DIRECT';
+    }
+    ```
+1. Configure the `automatic` tab by setting the path to be the file created above
+1. Press the reload button in the proxy switcher configuration dialog
+1. Check your connection by navigating to Sentry at
+   http://sentry.vetsgov-internal.
+
+## Tools
+
+### Jenkins
+With the Socks proxy set up and running, go to http://jenkins.vetsgov-internal. You can see the builds without logging in, but will need to authenticate (with GitHub) to re-run failed builds.
+
+### Sentry
+
+With the Socks proxy set up and running, go to http://sentry.vetsgov-internal. You will need to register for Sentry, but after creating any username/password, you will have access. We do not really use Sentry teams except to separate production, staging, and dev errors. To view the most recent production errors, which is the most common thing to do while on call, go to http://sentry.vetsgov-internal/vets-gov/platform-api-production/
+
+### Grafana
+With the Socks proxy set up and running, go to http://grafana.vetsgov-internal. You will need to register for Grafana, but after creating any username/password, you will have access.
+
+There are many dashboards and you should click around to get familiar with the variety of metrics being collected and visualized (make sure Data Source is set to Production). A few highlights are:
+
+- [Site](http://grafana.vetsgov-internal/dashboard/db/site) to see overall metrics about the health of the site
+- [External Service Status](http://grafana.vetsgov-internal/dashboard/db/external-service-status) to see the availability of the services vets.gov depends on.
+- [RDS](http://grafana.vetsgov-internal/dashboard/db/rds) to see the database statistics.
+- [Rev Proxy](http://grafana.vetsgov-internal/dashboard/db/revproxy) to see metrics on the reverse proxies.

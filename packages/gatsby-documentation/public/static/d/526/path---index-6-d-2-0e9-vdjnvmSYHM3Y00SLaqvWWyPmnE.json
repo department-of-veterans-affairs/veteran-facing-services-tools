@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$name\" got invalid value null; Expected non-nullable type String! not to be null.","locations":[{"line":3,"column":3}]}],"pageContext":{"id":"2503f180-5b43-5470-9665-cff9f512d7cd","name":null}}
