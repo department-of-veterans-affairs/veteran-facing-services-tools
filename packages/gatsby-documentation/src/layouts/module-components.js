@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/tag'
 
-import Layout from '../components/layout'
+import Layout from './layout';
 import PropsTable from '../components/propstable'
 import './module-components.scss'
 
@@ -22,7 +22,7 @@ export default class MDXRuntimeTest extends Component {
         <Layout>
           <div className="content">
             {children}
-            <h1>{data.componentMetadata.displayName}</h1>
+            <h2>{data.componentMetadata.displayName}</h2>
             <p>{data.componentMetadata.docblock}</p>
             <MDXRenderer tableOfContents={tableOfContents}>
               {data.mdx.code.body}

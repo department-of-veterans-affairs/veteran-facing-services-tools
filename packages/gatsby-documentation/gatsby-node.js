@@ -10,10 +10,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
-    const parentName = getNode(node.parent).name
+    const parent = getNode(node.parent)
 
-    if (parentName) {
-      if (parentName === 'index') {
+    if (parent.name) {
+      if (parent.name === 'index') {
         createNodeField({
           node,
           name: `slug`,
@@ -23,9 +23,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         createNodeField({
           node,
           name: `slug`,
-          value: `/${getNode(node.parent).name.toLowerCase()}/`,
+          value: `/${parent.name.toLowerCase()}/`,
         })
       }
+
+      createNodeField({
+        node,
+        name: `sourceInstanceName`,
+        value: `${parent.sourceInstanceName}`,
+      })
     }
   }
 }

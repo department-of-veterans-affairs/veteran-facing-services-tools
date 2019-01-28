@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
-import Sidebar from './sidebar'
+import Header from '../components/header';
+import Sidebar from '../components/sidebar';
 import './layout.scss'
 
 /**
@@ -14,17 +14,14 @@ import './layout.scss'
  * @extends {React.Component}
  */
 class Layout extends React.Component {
-  state = {
-    active: false,
-  }
-
-  toggleSidebar = () => {
-    this.setState({ active: !this.state.active })
+  getSitePages(pages) {
+    // removing the index from the list
+    return pages.filter(page => page.node.fields.slug !== '/');
   }
 
   render() {
-    const { children } = this.props
-    const { active } = this.state
+    const { children } = this.props;
+
     return (
       <StaticQuery
         query={graphql`
@@ -42,6 +39,11 @@ class Layout extends React.Component {
                     ne: ""
                   }
                 }
+              }, sort: {
+                fields: [
+                  fields___sourceInstanceName
+                ],
+                order: ASC
               }) {
               edges {
                 node {
@@ -51,11 +53,11 @@ class Layout extends React.Component {
                   }
                   fields {
                     slug
+                    sourceInstanceName
                   }
                   parent {
                     ... on File {
                       name
-                      sourceInstanceName
                     }
                   }
                   code {
@@ -84,13 +86,9 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
-            <Header
-              active={active}
-              toggleSidebar={this.toggleSidebar}
-              siteTitle={data.site.siteMetadata.title}
-            />
             <Sidebar
-              pages={data.pages.edges}
+              pages={this.getSitePages(data.pages.edges)}
+              siteTitle={data.site.siteMetadata.title}
             />
             <div className="ContentArea">{children}</div>
           </>
