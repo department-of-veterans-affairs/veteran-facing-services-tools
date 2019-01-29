@@ -7,7 +7,7 @@ import { Link } from 'gatsby'
  * @param {props} props
  */
 
-const Sidebar = ({ pages, siteTitle }) => {
+const Sidebar = ({ pages, siteTitle, components }) => {
   return (
     <aside className="sidebar">
       <div className="search">
@@ -17,6 +17,19 @@ const Sidebar = ({ pages, siteTitle }) => {
       </div>
 
       <h1>{ siteTitle }</h1>
+
+      <h4>Components</h4>
+      <ul className="menu-list">
+        {components.map((component) => {
+          return (
+            <li key={component.node.id}>
+              <Link to={`/${component.node.fields.slug.toLowerCase()}/`}>{component.node.frontmatter.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h4>Documents</h4>
       <ul className="menu-list">
         {pages.map((page) => {
           return (
@@ -27,7 +40,7 @@ const Sidebar = ({ pages, siteTitle }) => {
         })}
       </ul>
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

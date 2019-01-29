@@ -7,10 +7,10 @@ import PropTypes from 'prop-types'
  * @see https://github.com/episodeyang/react-component-props-table/
  */
 const PropsTable = props => {
-  let { className = '', propMetaData = [], ..._props } = props
-  if (className) className += ' component-props-table'
+  const { propMetaData = [], ..._props } = props;
+
   return (
-    <table className={className} {..._props}>
+    <table className="component-props-table" {..._props}>
       <thead>
         <tr>
           <th>Prop Name</th>
@@ -22,7 +22,8 @@ const PropsTable = props => {
       </thead>
       <tbody>
         {Object.keys(propMetaData).map(key => {
-          const prop = propMetaData[key]
+          const prop = propMetaData[key];
+
           return (
             <tr key={key}>
               <td style={{ color: 'rgb(17, 147, 154)' }}>{prop.name}</td>

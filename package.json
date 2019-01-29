@@ -19,7 +19,9 @@
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
     "test-watch": "lerna run test-watch --scope=@department-of-veterans-affairs/formation-react"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
   "devDependencies": {
     "axe-core": "^2.4.2",
     "babel-core": "^6.26.0",

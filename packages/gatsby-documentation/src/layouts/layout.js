@@ -34,14 +34,49 @@ class Layout extends React.Component {
 
             pages: allMdx(
               filter: {
-                frontmatter: {
-                  title: {
-                    ne: ""
+                fields: {
+                  sourceInstanceName: {
+                    eq: "pages"
                   }
                 }
               }, sort: {
                 fields: [
                   fields___sourceInstanceName
+                ],
+                order: ASC
+              }) {
+              edges {
+                node {
+                  id
+                  frontmatter {
+                    title
+                  }
+                  fields {
+                    slug
+                    sourceInstanceName
+                  }
+                  parent {
+                    ... on File {
+                      name
+                    }
+                  }
+                  code {
+                    scope
+                  }
+                }
+              }
+            }
+
+            components: allMdx(
+              filter: {
+                fields: {
+                  sourceInstanceName: {
+                    eq: "components"
+                  }
+                }
+              }, sort: {
+                fields: [
+                  frontmatter___name
                 ],
                 order: ASC
               }) {
@@ -82,12 +117,14 @@ class Layout extends React.Component {
                   name: 'keywords',
                   content: 'design system, style guide, documentation',
                 },
-              ]}
-            >
-              <html lang="en" />
+              ]}>
+
+              <html lang="en"/>
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossOrigin="anonymous"/>
             </Helmet>
             <Sidebar
               pages={this.getSitePages(data.pages.edges)}
+              components={data.components.edges}
               siteTitle={data.site.siteMetadata.title}
             />
             <div className="ContentArea">{children}</div>

@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/tag'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 import Layout from './layout';
 import PropsTable from '../components/propstable'
 import './module-components.scss'
+
+const MyCodeComponent = ({ children }) => (
+  <LiveProvider code={children}>
+    <LiveEditor/>
+  </LiveProvider>
+);
 
 export default class MDXRuntimeTest extends Component {
   render() {
@@ -18,7 +25,7 @@ export default class MDXRuntimeTest extends Component {
     }
 
     return (
-      <MDXProvider>
+      <MDXProvider components={{ code: MyCodeComponent }}>
         <Layout>
           <div className="content">
             {children}
