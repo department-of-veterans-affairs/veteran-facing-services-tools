@@ -14,6 +14,10 @@
   display: none !important
 }
 
+.vads-u-display--flex {
+  display: flex !important
+}
+
 /* Repsonsive prefixes */
 @each $bp_name, $bp_value in $breakpoints {
   @media (min-width: $bp_value) {
@@ -28,6 +32,9 @@
     }
     .#{$bp_name}\:vads-u-display--none {
       display: none !important;
+    }
+    .#{$bp_name}\:vads-u-display--flex {
+      display: flex !important;
     }
   }
 }

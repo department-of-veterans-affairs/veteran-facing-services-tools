@@ -1,0 +1,278 @@
+/*========================
+Flex shorthand
+=========================*/
+$flex-values: (
+  1: 1 0 0,
+  2: 2 0 0,
+  3: 3 0 0,
+  4: 4 0 0,
+  fill: 1 0 0,
+  auto: 0 0 auto
+);
+
+// Standard utilitiles
+@each $name, $value in $flex-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-flex--#{$name} {
+    // Example: justify-content: flex-start
+    flex: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $flex-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-flex--#{$name} {
+        // Example: justify-content: flex-start
+        flex: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Justify-content
+=========================*/
+
+$justify-content-values: (
+  flex-start: flex-start,
+  flex-end: flex-end,
+  center: center,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly
+);
+
+// Standard utilitiles
+@each $name, $value in $justify-content-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-justify-content--#{$name} {
+    // Example: justify-content: flex-start
+    justify-content: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $justify-content-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-justify-content--#{$name} {
+        // Example: justify-content: flex-start
+        justify-content: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Align items
+=========================*/
+$align-items-values: (
+  flex-start: flex-start,
+  flex-end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+// Standard utilitiles
+@each $name, $value in $align-items-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-align-items--#{$name} {
+    // Example: justify-content: flex-start
+    align-items: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $align-items-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-align-items--#{$name} {
+        // Example: justify-content: flex-start
+        align-items: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Align Content
+=========================*/
+
+$align-content-values: (
+  flex-start: flex-start,
+  flex-end: flex-end,
+  center: center,
+  stretch: stretch,
+  space-between: space-between,
+  space-around: space-around
+);
+
+// Standard utilitiles
+@each $name, $value in $align-content-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-align-content--#{$name} {
+    // Example: justify-content: flex-start
+    align-content: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $align-content-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-align-content--#{$name} {
+        // Example: justify-content: flex-start
+        align-content: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Flex Wrap
+=========================*/
+
+$flex-wrap-values: (
+  nowrap: nowrap,
+  wrap: wrap,
+  wrap-reverse: wrap-reverse
+);
+
+// Standard utilitiles
+@each $name, $value in $flex-wrap-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-flex-wrap--#{$name} {
+    // Example: justify-content: flex-start
+    flex-wrap: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $flex-wrap-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-flex-wrap--#{$name} {
+        // Example: justify-content: flex-start
+        flex-wrap: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Flex Direction
+=========================*/
+$flex-direction-values: (
+  column: column,
+  row: row,
+  column-reverse: column-reverse,
+  row-reverse: row-reverse
+);
+
+// Standard utilitiles
+@each $name, $value in $flex-direction-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-flex-direction--#{$name} {
+    // Example: justify-content: flex-start
+    flex-direction: $value !important;
+
+    > [class*=vads-l-col] {
+      flex-basis: auto !important;
+    }
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $flex-direction-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-flex-direction--#{$name} {
+        // Example: justify-content: flex-start
+        flex-direction: $value !important;
+
+        > [class*=vads-l-col] {
+          flex-basis: auto !important;
+        }
+      }
+    }
+  }
+}
+
+
+/*========================
+Align Self
+=========================*/
+$align-self-values: (
+  auto: auto,
+  flex-start: flex-start,
+  flex-end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+
+// Standard utilitiles
+@each $name, $value in $align-self-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-align-self--#{$name} {
+    // Example: justify-content: flex-start
+    align-self: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $align-self-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-align-self--#{$name} {
+        // Example: justify-content: flex-start
+        align-self: $value !important;
+      }
+    }
+  }
+}
+
+/*========================
+Order:
+=========================*/
+$order-values: (
+  first: -1,
+  initial: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  last: 999
+);
+
+// Standard utilitiles
+@each $name, $value in $order-values {
+  // Example: .vads-u-justify-content--start
+  .vads-u-order--#{$name} {
+    // Example: justify-content: flex-start
+    order: $value !important;
+  }
+}
+
+// Responsive Utilities
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $value in $order-values {
+      // Example: .vads-u-lg-justify-content--start
+      .#{$bp_name}\:vads-u-order--#{$name} {
+        // Example: justify-content: flex-start
+        order: $value !important;
+      }
+    }
+  }
+}
