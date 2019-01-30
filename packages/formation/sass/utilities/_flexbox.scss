@@ -2,31 +2,55 @@
 Flex shorthand
 =========================*/
 $flex-values: (
-  1: 1 0 0,
-  2: 2 0 0,
-  3: 3 0 0,
-  4: 4 0 0,
-  fill: 1 0 0,
-  auto: 0 0 auto
+  1 0 0,
+  2 0 0,
+  3 0 0,
+  4 0 0,
+  1 0 0,
+  0 0 auto
 );
 
-// Standard utilitiles
-@each $name, $value in $flex-values {
-  // Example: .vads-u-justify-content--start
+$flex-names:(
+  1,
+  2,
+  3,
+  4,
+  fill,
+  auto
+);
+
+$grows: (
+  1,
+  2,
+  3,
+  4,
+  1,
+  0
+);
+
+@for $i from 1 through length($flex-names) {
+  $name: nth($flex-names, $i);
+  $value: nth($flex-values, $i);
+  $grow: nth($grows, $i);
+
   .vads-u-flex--#{$name} {
-    // Example: justify-content: flex-start
     flex: $value !important;
+    flex-grow: $grow !important;
   }
 }
 
 // Responsive Utilities
 @each $bp_name, $bp_value in $breakpoints {
   @media (min-width: $bp_value) {
-    @each $name, $value in $flex-values {
+    @for $i from 1 through length($flex-names) {
+      $name: nth($flex-names, $i);
+      $value: nth($flex-values, $i);
+      $grow: nth($grows, $i);
       // Example: .vads-u-lg-justify-content--start
       .#{$bp_name}\:vads-u-flex--#{$name} {
         // Example: justify-content: flex-start
         flex: $value !important;
+        flex-grow: $grow !important;
       }
     }
   }
