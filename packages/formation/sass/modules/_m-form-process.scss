@@ -102,6 +102,7 @@
   .edit-btn {
     background-color: $color-primary;
     color: $color-white;
+    margin-left: auto;
     &:hover {
       background-color: $color-primary-darker;
       color: $color-white;
