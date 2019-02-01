@@ -1,0 +1,67 @@
+---
+title: How to Add Documents
+---
+## How to Add Documents
+This is the process of how you should add new pages and documents to this website.
+
+### Adding React Component documentation
+Here is how you should add documentation for React Components for Formation. <br />
+***Note: An example .mdx can be found at formation-react/src/components/AcceptTermsPrompt***
+
+- Create a .mdx file in the `formation-react/src/components` folder.
+- Name it the same name as your React Component.
+- Add the required frontmatter at the top of the page
+  ```
+    ---
+    title: AcceptTermsPrompt
+    name: AcceptTermsPrompt
+    ---
+  ```
+- Add descriptions to your PropTypes in your Component files
+
+  We need to convert the propType notes to jsDoc format.
+  This will not show up in the propTypes definitions in your .mdx file if you
+  don't have it in a jsDoc format.
+
+  Here is an examples:
+
+  Current code:
+  ```javascript
+    YourComponent.propTypes = {
+      /* content shown as the actual terms and conditions */
+      user: PropTypes.object,
+
+      /* cancel button click handler */
+      onCancel: PropTypes.func
+    };
+  ```
+
+  Changed code:
+  ```javascript
+    YourComponent.propTypes = {
+      /**
+       * content shown as the actual terms and conditions
+       */
+      user: PropTypes.object,
+      /**
+       * cancel button click handler
+       */
+      onCancel: PropTypes.func
+    };
+  ```
+---
+### Adding Document Pages
+All our documentation should be added to our `src/pages` folder.
+
+- Create a .mdx file
+- Add the required frontmatter at the top of the page. You will need this if you
+  want it to display in the sidebar.
+
+  ```markdown
+    // Your .mdx page
+    ---
+    title: How to Add Documents
+    ---
+  ```
+
+This is the only requirements you need to setup your document pages.

@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from '../components/header';
 import Sidebar from '../components/sidebar';
-import './layout.scss'
+import './layout.scss';
 
 /**
  * Layout
@@ -41,7 +40,7 @@ class Layout extends React.Component {
                 }
               }, sort: {
                 fields: [
-                  fields___sourceInstanceName
+                  frontmatter___title
                 ],
                 order: ASC
               }) {
@@ -76,7 +75,7 @@ class Layout extends React.Component {
                 }
               }, sort: {
                 fields: [
-                  frontmatter___name
+                  frontmatter___title
                 ],
                 order: ASC
               }) {
@@ -104,39 +103,42 @@ class Layout extends React.Component {
           }
         `}
         render={data => (
-          <>
-            <Helmet
-              title={data.site.siteMetadata.title}
-              meta={[
-                {
-                  name: 'description',
-                  content:
+          <>'
+          '<Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              {
+                name: 'description',
+                content:
                     'Template for creating design system documentatation',
-                },
-                {
-                  name: 'keywords',
-                  content: 'design system, style guide, documentation',
-                },
-              ]}>
+              },
+              {
+                name: 'keywords',
+                content: 'design system, style guide, documentation',
+              },
+            ]}>
 
-              <html lang="en"/>
-              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossOrigin="anonymous"/>
-            </Helmet>
-            <Sidebar
-              pages={this.getSitePages(data.pages.edges)}
-              components={data.components.edges}
-              siteTitle={data.site.siteMetadata.title}
-            />
-            <div className="ContentArea">{children}</div>
-          </>
-        )}
-      />
-    )
+            <html lang="en"/>
+            <link
+              rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+              crossOrigin="anonymous"/>
+          </Helmet>'
+          '<Sidebar
+            pages={this.getSitePages(data.pages.edges)}
+            components={data.components.edges}
+            siteTitle={data.site.siteMetadata.title}/>'
+
+            '<div className="ContentArea">{children}</div>'
+          '</>
+        )}/>
+    );
   }
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

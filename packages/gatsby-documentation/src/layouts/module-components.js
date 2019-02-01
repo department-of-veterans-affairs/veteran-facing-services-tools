@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import { MDXProvider } from '@mdx-js/tag'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import React, { Component } from 'react';
+import { graphql } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXProvider } from '@mdx-js/tag';
+import { LiveProvider, LiveEditor } from 'react-live';
 
 import Layout from './layout';
-import PropsTable from '../components/propstable'
-import './module-components.scss'
+import PropsTable from '../components/propstable';
+import './module-components.scss';
 
 const MyCodeComponent = ({ children }) => (
   <LiveProvider code={children}>
@@ -16,11 +16,11 @@ const MyCodeComponent = ({ children }) => (
 
 export default class MDXRuntimeTest extends Component {
   render() {
-    const { children, data, tableOfContents } = this.props
+    const { children, data, tableOfContents } = this.props;
     // Window is not available during build, so this was added deal with making
     // window available to some components.
     // Tried to add it to componentDidMount but it didn't work correctly.
-    if (typeof window !== `undefined`) {
+    if (typeof window !== 'undefined') {
       window.dataLayer = [];
     }
 
@@ -36,12 +36,11 @@ export default class MDXRuntimeTest extends Component {
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
             <PropsTable
-              propMetaData={data.componentMetadata.childrenComponentProp}
-            />
+              propMetaData={data.componentMetadata.childrenComponentProp}/>
           </div>
         </Layout>
       </MDXProvider>
-    )
+    );
   }
 }
 
@@ -77,4 +76,4 @@ export const pageQuery = graphql`
       composes
     }
   }
-`
+`;

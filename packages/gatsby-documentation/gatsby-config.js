@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = {
   siteMetadata: {
     title: `VA.gov Developer's Documentations`,
@@ -51,6 +53,5 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
-    `gatsby-transformer-javascript-frontmatter`,
   ],
 }

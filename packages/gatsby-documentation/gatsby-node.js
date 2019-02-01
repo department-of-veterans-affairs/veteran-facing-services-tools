@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -97,19 +99,4 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       },
     },
   });
-
-  // this would be for node modules that use the window var
-
-  // if (stage === "build-html") {
-  //   actions.setWebpackConfig({
-  //     module: {
-  //       rules: [
-  //         {
-  //           test: /bad-module/,
-  //           use: loaders.null(),
-  //         },
-  //       ],
-  //     },
-  //   })
-  // }
 };
