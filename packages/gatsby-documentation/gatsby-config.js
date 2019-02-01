@@ -30,11 +30,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
       resolve: `gatsby-mdx`,
       options: {
         defaultLayouts: {
           default: require.resolve("./src/layouts/layout.js"),
-        }
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true
+            }
+          }
+        ],
       }
     },
     `gatsby-plugin-sass`,
@@ -46,12 +62,5 @@ module.exports = {
       }
     },
     `gatsby-transformer-react-docgen`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
-      },
-    },
   ],
 }

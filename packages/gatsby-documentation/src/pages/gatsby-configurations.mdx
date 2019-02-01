@@ -44,6 +44,9 @@ All the plugins we use can be found in `gatsby-configs.js`.
 - [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/)
 > A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem.
 
+- https://www.gatsbyjs.org/packages/gatsby-remark-images/
+> We are using this to add images to our .mdx pages. This allows us to add
+  images to the folder and use it directly into our .mdx pages.
 
 ---
 ### How we setup `gatsby-mdx`
@@ -469,3 +472,9 @@ export default class MyPageLayout extends Component {
   }
 }
 ```
+
+### Image plugin for MDX files
+We are using a plugin to be able to use images in .mdx pages. This allows us
+to access the images with relative paths.
+
+[https://gatsby-mdx.netlify.com/guides/using-gatsby-remark-images](https://gatsby-mdx.netlify.com/guides/using-gatsby-remark-images)
