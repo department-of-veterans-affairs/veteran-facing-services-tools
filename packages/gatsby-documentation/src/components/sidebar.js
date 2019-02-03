@@ -12,7 +12,7 @@ const Sidebar = ({ pages, siteTitle, components }) => {
     <aside className="sidebar">
       <div className="search">
         <div className="input-wrap">
-          <input type="search" value="" placeholder="Type to search"/>
+          <input type="search" value="" onChange={() => {}} placeholder="Type to search"/>
         </div>
       </div>
 
