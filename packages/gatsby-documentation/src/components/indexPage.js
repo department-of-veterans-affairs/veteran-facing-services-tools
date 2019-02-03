@@ -1,10 +1,7 @@
 import React from 'react';
 
-import SEO from '../components/seo';
-
 const IndexPage = () => (
   <div>
-    <SEO title="Home" keywords={['gatsby', 'application', 'react']}/>
     <h1>VA.gov Developer's Documentations</h1>
     <p>Welcome, This is the site where we will put all our documentation</p>
   </div>
