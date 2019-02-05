@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@department-of-veterans-affairs/formation": "^1.18.0",
+    "@dschau/gatsby-source-github": "^0.0.1",
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
     "classnames": "^2.2.6",

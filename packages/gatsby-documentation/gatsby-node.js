@@ -90,6 +90,63 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(
+        `
+          {
+            allGithubRepository {
+              edges {
+                node {
+                  id
+                  name
+                  object {
+                    entries {
+                      name
+                      object {
+                        entries {
+                          name
+                          object {
+                            text
+                          }
+                        }
+                        text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        result.data.allGithubRepository.edges.forEach(async ({ node }) => {
+          node.object.entries[18].object.entries.forEach(({ name }) => {
+            if (name.includes('.md')) {
+              console.log(`id: ${node.id}, name: ${name}`);
+              createPage({
+                path: `work-practices/${name.toLowerCase()}/`,
+                component: path.resolve('./src/layouts/layout.js'),
+                context: {
+                  id: node.id,
+                  name: name,
+                },
+              })
+            }
+          })
+        })
+      })
+    )
+  })
+}
+
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
