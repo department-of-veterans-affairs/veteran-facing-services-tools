@@ -3,8 +3,7 @@
 module.exports = {
   siteMetadata: {
     title: `VA.gov Developer's Documentations`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Resources and documention for the Development within the VA.gov project`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
