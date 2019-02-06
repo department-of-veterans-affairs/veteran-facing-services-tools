@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
  * @param {props} props
  */
 
-const Sidebar = ({ pages, siteTitle, components }) => {
+const Sidebar = ({ pages, siteTitle, components, allMarkDown }) => {
   return (
     <aside className="sidebar">
       <div className="search">
@@ -35,6 +35,17 @@ const Sidebar = ({ pages, siteTitle, components }) => {
           return (
             <li key={page.node.id}>
               <Link to={`/${page.node.fields.slug.toLowerCase()}/`}>{page.node.frontmatter.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h4>External Documents</h4>
+      <ul className="menu-list">
+        {allMarkDown.map((page) => {
+          return (
+            <li key={page.node.id}>
+              <Link to={`/${page.node.fields.slug.toLowerCase()}/`}>{page.node.fields.slug}</Link>
             </li>
           );
         })}

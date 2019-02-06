@@ -58,45 +58,6 @@ module.exports = {
       }
     },
     `gatsby-transformer-react-docgen`,
-    {
-    resolve: '@dschau/gatsby-source-github',
-    options: {
-      headers: {
-        Authorization: `Bearer 397fe5ca7a59576f7989de977456aaae5ccedbea`,
-      },
-      queries: [
-        `
-          {
-            repository(owner: "department-of-veterans-affairs", name:"vets.gov-team"){
-              id
-              name
-              object (expression: "master:"){
-                ... on Tree {
-                  entries {
-                    name
-                    object {
-                      ... on Tree {
-                        entries {
-                          name
-                          object {
-                            ... on Blob {
-                              text
-                            }
-                          }
-                        }
-                      }
-                      ... on Blob {
-                        text
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-      ],
-    },
-  },
+    `gatsby-transformer-remark`,
   ],
 }
