@@ -163,3 +163,31 @@
 
   @return $opposite-direction;
 }
+
+// Spacing Units
+@function units($unit) {
+  //$name: nth($flex-names, $i);
+
+  @if not map-has-key($units, $unit) {
+    @error '`#{$unit}` is not a valid spacing unit token. '
+      + 'Valid spacing unit tokens: '
+      + '#{map-keys($units)}';
+  }
+
+  $val: map-get($units, $unit) ;
+  @return $val + rem;
+}
+
+@function units-px($unit) {
+  //$name: nth($flex-names, $i);
+
+  @if not map-has-key($units, $unit) {
+    @error '`#{$unit}` is not a valid spacing unit token. '
+      + 'Valid spacing unit tokens: '
+      + '#{map-keys($units)}';
+  }
+
+  $val: map-get($units, $unit) ;
+  @return ($val * 10) + px;
+}
+
