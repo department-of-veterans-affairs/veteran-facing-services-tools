@@ -57,11 +57,5 @@ module.exports = {
       }
     },
     `gatsby-transformer-react-docgen`,
-    {
-      resolve: 'gatsby-source-github-repo',
-      options: {
-        repoUrl: 'https://github.com/department-of-veterans-affairs/vets.gov-team',
-      },
-    },
   ],
 }
