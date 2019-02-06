@@ -7,12 +7,7 @@
  */
 
 const path = require('path')
-const crypto = require('crypto')
-const GithubGraphQLApi = require('node-github-graphql')
-
-const github = new GithubGraphQLApi({
-  token: process.env.GITHUB_API_KEY,
-})
+const githubApi = require('./services/github-api')
 
 exports.sourceNodes = async ({
   boundActionCreators,
@@ -21,60 +16,13 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = boundActionCreators
 
-  const response = await github.query(`
-    {
-      repository(owner: "department-of-veterans-affairs", name:"vets.gov-team"){
-        id
-        name
-        object (expression: "master:Work Practices"){
-          ... on Tree {
-            entries {
-              oid
-              name
-              object {
-                ... on Tree {
-                  entries {
-                    oid
-                    name
-                    object {
-                      ... on Blob {
-                        text
-                      }
-                    }
-                  }
-                }
-                ... on Blob {
-                  text
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  await githubApi.getDirectoryAndCreatePages('Work Practices', createNode);
+  await githubApi.getDirectoryAndCreatePages('Work Practices/Accessibility and 508', createNode);
 
-  response
-    .data
-    .repository
-    .object
-    .entries.filter(item => item.name.endsWith('.md')).forEach(({name, oid, object}) => {
-      createNode({
-        id: oid,
-        parent: null,
-        children: [],
-        internal: {
-          type: `GithubAPI`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(object.text)
-            .digest(`hex`),
-          mediaType: `text/markdown`,
-          content: object.text,
-          name: name.replace('.md', ''),
-        }
-      })
-    })
+  await githubApi.getPageAndCreatePage(
+    'Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md',
+    createNode
+  );
 }
 
 exports.onCreateNode = ({node, getNode, actions }) => {
@@ -110,11 +58,13 @@ exports.onCreateNode = ({node, getNode, actions }) => {
       value: `${parent.internal.name}`,
     })
 
-    createNodeField({
-      node,
-      name: `path`,
-      value: `${parent.internal.name}`,
-    })
+    if (parent.internal.directory) {
+      createNodeField({
+        node,
+        name: `path`,
+        value: `${parent.internal.directory}`,
+      })
+    }
   }
 }
 
@@ -180,7 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         result.data.allMarkDown.edges.forEach(async ({ node }) => {
           createPage({
-            path: `/${node.fields.slug.toLowerCase()}/`,
+            path: node.fields.path ? `/${node.fields.path.toLowerCase()}` : `/${node.fields.slug.toLowerCase()}`,
             component: path.resolve('./src/layouts/external-layout.js'),
             context: {
               id: node.id,

@@ -37,6 +37,11 @@ class Layout extends React.Component {
                   ne: "undefined"
                 }
               }
+            }, , sort: {
+              fields: [
+                fields___slug
+              ]
+              order: ASC
             }) {
               edges {
                 node {

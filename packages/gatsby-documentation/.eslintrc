@@ -1,6 +1,7 @@
 {
   rules: {
     "jsx-a11y/href-no-hash": 0,
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "react/no-danger": 0
   }
 }
