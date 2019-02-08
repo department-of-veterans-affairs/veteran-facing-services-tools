@@ -1,0 +1,24 @@
+$text-align:(
+  left,
+  center,
+  right,
+  justify
+);
+
+// Standard Classes
+@each $name in $text-align {
+  .vads-u-text-align--#{$name} {
+    text-align: #{$name} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name in $text-align {
+      .#{$bp_name}\:vads-u-text-align--#{$name} {
+        text-align: #{$name} !important;
+      }
+    }
+  }
+}
