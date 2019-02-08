@@ -6,13 +6,13 @@ const github = new GithubGraphQLApi({
   token: process.env.GITHUB_API_KEY,
 });
 
-exports.getDirectoryAndCreatePages = async (dirPath, createNode) => {
+exports.getDirectoryAndCreatePages = async ({ owner, repo, dir }, createNode) => {
   const result = await github.query(`
     {
-      repository(owner: "department-of-veterans-affairs", name:"vets.gov-team"){
+      repository(owner: "${owner}" , name: "${repo}"){
         id
         name
-        object (expression: "master:${dirPath}"){
+        object (expression: "master:${dir}"){
           ... on Tree {
             entries {
               oid
@@ -57,20 +57,20 @@ exports.getDirectoryAndCreatePages = async (dirPath, createNode) => {
             .digest('hex'),
           mediaType: 'text/markdown',
           content: object.text,
-          directory: dirPath,
+          directory: dir,
           name: name.replace('.md', ''),
         }
       });
     });
 };
 
-exports.getPageAndCreatePage = async (dirPath, createNode) => {
+exports.getPageAndCreatePage = async ({ owner, repo, dir }, createNode) => {
   const result = await github.query(`
     {
-      repository(owner: "department-of-veterans-affairs", name:"vets.gov-team"){
+      repository(owner: "${owner}", name:"${repo}"){
         id
         name
-        object (expression: "master:${dirPath}"){
+        object (expression: "master:${dir}"){
           oid
           ... on Blob {
             text
@@ -94,8 +94,8 @@ exports.getPageAndCreatePage = async (dirPath, createNode) => {
         .digest('hex'),
       mediaType: 'text/markdown',
       content: text,
-      directory: dirPath,
-      name: path.basename(dirPath, '.md'),
+      directory: dir,
+      name: path.basename(dir, '.md'),
     }
   });
 };

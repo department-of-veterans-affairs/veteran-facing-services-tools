@@ -7,6 +7,14 @@ import { Link } from 'gatsby';
  * @param {props} props
  */
 
+const getLinkName = (page) => {
+  if (page.node.fields.fileName === 'README') {
+    return page.node.fields.slug;
+  }
+
+  return page.node.fields.fileName;
+};
+
 const Sidebar = ({ pages, siteTitle, components, allMarkDown }) => {
   return (
     <aside className="sidebar">
@@ -45,7 +53,7 @@ const Sidebar = ({ pages, siteTitle, components, allMarkDown }) => {
         {allMarkDown.map((page) => {
           return (
             <li key={page.node.id}>
-              <Link to={`/${page.node.fields.slug.toLowerCase()}/`}>{page.node.fields.slug}</Link>
+              <Link to={`/${page.node.fields.slug.toLowerCase().replace(/ /g, '-')}/`}>{getLinkName(page)}</Link>
             </li>
           );
         })}

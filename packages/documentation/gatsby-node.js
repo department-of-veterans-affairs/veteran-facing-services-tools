@@ -15,13 +15,27 @@ exports.sourceNodes = async ({
   hasNodeChanged,
 }) => {
   const { createNode } = boundActionCreators
+  const repoData = {
+    owner: 'department-of-veterans-affairs',
+    repo: 'vets.gov-team',
+  }
 
-  await githubApi.getDirectoryAndCreatePages('Work Practices', createNode);
-  await githubApi.getDirectoryAndCreatePages('Work Practices/Accessibility and 508', createNode);
+  await githubApi.getDirectoryAndCreatePages({
+    ...repoData,
+    dir: 'Work Practices',
+  }, createNode);
+  await githubApi.getDirectoryAndCreatePages({
+      ...repoData,
+      dir: 'Work Practices/Accessibility and 508',
+    },
+    createNode,
+  );
 
-  await githubApi.getPageAndCreatePage(
-    'Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md',
-    createNode
+  await githubApi.getPageAndCreatePage({
+      ...repoData,
+      dir: 'Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md',
+    },
+    createNode,
   );
 }
 
@@ -52,17 +66,29 @@ exports.onCreateNode = ({node, getNode, actions }) => {
       })
     }
   } else if (node.internal.type === `MarkdownRemark`) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: `${parent.internal.name}`,
-    })
-
     if (parent.internal.directory) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `${parent.internal.directory}/${parent.internal.name}`,
+      })
+
       createNodeField({
         node,
         name: `path`,
         value: `${parent.internal.directory}`,
+      })
+
+      createNodeField({
+        node,
+        name: `fileName`,
+        value: `${parent.internal.name}`,
+      })
+    } else {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `${parent.internal.name}`,
       })
     }
   }
@@ -86,6 +112,8 @@ exports.createPages = ({ graphql, actions }) => {
                 id
                 fields {
                   slug
+                  path
+                  fileName
                 }
                 internal {
                   content
@@ -130,7 +158,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         result.data.allMarkDown.edges.forEach(async ({ node }) => {
           createPage({
-            path: node.fields.path ? `/${node.fields.path.toLowerCase()}` : `/${node.fields.slug.toLowerCase()}`,
+            path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
             component: path.resolve('./src/layouts/external-layout.js'),
             context: {
               id: node.id,

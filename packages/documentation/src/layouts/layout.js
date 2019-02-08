@@ -39,7 +39,7 @@ class Layout extends React.Component {
               }
             }, , sort: {
               fields: [
-                fields___slug
+                fields___fileName
               ]
               order: ASC
             }) {
@@ -47,6 +47,8 @@ class Layout extends React.Component {
                 node {
                   fields {
                     slug
+                    fileName
+                    path
                   }
                 }
               }
