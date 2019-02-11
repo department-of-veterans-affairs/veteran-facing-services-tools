@@ -1,0 +1,11 @@
+$font-styles:(
+  normal,
+  italic
+);
+
+// Standard Classes
+@each $name in $font-styles {
+  .vads-u-font-style--#{$name} {
+    font-style: #{$name} !important;
+  }
+}
