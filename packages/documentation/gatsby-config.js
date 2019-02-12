@@ -34,6 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
+        extensions: ['.mdx'],
         defaultLayouts: {
           default: require.resolve("./src/layouts/layout.js"),
         },
@@ -44,7 +45,7 @@ module.exports = {
               maxWidth: 1035,
               sizeByPixelDensity: true
             }
-          }
+          },
         ],
       }
     },
