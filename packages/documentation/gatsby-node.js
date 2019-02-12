@@ -10,11 +10,11 @@ const path = require('path')
 const githubApi = require('./services/github-api')
 
 exports.sourceNodes = async ({
-  boundActionCreators,
+  actions,
   getNode,
   hasNodeChanged,
 }) => {
-  const { createNode } = boundActionCreators
+  const { createNode } = actions
   const repoData = {
     owner: 'department-of-veterans-affairs',
     repo: 'vets.gov-team',
@@ -24,6 +24,7 @@ exports.sourceNodes = async ({
     ...repoData,
     dir: 'Work Practices',
   }, createNode);
+
   await githubApi.getDirectoryAndCreatePages({
       ...repoData,
       dir: 'Work Practices/Accessibility and 508',
