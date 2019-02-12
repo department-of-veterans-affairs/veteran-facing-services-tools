@@ -1,0 +1,12 @@
+$text-decoration:(
+  none,
+  underline,
+  line-through
+);
+
+// Standard Classes
+@each $name in $text-decoration {
+  .vads-u-text-decoration--#{$name} {
+    text-decoration: #{$name} !important;
+  }
+}
