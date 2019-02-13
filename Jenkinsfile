@@ -27,7 +27,6 @@ pipeline {
             sh 'npm run test'
           },
           'build': {
-            sh 'npm run build'
             withCredentials([[
               $class: 'UsernamePasswordMultiBinding',
               credentialsId: 'va-bot',
