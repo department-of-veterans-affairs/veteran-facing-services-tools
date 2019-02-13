@@ -28,6 +28,14 @@ pipeline {
           },
           'build': {
             sh 'npm run build'
+            withCredentials([[
+              $class: 'UsernamePasswordMultiBinding',
+              credentialsId: 'va-bot',
+              usernameVariable: 'USERNAME',
+              passwordVariable: 'TOKEN'
+            ]]) {
+              sh 'GITHUB_API_KEY=${env.TOKEN} npm run build'
+            }
           }
         )
       }
