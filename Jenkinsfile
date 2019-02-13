@@ -33,7 +33,7 @@ pipeline {
               usernameVariable: 'USERNAME',
               passwordVariable: 'TOKEN'
             ]]) {
-              sh 'GITHUB_API_KEY=${env.TOKEN} npm run build'
+              sh "GITHUB_API_KEY=${env.TOKEN} npm run build"
             }
           }
         )
