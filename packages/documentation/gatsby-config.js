@@ -35,6 +35,7 @@ module.exports = {
       resolve: `gatsby-mdx`,
       options: {
         extensions: ['.mdx'],
+        mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve("./src/layouts/layout.js"),
         },
