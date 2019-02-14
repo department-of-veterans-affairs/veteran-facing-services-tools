@@ -31,6 +31,29 @@ class Layout extends React.Component {
               }
             }
 
+            allMarkDown: allMarkdownRemark(filter: {
+              fields: {
+                slug: {
+                  ne: "undefined"
+                }
+              }
+            }, , sort: {
+              fields: [
+                fields___fileName
+              ]
+              order: ASC
+            }) {
+              edges {
+                node {
+                  fields {
+                    slug
+                    fileName
+                    path
+                  }
+                }
+              }
+            }
+
             pages: allMdx(
               filter: {
                 fields: {
@@ -128,7 +151,8 @@ class Layout extends React.Component {
           '<Sidebar
             pages={this.getSitePages(data.pages.edges)}
             components={data.components.edges}
-            siteTitle={data.site.siteMetadata.title}/>'
+            siteTitle={data.site.siteMetadata.title}
+            allMarkDown={data.allMarkDown.edges}/>'
 
             '<div className="ContentArea">{children}</div>'
           '</>

@@ -20,7 +20,9 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-javascript-frontmatter": "^2.0.5",
     "gatsby-transformer-react-docgen": "^3.0.0",
+    "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.8",
+    "node-github-graphql": "^0.2.7",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -38,7 +40,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "develop:inspect": "node --inspect --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },
   "devDependencies": {
     "prettier": "^1.15.2"

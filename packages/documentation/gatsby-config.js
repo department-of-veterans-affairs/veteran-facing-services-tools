@@ -34,6 +34,8 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
+        extensions: ['.mdx'],
+        mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve("./src/layouts/layout.js"),
         },
@@ -44,7 +46,7 @@ module.exports = {
               maxWidth: 1035,
               sizeByPixelDensity: true
             }
-          }
+          },
         ],
       }
     },
@@ -57,5 +59,6 @@ module.exports = {
       }
     },
     `gatsby-transformer-react-docgen`,
+    `gatsby-transformer-remark`,
   ],
 }
