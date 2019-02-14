@@ -1,0 +1,322 @@
+$border_sizes: (
+  0,
+  1px,
+  2px,
+  3px,
+  4px,
+  5px,
+  7px,
+  10px
+);
+
+// Standard borders
+@each $size in $border_sizes {
+  .vads-u-border--#{$size} {
+    border: #{$size} solid !important;
+  }
+
+  .vads-u-border-top--#{$size} {
+    border-top: #{$size} solid !important;
+  }
+
+  .vads-u-border-right--#{$size} {
+    border-right: #{$size} solid !important;
+  }
+
+  .vads-u-border-bottom--#{$size} {
+    border-bottom: #{$size} solid !important;
+  }
+
+  .vads-u-border-left--#{$size} {
+    border-left: #{$size} solid !important;
+  }
+}
+
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $size in $border_sizes {
+      .#{$bp_name}\:vads-u-border--#{$size} {
+        border: #{$size} solid !important;
+      }
+
+      .#{$bp_name}\:vads-u-border-top--#{$size} {
+        border-top: #{$size} solid !important;
+      }
+
+      .#{$bp_name}\:vads-u-border-right--#{$size} {
+        border-right: #{$size} solid !important;
+      }
+
+      .vads-u-border-bottom--#{$size} {
+        border-bottom: #{$size} solid !important;
+      }
+
+      .#{$bp_name}\:vads-u-border-left--#{$size} {
+        border-left: #{$size} solid !important;
+      }
+    }
+  }
+}
+
+// Border styles
+$border_styles: (
+  solid,
+  dashed,
+  dotted
+);
+
+@each $style in $border_styles {
+  .vads-u-border-style--#{$style} {
+    border-style: #{$style} !important;
+  }
+}
+
+// Border colors
+.vads-u-border-color--transparent {
+  border-color: $color-transparent !important;
+}
+
+.vads-u-border-color--base {
+  border-color: $color-base !important;
+}
+
+.vads-u-border-color--white {
+  border-color: $color-white !important;
+}
+
+.vads-u-border-color--black {
+  border-color: $color-black !important;
+}
+
+.vads-u-border-color--orange {
+  border-color: $color-orange !important;
+}
+
+.vads-u-border-color--link-default {
+  border-color: $color-link-default !important;
+}
+
+.vads-u-border-color--va-accent {
+  border-color: $color-va-accent !important;
+}
+
+.vads-u-border-color--warning-message {
+  border-color: $color-warning-message !important;
+}
+
+.vads-u-border-color--gibill-accent {
+  border-color: $color-gibill-accent !important;
+}
+
+/*
+  Primary
+*/
+.vads-u-border-color--primary {
+  border-color: $color-primary !important;
+}
+
+.vads-u-border-color--primary-darker {
+  border-color: $color-primary-darker !important;
+}
+
+.vads-u-border-color--primary-darkest {
+  border-color: $color-primary-darkest !important;
+}
+
+/*
+  Primary alt
+*/
+.vads-u-border-color--primary-alt {
+  border-color: $color-primary-alt !important;
+}
+
+.vads-u-border-color--primary-alt-dark {
+  border-color: $color-primary-alt-dark !important;
+}
+
+.vads-u-border-color--primary-alt-darkest {
+  border-color: $color-primary-alt-darkest !important;
+}
+
+.vads-u-border-color--primary-alt-light {
+  border-color: $color-primary-alt-light !important;
+}
+
+.vads-u-border-color--primary-alt-lightest {
+  border-color: $color-primary-alt-lightest !important;
+}
+
+/*
+  Secondary
+*/
+.vads-u-border-color--secondary {
+  border-color: $color-secondary !important;
+}
+
+.vads-u-border-color--secondary-dark {
+  border-color: $color-secondary-dark !important;
+}
+
+.vads-u-border-color--secondary-darkest {
+  border-color: $color-secondary-darkest !important;
+}
+
+.vads-u-border-color--secondary-light {
+  border-color: $color-secondary-light !important;
+}
+
+.vads-u-border-color--secondary-lightest {
+  border-color: $color-secondary-lightest !important;
+}
+
+
+
+/*
+  Grays
+*/
+
+.vads-u-border-color--gray {
+  border-color: $color-gray !important;
+}
+
+.vads-u-border-color--gray-dark {
+  border-color: $color-gray-dark !important;
+}
+
+.vads-u-border-color--gray-medium {
+  border-color: $color-gray-medium !important;
+}
+
+.vads-u-border-color--gray-light {
+  border-color: $color-gray-light !important;
+}
+
+.vads-u-border-color--gray-light-alt {
+  border-color: $color-gray-light-alt !important;
+}
+
+.vads-u-border-color--gray-lighter {
+  border-color: $color-gray-lighter !important;
+}
+
+.vads-u-border-color--gray-lightest {
+  border-color: $color-gray-lightest !important;
+}
+
+.vads-u-border-color--gray-warm-dark {
+  border-color: $color-gray-warm-dark !important;
+}
+
+.vads-u-border-color--gray-warm-light {
+  border-color: $color-gray-warm-light !important;
+}
+
+.vads-u-border-color--gray-cool-light {
+  border-color: $color-gray-cool-light !important;
+}
+
+/*
+  Gold
+*/
+.vads-u-border-color--gold {
+  border-color: $color-gold !important;
+}
+
+.vads-u-border-color--gold-darker {
+  border-color: $color-gold-darker !important;
+}
+
+.vads-u-border-color--gold-light {
+  border-color: $color-gold-light !important;
+}
+
+.vads-u-border-color--gold-lighter {
+  border-color: $color-gold-lighter !important;
+}
+
+.vads-u-border-color--gold-lightest {
+  border-color: $color-gold-lightest !important;
+}
+
+
+/*
+  Green
+*/
+.vads-u-border-color--green {
+  border-color: $color-green !important;
+}
+
+.vads-u-border-color--green-darker {
+  border-color: $color-green-darker !important;
+}
+
+.vads-u-border-color--green-light {
+  border-color: $color-green-light !important;
+}
+
+.vads-u-border-color--green-lighter {
+  border-color: $color-green-lighter !important;
+}
+
+.vads-u-border-color--green-lightest {
+  border-color: $color-green-lightest !important;
+}
+
+/*
+  Cool blue
+*/
+.vads-u-border-color--cool-blue {
+  border-color: $color-cool-blue !important;
+}
+
+.vads-u-border-color--cool-blue-light {
+  border-color: $color-cool-blue-light !important;
+}
+
+.vads-u-border-color--cool-blue-lighter {
+  border-color: $color-cool-blue-lighter !important;
+}
+
+.vads-u-border-color--cool-blue-lightest {
+  border-color: $color-cool-blue-lightest !important;
+}
+
+/*
+  Hub colors
+*/
+
+.vads-u-border-color--hub-health-care {
+  border-color: $indigo-cool-60 !important;
+}
+
+.vads-u-border-color--hub-education {
+  border-color: $mint-cool-50 !important;
+}
+
+.vads-u-border-color--hub-disability {
+  border-color: $red-60 !important;
+}
+
+.vads-u-border-color--hub-careers {
+  border-color: $orange-warm-50 !important;
+}
+
+.vads-u-border-color--hub-pension {
+  border-color: $green-cool-50 !important;
+}
+
+.vads-u-border-color--hub-housing {
+  border-color: $gold-50 !important;
+}
+
+.vads-u-border-color--hub-life-insurance {
+  border-color: $green-warm-50 !important;
+}
+
+.vads-u-border-color--hub-burials {
+  border-color: $blue-50 !important;
+}
+
+.vads-u-border-color--hub-records {
+  border-color: $violet-warm-60 !important;
+}
