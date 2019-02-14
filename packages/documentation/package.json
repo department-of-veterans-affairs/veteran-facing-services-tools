@@ -36,7 +36,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
