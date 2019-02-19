@@ -1,0 +1,155 @@
+/*========================
+Height
+=========================*/
+
+$heights:(
+  0: 0px,
+  full: 100%,
+  auto: auto,
+  viewport: 100vh
+);
+
+@each $name, $value in $heights {
+  .vads-u-height--#{$name} {
+    height: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $heights {
+      .#{$bp_name}\:vads-u-height--#{$name} {
+        height: #{$value} !important;
+      }
+    }
+  }
+}
+
+/*========================
+Max height
+=========================*/
+$max_heights:(
+  none: none,
+  viewport: 100vh
+);
+
+@each $name, $value in $max_heights {
+  .vads-u-max-height--#{$name} {
+    max-height: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $max_heights {
+      .#{$bp_name}\:vads-u-max-height--#{$name} {
+        max-height: #{$value} !important;
+      }
+    }
+  }
+}
+
+
+/*========================
+Min height
+=========================*/
+$min_heights:(
+  none: none,
+  viewport: 100vh
+);
+
+@each $name, $value in $min_heights {
+  .vads-u-min-height--#{$name} {
+    min-height: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $min_heights {
+      .#{$bp_name}\:vads-u-min-height--#{$name} {
+        min-height: #{$value} !important;
+      }
+    }
+  }
+}
+
+
+/*========================
+Width
+=========================*/
+$widths:(
+  0: 0px,
+  full: 100%,
+  auto: auto
+);
+
+@each $name, $value in $widths {
+  .vads-u-width--#{$name} {
+    width: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $widths {
+      .#{$bp_name}\:vads-u-width--#{$name} {
+        width: #{$value} !important;
+      }
+    }
+  }
+}
+
+/*========================
+Max width
+=========================*/
+$max_widths:(
+  none: none,
+  100: 100%
+);
+
+@each $name, $value in $max_widths {
+  .vads-u-max-width--#{$name} {
+    max-width: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $max_widths {
+      .#{$bp_name}\:vads-u-max-width--#{$name} {
+        max-width: #{$value} !important;
+      }
+    }
+  }
+}
+
+
+/*========================
+Min width
+=========================*/
+$min_widths:(
+  none: none
+);
+
+@each $name, $value in $min_widths {
+  .vads-u-min-width--#{$name} {
+    min-width: #{$value} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+  @each $name, $value in $min_widths {
+      .#{$bp_name}\:vads-u-min-width--#{$name} {
+        min-width: #{$value} !important;
+      }
+    }
+  }
+}
