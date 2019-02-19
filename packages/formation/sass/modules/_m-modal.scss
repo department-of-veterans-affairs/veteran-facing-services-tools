@@ -1,5 +1,4 @@
 // Styles for application modals
-// Used in prescriptions, messaging.
 
 // Hide initially, to be shown if url contains #modal
 // Alternatively, modal.hide() in content/includes/modal.html
@@ -22,97 +21,19 @@
     overflow-y: scroll;
   }
 
-  // error standardization
-  .usa-alert {
-    .va-modal-title-undefined {
-      padding: 0.5rem !important;
-    }
-
-    &-undefined {
-      background: $color-white;
-      padding-left: 2rem;
-    }
-
-    &:before {
-      content: none;
-    }
-  }
-
   .va-modal-body {
     p:first-of-type {
       margin-top: 0;
     }
   }
 
-  // "Forked" modal styles
-  &-split {
-    .va-modal-inner {
-      min-width: 710px;
-
-      @include media-maxwidth($small-screen) {
-        top: 0%;
-        transform: translateY(0%);
-        min-width: auto;
-        .usa-button-primary {
-          display: block;
-        }
-      }
-    }
-    &-container {
-      display: flex;
-    }
-    &-left,
-    &-right {
-      flex: 1;
-      padding: 0 20px;
-      @include media-maxwidth($small-screen) {
-        flex: none;
-        padding: 0;
-      }
-    }
-    &-title {
-      margin-top: 0;
-    }
-    &-list {
-      margin-top: 10px;
-    }
-    &-divider {
-      background: $color-primary-alt-lightest;
-      width: 3px;
-
-      // Horizontally aligned "OR" divider for mobile
-      @include media-maxwidth($small-screen) {
-        width: 100%;
-        height: 3px;
-        display: flex;
-        margin: 25px 0;
-        justify-content: center;
-        align-items: center;
-        &:after {
-          text-align: center;
-          content: "OR";
-          font-size: 20px;
-          font-weight: bold;
-          padding: 5px 10px;
-          background: $color-white;
-        }
-      }
-    }
-
-    @include media-maxwidth($small-screen) {
-      &-container {
-        flex-flow: column;
-      }
-    }
+  .alert-actions {
+    margin-top: 1.5rem;
   }
 
   &-title {
-    // background: $color-primary-darkest;
-    // color: $color-white;
-    // font-size: 2.4rem;
     margin: 0;
-    // Abusing important until #content .section h3 is cleared up.
-    padding: 0.5rem 2rem !important;
+    margin-bottom: 1.5rem;
   }
 
   &-inner {
@@ -164,6 +85,67 @@
       }
     }
   }
+
+  &-alert {
+    .va-modal-inner {
+      max-width: 60rem;
+    }
+
+    .va-modal-body {
+      border-left-style: solid;
+      border-left-width: 10px;
+      padding: 2rem 4rem;
+    }
+
+    .va-modal-title {
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  &-info {
+    .va-modal-body {
+      border-left-color: $color-primary-alt-dark;
+    }
+
+    .va-modal-title::before {
+      content: "\f05a";
+    }
+  }
+
+  &-error {
+    .va-modal-body {
+      border-left-color: $color-secondary-dark;
+    }
+
+    .va-modal-title::before {
+      color: $color-secondary-dark;
+      content: "\f06a"
+    }
+  }
+
+  &-success {
+    .va-modal-body {
+      border-left-color: $color-green;
+    }
+
+    .va-modal-title::before {
+      color: $color-green;
+      content: "\f00c";
+    }
+  }
+
+  &-warning {
+    .va-modal-body {
+      border-left-color: $color-gold;
+    }
+
+    .va-modal-title::before {
+      content: "\f071";
+    }
+  }
 }
 
 .va-modal-body {
@@ -178,18 +160,23 @@
 
 button.va-modal-close {
   background-color: transparent;
-  color: $color-va-modal-close;
-  font-size: 2.5rem;
-  padding: 0.5rem 1rem;
+  color: $color-primary;
+  font-size: 2.25rem;
+  padding: 0;
   position: absolute;
-  margin: 0.25rem;
+  margin: 2rem;
   right: 0;
   top: 0;
   width: auto;
   z-index: 9;
 
   &:hover {
-    background-color: inherit;
-    color: $color-base;
+    background-color: transparent;
+    color: $color-primary-darker;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $color-primary-darkest;
   }
 }
