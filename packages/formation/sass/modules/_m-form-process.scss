@@ -213,6 +213,11 @@
   margin-bottom: 0;
 }
 
+.schemaform-array-row-title:focus {
+  @include focus-gold-light-outline;
+  display: inline-block;
+}
+
 .form-review-array {
   margin-top: 5rem;
 }
