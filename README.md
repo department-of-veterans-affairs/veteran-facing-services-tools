@@ -1,10 +1,12 @@
 # Veteran Facing Services tools
 
+This repo contains front end code and documentation used by the Veteran facing services on VA.gov. It's a monorepo managed by Lerna, a tool for managing versioning and publishing for multiple modules located in a single repo.
+
+If you're looking for design system documentation:
+
 Legacy URL: https://department-of-veterans-affairs.github.io/design-system
 
 Work in progress URL: https://department-of-veterans-affairs.github.io/vets-design-system-documentation/
-
-This repo contains front end code and documentation used by the Veteran facing services on VA.gov. It's a monorepo managed by Lerna, a tool for managing versioning and publishing for multiple modules located in a single repo.
 
 ## Repositories
 
