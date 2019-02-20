@@ -17,7 +17,7 @@ Work in progress URL: https://department-of-veterans-affairs.github.io/vets-desi
 - documentation
    - Documentation for how the set of Veteran facing services platform works
 
-**Start here:**
+## Setup
 
 - You need Homebrew. To install Homebrew, [follow these instructions](https://www.howtogeek.com/211541/homebrew-for-os-x-easily-installs-desktop-apps-and-terminal-utilities/)
 - You also need Yarn. To install Yarn, you'll use Homebrew. In Terminal, run `brew install yarn`
