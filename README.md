@@ -1,4 +1,4 @@
-# Formation (VA design system)
+# Veteran Facing Services tools
 
 Legacy URL: https://department-of-veterans-affairs.github.io/design-system
 
