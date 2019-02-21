@@ -1,0 +1,30 @@
+/*========================
+Measure
+=========================*/
+
+$measures:(
+  1: 40ch,
+  2: 60ch,
+  3: 66ch,
+  4: 72ch,
+  5: 77ch,
+  none: none
+);
+
+// Standard classes
+@each $name, $size in $measures {
+  .vads-u-measure--#{$name} {
+    max-width: $size !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $size in $measures {
+      .#{$bp_name}\:vads-u-measure--#{$name} {
+        max-width: $size !important;
+      }
+    }
+  }
+}
