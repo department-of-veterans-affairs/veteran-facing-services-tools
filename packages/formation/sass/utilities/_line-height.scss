@@ -1,0 +1,30 @@
+/*========================
+Line height
+=========================*/
+
+$line_heights:(
+  1: 1,
+  2: 1.15,
+  3: 1.35,
+  4: 1.5,
+  5: 1.62,
+  6: 1.75
+);
+
+// Standard classes
+@each $name, $size in $line_heights {
+  .vads-u-line-height--#{$name} {
+    line-height: $size !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name, $size in $line_heights {
+      .#{$bp_name}\:vads-u-line-height--#{$name} {
+        line-height: $size !important;
+      }
+    }
+  }
+}
