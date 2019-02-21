@@ -1,24 +1,33 @@
-# Formation (VA design system)
+# Veteran Facing Services tools
+
+This repo contains front end code and documentation used by the Veteran facing services on VA.gov. It's a monorepo managed by Lerna, a tool for managing versioning and publishing for multiple modules located in a single repo.
+
+If you're looking for design system documentation:
 
 Legacy URL: https://department-of-veterans-affairs.github.io/design-system
 
 Work in progress URL: https://department-of-veterans-affairs.github.io/vets-design-system-documentation/
 
-This repo contains styles and assets for the VA design system, as well as React implementations of some of the patterns. It is managed by Lerna, a tool for managing versioning and publishing for multiple modules located in a single repo.
+## Repositories
 
-**Start here:**
+- formation
+   - Styles and assets for the VA design system
+- formation-react
+   - React implementations of some of the patterns in formation.
+- documentation
+   - Documentation for how the set of Veteran facing services platform works
+
+## Setup
 
 - You need Homebrew. To install Homebrew, [follow these instructions](https://www.howtogeek.com/211541/homebrew-for-os-x-easily-installs-desktop-apps-and-terminal-utilities/)
 - You also need Yarn. To install Yarn, you'll use Homebrew. In Terminal, run `brew install yarn`
 
-**Clone the design-system repo:**
-
-If you're familiar with cloning repos from Github using Terminal, skip ahead to **Install Fractal**.
+**Clone the veteran-facing-services-tools repo:**
 
 You can put the repo anywhere on your computer, but as a suggestion:
 - In Terminal, navigate to your desktop: `cd ~/desktop`
-- Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/design-system.git`
-- Then: `cd design-system`
+- Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git`
+- Then: `cd veteran-facing-services-tools`
 - Run `yarn` and `yarn bootstrap` to install dependencies for each module
 
 ## Commands
@@ -65,7 +74,3 @@ Once your changes are approved, squash merge them to master. Also, if your chang
 ### 4. Update consuming apps
 
 The last step is to update the `package.json` files of consuming apps to use the latest version of `@department-of-veterans-affairs/formation` (or `formation-react`). For example, if you are working with the `vets-website` project, open the `vets-website`'s `package.json` to update the version number of the `@department-of-veterans-affairs/formation` entry listed in the `dependencies` section. The version number should match what you just published to NPM.
-
-## Choosing a design system for Vets.gov
-
-This has been migrated to [another file](research.md) in order to keep the README instructional.
