@@ -52,6 +52,10 @@
     }
   }
 
+  &-alert {
+    max-width: 60rem;
+  }
+
   &-body {
     overflow-wrap: break-word;
     padding: 2rem;
@@ -83,67 +87,6 @@
         max-height: 95vh;
         overflow-y: auto;
       }
-    }
-  }
-
-  &-alert {
-    .va-modal-inner {
-      max-width: 60rem;
-    }
-
-    .va-modal-body {
-      border-left-style: solid;
-      border-left-width: 10px;
-      padding: 2rem 4rem;
-    }
-
-    .va-modal-title {
-      &::before {
-        font-family: "Font Awesome 5 Free";
-        margin-right: 1.5rem;
-      }
-    }
-  }
-
-  &-info {
-    .va-modal-body {
-      border-left-color: $color-primary-alt-dark;
-    }
-
-    .va-modal-title::before {
-      content: "\f05a";
-    }
-  }
-
-  &-error {
-    .va-modal-body {
-      border-left-color: $color-secondary-dark;
-    }
-
-    .va-modal-title::before {
-      color: $color-secondary-dark;
-      content: "\f06a"
-    }
-  }
-
-  &-success {
-    .va-modal-body {
-      border-left-color: $color-green;
-    }
-
-    .va-modal-title::before {
-      color: $color-green;
-      content: "\f00c";
-    }
-  }
-
-  &-warning {
-    .va-modal-body {
-      border-left-color: $color-gold;
-    }
-
-    .va-modal-title::before {
-      content: "\f071";
     }
   }
 }
