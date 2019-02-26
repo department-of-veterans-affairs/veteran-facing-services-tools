@@ -188,20 +188,6 @@ p.usa-alert-heading {
   }
 }
 
-// rx
-
-.rx-app {
-
-  // TODO: Find a better way to write this that doesn't rely on nesting
-  .usa-alert {
-    & + .rx-app-title {
-      margin-top: 2.5rem;
-    }
-  }
-}
-
-// education benefits
-
 // this can probably be removed
 .edu-benefits-alert {
   margin-top: 0;
@@ -219,12 +205,5 @@ p.usa-alert-heading {
       background-position: 1.3rem 1.5rem;*/
     //  padding-left: 5rem;
     }
-  }
-}
-
-//messaging
-#messaging-app-header {
-  .usa-alert {
-    margin-bottom: 2em;
   }
 }
