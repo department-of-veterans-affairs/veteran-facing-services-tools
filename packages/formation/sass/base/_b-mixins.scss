@@ -150,7 +150,28 @@
   }
 }
 
+@mixin close-button {
+  background-color: transparent;
+  color: $color-primary;
+  font-size: 2.25rem;
+  padding: 0;
+  position: absolute;
+  margin: 2rem;
+  right: 0;
+  top: 0;
+  width: auto;
+  z-index: 9;
 
+  &:hover {
+    background-color: transparent;
+    color: $color-primary-darker;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $color-primary-darkest;
+  }
+}
 
 // Flexbox columns
 @mixin flexbox-col($size) {
