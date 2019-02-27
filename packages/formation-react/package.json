@@ -34,7 +34,7 @@
     "window-or-global": "^1.0.1"
   },
   "peerDependencies": {
-    "@department-of-veterans-affairs/formation": "^4.0.0",
+    "@department-of-veterans-affairs/formation": "^5.4.0",
     "react": "^15.5.4||^16.7.0"
   }
 }
