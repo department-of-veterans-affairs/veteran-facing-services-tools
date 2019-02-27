@@ -5,6 +5,7 @@ module.exports = {
     title: `VA.gov Developer's Documentations`,
     description: `Resources and documention for the Development within the VA.gov project`,
   },
+  pathPrefix: '/veteran-facing-services-tools',
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

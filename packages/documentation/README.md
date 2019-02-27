@@ -14,22 +14,17 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Create a Github personal access token**
+    This only needs to be done once. This token is needed for Gatsby to pull content from github repos.
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
-
-    ```sh
-    # create a new Gatsby site using the default starter
-    npx gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+    Instructions on generating personal access tokens are [here](https://help.github.com/en/articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization).
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate to the documentation package and run.
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
+    ```
+    GITHUB_API_KEY=your-personal-access-token yarn develop
     ```
 
 1.  **Open the source code and start editing!**
@@ -39,6 +34,21 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+## Pushing changes to github io
+
+1. **Create a Github personal access token**
+   See instructions above
+
+1. **Run build and publish task**
+
+    Navigate to the documentation package and run.
+
+    ```
+    GITHUB_API_KEY=your-personal-access-token yarn build
+    ```
+
+    This will build the Gatsby site for github pages and push the changes to the `origin gh-pages` branch.
 
 ## 🧐 What's inside?
 
