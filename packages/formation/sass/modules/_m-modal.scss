@@ -27,10 +27,6 @@
     }
   }
 
-  .alert-actions {
-    margin-top: 1.5rem;
-  }
-
   &-title {
     margin: 0;
     margin-bottom: 1.5rem;
@@ -54,6 +50,18 @@
 
   &-alert {
     max-width: 60rem;
+
+    .alert-actions {
+      margin-top: 2.5rem;
+
+      button {
+        margin: 0;
+
+        + button {
+          margin-left: 2rem;
+        }
+      }
+    }
   }
 
   &-body {
