@@ -15,6 +15,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 ## 🚀 Quick start
 
 1.  **Create a Github personal access token**
+
     This only needs to be done once. This token is needed for Gatsby to pull content from github repos.
 
     Instructions on generating personal access tokens are [here](https://help.github.com/en/articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization).
