@@ -99,9 +99,9 @@ class Modal extends React.Component {
   render() {
     if (!this.props.visible) return null;
 
-    const { contents, id, status, title } = this.props;
+    const { id, status, title } = this.props;
     const titleId = title && `${id || 'va-modal'}-title`;
-    const content = contents || this.props.children;
+    const content = this.props.contents || this.props.children;
 
     const modalClass = classNames('va-modal', this.props.cssClass);
 
