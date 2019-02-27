@@ -39,6 +39,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 ## Pushing changes to github io
 
 1. **Create a Github personal access token**
+
    See instructions above
 
 1. **Run build and publish task**
