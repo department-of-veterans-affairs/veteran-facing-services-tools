@@ -41,7 +41,7 @@ pipeline {
     }
 
     stage('build and publish') {
-      when { branch 'master' }
+      /* when { branch 'master' } */
       steps {
         sh 'git config --global user.email james.kassemi+vabot@adhocteam.us'
         sh 'git config --global user.name va-bot'
