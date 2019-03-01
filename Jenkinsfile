@@ -17,7 +17,7 @@ pipeline {
       }
     }
 
-    stage('lint and test') {
+    stage('lint, test, and build') {
       steps {
         parallel (
           'lint': {
@@ -40,7 +40,7 @@ pipeline {
       }
     }
 
-    stage('build and publish') {
+    stage('deploy') {
       when { branch 'master' }
       steps {
         sh 'git config --global user.email james.kassemi+vabot@adhocteam.us'
@@ -52,8 +52,7 @@ pipeline {
           usernameVariable: 'GIT_USERNAME',
           passwordVariable: 'GIT_PASSWORD'
         ]]) {
-          sh 'cd packages/documentation'
-          sh 'GITHUB_API_KEY=${env.TOKEN} npm run build'
+          sh "GITHUB_API_KEY=${env.GIT_PASSWORD} npm run deploy"
         }
       }
     }
