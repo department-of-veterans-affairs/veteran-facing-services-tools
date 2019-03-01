@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import AlertBox from '../alerts/AlertBox/AlertBox';
-
 const ESCAPE_KEY = 27;
 
 class Modal extends React.Component {
@@ -121,7 +119,7 @@ class Modal extends React.Component {
         type="button"
         aria-label="Close this modal"
         onClick={this.handleClose}>
-        <i className="fas fa-times-circle" aria-hidden="true" />
+        <i className="fas fa-times-circle" aria-hidden="true"/>
       </button>
     );
 
