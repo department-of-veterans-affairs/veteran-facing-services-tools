@@ -22,6 +22,7 @@ export default class MDXRuntimeTest extends Component {
     // Tried to add it to componentDidMount but it didn't work correctly.
     if (typeof window !== 'undefined') {
       window.dataLayer = [];
+      window.VetsGov = {};
     }
 
     return (
