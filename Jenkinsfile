@@ -53,7 +53,7 @@ pipeline {
           passwordVariable: 'GIT_PASSWORD'
         ]]) {
           sh 'cd packages/documentation'
-          sh 'GITHUB_API_KEY=${env.TOKEN} npm run build'
+          sh 'GITHUB_API_KEY=${env.TOKEN} npm run deploy'
         }
       }
     }
