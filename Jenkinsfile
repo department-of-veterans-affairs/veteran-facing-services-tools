@@ -52,7 +52,7 @@ pipeline {
           usernameVariable: 'GIT_USERNAME',
           passwordVariable: 'GIT_PASSWORD'
         ]]) {
-          sh 'GITHUB_API_KEY=${env.GIT_PASSWORD} npm run deploy'
+          sh "GITHUB_API_KEY=${env.GIT_PASSWORD} npm run deploy"
         }
       }
     }
