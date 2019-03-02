@@ -45,6 +45,7 @@ class Layout extends React.Component {
             }) {
               edges {
                 node {
+                  id
                   fields {
                     slug
                     fileName

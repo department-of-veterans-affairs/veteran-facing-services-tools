@@ -158,6 +158,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMarkDown.edges.forEach(async ({ node }) => {
+          debugger
           createPage({
             path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
             component: path.resolve('./src/layouts/external-layout.js'),

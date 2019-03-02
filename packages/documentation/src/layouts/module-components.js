@@ -15,6 +15,18 @@ const MyCodeComponent = ({ children }) => (
 );
 
 export default class MDXRuntimeTest extends Component {
+  sortedReqiuredProps() {
+    return this.props.data.componentMetadata.childrenComponentProp.sort(
+      (a) => {
+        if (a.required) {
+          return -1;
+        }
+
+        return 1;
+      }
+    );
+  }
+
   render() {
     const { children, data, tableOfContents } = this.props;
     // Window is not available during build, so this was added deal with making
@@ -37,7 +49,7 @@ export default class MDXRuntimeTest extends Component {
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
             <PropsTable
-              propMetaData={data.componentMetadata.childrenComponentProp}/>
+              propMetaData={this.sortedReqiuredProps()}/>
           </div>
         </Layout>
       </MDXProvider>
