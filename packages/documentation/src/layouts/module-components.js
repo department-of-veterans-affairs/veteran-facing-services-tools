@@ -43,7 +43,21 @@ export default class MDXRuntimeTest extends Component {
           <div className="content">
             {children}
             <h2>{data.componentMetadata.displayName}</h2>
-            <p>{data.componentMetadata.docblock}</p>
+            {
+              data.componentMetadata.docblock && (
+                <div>
+                  <h3>JsDocs:</h3>
+                  <div className="rendered-component">
+                    {
+                      data.componentMetadata.docblock.split(/\r?\n/).map((block, i) => (
+                        <p key={`${block}-${i}`}>{block}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+              )
+            }
+
             <MDXRenderer tableOfContents={tableOfContents}>
               {data.mdx.code.body}
             </MDXRenderer>
