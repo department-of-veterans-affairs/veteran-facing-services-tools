@@ -16,7 +16,7 @@ const MyCodeComponent = ({ children }) => (
 
 export default class MDXRuntimeTest extends Component {
   render() {
-    const { children, data, tableOfContents } = this.props;
+    const { children, data, tableOfContents, location } = this.props;
     // Window is not available during build, so this was added deal with making
     // window available to some components.
     // Tried to add it to componentDidMount but it didn't work correctly.
@@ -26,7 +26,7 @@ export default class MDXRuntimeTest extends Component {
 
     return (
       <MDXProvider components={{ code: MyCodeComponent }}>
-        <Layout>
+        <Layout location={location}>
           <div className="content">
             {children}
             <h2>{data.componentMetadata.displayName}</h2>

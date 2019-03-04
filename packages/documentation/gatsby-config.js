@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `VA.gov Developer's Documentations`,
     description: `Resources and documention for the Development within the VA.gov project`,
+    infoArchitecture: require('./information-architecture.js')
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
