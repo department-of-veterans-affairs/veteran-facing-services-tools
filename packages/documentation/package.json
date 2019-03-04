@@ -22,6 +22,7 @@
     "gatsby-transformer-react-docgen": "^3.0.0",
     "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.8",
+    "gh-pages": "^2.0.1",
     "node-github-graphql": "^0.2.7",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
@@ -37,6 +38,7 @@
   "license": "MIT",
   "scripts": {
     "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
+    "deploy": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths && gh-pages -d public -e .; fi",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
@@ -48,9 +50,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/"
   }
 }
