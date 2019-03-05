@@ -71,21 +71,6 @@
     word-wrap: break-word;
   }
 
-  &-button-group {
-    bottom: 0;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    position: relative;
-    margin-top: 5rem;
-
-    button {
-      margin: 0 1rem 0 0;
-      width: auto;
-    }
-  }
-
   &-large {
     .va-modal-inner {
       max-width: 75rem;
