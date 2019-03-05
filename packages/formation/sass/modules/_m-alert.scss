@@ -127,7 +127,7 @@
 }
 
 .va-alert-close {
-  @include close-button;
+  @include modal-close-button;
 }
 
 // on post-9/11 GI Bill
