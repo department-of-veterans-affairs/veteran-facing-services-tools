@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
-import sidebarData from '../../../information-architecture';
+import { Link } from 'gatsby';
+import SidebarItems from './SidebarItems';
+import sidebarData from '../../sidebar';
 
 /**
  * Sidebar
@@ -8,65 +9,7 @@ import sidebarData from '../../../information-architecture';
  * @param {props} props
  */
 
-const SidebarItems = ({ items }) => {
-  if (items === 'componentList') {
-    return (
-      <StaticQuery
-        query={graphql`
-          query ComponentListQuery {
-            components: allSitePage(
-              filter: {context: {source: {eq: "component"}}}
-            ) {
-              edges {
-                node {
-                  path
-                  context {
-                    source
-                    name
-                  }
-                }
-              }
-            }
-          }
-        `}
-        render={data => (
-          <SidebarItems items={data.components.edges.map(comp => {
-            return {
-              href: comp.node.path,
-              name: comp.node.context.name,
-            };
-          })}/>
-        )}/>
-    );
-  }
-
-  if (!items.length) {
-    return null;
-  }
-
-  return (
-    <ul className="menu-list">
-      {items.map(item => {
-        if (item.items) {
-          return (
-            <li key={item.name}>
-              <h4>{item.name}</h4>
-              <SidebarItems items={item.items}/>
-            </li>
-          );
-        }
-
-        if (item.href) {
-          return <li key={item.href}><Link to={item.href}>{item.name}</Link></li>;
-        }
-
-        return <li key={item.href}>{item.name} (not ready)</li>;
-      })}
-    </ul>
-  );
-};
-
-const Sidebar = ({ location }) => {
+export default function Sidebar({ location }) {
   const sidebarSection = sidebarData.sections.find(section => location.pathname.startsWith(`/${section.href}`));
 
   let linkContent;
@@ -74,6 +17,7 @@ const Sidebar = ({ location }) => {
     linkContent = (
       <>
         <h1>{ sidebarSection.name }</h1>
+        <Link className="home-link" to="">Home</Link>
         <SidebarItems items={sidebarSection.items}/>
       </>
     );
@@ -97,6 +41,4 @@ const Sidebar = ({ location }) => {
       {linkContent}
     </aside>
   );
-};
-
-export default Sidebar;
+}
