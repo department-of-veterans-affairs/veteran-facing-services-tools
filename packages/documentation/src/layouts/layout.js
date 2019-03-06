@@ -136,6 +136,14 @@ class Layout extends React.Component {
                     'Template for creating design system documentatation',
               },
               {
+                name: 'docsearch:language',
+                content: 'en'
+              },
+              {
+                name: 'docsearch:version',
+                content: '1.0.0'
+              },
+              {
                 name: 'keywords',
                 content: 'design system, style guide, documentation',
               },
@@ -154,7 +162,7 @@ class Layout extends React.Component {
             siteTitle={data.site.siteMetadata.title}
             allMarkDown={data.allMarkDown.edges}/>'
 
-            '<div className="ContentArea">{children}</div>'
+            '<div className="ContentArea docSearch-content">{children}</div>'
           '</>
         )}/>
     );
