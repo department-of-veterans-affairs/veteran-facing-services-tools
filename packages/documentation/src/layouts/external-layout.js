@@ -6,10 +6,10 @@ import Layout from './layout';
 
 export default class ExternalLayout extends Component {
   render() {
-    const { data } = this.props;
+    const { data, location } = this.props;
 
     return (
-      <Layout>
+      <Layout location={location}>
         <h2>{data.markdownRemark.fields.slug}</h2>
 
         <div
