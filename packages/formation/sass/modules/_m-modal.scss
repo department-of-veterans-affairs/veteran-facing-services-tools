@@ -27,13 +27,9 @@
     }
   }
 
-  .alert-actions {
-    margin-top: 1.5rem;
-  }
-
   &-title {
     margin: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: units(2);
   }
 
   &-inner {
@@ -52,26 +48,27 @@
     }
   }
 
-  &-body {
-    overflow-wrap: break-word;
-    padding: 2rem;
-    word-break: break-word;
-    word-wrap: break-word;
+  &-alert {
+    max-width: 60rem;
+
+    .alert-actions {
+      margin-top: units(3);
+
+      button {
+        margin: 0;
+
+        + button {
+          margin-left: units(2.5);
+        }
+      }
+    }
   }
 
-  &-button-group {
-    bottom: 0;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    position: relative;
-    margin-top: 5rem;
-
-    button {
-      margin: 0 1rem 0 0;
-      width: auto;
-    }
+  &-body {
+    overflow-wrap: break-word;
+    padding: units(2.5);
+    word-break: break-word;
+    word-wrap: break-word;
   }
 
   &-large {
@@ -83,67 +80,6 @@
         max-height: 95vh;
         overflow-y: auto;
       }
-    }
-  }
-
-  &-alert {
-    .va-modal-inner {
-      max-width: 60rem;
-    }
-
-    .va-modal-body {
-      border-left-style: solid;
-      border-left-width: 10px;
-      padding: 2rem 4rem;
-    }
-
-    .va-modal-title {
-      &::before {
-        font-family: "Font Awesome 5 Free";
-        margin-right: 1.5rem;
-      }
-    }
-  }
-
-  &-info {
-    .va-modal-body {
-      border-left-color: $color-primary-alt-dark;
-    }
-
-    .va-modal-title::before {
-      content: "\f05a";
-    }
-  }
-
-  &-error {
-    .va-modal-body {
-      border-left-color: $color-secondary-dark;
-    }
-
-    .va-modal-title::before {
-      color: $color-secondary-dark;
-      content: "\f06a"
-    }
-  }
-
-  &-success {
-    .va-modal-body {
-      border-left-color: $color-green;
-    }
-
-    .va-modal-title::before {
-      color: $color-green;
-      content: "\f00c";
-    }
-  }
-
-  &-warning {
-    .va-modal-body {
-      border-left-color: $color-gold;
-    }
-
-    .va-modal-title::before {
-      content: "\f071";
     }
   }
 }
@@ -159,24 +95,5 @@
 }
 
 button.va-modal-close {
-  background-color: transparent;
-  color: $color-primary;
-  font-size: 2.25rem;
-  padding: 0;
-  position: absolute;
-  margin: 2rem;
-  right: 0;
-  top: 0;
-  width: auto;
-  z-index: 9;
-
-  &:hover {
-    background-color: transparent;
-    color: $color-primary-darker;
-  }
-
-  &:active {
-    background-color: transparent;
-    color: $color-primary-darkest;
-  }
+  @include modal-close-button;
 }
