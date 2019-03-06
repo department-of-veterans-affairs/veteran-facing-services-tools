@@ -46,31 +46,28 @@ export default function SidebarItems({ items }) {
 
   return (
     <ul className="menu-list">
-      {items.map(item => {
-        if (item.items) {
-          return (
+      {items.map(item => (
+        <li key={item.name}>
+          {!!item.items && (
             <li key={item.name}>
               <h4>{item.name}</h4>
               <SidebarItems items={item.items}/>
             </li>
-          );
-        }
-
-        if (item.query === 'componentList') {
-          return (
+          )}
+          {item.query === 'componentList' && (
             <li key={item.name}>
               <h4>{item.name}</h4>
               <ComponentList/>
             </li>
-          );
-        }
-
-        if (item.href) {
-          return <li key={item.href}><Link to={item.href}>{item.name}</Link></li>;
-        }
-
-        return <li key={item.href}>{item.name} (not ready)</li>;
-      })}
+          )}
+          {!!item.href && (
+            <li key={item.name}><Link to={item.href}>{item.name}</Link></li>
+          )}
+          {!item.href && !item.items && !item.query && (
+            <li key={item.href}><Link to={item.href}>{item.name}</Link></li>
+          )}
+        </li>
+      ))}
     </ul>
   );
 }
