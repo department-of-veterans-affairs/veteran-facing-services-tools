@@ -20,10 +20,10 @@ exports.sourceNodes = async ({
     repo: 'vets.gov-team',
   }
 
-  await githubApi.getDirectoryAndCreatePages({
-    ...repoData,
-    dir: 'Work Practices',
-  }, createNode);
+  // await githubApi.getDirectoryAndCreatePages({
+  //   ...repoData,
+  //   dir: 'Work Practices',
+  // }, createNode);
 
   await githubApi.getDirectoryAndCreatePages({
       ...repoData,
@@ -171,10 +171,11 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allMdx.edges.forEach(async ({ node }) => {
           if (node.frontmatter.name) {
             createPage({
-              path: `/${node.parent.name.toLowerCase()}/`,
+              path: `/platform/${node.parent.name.toLowerCase()}/`,
               component: path.resolve('./src/layouts/module-components.js'),
               context: {
                 id: node.id,
+                source: 'component',
                 name: node.frontmatter.name,
               },
             })

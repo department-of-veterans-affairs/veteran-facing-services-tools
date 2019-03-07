@@ -4,14 +4,14 @@
   border-left-style: solid;
   border-left-width: 10px;
   display: table;
-  padding: 2rem 2rem 2rem 1.5rem;
+  padding: units(4) units(8) units(4) units(3);
   width: 100%;
 
   &::before {
     background: none;
     font-family: "Font Awesome 5 Free";
     font-size: 2rem;
-    margin-right: 1.5rem;
+    margin-right: units(2);
     position: static;
     font-weight: 900;
   }
@@ -32,7 +32,7 @@
   }
 
   &-text {
-    margin-top: 2rem;
+    margin-top: units(2.5);
 
     &:only-child {
       margin: 0;
@@ -49,11 +49,11 @@
 
     // should override :first-child
     .usa-alert-heading + p:only-of-type {
-      margin-top: 2rem;
+      margin-top: units(2.5);
     }
 
     ul {
-      padding-left: 2rem;
+      padding-left: units(2.5);
     }
   }
 
@@ -127,25 +127,7 @@
 }
 
 .va-alert-close {
-  font-family: "Font Awesome 5 Free";
-  background: transparent;
-  color: $color-base;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-  width: auto;
-
-  &:hover {
-    background: transparent !important;
-    color: lighten($color-gray-dark, 30%);
-  }
-
-  .fa {
-    // Override fa font-size.
-    font-size: 1.45em !important;
-  }
+  @include modal-close-button;
 }
 
 // on post-9/11 GI Bill
@@ -203,46 +185,5 @@ p.usa-alert-heading {
 
   @include media($medium-large-screen) {
     flex-direction: row;
-  }
-}
-
-// rx
-
-.rx-app {
-
-  // TODO: Find a better way to write this that doesn't rely on nesting
-  .usa-alert {
-    & + .rx-app-title {
-      margin-top: 2.5rem;
-    }
-  }
-}
-
-// education benefits
-
-// this can probably be removed
-.edu-benefits-alert {
-  margin-top: 0;
-  margin-bottom: 23px;
-}
-
-.edu-warning-single-line {
-  margin-top: 0;
-}
-
-@media screen and (min-width: 600px) {
-  .edu-warning-single-line {
-    > .usa-alert-body {
-      /*background-size: 4.2rem;
-      background-position: 1.3rem 1.5rem;*/
-    //  padding-left: 5rem;
-    }
-  }
-}
-
-//messaging
-#messaging-app-header {
-  .usa-alert {
-    margin-bottom: 2em;
   }
 }

@@ -40,6 +40,10 @@ exports.getDirectoryAndCreatePages = async ({ owner, repo, dir }, createNode) =>
     }
   `);
 
+  if (result.data.repository === null) {
+    throw new Error('API key does not have proper permissions to repo repository data');
+  }
+
   result
     .data
     .repository
