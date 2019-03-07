@@ -14,7 +14,7 @@ const MyCodeComponent = ({ children }) => (
   </LiveProvider>
 );
 
-export default class MDXRuntimeTest extends Component {
+export default class ModuleComponentsLayout extends Component {
   sortedReqiuredProps() {
     return this.props.data.componentMetadata.childrenComponentProp.sort(
       (a) => {
@@ -29,6 +29,10 @@ export default class MDXRuntimeTest extends Component {
 
   render() {
     const { children, data, tableOfContents } = this.props;
+    const { displayName, docblock } = data.componentMetadata;
+    const jsDocBlock = docblock;
+    const jsDockBlocks = jsDocBlock.split(/\r?\n/);
+    const mdxCodeBlock = data.mdx.code.body;
     // Window is not available during build, so this was added deal with making
     // window available to some components.
     // Tried to add it to componentDidMount but it didn't work correctly.
@@ -42,14 +46,14 @@ export default class MDXRuntimeTest extends Component {
         <Layout>
           <div className="content">
             {children}
-            <h2>{data.componentMetadata.displayName}</h2>
+            <h2>{displayName}</h2>
             {
-              data.componentMetadata.docblock && (
+              jsDocBlock && (
                 <div>
                   <h3>JsDocs:</h3>
                   <div className="rendered-component">
                     {
-                      data.componentMetadata.docblock.split(/\r?\n/).map((block, i) => (
+                      jsDockBlocks.map((block, i) => (
                         <p key={`${block}-${i}`}>{block}</p>
                       ))
                     }
@@ -59,7 +63,7 @@ export default class MDXRuntimeTest extends Component {
             }
 
             <MDXRenderer tableOfContents={tableOfContents}>
-              {data.mdx.code.body}
+              {mdxCodeBlock}
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
             <PropsTable
