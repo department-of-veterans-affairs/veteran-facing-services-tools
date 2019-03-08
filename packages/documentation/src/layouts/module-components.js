@@ -28,7 +28,7 @@ export default class ModuleComponentsLayout extends Component {
   }
 
   render() {
-    const { children, data, tableOfContents } = this.props;
+    const { children, data, tableOfContents, location } = this.props;
     const { displayName, docblock } = data.componentMetadata;
     const jsDocBlock = docblock;
     const jsDockBlocks = jsDocBlock.split(/\r?\n/);
