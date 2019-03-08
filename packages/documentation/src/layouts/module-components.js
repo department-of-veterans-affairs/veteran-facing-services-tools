@@ -14,14 +14,31 @@ const MyCodeComponent = ({ children }) => (
   </LiveProvider>
 );
 
-export default class MDXRuntimeTest extends Component {
+export default class ModuleComponentsLayout extends Component {
+  sortedReqiuredProps() {
+    return this.props.data.componentMetadata.childrenComponentProp.sort(
+      (a) => {
+        if (a.required) {
+          return -1;
+        }
+
+        return 1;
+      }
+    );
+  }
+
   render() {
     const { children, data, tableOfContents, location } = this.props;
+    const { displayName, docblock } = data.componentMetadata;
+    const jsDocBlock = docblock;
+    const jsDockBlocks = jsDocBlock.split(/\r?\n/);
+    const mdxCodeBlock = data.mdx.code.body;
     // Window is not available during build, so this was added deal with making
     // window available to some components.
     // Tried to add it to componentDidMount but it didn't work correctly.
     if (typeof window !== 'undefined') {
       window.dataLayer = [];
+      window.VetsGov = {};
     }
 
     return (
@@ -29,14 +46,28 @@ export default class MDXRuntimeTest extends Component {
         <Layout location={location}>
           <div className="content">
             {children}
-            <h2>{data.componentMetadata.displayName}</h2>
-            <p>{data.componentMetadata.docblock}</p>
+            <h2>{displayName}</h2>
+            {
+              jsDocBlock && (
+                <div>
+                  <h3>JsDocs:</h3>
+                  <div className="rendered-component">
+                    {
+                      jsDockBlocks.map((block, i) => (
+                        <p key={`${block}-${i}`}>{block}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+              )
+            }
+
             <MDXRenderer tableOfContents={tableOfContents}>
-              {data.mdx.code.body}
+              {mdxCodeBlock}
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
             <PropsTable
-              propMetaData={data.componentMetadata.childrenComponentProp}/>
+              propMetaData={this.sortedReqiuredProps()}/>
           </div>
         </Layout>
       </MDXProvider>

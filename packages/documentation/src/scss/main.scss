@@ -80,3 +80,10 @@
     padding: 10px;
   }
 }
+
+.loading-indicator-container {
+  .loading-indicator {
+    // overwrite original css to use Gatsby folder
+    background: url("../images/loading-state.svg") center center no-repeat !important;
+  }
+}
