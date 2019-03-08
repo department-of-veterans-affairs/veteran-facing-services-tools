@@ -43,7 +43,7 @@ export default class ModuleComponentsLayout extends Component {
 
     return (
       <MDXProvider components={{ code: MyCodeComponent }}>
-        <Layout>
+        <Layout location={location}>
           <div className="content">
             {children}
             <h2>{displayName}</h2>

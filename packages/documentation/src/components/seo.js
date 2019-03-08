@@ -23,6 +23,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
+                name: 'docsearch:language',
+                content: 'en'
+              },
+              {
+                name: 'docsearch:version',
+                content: '1.0.0'
+              },
+              {
                 property: 'og:title',
                 content: title,
               },

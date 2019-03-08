@@ -61,7 +61,7 @@ Adding React Components documentation in Formation.
 
   It will look like this on the page.
 
-  ![proptypes](../images/proptypes.png "PropType Image")
+  ![proptypes](../../images/proptypes.png "PropType Image")
 
 - **Once this is all setup you can start adding your React Component and markdown to your file.**
 - **Start gatsby**
@@ -87,6 +87,14 @@ Adding React Components documentation in Formation.
   ```
 - **You have the option to create React Components and add them to the MDX file.
   React components for pages should be located in src/components**
+
+### Updating the sidebar
+
+After you've added a page, you may want to add it to the sidebar. At `src/sidebar.js`, you'll find the layout for
+the main site navigation and sidebar. You can add your page where it makes sense in the site's information architecture.
+
+There are examples in the sidebar file to follow. You'll need to add an object with `name` and `href` properties
+for regular links and you can also create nested sections by leaving out `href` and adding an `items` array to objects.
 
   ### GraphQl Sample Reference
 
