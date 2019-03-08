@@ -25,6 +25,10 @@ module.exports = {
               name: 'How to Add Pages from Github',
               href: 'getting-started/add-external-pages'
             },
+            {
+              name: 'How to Add Graphs to your Markdown',
+              href: 'getting-started/markdown-mermaid-graph'
+            },
           ]
         },
         {
@@ -121,4 +125,3 @@ module.exports = {
     },
   ]
 };
-

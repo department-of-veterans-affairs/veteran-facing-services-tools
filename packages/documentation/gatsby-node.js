@@ -85,11 +85,11 @@ exports.onCreateNode = ({node, getNode, actions }) => {
         name: `fileName`,
         value: `${parent.internal.name}`,
       })
-    } else {
+    } else if (parent.sourceInstanceName === 'pages') {
       createNodeField({
         node,
         name: `slug`,
-        value: `${parent.internal.name}`,
+        value: `${parent.relativePath.replace('.md', '')}`,
       })
     }
   }
@@ -101,13 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(
         `{
-          allMarkDown: allMarkdownRemark(filter: {
-            fields: {
-              slug: {
-                ne: "undefined"
-              }
-            }
-          }) {
+          allMarkDown: allMarkdownRemark {
             edges {
               node {
                 id
@@ -119,6 +113,15 @@ exports.createPages = ({ graphql, actions }) => {
                 internal {
                   content
                   type
+                }
+                frontmatter {
+                  title
+                }
+                parent {
+                  ... on File {
+                    name
+                    sourceInstanceName
+                  }
                 }
               }
             }
@@ -158,14 +161,25 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMarkDown.edges.forEach(async ({ node }) => {
-          createPage({
-            path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
-            component: path.resolve('./src/layouts/external-layout.js'),
-            context: {
-              id: node.id,
-              name: node.fields.slug,
-            },
-          })
+          if (node.parent.sourceInstanceName === 'pages') {
+            createPage({
+              path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
+              component: path.resolve('./src/layouts/external-layout.js'),
+              context: {
+                id: node.id,
+                name: node.frontmatter.title.toLowerCase().replace(/ /g, '-'),
+              },
+            })
+          } else if (node.fields && node.fields.slug) {
+            createPage({
+              path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
+              component: path.resolve('./src/layouts/external-layout.js'),
+              context: {
+                id: node.id,
+                name: node.fields.slug,
+              },
+            })
+          }
         })
 
         result.data.allMdx.edges.forEach(async ({ node }) => {

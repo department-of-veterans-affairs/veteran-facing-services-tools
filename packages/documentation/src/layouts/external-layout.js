@@ -10,10 +10,9 @@ export default class ExternalLayout extends Component {
 
     return (
       <Layout location={location}>
-        <h2>{data.markdownRemark.fields.slug}</h2>
+        <h2>{data.markdownRemark.frontmatter.title || data.markdownRemark.fields.slug}</h2>
 
         <div
-          className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}/>
       </Layout>
     );
@@ -26,6 +25,9 @@ export const pageQuery = graphql`
       html
       fields {
         slug
+      }
+      frontmatter {
+        title
       }
     }
   }

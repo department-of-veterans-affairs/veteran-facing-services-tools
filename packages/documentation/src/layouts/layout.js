@@ -56,6 +56,8 @@ class Layout extends React.Component {
                 },
               ]}>
               <html lang="en"/>
+              <script src="https://cdn.rawgit.com/knsv/mermaid/0.5.6/dist/mermaid.min.js"></script>
+              <link rel="stylesheet" href="https://cdn.rawgit.com/knsv/mermaid/0.5.6/dist/mermaid.css" />
             </Helmet>
             <Sidebar location={location}/>
             <div className="ContentArea docSearch-content">{children}</div>
