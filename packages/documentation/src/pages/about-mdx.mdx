@@ -12,24 +12,27 @@ This makes writing long-form content with components a blast 🚀
 
 [https://mdxjs.com/](https://mdxjs.com/)
 
-### Example
+### Examples
 Here is a great page of examples of using MDX
 
 - http://dump.jamesknelson.com/mdxc-playground.html
 
-### Findings on things you can do with MDX and gotchas
-This is just documentations on finding of using MDX in our projects. Please feel
+### Things you can do with MDX and gotchas
+This is documentation of findings for using MDX in our projects. Please feel
 free to add to this document if you find anything else.
 
 #### Inline components
-You can create components incline inside your MDX files. Below is an example
-of how to do it. You will need to export it for it to work. You can write both
-function based components and class based components. The reason why you might
-use this is if your component updates the parent state. In the example you need
-state to toggle the drop down.
+You can use components inline inside your MDX files. Below is an example
+of how to do it.
+
+- You will need to export it for it to work.
+- You can write both Function components and Class components.
+- The reason why you need to use this is when you need the parent state to change.
+
+This example uses state to toggle the drop down.
 
 ```jsx
-// Classed Based Component
+// Class Component
 export class InlineClassComponent extends React.Component {
   constructor() {
     super()
@@ -57,7 +60,7 @@ export class InlineClassComponent extends React.Component {
 
 <InlineClassComponent />
 
-// Function based component
+// Function Component
 export const InlinePresentationalComponent = () => (
   <h1>Hello World</h1>
 )
