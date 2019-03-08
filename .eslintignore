@@ -1,10 +1,5 @@
-build/*
-coverage/*
-dist/*
-public/*
-node_modules/*
-VETS-ONLY/*
-src/js/*
-fractalEntry.js
-vets-sketchapp/*
-/src/utils/*
+**/build/*
+**/dist/*
+**/public/*
+**/node_modules/*
+**/.cache/
