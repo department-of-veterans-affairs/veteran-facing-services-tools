@@ -10,7 +10,7 @@ import sidebarData from '../../sidebar';
  */
 
 export default function Sidebar({ location }) {
-  const sidebarSection = sidebarData.sections.find(section => location.pathname.startsWith(`/${section.href}`));
+  const sidebarSection = sidebarData.sections.find(section => location.pathname.includes(`/${section.href}`));
 
   return (
     <aside className="sidebar">
