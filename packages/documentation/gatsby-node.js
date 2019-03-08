@@ -124,7 +124,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
 
-          allMdx: allMdx {
+          allMdx: allMdx(filter: {
+            frontmatter: {
+              name: {
+                ne: null
+              }
+            }
+          }) {
             edges {
               node {
                 id
@@ -167,17 +173,6 @@ exports.createPages = ({ graphql, actions }) => {
             createPage({
               path: `/platform/${node.parent.name.toLowerCase()}/`,
               component: path.resolve('./src/layouts/module-components.js'),
-              context: {
-                id: node.id,
-                source: 'component',
-                name: node.frontmatter.name,
-              },
-            })
-          } else if (node.frontmatter.title) {
-            debugger
-            createPage({
-              path: `/platform/${node.parent.name.toLowerCase()}/`,
-              component: path.resolve('./src/layouts/layout.js'),
               context: {
                 id: node.id,
                 source: 'component',
