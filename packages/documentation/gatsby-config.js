@@ -2,8 +2,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: `VA.gov Developer's Documentations`,
     description: `Resources and documention for the Development within the VA.gov project`,
+    siteUrl: `https://department-of-veterans-affairs.github.io/veteran-facing-services-tools`,
+    title: `VA.gov Developer's Documentations`,
+    sidebar: require('./src/sidebar.js')
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
@@ -52,6 +54,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/sidebar/Sidebar';
 import './layout.scss';
 
 /**
@@ -19,7 +19,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, location } = this.props;
 
     return (
       <StaticQuery
@@ -30,132 +30,36 @@ class Layout extends React.Component {
                 title
               }
             }
-
-            allMarkDown: allMarkdownRemark(filter: {
-              fields: {
-                slug: {
-                  ne: "undefined"
-                }
-              }
-            }, , sort: {
-              fields: [
-                fields___fileName
-              ]
-              order: ASC
-            }) {
-              edges {
-                node {
-                  fields {
-                    slug
-                    fileName
-                    path
-                  }
-                }
-              }
-            }
-
-            pages: allMdx(
-              filter: {
-                fields: {
-                  sourceInstanceName: {
-                    eq: "pages"
-                  }
-                }
-              }, sort: {
-                fields: [
-                  frontmatter___title
-                ],
-                order: ASC
-              }) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    title
-                  }
-                  fields {
-                    slug
-                    sourceInstanceName
-                  }
-                  parent {
-                    ... on File {
-                      name
-                    }
-                  }
-                  code {
-                    scope
-                  }
-                }
-              }
-            }
-
-            components: allMdx(
-              filter: {
-                fields: {
-                  sourceInstanceName: {
-                    eq: "components"
-                  }
-                }
-              }, sort: {
-                fields: [
-                  frontmatter___title
-                ],
-                order: ASC
-              }) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    title
-                  }
-                  fields {
-                    slug
-                    sourceInstanceName
-                  }
-                  parent {
-                    ... on File {
-                      name
-                    }
-                  }
-                  code {
-                    scope
-                  }
-                }
-              }
-            }
           }
         `}
         render={data => (
-          <>'
-          '<Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              {
-                name: 'description',
-                content:
+          <>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                {
+                  name: 'description',
+                  content:
                     'Template for creating design system documentatation',
-              },
-              {
-                name: 'keywords',
-                content: 'design system, style guide, documentation',
-              },
-            ]}>
-
-            <html lang="en"/>
-            <link
-              rel="stylesheet"
-              href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-              crossOrigin="anonymous"/>
-          </Helmet>'
-          '<Sidebar
-            pages={this.getSitePages(data.pages.edges)}
-            components={data.components.edges}
-            siteTitle={data.site.siteMetadata.title}
-            allMarkDown={data.allMarkDown.edges}/>'
-
-            '<div className="ContentArea">{children}</div>'
-          '</>
+                },
+                {
+                  name: 'docsearch:language',
+                  content: 'en'
+                },
+                {
+                  name: 'docsearch:version',
+                  content: '1.0.0'
+                },
+                {
+                  name: 'keywords',
+                  content: 'design system, style guide, documentation',
+                },
+              ]}>
+              <html lang="en"/>
+            </Helmet>
+            <Sidebar location={location}/>
+            <div className="ContentArea docSearch-content">{children}</div>
+          </>
         )}/>
     );
   }

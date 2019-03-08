@@ -38,16 +38,17 @@
     border-bottom: 1px solid rgba(0,0,0,0.07);
   }
 
-  h4 {
-    margin-left: 25px;
-  }
-
   .menu-list {
     list-style: none;
+    margin-left: 0;
 
     a {
       text-decoration: none;
     }
+  }
+
+  .home-link {
+    margin-left: 1.5em;
   }
 }
 
@@ -77,5 +78,12 @@
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
     padding: 10px;
+  }
+}
+
+.loading-indicator-container {
+  .loading-indicator {
+    // overwrite original css to use Gatsby folder
+    background: url("../images/loading-state.svg") center center no-repeat !important;
   }
 }
