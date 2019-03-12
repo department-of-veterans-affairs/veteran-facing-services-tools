@@ -10,17 +10,32 @@ describe('<ExpandingGroup>', () => {
     const wrapper = shallow(<ExpandingGroup open={false}><first/><second/></ExpandingGroup>);
 
     const first = wrapper.find('first');
-    const second = wrapper.find('second');
     expect(first).to.have.lengthOf(1);
-    expect(second).to.have.lengthOf(0);
+
+    const expandingContainer = wrapper.find('.expanded-content');
+    expect(expandingContainer).to.have.lengthOf(0);
+    const collapsedContainer = wrapper.find('.collapsed-content');
+    expect(collapsedContainer).to.have.lengthOf(1);
+    expect(collapsedContainer.prop('hidden')).to.equal(true);
+    expect(collapsedContainer.prop('aria-hidden')).to.equal('true');
+
+    // check that collapsed content is still rendered in case calling components need it
+    const second = collapsedContainer.find('second');
+    expect(second).to.have.lengthOf(1);
   });
 
   it('renders both children when open is true', () => {
     const wrapper = shallow(<ExpandingGroup open><first/><second/></ExpandingGroup>);
 
     const first = wrapper.find('first');
-    const second = wrapper.find('second');
     expect(first).to.have.lengthOf(1);
+
+    const expandingContainer = wrapper.find('.expanded-content');
+    expect(expandingContainer).to.have.lengthOf(1);
+    const collapsedContainer = wrapper.find('.collapsed-content');
+    expect(collapsedContainer).to.have.lengthOf(0);
+
+    const second = expandingContainer.find('second');
     expect(second).to.have.lengthOf(1);
   });
 

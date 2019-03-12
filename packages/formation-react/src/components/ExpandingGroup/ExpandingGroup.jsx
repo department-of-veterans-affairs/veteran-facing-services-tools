@@ -26,10 +26,16 @@ export default function ExpandingGroup({
       {children[0]}
       <ReactCSSTransitionGroup id={expandedContentId} transitionName="form-expanding-group-inner" transitionEnterTimeout={700} transitionLeave={false}>
         {open
-          ? <div key="removable-group" className={additionalClass}>
-            {children[1]}
-          </div>
-          : null}
+          ? (
+            <div key="removable-group" className={classnames('expanded-content', additionalClass)}>
+              {children[1]}
+            </div>
+          ) : (
+            <div className="collapsed-content" hidden aria-hidden="true">
+              {children[1]}
+            </div>
+          )
+        }
       </ReactCSSTransitionGroup>
     </div>
   );

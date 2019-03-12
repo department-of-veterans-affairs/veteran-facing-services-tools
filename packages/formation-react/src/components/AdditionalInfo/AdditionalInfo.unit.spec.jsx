@@ -39,4 +39,19 @@ describe('<AdditionalInfo/>', () => {
       </ExpandingGroup>
     );
   });
+  it('places the aria-controls element directly on the content', () => {
+    wrapper = mount(
+      <AdditionalInfo triggerText="test" expandedContentId="my-special-content">
+        Lorem ipsum whatever
+      </AdditionalInfo>
+    ).setState({ open: true });
+
+    expect(wrapper.find('button[aria-controls="my-special-content"]').length).to.equal(1);
+    const contentCheck = wrapper.contains(
+      <div id="my-special-content" className="additional-info-content">
+        Lorem ipsum whatever
+      </div>
+    );
+    expect(contentCheck).to.equal(true);
+  });
 });

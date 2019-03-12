@@ -7,7 +7,7 @@ import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 export default class AdditionalInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.expandedContentId = _.uniqueId('tooltip-');
+    this.expandedContentId = props.expandedContentId || _.uniqueId('tooltip-');
     this.state = { open: false };
   }
 
@@ -40,11 +40,11 @@ export default class AdditionalInfo extends React.Component {
     );
 
     return (
-      <ExpandingGroup
-        open={this.state.open}
-        expandedContentId={this.expandedContentId}>
+      <ExpandingGroup open={this.state.open}>
         {trigger}
-        <div className="additional-info-content">{children}</div>
+        <div id={this.expandedContentId} className="additional-info-content">
+          {children}
+        </div>
       </ExpandingGroup>
     );
   }
@@ -56,4 +56,5 @@ AdditionalInfo.propTypes = {
    */
   triggerText: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  expandedContentId: PropTypes.string,
 };
