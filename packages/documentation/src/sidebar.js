@@ -73,11 +73,33 @@ module.exports = {
       href: "forms",
       items: [
         {
-          name: "Introduction"
+          name: 'Introduction',
+          href: 'forms/when-to-use-fs'
         },
         {
-          name: "Tutorial",
-          items: []
+          name: 'Tutorial',
+          items: [
+            {
+              name: 'Form Tutorial - Basic',
+              href: 'forms/form-tutorial-basic'
+            },
+            {
+              name: 'Form Tutorial - Intermediate',
+              href: 'forms/form-tutorial-intermediate'
+            },
+            {
+              name: 'Form Tutorial - Advanced',
+              href: 'forms/form-tutorial-advanced'
+            },
+            {
+              name: 'Setting up Save in Progress',
+              href: 'forms/save-in-progress'
+            },
+            {
+              name: 'Forms in Production',
+              href: 'forms/forms-in-production'
+            },
+          ],
         },
         {
           name: "Architecture",

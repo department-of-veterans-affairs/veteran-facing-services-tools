@@ -286,37 +286,45 @@ $border_styles: (
 */
 
 .vads-u-border-color--hub-health-care {
-  border-color: $indigo-cool-60 !important;
+  border-color: $color-hub-health-care !important;
 }
 
 .vads-u-border-color--hub-education {
-  border-color: $mint-cool-50 !important;
+  border-color: $color-hub-education !important;
 }
 
 .vads-u-border-color--hub-disability {
-  border-color: $red-60 !important;
+  border-color: $color-hub-disability !important;
 }
 
 .vads-u-border-color--hub-careers {
-  border-color: $orange-warm-50 !important;
+  border-color: $color-hub-careers !important;
 }
 
 .vads-u-border-color--hub-pension {
-  border-color: $green-cool-50 !important;
+  border-color: $color-hub-pension !important;
 }
 
 .vads-u-border-color--hub-housing {
-  border-color: $gold-50 !important;
+  border-color: $color-hub-housing !important;
 }
 
 .vads-u-border-color--hub-life-insurance {
-  border-color: $green-warm-50 !important;
+  border-color: $color-hub-life-insurance !important;
 }
 
 .vads-u-border-color--hub-burials {
-  border-color: $blue-50 !important;
+  border-color: $color-hub-burials !important;
 }
 
 .vads-u-border-color--hub-records {
-  border-color: $violet-warm-60 !important;
+  border-color: $color-hub-records !important;
+}
+
+.vads-u-border-color--hub-family-member {
+  border-color: $color-hub-family-member !important;
+}
+
+.vads-u-border-color--hub-service-member {
+  border-color: $color-hub-service-member !important;
 }
