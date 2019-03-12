@@ -18,7 +18,8 @@
     "url": "git+https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git"
   },
   "scripts": {
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "lint": "npx vagov-eslint lint:js"
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
@@ -27,6 +28,9 @@
     "@fortawesome/fontawesome-free": "^5.6.3",
     "foundation-sites": "5",
     "moment": "^2.23.0"
+  },
+  "devDependencies": {
+    "vagov-eslint": "file:../vagov-eslint"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
