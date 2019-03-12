@@ -13,6 +13,12 @@
     "bootstrap": "lerna bootstrap --npm-client=yarn --force-local",
     "build": "lerna run build",
     "deploy": "lerna run deploy --scope=vagov-documentation",
+    "lint": "npx vagov-eslint lint:js",
+    "lint:changed": "npx run lint:js:changed",
+    "lint:js": "npm run lint",
+    "lint:js:fix": "npx run vagov-lint lint:js:fix",
+    "lint:js:changed": "npx run vagov-lint lint:js:changed",
+    "lint:js:changed:fix": "npx run vagov-lint lint:js:changed:fix",
     "publish": "lerna publish",
     "version": "lerna version --no-git-tag-version",
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
@@ -64,6 +70,7 @@
     "svg-url-loader": "^2.3.0",
     "url-loader": "^0.6.2",
     "uswds": "1.4.2",
+    "vagov-eslint": "file:./packages/vagov-eslint",
     "webpack": "2"
   }
 }
