@@ -1,124 +1,123 @@
 module.exports = {
   sections: [
     {
-      id: 'getting-started',
-      name: 'Getting started',
-      href: 'getting-started',
+      id: "getting-started",
+      name: "Getting started",
+      href: "getting-started",
       items: [
         {
-          name: 'Environment setup',
+          name: "Environment setup",
           items: [
             {
-              name: 'Internal Tools',
-              href: 'getting-started/internal-tools'
-            },
-          ],
-        },
-        {
-          name: 'Common tasks',
-          items: [
-            {
-              name: 'How to Add Documents',
-              href: 'getting-started/how-to'
-            },
-            {
-              name: 'How to Add Pages from Github',
-              href: 'getting-started/add-external-pages'
-            },
+              name: "Internal Tools",
+              href: "getting-started/internal-tools"
+            }
           ]
         },
         {
-          name: 'Code organization',
-          items: [],
+          name: "Common tasks",
+          items: [
+            {
+              name: "How to Add Documents",
+              href: "getting-started/how-to"
+            },
+            {
+              name: "How to Add Pages from Github",
+              href: "getting-started/add-external-pages"
+            }
+          ]
         },
         {
-          name: 'Standards and conventions',
-          items: [],
+          name: "Code organization",
+          items: []
         },
         {
-          name: 'Development workflow',
-          items: [],
-        },
-      ],
-    },
-    {
-      id: 'architecture',
-      name: 'Architecture',
-      href: 'architecture',
-      items: [
-        {
-          name: 'Site structure',
-          items: [],
+          name: "Standards and conventions",
+          items: []
         },
         {
-          name: 'How does the build work?',
-        },
-        {
-          name: 'How do unit tests work?',
-        },
-        {
-          name: 'How do end-to-end tests work?',
-        },
-        {
-          name: 'Visual regression testing',
-        },
-        {
-          name: 'Teamsite',
-        },
+          name: "Development workflow",
+          items: []
+        }
       ]
     },
     {
-      id: 'forms',
-      name: 'Forms',
-      href: 'forms',
+      id: "architecture",
+      name: "Architecture",
+      href: "architecture",
       items: [
         {
-          name: 'Introduction',
+          name: "Site structure",
+          items: []
         },
         {
-          name: 'Tutorial',
-          items: [],
+          name: "How does the build work?"
         },
         {
-          name: 'Architecture',
-          items: [],
+          name: "How do unit tests work?"
         },
         {
-          name: 'Common tasks',
-          items: [],
+          name: "How do end-to-end tests work?"
         },
+        {
+          name: "Visual regression testing"
+        },
+        {
+          name: "Teamsite"
+        }
       ]
     },
     {
-      id: 'platform',
-      name: 'Platform',
-      href: 'platform',
+      id: "forms",
+      name: "Forms",
+      href: "forms",
       items: [
         {
-          name: 'Formation',
-          items: [],
+          name: "Introduction"
         },
         {
-          name: 'Formation components',
-          query: 'componentList'
+          name: "Tutorial",
+          items: []
         },
         {
-          name: 'Feature flags',
+          name: "Architecture",
+          items: []
         },
         {
-          name: 'Identity',
-          items: [],
-        },
-        {
-          name: 'Static content',
-          items: [],
-        },
-        {
-          name: 'Monitoring',
-          items: [],
-        },
+          name: "Common tasks",
+          items: []
+        }
       ]
     },
+    {
+      id: "platform",
+      name: "Platform",
+      href: "platform",
+      items: [
+        {
+          name: "Formation",
+          items: []
+        },
+        {
+          name: "Formation components",
+          query: "componentList"
+        },
+        {
+          name: "Feature flags"
+        },
+        {
+          name: "Identity",
+          items: []
+        },
+        {
+          name: "Static content",
+          items: []
+        },
+        {
+          name: "Monitoring",
+          items: []
+        }
+      ]
+    }
   ]
 };
-

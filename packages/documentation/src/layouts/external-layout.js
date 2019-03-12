@@ -1,8 +1,8 @@
 /* eslint-disable  react/no-danger */
-import React, { Component } from 'react';
-import { graphql } from 'gatsby';
+import React, { Component } from "react";
+import { graphql } from "gatsby";
 
-import Layout from './layout';
+import Layout from "./layout";
 
 export default class ExternalLayout extends Component {
   render() {
@@ -14,7 +14,8 @@ export default class ExternalLayout extends Component {
 
         <div
           className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}/>
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+        />
       </Layout>
     );
   }

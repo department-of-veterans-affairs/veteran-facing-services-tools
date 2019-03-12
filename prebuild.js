@@ -1,12 +1,12 @@
-const semver = require('semver');
-const fs = require('fs');
-const path = require('path');
+const semver = require("semver");
+const fs = require("fs");
+const path = require("path");
 
-const minimumNodeVersion = '6.11.1';
+const minimumNodeVersion = "6.11.1";
 
-if (!(process.env.INSTALL_HOOKS === 'no')) {
+if (!(process.env.INSTALL_HOOKS === "no")) {
   // Make sure git pre-commit hooks are installed
-  ['pre-commit'].forEach(hook => {
+  ["pre-commit"].forEach(hook => {
     const src = path.join(__dirname, `./hooks/${hook}`);
     const dest = path.join(__dirname, `./.git/hooks/${hook}`);
     if (fs.existsSync(src)) {
