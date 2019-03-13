@@ -12,6 +12,7 @@ pipeline {
   stages {
     stage('setup') {
       steps {
+        sh 'rm -rf ./packages/documentaiton/.cache'
         sh 'yarn install --production=false'
         sh 'yarn bootstrap'
       }
