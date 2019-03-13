@@ -11,7 +11,7 @@
     "prebootstrap": "node prebuild.js",
     "test": "lerna run test",
     "bootstrap": "lerna bootstrap --npm-client=yarn --force-local",
-    "build": "lerna run build",
+    "build": "cd packages/documentation && npm run build cd ../formation && npm run build && cd ../formation-react && npm run build && cd ../..",
     "deploy": "lerna run deploy --scope=vagov-documentation",
     "lint": "npx vagov-eslint lint:js",
     "lint:changed": "npx vagov-eslint lint:js:changed",
