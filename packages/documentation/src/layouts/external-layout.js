@@ -1,8 +1,8 @@
 /* eslint-disable  react/no-danger */
-import React, { Component } from "react";
-import { graphql } from "gatsby";
+import React, { Component } from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "./layout";
+import Layout from './layout';
 
 export default class ExternalLayout extends Component {
   render() {

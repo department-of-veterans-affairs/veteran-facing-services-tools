@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { Link, StaticQuery, graphql } from 'gatsby';
 
 /**
  * Sidebar
@@ -29,12 +29,10 @@ function ComponentList() {
       `}
       render={data => (
         <SidebarItems
-          items={data.components.edges.map(comp => {
-            return {
-              href: comp.node.path,
-              name: comp.node.context.name
-            };
-          })}
+          items={data.components.edges.map(comp => ({
+            href: comp.node.path,
+            name: comp.node.context.name,
+          }))}
         />
       )}
     />
@@ -56,7 +54,7 @@ export default function SidebarItems({ items }) {
               <SidebarItems items={item.items} />
             </li>
           )}
-          {item.query === "componentList" && (
+          {item.query === 'componentList' && (
             <li key={item.name}>
               <h4>{item.name}</h4>
               <ComponentList />

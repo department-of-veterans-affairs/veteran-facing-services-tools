@@ -1,14 +1,14 @@
-const crypto = require("crypto");
-const GithubGraphQLApi = require("node-github-graphql");
-const path = require("path");
+const crypto = require('crypto');
+const GithubGraphQLApi = require('node-github-graphql');
+const path = require('path');
 
 const github = new GithubGraphQLApi({
-  token: process.env.GITHUB_API_KEY
+  token: process.env.GITHUB_API_KEY,
 });
 
 exports.getDirectoryAndCreatePages = async (
   { owner, repo, dir },
-  createNode
+  createNode,
 ) => {
   const result = await github.query(`
     {
@@ -45,28 +45,28 @@ exports.getDirectoryAndCreatePages = async (
 
   if (result.data.repository === null) {
     throw new Error(
-      "API key does not have proper permissions to repo repository data"
+      'API key does not have proper permissions to repo repository data',
     );
   }
 
   result.data.repository.object.entries
-    .filter(item => item.name.endsWith(".md"))
+    .filter(item => item.name.endsWith('.md'))
     .forEach(({ name, oid, object }) => {
       createNode({
         id: oid,
         parent: null,
         children: [],
         internal: {
-          type: "GithubAPI",
+          type: 'GithubAPI',
           contentDigest: crypto
-            .createHash("md5")
+            .createHash('md5')
             .update(object.text)
-            .digest("hex"),
-          mediaType: "text/markdown",
+            .digest('hex'),
+          mediaType: 'text/markdown',
           content: object.text,
           directory: dir,
-          name: name.replace(".md", "")
-        }
+          name: name.replace('.md', ''),
+        },
       });
     });
 };
@@ -94,15 +94,15 @@ exports.getPageAndCreatePage = async ({ owner, repo, dir }, createNode) => {
     parent: null,
     children: [],
     internal: {
-      type: "GithubAPI",
+      type: 'GithubAPI',
       contentDigest: crypto
-        .createHash("md5")
+        .createHash('md5')
         .update(text)
-        .digest("hex"),
-      mediaType: "text/markdown",
+        .digest('hex'),
+      mediaType: 'text/markdown',
       content: text,
       directory: dir,
-      name: path.basename(dir, ".md")
-    }
+      name: path.basename(dir, '.md'),
+    },
   });
 };

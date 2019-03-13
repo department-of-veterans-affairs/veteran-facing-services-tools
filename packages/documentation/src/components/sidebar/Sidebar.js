@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import SidebarItems from "./SidebarItems";
-import sidebarData from "../../sidebar";
+import React from 'react';
+import { Link } from 'gatsby';
+import SidebarItems from './SidebarItems';
+import sidebarData from '../../sidebar';
 
 /**
  * Sidebar
@@ -11,7 +11,7 @@ import sidebarData from "../../sidebar";
 
 export default function Sidebar({ location }) {
   const sidebarSection = sidebarData.sections.find(section =>
-    location.pathname.includes(`/${section.href}`)
+    location.pathname.includes(`/${section.href}`),
   );
 
   return (

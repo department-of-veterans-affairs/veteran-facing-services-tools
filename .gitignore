@@ -11,4 +11,5 @@ packages/formation-react/*.js
 lerna-debug.log
 .eslintrc
 .eslintignore
+.prettierrc
 yarn-error.log
