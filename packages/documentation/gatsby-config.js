@@ -1,4 +1,5 @@
 /* eslint-disable */
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -50,6 +51,14 @@ module.exports = {
               sizeByPixelDensity: true
             }
           },
+          {
+            resolve: path.resolve(__dirname, './plugin/remark/gatsby-remark-mdx-mermaid'),
+            options: {
+              // this is the language in your code-block that triggers mermaid parsing
+              language: 'mermaid', // default
+              theme: 'default' // could also be dark, forest, or neutral
+            }
+          }
         ],
       }
     },
