@@ -97,102 +97,98 @@ exports.onCreateNode = ({node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `{
-          allMarkDown: allMarkdownRemark(filter: {
-            fields: {
-              slug: {
-                ne: "undefined"
-              }
-            }
-          }) {
-            edges {
-              node {
-                id
-                fields {
-                  slug
-                  path
-                  fileName
-                }
-                internal {
-                  content
-                  type
-                }
-              }
-            }
+  return graphql(
+    `{
+      allMarkDown: allMarkdownRemark(filter: {
+        fields: {
+          slug: {
+            ne: "undefined"
           }
-
-          allMdx: allMdx(filter: {
-            frontmatter: {
-              name: {
-                ne: null
-              }
-            }
-          }) {
-            edges {
-              node {
-                id
-                frontmatter {
-                  title
-                  name
-                }
-                parent {
-                  ... on File {
-                    name
-                    sourceInstanceName
-                  }
-                }
-                code {
-                  scope
-                }
-              }
-            }
-          }
-        }`
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
         }
-
-        result.data.allMarkDown.edges.forEach(async ({ node }) => {
-          createPage({
-            path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
-            component: path.resolve('./src/layouts/external-layout.js'),
-            context: {
-              id: node.id,
-              name: node.fields.slug,
-            },
-          })
-        })
-
-        result.data.allMdx.edges.forEach(async ({ node }) => {
-          if (node.frontmatter.name) {
-            createPage({
-              path: `/platform/${node.parent.name.toLowerCase()}/`,
-              component: path.resolve('./src/layouts/module-components.js'),
-              context: {
-                id: node.id,
-                source: 'component',
-                name: node.frontmatter.name,
-              },
-            })
+      }) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+              path
+              fileName
+            }
+            internal {
+              content
+              type
+            }
           }
-        })
+        }
+      }
+
+      allMdx: allMdx(filter: {
+        frontmatter: {
+          name: {
+            ne: null
+          }
+        }
+      }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              name
+            }
+            parent {
+              ... on File {
+                name
+                sourceInstanceName
+              }
+            }
+            code {
+              scope
+            }
+          }
+        }
+      }
+    }`
+  ).then(result => {
+    if (result.errors) {
+      console.error(result.errors)
+      throw new Error('Error querying for custom pages');
+    }
+
+    result.data.allMarkDown.edges.forEach(async ({ node }) => {
+      createPage({
+        path: `/${node.fields.slug.toLowerCase().replace(/ /g, '-')}/`,
+        component: path.resolve('./src/layouts/external-layout.js'),
+        context: {
+          id: node.id,
+          name: node.fields.slug,
+        },
       })
-    )
-  })
+    })
+
+    result.data.allMdx.edges.forEach(async ({ node }) => {
+      if (node.frontmatter.name) {
+        createPage({
+          path: `/platform/${node.parent.name.toLowerCase()}/`,
+          component: path.resolve('./src/layouts/module-components.js'),
+          context: {
+            id: node.id,
+            source: 'component',
+            name: node.frontmatter.name,
+          },
+        })
+      }
+    })
+  });
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      alias: {
-        components: path.resolve('../formation-react/src/components'),
-      },
-    },
-  });
-};
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+//       alias: {
+//         components: path.resolve('../formation-react/src/components'),
+//       },
+//     },
+//   });
+// };
