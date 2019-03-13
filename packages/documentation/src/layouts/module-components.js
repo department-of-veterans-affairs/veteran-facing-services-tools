@@ -6,6 +6,7 @@ import { LiveProvider, LiveEditor } from 'react-live';
 
 import Layout from './layout';
 import PropsTable from '../components/propstable';
+import './module-components.scss';
 
 const MyCodeComponent = ({ children }) => (
   <LiveProvider code={children}>
