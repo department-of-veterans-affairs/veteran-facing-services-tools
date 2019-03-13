@@ -1,13 +1,14 @@
-exports.onInitialClientRender = function(n, config) {
+exports.onInitialClientRender = (n, config) => {
+  // eslint-disable-next-line
   window.mermaid_config = { theme: config.theme || 'default', startOnLoad: true }
   // load initial script
-  const s = document.createElement('script')
-  s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js')
-  document.head.appendChild(s)
+  const s = document.createElement('script');
+  s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js');
+  document.head.appendChild(s);
   // XXX: ugly hack because onRouteUpdate doesn't know when the react is done
-  setInterval(function() {
-    if(window.mermaid) {
-      window.mermaid.init(undefined, document.getElementsByClassName('mermaid'))
+  setInterval(() => {
+    if (window.mermaid) {
+      window.mermaid.init(undefined, document.getElementsByClassName('mermaid'));
     }
-  }, 200)
-}
+  }, 200);
+};

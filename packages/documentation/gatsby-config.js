@@ -52,7 +52,7 @@ module.exports = {
             }
           },
           {
-            resolve: path.resolve(__dirname, './plugin/remark/gatsby-remark-mdx-mermaid'),
+            resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
             options: {
               // this is the language in your code-block that triggers mermaid parsing
               language: 'mermaid', // default

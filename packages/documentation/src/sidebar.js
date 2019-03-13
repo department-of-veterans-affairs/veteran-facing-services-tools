@@ -25,6 +25,10 @@ module.exports = {
               name: 'How to Add Pages from Github',
               href: 'getting-started/add-external-pages'
             },
+            {
+              name: 'Add Graphs to MDX',
+              href: 'getting-started/add-graphs-to-mdx'
+            },
           ]
         },
         {
