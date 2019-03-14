@@ -1,0 +1,11 @@
+# Running VA.gov locally
+
+The vast majority of the time developing on the VFS platform, you'll want to be running VA.gov locally. To do that, you can run the `watch` task:
+
+`yarn watch`
+
+This builds all of the static pages sourced from `vagov-content` or Drupal and starts up Webpack's built in development server (which is built on top of Node and Express). The output of the build will be the `build/localhost` folder, except for the JS bundles that would normally be output to `build/localhost/generated`; the Webpack dev server serves those from memory.
+
+By default, Webpack will watch for changes in our Javascript and rebuild its in memory bundles when any source file changes. Also, if you change any of the templates for our static pages or content in `vagov-content`, the static build process will run again and update the built output. In both of these cases, you'll need to refresh your browser to see the changes.
+
+Changes to build process or configuration files are typically not picked up, and require a restart of the watch task to become active.

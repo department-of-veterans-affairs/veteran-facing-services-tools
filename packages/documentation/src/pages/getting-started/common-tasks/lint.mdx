@@ -1,0 +1,23 @@
+# Linting your code
+
+We use [ESLint](https://eslint.org/) to lint our code, in order to find bugs and enforce consistency across the codebase. To enforce a common Javascript style, we use [Prettier](https://prettier.io/) through an ESLint plugin.
+
+We also lint our Sass styles using [sass-lint](https://github.com/sasstools/sass-lint).
+
+## Commands
+
+You can run the linters with the command
+
+`yarn lint`
+
+If you just want to run the Javascript linter, you can run `yarn lint:js`, or `yarn lint:sass` for the Sass linter.
+
+## Pre-commit hook
+
+We also have a pre-commit Git hook that will lint the files being changed before you commit them. If you don't see this being run, you may need to run `yarn build` once to install the hook.
+
+Our linting rules are enforced in our CI build, but you can skip the pre-commit hook by using the `-n` option when running `git commit`.
+
+## Editor setup
+
+We strongly recommend that you set up your editor to show you ESLint errors automatically as you're writing code. This makes the linter far less annoying in day to day use. ESLint has [integrations](https://eslint.org/docs/user-guide/integrations) for nearly all popular editors.

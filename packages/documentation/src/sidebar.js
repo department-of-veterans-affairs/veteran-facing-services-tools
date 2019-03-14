@@ -18,12 +18,44 @@ module.exports = {
           name: 'Common tasks',
           items: [
             {
-              name: 'How to Add Documents',
-              href: 'getting-started/how-to'
+              name: 'Running VA.gov locally',
+              href: 'getting-started/common-tasks/local'
             },
             {
-              name: 'How to Add Pages from Github',
-              href: 'getting-started/add-external-pages'
+              name: 'Building VA.gov',
+              href: 'getting-started/common-tasks/build'
+            },
+            {
+              name: 'Running tests',
+              href: 'getting-started/common-tasks/tests'
+            },
+            {
+              name: 'Linting your code',
+              href: 'getting-started/common-tasks/lint'
+            },
+            {
+              name: 'Creating a new React application',
+              href: 'getting-started/common-tasks/new-app'
+            },
+            {
+              name: 'Writing a unit test',
+              href: 'getting-started/common-tasks/write-unit-test'
+            },
+            {
+              name: 'Writing an end-to-end test',
+              href: 'getting-started/common-tasks/write-e2e-test'
+            },
+            {
+              name: 'Updating Formation',
+              href: 'getting-started/common-tasks/update-formation'
+            },
+            {
+              name: 'Adding new pages to this site',
+              href: 'getting-started/common-tasks/doc-page'
+            },
+            {
+              name: 'Adding pages from Github to this site',
+              href: 'getting-started/common-tasks/external-doc-page'
             },
           ]
         },
