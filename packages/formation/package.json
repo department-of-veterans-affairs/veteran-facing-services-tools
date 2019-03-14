@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
-    "prepare": "yarn build"
+    "prepare": "node ./scripts/build.js"
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
