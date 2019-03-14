@@ -15,11 +15,7 @@ class SortableTable extends React.Component {
 
   makeHeader(field) {
     if (field.nonSortable) {
-      return (
-        <th key={field.value}>
-          {field.label}
-        </th>
-      );
+      return <th key={field.value}>{field.label}</th>;
     }
 
     // Determine what sort order the header will yield on the next click.
@@ -32,10 +28,10 @@ class SortableTable extends React.Component {
       const iconClass = classNames({
         fa: true,
         'fas fa-caret-down': this.props.currentSort.order === 'DESC',
-        'fas fa-caret-up': this.props.currentSort.order === 'ASC'
+        'fas fa-caret-up': this.props.currentSort.order === 'ASC',
       });
 
-      sortIcon = <i className={iconClass}></i>;
+      sortIcon = <i className={iconClass} />;
 
       if (this.props.currentSort.order === 'ASC') {
         nextSortOrder = 'DESC';
@@ -44,7 +40,11 @@ class SortableTable extends React.Component {
 
     return (
       <th key={field.value}>
-        <a role="button" tabIndex="0" onClick={this.handleSort(field.value, nextSortOrder)}>
+        <a
+          role="button"
+          tabIndex="0"
+          onClick={this.handleSort(field.value, nextSortOrder)}
+        >
           {field.label}
           {sortIcon}
         </a>
@@ -53,10 +53,14 @@ class SortableTable extends React.Component {
   }
 
   makeRow(item) {
-    const cells = this.props.fields.map(field => {
-      return <td key={`${item.id}-${field.value}`}>{item[field.value]}</td>;
-    });
-    return <tr key={item.id} className={item.rowClass}>{cells}</tr>;
+    const cells = this.props.fields.map(field => (
+      <td key={`${item.id}-${field.value}`}>{item[field.value]}</td>
+    ));
+    return (
+      <tr key={item.id} className={item.rowClass}>
+        {cells}
+      </tr>
+    );
   }
 
   render() {
@@ -67,13 +71,9 @@ class SortableTable extends React.Component {
     return (
       <table className={tableClass}>
         <thead>
-          <tr>
-            {headers}
-          </tr>
+          <tr>{headers}</tr>
         </thead>
-        <tbody>
-          {rows}
-        </tbody>
+        <tbody>{rows}</tbody>
       </table>
     );
   }
@@ -88,32 +88,33 @@ SortableTable.propTypes = {
    */
   currentSort: PropTypes.shape({
     value: PropTypes.string.isRequired,
-    order: PropTypes.oneOf(['ASC', 'DESC'])
+    order: PropTypes.oneOf(['ASC', 'DESC']),
   }).isRequired,
 
   /**
    * Mappings of header labels to properties on the objects in `data`.
    */
-  fields: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  })).isRequired,
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   /**
    * Each object represents data for a row.
    * An optional class may be provided to style specific rows.
    */
-  data: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]).isRequired,
-    values: PropTypes.arrayOf(PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string])),
-    rowClass: PropTypes.string
-  })).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      values: PropTypes.arrayOf(
+        PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      ),
+      rowClass: PropTypes.string,
+    }),
+  ).isRequired,
 
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
 };
 
 export default SortableTable;

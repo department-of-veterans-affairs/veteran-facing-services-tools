@@ -30,7 +30,13 @@ class ErrorableFileInput extends React.Component {
     if (this.props.errorMessage) {
       errorSpanId = `${this.inputId}-error-message`;
       errorSpan = (
-        <span className={`usa-input-error-message ${this.props.additionalErrorClass}`} role="alert" id={errorSpanId}>
+        <span
+          className={`usa-input-error-message ${
+            this.props.additionalErrorClass
+          }`}
+          role="alert"
+          id={errorSpanId}
+        >
           <span className="sr-only">Error</span> {this.props.errorMessage}
         </span>
       );
@@ -41,17 +47,13 @@ class ErrorableFileInput extends React.Component {
     // Calculate required
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     return (
       <div className={this.props.additionalClass}>
         <div className={inputErrorClass} role="alert">
-          <label
-            className={labelErrorClass}
-            htmlFor={this.inputId}>
+          <label className={labelErrorClass} htmlFor={this.inputId}>
             {this.props.label}
             {requiredSpan}
           </label>
@@ -60,13 +62,16 @@ class ErrorableFileInput extends React.Component {
             role="button"
             tabIndex="0"
             htmlFor={this.inputId}
-            onKeyPress={(e) => {
+            onKeyPress={e => {
               if (e.key === 'Enter' || e.key === ' ') {
                 document.getElementById(this.inputId).click();
               }
             }}
             aria-describedby={this.props['aria-describedby']}
-            className={this.props.triggerClass || 'usa-button usa-button-secondary'}>
+            className={
+              this.props.triggerClass || 'usa-button usa-button-secondary'
+            }
+          >
             {this.props.buttonText}
           </label>
           <input
@@ -76,7 +81,8 @@ class ErrorableFileInput extends React.Component {
             accept={this.props.accept}
             id={this.inputId}
             name={this.props.name}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+          />
         </div>
       </div>
     );
@@ -91,9 +97,7 @@ ErrorableFileInput.propTypes = {
   /**
    * label for the button
    */
-  buttonText: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element]),
+  buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /**
    * additional CSS classes
@@ -126,13 +130,12 @@ ErrorableFileInput.propTypes = {
    * file types
    */
   mimeTypes: PropTypes.string,
-
 };
 
 ErrorableFileInput.defaultProps = {
   buttonText: 'Add Files',
   mimeTypes: '',
-  multiple: false
+  multiple: false,
 };
 
 export default ErrorableFileInput;

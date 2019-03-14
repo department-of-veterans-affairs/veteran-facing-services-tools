@@ -9,7 +9,9 @@ class SystemDownView extends React.Component {
           <div className="react-container">
             <h3>{this.props.messageLine1}</h3>
             <h4>{this.props.messageLine2}</h4>
-            <a href="/"><button>Go Back to Vets.gov</button></a>
+            <a href="/">
+              <button>Go Back to Vets.gov</button>
+            </a>
           </div>
         </div>
       </div>
@@ -18,7 +20,6 @@ class SystemDownView extends React.Component {
 }
 
 SystemDownView.propTypes = {
-
   // first line of the system down message, required
   messageLine1: PropTypes.string.isRequired,
 

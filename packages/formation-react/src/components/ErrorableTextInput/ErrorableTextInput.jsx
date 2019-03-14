@@ -33,7 +33,7 @@ class ErrorableTextInput extends React.Component {
 
   handleChange(domEvent) {
     this.props.onValueChange(
-      makeField(domEvent.target.value, this.props.field.dirty)
+      makeField(domEvent.target.value, this.props.field.dirty),
     );
   }
 
@@ -62,16 +62,14 @@ class ErrorableTextInput extends React.Component {
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
-        maxCharacters = (<small>(Max. {this.props.charMax} characters)</small>);
+        maxCharacters = <small>(Max. {this.props.charMax} characters)</small>;
       }
     }
 
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     return (
@@ -93,7 +91,8 @@ class ErrorableTextInput extends React.Component {
           maxLength={this.props.charMax}
           value={this.props.field.value}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}/>
+          onBlur={this.handleBlur}
+        />
         {maxCharacters}
       </div>
     );
@@ -130,7 +129,7 @@ ErrorableTextInput.propTypes = {
    */
   field: PropTypes.shape({
     value: PropTypes.string,
-    dirty: PropTypes.bool
+    dirty: PropTypes.bool,
   }).isRequired,
   /**
    * extra attribute for use by CSS selector, specifically by tests
@@ -147,11 +146,11 @@ ErrorableTextInput.propTypes = {
   /**
    * type attribute for input field
    */
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 
 ErrorableTextInput.defaultProps = {
-  type: 'text'
+  type: 'text',
 };
 
 export default ErrorableTextInput;

@@ -40,7 +40,7 @@ const PropsTable = props => {
               ) : (
                 <td style={{ color: '#c6c6c6' }}>none</td>
               )}
-              {prop.docblock ? <td>{prop.docblock}</td> : <td/>}
+              {prop.docblock ? <td>{prop.docblock}</td> : <td />}
             </tr>
           );
         })}

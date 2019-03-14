@@ -11,10 +11,10 @@ const defaultProps = {
     termsContent: 'content',
     name: 'mhvac',
     yesContent: 'yes content',
-    title: 'Terms and Conditions'
+    title: 'Terms and Conditions',
   },
   onAccept: sinon.spy(),
-  onCancel: sinon.spy()
+  onCancel: sinon.spy(),
 };
 describe('<AcceptTermsPrompt/>', () => {
   let wrapper;
@@ -22,28 +22,27 @@ describe('<AcceptTermsPrompt/>', () => {
   beforeEach(() => {
     window.dataLayer = [];
     window.scrollTo = () => {};
-    wrapper = mount(<AcceptTermsPrompt {...defaultProps}/>).setState({
+    wrapper = mount(<AcceptTermsPrompt {...defaultProps} />).setState({
       scrolledToBottom: false,
-      yesSelected: false
+      yesSelected: false,
     });
   });
   it('should be empty if there is no content', () => {
-    const tree = mount(<AcceptTermsPrompt terms={{}}/>);
+    const tree = mount(<AcceptTermsPrompt terms={{}} />);
     expect(tree.text()).to.equal('');
+    tree.unmount();
   });
   it('should render', () => {
     expect(wrapper.text()).to.contain(
-      'Scroll to read the full terms and conditions to continuecontentyes contentSubmitCancel'
+      'Scroll to read the full terms and conditions to continuecontentyes contentSubmitCancel',
     );
   });
-  it('should pass aXe check', () => {
-    return axeCheck(
-      <AcceptTermsPrompt terms={{}} onAccept={() => {}} onCancel={() => {}}/>
-    );
-  });
-  it('should pass aXe check with default props', () => {
-    return axeCheck(<AcceptTermsPrompt {...defaultProps}/>);
-  });
+  it('should pass aXe check', () =>
+    axeCheck(
+      <AcceptTermsPrompt terms={{}} onAccept={() => {}} onCancel={() => {}} />,
+    ));
+  it('should pass aXe check with default props', () =>
+    axeCheck(<AcceptTermsPrompt {...defaultProps} />));
   it('submit button should be disabled by default', () => {
     const submitButtonDisabled = wrapper.find('.usa-button-disabled');
     expect(submitButtonDisabled).to.have.lengthOf(1);
@@ -51,7 +50,7 @@ describe('<AcceptTermsPrompt/>', () => {
   it('submit button should be enabled if state is valid', () => {
     wrapper.setState({
       yesSelected: true,
-      scrolledToBottom: true
+      scrolledToBottom: true,
     });
     const submitButton = wrapper.find('.submit-button');
     expect(submitButton).to.have.lengthOf(1);
@@ -59,7 +58,7 @@ describe('<AcceptTermsPrompt/>', () => {
   it('should call onAccept correctly', () => {
     wrapper.setState({
       yesSelected: true,
-      scrolledToBottom: true
+      scrolledToBottom: true,
     });
     const submitButton = wrapper.find('.submit-button');
     submitButton.simulate('click');

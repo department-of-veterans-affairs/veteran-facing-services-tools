@@ -44,23 +44,25 @@ class Layout extends React.Component {
                 },
                 {
                   name: 'docsearch:language',
-                  content: 'en'
+                  content: 'en',
                 },
                 {
                   name: 'docsearch:version',
-                  content: '1.0.0'
+                  content: '1.0.0',
                 },
                 {
                   name: 'keywords',
                   content: 'design system, style guide, documentation',
                 },
-              ]}>
-              <html lang="en"/>
+              ]}
+            >
+              <html lang="en" />
             </Helmet>
-            <Sidebar location={location}/>
+            <Sidebar location={location} />
             <div className="ContentArea docSearch-content">{children}</div>
           </>
-        )}/>
+        )}
+      />
     );
   }
 }

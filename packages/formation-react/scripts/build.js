@@ -35,20 +35,25 @@ function flattenRequires(bufferString) {
 /* eslint-disable no-console */
 
 // get a flat array of file paths
-const fileNames = [].concat.apply([], [
-  glob.sync('./src/components/**/*.jsx', { ignore: './**/*.unit.spec.jsx' }),
-  glob.sync('./src/helpers/*.js')
-]);
+const fileNames = [].concat.apply(
+  [],
+  [
+    glob.sync('./src/components/**/*.jsx', { ignore: './**/*.unit.spec.jsx' }),
+    glob.sync('./src/helpers/*.js'),
+  ],
+);
 
 fileNames.forEach(fileName => {
   // read a file into a buffer
   const fileBuffer = fs.readFileSync(fileName);
   // transform the buffer with babel using babelrc
-  const babelTransformedBuffer = babel
-    .transform(fileBuffer, { 'extends': '../../.babelrc' })
-    .code;
+  const babelTransformedBuffer = babel.transform(fileBuffer, {
+    extends: '../../.babelrc',
+  }).code;
   // flatten paths given to all requires
-  const requireFlattenedBuffer = flattenRequires(babelTransformedBuffer.toString());
+  const requireFlattenedBuffer = flattenRequires(
+    babelTransformedBuffer.toString(),
+  );
   const newFileName = `${path.parse(fileName).name}.js`;
 
   // write file to main package folder

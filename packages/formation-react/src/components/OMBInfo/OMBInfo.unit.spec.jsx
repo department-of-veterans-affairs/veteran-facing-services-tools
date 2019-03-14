@@ -7,17 +7,23 @@ import OMBInfo from './OMBInfo.jsx';
 
 describe('<OMBInfo/>', () => {
   it('should render', () => {
-    const tree = shallow(<OMBInfo
-      resBurden={15}
-      ombNumber="OMB Number"
-      expDate="Expiration date"/>);
+    const tree = shallow(
+      <OMBInfo
+        resBurden={15}
+        ombNumber="OMB Number"
+        expDate="Expiration date"
+      />,
+    );
     expect(tree.text()).to.contain('Expiration date');
+    tree.unmount();
   });
 
-  it('should pass aXe check', () => {
-    return axeCheck(<OMBInfo
-      resBurden={15}
-      ombNumber="OMB Number"
-      expDate="Expiration date"/>);
-  });
+  it('should pass aXe check', () =>
+    axeCheck(
+      <OMBInfo
+        resBurden={15}
+        ombNumber="OMB Number"
+        expDate="Expiration date"
+      />,
+    ));
 });

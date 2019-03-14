@@ -52,16 +52,14 @@ class ErrorableTextArea extends React.Component {
     // Calculate max characters and display '(Max. XX characters)' when max is hit.
     if (this.props.field.value) {
       if (this.props.charMax === this.props.field.value.length) {
-        maxCharacters = (<small>(Max. {this.props.charMax} characters)</small>);
+        maxCharacters = <small>(Max. {this.props.charMax} characters)</small>;
       }
     }
 
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     const classes = classNames(this.props.additionalClass, {
@@ -73,7 +71,8 @@ class ErrorableTextArea extends React.Component {
         <label
           id={`${this.inputId}-label`}
           className={labelErrorClass}
-          htmlFor={this.inputId}>
+          htmlFor={this.inputId}
+        >
           {this.props.label}
           {requiredSpan}
         </label>
@@ -90,7 +89,8 @@ class ErrorableTextArea extends React.Component {
           maxLength={this.props.charMax}
           value={this.props.field.value}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}/>
+          onBlur={this.handleBlur}
+        />
         {maxCharacters}
       </div>
     );
@@ -130,7 +130,7 @@ ErrorableTextArea.propTypes = {
    */
   field: PropTypes.shape({
     value: PropTypes.string,
-    dirty: PropTypes.bool
+    dirty: PropTypes.bool,
   }).isRequired,
 
   /**
@@ -146,7 +146,7 @@ ErrorableTextArea.propTypes = {
   /**
    * a function with this prototype: (newValue)
    */
-  onValueChange: PropTypes.func.isRequired
+  onValueChange: PropTypes.func.isRequired,
 };
 
 export default ErrorableTextArea;

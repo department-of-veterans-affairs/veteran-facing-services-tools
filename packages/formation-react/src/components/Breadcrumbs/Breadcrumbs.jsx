@@ -32,8 +32,8 @@ class Breadcrumbs extends React.Component {
     const children = React.Children.toArray(this.props.children);
     children.push(
       React.cloneElement(children.pop(), {
-        'aria-current': 'page'
-      })
+        'aria-current': 'page',
+      }),
     );
     return children.map((child, i) => <li key={i}>{child}</li>);
   };
@@ -50,10 +50,12 @@ class Breadcrumbs extends React.Component {
         aria-live="polite"
         className={this.classNames()}
         data-mobile-first={mobileFirstProp}
-        id={breadcrumbId}>
+        id={breadcrumbId}
+      >
         <ul
           className="row va-nav-breadcrumbs-list columns"
-          id={breadcrumbListId}>
+          id={breadcrumbListId}
+        >
           {this.renderBreadcrumbLinks()}
         </ul>
       </nav>
@@ -62,7 +64,7 @@ class Breadcrumbs extends React.Component {
 }
 
 Breadcrumbs.defaultProps = {
-  ariaLabel: 'Breadcrumb'
+  ariaLabel: 'Breadcrumb',
 };
 
 Breadcrumbs.propTypes = {
@@ -89,7 +91,7 @@ Breadcrumbs.propTypes = {
    * NAV element. The mobile breadcrumb will always
    * be displayed while mobileFirstProp is True.
    */
-  mobileFirstProp: PropTypes.bool
+  mobileFirstProp: PropTypes.bool,
 };
 
 export default Breadcrumbs;

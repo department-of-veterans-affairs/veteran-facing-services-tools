@@ -21,7 +21,9 @@ class ErrorableNumberInput extends React.Component {
   }
 
   handleChange(domEvent) {
-    this.props.onValueChange(makeField(domEvent.target.value, this.props.field.dirty));
+    this.props.onValueChange(
+      makeField(domEvent.target.value, this.props.field.dirty),
+    );
   }
 
   handleBlur() {
@@ -48,16 +50,19 @@ class ErrorableNumberInput extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     return (
       <div className={this.props.errorMessage ? 'usa-input-error' : undefined}>
         <label
-          className={this.props.errorMessage !== undefined ? 'usa-input-error-label' : undefined}
-          htmlFor={this.inputId}>
+          className={
+            this.props.errorMessage !== undefined
+              ? 'usa-input-error-label'
+              : undefined
+          }
+          htmlFor={this.inputId}
+        >
           {this.props.label}
           {requiredSpan}
         </label>
@@ -75,7 +80,8 @@ class ErrorableNumberInput extends React.Component {
           type="number"
           value={this.props.field.value}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}/>
+          onBlur={this.handleBlur}
+        />
       </div>
     );
   }
@@ -88,7 +94,7 @@ ErrorableNumberInput.propTypes = {
   errorMessage: PropTypes.string,
   field: PropTypes.shape({
     value: PropTypes.string,
-    dirty: PropTypes.bool
+    dirty: PropTypes.bool,
   }).isRequired,
   /**
    * `label` - String for the input field label.
@@ -101,14 +107,8 @@ ErrorableNumberInput.propTypes = {
   /**
    * minimum number value and maximum of same
    */
-  min: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  max: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * String specifying the pattern for the input.
    */
@@ -125,7 +125,7 @@ ErrorableNumberInput.propTypes = {
    * handler for the value change with this prototype: (newValue)
    */
   onValueChange: PropTypes.func.isRequired,
-  additionalClass: PropTypes.string
+  additionalClass: PropTypes.string,
 };
 
 export default ErrorableNumberInput;

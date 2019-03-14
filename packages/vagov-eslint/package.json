@@ -1,0 +1,29 @@
+{
+    "name": "vagov-eslint",
+    "description": "Shared JS linting package",
+    "version": "1.0.0",
+    "bin": {
+        "vagov-eslint": "./bin/vagov-eslint"
+    },
+    "dependencies": {
+        "eslint": "4.4.1",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-config-prettier": "^3.1.0",
+        "eslint-import-resolver-babel-module": "^5.0.1",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jest": "^21.26.1",
+        "eslint-plugin-jsx-a11y": "5.1",
+        "eslint-plugin-mocha": "^5.2.0",
+        "eslint-plugin-no-unsafe-innerhtml": "^1.0.14",
+        "eslint-plugin-prettier": "^2.6.2",
+        "eslint-plugin-react": "^7.12.4",
+        "eslint-plugin-scanjs-rules": "^0.1.4",
+        "eslint-plugin-va-enzyme": "file:./custom-eslint/va-enzyme",
+        "prettier": "^1.16.4",
+        "shelljs": "0.8.3",
+        "window-or-global": "^1.0.1"
+    },
+    "scripts": {
+        "postinstall" : "cp .eslintrc $INIT_CWD && cp .eslintignore $INIT_CWD && cp .prettierrc $INIT_CWD"
+    }
+}

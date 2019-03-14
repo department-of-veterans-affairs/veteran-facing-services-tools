@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+/* eslint-disable */
+
+var shell = require("shelljs");
+
+switch (process.argv[2]) {
+  case 'lint:changed':
+  case 'lint:js:changed':
+    shell.exec("LIST=`git diff-index --name-only HEAD | grep \"\\.js[x]\\{0,1\\}$\"`; if [ \"$LIST\" ]; then eslint --quiet $LIST; fi");
+    break;
+  case 'lint:js:changed:fix':
+    shell.exec("LIST=`git diff-index --name-only HEAD | grep \"\\.js[x]\\{0,1\\}$\"`; if [ \"$LIST\" ]; then eslint --fix --quiet $LIST; fi")
+    break;
+  case 'lint:js:fix':
+    shell.exec("eslint --format compact --fix --quiet --ext .js --ext .jsx .");
+    break;
+  case 'lint':
+  case 'lint:js':
+  default:
+    shell.exec("eslint --format compact --quiet --ext .js --ext .jsx .");
+}
