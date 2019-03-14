@@ -18,25 +18,10 @@ module.exports = {
           name: 'Common tasks',
           items: [
             {
-<<<<<<< HEAD
-              name: 'How to Add Documents',
-              href: 'getting-started/how-to',
-||||||| merged common ancestors
-              name: 'How to Add Documents',
-              href: 'getting-started/how-to'
-=======
               name: 'Running VA.gov locally',
               href: 'getting-started/common-tasks/local'
->>>>>>> 4db04851523245dca2020899581388aa921c0cac
             },
             {
-<<<<<<< HEAD
-              name: 'How to Add Pages from Github',
-              href: 'getting-started/add-external-pages',
-||||||| merged common ancestors
-              name: 'How to Add Pages from Github',
-              href: 'getting-started/add-external-pages'
-=======
               name: 'Building VA.gov',
               href: 'getting-started/common-tasks/build'
             },
@@ -71,7 +56,6 @@ module.exports = {
             {
               name: 'Adding pages from Github to this site',
               href: 'getting-started/common-tasks/external-doc-page'
->>>>>>> 4db04851523245dca2020899581388aa921c0cac
             },
           ],
         },
