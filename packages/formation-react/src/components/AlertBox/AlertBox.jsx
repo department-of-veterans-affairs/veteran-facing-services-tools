@@ -27,13 +27,13 @@ class AlertBox extends React.Component {
     if (this._ref && !isInView) {
       this._ref.scrollIntoView({
         block: 'end',
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }
 
   render() {
-    if (!this.props.isVisible) return <div aria-live="polite"/>;
+    if (!this.props.isVisible) return <div aria-live="polite" />;
 
     const alertClass = classNames(
       'usa-alert',
@@ -45,8 +45,9 @@ class AlertBox extends React.Component {
       <button
         className="va-alert-close"
         aria-label="Close notification"
-        onClick={this.props.onCloseAlert}>
-        <i className="fas fa-times-circle" aria-label="Close icon"/>
+        onClick={this.props.onCloseAlert}
+      >
+        <i className="fas fa-times-circle" aria-label="Close icon" />
       </button>
     );
 
@@ -57,16 +58,20 @@ class AlertBox extends React.Component {
       <div
         aria-live="polite"
         className={alertClass}
-        ref={(ref) => { this._ref = ref; }}>
+        ref={ref => {
+          this._ref = ref;
+        }}
+      >
         <div className="usa-alert-body">
-          {alertHeading && <h3 className="usa-alert-heading">{alertHeading}</h3>}
+          {alertHeading && (
+            <h3 className="usa-alert-heading">{alertHeading}</h3>
+          )}
           {alertText && <div className="usa-alert-text">{alertText}</div>}
         </div>
         {closeButton}
       </div>
     );
   }
-
 }
 
 AlertBox.propTypes = {
@@ -74,11 +79,11 @@ AlertBox.propTypes = {
    * Determines the color and icon of the alert box.
    */
   status: PropTypes.oneOf([
-    'info',      // Blue border, black circled 'i'
-    'error',     // Red border, red circled exclamation
-    'success',   // Green border, green checkmark
-    'warning',   // Yellow border, black triangle exclamation
-    'continue',  // Green border, green lock
+    'info', // Blue border, black circled 'i'
+    'error', // Red border, red circled exclamation
+    'success', // Green border, green checkmark
+    'warning', // Yellow border, black triangle exclamation
+    'continue', // Green border, green lock
   ]).isRequired,
 
   /**
@@ -109,11 +114,11 @@ AlertBox.propTypes = {
   /**
    * Optional class name to add to the alert box.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 AlertBox.defaultProps = {
-  isVisible: true
+  isVisible: true,
 };
 
 export default AlertBox;

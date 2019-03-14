@@ -19,11 +19,20 @@ describe('<ErrorableNumberInput>', () => {
 
     const updatePromise = new Promise((resolve, _reject) => {
       errorableInput = ReactTestUtils.renderIntoDocument(
-        <ErrorableNumberInput field={testValue} label="test" onValueChange={(update) => { resolve(update); }}/>
+        <ErrorableNumberInput
+          field={testValue}
+          label="test"
+          onValueChange={update => {
+            resolve(update);
+          }}
+        />,
       );
     });
 
-    const input = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'input');
+    const input = ReactTestUtils.findRenderedDOMComponentWithTag(
+      errorableInput,
+      'input',
+    );
     input.value = '1';
     ReactTestUtils.Simulate.change(input);
 
@@ -35,11 +44,20 @@ describe('<ErrorableNumberInput>', () => {
 
     const updatePromise = new Promise((resolve, _reject) => {
       errorableInput = ReactTestUtils.renderIntoDocument(
-        <ErrorableNumberInput field={testValue} label="test" onValueChange={(update) => { resolve(update); }}/>
+        <ErrorableNumberInput
+          field={testValue}
+          label="test"
+          onValueChange={update => {
+            resolve(update);
+          }}
+        />,
       );
     });
 
-    const input = ReactTestUtils.findRenderedDOMComponentWithTag(errorableInput, 'input');
+    const input = ReactTestUtils.findRenderedDOMComponentWithTag(
+      errorableInput,
+      'input',
+    );
     ReactTestUtils.Simulate.blur(input);
 
     return expect(updatePromise).to.eventually.eql(makeField('', true));
@@ -47,7 +65,12 @@ describe('<ErrorableNumberInput>', () => {
 
   it('no error styles when errorMessage undefined', () => {
     const tree = shallow(
-      <ErrorableNumberInput field={testValue} label="my label" onValueChange={(_update) => {}}/>);
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        onValueChange={_update => {}}
+      />,
+    );
 
     // No error classes.
     expect(tree.find('.usa-input-error')).to.have.lengthOf(0);
@@ -63,11 +86,18 @@ describe('<ErrorableNumberInput>', () => {
     const inputs = tree.find('input');
     expect(inputs).to.have.lengthOf(1);
     expect(inputs.prop('aria-describedby')).to.be.undefined;
+    tree.unmount();
   });
 
   it('has error styles when errorMessage is set', () => {
     const tree = shallow(
-      <ErrorableNumberInput field={testValue} label="my label" errorMessage="error message" onValueChange={(_update) => {}}/>);
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        errorMessage="error message"
+        onValueChange={_update => {}}
+      />,
+    );
 
     // Ensure all error classes set.
     expect(tree.find('.usa-input-error')).to.have.lengthOf(1);
@@ -85,25 +115,44 @@ describe('<ErrorableNumberInput>', () => {
     expect(inputs).to.have.lengthOf(1);
     expect(inputs.prop('aria-describedby')).to.not.be.undefined;
     expect(inputs.prop('aria-describedby')).to.equal(errorMessages.prop('id'));
+    tree.unmount();
   });
 
   it('required=false does not have required asterisk', () => {
     const tree = shallow(
-      <ErrorableNumberInput field={testValue} label="my label" onValueChange={(_update) => {}}/>);
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        onValueChange={_update => {}}
+      />,
+    );
     expect(tree.find('label').text()).to.equal('my label');
+    tree.unmount();
   });
 
   it('required=true has required asterisk', () => {
     const tree = shallow(
-      <ErrorableNumberInput field={testValue} label="my label" required onValueChange={(_update) => {}}/>);
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        required
+        onValueChange={_update => {}}
+      />,
+    );
 
     const label = tree.find('label');
     expect(label.text()).to.equal('my label(*Required)');
+    tree.unmount();
   });
 
   it('label attribute propagates', () => {
     const tree = shallow(
-      <ErrorableNumberInput field={testValue} label="my label" onValueChange={(_update) => {}}/>);
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        onValueChange={_update => {}}
+      />,
+    );
 
     // Ensure label text is correct.
     const labels = tree.find('label');
@@ -115,10 +164,17 @@ describe('<ErrorableNumberInput>', () => {
     expect(inputs).to.have.lengthOf(1);
     expect(inputs.prop('id')).to.not.be.undefined;
     expect(inputs.prop('id')).to.equal(labels.prop('htmlFor'));
+    tree.unmount();
   });
 
   it('passes aXe check', () => {
-    const check = axeCheck(<ErrorableNumberInput field={testValue} label="my label" onValueChange={(_update) => {}}/>);
+    const check = axeCheck(
+      <ErrorableNumberInput
+        field={testValue}
+        label="my label"
+        onValueChange={_update => {}}
+      />,
+    );
     return check;
   });
 });

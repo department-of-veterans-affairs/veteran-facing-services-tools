@@ -14,7 +14,8 @@ export default class ExternalLayout extends Component {
 
         <div
           className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}/>
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+        />
       </Layout>
     );
   }

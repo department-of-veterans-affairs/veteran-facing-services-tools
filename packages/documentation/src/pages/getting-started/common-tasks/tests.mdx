@@ -1,0 +1,37 @@
+# Running tests
+
+On VA.gov we have several types of tests, which can be run separately from each other.
+
+## Unit tests
+
+Unit tests are the most straightforward to run:
+
+`yarn test:unit`
+
+This will run all of our [Mocha](https://mochajs.org/)/[Chai](http://chaijs.com/)/[Sinon](https://sinonjs.org/)-based unit tests. These tests use JSDom and Enzyme to test browser and React behavior. They all have a `unit.spec.js(x)` extension and are located in `test/` directories near the code they're testing in `src/`.
+
+You can also run just one test at a time by passing the path to the command:
+
+`yarn test:unit ./src/applications/burials/tests/migrations.unit.spec.js`
+
+## End to end tests
+
+On VA.gov, we have end-to-end tests written in [Nightwatch.js](http://nightwatchjs.org/) that run in headless Chrome. These tests simulate an actual user completing tasks in our tools and services. They can also be run with a `yarn` command:
+
+`yarn test:e2e`
+
+Our end-to-end tests all have a `e2e.spec.js` extension and are in `test/` folders located near the application they're testing in `src/`.
+
+Depending on what you have up and running locally, this command will do slightly different things. If you are running the `watch` task, it will run the tests against the site running on that server. If you are not running anything at `localhost:3001`, it will start up an Express server and serve the build output in `build/localhost`.
+
+On the backend, if you are running vets-api locally, the end-to-end tests will make requests to that server while running. If you do not have vets-api running locally, it will spin up a mock api server that the e2e tests will make requests to. The e2e tests won't pass if they are talking to a locally running vets-api instance, so it's better to shut down a locally running vets-api instance while running them.
+
+Similar to our unit tests, you can also run just a single e2e test:
+
+`yarn test:e2e ./src/applications/burials/tests/00-all-fields.e2e.spec.js`
+
+## Accessibility tests
+
+Accessibility tests are a variation of e2e tests that run aXe against our content pages running in Chrome. You can run those with the command:
+
+`yarn test:accessibility`

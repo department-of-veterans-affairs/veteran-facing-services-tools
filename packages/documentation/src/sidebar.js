@@ -10,7 +10,7 @@ module.exports = {
           items: [
             {
               name: 'Internal Tools',
-              href: 'getting-started/internal-tools'
+              href: 'getting-started/internal-tools',
             },
           ],
         },
@@ -18,18 +18,50 @@ module.exports = {
           name: 'Common tasks',
           items: [
             {
-              name: 'How to Add Documents',
-              href: 'getting-started/how-to'
+              name: 'Running VA.gov locally',
+              href: 'getting-started/common-tasks/local'
             },
             {
-              name: 'How to Add Pages from Github',
-              href: 'getting-started/add-external-pages'
+              name: 'Building VA.gov',
+              href: 'getting-started/common-tasks/build'
+            },
+            {
+              name: 'Running tests',
+              href: 'getting-started/common-tasks/tests'
+            },
+            {
+              name: 'Linting your code',
+              href: 'getting-started/common-tasks/lint'
+            },
+            {
+              name: 'Creating a new React application',
+              href: 'getting-started/common-tasks/new-app'
+            },
+            {
+              name: 'Writing a unit test',
+              href: 'getting-started/common-tasks/write-unit-test'
+            },
+            {
+              name: 'Writing an end-to-end test',
+              href: 'getting-started/common-tasks/write-e2e-test'
+            },
+            {
+              name: 'Updating Formation',
+              href: 'getting-started/common-tasks/update-formation'
+            },
+            {
+              name: 'Adding new pages to this site',
+              href: 'getting-started/common-tasks/doc-page'
+            },
+            {
+              name: 'Adding pages from Github to this site',
+              href: 'getting-started/common-tasks/external-doc-page'
             },
             {
               name: 'Add Graphs to MDX',
-              href: 'getting-started/add-graphs-to-mdx'
+              href: 'getting-started/common-tasks/add-graphs-to-mdx'
             },
-          ]
+          ],
         },
         {
           name: 'Code organization',
@@ -69,7 +101,7 @@ module.exports = {
         {
           name: 'Teamsite',
         },
-      ]
+      ],
     },
     {
       id: 'forms',
@@ -78,30 +110,30 @@ module.exports = {
       items: [
         {
           name: 'Introduction',
-          href: 'forms/when-to-use-fs'
+          href: 'forms/when-to-use-fs',
         },
         {
           name: 'Tutorial',
           items: [
             {
               name: 'Form Tutorial - Basic',
-              href: 'forms/form-tutorial-basic'
+              href: 'forms/form-tutorial-basic',
             },
             {
               name: 'Form Tutorial - Intermediate',
-              href: 'forms/form-tutorial-intermediate'
+              href: 'forms/form-tutorial-intermediate',
             },
             {
               name: 'Form Tutorial - Advanced',
-              href: 'forms/form-tutorial-advanced'
+              href: 'forms/form-tutorial-advanced',
             },
             {
               name: 'Setting up Save in Progress',
-              href: 'forms/save-in-progress'
+              href: 'forms/save-in-progress',
             },
             {
               name: 'Forms in Production',
-              href: 'forms/forms-in-production'
+              href: 'forms/forms-in-production',
             },
           ],
         },
@@ -113,7 +145,7 @@ module.exports = {
           name: 'Common tasks',
           items: [],
         },
-      ]
+      ],
     },
     {
       id: 'platform',
@@ -126,7 +158,7 @@ module.exports = {
         },
         {
           name: 'Formation components',
-          query: 'componentList'
+          query: 'componentList',
         },
         {
           name: 'Feature flags',
@@ -143,7 +175,7 @@ module.exports = {
           name: 'Monitoring',
           items: [],
         },
-      ]
+      ],
     },
-  ]
+  ],
 };

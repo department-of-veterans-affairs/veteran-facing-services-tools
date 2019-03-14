@@ -21,7 +21,7 @@ export default class AdditionalInfo extends React.Component {
     const iconClass = classNames({
       fas: true,
       'fa-angle-down': true,
-      open: this.state.open
+      open: this.state.open,
     });
     const { tagName: TagName = 'span' } = this.props;
 
@@ -31,10 +31,11 @@ export default class AdditionalInfo extends React.Component {
         className="additional-info-button va-button-link"
         aria-expanded={this.state.open ? 'true' : 'false'}
         aria-controls={this.expandedContentId}
-        onClick={this.toggle}>
+        onClick={this.toggle}
+      >
         <TagName className="additional-info-title">
           {triggerText}
-          <i className={iconClass}/>
+          <i className={iconClass} />
         </TagName>
       </button>
     );
@@ -42,7 +43,8 @@ export default class AdditionalInfo extends React.Component {
     return (
       <ExpandingGroup
         open={this.state.open}
-        expandedContentId={this.expandedContentId}>
+        expandedContentId={this.expandedContentId}
+      >
         {trigger}
         <div className="additional-info-content">{children}</div>
       </ExpandingGroup>

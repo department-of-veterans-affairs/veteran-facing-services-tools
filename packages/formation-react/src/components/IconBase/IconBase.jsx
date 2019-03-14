@@ -3,17 +3,10 @@ import React from 'react';
 
 class IconBase extends React.Component {
   render() {
-    const {
-      focusable,
-      role,
-      ...svgProps
-    } = this.props;
+    const { focusable, role, ...svgProps } = this.props;
 
     return (
-      <svg
-        focusable={focusable}
-        role={role}
-        {...svgProps}>
+      <svg focusable={focusable} role={role} {...svgProps}>
         {this.props.children}
       </svg>
     );
@@ -26,7 +19,7 @@ IconBase.propTypes = {
 };
 
 IconBase.defaultProps = {
-  focusable: false
+  focusable: false,
 };
 
 export default IconBase;

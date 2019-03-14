@@ -1,0 +1,7 @@
+**/build/*
+**/dist/*
+**/public/*
+**/node_modules/*
+**/.cache/
+**/*.config.*
+**/*.conf.*

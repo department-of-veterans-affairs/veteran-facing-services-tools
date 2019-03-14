@@ -13,7 +13,7 @@ function ComponentList() {
       query={graphql`
         query ComponentListQuery {
           components: allSitePage(
-            filter: {context: {source: {eq: "component"}}}
+            filter: { context: { source: { eq: "component" } } }
           ) {
             edges {
               node {
@@ -28,15 +28,15 @@ function ComponentList() {
         }
       `}
       render={data => (
-        <SidebarItems items={data.components.edges.map(comp => {
-          return {
+        <SidebarItems
+          items={data.components.edges.map(comp => ({
             href: comp.node.path,
             name: comp.node.context.name,
-          };
-        })}/>
-      )}/>
+          }))}
+        />
+      )}
+    />
   );
-
 }
 
 export default function SidebarItems({ items }) {
@@ -51,20 +51,24 @@ export default function SidebarItems({ items }) {
           {!!item.items && (
             <li key={item.name}>
               <h4>{item.name}</h4>
-              <SidebarItems items={item.items}/>
+              <SidebarItems items={item.items} />
             </li>
           )}
           {item.query === 'componentList' && (
             <li key={item.name}>
               <h4>{item.name}</h4>
-              <ComponentList/>
+              <ComponentList />
             </li>
           )}
           {!!item.href && (
-            <li key={item.name}><Link to={item.href}>{item.name}</Link></li>
+            <li key={item.name}>
+              <Link to={item.href}>{item.name}</Link>
+            </li>
           )}
           {!item.href && !item.items && !item.query && (
-            <li key={item.href}><Link to={item.href}>{item.name}</Link></li>
+            <li key={item.href}>
+              <Link to={item.href}>{item.name}</Link>
+            </li>
           )}
         </li>
       ))}

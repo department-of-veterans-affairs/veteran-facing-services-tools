@@ -10,21 +10,19 @@ import './module-components.scss';
 
 const MyCodeComponent = ({ children }) => (
   <LiveProvider code={children}>
-    <LiveEditor/>
+    <LiveEditor />
   </LiveProvider>
 );
 
 export default class ModuleComponentsLayout extends Component {
   sortedReqiuredProps() {
-    return this.props.data.componentMetadata.childrenComponentProp.sort(
-      (a) => {
-        if (a.required) {
-          return -1;
-        }
-
-        return 1;
+    return this.props.data.componentMetadata.childrenComponentProp.sort(a => {
+      if (a.required) {
+        return -1;
       }
-    );
+
+      return 1;
+    });
   }
 
   render() {
@@ -47,27 +45,22 @@ export default class ModuleComponentsLayout extends Component {
           <div className="content">
             {children}
             <h2>{displayName}</h2>
-            {
-              jsDocBlock && (
-                <div>
-                  <h3>JsDocs:</h3>
-                  <div className="rendered-component">
-                    {
-                      jsDockBlocks.map((block, i) => (
-                        <p key={`${block}-${i}`}>{block}</p>
-                      ))
-                    }
-                  </div>
+            {jsDocBlock && (
+              <div>
+                <h3>JsDocs:</h3>
+                <div className="rendered-component">
+                  {jsDockBlocks.map((block, i) => (
+                    <p key={`${block}-${i}`}>{block}</p>
+                  ))}
                 </div>
-              )
-            }
+              </div>
+            )}
 
             <MDXRenderer tableOfContents={tableOfContents}>
               {mdxCodeBlock}
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
-            <PropsTable
-              propMetaData={this.sortedReqiuredProps()}/>
+            <PropsTable propMetaData={this.sortedReqiuredProps()} />
           </div>
         </Layout>
       </MDXProvider>

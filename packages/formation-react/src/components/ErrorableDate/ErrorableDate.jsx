@@ -11,7 +11,7 @@ import {
   isDirtyDate,
   isValidPartialDate,
   isNotBlankDateField,
-  validateCustomFormComponent
+  validateCustomFormComponent,
 } from '../../helpers/validations';
 import { months, days } from '../../helpers/options-for-select.js';
 
@@ -32,7 +32,7 @@ class ErrorableDate extends React.Component {
   handleChange(path, update) {
     const date = {
       ...this.props.date,
-      [path]: update
+      [path]: update,
     };
 
     if (!date.month.value) {
@@ -65,7 +65,7 @@ class ErrorableDate extends React.Component {
         errorMessage = this.props.invalidMessage;
       } else {
         const validationResult = validateCustomFormComponent(
-          this.props.validation
+          this.props.validation,
         );
         isValid = validationResult.valid;
         errorMessage = validationResult.message;
@@ -87,11 +87,14 @@ class ErrorableDate extends React.Component {
       <div className={!isValid && 'input-error-date'}>
         <label>
           {this.props.label ? this.props.label : 'Date of birth'}
-          {this.props.required && <span className="form-required-span">(*Required)</span>}
+          {this.props.required && (
+            <span className="form-required-span">(*Required)</span>
+          )}
         </label>
         {errorSpan}
         <div
-          className={isValid ? undefined : 'usa-input-error form-error-date'}>
+          className={isValid ? undefined : 'usa-input-error form-error-date'}
+        >
           <div className="usa-date-of-birth row">
             <div className="form-datefield-month">
               <ErrorableSelect
@@ -103,7 +106,8 @@ class ErrorableDate extends React.Component {
                 value={month}
                 onValueChange={update => {
                   this.handleChange('month', update);
-                }}/>
+                }}
+              />
             </div>
             <div className="form-datefield-day">
               <ErrorableSelect
@@ -115,7 +119,8 @@ class ErrorableDate extends React.Component {
                 value={day}
                 onValueChange={update => {
                   this.handleChange('day', update);
-                }}/>
+                }}
+              />
             </div>
             <div className="usa-datefield usa-form-group usa-form-group-year">
               <ErrorableNumberInput
@@ -131,7 +136,8 @@ class ErrorableDate extends React.Component {
                 field={year}
                 onValueChange={update => {
                   this.handleChange('year', update);
-                }}/>
+                }}
+              />
             </div>
           </div>
         </div>
@@ -150,7 +156,7 @@ ErrorableDate.propTypes = {
    */
   validation: PropTypes.shape({
     valid: PropTypes.bool,
-    message: PropTypes.string
+    message: PropTypes.string,
   }),
   /**
    * Label for entire question.
@@ -166,28 +172,28 @@ ErrorableDate.propTypes = {
   date: PropTypes.shape({
     day: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool
+      dirty: PropTypes.bool,
     }),
     month: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool
+      dirty: PropTypes.bool,
     }),
     year: PropTypes.shape({
       value: PropTypes.string,
-      dirty: PropTypes.bool
-    })
+      dirty: PropTypes.bool,
+    }),
   }).isRequired,
   /**
    * a function with this prototype: (newValue)
    */
   onValueChange: PropTypes.func.isRequired,
   requiredMessage: PropTypes.string,
-  invalidMessage: PropTypes.string
+  invalidMessage: PropTypes.string,
 };
 
 ErrorableDate.defaultProps = {
   requiredMessage: 'Please provide a response',
-  invalidMessage: 'Please provide a valid date'
+  invalidMessage: 'Please provide a valid date',
 };
 
 export default ErrorableDate;

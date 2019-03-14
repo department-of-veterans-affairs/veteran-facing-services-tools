@@ -46,9 +46,6 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "develop:inspect": "node --inspect --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },
-  "devDependencies": {
-    "prettier": "^1.15.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/"

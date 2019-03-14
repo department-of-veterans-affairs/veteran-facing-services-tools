@@ -13,12 +13,14 @@ export default class LoadingIndicator extends React.Component {
     return (
       <div className="loading-indicator-container">
         <div
-          ref={(div) => { this.spinnerDiv = div; }}
+          ref={div => {
+            this.spinnerDiv = div;
+          }}
           className="loading-indicator"
           role="progressbar"
           aria-valuetext={message}
-          tabIndex="0">
-        </div>
+          tabIndex="0"
+        />
         {message}
       </div>
     );
@@ -33,9 +35,9 @@ LoadingIndicator.propTypes = {
   /**
    * does the loading indicator capture focus
    */
-  setFocus: PropTypes.bool
+  setFocus: PropTypes.bool,
 };
 
 LoadingIndicator.defaultProps = {
-  setFocus: false
+  setFocus: false,
 };
