@@ -10,7 +10,7 @@
   "scripts": {
     "prebootstrap": "node prebuild.js",
     "test": "lerna run test",
-    "bootstrap": "lerna bootstrap --npm-client=yarn --force-local",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "deploy": "lerna run deploy --scope=vagov-documentation",
     "lint": "npx vagov-eslint lint:js",
