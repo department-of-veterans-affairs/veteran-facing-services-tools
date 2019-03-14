@@ -10,7 +10,7 @@
   "scripts": {
     "prebootstrap": "node prebuild.js",
     "test": "lerna run test",
-    "bootstrap": "cd packages/documentation && yarn install && cd ../formation && yarn install && cd ../formation-react && yarn install && cd ../vagov-eslint && yarn install",
+    "bootstrap": "cd packages/documentation && npm install && cd ../formation && npm install && cd ../formation-react && npm install && cd ../vagov-eslint && npm install",
     "build": "lerna run build",
     "deploy": "lerna run deploy --scope=vagov-documentation",
     "lint": "npx vagov-eslint lint:js",
