@@ -18,7 +18,8 @@
     "url": "git+https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git"
   },
   "scripts": {
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "prepare": "yarn build"
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
