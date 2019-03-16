@@ -13,6 +13,16 @@
 // Based on the order of our imports, USWDS should override Foundation's declarations and everything should be fine.
 // However, USWDS defines its variables using the "!default" flag, so Foundation's take precedence anyway.
 // These next lines redeclare USWDS's variables without that flag, so that the override works as we would expect.
+
+$grid-columns-small: 1 !default;
+$grid-columns-medium: 6 !default;
+$grid-columns-large: 12 !default;
+
+// Breakpoint variables from USWDS 1.4.2
+$small-screen:  481px !default;
+$medium-screen: 600px !default;
+$large-screen:  1201px !default;
+
 $small: new-breakpoint(min-width $small-screen $grid-columns-small);
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium);
 $large: new-breakpoint(min-width $large-screen $grid-columns-large);
@@ -36,6 +46,10 @@ $breakpoints: (
 
 // This is an override on Neat's media mixin to create media queries for both screen and print
 // https://github.com/thoughtbot/neat/blob/v1.8.0/app/assets/stylesheets/grid/_media.scss
+
+// Define default feature:
+$default-feature: min-width;
+
 @mixin media($query: $feature $value $columns, $total-columns: $grid-columns) {
   @if length($query) == 1 {
     @media screen and ($default-feature: nth($query, 1)), print and ($default-feature: nth($query, 1)) {
