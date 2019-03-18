@@ -8,7 +8,6 @@
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
     "classnames": "^2.2.6",
-    "eslint-plugin-react": "^7.12.4",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-mdx": "^0.3.5",
