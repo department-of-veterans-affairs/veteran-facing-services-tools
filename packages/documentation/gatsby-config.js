@@ -46,11 +46,6 @@ module.exports = {
           },
           {
             resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
-            options: {
-              // this is the language in your code-block that triggers mermaid parsing
-              language: 'mermaid', // default
-              theme: 'default' // could also be dark, forest, or neutral
-            }
           }
         ],
       }
@@ -66,5 +61,6 @@ module.exports = {
     },
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-remark`,
+    `mermaid-svg-remover`,
   ],
 }
