@@ -18,35 +18,35 @@ const data = [
             links: [
               {
                 text: 'First link',
-                href: '#'
-              }
-            ]
+                href: '#',
+              },
+            ],
           },
           columnTwo: {
             title: 'Column 2 title',
             links: [
               {
                 text: 'First link',
-                href: '#'
-              }
-            ]
+                href: '#',
+              },
+            ],
           },
           columnThree: {
             img: {
               src: 'http://via.placeholder.com/228x128',
-              alt: 'Place Holder Image'
+              alt: 'Place Holder Image',
             },
             link: {
               text: 'Text for link',
-              href: '#'
+              href: '#',
             },
-            description: 'Add a description of the marketing content'
+            description: 'Add a description of the marketing content',
           },
           seeAllLink: {
             text: 'Link to menu page',
-            href: '#'
-          }
-        }
+            href: '#',
+          },
+        },
       },
       {
         title: 'Section Title 2',
@@ -56,37 +56,37 @@ const data = [
             links: [
               {
                 text: 'First link',
-                href: '#'
-              }
-            ]
+                href: '#',
+              },
+            ],
           },
           columnTwo: {
             title: 'Column 2 title',
             links: [
               {
                 text: 'First link',
-                href: '#'
-              }
-            ]
+                href: '#',
+              },
+            ],
           },
           columnThree: {
             img: {
               src: 'http://via.placeholder.com/228x128',
-              alt: 'Place Holder Image'
+              alt: 'Place Holder Image',
             },
             link: {
               text: 'Text for Marketing Link',
-              href: '#'
+              href: '#',
             },
-            description: 'Add a description of the marketing content'
+            description: 'Add a description of the marketing content',
           },
           seeAllLink: {
             text: 'Link to menu page',
-            href: '#'
-          }
-        }
-      }
-    ]
+            href: '#',
+          },
+        },
+      },
+    ],
   },
   {
     title: 'Nav Title 2',
@@ -96,52 +96,51 @@ const data = [
         links: [
           {
             text: 'First Link',
-            href: '#'
+            href: '#',
           },
-        ]
+        ],
       },
       columnOne: {
         title: 'Column 1 Title',
         links: [
           {
             text: 'Link 1',
-            href: '#'
-          }
-        ]
+            href: '#',
+          },
+        ],
       },
       columnTwo: {
         title: 'Column 2 Title',
         links: [
           {
             text: 'Link 1',
-            href: '#'
+            href: '#',
           },
-        ]
+        ],
       },
       columnThree: {
         img: {
           src: 'http://via.placeholder.com/228x128',
-          alt: 'Place Holder Image'
+          alt: 'Place Holder Image',
         },
         link: {
           text: 'Text for Marketing Link',
-          href: '#'
+          href: '#',
         },
-        description: 'Add a description of the marketing content'
+        description: 'Add a description of the marketing content',
       },
-    }
+    },
   },
   {
     title: 'Nav Title 3 link only',
-    href: '#'
-  }
+    href: '#',
+  },
 ];
 
 let div;
 let megaMenu;
 
 describe('<MegaMenu>', () => {
-
   beforeEach(() => {
     div = document.createElement('div');
     div.setAttribute('id', 'mega-menu');
@@ -150,11 +149,16 @@ describe('<MegaMenu>', () => {
     megaMenu = mount(
       <MegaMenu
         data={data}
-        toggleDropDown={(title) => { title; }}
-        updateCurrentSection={(title) => { title; }}></MegaMenu>,
+        toggleDropDown={title => {
+          title;
+        }}
+        updateCurrentSection={title => {
+          title;
+        }}
+      />,
       {
-        attachTo: div
-      }
+        attachTo: div,
+      },
     );
   });
 
@@ -163,18 +167,26 @@ describe('<MegaMenu>', () => {
   });
 
   it('should render', () => {
-    const menuTexts = ['Home', 'Nav Title 1', 'Nav Title 2', 'Nav Title 3 link only'];
+    const menuTexts = [
+      'Home',
+      'Nav Title 1',
+      'Nav Title 2',
+      'Nav Title 3 link only',
+    ];
 
     expect(megaMenu.find('.login-container').exists()).to.be.true;
 
-    megaMenu.find('.vetnav-level1').forEach((el) => {
+    megaMenu.find('.vetnav-level1').forEach(el => {
       expect(menuTexts.includes(el.text())).to.be.true;
     });
   });
 
   it('should run toggleDropDown if clicked on', () => {
     const spy = sinon.spy(megaMenu.instance(), 'toggleDropDown');
-    megaMenu.find('button').first().simulate('click');
+    megaMenu
+      .find('button')
+      .first()
+      .simulate('click');
 
     expect(spy.calledOnce).to.be.true;
     expect(spy.getCall(0).args[0]).to.equal('Nav Title 1');
@@ -190,7 +202,12 @@ describe('<MegaMenu>', () => {
       currentDropdown: 'Nav Title 1',
     });
 
-    expect(megaMenu.find('.vetnav-level2').first().text()).to.equal('Section Title 1');
+    expect(
+      megaMenu
+        .find('.vetnav-level2')
+        .first()
+        .text(),
+    ).to.equal('Section Title 1');
   });
 
   it('should run updateCurrentSection if menu section is clicked on', () => {
@@ -200,7 +217,10 @@ describe('<MegaMenu>', () => {
       currentDropdown: 'Nav Title 1',
     });
 
-    megaMenu.find('.vetnav-level2').at(1).simulate('click');
+    megaMenu
+      .find('.vetnav-level2')
+      .at(1)
+      .simulate('click');
 
     expect(spy.calledOnce).to.be.true;
     expect(spy.getCall(0).args[0]).to.equal('Section Title 2');
@@ -213,7 +233,12 @@ describe('<MegaMenu>', () => {
       currentSection: 'Section Title 2',
     });
 
-    expect(megaMenu.find('h3').at(0).text()).to.equal('Menu Item 1');
+    expect(
+      megaMenu
+        .find('h3')
+        .at(0)
+        .text(),
+    ).to.equal('Menu Item 1');
   });
 
   it('should pass axe check when open', () => {
@@ -222,8 +247,13 @@ describe('<MegaMenu>', () => {
     return axeCheck(
       <MegaMenu
         data={data}
-        toggleDropDown={(title) => { title; }}
-        updateCurrentSection={(title) => { title; }}></MegaMenu>
+        toggleDropDown={title => {
+          title;
+        }}
+        updateCurrentSection={title => {
+          title;
+        }}
+      />,
     );
   });
 });

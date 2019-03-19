@@ -12,27 +12,29 @@ describe('<SearchMenu/>', () => {
         id="searchmenu"
         title="searchmenu title"
         isOpen
-        clickHandler={() => {}}/>
+        clickHandler={() => {}}
+      />,
     );
     expect(tree.children().text()).to.contain('Search');
+    tree.unmount();
   });
 
-  it('should pass aXe check when closed', () => {
-    return axeCheck(
+  it('should pass aXe check when closed', () =>
+    axeCheck(
       <SearchMenu
         id="searchmenu"
         title="searchmenu title"
         isOpen={false}
-        clickHandler={() => {}}/>
-    );
-  });
-  it('should pass aXe check when open', () => {
-    return axeCheck(
+        clickHandler={() => {}}
+      />,
+    ));
+  it('should pass aXe check when open', () =>
+    axeCheck(
       <SearchMenu
         id="searchmenu"
         title="SearchMenu title"
         isOpen
-        clickHandler={() => {}}/>
-    );
-  });
+        clickHandler={() => {}}
+      />,
+    ));
 });

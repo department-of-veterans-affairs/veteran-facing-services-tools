@@ -9,7 +9,7 @@ const scroller = Scroll.scroller;
 class CollapsiblePanel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: !!(props.startOpen) };
+    this.state = { open: !!props.startOpen };
     this.toggleChapter = this.toggleChapter.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
   }
@@ -19,11 +19,14 @@ class CollapsiblePanel extends React.Component {
   }
 
   scrollToTop() {
-    scroller.scrollTo(`collapsible-panel-${this.id}-scroll-element`, window.VetsGov.scroll || {
-      duration: 500,
-      delay: 2,
-      smooth: true,
-    });
+    scroller.scrollTo(
+      `collapsible-panel-${this.id}-scroll-element`,
+      window.VetsGov.scroll || {
+        duration: 500,
+        delay: 2,
+        smooth: true,
+      },
+    );
   }
 
   toggleChapter(e) {
@@ -32,11 +35,14 @@ class CollapsiblePanel extends React.Component {
     // default to submitting a form page when toggled.
     e.preventDefault();
     const isOpening = !this.state.open;
-    this.setState((prevState) => ({ open: !prevState.open }), () => {
-      if (isOpening) {
-        this.scrollToTop();
-      }
-    });
+    this.setState(
+      prevState => ({ open: !prevState.open }),
+      () => {
+        if (isOpening) {
+          this.scrollToTop();
+        }
+      },
+    );
   }
 
   render() {
@@ -52,19 +58,18 @@ class CollapsiblePanel extends React.Component {
 
     return (
       <div className="usa-accordion-bordered form-review-panel">
-        <Element name={`collapsible-panel-${this.id}-scroll-element`}/>
+        <Element name={`collapsible-panel-${this.id}-scroll-element`} />
         <div className="accordion-header clearfix">
           <button
             className="usa-accordion-button usa-button-unstyled"
             aria-expanded={this.state.open ? 'true' : 'false'}
             aria-controls={`collapsible-${this.id}`}
-            onClick={this.toggleChapter}>
+            onClick={this.toggleChapter}
+          >
             {this.props.panelName}
           </button>
         </div>
-        <div id={`collapsible-${this.id}`}>
-          {pageContent}
-        </div>
+        <div id={`collapsible-${this.id}`}>{pageContent}</div>
       </div>
     );
   }
@@ -74,7 +79,7 @@ CollapsiblePanel.propTypes = {
   /**
    * panel label
    */
-  panelName: PropTypes.string.isRequired
+  panelName: PropTypes.string.isRequired,
 };
 
 export default CollapsiblePanel;

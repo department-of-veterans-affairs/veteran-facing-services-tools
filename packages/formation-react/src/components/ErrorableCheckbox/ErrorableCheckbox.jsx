@@ -33,9 +33,7 @@ class ErrorableCheckbox extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     let className = `form-checkbox${
@@ -47,9 +45,11 @@ class ErrorableCheckbox extends React.Component {
 
     return (
       <div className={className}>
-        {this.props.labelAboveCheckbox && <span className="label-above-checkbox">
-          {this.props.labelAboveCheckbox}
-        </span>}
+        {this.props.labelAboveCheckbox && (
+          <span className="label-above-checkbox">
+            {this.props.labelAboveCheckbox}
+          </span>
+        )}
         <input
           autoComplete="false"
           aria-describedby={errorSpanId}
@@ -57,13 +57,15 @@ class ErrorableCheckbox extends React.Component {
           id={this.inputId}
           name={this.props.name}
           type="checkbox"
-          onChange={this.handleChange}/>
+          onChange={this.handleChange}
+        />
         <label
           className={
             this.props.errorMessage ? 'usa-input-error-label' : undefined
           }
           name={`${this.props.name}-label`}
-          htmlFor={this.inputId}>
+          htmlFor={this.inputId}
+        >
           {this.props.label}
           {requiredSpan}
         </label>
@@ -101,7 +103,7 @@ ErrorableCheckbox.propTypes = {
   /**
    * If the checkbox is required or not
    */
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 export default ErrorableCheckbox;

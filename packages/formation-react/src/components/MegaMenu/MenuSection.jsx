@@ -13,7 +13,9 @@ class MenuSection extends React.Component {
   }
 
   getCurrentSection() {
-    return this.props.currentSection ? this.props.currentSection : this.props.defaultSection;
+    return this.props.currentSection
+      ? this.props.currentSection
+      : this.props.defaultSection;
   }
 
   getId(title) {
@@ -46,7 +48,12 @@ class MenuSection extends React.Component {
     const show = this.getCurrentSection(this.props) === this.props.title;
 
     return (
-      <li className={`mm-link-container${this.state.title.hidden ? '-small' : ''}`} role="menuitem">
+      <li
+        className={`mm-link-container${
+          this.state.title.hidden ? '-small' : ''
+        }`}
+        role="menuitem"
+      >
         <button
           {...this.state.title}
           id={this.getId(this.props.title)}
@@ -54,7 +61,10 @@ class MenuSection extends React.Component {
           aria-haspopup="true"
           aria-controls={show ? this.getId(this.props.title) : null}
           aria-expanded={show}
-          onClick={() => this.updateCurrentSection()}>{this.props.title}</button>
+          onClick={() => this.updateCurrentSection()}
+        >
+          {this.props.title}
+        </button>
         <SubMenu
           id={this.getId(this.props.title)}
           data={this.props.links}
@@ -64,8 +74,8 @@ class MenuSection extends React.Component {
           linkClicked={this.props.linkClicked}
           mobileMediaQuery={this.props.mobileMediaQuery}
           smallDesktopMediaQuery={this.props.smallDesktopMediaQuery}
-          columnThreeLinkClicked={this.props.columnThreeLinkClicked}>
-        </SubMenu>
+          columnThreeLinkClicked={this.props.columnThreeLinkClicked}
+        />
       </li>
     );
   }
@@ -81,7 +91,7 @@ MenuSection.propTypes = {
         PropTypes.shape({
           text: PropTypes.string.isRequired,
           href: PropTypes.string.isRequired,
-        })
+        }),
       ),
     }),
     columnTwo: PropTypes.shape({
@@ -90,7 +100,7 @@ MenuSection.propTypes = {
         PropTypes.shape({
           text: PropTypes.string.isRequired,
           href: PropTypes.string.isRequired,
-        })
+        }),
       ),
     }),
     columnThree: PropTypes.shape({
@@ -111,7 +121,7 @@ MenuSection.propTypes = {
   }).isRequired,
   defaultSection: PropTypes.string.isRequired,
   linkClicked: PropTypes.func.isRequired,
-  columnThreeLinkClicked: PropTypes.func.isRequired
+  columnThreeLinkClicked: PropTypes.func.isRequired,
 };
 
 export default MenuSection;

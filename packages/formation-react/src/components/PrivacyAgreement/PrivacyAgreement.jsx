@@ -22,7 +22,8 @@ export default function PrivacyAgreement({ onChange, checked, showError }) {
               privacy policy
             </a>
           </span>
-        }/>
+        }
+      />
     </div>
   );
 }
@@ -35,5 +36,5 @@ PrivacyAgreement.propTypes = {
   /**
    * If the checkbox is checked or not
    */
-  checked: PropTypes.bool.isRequired
+  checked: PropTypes.bool.isRequired,
 };

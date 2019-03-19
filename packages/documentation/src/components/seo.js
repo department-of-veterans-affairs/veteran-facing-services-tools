@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`;
+
 function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
@@ -24,11 +35,11 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: 'docsearch:language',
-                content: 'en'
+                content: 'en',
               },
               {
                 name: 'docsearch:version',
-                content: '1.0.0'
+                content: '1.0.0',
               },
               {
                 property: 'og:title',
@@ -46,14 +57,16 @@ function SEO({ description, lang, meta, keywords, title }) {
               .concat(
                 keywords.length > 0
                   ? {
-                    name: 'keywords',
-                    content: keywords.join(', '),
-                  }
-                  : []
+                      name: 'keywords',
+                      content: keywords.join(', '),
+                    }
+                  : [],
               )
-              .concat(meta)}/>
+              .concat(meta)}
+          />
         );
-      }}/>
+      }}
+    />
   );
 }
 
@@ -72,14 +85,3 @@ SEO.propTypes = {
 };
 
 export default SEO;
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`;

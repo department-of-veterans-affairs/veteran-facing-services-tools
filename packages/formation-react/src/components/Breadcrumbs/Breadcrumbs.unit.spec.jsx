@@ -15,7 +15,7 @@ const crumbs = [
   </a>,
   <a href="/test2" key="3">
     Link 3
-  </a>
+  </a>,
 ];
 
 const routerCrumbs = [
@@ -27,7 +27,7 @@ const routerCrumbs = [
   </Link>,
   <Link to="/test2" key="3">
     Link 3
-  </Link>
+  </Link>,
 ];
 
 describe('<Breadcrumbs>', () => {
@@ -35,6 +35,7 @@ describe('<Breadcrumbs>', () => {
     const tree = shallow(<Breadcrumbs>{crumbs}</Breadcrumbs>);
 
     expect(tree).to.exist;
+    tree.unmount();
   });
 
   it('should render custom props', () => {
@@ -43,9 +44,10 @@ describe('<Breadcrumbs>', () => {
         ariaLabel="Breadcrumb foo"
         customClasses="foo test"
         id="foo"
-        listId="foo-list">
+        listId="foo-list"
+      >
         {crumbs}
-      </Breadcrumbs>
+      </Breadcrumbs>,
     );
 
     const navElem = tree.find('nav');
@@ -56,6 +58,7 @@ describe('<Breadcrumbs>', () => {
     expect(navElem.props().className).to.include('foo test');
     expect(navElem.props().id).to.equal('foo');
     expect(listElem.props().id).to.equal('foo-list');
+    tree.unmount();
   });
 
   it('should render exactly one nav', () => {
@@ -64,6 +67,7 @@ describe('<Breadcrumbs>', () => {
     const navElem = tree.find('nav');
 
     expect(navElem.length).to.equal(1);
+    tree.unmount();
   });
 
   it('should render correct nav props', () => {
@@ -74,6 +78,7 @@ describe('<Breadcrumbs>', () => {
     expect(navElem.props().className).to.equal('va-nav-breadcrumbs');
     expect(navElem.props()['aria-label']).to.equal('Breadcrumb');
     expect(navElem.props()['aria-live']).to.equal('polite');
+    tree.unmount();
   });
 
   it('should render exactly one unordered list', () => {
@@ -82,6 +87,7 @@ describe('<Breadcrumbs>', () => {
     const listElem = tree.find('ul');
 
     expect(listElem.length).to.equal(1);
+    tree.unmount();
   });
 
   it('should render correct unordered list props', () => {
@@ -90,8 +96,9 @@ describe('<Breadcrumbs>', () => {
     const listElem = tree.find('ul');
 
     expect(listElem.props().className).to.equal(
-      'row va-nav-breadcrumbs-list columns'
+      'row va-nav-breadcrumbs-list columns',
     );
+    tree.unmount();
   });
 
   it('should render exactly three list items', () => {
@@ -100,6 +107,7 @@ describe('<Breadcrumbs>', () => {
     const listItemElem = tree.find('li');
 
     expect(listItemElem).to.have.length(3);
+    tree.unmount();
   });
 
   it('should render exactly three link elements', () => {
@@ -108,6 +116,7 @@ describe('<Breadcrumbs>', () => {
     const linkElem = tree.find('a');
 
     expect(linkElem).to.have.length(3);
+    tree.unmount();
   });
 
   it('should have the correct text labels', () => {
@@ -116,6 +125,7 @@ describe('<Breadcrumbs>', () => {
     tree.find('a').forEach((node, i) => {
       expect(node.text()).to.equal(`Link ${i + 1}`);
     });
+    tree.unmount();
   });
 
   it('should render the correct link props', () => {
@@ -126,6 +136,7 @@ describe('<Breadcrumbs>', () => {
     expect(linkElem.at(0).props()['aria-current']).to.be.undefined;
     expect(linkElem.at(1).props()['aria-current']).to.be.undefined;
     expect(linkElem.at(2).props()['aria-current']).to.equal('page');
+    tree.unmount();
   });
 
   it('should render individual children correctly', () => {
@@ -137,7 +148,8 @@ describe('<Breadcrumbs>', () => {
             const result = {};
             return result;
           }}
-          key="1">
+          key="1"
+        >
           Link 1
         </a>
         <a href="/test1" key="2">
@@ -146,7 +158,7 @@ describe('<Breadcrumbs>', () => {
         <a href="/test2" key="3">
           Link 3
         </a>
-      </Breadcrumbs>
+      </Breadcrumbs>,
     );
 
     const linkElem = tree.find('a');
@@ -165,6 +177,7 @@ describe('<Breadcrumbs>', () => {
     expect(linkElem.at(0).props()['aria-current']).to.be.undefined;
     expect(linkElem.at(1).props()['aria-current']).to.be.undefined;
     expect(linkElem.at(2).props()['aria-current']).to.equal('page');
+    tree.unmount();
   });
 
   it('should render React Router 3 Links correctly', () => {
@@ -178,6 +191,7 @@ describe('<Breadcrumbs>', () => {
 
     expect(linkElem).to.exist;
     expect(linkElem.length).to.equal(3);
+    tree.unmount();
   });
 
   it('should add mobile-only class when mobileFirstProp is true', () => {
@@ -186,15 +200,14 @@ describe('<Breadcrumbs>', () => {
     const navElem = tree.find('nav');
 
     expect(navElem.props().className).to.equal(
-      'va-nav-breadcrumbs va-nav-breadcrumbs--mobile'
+      'va-nav-breadcrumbs va-nav-breadcrumbs--mobile',
     );
+    tree.unmount();
   });
 
-  it('should pass aXe check when showing full breadcrumb', () => {
-    return axeCheck(<Breadcrumbs>{crumbs}</Breadcrumbs>);
-  });
+  it('should pass aXe check when showing full breadcrumb', () =>
+    axeCheck(<Breadcrumbs>{crumbs}</Breadcrumbs>));
 
-  it('should pass aXe check when showing mobile breadcrumb', () => {
-    return axeCheck(<Breadcrumbs mobileFirstProp>{crumbs}</Breadcrumbs>);
-  });
+  it('should pass aXe check when showing mobile breadcrumb', () =>
+    axeCheck(<Breadcrumbs mobileFirstProp>{crumbs}</Breadcrumbs>));
 });

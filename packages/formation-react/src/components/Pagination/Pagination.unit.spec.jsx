@@ -15,7 +15,8 @@ describe('<Pagination>', () => {
         {...props}
         page={1}
         pages={5}
-        ariaLabelSuffix="of search results"/>
+        ariaLabelSuffix="of search results"
+      />,
     );
     const links = tree.find('a[aria-label*="of search results"]');
     expect(links).to.have.length(6);
@@ -27,15 +28,11 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
   it('should show both "Prev" and "Next" if in a middle page', () => {
-    const tree = shallow(
-      <Pagination
-        {...props}
-        page={3}
-        pages={5}/>
-    );
+    const tree = shallow(<Pagination {...props} page={3} pages={5} />);
     const links = tree.find('a');
     expect(links).to.have.length(7);
     links.forEach((link, index) => {
@@ -48,15 +45,11 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
   it('should show "Prev" but not "Next" if on the last page', () => {
-    const tree = shallow(
-      <Pagination
-        {...props}
-        page={5}
-        pages={5}/>
-    );
+    const tree = shallow(<Pagination {...props} page={5} pages={5} />);
     const links = tree.find('a');
     expect(links).to.have.length(6);
     links.forEach((link, index) => {
@@ -69,15 +62,11 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
   it('should show the correct range of pages if the max is exceeded', () => {
-    const tree = shallow(
-      <Pagination
-        {...props}
-        page={5}
-        pages={20}/>
-    );
+    const tree = shallow(<Pagination {...props} page={5} pages={20} />);
     const links = tree.find('a');
     expect(links).to.have.length(12);
     links.forEach((link, index) => {
@@ -90,6 +79,7 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
   it('show the last page if enabled and there are more pages than max', () => {
@@ -99,7 +89,8 @@ describe('<Pagination>', () => {
         page={3}
         pages={15}
         maxPageListLength={10}
-        showLastPage/>
+        showLastPage
+      />,
     );
     const links = tree.find('a');
     expect(links).to.have.length(12);
@@ -117,6 +108,7 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
   it('should show a continuous list when within range of the last page', () => {
@@ -126,7 +118,8 @@ describe('<Pagination>', () => {
         page={6}
         pages={15}
         maxPageListLength={10}
-        showLastPage/>
+        showLastPage
+      />,
     );
     const links = tree.find('a');
     expect(links).to.have.length(12);
@@ -142,13 +135,9 @@ describe('<Pagination>', () => {
         expect(link.text()).to.equal(pageNumber);
       }
     });
+    tree.unmount();
   });
 
-  it('should pass aXe check', () => {
-    return axeCheck(<Pagination
-      {...props}
-      page={3}
-      pages={5}/>
-    );
-  });
+  it('should pass aXe check', () =>
+    axeCheck(<Pagination {...props} page={3} pages={5} />));
 });

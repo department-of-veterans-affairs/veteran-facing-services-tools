@@ -11,82 +11,100 @@ describe('<ErrorableDate>', () => {
     const date = {
       day: makeField(1),
       month: makeField(12),
-      year: makeField(2010)
+      year: makeField(2010),
     };
     const tree = shallow(
-      <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+      <ErrorableDate date={date} onValueChange={_update => {}} />,
+    );
     expect(tree.find('ErrorableNumberInput')).to.have.lengthOf(1);
     expect(tree.find('ErrorableSelect')).to.have.lengthOf(2);
+    tree.unmount();
   });
   it('displays required message', () => {
     const date = {
       day: makeField(''),
       month: makeField(''),
-      year: makeField('')
+      year: makeField(''),
     };
     date.year.dirty = true;
     date.month.dirty = true;
     date.day.dirty = true;
 
     const tree = shallow(
-      <ErrorableDate required date={date} onValueChange={(_update) => {}}/>);
+      <ErrorableDate required date={date} onValueChange={_update => {}} />,
+    );
 
     expect(tree.find('.usa-input-error').exists()).to.be.true;
-    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a response');
+    expect(tree.find('.usa-input-error-message').text()).to.equal(
+      'Error Please provide a response',
+    );
+    tree.unmount();
   });
   it('displays invalid message', () => {
     const date = {
       day: makeField(''),
       month: makeField(''),
-      year: makeField('1890')
+      year: makeField('1890'),
     };
     date.year.dirty = true;
     date.month.dirty = true;
     date.day.dirty = true;
 
     const tree = shallow(
-      <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+      <ErrorableDate date={date} onValueChange={_update => {}} />,
+    );
 
     expect(tree.find('.usa-input-error').exists()).to.be.true;
-    expect(tree.find('.usa-input-error-message').text()).to.equal('Error Please provide a valid date');
+    expect(tree.find('.usa-input-error-message').text()).to.equal(
+      'Error Please provide a valid date',
+    );
+    tree.unmount();
   });
 
   it('does not show invalid message for month year date', () => {
     const date = {
       day: makeField(''),
       month: makeField('12'),
-      year: makeField('2003')
+      year: makeField('2003'),
     };
     date.year.dirty = true;
     date.month.dirty = true;
     date.day.dirty = true;
 
     const tree = shallow(
-      <ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+      <ErrorableDate date={date} onValueChange={_update => {}} />,
+    );
     expect(tree.find('.usa-input-error')).to.have.length(0);
+    tree.unmount();
   });
 
   it('displays custom message', () => {
     const date = {
       day: makeField('3'),
       month: makeField(''),
-      year: makeField('2010')
+      year: makeField('2010'),
     };
     date.year.dirty = true;
     date.month.dirty = true;
     date.day.dirty = true;
 
     const tree = shallow(
-      <ErrorableDate date={date} validation={{ valid: false, message: 'Test' }} onValueChange={(_update) => {}}/>);
+      <ErrorableDate
+        date={date}
+        validation={{ valid: false, message: 'Test' }}
+        onValueChange={_update => {}}
+      />,
+    );
 
     expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
+    tree.unmount();
   });
   it('displays custom message from array', () => {
     const date = {
       day: makeField('3'),
       month: makeField(''),
-      year: makeField('2010')
+      year: makeField('2010'),
     };
     date.year.dirty = true;
     date.month.dirty = true;
@@ -97,35 +115,41 @@ describe('<ErrorableDate>', () => {
         date={date}
         validation={[
           { valid: true, message: 'NotShownMessage' },
-          { valid: false, message: 'Test' }
+          { valid: false, message: 'Test' },
         ]}
-        onValueChange={(_update) => {}}/>
+        onValueChange={_update => {}}
+      />,
     );
 
     expect(tree.find('.usa-input-error').exists()).to.be.true;
     expect(tree.find('.usa-input-error-message').text()).to.equal('Error Test');
+    tree.unmount();
   });
 
   it('should pass aXe check', () => {
     const date = {
       day: makeField(''),
       month: makeField(''),
-      year: makeField('1890')
+      year: makeField('1890'),
     };
 
-    return axeCheck(<ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+    return axeCheck(
+      <ErrorableDate date={date} onValueChange={_update => {}} />,
+    );
   });
 
   it('should pass aXe check when errorMessage is set', () => {
     const date = {
       day: makeField(''),
       month: makeField(''),
-      year: makeField('1890')
+      year: makeField('1890'),
     };
     date.year.dirty = true;
     date.month.dirty = true;
     date.day.dirty = true;
 
-    return axeCheck(<ErrorableDate date={date} onValueChange={(_update) => {}}/>);
+    return axeCheck(
+      <ErrorableDate date={date} onValueChange={_update => {}} />,
+    );
   });
 });

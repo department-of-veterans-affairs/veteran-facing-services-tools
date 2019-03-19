@@ -23,17 +23,26 @@ describe('<DropDownPanel>', () => {
       clickHandler,
       cssClass: 'testClass',
       isOpen: true,
-      icon: (<svg><rect x="50" y="50" width="50" height="50"/></svg>),
-      id: 'testId'
+      icon: (
+        <svg>
+          <rect x="50" y="50" width="50" height="50" />
+        </svg>
+      ),
+      id: 'testId',
     };
 
     div = document.createElement('div');
     div.setAttribute('id', 'dropdownContainer');
     document.body.appendChild(div);
 
-    dropDown = mount(<DropDown {...props}><h1>Hi</h1></DropDown>, {
-      attachTo: div
-    });
+    dropDown = mount(
+      <DropDown {...props}>
+        <h1>Hi</h1>
+      </DropDown>,
+      {
+        attachTo: div,
+      },
+    );
   });
 
   afterEach(() => {
@@ -44,14 +53,16 @@ describe('<DropDownPanel>', () => {
 
   it('should render', () => {
     expect(dropDown.find('.va-dropdown-panel').text()).to.equal('Hi');
-    expect(dropDown.find('.va-dropdown-trigger').text()).to.equal('Button text');
+    expect(dropDown.find('.va-dropdown-trigger').text()).to.equal(
+      'Button text',
+    );
   });
 
   it('should register event listeners on the parent element', () => {
     expect(document.body.addEventListener.called).to.be.true;
   });
 
-  it('should call clickHandler when the parent element\'s click event occurs', () => {
+  it("should call clickHandler when the parent element's click event occurs", () => {
     expect(clickHandler.called).to.be.false;
     document.body.dispatchEvent(new window.MouseEvent('click'));
     expect(clickHandler.called).to.be.true;
@@ -62,15 +73,17 @@ describe('<DropDownPanel>', () => {
     expect(document.body.removeEventListener.called).to.be.true;
   });
 
-  it('should pass axe check when open', () => {
-    return axeCheck(
-      <DropDown {...props} id="testId2"><h1>Hi</h1></DropDown>
-    );
-  });
+  it('should pass axe check when open', () =>
+    axeCheck(
+      <DropDown {...props} id="testId2">
+        <h1>Hi</h1>
+      </DropDown>,
+    ));
 
-  it('should pass axe check when closed', () => {
-    return axeCheck(
-      <DropDown {...props} id="testId2" isOpen={false}><h1>Hi</h1></DropDown>
-    );
-  });
+  it('should pass axe check when closed', () =>
+    axeCheck(
+      <DropDown {...props} id="testId2" isOpen={false}>
+        <h1>Hi</h1>
+      </DropDown>,
+    ));
 });

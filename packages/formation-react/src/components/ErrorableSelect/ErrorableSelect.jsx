@@ -33,7 +33,8 @@ class ErrorableSelect extends React.Component {
         <span
           className="usa-input-error-message"
           id={`${errorSpanId}`}
-          role="alert">
+          role="alert"
+        >
           {this.props.errorMessage}
         </span>
       );
@@ -42,9 +43,7 @@ class ErrorableSelect extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     // Calculate options for select
@@ -76,7 +75,8 @@ class ErrorableSelect extends React.Component {
               ? 'usa-input-error-label'
               : this.props.labelClass
           }
-          htmlFor={this.selectId}>
+          htmlFor={this.selectId}
+        >
           {this.props.label}
           {requiredSpan}
         </label>
@@ -89,7 +89,8 @@ class ErrorableSelect extends React.Component {
           autoComplete={this.props.autocomplete}
           value={selectedValue}
           onKeyDown={this.props.onKeyDown}
-          onChange={this.handleChange}>
+          onChange={this.handleChange}
+        >
           {this.props.includeBlankOption && (
             <option value="">{this.props.emptyDescription}</option>
           )}
@@ -104,7 +105,7 @@ ErrorableSelect.propTypes = {
   /**
    * Error string to display in the component.
    * When defined, indicates select has a validation error.
-  */
+   */
   errorMessage: PropTypes.string,
 
   /**
@@ -134,13 +135,13 @@ ErrorableSelect.propTypes = {
       PropTypes.string,
       PropTypes.shape({
         label: PropTypes.string,
-        value: PropTypes.number
+        value: PropTypes.number,
       }),
       PropTypes.shape({
         label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ])
+        value: PropTypes.string,
+      }),
+    ]),
   ).isRequired,
 
   /**
@@ -164,7 +165,7 @@ ErrorableSelect.propTypes = {
    */
   value: PropTypes.shape({
     value: PropTypes.string,
-    dirty: PropTypes.bool
+    dirty: PropTypes.bool,
   }).isRequired,
 
   /**
@@ -175,11 +176,11 @@ ErrorableSelect.propTypes = {
   /**
    * Additional css class that is added to the select element.
    */
-  additionalClass: PropTypes.string
+  additionalClass: PropTypes.string,
 };
 
 ErrorableSelect.defaultProps = {
-  includeBlankOption: true
+  includeBlankOption: true,
 };
 
 export default ErrorableSelect;

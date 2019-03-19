@@ -40,7 +40,7 @@ class ErrorableRadioButtons extends React.Component {
         ? this.props.children
         : [this.props.children];
       const subsections = children.filter(
-        child => child.props.showIfValueChosen === optionValue
+        child => child.props.showIfValueChosen === optionValue,
       );
       return subsections.length > 0 ? subsections[0] : null;
     }
@@ -69,9 +69,7 @@ class ErrorableRadioButtons extends React.Component {
     // Calculate required.
     let requiredSpan = undefined;
     if (this.props.required) {
-      requiredSpan = (
-        <span className="form-required-span">(*Required)</span>
-      );
+      requiredSpan = <span className="form-required-span">(*Required)</span>;
     }
 
     const options = _.isArray(this.props.options) ? this.props.options : [];
@@ -93,13 +91,14 @@ class ErrorableRadioButtons extends React.Component {
       const checked = optionValue === storedValue ? 'checked=true' : '';
       const matchingSubSection = this.getMatchingSubSection(
         optionValue === storedValue,
-        optionValue
+        optionValue,
       );
 
       const radioButton = (
         <div
           key={optionAdditional ? undefined : optionIndex}
-          className="form-radio-buttons">
+          className="form-radio-buttons"
+        >
           <div className="errorable-radio-button">
             <input
               autoComplete="false"
@@ -110,13 +109,14 @@ class ErrorableRadioButtons extends React.Component {
               onMouseDown={this.props.onMouseDown}
               onKeyDown={this.props.onKeyDown}
               value={optionValue}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+            />
 
             <label
               name={`${this.props.name}-${optionIndex}-label`}
-              htmlFor={`${this.inputId}-${optionIndex}`}>
-
-              {optionLabel}
+              htmlFor={`${this.inputId}-${optionIndex}`}
+            >
+              >{optionLabel}
             </label>
             {matchingSubSection}
             {option.content}
@@ -132,7 +132,8 @@ class ErrorableRadioButtons extends React.Component {
           <ExpandingGroup
             additionalClass="form-expanding-group-active-radio"
             open={!!checked}
-            key={optionIndex}>
+            key={optionIndex}
+          >
             {radioButton}
             <div>{optionAdditional}</div>
           </ExpandingGroup>
@@ -144,12 +145,12 @@ class ErrorableRadioButtons extends React.Component {
 
     const fieldsetClass = classNames('fieldset-input', {
       'usa-input-error': this.props.errorMessage,
-      [this.props.additionalFieldsetClass]: this.props.additionalFieldsetClass
+      [this.props.additionalFieldsetClass]: this.props.additionalFieldsetClass,
     });
 
     const legendClass = classNames('legend-label', {
       'usa-input-error-label': this.props.errorMessage,
-      [this.props.additionalLegendClass]: this.props.additionalLegendClass
+      [this.props.additionalLegendClass]: this.props.additionalLegendClass,
     });
 
     return (
@@ -211,9 +212,9 @@ ErrorableRadioButtons.propTypes = {
           .isRequired,
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
           .isRequired,
-        additional: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-      })
-    ])
+        additional: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+      }),
+    ]),
   ).isRequired,
   /**
    * value object for selected field
@@ -225,7 +226,7 @@ ErrorableRadioButtons.propTypes = {
      * value of the select field.
      */
     value: PropTypes.string,
-    dirty: PropTypes.bool
+    dirty: PropTypes.bool,
   }).isRequired,
   /**
    * handler for the value change
@@ -234,7 +235,7 @@ ErrorableRadioButtons.propTypes = {
   /**
    * toggles required field indicator
    */
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 export default ErrorableRadioButtons;
