@@ -1,0 +1,94 @@
+const path = require('path')
+
+exports.onCreateNode = ({node, getNode, actions }) => {
+  const { createNodeField } = actions
+  const parent = getNode(node.parent);
+
+  if (node.internal.type === `Mdx`) {
+    if (parent.name) {
+      if (parent.name === 'index') {
+        createNodeField({
+          node,
+          name: `slug`,
+          value: `/`,
+        })
+      } else {
+        createNodeField({
+          node,
+          name: `slug`,
+          value: `/${parent.name.toLowerCase()}/`,
+        })
+      }
+
+      createNodeField({
+        node,
+        name: `sourceInstanceName`,
+        value: `${parent.sourceInstanceName}`,
+      })
+    }
+  }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(
+    `{
+      allMdx(filter: {
+        frontmatter: {
+          name: {
+            ne: null
+          }
+        }
+      }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              name
+            }
+            parent {
+              ... on File {
+                name
+                sourceInstanceName
+              }
+            }
+            code {
+              scope
+            }
+          }
+        }
+      }
+    }`
+  )
+
+  if (result.errors) {
+    console.error(result.errors)
+    throw new Error('Error querying for custom pages');
+  }
+
+  result.data.allMdx.edges.forEach(async ({ node }) => {
+    if (node.frontmatter.name) {
+      createPage({
+        path: `/platform/${node.parent.name.toLowerCase()}/`,
+        component: path.resolve('./src/layouts/module-components.js'),
+        context: {
+          id: node.id,
+          source: 'component',
+          name: node.frontmatter.name,
+        },
+      })
+    }
+  });
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      alias: {
+        components: path.resolve('../formation-react/src/components'),
+      },
+    },
+  });
+};
