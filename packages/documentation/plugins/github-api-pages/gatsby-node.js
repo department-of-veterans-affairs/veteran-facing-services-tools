@@ -32,7 +32,7 @@ exports.sourceNodes = async ({
   );
 }
 
-exports.onCreateNode = async ({node, getNode, actions }) => {
+exports.onCreateNode = ({node, getNode, actions }) => {
   const { createNodeField } = actions
   const parent = getNode(node.parent);
 
