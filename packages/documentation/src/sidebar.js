@@ -10,7 +10,7 @@ module.exports = {
           items: [
             {
               name: 'Set up VA.gov locally',
-              href: 'getting-started'
+              href: 'getting-started',
             },
             {
               name: 'Internal Tools',
@@ -23,23 +23,23 @@ module.exports = {
           items: [
             {
               name: 'Running VA.gov locally',
-              href: 'getting-started/common-tasks/local'
+              href: 'getting-started/common-tasks/local',
             },
             {
               name: 'Building VA.gov',
-              href: 'getting-started/common-tasks/build'
+              href: 'getting-started/common-tasks/build',
             },
             {
               name: 'Running tests',
-              href: 'getting-started/common-tasks/tests'
+              href: 'getting-started/common-tasks/tests',
             },
             {
               name: 'Linting your code',
-              href: 'getting-started/common-tasks/lint'
+              href: 'getting-started/common-tasks/lint',
             },
             {
               name: 'Creating a new React application',
-              href: 'getting-started/common-tasks/new-app'
+              href: 'getting-started/common-tasks/new-app',
             },
             {
               name: 'Writing a unit test',
@@ -55,11 +55,11 @@ module.exports = {
             },
             {
               name: 'Adding new pages to this site',
-              href: 'getting-started/common-tasks/doc-page'
+              href: 'getting-started/common-tasks/doc-page',
             },
             {
               name: 'Adding pages from Github to this site',
-              href: 'getting-started/common-tasks/external-doc-page'
+              href: 'getting-started/common-tasks/external-doc-page',
             },
           ],
         },
