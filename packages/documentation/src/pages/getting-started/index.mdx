@@ -1,5 +1,96 @@
 ---
-title: Get started with stuff
+title: Set up VA.gov locally
 ---
 
-# Get started on VFS
+# Set up VA.gov locally
+
+## Node setup
+
+To get started, you'll need to install Node.js and Yarn. Versions 8.10.0 and 1.12.3, respectively.
+
+The best way to do that is through a tool called `nvm`, which lets you manage multiple versions of Node on your machine.  This makes it easier to keep in sync with everyone else on the project. You can find installation instructions at [nvm's Github page](https://github.com/creationix/nvm#installation-and-update), but if you're on a Mac you can use [homebrew](http://brew.sh/) to install it:
+
+```bash
+brew update && brew install nvm
+```
+_There will be some further instructions in the success message after install "finishes"._
+
+Once you have `nvm` installed, you should install Node.js:
+
+```bash
+nvm install 8.10.0
+```
+_This will also install `npm`_
+
+
+Once you have node.js 8.10.0 you should set as the default version for nvm, you do that by running:
+
+```bash
+nvm alias default 8.10.0
+```
+
+Next install Yarn:
+```bash
+npm i -g yarn@1.12.3
+```
+
+Once you have Node and Yarn installed, you should verify that you have the correct versions:
+
+```bash
+node --version # 8.10.0
+yarn --version # 1.12.3
+```
+
+## Get the source code
+
+Most of the source for the front end of VA.gov lives in the [vets-website](https://github.com/department-of-veterans-affairs/vets-website) repository, but there are a few others you should clone:
+
+```bash
+git clone git@github.com:department-of-veterans-affairs/vets-website.git
+git clone git@github.com:department-of-veterans-affairs/vagov-content.git
+git clone git@github.com:department-of-veterans-affairs/vets-json-schema.git
+git clone git@github.com:department-of-veterans-affairs/veteran-facing-services-tools.git
+git clone git@github.com:department-of-veterans-affairs/vets-api.git
+git clone git@github.com:department-of-veterans-affairs/vets-api-mockdata.git
+```
+
+These repos are the most important to have a basic understanding of:
+
+- vets-website
+  - Front end platform and application code
+- vagov-content
+  - Markdown content used to generate static pages (must be a sibling of vets-website)
+- vets-json-schema
+  - Shared JSON Schema definitions used by form applications and the APIs that they consume
+- veteran-facing-services-tools
+  - Shared code that we support for the broader VA (not just VA.gov), plus this documentation site
+- vets-api
+  - The repository for the Rails API backend.
+- vets-api-mockdata
+  - Mock data used when running locally and on dev for the backend (must be a sibling of vets-api)
+
+## Start up the front end
+
+Once you have Node and Yarn installed, you can install the dependencies for vets-website:
+
+```bash
+yarn install
+```
+
+Once this completes, you should be able to start up the site locally:
+
+```bash
+yarn watch
+```
+
+Once this builds (you'll see a message about Webpack compilation finishing), open up [http://localhost:3001](http://localhost:3001) and you should see the VA.gov homepage.
+
+## Set up the backend
+
+You can find the backend set up instructions in the [vets-api](https://github.com/department-of-veterans-affairs/vets-api) repo. If possible, you should follow the Docker instructions, which are in the README for that repo.
+
+Once you've gone through that set up, you should verify that you can log in using one of the test accounts, which can be found in the [Accessing Staging](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Accessing-Staging.md) doc.
+
+## Internal tools
+
+Once you've got the site running locally, you'll also want to get set up with our [internal tools](internal-tools). This will enable you to render static pages that use Drupal data locally, as well as access our reporting and monitoring tools. 

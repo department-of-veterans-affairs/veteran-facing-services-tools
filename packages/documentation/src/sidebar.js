@@ -9,6 +9,10 @@ module.exports = {
           name: 'Environment setup',
           items: [
             {
+              name: 'Set up VA.gov locally',
+              href: 'getting-started'
+            },
+            {
               name: 'Internal Tools',
               href: 'getting-started/internal-tools'
             },
@@ -39,15 +43,15 @@ module.exports = {
             },
             {
               name: 'Writing a unit test',
-              href: 'getting-started/common-tasks/write-unit-test'
+              // href: 'getting-started/common-tasks/write-unit-test'
             },
             {
               name: 'Writing an end-to-end test',
-              href: 'getting-started/common-tasks/write-e2e-test'
+              // href: 'getting-started/common-tasks/write-e2e-test'
             },
             {
               name: 'Updating Formation',
-              href: 'getting-started/common-tasks/update-formation'
+              // href: 'getting-started/common-tasks/update-formation'
             },
             {
               name: 'Adding new pages to this site',
