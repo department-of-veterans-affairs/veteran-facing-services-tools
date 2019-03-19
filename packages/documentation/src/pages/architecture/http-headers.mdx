@@ -1,0 +1,109 @@
+# HTTP Headers used on VA.gov
+
+
+---
+## Overview
+
+- HTTP headers control browser behavior
+- Browser behavior is a front end concern
+- Shared responsibility between devops and front end
+  - configuration
+  - management
+  - user experience
+- Typically
+  - devops responsible for the how (e.g. Terraform)
+  - front end responsible for the why (e.g. security, caching behavior)
+---
+## HTTP Example
+- raw request and response
+```mermaidjs
+graph TB
+    subgraph HTTP
+      F[HTTP <br/>Headers]
+subgraph HTTP Body
+       G[HTML<br />Head]
+       A[HTML Body]
+       end
+    end
+```
+
+---
+## HTTP Request Example
+- `GET /health-care/ HTTP/1.1`
+  - action to perform, resource location, http version
+  - `GET`, `POST`, `PUT`, `DELETE`
+- `Host: www.va.gov` - derived from URI
+- `Connection: keep-alive`
+  - HTTP persistent connection
+  - reduces latency and traffic by reusing TCP connection
+- `Upgrade-Insecure-Requests: 1`
+  - supports `Content-Security-Policy: upgrade-insecure-requests`
+  - basically tells server to redirect http requests to https
+- `User-Agent: ...` - identifying information about client software e.g. OS, version
+---
+## HTTP Request Example continued
+
+- `Accepts: ...`
+  - MIME types supported
+  - Server chooses one as the `Content-Type` on the response
+- `Accept-Encoding: gzip, defat, br` - supported compression algorithms
+- `Accept-Language: en-US,en;q=0.9`
+  - supported language and localization preference
+  - `q=0.9` expresses order of preference
+---
+## HTTP Response Example
+- `HTTP/1.1 200 OK` - response version and status code
+- `Date: ...`
+- `x-amz-...: ...` -  Amazon custom response headers
+- `Referrer-Policy: no-referrer-when-downgrade`
+  - determines `Referer` header behavior i.e. previous page link
+  - `no-referrer-when-downgrade` is default behavior- sends previous page link when security protocol is the same
+- `Strict-Transport-Security: ...`
+  - tells the browser to only connect to website via https
+  - impacts all future connections to a site
+---
+## HTTP Response Example continued
+- `X-Content-Type-Options: no-sniff`
+  - follow the mime-types in the http content-type
+  - only applies to scripts and styles right now
+-  `X-Frame-Options: deny`
+   - determines if browser can render page in a frame
+   - prevents clickjacking attacks
+- X-XSS-Protection - weâ€™ll dive into this when we talk about content security protocol
+	- Transfer-Encoding - hop-by-hop header- chunked directive indicates that data is sent in a series of chunks and that the content-length is replaced by length of each chunk
+	- Content-type - entity header indicates the media type of the resource , browser will ignore and sniff MIME type; MIME type; determines how the client handles the resource
+---
+## HTTP Response Example continued
+
+	-
+
+	- Set-Cookie- cookie set by the server
+
+	- X-Content-Type-Options: no-sniff - follow the mime-types in the http content-type. Donâ€™t ignore. Realistically only applies to scripts and styles right now
+	-
+
+---
+## Content Security Protocol and Cross-Origin Resource Sharing (CSP and CORS)
+
+---
+
+
+
+
+
+---
+## Terms
+- Hypertext Transfer Protocol (HTTP) - request-response protocol in client-server computing model
+- Documents / Resources - body of an HTTP response e.g. HTML,
+- HTTP Client - sends requests, receives response
+  - part of the browser
+  - `require('http')`
+  - `fetch()`
+- MIME - multipurpose internet mail extension
+- content negotiation
+- header types
+  - request / response header
+  - general headers
+  - entity header
+  - end-to-end
+  - hop-by-hop
