@@ -57,5 +57,7 @@ module.exports = {
     },
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-remark`,
+    `github-api-pages`,
+    `mdx-pages`,
   ],
 }
