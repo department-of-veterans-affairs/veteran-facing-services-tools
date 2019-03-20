@@ -61,6 +61,10 @@ module.exports = {
               name: 'Adding pages from Github to this site',
               href: 'getting-started/common-tasks/external-doc-page',
             },
+            {
+              name: 'Add Graphs to MDX',
+              href: 'getting-started/common-tasks/add-graphs-to-mdx'
+            },
           ],
         },
         {

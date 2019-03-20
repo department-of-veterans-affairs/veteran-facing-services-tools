@@ -13,6 +13,17 @@ import './layout.scss';
  * @extends {React.Component}
  */
 class Layout extends React.Component {
+  componentDidMount() {
+    window.mermaid_config = { theme: 'default', startOnLoad: true }
+    const s = document.createElement('script');
+    s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js');
+    document.head.appendChild(s);
+
+    if (window.mermaid) {
+      window.mermaid.init(undefined, document.getElementsByClassName('mermaid'));
+    }
+  }
+
   getSitePages(pages) {
     // removing the index from the list
     return pages.filter(page => page.node.fields.slug !== '/');
