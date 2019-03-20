@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error('Error querying for custom pages');
   }
 
-  result.data.allMdx.edges.forEach(async ({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     if (node.frontmatter.name) {
       createPage({
         path: `/platform/${node.parent.name.toLowerCase()}/`,
