@@ -1,7 +1,7 @@
 /* eslint-disable */
 const visit = require('unist-util-visit');
 
-module.exports = ({ markdownAST }, { language = 'mermaid' } = {}) => {
+module.exports = ({ markdownAST }, { language = 'mermaid', theme = 'default' } = {}) => {
   visit(markdownAST, 'code', node => {
     const lang = (node.lang || '').toLowerCase();
 

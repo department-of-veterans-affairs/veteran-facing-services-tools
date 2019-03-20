@@ -109,23 +109,23 @@ Remark uses a plugin system that enables you to do some customization when the m
   ```
 - Add the mermaid library so it can convert our code into SVG graphs
 
-  Because mermaid is a client side library we need to include it when the build is rendered on the client-side. To do this we need to write some code in the `gatsby-browser.js` file. This allows us to hook into the specific Gatsby browser lifecycles hooks.
-
-  In this code we are hooking into the `onInitialClientRender` lifecycle hook and injecting the mermaid script tag into the DOM. Then we initiate mermaid onto the mermaid class DOM elements. This will convert the mermaid code into SVG graphs.
+  Because mermaid is a client side library we need to include it when the build is rendered on the client-side.
+  To do this we add some code to our Layout Component that will inject the script in the **componentDidMount** lifecycle hook.
 
   ```javascript
-  exports.onInitialClientRender = (n, config) => {
-    window.mermaid_config = { theme: config.theme || 'default', startOnLoad: true }
-    const s = document.createElement('script');
-    s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js');
-    document.head.appendChild(s);
-    // XXX: ugly hack because onRouteUpdate doesn't know when the react is done
-    setInterval(() => {
+  class Layout extends React.Component {
+    componentDidMount() {
+      window.mermaid_config = { theme: 'default', startOnLoad: true }
+      const s = document.createElement('script');
+      s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js');
+      document.head.appendChild(s);
+
       if (window.mermaid) {
         window.mermaid.init(undefined, document.getElementsByClassName('mermaid'));
       }
-    }, 200);
-  };
+    }
+    .....
+  }
   ```
 
 - Once all this all setup we are good to go.
