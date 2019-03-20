@@ -31,9 +31,7 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-live": "^1.12.0",
-    "uswds": "1.4.2"
-  },
-  "devDependencies": {
+    "uswds": "1.4.2",
     "vagov-eslint": "1.0.0"
   },
   "keywords": [

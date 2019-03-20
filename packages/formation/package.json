@@ -19,7 +19,6 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
-    "lint": "yarn vagov-eslint lint:js",
     "prepare": "node ./scripts/build.js"
   },
   "bugs": {
