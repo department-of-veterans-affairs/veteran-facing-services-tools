@@ -24,7 +24,6 @@
     "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.8",
     "gh-pages": "^2.0.1",
-    "mermaid.cli": "^0.5.1",
     "node-github-graphql": "^0.2.7",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
@@ -32,9 +31,7 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-live": "^1.12.0",
-    "remark": "^10.0.1",
     "remark-mermaid": "^0.2.0",
-    "to-vfile": "^5.0.2",
     "uswds": "1.4.2"
   },
   "keywords": [

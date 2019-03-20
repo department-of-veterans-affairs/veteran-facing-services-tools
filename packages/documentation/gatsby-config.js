@@ -61,6 +61,5 @@ module.exports = {
     },
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-remark`,
-    `mermaid-svg-remover`,
   ],
 }

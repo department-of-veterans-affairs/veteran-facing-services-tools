@@ -34,38 +34,22 @@ Remark uses a plugin system that enables you to do some customization when the m
 
 - First we need to create a plugin that we can add to the `gatsby-transformer-remark` plugin.
 
-  Below is the code we are using to generate graphs. When adding this to the plugin,
-  this code will run during the transformation phase. In this code we are taking the **mardownAST** and finding mermaid specific code on the page. Then we are using remark directly to execute mermaid on build. This will generate a SVG in the static folder. We have modified a version of mermaid to make this work with Gatsby. After SVG genration, it will replace the mermaid markdown code into a img tag of the SVG.
+  Below is the code we are using to generate the html to convert our code into graphs. When adding this to the plugin, this code will run during the transformation phase. In this code we are taking the `mardownAST` and finding mermaid specific code on the page. Then we change the code to html.
 
   ```javascript
   // plugins/remark/gatsby-remark-mdx-mermaid/index.js
 
   const visit = require('unist-util-visit');
-  const remark = require('remark');
-  const mermaid = require('./remark-mermaid');
-  const vfile = require('to-vfile');
 
-  module.exports = ({ markdownAST, markdownNode }, { language = 'mermaid' } = {}) => {
-    visit(markdownAST, 'code', async (node) => {
-      const lang = (node.lang || '').toLowerCase();
-      const fileContent = vfile.readSync(markdownNode.fileAbsolutePath);
-
+  module.exports = ({ markdownAST }, { language = 'mermaid', theme = 'default' } = {}) => {
+    visit(markdownAST, 'code', node => {
+      let lang = (node.lang || '').toLowerCase()
       if (lang === language) {
-        await remark()
-          .use(mermaid)
-          .process(fileContent, (err, file) => {
-            if (err) throw err;
-
-            const mermaidSrcMatch = file.messages.filter(
-              item => item.message.source === node.value
-            )[0];
-
-            node.type = 'html';
-            node.value = `<img src="${mermaidSrcMatch.message.imgSrc}" />`;
-          });
+        node.type = 'html'
+        node.value = '<div class="mermaid">{' + '`'+ node.value + '`'+ '}</div>'
       }
-    });
-  };
+    })
+  }
   ```
 
   This markdown code:
@@ -114,9 +98,34 @@ Remark uses a plugin system that enables you to do some customization when the m
       gatsbyRemarkPlugins: [
         {
           resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
+          options: {
+            language: 'mermaid',
+            theme: 'default'
+          }
         }
       ],
     }
   }
   ```
+- Add the mermaid library so it can convert our code into SVG graphs
+
+  Because mermaid is a client side library we need to include it when the build is rendered on the client-side. To do this we need to write some code in the `gatsby-browser.js` file. This allows us to hook into the specific Gatsby browser lifecycles hooks.
+
+  In this code we are hooking into the `onInitialClientRender` lifecycle hook and injecting the mermaid script tag into the DOM. Then we initiate mermaid onto the mermaid class DOM elements. This will convert the mermaid code into SVG graphs.
+
+  ```javascript
+  exports.onInitialClientRender = (n, config) => {
+    window.mermaid_config = { theme: config.theme || 'default', startOnLoad: true }
+    const s = document.createElement('script');
+    s.setAttribute('src', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js');
+    document.head.appendChild(s);
+    // XXX: ugly hack because onRouteUpdate doesn't know when the react is done
+    setInterval(() => {
+      if (window.mermaid) {
+        window.mermaid.init(undefined, document.getElementsByClassName('mermaid'));
+      }
+    }, 200);
+  };
+  ```
+
 - Once all this all setup we are good to go.
