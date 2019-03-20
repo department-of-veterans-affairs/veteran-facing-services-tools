@@ -1,11 +1,7 @@
 const path  = require('path');
 const githubApi = require('./github-api');
 
-exports.sourceNodes = async ({
-  actions,
-  getNode,
-  hasNodeChanged,
-}) => {
+exports.sourceNodes = async ({ actions, getNode, hasNodeChanged }) => {
   const { createNode } = actions
   const repoData = {
     owner: 'department-of-veterans-affairs',
