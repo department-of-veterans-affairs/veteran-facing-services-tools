@@ -19,6 +19,7 @@
     "lint:js:fix": "npx vagov-eslint lint:js:fix",
     "lint:js:changed": "npx vagov-eslint lint:js:changed",
     "lint:js:changed:fix": "npx vagov-eslint lint:js:changed:fix",
+    "postinstall": "yarn bootstrap",
     "publish": "lerna publish",
     "version": "lerna version --no-git-tag-version",
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
