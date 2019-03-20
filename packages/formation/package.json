@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
+    "lint": "yarn vagov-eslint lint:js",
     "prepare": "node ./scripts/build.js"
   },
   "bugs": {
@@ -28,6 +29,9 @@
     "@fortawesome/fontawesome-free": "^5.6.3",
     "foundation-sites": "5",
     "moment": "^2.23.0"
+  },
+  "devDependencies": {
+    "vagov-eslint": "1.0.0"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
