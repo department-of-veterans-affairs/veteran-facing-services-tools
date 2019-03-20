@@ -44,6 +44,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
+    "lint": "yarn vagov-eslint lint:js",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "develop:inspect": "node --inspect --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },

@@ -13,7 +13,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "deploy": "lerna run deploy --scope=vagov-documentation",
-    "lint": "npx vagov-eslint lint:js",
+    "lint": "lerna run lint",
     "lint:changed": "npx vagov-eslint lint:js:changed",
     "lint:js": "npx vagov-eslint lint",
     "lint:js:fix": "npx vagov-eslint lint:js:fix",
