@@ -66,9 +66,7 @@ export default function SidebarItems({ items }) {
             </li>
           )}
           {!item.href && !item.items && !item.query && (
-            <li key={item.href}>
-              <Link to={item.href}>{item.name}</Link>
-            </li>
+            <li key={item.name}>{item.name} (future)</li>
           )}
         </li>
       ))}
