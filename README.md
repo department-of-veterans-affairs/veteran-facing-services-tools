@@ -28,7 +28,7 @@ You can put the repo anywhere on your computer, but as a suggestion:
 - In Terminal, navigate to your desktop: `cd ~/desktop`
 - Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git`
 - Then: `cd veteran-facing-services-tools`
-- Run `yarn` and `yarn bootstrap` to install dependencies for each module
+- Run `yarn` to install dependencies for each module
 
 ## Commands
 

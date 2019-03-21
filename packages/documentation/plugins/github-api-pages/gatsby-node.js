@@ -1,4 +1,4 @@
-const path  = require('path');
+const path = require('path');
 const githubApi = require('./github-api');
 const githubPages = require('./pages');
 
@@ -12,8 +12,8 @@ exports.sourceNodes = async ({
   await githubApi.getPagesAndCreateNodes(githubPages, createNode);
 }
 
-exports.onCreateNode = ({node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
   const parent = getNode(node.parent);
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -22,25 +22,25 @@ exports.onCreateNode = ({node, getNode, actions }) => {
         node,
         name: `slug`,
         value: `${parent.internal.directory}/${parent.internal.name}`,
-      })
+      });
 
       createNodeField({
         node,
         name: `fileName`,
         value: `${parent.internal.name}`,
-      })
+      });
     } else {
       createNodeField({
         node,
         name: `slug`,
         value: `${parent.internal.name}`,
-      })
+      });
     }
   }
-}
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const result = await graphql(
     `{
@@ -60,11 +60,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }`
-  )
+    `,
+  );
 
   if (result.errors) {
-    console.error(result.errors)
+    console.error(result.errors); // eslint-disable-line no-console
     throw new Error('Error querying for custom pages');
   }
 
@@ -76,6 +76,6 @@ exports.createPages = async ({ graphql, actions }) => {
         id: node.id,
         name: node.fields.slug,
       },
-    })
-  })
-}
+    });
+  });
+};
