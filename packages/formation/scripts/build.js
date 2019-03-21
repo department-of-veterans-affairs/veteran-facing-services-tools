@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
-const mkdirp = require('mkdirp');
-// const fs = require('fs-extra');
 const webpack = require('webpack');
 const webpackConfig = require('../../../webpack.config.prod.js');
+const rimraf = require('rimraf');
 
 console.log('Starting Formation build');
 console.log('Cleaning old build');
-mkdirp.sync('./dist/img');
-mkdirp.sync('./dist/fonts');
+
+rimraf.sync('./dist');
 
 const compiler = webpack(webpackConfig);
 
@@ -19,6 +18,3 @@ compiler.run((err, stats) => {
   }
   console.log(stats.toString('minimal'));
 });
-
-// fs.copySync('./assets/img', './dist/img');
-// fs.copySync('./assets/fonts', './dist/fonts');

@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'packages/formation/dist')
+    path: path.join(__dirname, 'packages/formation/dist'),
+    publicPath: './'
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx']
@@ -29,20 +30,13 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif)$/i,
         use: {
-          loader: 'url-loader?limit=10000!img?progressive=true&-minimize',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'img/'
-          }
+          loader: 'url-loader?limit=10000!img?progressive=true&-minimize&outputPath=./img/',
         }
       },
       {
         test: /\.svg/,
         use: {
-          loader: 'svg-url-loader?limit=1024',
-          options: {
-            outputPath: 'img/'
-          }
+          loader: 'svg-url-loader?limit=1024&outputPath=./img/',
         }
       },
       {
@@ -51,7 +45,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'fonts/'
+            outputPath: './fonts/'
           }
         }
       }
