@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const mkdirp = require('mkdirp');
-const fs = require('fs-extra');
+// const fs = require('fs-extra');
 const webpack = require('webpack');
 const webpackConfig = require('../../../webpack.config.prod.js');
 
@@ -20,5 +20,5 @@ compiler.run((err, stats) => {
   console.log(stats.toString('minimal'));
 });
 
-fs.copySync('./assets/img', './dist/img');
-fs.copySync('./assets/fonts', './dist/fonts');
+// fs.copySync('./assets/img', './dist/img');
+// fs.copySync('./assets/fonts', './dist/fonts');

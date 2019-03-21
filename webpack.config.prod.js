@@ -39,7 +39,10 @@ module.exports = {
       {
         test: /\.svg/,
         use: {
-          loader: 'svg-url-loader'
+          loader: 'svg-url-loader?limit=1024',
+          options: {
+            outputPath: 'img/'
+          }
         }
       },
       {
