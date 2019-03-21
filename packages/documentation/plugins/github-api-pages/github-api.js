@@ -6,7 +6,33 @@ const github = new GithubGraphQLApi({
   token: process.env.GITHUB_API_KEY,
 });
 
-exports.getDirectoryAndCreatePages = async (
+const getPagesAndCreateNodes = async (pages, createNode) => {
+  await Promise.all(Object.keys(pages).map(async mainDirectory => {
+    const pageData = pages[mainDirectory];
+
+    return await Promise.all(pageData.directoryPaths.map(async dir => {
+      if (path.extname(dir)) {
+        return await getPageAndCreateNode (
+          {
+            ...pageData,
+            dir,
+          },
+          createNode,
+        );
+      }
+
+      return await getDirectoryAndCreateNode (
+        {
+          ...pageData,
+          dir,
+        },
+        createNode,
+      );
+    }))
+  }))
+}
+
+const getDirectoryAndCreateNode = async (
   { owner, repo, dir },
   createNode,
 ) => {
@@ -64,14 +90,14 @@ exports.getDirectoryAndCreatePages = async (
             .digest('hex'),
           mediaType: 'text/markdown',
           content: object.text,
-          directory: dir,
+          directory: path.dirname(dir),
           name: name.replace('.md', ''),
         },
       });
     });
 };
 
-exports.getPageAndCreatePage = async ({ owner, repo, dir }, createNode) => {
+const getPageAndCreateNode = async ({ owner, repo, dir }, createNode) => {
   const result = await github.query(`
     {
       repository(owner: "${owner}", name:"${repo}"){
@@ -89,7 +115,7 @@ exports.getPageAndCreatePage = async ({ owner, repo, dir }, createNode) => {
 
   const { oid, text } = result.data.repository.object;
 
-  createNode({
+  await createNode({
     id: oid,
     parent: null,
     children: [],
@@ -101,8 +127,14 @@ exports.getPageAndCreatePage = async ({ owner, repo, dir }, createNode) => {
         .digest('hex'),
       mediaType: 'text/markdown',
       content: text,
-      directory: dir,
+      directory: path.dirname(dir),
       name: path.basename(dir, '.md'),
     },
   });
 };
+
+module.exports = {
+  getPageAndCreateNode,
+  getDirectoryAndCreateNode,
+  getPagesAndCreateNodes,
+}

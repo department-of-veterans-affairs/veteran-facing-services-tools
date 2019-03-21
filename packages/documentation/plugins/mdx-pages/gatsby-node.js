@@ -44,17 +44,12 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             frontmatter {
-              title
               name
             }
             parent {
               ... on File {
                 name
-                sourceInstanceName
               }
-            }
-            code {
-              scope
             }
           }
         }
