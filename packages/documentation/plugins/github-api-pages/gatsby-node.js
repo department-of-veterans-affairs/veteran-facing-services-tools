@@ -1,4 +1,4 @@
-const path = require('path');
+const path  = require('path');
 const githubApi = require('./github-api');
 const githubPages = require('./pages');
 
@@ -7,12 +7,12 @@ exports.sourceNodes = async ({
   getNode,
   hasNodeChanged,
 }) => {
-  const { createNode } = actions
+  const { createNode } = actions;
 
   await githubApi.getPagesAndCreateNodes(githubPages, createNode);
-}
+};
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({node, getNode, actions }) => {
   const { createNodeField } = actions;
   const parent = getNode(node.parent);
 
@@ -60,11 +60,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    `,
+    }`
   );
 
   if (result.errors) {
-    console.error(result.errors); // eslint-disable-line no-console
+    console.error(result.errors);
     throw new Error('Error querying for custom pages');
   }
 
