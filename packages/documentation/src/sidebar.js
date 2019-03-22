@@ -63,7 +63,7 @@ module.exports = {
             },
             {
               name: 'Add Graphs to MDX',
-              href: 'getting-started/common-tasks/add-graphs-to-mdx'
+              href: 'getting-started/common-tasks/add-graphs-to-mdx',
             },
           ],
         },
