@@ -9,6 +9,10 @@ module.exports = {
           name: 'Environment setup',
           items: [
             {
+              name: 'Set up VA.gov locally',
+              href: 'getting-started',
+            },
+            {
               name: 'Internal Tools',
               href: 'getting-started/internal-tools',
             },
@@ -19,43 +23,47 @@ module.exports = {
           items: [
             {
               name: 'Running VA.gov locally',
-              href: 'getting-started/common-tasks/local'
+              href: 'getting-started/common-tasks/local',
             },
             {
               name: 'Building VA.gov',
-              href: 'getting-started/common-tasks/build'
+              href: 'getting-started/common-tasks/build',
             },
             {
               name: 'Running tests',
-              href: 'getting-started/common-tasks/tests'
+              href: 'getting-started/common-tasks/tests',
             },
             {
               name: 'Linting your code',
-              href: 'getting-started/common-tasks/lint'
+              href: 'getting-started/common-tasks/lint',
             },
             {
               name: 'Creating a new React application',
-              href: 'getting-started/common-tasks/new-app'
+              href: 'getting-started/common-tasks/new-app',
             },
             {
               name: 'Writing a unit test',
-              href: 'getting-started/common-tasks/write-unit-test'
+              // href: 'getting-started/common-tasks/write-unit-test'
             },
             {
               name: 'Writing an end-to-end test',
-              href: 'getting-started/common-tasks/write-e2e-test'
+              // href: 'getting-started/common-tasks/write-e2e-test'
             },
             {
               name: 'Updating Formation',
-              href: 'getting-started/common-tasks/update-formation'
+              // href: 'getting-started/common-tasks/update-formation'
             },
             {
               name: 'Adding new pages to this site',
-              href: 'getting-started/common-tasks/doc-page'
+              href: 'getting-started/common-tasks/doc-page',
             },
             {
               name: 'Adding pages from Github to this site',
-              href: 'getting-started/common-tasks/external-doc-page'
+              href: 'getting-started/common-tasks/external-doc-page',
+            },
+            {
+              name: 'Add Graphs to MDX',
+              href: 'getting-started/common-tasks/add-graphs-to-mdx',
             },
           ],
         },

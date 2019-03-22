@@ -28,7 +28,7 @@ You can put the repo anywhere on your computer, but as a suggestion:
 - In Terminal, navigate to your desktop: `cd ~/desktop`
 - Clone the Github repo by running: `git clone https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git`
 - Then: `cd veteran-facing-services-tools`
-- Run `yarn` and `yarn bootstrap` to install dependencies for each module
+- Run `yarn` to install dependencies for each module
 
 ## Commands
 
@@ -50,17 +50,15 @@ After you've tested and previewed your changes locally it's time to publish a ne
 
 ### 1. Submit your PR
 
-Submit a PR that includes all of your code changes. This should include the bump in versions you need, which you can update easily by running `npm run version`. Modules like `formation-react` depend on `formation` via a peer dependency, so you may need to update that as well. We try to keep the peer dependency loose and only update it for breaking changes.
+Submit a PR that includes all of your code changes. This should include the bump in versions you need, which you can change directly in the package.json files for the modules that are changing. Modules like `formation-react` depend on `formation` via a peer dependency, so you may need to update that as well. We try to keep the peer dependency loose and only update it for breaking changes.
 
-You'll be asked to choose what type of version update to make:
+You'll need to choose what type of version update to make:
 
 - `patch` - for bug fixes and minor changes
 - `minor` - for new features that don't break current features or require changes in consuming applications
 - `major` - for backwards breaking changes
 
-You'll also be asked with packages you want to update. Our modules are versioned independently, so you'll need to update their verisons depending on where you made changes.
-
-> If you are unsure of what to pick, do a major version update on both modules.
+> If you are unsure of what to pick, do a major version update on modules that are changing.
 
 ### 2. Merge your PR to master
 

@@ -1,4 +1,5 @@
 /* eslint-disable */
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -43,6 +44,9 @@ module.exports = {
               sizeByPixelDensity: true
             }
           },
+          {
+            resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
+          }
         ],
       }
     },
@@ -57,5 +61,7 @@ module.exports = {
     },
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-remark`,
+    `github-api-pages`,
+    `mdx-pages`,
   ],
 }
