@@ -28,15 +28,13 @@ module.exports = {
         })
       },
       {
-        test: /\.(jpe?g|png|gif)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: {
-          loader: 'url-loader?limit=10000!img?progressive=true&-minimize&outputPath=./img/',
-        }
-      },
-      {
-        test: /\.svg/,
-        use: {
-          loader: 'svg-url-loader?limit=1024&outputPath=./img/',
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: './img/'
+          }
         }
       },
       {
