@@ -124,18 +124,90 @@ export default class MegaMenu extends React.Component {
     this.props.updateCurrentSection(sectionTitle);
   }
 
-  render() {
+  renderMenuDropdown(item) {
     const {
-      currentDropdown,
       currentSection,
-      data,
-      display,
       linkClicked,
       columnThreeLinkClicked,
     } = this.props;
 
     return (
-      <div className="login-container" {...display}>
+      <ul aria-label={item.title}>
+        {Array.isArray(item.menuSections)
+          ? item.menuSections.map((section, j) => (
+              <MenuSection
+                key={`${section}-${j}`}
+                title={section.title}
+                defaultSection={this.defaultSection(
+                  item.menuSections,
+                )}
+                currentSection={currentSection}
+                updateCurrentSection={() =>
+                  this.updateCurrentSection(section.title)
+                }
+                links={section.links}
+                linkClicked={linkClicked}
+                mobileMediaQuery={this.mobileMediaQuery}
+                smallDesktopMediaQuery={
+                  this.smallDesktopMediaQuery
+                }
+                columnThreeLinkClicked={columnThreeLinkClicked}
+              />
+            ))
+          : this.getSubmenu(item, currentSection)}
+      </ul>
+    );
+  }
+
+  renderNavbarItems() {
+    const {
+      currentDropdown,
+      data,
+      linkClicked,
+    } = this.props;
+
+    return data.map((item, i) => (
+      <li
+        key={`${_.kebabCase(item.title)}-${i}`}
+        className={`${item.className || ''} ${
+          item.currentPage ? 'current-page' : ''
+        }`}
+      >
+        {item.menuSections ? (
+          <button
+            aria-expanded={currentDropdown === item.title}
+            aria-controls={`vetnav-${_.kebabCase(item.title)}`}
+            aria-haspopup="true"
+            className="vetnav-level1"
+            onClick={() => this.toggleDropDown(item.title)}
+          >
+            {item.title}
+          </button>
+        ) : (
+          <a
+            href={item.href}
+            onClick={linkClicked.bind(null, item)}
+            className="vetnav-level1"
+            target={item.target || null}
+          >
+            {item.title}
+          </a>
+        )}
+        <div
+          id={`vetnav-${_.kebabCase(item.title)}`}
+          className="vetnav-panel"
+          role="none"
+          hidden={currentDropdown !== item.title}
+        >
+          {item.title === currentDropdown && item.menuSections && this.renderMenuDropdown()}
+        </div>
+      </li>
+    ));
+  }
+
+  render() {
+    return (
+      <div className="login-container" {...this.props.display}>
         <div
           className="row va-flex"
           ref={el => {
@@ -149,68 +221,7 @@ export default class MegaMenu extends React.Component {
                   Home
                 </a>
               </li>
-              {data.map((item, i) => (
-                <li
-                  key={`${_.kebabCase(item.title)}-${i}`}
-                  className={`${item.className || ''} ${
-                    item.currentPage ? 'current-page' : ''
-                  }`}
-                >
-                  {item.menuSections ? (
-                    <button
-                      aria-expanded={currentDropdown === item.title}
-                      aria-controls={`vetnav-${_.kebabCase(item.title)}`}
-                      aria-haspopup="true"
-                      className="vetnav-level1"
-                      onClick={() => this.toggleDropDown(item.title)}
-                    >
-                      {item.title}
-                    </button>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={linkClicked.bind(null, item)}
-                      className="vetnav-level1"
-                      target={item.target || null}
-                    >
-                      {item.title}
-                    </a>
-                  )}
-                  <div
-                    id={`vetnav-${_.kebabCase(item.title)}`}
-                    className="vetnav-panel"
-                    role="none"
-                    hidden={currentDropdown !== item.title}
-                  >
-                    {item.title === currentDropdown && item.menuSections && (
-                      <ul aria-label={item.title}>
-                        {Array.isArray(item.menuSections)
-                          ? item.menuSections.map((section, j) => (
-                              <MenuSection
-                                key={`${section}-${j}`}
-                                title={section.title}
-                                defaultSection={this.defaultSection(
-                                  item.menuSections,
-                                )}
-                                currentSection={currentSection}
-                                updateCurrentSection={() =>
-                                  this.updateCurrentSection(section.title)
-                                }
-                                links={section.links}
-                                linkClicked={linkClicked}
-                                mobileMediaQuery={this.mobileMediaQuery}
-                                smallDesktopMediaQuery={
-                                  this.smallDesktopMediaQuery
-                                }
-                                columnThreeLinkClicked={columnThreeLinkClicked}
-                              />
-                            ))
-                          : this.getSubmenu(item, currentSection)}
-                      </ul>
-                    )}
-                  </div>
-                </li>
-              ))}
+              {this.renderNavbarItems()}
             </ul>
           </div>
         </div>
