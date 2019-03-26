@@ -4,6 +4,7 @@ import React from 'react';
 import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
 import _ from 'lodash';
+import classNames from 'classnames';
 
 export default class MegaMenu extends React.Component {
   componentDidMount() {
@@ -20,9 +21,6 @@ export default class MegaMenu extends React.Component {
     document.body.addEventListener('click', this.handleDocumentClick, false);
   }
 
-  /**
-   * Remove event listener
-   */
   componentWillUnmount() {
     this.mobileMediaQuery.removeListener(this.resetDefaultState);
     document.body.removeEventListener('click', this.handleDocumentClick, false);
@@ -111,7 +109,7 @@ export default class MegaMenu extends React.Component {
     );
   }
 
-  getSubmenu(menu) {
+  renderPlainMenu(menu) {
     if (this.mobileMediaQuery.matches) {
       const menuSections = this.convertColumnsIntoArray(menu);
 
@@ -150,7 +148,7 @@ export default class MegaMenu extends React.Component {
 
   renderOpenMenu(menu) {
     const isMenuWithSidebar = Array.isArray(menu.menuSections);
-    const menuContents = isMenuWithSidebar ? this.renderMenuWithSideNav(menu) : this.getSubmenu(menu);
+    const menuContents = isMenuWithSidebar ? this.renderMenuWithSideNav(menu) : this.renderPlainMenu(menu);
 
     return (
       <ul aria-label={menu.title}>{menuContents}</ul>
@@ -160,45 +158,50 @@ export default class MegaMenu extends React.Component {
   renderNavbar() {
     const {
       currentDropdown,
-      data,
+      data: menus,
       linkClicked,
     } = this.props;
 
-    return data.map((item, i) => (
-      <li
-        key={`${_.kebabCase(item.title)}-${i}`}
-        className={`${item.className || ''} ${
-          item.currentPage ? 'current-page' : ''
-        }`}
-      >
-        {item.menuSections ? (
-          <button
-            aria-expanded={currentDropdown === item.title}
-            aria-controls={`vetnav-${_.kebabCase(item.title)}`}
-            className="vetnav-level1"
-            onClick={() => this.toggleDropDown(item.title)}
-          >
-            {item.title}
-          </button>
-        ) : (
-          <a
-            href={item.href}
-            onClick={linkClicked.bind(null, item)}
-            className="vetnav-level1"
-            target={item.target || null}
-          >
-            {item.title}
+    return menus.map((menu, index) => {
+      const kebabTitle = _.kebabCase(menu.title);
+      const key = `${kebabTitle}-${index}`;
+      const liClass = classNames(menu.className, { 'current-page': menu.currentPage });
+      const isPlainLink = !!menu.href;
+
+      let navbarLink = null;
+      let menuContents = null;
+
+      if (isPlainLink) {
+        navbarLink = (
+          <a href={menu.href} target={menu.target || null} onClick={linkClicked.bind(null, menu)} className="vetnav-level1">
+            {menu.title}
           </a>
-        )}
-        <div
-          id={`vetnav-${_.kebabCase(item.title)}`}
-          className="vetnav-panel"
-          hidden={currentDropdown !== item.title}
-        >
-          {item.title === currentDropdown && item.menuSections && this.renderOpenMenu(item)}
-        </div>
-      </li>
-    ));
+        );
+      } else {
+        const expanded = currentDropdown === menu.title;
+        const menuId = `vetnav-${kebabTitle}`;
+        const onClick = () => this.toggleDropDown(menu.title);
+
+        navbarLink = (
+          <button aria-expanded={expanded} aria-controls={menuId} className="vetnav-level1" onClick={onClick}>
+            {menu.title}
+          </button>
+        );
+
+        menuContents = (
+          <div id={menuId} hidden={!expanded} className="vetnav-panel">
+            {expanded && menu.menuSections && this.renderOpenMenu(menu)}
+          </div>
+        );
+      }
+
+      return (
+        <li key={key} className={liClass}>
+          {navbarLink}
+          {menuContents}
+        </li>
+      );
+    });
   }
 
   render() {
