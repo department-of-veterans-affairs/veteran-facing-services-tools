@@ -7,29 +7,25 @@ const github = new GithubGraphQLApi({
 });
 
 const getPagesAndCreateNodes = async (pages, createNode) => {
-  await Promise.all(Object.keys(pages).map(async mainDirectory => {
-    const pageData = pages[mainDirectory];
-
-    return await Promise.all(pageData.directoryPaths.map(async dir => {
-      if (path.extname(dir)) {
-        return await getPageAndCreateNode (
-          {
-            ...pageData,
-            dir,
-          },
-          createNode,
-        );
-      }
-
-      return await getDirectoryAndCreateNode (
+  return await Promise.all(pages.directoryPaths.map(async dir => {
+    if (path.extname(dir)) {
+      return await getPageAndCreateNode (
         {
-          ...pageData,
+          ...pages,
           dir,
         },
         createNode,
       );
-    }))
-  }))
+    }
+
+    return await getDirectoryAndCreateNode (
+      {
+        ...pages,
+        dir,
+      },
+      createNode,
+    );
+  }));
 }
 
 const getDirectoryAndCreateNode = async (

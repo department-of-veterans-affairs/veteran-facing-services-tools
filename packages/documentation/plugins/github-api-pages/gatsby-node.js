@@ -1,6 +1,6 @@
-const path  = require('path');
+const path = require('path');
 const githubApi = require('./github-api');
-const githubPages = require('./pages');
+const githubPages = require('./github-pages.json');
 
 exports.sourceNodes = async ({
   actions,
