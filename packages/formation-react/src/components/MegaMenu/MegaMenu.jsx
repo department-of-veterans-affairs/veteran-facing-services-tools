@@ -177,7 +177,6 @@ export default class MegaMenu extends React.Component {
           <button
             aria-expanded={currentDropdown === item.title}
             aria-controls={`vetnav-${_.kebabCase(item.title)}`}
-            aria-haspopup="true"
             className="vetnav-level1"
             onClick={() => this.toggleDropDown(item.title)}
           >
@@ -196,10 +195,34 @@ export default class MegaMenu extends React.Component {
         <div
           id={`vetnav-${_.kebabCase(item.title)}`}
           className="vetnav-panel"
-          role="none"
           hidden={currentDropdown !== item.title}
         >
-          {item.title === currentDropdown && item.menuSections && this.renderMenuDropdown()}
+          {item.title === currentDropdown && item.menuSections && (
+            <ul aria-label={item.title}>
+              {Array.isArray(item.menuSections)
+                ? item.menuSections.map((section, j) => (
+                    <MenuSection
+                      key={`${section}-${j}`}
+                      title={section.title}
+                      defaultSection={this.defaultSection(
+                        item.menuSections,
+                      )}
+                      currentSection={currentSection}
+                      updateCurrentSection={() =>
+                        this.updateCurrentSection(section.title)
+                      }
+                      links={section.links}
+                      linkClicked={linkClicked}
+                      mobileMediaQuery={this.mobileMediaQuery}
+                      smallDesktopMediaQuery={
+                        this.smallDesktopMediaQuery
+                      }
+                      columnThreeLinkClicked={columnThreeLinkClicked}
+                    />
+                  ))
+                : this.getSubmenu(item, currentSection)}
+            </ul>
+          )}
         </div>
       </li>
     ));
@@ -215,9 +238,9 @@ export default class MegaMenu extends React.Component {
           }}
         >
           <div id="vetnav" role="navigation">
-            <ul id="vetnav-menu" role="menubar">
+            <ul id="vetnav-menu">
               <li>
-                <a href="/" className="vetnav-level1" role="menuitem">
+                <a href="/" className="vetnav-level1">
                   Home
                 </a>
               </li>

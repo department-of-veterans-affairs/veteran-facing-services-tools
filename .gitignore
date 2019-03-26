@@ -13,3 +13,4 @@ lerna-debug.log
 .eslintignore
 .prettierrc
 yarn-error.log
+.vscode
