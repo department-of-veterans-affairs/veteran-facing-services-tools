@@ -70,6 +70,30 @@ export default class MegaMenu extends React.Component {
     this.props.updateCurrentSection(sectionTitle);
   }
 
+  convertColumnsIntoArray(menu) {
+    return [
+      menu.menuSections.mainColumn,
+      menu.menuSections.columnOne,
+      menu.menuSections.columnTwo,
+    ].reduce((acc, column) => {
+      acc.push({
+        title: column.title,
+        links: {
+          columnOne: {
+            title: '',
+            links: column.links,
+          },
+          columnTwo: {
+            title: '',
+            links: [],
+          },
+        },
+      });
+
+      return acc;
+    }, []);
+  }
+
   renderMenuSection(key, menu, section) {
     return (
       <MenuSection
@@ -89,27 +113,7 @@ export default class MegaMenu extends React.Component {
 
   getSubmenu(menu) {
     if (this.mobileMediaQuery.matches) {
-      const menuSections = [
-        menu.menuSections.mainColumn,
-        menu.menuSections.columnOne,
-        menu.menuSections.columnTwo,
-      ].reduce((acc, column) => {
-        acc.push({
-          title: column.title,
-          links: {
-            columnOne: {
-              title: '',
-              links: column.links,
-            },
-            columnTwo: {
-              title: '',
-              links: [],
-            },
-          },
-        });
-
-        return acc;
-      }, []);
+      const menuSections = this.convertColumnsIntoArray(menu);
 
       return menuSections.map((section, index) => {
         const key = `${section.title}-${index}`;
@@ -200,18 +204,11 @@ export default class MegaMenu extends React.Component {
   render() {
     return (
       <div className="login-container" {...this.props.display}>
-        <div
-          className="row va-flex"
-          ref={el => {
-            this.menuRef = el;
-          }}
-        >
+        <div className="row va-flex" ref={el => { this.menuRef = el; }}>
           <div id="vetnav" role="navigation">
             <ul id="vetnav-menu">
               <li>
-                <a href="/" className="vetnav-level1">
-                  Home
-                </a>
+                <a href="/" className="vetnav-level1">Home</a>
               </li>
               {this.renderNavbar()}
             </ul>
