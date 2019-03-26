@@ -28,60 +28,6 @@ export default class MegaMenu extends React.Component {
     document.body.removeEventListener('click', this.handleDocumentClick, false);
   }
 
-  getSubmenu(item, currentSection) {
-    if (this.mobileMediaQuery.matches) {
-      const menuSections = [
-        item.menuSections.mainColumn,
-        item.menuSections.columnOne,
-        item.menuSections.columnTwo,
-      ].reduce((acc, column) => {
-        acc.push({
-          title: column.title,
-          links: {
-            columnOne: {
-              title: '',
-              links: column.links,
-            },
-            columnTwo: {
-              title: '',
-              links: [],
-            },
-          },
-        });
-
-        return acc;
-      }, []);
-
-      return menuSections.map((section, i) => (
-        <MenuSection
-          key={`${section}-${i}`}
-          title={section.title}
-          defaultSection={this.defaultSection(item.menuSections)}
-          currentSection={currentSection}
-          updateCurrentSection={() => this.updateCurrentSection(section.title)}
-          links={section.links}
-          linkClicked={this.props.linkClicked}
-          mobileMediaQuery={this.mobileMediaQuery}
-          smallDesktopMediaQuery={this.smallDesktopMediaQuery}
-          columnThreeLinkClicked={this.props.columnThreeLinkClicked}
-        />
-      ));
-    }
-
-    return (
-      <SubMenu
-        data={item.menuSections}
-        navTitle={item.title}
-        handleBackToMenu={() => this.toggleDropDown('')}
-        show={this.props.currentDropdown !== ''}
-        linkClicked={this.props.linkClicked}
-        mobileMediaQuery={this.mobileMediaQuery}
-        smallDesktopMediaQuery={this.smallDesktopMediaQuery}
-        columnThreeLinkClicked={this.props.columnThreeLinkClicked}
-      />
-    );
-  }
-
   defaultSection(sections) {
     if (this.mobileMediaQuery.matches) {
       return '';
@@ -124,42 +70,90 @@ export default class MegaMenu extends React.Component {
     this.props.updateCurrentSection(sectionTitle);
   }
 
-  renderMenuDropdown(item) {
-    const {
-      currentSection,
-      linkClicked,
-      columnThreeLinkClicked,
-    } = this.props;
-
+  renderMenuSection(key, menu, section) {
     return (
-      <ul aria-label={item.title}>
-        {Array.isArray(item.menuSections)
-          ? item.menuSections.map((section, j) => (
-              <MenuSection
-                key={`${section}-${j}`}
-                title={section.title}
-                defaultSection={this.defaultSection(
-                  item.menuSections,
-                )}
-                currentSection={currentSection}
-                updateCurrentSection={() =>
-                  this.updateCurrentSection(section.title)
-                }
-                links={section.links}
-                linkClicked={linkClicked}
-                mobileMediaQuery={this.mobileMediaQuery}
-                smallDesktopMediaQuery={
-                  this.smallDesktopMediaQuery
-                }
-                columnThreeLinkClicked={columnThreeLinkClicked}
-              />
-            ))
-          : this.getSubmenu(item, currentSection)}
-      </ul>
+      <MenuSection
+        key={key}
+        title={section.title}
+        defaultSection={this.defaultSection(menu.menuSections)}
+        currentSection={this.props.currentSection}
+        updateCurrentSection={() => this.updateCurrentSection(section.title)}
+        links={section.links}
+        linkClicked={this.props.linkClicked}
+        mobileMediaQuery={this.mobileMediaQuery}
+        smallDesktopMediaQuery={this.smallDesktopMediaQuery}
+        columnThreeLinkClicked={this.props.columnThreeLinkClicked}
+      />
     );
   }
 
-  renderNavbarItems() {
+  getSubmenu(menu) {
+    if (this.mobileMediaQuery.matches) {
+      const menuSections = [
+        menu.menuSections.mainColumn,
+        menu.menuSections.columnOne,
+        menu.menuSections.columnTwo,
+      ].reduce((acc, column) => {
+        acc.push({
+          title: column.title,
+          links: {
+            columnOne: {
+              title: '',
+              links: column.links,
+            },
+            columnTwo: {
+              title: '',
+              links: [],
+            },
+          },
+        });
+
+        return acc;
+      }, []);
+
+      return menuSections.map((section, index) => {
+        const key = `${section.title}-${index}`;
+        return this.renderMenuSection(key, menu, section)
+      });
+    }
+
+    return (
+      <SubMenu
+        data={menu.menuSections}
+        navTitle={menu.title}
+        handleBackToMenu={() => this.toggleDropDown('')}
+        show={this.props.currentDropdown !== ''}
+        linkClicked={this.props.linkClicked}
+        mobileMediaQuery={this.mobileMediaQuery}
+        smallDesktopMediaQuery={this.smallDesktopMediaQuery}
+        columnThreeLinkClicked={this.props.columnThreeLinkClicked}
+      />
+    );
+  }
+
+  renderMenuWithSideNav(menu) {
+    return menu.menuSections.map((section, j) => {
+      const isPlainLink = !!section.href;
+      const key = `${_.kebabCase(menu.title)}-${j}`;
+
+      if (isPlainLink) {
+        return <a key={key} className="vetnav-level2" href={section.href}>{section.title}</a>;
+      }
+
+      return this.renderMenuSection(key, menu, section);
+    });
+  }
+
+  renderOpenMenu(menu) {
+    const isMenuWithSidebar = Array.isArray(menu.menuSections);
+    const menuContents = isMenuWithSidebar ? this.renderMenuWithSideNav(menu) : this.getSubmenu(menu);
+
+    return (
+      <ul aria-label={menu.title}>{menuContents}</ul>
+    );
+  }
+
+  renderNavbar() {
     const {
       currentDropdown,
       data,
@@ -197,32 +191,7 @@ export default class MegaMenu extends React.Component {
           className="vetnav-panel"
           hidden={currentDropdown !== item.title}
         >
-          {item.title === currentDropdown && item.menuSections && (
-            <ul aria-label={item.title}>
-              {Array.isArray(item.menuSections)
-                ? item.menuSections.map((section, j) => (
-                    <MenuSection
-                      key={`${section}-${j}`}
-                      title={section.title}
-                      defaultSection={this.defaultSection(
-                        item.menuSections,
-                      )}
-                      currentSection={currentSection}
-                      updateCurrentSection={() =>
-                        this.updateCurrentSection(section.title)
-                      }
-                      links={section.links}
-                      linkClicked={linkClicked}
-                      mobileMediaQuery={this.mobileMediaQuery}
-                      smallDesktopMediaQuery={
-                        this.smallDesktopMediaQuery
-                      }
-                      columnThreeLinkClicked={columnThreeLinkClicked}
-                    />
-                  ))
-                : this.getSubmenu(item, currentSection)}
-            </ul>
-          )}
+          {item.title === currentDropdown && item.menuSections && this.renderOpenMenu(item)}
         </div>
       </li>
     ));
@@ -244,7 +213,7 @@ export default class MegaMenu extends React.Component {
                   Home
                 </a>
               </li>
-              {this.renderNavbarItems()}
+              {this.renderNavbar()}
             </ul>
           </div>
         </div>
