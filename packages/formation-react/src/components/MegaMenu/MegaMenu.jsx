@@ -7,12 +7,15 @@ import SubMenu from './SubMenu';
 import _ from 'lodash';
 
 export default class MegaMenu extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.mobileMediaQuery = window.matchMedia('(max-width: 767px)');
     this.smallDesktopMediaQuery = window.matchMedia(
       '(min-width: 768px and max-width: 1007px)',
     );
+  }
 
+  componentDidMount() {
     if (this.mobileMediaQuery.matches) {
       this.props.toggleDisplayHidden(true);
     }
@@ -153,7 +156,7 @@ export default class MegaMenu extends React.Component {
       return this.renderMenuSection(key, menu, section);
     });
 
-  renderOpenMenu = menu => {
+  renderDropdown = menu => {
     const isMenuWithSidebar = Array.isArray(menu.menuSections);
     const menuContents = isMenuWithSidebar
       ? this.renderMenuWithSideNav(menu)
@@ -171,7 +174,7 @@ export default class MegaMenu extends React.Component {
             currentDropdown={this.props.currentDropdown}
             linkClicked={this.props.linkClicked}
             toggleDropDown={this.toggleDropDown}
-            renderOpenMenu={this.renderOpenMenu}
+            renderDropdown={this.renderDropdown}
           />
         </div>
       </div>

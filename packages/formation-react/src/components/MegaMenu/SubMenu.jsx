@@ -29,59 +29,56 @@ const SubMenu = ({
   columnThreeLinkClicked,
 }) => {
   const { seeAllLink, ...columns } = data;
+  const filteredColumns = getColumns(mobileMediaQuery, columns);
 
-  if (show) {
-    const filteredColumns = getColumns(mobileMediaQuery, columns);
-
-    return (
-      <div
-        className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
-        id={id}
-        role="group"
-      >
-        <div>
-          <button
-            className="back-button"
-            aria-controls={`vetnav-${_.kebabCase(navTitle)}`}
-            onClick={() => handleBackToMenu()}
-          >
-            Back to Menu
-          </button>
-        </div>
-
-        {seeAllLink && (
-          <div className="panel-bottom-link">
-            <a
-              href={seeAllLink.href}
-              onClick={linkClicked.bind(null, seeAllLink)}
-            >
-              View all in {seeAllLink.text}
-              <ArrowRightBlueSVG />
-            </a>
-          </div>
-        )}
-
-        {Object.keys(filteredColumns).map(keyName => (
-          <Column
-            key={keyName}
-            data={filteredColumns[keyName]}
-            keyName={keyName}
-            navTitle={navTitle}
-            panelWhite={Object.prototype.hasOwnProperty.call(
-              filteredColumns,
-              'mainColumn',
-            )}
-            linkClicked={linkClicked}
-            mobileMediaQuery={mobileMediaQuery}
-            hidden={keyName === 'columnThree' && smallDesktopMediaQuery.matches}
-            columnThreeLinkClicked={columnThreeLinkClicked}
-          />
-        ))}
+  return (
+    <div
+      hidden={!show}
+      aria-hidden={!show}
+      className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
+      id={id}
+      role="group"
+    >
+      <div>
+        <button
+          className="back-button"
+          aria-controls={`vetnav-${_.kebabCase(navTitle)}`}
+          onClick={() => handleBackToMenu()}
+        >
+          Back to Menu
+        </button>
       </div>
-    );
-  }
 
-  return <div />;
+      {seeAllLink && (
+        <div className="panel-bottom-link">
+          <a
+            href={seeAllLink.href}
+            onClick={linkClicked.bind(null, seeAllLink)}
+          >
+            View all in {seeAllLink.text}
+            <ArrowRightBlueSVG />
+          </a>
+        </div>
+      )}
+
+      {Object.keys(filteredColumns).map(keyName => (
+        <Column
+          key={keyName}
+          data={filteredColumns[keyName]}
+          keyName={keyName}
+          navTitle={navTitle}
+          panelWhite={Object.prototype.hasOwnProperty.call(
+            filteredColumns,
+            'mainColumn',
+          )}
+          linkClicked={linkClicked}
+          mobileMediaQuery={mobileMediaQuery}
+          hidden={keyName === 'columnThree' && smallDesktopMediaQuery.matches}
+          columnThreeLinkClicked={columnThreeLinkClicked}
+        />
+      ))}
+    </div>
+  );
 };
 
 SubMenu.propTypes = {

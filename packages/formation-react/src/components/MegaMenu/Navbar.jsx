@@ -6,7 +6,7 @@ export default function Navbar({
   menus,
   currentDropdown,
   toggleDropDown,
-  renderOpenMenu,
+  renderDropdown,
   linkClicked,
 }) {
   const navbarItems = menus.map((menu, index) => {
@@ -51,8 +51,13 @@ export default function Navbar({
       );
 
       menuContents = (
-        <div id={menuId} hidden={!expanded} className="vetnav-panel">
-          {expanded && menu.menuSections && renderOpenMenu(menu)}
+        <div
+          id={menuId}
+          hidden={!expanded}
+          aria-hidden={!expanded}
+          className="vetnav-panel"
+        >
+          {menu.menuSections && renderDropdown(menu)}
         </div>
       );
     }
