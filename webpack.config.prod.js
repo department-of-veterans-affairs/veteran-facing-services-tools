@@ -1,12 +1,14 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
-const fullCSS = new ExtractTextPlugin('formation.min.css');
+// const fullCSS = new ExtractTextPlugin('formation.min.css');
 
 module.exports = {
   entry: {
     formation: './sass/full.scss',
   },
+  mode: 'production',
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'packages/formation/dist')
@@ -18,13 +20,11 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: fullCSS.extract({
-          fallback: 'style-loader',
           use: [
+            MiniCSSExtractPlugin.loader,
             { loader: 'css-loader', options: { minimize: true } },
             { loader: 'sass-loader' }
           ]
-        })
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -55,6 +55,8 @@ module.exports = {
     ]
   },
   plugins: [
-    fullCSS
+    new MiniCSSExtractPlugin({
+      filename: 'formation.min.csss'
+    })
   ]
 };
