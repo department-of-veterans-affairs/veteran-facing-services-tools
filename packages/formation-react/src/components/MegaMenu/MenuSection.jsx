@@ -46,6 +46,7 @@ class MenuSection extends React.Component {
 
   render() {
     const show = this.getCurrentSection(this.props) === this.props.title;
+    const ariaControls = this.getId(this.props.title);
 
     return (
       <li
@@ -56,14 +57,14 @@ class MenuSection extends React.Component {
         <button
           {...this.state.title}
           className="vetnav-level2"
-          aria-controls={show ? this.getId(this.props.title) : null}
+          aria-controls={ariaControls}
           aria-expanded={show}
           onClick={() => this.updateCurrentSection()}
         >
           {this.props.title}
         </button>
         <SubMenu
-          id={this.getId(this.props.title)}
+          id={ariaControls}
           data={this.props.links}
           navTitle={this.props.title}
           show={show}

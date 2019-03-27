@@ -14,7 +14,7 @@ const data = [
         title: 'Section Title 1',
         links: {
           columnOne: {
-            title: 'Menu Item 1',
+            title: 'Section 1: Menu Item 1',
             links: [
               {
                 text: 'First link',
@@ -23,7 +23,7 @@ const data = [
             ],
           },
           columnTwo: {
-            title: 'Column 2 title',
+            title: 'Section 1: Column 2 title',
             links: [
               {
                 text: 'First link',
@@ -52,7 +52,7 @@ const data = [
         title: 'Section Title 2',
         links: {
           columnOne: {
-            title: 'Menu Item 1',
+            title: 'Section 2: Menu Item 1',
             links: [
               {
                 text: 'First link',
@@ -61,7 +61,7 @@ const data = [
             ],
           },
           columnTwo: {
-            title: 'Column 2 title',
+            title: 'Section 2: Column 2 title',
             links: [
               {
                 text: 'First link',
@@ -195,7 +195,7 @@ describe('<MegaMenu>', () => {
   });
 
   it('should not show dropdown on initial load', () => {
-    expect(megaMenu.find('.vetnav-level2').exists()).to.be.false;
+    expect(megaMenu.find('.vetnav-level2[hidden=true]')).to.exist;
   });
 
   it('should show dropdown if state.currentDropdown is = menu title', () => {
@@ -240,7 +240,7 @@ describe('<MegaMenu>', () => {
         .find('h3')
         .at(0)
         .text(),
-    ).to.equal('Menu Item 1');
+    ).to.equal('Section 1: Menu Item 1');
   });
 
   it('should pass axe check when open', () => {

@@ -21,13 +21,17 @@ const Column = props => {
     hidden,
   } = props;
 
+  const columnClassName = _.kebabCase(keyName);
+  const ariaControls = _.kebabCase(data.title);
+
   if (keyName === 'columnThree') {
     return (
       <div
         aria-hidden={hidden ? 'true' : 'false'}
-        className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(
-          keyName,
-        )}${isPanelWhite(mobileMediaQuery, panelWhite)}`}
+        className={`vetnav-panel vetnav-panel--submenu ${columnClassName}${isPanelWhite(
+          mobileMediaQuery,
+          panelWhite,
+        )}`}
         aria-label={keyName}
       >
         <div
@@ -57,14 +61,15 @@ const Column = props => {
   return (
     <div
       aria-hidden={hidden ? 'true' : 'false'}
-      className={`vetnav-panel vetnav-panel--submenu ${_.kebabCase(
-        keyName,
-      )}${isPanelWhite(mobileMediaQuery, panelWhite)}`}
+      className={`vetnav-panel vetnav-panel--submenu ${columnClassName}${isPanelWhite(
+        mobileMediaQuery,
+        panelWhite,
+      )}`}
     >
-      <h3 id={`vetnav-${_.kebabCase(keyName)}-header`}>{data.title}</h3>
+      <h3 id={`vetnav-${ariaControls}-header`}>{data.title}</h3>
       <ul
-        id={`vetnav-${_.kebabCase(keyName)}-col`}
-        aria-labelledby={`vetnav-${_.kebabCase(keyName)}-header`}
+        id={`vetnav-${ariaControls}-col`}
+        aria-labelledby={`vetnav-${ariaControls}-header`}
       >
         <li className="panel-top-link">{props.children}</li>
 
