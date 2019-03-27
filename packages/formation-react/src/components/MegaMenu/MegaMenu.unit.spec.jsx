@@ -182,7 +182,9 @@ describe('<MegaMenu>', () => {
   });
 
   it('should run toggleDropDown if clicked on', () => {
-    const spy = sinon.spy(megaMenu.instance(), 'toggleDropDown');
+    const spy = sinon.spy();
+
+    megaMenu.setProps({ toggleDropDown: spy })
     megaMenu
       .find('button')
       .first()
