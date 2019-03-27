@@ -183,26 +183,45 @@ export default class MegaMenu extends React.Component {
                     {item.title === currentDropdown && item.menuSections && (
                       <ul aria-label={item.title}>
                         {Array.isArray(item.menuSections)
-                          ? item.menuSections.map((section, j) => (
-                              <MenuSection
-                                key={`${section}-${j}`}
-                                title={section.title}
-                                defaultSection={this.defaultSection(
-                                  item.menuSections,
-                                )}
-                                currentSection={currentSection}
-                                updateCurrentSection={() =>
-                                  this.updateCurrentSection(section.title)
-                                }
-                                links={section.links}
-                                linkClicked={linkClicked}
-                                mobileMediaQuery={this.mobileMediaQuery}
-                                smallDesktopMediaQuery={
-                                  this.smallDesktopMediaQuery
-                                }
-                                columnThreeLinkClicked={columnThreeLinkClicked}
-                              />
-                            ))
+                          ? item.menuSections.map((section, j) => {
+                              const isPlainLink = !!section.href;
+
+                              if (isPlainLink) {
+                                return (
+                                  <a
+                                    key={`${section}-${j}`}
+                                    href={section.href}
+                                    onClick={linkClicked}
+                                    className="vetnav-level2"
+                                  >
+                                    {section.title}
+                                  </a>
+                                );
+                              }
+
+                              return (
+                                <MenuSection
+                                  key={`${section}-${j}`}
+                                  title={section.title}
+                                  defaultSection={this.defaultSection(
+                                    item.menuSections,
+                                  )}
+                                  currentSection={currentSection}
+                                  updateCurrentSection={() =>
+                                    this.updateCurrentSection(section.title)
+                                  }
+                                  links={section.links}
+                                  linkClicked={linkClicked}
+                                  mobileMediaQuery={this.mobileMediaQuery}
+                                  smallDesktopMediaQuery={
+                                    this.smallDesktopMediaQuery
+                                  }
+                                  columnThreeLinkClicked={
+                                    columnThreeLinkClicked
+                                  }
+                                />
+                              );
+                            })
                           : this.getSubmenu(item, currentSection)}
                       </ul>
                     )}
