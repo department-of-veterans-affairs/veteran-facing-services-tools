@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-indent */
 import PropTypes from 'prop-types';
 import React from 'react';
+import Navbar from './Navbar';
 import MenuSection from './MenuSection';
 import SubMenu from './SubMenu';
 import _ from 'lodash';
-import classNames from 'classnames';
 
 export default class MegaMenu extends React.Component {
   componentDidMount() {
@@ -34,6 +34,10 @@ export default class MegaMenu extends React.Component {
     return sections[0].title;
   }
 
+  storeMenuRef = el => {
+    this.menuRef = el;
+  };
+
   handleDocumentClick = event => {
     if (this.props.currentDropdown && !this.menuRef.contains(event.target)) {
       this.props.toggleDropDown('');
@@ -50,7 +54,7 @@ export default class MegaMenu extends React.Component {
     this.props.toggleDropDown('');
   };
 
-  toggleDropDown(title) {
+  toggleDropDown = (title) => {
     if (this.props.currentDropdown === title) {
       this.props.toggleDropDown('');
     } else {
@@ -115,7 +119,7 @@ export default class MegaMenu extends React.Component {
 
       return menuSections.map((section, index) => {
         const key = `${section.title}-${index}`;
-        return this.renderMenuSection(key, menu, section)
+        return this.renderMenuSection(key, menu, section);
       });
     }
 
@@ -133,89 +137,42 @@ export default class MegaMenu extends React.Component {
     );
   }
 
-  renderMenuWithSideNav(menu) {
-    return menu.menuSections.map((section, j) => {
+  renderMenuWithSideNav = menu =>
+    menu.menuSections.map((section, j) => {
       const isPlainLink = !!section.href;
       const key = `${_.kebabCase(menu.title)}-${j}`;
 
       if (isPlainLink) {
-        return <a key={key} className="vetnav-level2" href={section.href}>{section.title}</a>;
+        return (
+          <a key={key} className="vetnav-level2" href={section.href}>
+            {section.title}
+          </a>
+        );
       }
 
       return this.renderMenuSection(key, menu, section);
     });
-  }
 
-  renderOpenMenu(menu) {
+  renderOpenMenu = menu => {
     const isMenuWithSidebar = Array.isArray(menu.menuSections);
-    const menuContents = isMenuWithSidebar ? this.renderMenuWithSideNav(menu) : this.renderPlainMenu(menu);
+    const menuContents = isMenuWithSidebar
+      ? this.renderMenuWithSideNav(menu)
+      : this.renderPlainMenu(menu);
 
-    return (
-      <ul aria-label={menu.title}>{menuContents}</ul>
-    );
-  }
-
-  renderNavbar() {
-    const {
-      currentDropdown,
-      data: menus,
-      linkClicked,
-    } = this.props;
-
-    return menus.map((menu, index) => {
-      const kebabTitle = _.kebabCase(menu.title);
-      const key = `${kebabTitle}-${index}`;
-      const liClass = classNames(menu.className, { 'current-page': menu.currentPage });
-      const isPlainLink = !!menu.href;
-
-      let navbarLink = null;
-      let menuContents = null;
-
-      if (isPlainLink) {
-        navbarLink = (
-          <a href={menu.href} target={menu.target || null} onClick={linkClicked.bind(null, menu)} className="vetnav-level1">
-            {menu.title}
-          </a>
-        );
-      } else {
-        const expanded = currentDropdown === menu.title;
-        const menuId = `vetnav-${kebabTitle}`;
-        const onClick = () => this.toggleDropDown(menu.title);
-
-        navbarLink = (
-          <button aria-expanded={expanded} aria-controls={menuId} className="vetnav-level1" onClick={onClick}>
-            {menu.title}
-          </button>
-        );
-
-        menuContents = (
-          <div id={menuId} hidden={!expanded} className="vetnav-panel">
-            {expanded && menu.menuSections && this.renderOpenMenu(menu)}
-          </div>
-        );
-      }
-
-      return (
-        <li key={key} className={liClass}>
-          {navbarLink}
-          {menuContents}
-        </li>
-      );
-    });
-  }
+    return <ul aria-label={menu.title}>{menuContents}</ul>;
+  };
 
   render() {
     return (
       <div className="login-container" {...this.props.display}>
-        <div className="row va-flex" ref={el => { this.menuRef = el; }}>
-          <div id="vetnav" role="navigation">
-            <ul id="vetnav-menu">
-              <li>
-                <a href="/" className="vetnav-level1">Home</a>
-              </li>
-              {this.renderNavbar()}
-            </ul>
-          </div>
+        <div className="row va-flex" ref={this.storeMenuRef}>
+          <Navbar
+            menus={this.props.data}
+            currentDropdown={this.props.currentDropdown}
+            linkClicked={this.props.linkClicked}
+            toggleDropDown={this.toggleDropDown}
+            renderOpenMenu={this.renderOpenMenu}
+          />
         </div>
       </div>
     );
