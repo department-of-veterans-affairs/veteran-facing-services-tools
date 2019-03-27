@@ -9,10 +9,14 @@ import _ from 'lodash';
 export default class MegaMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.mobileMediaQuery = window.matchMedia('(max-width: 767px)');
-    this.smallDesktopMediaQuery = window.matchMedia(
-      '(min-width: 768px and max-width: 1007px)',
-    );
+
+    // Necessary for Gatsby, https://github.com/gatsbyjs/gatsby/issues/309#issuecomment-223360361
+    if (window) {
+      this.mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+      this.smallDesktopMediaQuery = window.matchMedia(
+        '(min-width: 768px and max-width: 1007px)',
+      );
+    }
   }
 
   componentDidMount() {
