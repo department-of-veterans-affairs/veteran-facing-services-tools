@@ -11,7 +11,7 @@ export default class MegaMenu extends React.Component {
     super(props);
 
     // Necessary for Gatsby, https://github.com/gatsbyjs/gatsby/issues/309#issuecomment-223360361
-    if (window) {
+    if (typeof window !== 'undefined') {
       this.mobileMediaQuery = window.matchMedia('(max-width: 767px)');
       this.smallDesktopMediaQuery = window.matchMedia(
         '(min-width: 768px and max-width: 1007px)',
