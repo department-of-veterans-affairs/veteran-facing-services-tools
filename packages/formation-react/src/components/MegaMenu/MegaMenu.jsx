@@ -54,13 +54,13 @@ export default class MegaMenu extends React.Component {
     this.props.toggleDropDown('');
   };
 
-  toggleDropDown = (title) => {
+  toggleDropDown = title => {
     if (this.props.currentDropdown === title) {
       this.props.toggleDropDown('');
     } else {
       this.props.toggleDropDown(title);
     }
-  }
+  };
 
   updateCurrentSection(title) {
     let sectionTitle = title;

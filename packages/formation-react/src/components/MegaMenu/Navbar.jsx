@@ -2,11 +2,19 @@ import React from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 
-export default function Navbar({ menus, currentDropdown, toggleDropDown, renderOpenMenu, linkClicked }) {
+export default function Navbar({
+  menus,
+  currentDropdown,
+  toggleDropDown,
+  renderOpenMenu,
+  linkClicked,
+}) {
   const navbarItems = menus.map((menu, index) => {
     const kebabTitle = _.kebabCase(menu.title);
     const key = `${kebabTitle}-${index}`;
-    const liClass = classNames(menu.className, { 'current-page': menu.currentPage });
+    const liClass = classNames(menu.className, {
+      'current-page': menu.currentPage,
+    });
     const isPlainLink = !!menu.href;
 
     let navbarLink = null;
@@ -17,7 +25,12 @@ export default function Navbar({ menus, currentDropdown, toggleDropDown, renderO
       const onClick = linkClicked.bind(null, menu);
 
       navbarLink = (
-        <a href={menu.href} target={target} onClick={onClick} className="vetnav-level1">
+        <a
+          href={menu.href}
+          target={target}
+          onClick={onClick}
+          className="vetnav-level1"
+        >
           {menu.title}
         </a>
       );
@@ -27,7 +40,12 @@ export default function Navbar({ menus, currentDropdown, toggleDropDown, renderO
       const toggleMenu = () => toggleDropDown(menu.title);
 
       navbarLink = (
-        <button onClick={toggleMenu} aria-expanded={expanded} aria-controls={menuId} className="vetnav-level1">
+        <button
+          onClick={toggleMenu}
+          aria-expanded={expanded}
+          aria-controls={menuId}
+          className="vetnav-level1"
+        >
           {menu.title}
         </button>
       );
@@ -51,7 +69,9 @@ export default function Navbar({ menus, currentDropdown, toggleDropDown, renderO
     <div id="vetnav" role="navigation">
       <ul id="vetnav-menu">
         <li>
-          <a href="/" className="vetnav-level1">Home</a>
+          <a href="/" className="vetnav-level1">
+            Home
+          </a>
         </li>
         {navbarItems}
       </ul>
