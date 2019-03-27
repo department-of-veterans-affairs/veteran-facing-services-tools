@@ -259,6 +259,7 @@ body.va-pos-fixed {
   text-align: left;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  line-height: 1;
 
   @include media($medium-large-screen) {
     background: transparent url(/img/arrow-right.svg) right 1rem center
