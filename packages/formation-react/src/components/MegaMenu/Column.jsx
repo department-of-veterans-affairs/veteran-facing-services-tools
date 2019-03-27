@@ -22,7 +22,7 @@ const Column = props => {
   } = props;
 
   const columnClassName = _.kebabCase(keyName);
-  const ariaControls = _.kebabCase(data.title);
+  const ariaLabelledBy = _.kebabCase(data.title);
 
   if (keyName === 'columnThree') {
     return (
@@ -66,10 +66,10 @@ const Column = props => {
         panelWhite,
       )}`}
     >
-      <h3 id={`vetnav-${ariaControls}-header`}>{data.title}</h3>
+      <h3 id={`vetnav-${ariaLabelledBy}-header`}>{data.title}</h3>
       <ul
-        id={`vetnav-${ariaControls}-col`}
-        aria-labelledby={`vetnav-${ariaControls}-header`}
+        id={`vetnav-${ariaLabelledBy}-col`}
+        aria-labelledby={`vetnav-${ariaLabelledBy}-header`}
       >
         <li className="panel-top-link">{props.children}</li>
 
