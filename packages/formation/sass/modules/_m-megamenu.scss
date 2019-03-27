@@ -70,7 +70,10 @@ $marketing-container-height: 380px;
   }
 
   .vetnav-level1 {
-    &:active, &:visited, &:focus, &:hover {
+    &:active,
+    &:visited,
+    &:focus,
+    &:hover {
       color: $color-white;
     }
   }
@@ -90,7 +93,7 @@ $marketing-container-height: 380px;
       white-space: normal;
 
       h3 {
-        display: initial;
+        display: block;
         color: $color-black;
         font-family: Source Sans Pro, sans serif;
         font-size: 1.6rem;
@@ -104,14 +107,17 @@ $marketing-container-height: 380px;
       }
     }
 
-    .vetnav-level1[aria-expanded="true"] {
+    .vetnav-level1[aria-expanded='true'] {
       border-top-color: $color-va-accent;
-      &:active, &:visited, &:focus, &:hover {
+      &:active,
+      &:visited,
+      &:focus,
+      &:hover {
         color: $color-base;
       }
     }
 
-    .vetnav-level2[aria-expanded="true"] {
+    .vetnav-level2[aria-expanded='true'] {
       box-shadow: -3px 0 $color-va-accent;
     }
 
@@ -248,7 +254,8 @@ $marketing-container-height: 380px;
     }
   }
 
-  #vetnav-menu, #vetnav {
+  #vetnav-menu,
+  #vetnav {
     margin-top: 0;
   }
 
@@ -267,7 +274,6 @@ $marketing-container-height: 380px;
       margin-top: 5px;
     }
   }
-
 
   @include media($medium-large-screen) {
     .current-page {
@@ -319,7 +325,6 @@ $marketing-container-height: 380px;
         }
       }
     }
-
   }
 
   @include media($small-desktop-screen) {

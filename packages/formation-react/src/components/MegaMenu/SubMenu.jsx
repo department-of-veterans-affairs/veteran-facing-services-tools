@@ -21,6 +21,7 @@ const SubMenu = ({
   mobileMediaQuery,
   smallDesktopMediaQuery,
   data,
+  id,
   show,
   navTitle,
   handleBackToMenu,
@@ -35,6 +36,8 @@ const SubMenu = ({
     return (
       <div
         className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
+        id={id}
+        role="group"
       >
         <div>
           <button

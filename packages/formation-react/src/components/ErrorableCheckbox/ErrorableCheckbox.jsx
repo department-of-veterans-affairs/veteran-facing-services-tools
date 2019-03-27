@@ -8,7 +8,7 @@ class ErrorableCheckbox extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.inputId = _.uniqueId('errorable-checkbox-');
   }
 
@@ -51,7 +51,6 @@ class ErrorableCheckbox extends React.Component {
           </span>
         )}
         <input
-          autoComplete="false"
           aria-describedby={errorSpanId}
           checked={this.props.checked}
           id={this.inputId}

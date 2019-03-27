@@ -24,6 +24,6 @@
         "window-or-global": "^1.0.1"
     },
     "scripts": {
-        "postinstall" : "cp .eslintrc $INIT_CWD && cp .eslintignore $INIT_CWD && cp .prettierrc $INIT_CWD"
+        "postinstall": "cp .eslintrc $INIT_CWD && cp .eslintignore $INIT_CWD && cp .prettierrc $INIT_CWD"
     }
 }
