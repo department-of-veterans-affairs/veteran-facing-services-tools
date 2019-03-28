@@ -27,7 +27,7 @@
   },
   "rules": {
     // Override airbnb style.
-    "camelcase": [2, { "properties": "always" }],
+    "camelcase": [2, {"allow": ["UNSAFE_componentWillMount"]}],
     "va-enzyme/unmount": 2,
     "func-names": 2,
     "import/no-extraneous-dependencies": 0,
@@ -81,30 +81,46 @@
     "class-methods-use-this": 0,
     "global-require": 0,
     "lines-around-directive": 0,
+    "no-else-return": 0,
     "no-mixed-operators": 0,
     "no-undef-init": 0,
     "padded-blocks": 0,
     "import/extensions": 0,
     "import/first": 0,
     "import/no-named-as-default": 0,
+    "import/order": 0,
     "import/prefer-default-export": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
     "jsx-a11y/no-static-element-interactions": 0,
+    "lines-between-class-members": 0,
+    "prefer-destructuring": 0,
+    "react/button-has-type": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/destructuring-assignment": 0,
     "react/forbid-prop-types": 0,
+    "react/jsx-curly-brace-presence": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-first-prop-new-line": 0,
     "react/jsx-indent-props": 0,
     "react/jsx-max-props-per-line": 0,
+    "react/jsx-one-expression-per-line": 0,
     "react/jsx-no-bind": [0, { "ignoreRefs": true }], // TODO: Enable after fixing.
     "react/jsx-no-target-blank": 2,
     "react/jsx-sort-props": [
       0,
       { "callbacksLast": true, "shorthandFirst": true }
     ], // TODO(awong): Too hard to turn on.
+    "react/jsx-wrap-multilines": 0,
+    "react/no-access-state-in-setstate": 0,
     "react/no-array-index-key": 0,
     "react/no-unescaped-entities": 0,
     "react/no-unused-prop-types": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/sort-comp": 0
   },
   "overrides": [
     {
