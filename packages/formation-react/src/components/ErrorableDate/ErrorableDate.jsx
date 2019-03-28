@@ -25,7 +25,7 @@ class ErrorableDate extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.id = _.uniqueId('date-input-');
   }
 
@@ -99,7 +99,6 @@ class ErrorableDate extends React.Component {
             <div className="form-datefield-month">
               <ErrorableSelect
                 errorMessage={isValid ? undefined : ''}
-                autocomplete="false"
                 label="Month"
                 name={`${this.props.name}Month`}
                 options={months}
@@ -112,7 +111,6 @@ class ErrorableDate extends React.Component {
             <div className="form-datefield-day">
               <ErrorableSelect
                 errorMessage={isValid ? undefined : ''}
-                autocomplete="false"
                 label="Day"
                 name={`${this.props.name}Day`}
                 options={daysForSelectedMonth}
@@ -125,7 +123,6 @@ class ErrorableDate extends React.Component {
             <div className="usa-datefield usa-form-group usa-form-group-year">
               <ErrorableNumberInput
                 errorMessage={isValid ? undefined : ''}
-                autocomplete="false"
                 label="Year"
                 name={`${this.props.name}Year`}
                 max={moment()

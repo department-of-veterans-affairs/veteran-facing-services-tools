@@ -30,7 +30,7 @@ class ErrorableRadioButtons extends React.Component {
     this.getMatchingSubSection = this.getMatchingSubSection.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.inputId = this.props.id || _.uniqueId('errorable-radio-buttons-');
   }
 
@@ -101,7 +101,6 @@ class ErrorableRadioButtons extends React.Component {
         >
           <div className="errorable-radio-button">
             <input
-              autoComplete="false"
               checked={checked}
               id={`${this.inputId}-${optionIndex}`}
               name={this.props.name}
@@ -116,7 +115,7 @@ class ErrorableRadioButtons extends React.Component {
               name={`${this.props.name}-${optionIndex}-label`}
               htmlFor={`${this.inputId}-${optionIndex}`}
             >
-              >{optionLabel}
+              {optionLabel}
             </label>
             {matchingSubSection}
             {option.content}
