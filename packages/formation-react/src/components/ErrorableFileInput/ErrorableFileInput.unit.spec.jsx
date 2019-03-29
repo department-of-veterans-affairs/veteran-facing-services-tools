@@ -55,7 +55,9 @@ describe('<ErrorableFileInput>', () => {
   });
 
   it('passes aXe check', () => {
-    const check = axeCheck(<ErrorableFileInput buttonText="my label" />, ['aria-allowed-role']);
+    const check = axeCheck(<ErrorableFileInput buttonText="my label" />, [
+      'aria-allowed-role',
+    ]);
     return check;
   });
 });
