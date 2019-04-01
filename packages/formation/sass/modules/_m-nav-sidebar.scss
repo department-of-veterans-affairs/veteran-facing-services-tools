@@ -291,12 +291,12 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       }
 
       &[aria-expanded=false] {
-        background-image: url(../assets/img/plus-blue.svg);
+        background-image: url('#{$formation-image-path}/plus-blue.svg');
       }
 
       &[aria-expanded=true] {
         border-bottom: 0;
-        background-image: url(../assets/img/minus-blue.svg);
+        background-image: url('#{$formation-image-path}/minus-blue.svg');
 
         &:focus {
           border: 2px solid $color-gold;

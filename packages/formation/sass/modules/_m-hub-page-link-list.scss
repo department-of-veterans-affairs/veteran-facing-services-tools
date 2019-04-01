@@ -10,7 +10,7 @@
       &:hover, &:focus {
         .all-link-arrow {
           margin-left: 10px;
-          content: url("../assets/img/arrow-right.svg");
+          content: url("#{$formation-image-path}/arrow-right.svg");
         }
         .hub-page-link-list__header {
           text-decoration: underline;

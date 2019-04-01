@@ -3,7 +3,7 @@
 
   .loading-indicator {
     min-height: 8em;
-    background: url(../assets/img/loading-state.svg) center center no-repeat;
+    background: url('#{$formation-image-path}/loading-state.svg') center center no-repeat;
     background-size: contain;
     text-align: center;
     &:focus {
