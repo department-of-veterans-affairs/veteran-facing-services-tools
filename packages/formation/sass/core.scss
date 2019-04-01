@@ -28,7 +28,7 @@
 @import "~uswds/src/stylesheets/core/grid";
 @import "~uswds/src/stylesheets/core/utilities";
 
-// Here so that we can override USWDS mixins.
+// VA mixins. Here so that we can override USWDS mixins.
 // Specifically, the "focus" mixin.
 @import "base/b-mixins";
 
@@ -50,7 +50,6 @@
 
 // ----- VA BASE (VARIABLES/HELPERS) ---- //
 @import "base/b-element-overrides";
-// @import "base/b-mixins";
 @import "base/b-functions";
 @import "base/b-utils";
 @import "base/b-font-faces";
