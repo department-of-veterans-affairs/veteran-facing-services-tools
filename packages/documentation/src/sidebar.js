@@ -65,6 +65,10 @@ module.exports = {
               name: 'Add Graphs to MDX',
               href: 'getting-started/common-tasks/add-graphs-to-mdx',
             },
+            {
+              name: 'Creating A Gatsby Plugin',
+              href: 'getting-started/common-tasks/creating-gatsby-plugins',
+            },
           ],
         },
         {

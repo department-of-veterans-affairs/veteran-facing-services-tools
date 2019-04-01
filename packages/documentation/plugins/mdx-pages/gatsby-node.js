@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require('path')
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({node, getNode, actions }) => {
   const { createNodeField } = actions;
   const parent = getNode(node.parent);
 
@@ -32,34 +32,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(
-    `
-      {
-        allMdx(filter: { frontmatter: { name: { ne: null } } }) {
-          edges {
-            node {
-              id
-              frontmatter {
-                title
+    `{
+      allMdx(filter: {
+        frontmatter: {
+          name: {
+            ne: null
+          }
+        }
+      }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              name
+            }
+            parent {
+              ... on File {
                 name
-              }
-              parent {
-                ... on File {
-                  name
-                  sourceInstanceName
-                }
-              }
-              code {
-                scope
               }
             }
           }
         }
       }
-    `,
+    }`
   );
 
   if (result.errors) {
-    console.error(result.errors); // eslint-disable-line no-console
+    console.error(result.errors);
     throw new Error('Error querying for custom pages');
   }
 
