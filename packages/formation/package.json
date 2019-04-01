@@ -27,8 +27,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
     "foundation-sites": "5",
-    "moment": "^2.23.0",
-    "rimraf": "^2.6.3"
+    "moment": "^2.23.0"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
