@@ -88,7 +88,7 @@
 }
 
 @mixin focus-gold-light-outline($offset: 2) {
-  outline: 2px solid $color-gold-light;
+  outline: $focus-outline;
   outline-offset: #{$offset}px;
 }
 
