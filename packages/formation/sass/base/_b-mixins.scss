@@ -98,6 +98,10 @@
   outline-offset: 0;
 }
 
+@mixin focus {
+  @include focus-gold-light-outline;
+}
+
 @mixin linear-gradient-background($from, $to) {
   background: $from; /* Old browsers */
   background: -moz-linear-gradient(top, $from 0%, $to 63%); /* FF3.6-15 */
