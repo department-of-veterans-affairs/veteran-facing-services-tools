@@ -68,8 +68,8 @@ module.exports = {
           ],
         },
         {
-          name: 'Code organization',
-          items: [],
+          name: 'Bundes and Code organization',
+          href: 'getting-started/bundles-and-code-organization',
         },
         {
           name: 'Standards and conventions',
