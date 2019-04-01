@@ -1,10 +1,8 @@
 const path = require('path');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-// const fullCSS = new ExtractTextPlugin('formation.min.css');
 
 module.exports = {
   entry: {
