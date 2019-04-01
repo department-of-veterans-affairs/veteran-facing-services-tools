@@ -77,7 +77,7 @@ module.exports = {
     }), // extracts css into separate file
     new CleanWebpackPlugin(), // cleans output directory before build
     new CopyPlugin([
-      { from: './assets', to: './' },
+      { from: './assets', to: './assets' },
     ]) // copies assets to dist directory during build
   ]
 };

@@ -5,7 +5,7 @@
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 $font-path: "~uswds/src/fonts";
 $image-path: "~uswds/src/img";
-$formation-asset-path: '../assets';
+$formation-asset-path: '../assets' !default;
 $formation-image-path: "#{$formation-asset-path}/img" !default;
 $formation-font-path: "#{$formation-asset-path}/fonts" !default;
 @import "core";
