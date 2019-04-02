@@ -2,17 +2,13 @@ const path = require('path');
 const githubApi = require('./github-api');
 const githubPages = require('./github-pages.json');
 
-exports.sourceNodes = async ({
-  actions,
-  getNode,
-  hasNodeChanged,
-}) => {
+exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
   await githubApi.getPagesAndCreateNodes(githubPages, createNode);
 };
 
-exports.onCreateNode = ({node, getNode, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   const parent = getNode(node.parent);
 
@@ -43,28 +39,24 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const result = await graphql(
-    `{
-      allMarkdownRemark(filter: {
-        fields: {
-          slug: {
-            ne: "undefined"
-          }
-        }
-      }) {
-        edges {
-          node {
-            id
-            fields {
-              slug
+    `
+      {
+        allMarkdownRemark(filter: { fields: { slug: { ne: "undefined" } } }) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }`
+    `,
   );
 
   if (result.errors) {
-    console.error(result.errors);
+    console.error(result.errors); // eslint-disable-line no-console
     throw new Error('Error querying for custom pages');
   }
 
