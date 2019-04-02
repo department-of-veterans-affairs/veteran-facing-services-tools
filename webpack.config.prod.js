@@ -33,7 +33,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'assets/img/'
+            outputPath: 'img/'
           }
         }
       },
@@ -45,14 +45,14 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/fonts/'
+              outputPath: 'fonts/'
             }
           },
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/img'
+              outputPath: 'img/'
             }
           }
         ]
@@ -63,7 +63,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'assets/fonts/'
+            outputPath: 'fonts/'
           }
         }
       }
@@ -75,7 +75,8 @@ module.exports = {
     }), // extracts css into separate file
     new CleanWebpackPlugin(), // cleans output directory before build
     new CopyPlugin([
-      { from: './assets', to: './assets' },
+      { from: './assets/img', to: './img' },
+      { from: './assets/fonts', to: './fonts' },
     ]) // copies assets to dist directory during build
   ]
 };
