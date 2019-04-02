@@ -1,0 +1,15 @@
+---
+title: Environments
+---
+
+# Environments
+
+There are four environments for va.gov; one is when the site is running on a local developer's machine, and the other three are shared environments that are accessible publicly. These three public environments have changes to them deployed automatically. Additionally, the latest changes on all pull requests are automatically deployed to a review instance, which is a custom environment based on the shared dev environment. Each of these deployments is connected with services within the VA to facilitate testing, except for the dev API environment, which largely uses mock data in lieu of connecting to internal VA services.
+
+| Environment | url | api url | buildtype | NODE_ENV | Deployments |
+| ----------- | -------- | ------------ | --------- | -------- | ----------- |
+| localhost | http://localhost:3001 | http://localhost:3000 | localhost | | |
+| development | https://dev.va.gov | https://dev-api.va.gov | vagovdev | | After a merge to master |
+| staging | https://staging.va.gov | https://staging-api.va.gov | vagovstaging | production | After a merge to master |
+| production | https://www.va.gov | https://api.va.gov | vagovprod | production | Daily, Monday - Friday |
+

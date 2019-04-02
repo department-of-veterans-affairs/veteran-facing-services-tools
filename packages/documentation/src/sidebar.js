@@ -6,15 +6,19 @@ module.exports = {
       href: 'getting-started',
       items: [
         {
-          name: 'Environment setup',
+          name: 'Start up guide',
           items: [
             {
               name: 'Set up VA.gov locally',
               href: 'getting-started',
             },
             {
-              name: 'Internal Tools',
+              name: 'Accessing internal tools',
               href: 'getting-started/internal-tools',
+            },
+            {
+              name: 'VA.gov environments',
+              href: 'getting-started/working-on-va-gov/environments',
             },
           ],
         },
