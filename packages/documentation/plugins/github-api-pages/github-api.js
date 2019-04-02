@@ -6,32 +6,7 @@ const github = new GithubGraphQLApi({
   token: process.env.GITHUB_API_KEY,
 });
 
-const getPagesAndCreateNodes = async (pages, createNode) => {
-  return await Promise.all(pages.directoryPaths.map(async dir => {
-    if (path.extname(dir)) {
-      return await getPageAndCreateNode (
-        {
-          ...pages,
-          dir,
-        },
-        createNode,
-      );
-    }
-
-    return await getDirectoryAndCreateNode (
-      {
-        ...pages,
-        dir,
-      },
-      createNode,
-    );
-  }));
-}
-
-const getDirectoryAndCreateNode = async (
-  { owner, repo, dir },
-  createNode,
-) => {
+const getDirectoryAndCreateNode = async ({ owner, repo, dir }, createNode) => {
   const result = await github.query(`
     {
       repository(owner: "${owner}" , name: "${repo}"){
@@ -129,8 +104,31 @@ const getPageAndCreateNode = async ({ owner, repo, dir }, createNode) => {
   });
 };
 
+const getPagesAndCreateNodes = async (pages, createNode) =>
+  Promise.all(
+    pages.directoryPaths.map(async dir => {
+      if (path.extname(dir)) {
+        return getPageAndCreateNode(
+          {
+            ...pages,
+            dir,
+          },
+          createNode,
+        );
+      }
+
+      return getDirectoryAndCreateNode(
+        {
+          ...pages,
+          dir,
+        },
+        createNode,
+      );
+    }),
+  );
+
 module.exports = {
   getPageAndCreateNode,
   getDirectoryAndCreateNode,
   getPagesAndCreateNodes,
-}
+};
