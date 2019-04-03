@@ -20,10 +20,10 @@ const loadAccordianHandler = function(){
 };
 
 if (
-    document.readyState === "complete" ||
-    (document.readyState !== "loading" && !document.documentElement.doScroll)
+    document.readyState === 'complete' ||
+    (document.readyState !== 'loading' && !document.documentElement.doScroll)
 ) {
   loadAccordianHandler();
 } else {
-  document.addEventListener("DOMContentLoaded", loadAccordianHandler);
+  document.addEventListener('DOMContentLoaded', loadAccordianHandler);
 }
