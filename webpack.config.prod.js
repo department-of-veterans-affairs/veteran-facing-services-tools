@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const fullCSS = new ExtractTextPlugin('formation.min.css');
@@ -6,6 +7,9 @@ const fullCSS = new ExtractTextPlugin('formation.min.css');
 module.exports = {
   entry: {
     formation: './sass/full.scss',
+  },
+  entry: {
+    formation: glob.sync('./js/**/*.js'),
   },
   output: {
     filename: '[name].js',
