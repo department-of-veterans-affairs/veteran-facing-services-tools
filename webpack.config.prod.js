@@ -10,6 +10,7 @@ module.exports = {
     formation: './sass/full.scss',
   },
   entry: {
+    formationCSS: './sass/full.scss',
     formation: glob.sync('./js/**/*.js'),
   },
   mode: 'production',
