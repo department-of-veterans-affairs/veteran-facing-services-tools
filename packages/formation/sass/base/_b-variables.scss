@@ -241,3 +241,11 @@ $units:(
 // Grid columns
 //===================================
 $grid-columns: 12 !default;
+
+
+//====================================
+// Asset path overrides
+//===================================
+$formation-asset-path: '../assets' !default;
+$formation-image-path: "#{$formation-asset-path}/img" !default;
+$formation-font-path: "#{$formation-asset-path}/fonts" !default;
