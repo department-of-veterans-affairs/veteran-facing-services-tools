@@ -119,7 +119,8 @@ module.exports = {
             },
             {
               name: 'Documented Decisions',
-              href: 'architecture/front-end-standards/documented-decisions/summary',
+              href:
+                'architecture/front-end-standards/documented-decisions/summary',
             },
           ],
         },
