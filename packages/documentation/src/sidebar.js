@@ -105,9 +105,11 @@ module.exports = {
         },
         {
           name: 'Visual regression testing',
+          href: 'architecture/visual-regression-testing',
         },
         {
           name: 'Teamsite',
+          href: 'architecture/teamsite',
         },
       ],
     },
