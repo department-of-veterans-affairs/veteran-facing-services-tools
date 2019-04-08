@@ -18,11 +18,15 @@ module.exports = {
             },
             {
               name: 'VA.gov environments',
-              href: 'getting-started/working-on-va-gov/environments',
+              href: 'getting-started/environments',
             },
             {
               name: 'Development workflow',
               href: 'getting-started/workflow',
+            },
+            {
+              name: 'Bundes and Code organization',
+              href: 'getting-started/bundles-and-code-organization',
             },
           ],
         },
@@ -80,15 +84,7 @@ module.exports = {
           ],
         },
         {
-          name: 'Bundes and Code organization',
-          href: 'getting-started/bundles-and-code-organization',
-        },
-        {
           name: 'Standards and conventions',
-          items: [],
-        },
-        {
-          name: 'Development workflow',
           items: [],
         },
       ],

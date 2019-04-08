@@ -2,8 +2,6 @@
   "owner": "department-of-veterans-affairs",
   "repo": "vets.gov-team",
   "directoryPaths": [
-    "Work Practices/Accessibility and 508",
-    "Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md",
     "Work Practices/Engineering/Writing_Small_PRs.md",
     "Work Practices/Engineering/Code Review Norms.md"
   ]
