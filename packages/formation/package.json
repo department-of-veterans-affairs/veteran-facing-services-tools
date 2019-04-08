@@ -19,7 +19,8 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
-    "prepare": "node ./scripts/build.js"
+    "prepare": "node ./scripts/build.js",
+    "test": "jest"
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
@@ -27,7 +28,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
     "foundation-sites": "5",
-    "moment": "^2.23.0"
+    "jest": "^24.7.1",
+    "jsdom": "^14.0.0",
+    "moment": "^2.23.0",
+    "node-sass": "^4.11.0"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
