@@ -20,6 +20,10 @@ module.exports = {
               name: 'VA.gov environments',
               href: 'getting-started/working-on-va-gov/environments',
             },
+            {
+              name: 'Development workflow',
+              href: 'getting-started/workflow',
+            },
           ],
         },
         {

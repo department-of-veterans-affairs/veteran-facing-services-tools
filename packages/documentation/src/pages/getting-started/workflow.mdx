@@ -15,7 +15,7 @@ When the last step is performed, the developer begins this process anew with ano
 
 The workflow that we use closely resembles [GitHub Flow](https://guides.github.com/introduction/flow/).
 
-## Choosing an issue to work on
+## Choose an issue to work on
 
 The VA handbook has more information about the broader process for delivering services to Veterans on VA.gov. Developers work in an agile framework, where issues are assigned to sprints and developers work on this items over the two-week sprint period. You'll need to work with your team to determine the right issue for you to work on.
 
@@ -57,25 +57,18 @@ Depending on the type of work done, you may need a product person to review and 
 
 Once your pull request has been submitted, move the ticket and with the connected PR into the Validate column to indicate it's ready for review.
 
-## Run unit tests and compliance scans
+## Run tests and compliance scans
 
-Unit tests for pre-existing functionality and your new tests will get executed. This will tell you if you've broken any existing functionality and if your tests execute within a non-local environment. If things fail, the test run will give you context on what broke and what needs to get fixed.
+Tests for pre-existing functionality and your new tests will be executed by Jenkins when you push your branch to Github. You can see the results in your PR, which will tell you if you've broken any existing functionality and if your tests execute within a non-local environment. If things fail, the test run will give you context on what broke and what needs to get fixed. All tests, including accessibility and end to end tests are run for each branch.
 
-Because these tests are isolated to small chunks (units), these tests should execute quickly and modularly such that you have a rapid litmus tests for if your code has broken existing functionality. This increases confidence that your new code has not broken anything.
+In addition to tests, other static checks are run:
 
-In addition to traditional unit tests, several compliance scans will run. These are essentially static code analysis tools that can detect issues with the code base. Here are things that need to be run examples:
-
-- Security: This scans a code base for common security problems.
-- Code Coverage: An automated testing suite can only reliably tell you if your app is still working after changes if enough of it is covered by automated tests. A code coverage scanner makes sure xx% of the application is always covered.
+- Security: The current set of npm dependencies are checked for security vulnerabilities
 - Linting: This checks your code for clean style or easy to catch syntactic errors. This helps make the code more maintainable by helping make the code itself idiomatic and consistent looking across modules.
-
-Note that integration tests and 508 compliance tests are not run during this phase, but are run in a later process during the [Deployment Process](Deployment Process.md).
 
 ## Test and peer review code
 
-This is an often ignored step, but is **EXTREMELY** important and catches a large number of issues if performed fully. You can think of this in two parts (below). Both are to be performed by someone other than the developer(s) of the new feature.
-
-The below phases may involve back and forth responding to feedback, where the developer is committing updates and then performing the part again.
+While the PR is open, both code review and manual testing an occur. Depending on the ttype of change, you may need a product or UX person to do manual testing. And we always have developers do code review on PRs
 
 ### Testing
 
@@ -88,26 +81,11 @@ This can involve some separate things:
 
 ### Code Review
 
-Every pull request comes with an attached diff to see what's new. Look for things like:
+See our team's [code review norms](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md) for details on how code review work and what needs to be checked.
 
-- Is the code understandable/legible?
-- Is the code idiomatic?
-- Are there any security problems with the implementation?
-- Are there any performance issues?
-- Does this duplicate functionality elsewhere? Does it make use of libraries/frameworks when possible?
-- Are errors handled?
-- Do the tests adequately cover the new code?
-- Is there documentation for any new setup/configuration steps?
-
-Also see our team's [code review norms](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md) for more details.
-
-## Merge code to stable code base
+## Merge code to master
 
 After all feedback from testing and code review is responded to and the developer and reviewer are in agreement that the code is satisfactory (including re-running automated tests and needing them to pass), it's time to merge the code from its feature branch into the `master` branch.
-
-## Additional Steps for Third Party Contributions
-
-Being an Open Source project there is also a possibility that the above steps will be done by a third party. Because we limit the testing infrastructure to only executing tests on internal branches there are a few additional steps that must take place to incorporate these changes into our CI pipeline. 
 
 After all tests and peer review has been completed a member of the team will need to create a branch and manually merge in the proposed changes. They will then need to close the original PR and create a new PR from their branch. This will allow the testing infrastructure to trigger automated testing on the propsed work. Once that testing in complete a second internal team member will be required to approve the work and merge it into the `master` branch
 
