@@ -108,6 +108,7 @@ module.exports = {
         },
         {
           name: 'Teamsite',
+          href: 'architecture/teamsite',
         },
       ],
     },
