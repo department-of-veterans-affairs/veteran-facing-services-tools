@@ -1,34 +1,11 @@
 const path = require('path');
 const githubApi = require('./github-api');
+const githubPages = require('./github-pages.json');
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
-  const repoData = {
-    owner: 'department-of-veterans-affairs',
-    repo: 'vets.gov-team',
-  };
 
-  // await githubApi.getDirectoryAndCreatePages({
-  //   ...repoData,
-  //   dir: 'Work Practices',
-  // }, createNode);
-
-  await githubApi.getDirectoryAndCreatePages(
-    {
-      ...repoData,
-      dir: 'Work Practices/Accessibility and 508',
-    },
-    createNode,
-  );
-
-  await githubApi.getPageAndCreatePage(
-    {
-      ...repoData,
-      dir:
-        'Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md',
-    },
-    createNode,
-  );
+  await githubApi.getPagesAndCreateNodes(githubPages, createNode);
 };
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -41,12 +18,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         node,
         name: `slug`,
         value: `${parent.internal.directory}/${parent.internal.name}`,
-      });
-
-      createNodeField({
-        node,
-        name: `path`,
-        value: `${parent.internal.directory}`,
       });
 
       createNodeField({
@@ -76,12 +47,6 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               fields {
                 slug
-                path
-                fileName
-              }
-              internal {
-                content
-                type
               }
             }
           }

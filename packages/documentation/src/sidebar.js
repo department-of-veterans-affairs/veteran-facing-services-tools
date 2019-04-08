@@ -73,6 +73,10 @@ module.exports = {
               name: 'Add Graphs to MDX',
               href: 'getting-started/common-tasks/add-graphs-to-mdx',
             },
+            {
+              name: 'Creating A Gatsby Plugin',
+              href: 'getting-started/common-tasks/creating-gatsby-plugins',
+            },
           ],
         },
         {
@@ -109,9 +113,11 @@ module.exports = {
         },
         {
           name: 'Visual regression testing',
+          href: 'architecture/visual-regression-testing',
         },
         {
           name: 'Teamsite',
+          href: 'architecture/teamsite',
         },
       ],
     },

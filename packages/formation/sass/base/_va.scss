@@ -999,7 +999,7 @@ li {
     padding: 1rem 0;
   }
 
-  background: url(/img/stars.png) no-repeat center;
+  background: url('#{$formation-image-path}/stars.png') no-repeat center;
   background-size: 11rem auto;
   margin: 1.6rem auto auto;
   padding: 2rem 0 0;

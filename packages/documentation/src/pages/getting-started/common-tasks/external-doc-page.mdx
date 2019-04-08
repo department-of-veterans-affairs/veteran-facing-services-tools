@@ -14,14 +14,10 @@ duplicate it.
 
 ### How to Add External pages
 
-I have created helper functions for the GitHub Api located in **services/github-api.js**.
-We should store all our utility function for the GitHub Api here. That way we have one source of truth. We can add to this file as needed.
-
-- getPageAndCreatePage
-- getDirectoryAndCreatePages
-
-You will need to run these functions in the **exports.sourceNodes** lifecycle hook.
-This can be found in the **gatsby-node.js** file.
+I have created a Gatsby plugin called **github-api-pages** located at **/plugins/github-api-pages**.
+You can learn more about creating your own plugin at [creating-gatsby-plugins](/getting-started/common-tasks/creating-gatsby-plugins)
+All code that is interfacing with the GitHubAPI is located at **/plugins/github-api-pages/-github-api**. We should try to
+keep any code that is interfacing with the GitHubAPI in this file so we have one source of truth.
 
 ##### Limitations
 
@@ -46,49 +42,37 @@ Here is an example of what the file directory should look like:
 ![github file directory](../../../images/github-file-directory.png)
 ---
 
-**Here is how to use the utility functions:**
-These functions will do an API request then create a Gatsby nodes so you can create pages within the system.
+**How to add files:**
+After you have gathered the information (owner, repo, file directory) from github, now you can add the files
+into Gatsby.
 
-- **getPageAndCreatePage** - This will add only 1 page in Gatsby
-    ```javascript
-    // gatsby-node.js
+- Located in the **/plugins/github-api-pages/** you should see a **pages** directory. To add github file locations
+  you need to either add it to a list or create your own list. Here are the steps of how to add your own list.
 
-    const githubApi = require('./services/github-api');
+  - Add a JSON file named the main directory of your github directory. In this example we will be using **work-practices**.
+    You can see how we are using the data we gathered earlier (owner, repo, file directory). All you need to do is add your
+    file directory to the **directoryPaths** array. It can be a directory or just a file location.
 
-    exports.sourceNodes = async ({
-      actions,
-      getNode,
-      hasNodeChanged,
-    }) => {
-      const { createNode } = actions
+    ```JSON
+    // /plugins/github-api-pages/pages/work-practices.json
 
-      await githubApi.getPageAndCreatePage({
-        owner: 'department-of-veterans-affairs',
-        repo: 'vets.gov-team',
-        dir: 'Work Practices/Accessing-Staging.md',
-      }, createNode);
+    {
+      "owner": "department-of-veterans-affairs",
+      "repo": "vets.gov-team",
+      "directoryPaths": [
+        "Work Practices/Accessibility and 508",
+        "Work Practices/Accessibility and 508/meeting-notes/2017-06-05-meeting-508-office.md"
+      ]
     }
     ```
+  
+  - After you have set up the JSON file, now you have to add it to the list of pages. This is
+    done in the **/plugins/github-api-pages/pages/index.js** file.
 
-- **getDirectoryAndCreatePages** - This will add all markdown pages in a directory
-    ```javascript
-    // gatsby-node.js
+    ```
+    // /plugins/github-api-pages/pages/index.js
 
-    const githubApi = require('./services/github-api');
-
-    exports.sourceNodes = async ({
-      actions,
-      getNode,
-      hasNodeChanged,
-    }) => {
-      const { createNode } = actions
-
-      await githubApi.getDirectoryAndCreatePages({
-        owner: 'department-of-veterans-affairs',
-        repo: 'vets.gov-team',
-        dir: 'Work Practices',
-      }, createNode);
-    }
+    exports.workPractices = require('./work-practices.json');
     ```
 
 ### How it Works
@@ -110,17 +94,22 @@ took to make this work.
 First thing we have to do to get data from an API request into Gatsby is hook into the
 `sourceNodes` lifecycle hook. This is were Gatsby allows you to do this.
 
-```javascript{numberLines: true}
-  // gatsby-node.js
+```javascript
+// /plugins/github-api-pages/gatsby-node.js
 
-  exports.sourceNodes = async ({
-    boundActionCreators,
-    getNode,
-    hasNodeChanged,
-  }) => {
-    const { createNode } = boundActionCreators
+const path  = require('path');
+const githubApi = require('./github-api');
+const githubPages = require('./pages');
 
-  }
+exports.sourceNodes = async ({
+  actions,
+  getNode,
+  hasNodeChanged,
+}) => {
+  const { createNode } = actions
+
+  await githubApi.getPagesAndCreateNodes(githubPages, createNode);
+}
 ```
 
 #### Use GitHub's GraphQL API to query page information from GitHub
