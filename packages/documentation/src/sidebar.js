@@ -6,15 +6,27 @@ module.exports = {
       href: 'getting-started',
       items: [
         {
-          name: 'Environment setup',
+          name: 'Start up guide',
           items: [
             {
               name: 'Set up VA.gov locally',
               href: 'getting-started',
             },
             {
-              name: 'Internal Tools',
+              name: 'Accessing internal tools',
               href: 'getting-started/internal-tools',
+            },
+            {
+              name: 'VA.gov environments',
+              href: 'getting-started/environments',
+            },
+            {
+              name: 'Development workflow',
+              href: 'getting-started/workflow',
+            },
+            {
+              name: 'Bundes and Code organization',
+              href: 'getting-started/bundles-and-code-organization',
             },
           ],
         },
@@ -72,15 +84,7 @@ module.exports = {
           ],
         },
         {
-          name: 'Bundes and Code organization',
-          href: 'getting-started/bundles-and-code-organization',
-        },
-        {
           name: 'Standards and conventions',
-          items: [],
-        },
-        {
-          name: 'Development workflow',
           items: [],
         },
       ],
