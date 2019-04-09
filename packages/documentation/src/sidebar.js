@@ -165,6 +165,10 @@ module.exports = {
           ],
         },
         {
+          name: 'Architecture',
+          items: [],
+        },
+        {
           name: 'Common tasks',
           items: [],
         },
