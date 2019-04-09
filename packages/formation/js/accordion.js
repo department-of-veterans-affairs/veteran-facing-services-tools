@@ -10,7 +10,7 @@ const loadAccordianHandler = () => {
     if (el.getAttribute('aria-hidden') === null) {
       el.setAttribute(
         'aria-hidden',
-        !el.previousElementSibling.getAttribute('aria-expanded'),
+        !toBoolean(el.previousElementSibling.getAttribute('aria-expanded')),
       );
     }
   });
@@ -18,6 +18,7 @@ const loadAccordianHandler = () => {
   for (let i = 0; i < usaAccordion.length; i++) {
     usaAccordion[i].addEventListener('click', e => {
       const target = e.target;
+
       const multiSelectable = toBoolean(
         usaAccordion[i].getAttribute('aria-multiselectable'),
       );
@@ -26,7 +27,7 @@ const loadAccordianHandler = () => {
       );
       const hiddenEl = e.currentTarget.querySelector('[aria-hidden="false"]');
 
-      if (target.getAttribute('aria-controls')) {
+      if (target.getAttribute('aria-controls') !== null) {
         const dropDownElement = document.getElementById(
           target.getAttribute('aria-controls'),
         );
