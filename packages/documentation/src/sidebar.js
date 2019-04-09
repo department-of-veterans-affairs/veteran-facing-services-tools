@@ -92,7 +92,20 @@ module.exports = {
       items: [
         {
           name: 'Site structure',
-          items: [],
+          items: [
+            {
+              name: 'Topology',
+              href: 'architecture/site-structure/topology-overview',
+            },
+            {
+              name: 'Client overview',
+              href: 'architecture/site-structure/client-overview',
+            },
+            {
+              name: 'Styling',
+              href: 'architecture/site-structure/styling-overview',
+            },
+          ],
         },
         {
           name: 'How does the build work?',
