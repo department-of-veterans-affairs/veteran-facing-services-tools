@@ -91,6 +91,23 @@ module.exports = {
       href: 'architecture',
       items: [
         {
+          name: 'Metalsmith',
+          items: [
+            {
+              name: 'How are URLs created',
+              href: 'architecture/metalsmith/urls',
+            },
+            {
+              name: 'How templates work',
+              href: 'architecture/metalsmith/templates',
+            },
+            {
+              name: 'How to create collections and related links',
+              href: 'architecture/metalsmith/collections',
+            },
+          ],
+        },
+        {
           name: 'Site structure',
           items: [],
         },
@@ -146,10 +163,6 @@ module.exports = {
               href: 'forms/forms-in-production',
             },
           ],
-        },
-        {
-          name: 'Architecture',
-          items: [],
         },
         {
           name: 'Common tasks',
