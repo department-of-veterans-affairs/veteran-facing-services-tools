@@ -8,7 +8,7 @@ The overall architecture for VA.gov is comprised of an API backend written in Ru
 
 The build process for this is controlled by a tool called [Metalsmith](http://www.metalsmith.io/), which is a pluggable Node.js static site generator. In general, everything in Metalsmith is a plugin, so if you're looking for specific parts of the build process, expect to check out a plugin or two. We use Metalsmith because it's flexible and because it's Javascript based, it's easy to integrate with the rest of our tools.
 
-The build process has two primary kinds of functionality that it processes: static content pages and Javascript applications. Most of Vets.gov consists of content that lives in Markdown files and is converted into HTML by a Metalsmith plugin. There are shared templates and other enhancements to make this content easier to structure. This content lives in `content/pages`, which also provides the basic URL structure of the site.
+The build process has two primary kinds of functionality that it processes: static content pages and Javascript applications. Most of VA.gov consists of content that lives in Markdown files and is converted into HTML by a Metalsmith plugin. There are shared templates and other enhancements to make this content easier to structure. This content lives in `content/pages`, which also provides the basic URL structure of the site.
 
 ## Javascript applications
 
@@ -35,8 +35,8 @@ In summary, nginx routes a variety of different urls to the same static entry pa
 
 Here's an example using the claim status application:
 
-1. User opens `vets.gov/track-claims/your-claims/2344/detail`
-2. Nginx serves `vets.gov/track-claims/index.html`, because `/track-claims` is configured as a React application
+1. User opens `va.gov/track-claims/your-claims/2344/detail`
+2. Nginx serves `va.gov/track-claims/index.html`, because `/track-claims` is configured as a React application
 3. In the browser, the JS bundle loads and React Router sees a url of `/track-claims/your-claims/2344/detail`
 4. Since React Router has a base url of `/track-claims`, it runs its routing logic on `/your-claims/2344/detail`, and renders the appropriate component for that url.
 

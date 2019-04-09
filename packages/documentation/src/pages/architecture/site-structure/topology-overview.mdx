@@ -8,11 +8,11 @@ This document walks through the basics of the technical architecture that suppor
 
 At the highest level, users make requests to www.va.gov and api.va.gov.  These requests are routed to GovCloud, which can then 1. respond to the requests on its own (such as for static content) or 2. reach into the VA network to call an API to help respond to the request (such as to get a user's prescription information).
 
-![](./images/ConceptualArchitecture.png)
+![](../../../images/site-structure/ConceptualArchitecture.png)
 
 In order to serve these requests, there are many pieces of infrastructure inside GovCloud. Once the request reaches GovCloud, it is first routed to a reverse proxy, which then either sends it to S3 for static content and frontend apps or to a load balancer for API content. The API instances have the ability to connect into the VA network via APIs if necessary.
 
-![](./images/SlightlyMoreDetailedConceptualArchitecture.png)
+![](../../../images/site-structure/SlightlyMoreDetailedConceptualArchitecture.png)
 
 The overall process of requests to the www.va.gov website and API flows like this:
 
@@ -20,17 +20,17 @@ The overall process of requests to the www.va.gov website and API flows like thi
 1. Static site content (css, images, etc.) is loaded directly from a public S3 bucket by the client browser. Some content (both static content and applications) is also loaded from the EWIS managed infrastructure.
 1. Requests to the API (login, forms, etc.) are routed to the API Instances by the Reverse Proxies, and make calls to backend VA services as needed to fulfill the request.
 
-![](./images/vagov-Data-Flow-Basics.png)
+![](../../../images/site-structure/vagov-Data-Flow-Basics.png)
 
 ## Topology
 
 This diagram contains a more detailed topology of this process. All traffic to and from the AWS environments passes through the VA network. This creates a loop architecture, in which traffic incoming from clients and outgoing from the API goes through the same VPN tunnels to the internal VA network.
 
-![](./images/vagov-aws-topology.png)
+![](../../../images/site-structure/vagov-aws-topology.png)
 
 This more detailed topology shows most of the components of the environment and how they fit together. There are three main VPCs, one for each environment: dev, staging, and prod. Additionally, there is a fourth VPC, utility, which contains monitoring and deployment infrastructure.
 
-![](./images/vagov-detailed-topology.png)
+![](../../../images/site-structure/vagov-detailed-topology.png)
 
 ## Topology Descriptions
 
@@ -56,7 +56,7 @@ Most VA systmes also connect to other systems (for example, My HealtheVet connec
 
 This is an outdated diagram and needs to be updated, but gives the basic idea:
 
-![](./images/VAConnections.png)
+![](../../../images/site-structure/VAConnections.png)
 
 
 ## ID.me
