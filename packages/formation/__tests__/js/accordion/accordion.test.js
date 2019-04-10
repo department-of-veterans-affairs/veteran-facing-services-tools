@@ -53,7 +53,7 @@ document.body.innerHTML = `
 
 describe('accordion', () => {
   it('should set aria-hidden attribute on load if non exists', () => {
-    require('../../../js/accordion');
+    require('../../../js/onDocumentReady');
 
     const ariaHiddenIsSet = [
       ...document.getElementsByClassName('usa-accordion-content'),
@@ -70,7 +70,7 @@ describe('accordion', () => {
   });
 
   it('should show if clicked', () => {
-    require('../../../js/accordion');
+    require('../../../js/onDocumentReady');
 
     const a1El = document.getElementById('a1');
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
@@ -82,7 +82,7 @@ describe('accordion', () => {
   });
 
   it('should hide if clicked', () => {
-    require('../../../js/accordion');
+    require('../../../js/onDocumentReady');
 
     const a1El = document.getElementById('a1');
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
@@ -94,7 +94,7 @@ describe('accordion', () => {
   });
 
   it('should close any other open dropdowns if clicked', () => {
-    require('../../../js/accordion');
+    require('../../../js/onDocumentReady');
 
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
     const a2BtnEl = document.querySelector('[aria-controls="a2"]');
@@ -117,7 +117,7 @@ describe('accordion', () => {
       .querySelector('.usa-accordion')
       .setAttribute('aria-multiselectable', true);
 
-    require('../../../js/accordion');
+    require('../../../js/onDocumentReady');
 
     const a3BtnEl = document.querySelector('[aria-controls="a3"]');
     const a4BtnEl = document.querySelector('[aria-controls="a4"]');

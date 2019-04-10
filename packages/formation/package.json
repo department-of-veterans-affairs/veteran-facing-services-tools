@@ -26,8 +26,11 @@
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
   },
   "devDependencies": {
-    "moment": "^2.23.0",
-    "jest": "^24.7.1"
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "moment": "^2.23.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
