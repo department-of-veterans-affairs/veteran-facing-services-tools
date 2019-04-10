@@ -1,7 +1,22 @@
 const toBoolean = value => value === 'true';
 
-const loadAccordianHandler = () => {
-  const usaAccordion = document.getElementsByClassName('usa-accordion');
+const isElementInViewport = (
+  el,
+  win = window,
+  docEl = document.documentElement,
+) => {
+  const rect = el.getBoundingClientRect();
+
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (win.innerHeight || docEl.clientHeight) &&
+    rect.right <= (win.innerWidth || docEl.clientWidth)
+  );
+};
+
+const loadAccordionHandler = () => {
+  const usaAccordion = [...document.getElementsByClassName('usa-accordion')];
   const usaAccordionContentElements = [
     ...document.getElementsByClassName('usa-accordion-content'),
   ];
@@ -15,19 +30,28 @@ const loadAccordianHandler = () => {
     }
   });
 
-  for (let i = 0; i < usaAccordion.length; i++) {
-    usaAccordion[i].addEventListener('click', e => {
+  usaAccordion.forEach(element => {
+    element.addEventListener('click', e => {
       const target = e.target;
-
+      const other = [
+        ...e.currentTarget.parentElement.getElementsByClassName(
+          'usa-accordion-button',
+        ),
+      ].filter(item => item !== target);
       const multiSelectable = toBoolean(
-        usaAccordion[i].getAttribute('aria-multiselectable'),
+        element.getAttribute('aria-multiselectable'),
       );
-      const expandedEl = e.currentTarget.querySelector(
-        '[aria-expanded="true"]',
-      );
-      const hiddenEl = e.currentTarget.querySelector('[aria-hidden="false"]');
 
-      if (target.getAttribute('aria-controls') !== null) {
+      if (target.getAttribute('aria-controls')) {
+        if (!multiSelectable) {
+          other.forEach(el => {
+            el.setAttribute('aria-expanded', 'false');
+            el.parentElement
+              .querySelector('.usa-accordion-content')
+              .setAttribute('aria-hidden', 'true');
+          });
+        }
+
         const dropDownElement = document.getElementById(
           target.getAttribute('aria-controls'),
         );
@@ -37,23 +61,18 @@ const loadAccordianHandler = () => {
 
         dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
         target.setAttribute('aria-expanded', !targetExpandedAttr);
-      }
 
-      if (!multiSelectable) {
-        if (expandedEl !== null) {
-          expandedEl.setAttribute('aria-expanded', false);
-          hiddenEl.setAttribute('aria-hidden', true);
-        }
+        if (!isElementInViewport(element)) element.scrollIntoView();
       }
     });
-  }
+  });
 };
 
 if (
   document.readyState === 'complete' &&
   (document.readyState !== 'loading' && !document.documentElement.doScroll)
 ) {
-  loadAccordianHandler();
+  loadAccordionHandler();
 } else {
-  document.addEventListener('DOMContentLoaded', loadAccordianHandler);
+  document.addEventListener('DOMContentLoaded', loadAccordionHandler);
 }

@@ -6,10 +6,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    formation: './sass/full.scss',
-  },
-  entry: {
-    formationCSS: './sass/full.scss',
     formation: glob.sync('./js/**/*.js'),
   },
   mode: 'production',
@@ -70,6 +66,11 @@ module.exports = {
             outputPath: 'fonts/'
           }
         }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       }
     ]
   },

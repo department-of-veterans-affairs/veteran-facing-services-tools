@@ -87,7 +87,7 @@ describe('accordion', () => {
     const a1El = document.getElementById('a1');
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
 
-    a1El.click();
+    a1BtnEl.click();
 
     expect(a1El.getAttribute('aria-hidden')).toEqual('true');
     expect(a1BtnEl.getAttribute('aria-expanded')).toEqual('false');
