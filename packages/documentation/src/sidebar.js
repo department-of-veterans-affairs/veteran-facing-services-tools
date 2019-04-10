@@ -6,15 +6,27 @@ module.exports = {
       href: 'getting-started',
       items: [
         {
-          name: 'Environment setup',
+          name: 'Start up guide',
           items: [
             {
               name: 'Set up VA.gov locally',
               href: 'getting-started',
             },
             {
-              name: 'Internal Tools',
+              name: 'Accessing internal tools',
               href: 'getting-started/internal-tools',
+            },
+            {
+              name: 'VA.gov environments',
+              href: 'getting-started/environments',
+            },
+            {
+              name: 'Development workflow',
+              href: 'getting-started/workflow',
+            },
+            {
+              name: 'Bundes and Code organization',
+              href: 'getting-started/bundles-and-code-organization',
             },
           ],
         },
@@ -72,15 +84,7 @@ module.exports = {
           ],
         },
         {
-          name: 'Bundes and Code organization',
-          href: 'getting-started/bundles-and-code-organization',
-        },
-        {
           name: 'Standards and conventions',
-          items: [],
-        },
-        {
-          name: 'Development workflow',
           items: [],
         },
       ],
@@ -91,8 +95,38 @@ module.exports = {
       href: 'architecture',
       items: [
         {
+          name: 'Metalsmith',
+          items: [
+            {
+              name: 'How are URLs created',
+              href: 'architecture/metalsmith/urls',
+            },
+            {
+              name: 'How templates work',
+              href: 'architecture/metalsmith/templates',
+            },
+            {
+              name: 'How to create collections and related links',
+              href: 'architecture/metalsmith/collections',
+            },
+          ],
+        },
+        {
           name: 'Site structure',
-          items: [],
+          items: [
+            {
+              name: 'Topology',
+              href: 'architecture/site-structure/topology-overview',
+            },
+            {
+              name: 'Client overview',
+              href: 'architecture/site-structure/client-overview',
+            },
+            {
+              name: 'Styling',
+              href: 'architecture/site-structure/styling-overview',
+            },
+          ],
         },
         {
           name: 'How does the build work?',
