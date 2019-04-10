@@ -206,6 +206,7 @@ module.exports = {
         },
         {
           name: 'Feature flags',
+          href: 'platform/feature-flags',
         },
         {
           name: 'Identity',
