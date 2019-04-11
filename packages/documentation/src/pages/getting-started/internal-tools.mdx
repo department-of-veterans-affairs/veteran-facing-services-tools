@@ -115,20 +115,21 @@ ssh-add -K ~/.ssh/id_rsa_vagov
 ## Starting the SOCKS proxy
 There are slightly different commands to connect to the proxy depending on whether you are connected to the VA network or not. The `~/.ssh/config` file on your local system contains configuration to access the SOCKS proxy both from the VA network and the internet.
 
-_The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
-
-_After running the command below, continue to_ **Testing and Using thje SOCKS proxy**
-
-### From VA network
+- If you're on the VA network, run:
 
 ```bash
 ssh socks-va -D 2001 -N &
 ```
-### From the internet (outside the VA network)
+
+ - If you're on the internet (outside the VA network), run:
 
 ```bash
 ssh socks -D 2001 -N &
 ```
+
+_The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
+
+_After running the command below, continue to_ **Testing and Using thje SOCKS proxy**
 
 ## Testing and Using the SOCKS proxy
 Use the following steps to verify that the proxy connection is working, and to configure your
