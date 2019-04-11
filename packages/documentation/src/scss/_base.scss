@@ -1,0 +1,33 @@
+$nav-width: 840px;
+$z-index-flyout-menu: 10000;
+$z-index-overlay: 8000;
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $font-sans;
+}
+
+body {
+  background-color: #f9f9f9;
+
+  &.nav-is-open {
+    overflow: hidden;
+  }
+}
+
+iframe {
+  border: 0;
+}
+
+.fa, .fas, .fab {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 900;
+}
+
+
