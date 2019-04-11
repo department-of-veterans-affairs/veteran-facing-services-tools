@@ -129,6 +129,36 @@ module.exports = {
           ],
         },
         {
+          name: 'Front End Standards',
+          items: [
+            {
+              name: 'React standards',
+              href: 'architecture/front-end-standards/react',
+            },
+            {
+              name: 'Redux standards',
+              href: 'architecture/front-end-standards/redux',
+            },
+            {
+              name: 'Styles',
+              href: 'architecture/front-end-standards/styles',
+            },
+            {
+              name: 'React standards',
+              href: 'architecture/front-end-standards/react',
+            },
+            {
+              name: 'Accessibility',
+              href: 'architecture/front-end-standards/accessibility',
+            },
+            {
+              name: 'Documented Decisions',
+              href:
+                'architecture/front-end-standards/documented-decisions/summary',
+            },
+          ],
+        },
+        {
           name: 'How does the build work?',
         },
         {
@@ -206,6 +236,7 @@ module.exports = {
         },
         {
           name: 'Feature flags',
+          href: 'platform/feature-flags',
         },
         {
           name: 'Identity',
