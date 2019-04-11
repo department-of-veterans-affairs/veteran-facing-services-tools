@@ -10,7 +10,7 @@ const PropsTable = props => {
   const { propMetaData = [], ..._props } = props;
 
   return (
-    <table className="component-props-table" {..._props}>
+    <table className="site-c-reactcomp__props-table" {..._props}>
       <thead>
         <tr>
           <th>Prop Name</th>
