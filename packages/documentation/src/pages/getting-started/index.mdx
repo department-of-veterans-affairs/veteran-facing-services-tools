@@ -4,12 +4,12 @@ title: Set up VA.gov locally
 
 # Set up VA.gov locally
 These instructions cover the installation of dependencies needed for running VA.gov locally.
-- **Node setup** - steps for running `node` which is needed for building, testing, and runnig the local development server
+- **Node setup** - steps for installing `node` which is needed for building, testing, and running the local development server
 - **Get the source code** - steps for cloning the various repos needed to run VA.gov
 - **Start up the front end** - installing and running VA.gov locally
 - **Backend and local tools setup** - links to other setup instructions for running `vets-api` and retrieving static content
 
-Prerequisites
+## Prerequisites
 - [`homebrew`](http://brew.sh/) is recommended for for installing `nvm` but other installation approaches are on [`nvm` Github page](https://github.com/creationix/nvm#installation-and-update)
 
 ## Node setup
@@ -49,7 +49,7 @@ yarn --version # 1.12.3
 
 ## Get the source code
 
-6. Clone VA.gov git repos into sibling directories:
+6. Clone VA.gov git repos **as sibling directories**:
 
 ```bash
 git clone git@github.com:department-of-veterans-affairs/vets-website.git
@@ -99,6 +99,6 @@ Setting up the backend and internal tools allows local test account login and st
 - **Local test account login** instructions: [Accessing Staging](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Accessing-Staging.md)
 
 
-- **Internal tools setup** instructions: [internal tools](internal-tools).
+- **Internal tools setup** instructions: [Accessing internal tools](internal-tools).
 
-*This proxy setup is required to access static content locally and to access to our reporting and monitoring tools.*
+*This proxy setup is required to access static content locally and to access to our reporting and monitoring tools. Running the watch task with the SOCK proxy active will automatically pull and cache the static content for `vets-website`*
