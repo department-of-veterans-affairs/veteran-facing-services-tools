@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     formationCSS: './sass/full.scss',
-    formation: glob.sync('./js/**/*.js'),
+    formation: './js/index.js',
   },
   mode: 'production',
   output: {
@@ -70,7 +70,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /__tests__/],
         use: ['babel-loader']
       }
     ]
