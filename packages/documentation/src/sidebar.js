@@ -81,6 +81,14 @@ module.exports = {
               name: 'Creating A Gatsby Plugin',
               href: 'getting-started/common-tasks/creating-gatsby-plugins',
             },
+            {
+              name: 'Releases',
+              href: 'getting-started/common-tasks/releases',
+            },
+            {
+              name: 'Reviewing feature branches',
+              href: 'getting-started/common-tasks/reviewing-feature-branches',
+            },
           ],
         },
         {
