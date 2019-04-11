@@ -132,22 +132,18 @@ _The first time you connect to the jumpbox, ssh will prompt to ask if you are su
 
 _After running the command below, continue to_ **Testing and Using thje SOCKS proxy**
 
-## Testing and Using the SOCKS proxy
-Use the following steps to verify that the proxy connection is working, and to configure your
-browser to use the proxy connection. Note that the proxy only allows access to our internal
-tools, not to the internet at large. So you need to configure your browser to either use the proxy
-only for the `vetsgov-internal` domain (as described below for Chrome); enable/disable the proxy
-connection as needed; or use a separate browser for accessing the internal tools vs. for general
-use.
+## Test the SOCKS proxy conneciton is working
 
-### Curl
+- `curl` sentry, a tool available only on through the SOCKS proxy
+```bash
+$ curl -v --proxy socks5h://127.0.0.1:2001 sentry.vetsgov-internal
+```
 
-To test your proxy connectivity, the best option is to run the following command:
+*Verify that the output includes `HTTP/1.1 302 FOUND`. If not, check that the
+SOCKS proxy server is running. You can `$ nc -z 127.0.0.1 2001` as a first step.*
 
-`$ curl -v --proxy socks5h://127.0.0.1:2001 sentry.vetsgov-internal`
-
-You should get output that includes `HTTP/1.1 302 FOUND`. If not, check that the
-SOCKS proxy server is running. You can `$ nc -z 127.0.0.1 2001` as a first step.
+## Install browser extensions
+These instructions cover installing and configuring browser extensions used to connect to `vetsgov-internal` via the SOCKS proxy.
 
 ### Chrome
 
