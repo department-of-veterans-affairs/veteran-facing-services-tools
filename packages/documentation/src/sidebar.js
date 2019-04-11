@@ -13,19 +13,24 @@ module.exports = {
               href: 'getting-started',
             },
             {
-              name: 'Accessing internal tools',
+              name: 'Access internal tools',
               href: 'getting-started/internal-tools',
             },
+            {
+              name: 'Leverage CI workflow',
+              href: 'getting-started/workflow',
+            },
+          ],
+        },
+        {
+          name: 'Project and environment structure',
+          items: [
             {
               name: 'VA.gov environments',
               href: 'getting-started/environments',
             },
             {
-              name: 'Development workflow',
-              href: 'getting-started/workflow',
-            },
-            {
-              name: 'Bundes and Code organization',
+              name: 'Bundles and Code organization',
               href: 'getting-started/bundles-and-code-organization',
             },
           ],
