@@ -50,7 +50,7 @@ ls ~/.ssh
 *The list of files should include `id_rsa_vagov` and `id_rsa_vagov.pub`. Only share keys with `.pub` (public) extension; Private keys should never leave your computer.*
 
 ## Configure the SOCKS proxy
-Below are configuration instructions for internal and external developers.
+Below are configuration instructions for internal or external developers.
 
 ### For internal developers
 
@@ -80,7 +80,7 @@ git commit -m 'add ssh keys for first-name last-name'
 git push origin add-key-first-last
 ```
 
-11. Create a PR for this branch on Github and comment a link to the PR in the #vetsgov-devops channel on the DSVA Slack indicating that you need your ssh keys added to the `devops` repo.
+11. Create a PR for this branch on Github. In the #vetsgov-devops channel on the DSVA Slack, share a link to the PR and indicate that you need your ssh keys added to the `devops` repo.
 
 12. Copy the SSH config from the `devops` repo to `~/.ssh`
 ```bash
@@ -113,7 +113,7 @@ ssh-add -K ~/.ssh/id_rsa_vagov
 *Once you receive the notification, continue with* **Starting the SOCKS proxy**.
 
 ## Starting the SOCKS proxy
-There are slightly different commands to connect to the proxy depending on whether you are connected to the VA network or not. The `~/.ssh/config` file on your local system contains configuration to access the SOCKS proxy from the VA network.
+There are slightly different commands to connect to the proxy depending on whether you are connected to the VA network or not. The `~/.ssh/config` file on your local system contains configuration to access the SOCKS proxy both from the VA network and the internet.
 
 _The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
 
