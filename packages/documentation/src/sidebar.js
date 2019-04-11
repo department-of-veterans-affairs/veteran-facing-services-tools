@@ -9,15 +9,15 @@ module.exports = {
           name: 'Start up guide',
           items: [
             {
-              name: 'Set up VA.gov locally',
+              name: '1. Set up VA.gov locally',
               href: 'getting-started',
             },
             {
-              name: 'Access internal tools',
+              name: '2. Access internal tools',
               href: 'getting-started/internal-tools',
             },
             {
-              name: 'Leverage CI workflow',
+              name: '3. Leverage CI workflow',
               href: 'getting-started/workflow',
             },
           ],
