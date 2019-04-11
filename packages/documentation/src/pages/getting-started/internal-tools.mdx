@@ -18,7 +18,7 @@ These instructions cover the configuration of a SOCKS proxy necessary for access
 
 ## Create an SSH public key
 
-*You can skip these steps if you have a public ssh key you want to use. These instructions refer to the public key as `id_rsa_vagov.pub`*
+*You can skip to* **Configure the SOCKS proxy** *if you have a public ssh key you want to use. These instructions refer to the public key as `id_rsa_vagov.pub`*
 
 1. Open a terminal and create an `~/.ssh` directory
 ```bash
@@ -49,45 +49,47 @@ ls ~/.ssh
 ```
 *The list of files should include `id_rsa_vagov` and `id_rsa_vagov.pub`. Only share keys with `.pub` (public) extension; Private keys should never leave your computer.*
 
+*Once the keys are verified, continue with* **Configure the SOCKS proxy**
+
 ## Configure the SOCKS proxy
 Below are configuration instructions for internal or external developers.
 
 ### For internal developers
 
-6. Change to your working directory, clone and change to the devops repository
+1. Change to your working directory, clone and change to the devops repository
 ```bash
 cd ~/YOUR-WORKING-DIRECTORY
 git clone git@github.com:department-of-veterans-affairs/devops.git
 cd devops
 ```
 
-7. Checkout a branch using your lowercase first and last name
+2. Checkout a branch using your lowercase first and last name
 ```bash
 git checkout -b add-key-first-last
 ```
-8. Copy your public key into the `authorized_keys` folder renaming the file with your email address
+3. Copy your public key into the `authorized_keys` folder renaming the file with your email address
 ```bash
 cp ~/.ssh/id_rsa_vagov.pub ./ansible/roles/dsva-config/files/authorized_keys/YOUR@EMAIL.COM
 ```
-9. Edit the `./ansible/global/config.yml` in the `devops` repo by adding your email address to the list of emails under the appropriate group (`developers:`, `devops:`, etc.)
+4. Edit the `./ansible/global/config.yml` in the `devops` repo by adding your email address to the list of emails under the appropriate group (`developers:`, `devops:`, etc.)
 
 *Please try to keep this list alphebetized.*
 
-10. Commit and push your changes to the `devops` repo
+5. Commit and push your changes to the `devops` repo
 ```bash
 git add .
 git commit -m 'add ssh keys for first-name last-name'
 git push origin add-key-first-last
 ```
 
-11. Create a PR for this branch on Github. In the #vetsgov-devops channel on the DSVA Slack, share a link to the PR and indicate that you need your ssh keys added to the `devops` repo.
+6. Create a PR for this branch on Github. In the #vetsgov-devops channel on the DSVA Slack, share a link to the PR and indicate that you need your ssh keys added to the `devops` repo.
 
-12. Copy the SSH config from the `devops` repo to `~/.ssh`
+7. Copy the SSH config from the `devops` repo to `~/.ssh`
 ```bash
 cp ./ssh/config ~/.ssh/config
 ```
 
-13. Add your SSH key to your local agent
+8. Add your SSH key to your local agent
 ```bash
 ssh-add -K ~/.ssh/id_rsa_vagov
 ```
@@ -100,15 +102,15 @@ ssh-add -K ~/.ssh/id_rsa_vagov
     IdentityFile ~/.ssh/id_rsa_vagov
 ```
 
-14. Wait for `devops` team to review, approve, and merge your pull request
+9. Wait for `devops` team to review, approve, and merge your pull request
 
 *Once your pull request is merged, an update job should automatically run to update the jumpboxes and SOCKS proxy endpoints. This job takes about 5 minutes to run. Wait five minutes, then continue with* **Starting the SOCKS proxy**.
 
 ### For external developers
 
-6. As part of onboarding, you should have provided your **public SSH key** to DSVA. If you haven't, do that now.
-7. DSVA will add your public SSH key to the list of authorized keys.
-8. When that process is completed (24 hours), you will receive a Github notification that your key has been added.
+1. As part of onboarding, you should have provided your **public SSH key** to DSVA. If you haven't, do that now.
+2. DSVA will add your public SSH key to the list of authorized keys.
+3. When that process is completed (24 hours), you will receive a Github notification that your key has been added.
 
 *Once you receive the notification, continue with* **Starting the SOCKS proxy**.
 
