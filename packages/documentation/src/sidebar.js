@@ -3,7 +3,7 @@ module.exports = {
     {
       id: 'getting-started',
       name: 'Getting started',
-      href: 'getting-started',
+      href: '/getting-started',
       items: [
         {
           name: 'Start up guide',
@@ -105,7 +105,7 @@ module.exports = {
     {
       id: 'architecture',
       name: 'Architecture',
-      href: 'architecture',
+      href: '/architecture',
       items: [
         {
           name: 'Metalsmith',
@@ -193,7 +193,7 @@ module.exports = {
     {
       id: 'forms',
       name: 'Forms',
-      href: 'forms',
+      href: '/forms',
       items: [
         {
           name: 'Introduction',
@@ -237,7 +237,7 @@ module.exports = {
     {
       id: 'platform',
       name: 'Platform',
-      href: 'platform',
+      href: '/platform',
       items: [
         {
           name: 'Formation',
