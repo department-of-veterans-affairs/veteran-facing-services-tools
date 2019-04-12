@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import SidebarItems from './SidebarItems';
 import sidebarData from '../../sidebar';
 
@@ -16,16 +15,9 @@ export default function Sidebar({ location }) {
 
   return (
     <div className="vads-l-col--4 site-c-content__nav">
-      {!!sidebarSection && <SidebarItems items={sidebarSection.items} />}
-      {!sidebarSection && (
-        <ul className="site-c-sidenav-list">
-          {sidebarData.sections.map(section => (
-            <li key={section.id}>
-              <Link to={section.href}>{section.name}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="site-c-sidenav">
+        <SidebarItems items={sidebarSection.items} />
+      </div>
     </div>
   );
 }
