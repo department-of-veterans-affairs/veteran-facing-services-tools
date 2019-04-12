@@ -13,6 +13,10 @@ export default function Sidebar({ location }) {
     location.pathname.includes(section.href),
   );
 
+  if (!sidebarSection) {
+    return null;
+  }
+
   return (
     <div className="vads-l-col--4 site-c-content__nav">
       <div className="site-c-sidenav">
