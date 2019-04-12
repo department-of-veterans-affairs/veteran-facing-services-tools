@@ -34,7 +34,7 @@ module.exports = {
         extensions: ['.mdx'],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
-          default: require.resolve("./src/layouts/layout.js"),
+          default: require.resolve("./src/layouts/SidebarLayout.jsx"),
         },
         gatsbyRemarkPlugins: [
           {

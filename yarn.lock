@@ -10934,7 +10934,11 @@ uuid@^3.0.1, uuid@^3.3.2:
     eslint-plugin-react "^7.12.4"
     eslint-plugin-react-hooks "^1.6.0"
     eslint-plugin-scanjs-rules "^0.1.4"
+<<<<<<< HEAD
+    eslint-plugin-va-enzyme "file:../../Library/Caches/Yarn/v4/npm-vagov-eslint-1.0.0-6be317fb-8cda-4174-ae1b-2a2dabeb93e6-1554912387491/node_modules/vagov-eslint/custom-eslint/va-enzyme"
+=======
     eslint-plugin-va-enzyme "file:../../Library/Caches/Yarn/v4/npm-vagov-eslint-1.0.0-33f692f6-2abb-400d-86cc-fe8de3f7f6ec-1554400881683/node_modules/vagov-eslint/custom-eslint/va-enzyme"
+>>>>>>> master
     prettier "^1.16.4"
     shelljs "0.8.3"
     window-or-global "^1.0.1"
