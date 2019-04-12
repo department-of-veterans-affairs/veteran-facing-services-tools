@@ -3,38 +3,44 @@ title: Set up VA.gov locally
 ---
 
 # Set up VA.gov locally
+These instructions cover the installation of dependencies needed for running VA.gov locally.
+- **Node setup** - steps for installing `node` which is needed for building, testing, and running the local development server
+- **Get the source code** - steps for cloning the various repos needed to run VA.gov
+- **Start up the front end** - installing and running VA.gov locally
+- **Backend and local tools setup** - links to other setup instructions for running `vets-api` and retrieving static content
+
+## Prerequisites
+- [`homebrew`](http://brew.sh/) is recommended for for installing `nvm` but other installation approaches are on [`nvm` Github page](https://github.com/creationix/nvm#installation-and-update)
 
 ## Node setup
 
-To get started, you'll need to install Node.js and Yarn. Versions 8.10.0 and 1.12.3, respectively.
-
-The best way to do that is through a tool called `nvm`, which lets you manage multiple versions of Node on your machine.  This makes it easier to keep in sync with everyone else on the project. You can find installation instructions at [nvm's Github page](https://github.com/creationix/nvm#installation-and-update), but if you're on a Mac you can use [homebrew](http://brew.sh/) to install it:
+1. Install `nvm`:
 
 ```bash
 brew update && brew install nvm
 ```
-_There will be some further instructions in the success message after install "finishes"._
 
-Once you have `nvm` installed, you should install Node.js:
+_Follow the post install instructions in the success message._
+
+2. Install `node 8.10.0` (this also installs `npm`):
 
 ```bash
 nvm install 8.10.0
 ```
-_This will also install `npm`_
 
-
-Once you have node.js 8.10.0 you should set as the default version for nvm, you do that by running:
+3. Configure `nvm` to use `node 8.10.0` by default:
 
 ```bash
 nvm alias default 8.10.0
 ```
 
-Next install Yarn:
+4. Install `yarn 1.12.3` globally:
+
 ```bash
 npm i -g yarn@1.12.3
 ```
 
-Once you have Node and Yarn installed, you should verify that you have the correct versions:
+5. Verify correct versions of `node` and `yarn` are installed:
 
 ```bash
 node --version # 8.10.0
@@ -43,7 +49,7 @@ yarn --version # 1.12.3
 
 ## Get the source code
 
-Most of the source for the front end of VA.gov lives in the [vets-website](https://github.com/department-of-veterans-affairs/vets-website) repository, but there are a few others you should clone:
+6. Clone VA.gov git repos **as sibling directories**:
 
 ```bash
 git clone git@github.com:department-of-veterans-affairs/vets-website.git
@@ -54,43 +60,45 @@ git clone git@github.com:department-of-veterans-affairs/vets-api.git
 git clone git@github.com:department-of-veterans-affairs/vets-api-mockdata.git
 ```
 
-These repos are the most important to have a basic understanding of:
+*Front end repos*
+- **vets-website**: Core front end platform and application code
+- **vagov-content**: Markdown content used to generate static pages
+- **veteran-facing-services-tools**: Shared front end components (including non VA.gov users) and front end documentation site
 
-- vets-website
-  - Front end platform and application code
-- vagov-content
-  - Markdown content used to generate static pages (must be a sibling of vets-website)
-- vets-json-schema
-  - Shared JSON Schema definitions used by form applications and the APIs that they consume
-- veteran-facing-services-tools
-  - Shared code that we support for the broader VA (not just VA.gov), plus this documentation site
-- vets-api
-  - The repository for the Rails API backend.
-- vets-api-mockdata
-  - Mock data used when running locally and on dev for the backend (must be a sibling of vets-api)
+*Back end repos*
+- **vets-api**: Core Rails API server application code
+- **vets-api-mockdata**: Mock data used when running locally and on dev for the backend
+
+*Shared repos*
+- **vets-json-schema**: Shared JSON Schema definitions used by form applications and the APIs that they consume
 
 ## Start up the front end
 
-Once you have Node and Yarn installed, you can install the dependencies for vets-website:
-
+7. Install `vets-website` dependencies
 ```bash
 yarn install
 ```
 
-Once this completes, you should be able to start up the site locally:
-
+8. Start the local development server
 ```bash
 yarn watch
 ```
 
-Once this builds (you'll see a message about Webpack compilation finishing), open up [http://localhost:3001](http://localhost:3001) and you should see the VA.gov homepage.
+*Build is complete when the CLI says* `Compiled successfully`
 
-## Set up the backend
+9. Open [http://localhost:3001](http://localhost:3001) in a browser
 
-You can find the backend set up instructions in the [vets-api](https://github.com/department-of-veterans-affairs/vets-api) repo. If possible, you should follow the Docker instructions, which are in the README for that repo.
+## Backend and internal tools set up
 
-Once you've gone through that set up, you should verify that you can log in using one of the test accounts, which can be found in the [Accessing Staging](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Accessing-Staging.md) doc.
+Setting up the backend and internal tools allows local test account login and static content rendering.
 
-## Internal tools
+- **Backend set up** instructions: [vets-api](https://github.com/department-of-veterans-affairs/vets-api).
 
-Once you've got the site running locally, you'll also want to get set up with our [internal tools](internal-tools). This will enable you to render static pages that use Drupal data locally, as well as access our reporting and monitoring tools. 
+*Follow the Docker instructions, which are in the README for the `vets-api` repo.*
+
+- **Local test account login** instructions: [Accessing Staging](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Accessing-Staging.md)
+
+
+- **Internal tools setup** instructions: [Accessing internal tools](internal-tools).
+
+*This proxy setup is required to access static content locally and to access to our reporting and monitoring tools. Running the watch task with the SOCK proxy active will automatically pull and cache the static content for `vets-website`*
