@@ -2,7 +2,7 @@
 const rimraf = require('rimraf');
 const glob = require('glob');
 const fs = require('fs-extra');
-const babel = require('babel-core');
+const babel = require('@babel/core');
 const recast = require('recast');
 const path = require('path');
 
