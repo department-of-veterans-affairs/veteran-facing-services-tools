@@ -3,29 +3,34 @@ module.exports = {
     {
       id: 'getting-started',
       name: 'Getting started',
-      href: 'getting-started',
+      href: '/getting-started',
       items: [
         {
           name: 'Start up guide',
           items: [
             {
-              name: 'Set up VA.gov locally',
+              name: '1. Set up VA.gov locally',
               href: 'getting-started',
             },
             {
-              name: 'Accessing internal tools',
+              name: '2. Access internal tools',
               href: 'getting-started/internal-tools',
             },
+            {
+              name: '3. Leverage CI workflow',
+              href: 'getting-started/workflow',
+            },
+          ],
+        },
+        {
+          name: 'Project and environment structure',
+          items: [
             {
               name: 'VA.gov environments',
               href: 'getting-started/environments',
             },
             {
-              name: 'Development workflow',
-              href: 'getting-started/workflow',
-            },
-            {
-              name: 'Bundes and Code organization',
+              name: 'Bundles and Code organization',
               href: 'getting-started/bundles-and-code-organization',
             },
           ],
@@ -100,7 +105,7 @@ module.exports = {
     {
       id: 'architecture',
       name: 'Architecture',
-      href: 'architecture',
+      href: '/architecture',
       items: [
         {
           name: 'Metalsmith',
@@ -188,7 +193,7 @@ module.exports = {
     {
       id: 'forms',
       name: 'Forms',
-      href: 'forms',
+      href: '/forms',
       items: [
         {
           name: 'Introduction',
@@ -232,7 +237,7 @@ module.exports = {
     {
       id: 'platform',
       name: 'Platform',
-      href: 'platform',
+      href: '/platform',
       items: [
         {
           name: 'Formation',

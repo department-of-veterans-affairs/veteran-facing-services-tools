@@ -25,6 +25,15 @@
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
     "test-watch": "lerna run test-watch --scope=@department-of-veterans-affairs/formation-react"
   },
+  "browserslist": [
+    "Chrome 60",
+    "Firefox 56",
+    "iOS 9",
+    "Edge 14",
+    "ChromeAndroid 64",
+    "Safari 10",
+    "ie 11"
+  ],
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
@@ -40,6 +49,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "axe-core": "^3.2.2",
+    "autoprefixer": "^9.5.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.0.2",
     "babel-jest": "^24.7.1",
@@ -73,6 +83,7 @@
     "mocha": "^4.0.1",
     "ncp": "^2.0.0",
     "node-sass": "^4.8.3",
+    "postcss-loader": "^3.0.0",
     "promisify-node": "^0.4.0",
     "react": "^16.7.0",
     "react-docgen": "^2.19.0",

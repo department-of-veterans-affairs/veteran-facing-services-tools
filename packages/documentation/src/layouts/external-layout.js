@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from './layout';
+import Layout from './Layout';
 
 export default class ExternalLayout extends Component {
   render() {

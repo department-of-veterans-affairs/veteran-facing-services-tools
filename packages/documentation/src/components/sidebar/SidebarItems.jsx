@@ -45,7 +45,7 @@ export default function SidebarItems({ items }) {
   }
 
   return (
-    <ul className="menu-list">
+    <ul className="site-c-sidenav-list">
       {items.map(item => (
         <li key={item.name}>
           {!!item.items && (

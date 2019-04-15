@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Sidebar from '../components/sidebar/Sidebar';
-import './layout.scss';
+import Header from '../components/Header';
+import '../scss/main.scss';
 
 /**
  * Layout
@@ -75,8 +75,8 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
-            <Sidebar location={location} />
-            <div className="ContentArea docSearch-content">{children}</div>
+            <Header location={location} />
+            {children}
           </>
         )}
       />

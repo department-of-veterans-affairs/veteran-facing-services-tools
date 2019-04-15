@@ -11,33 +11,14 @@ import sidebarData from '../../sidebar';
 
 export default function Sidebar({ location }) {
   const sidebarSection = sidebarData.sections.find(section =>
-    location.pathname.includes(`/${section.href}`),
+    location.pathname.includes(section.href),
   );
 
   return (
-    <aside className="sidebar">
-      <div className="search">
-        <div className="input-wrap">
-          <input
-            type="search"
-            value=""
-            onChange={() => {}}
-            placeholder="Type to search"
-          />
-        </div>
-      </div>
-
-      {!!sidebarSection && (
-        <>
-          <h1>{sidebarSection.name}</h1>
-          <Link className="home-link" to="">
-            Home
-          </Link>
-          <SidebarItems items={sidebarSection.items} />
-        </>
-      )}
+    <div className="vads-l-col--4 site-c-content__nav">
+      {!!sidebarSection && <SidebarItems items={sidebarSection.items} />}
       {!sidebarSection && (
-        <ul className="menu-list">
+        <ul className="site-c-sidenav-list">
           {sidebarData.sections.map(section => (
             <li key={section.id}>
               <Link to={section.href}>{section.name}</Link>
@@ -45,6 +26,6 @@ export default function Sidebar({ location }) {
           ))}
         </ul>
       )}
-    </aside>
+    </div>
   );
 }
