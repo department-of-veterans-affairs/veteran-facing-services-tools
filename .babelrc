@@ -8,7 +8,7 @@
       },
       "useBuiltIns": "entry",
       "modules": false,
-      "debug": true
+      "debug": false
     }],
     "@babel/react",
   ],
