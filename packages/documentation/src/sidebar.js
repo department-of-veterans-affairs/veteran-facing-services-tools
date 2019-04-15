@@ -90,8 +90,8 @@ module.exports = {
               href: 'getting-started/common-tasks/reviewing-feature-branches',
             },
             {
-              name: 'Unit Testing',
-              href: 'getting-started/common-tasks/unit-testing',
+              name: 'Unit Tests',
+              href: 'getting-started/common-tasks/unit-tests',
             },
           ],
         },
