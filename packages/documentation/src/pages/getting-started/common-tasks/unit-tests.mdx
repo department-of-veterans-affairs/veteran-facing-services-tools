@@ -10,16 +10,17 @@
 
 #### When they run/ how they run
 There are 5 times tests can run:
-1. At any time during local development by running one of the npm scripts specified in `package.json`
-  - Any tests can be run during this time
-2. During the pre-commit hook
-  - Only linting is run automatically
-3. Before merging a branch to master via Jenkins
-  - Unit tests, e2e tests, and code climate are automatically run during this time
-4. Before merging a branch to production via Jenkins
-  - Accessibility tests are automatically run during this time
-5. After merging to production (this is planned for removal)
-  - Unit tests and e2e tests are run automatically
+
+  1. At any time during local development by running one of the npm scripts specified in `package.json`
+    - Any tests can be run during this time
+  2. During the pre-commit hook
+    - Only linting is run automatically
+  3. Before merging a branch to master via Jenkins
+    - Unit tests, e2e tests, and code climate are automatically run during this time
+  4. Before merging a branch to production via Jenkins
+    - Accessibility tests are automatically run during this time
+  5. After merging to production (this is planned for removal)
+    - Unit tests and e2e tests are run automatically
 
 #### How to debug
 For unit tests:
