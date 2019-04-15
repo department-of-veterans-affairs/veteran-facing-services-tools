@@ -23,7 +23,8 @@
     "publish": "lerna publish",
     "version": "lerna version --no-git-tag-version",
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
-    "test-watch": "lerna run test-watch --scope=@department-of-veterans-affairs/formation-react"
+    "test-watch": "lerna run test-watch --scope=@department-of-veterans-affairs/formation-react",
+    "jest": "jest"
   },
   "browserslist": [
     "Chrome 60",
