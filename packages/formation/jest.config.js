@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    "^.+\\.js$": "babel-jest",
+    "^.+\\.js$": "<rootDir>/packages/formation/scripts/babel-transformer.js",
   },
   rootDir: '../..',
   testMatch: [`<rootDir>/packages/formation/__tests__/**/*.test.js`],

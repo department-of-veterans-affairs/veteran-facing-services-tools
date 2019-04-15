@@ -24,7 +24,7 @@ pipeline {
             sh 'npm run lint'
           },
           'test': {
-            sh 'npm run test'
+            sh 'NODE_ENV=test npm run test'
           },
           'build': {
             withCredentials([[
