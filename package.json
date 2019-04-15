@@ -25,8 +25,18 @@
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
     "test-watch": "lerna run test-watch --scope=@department-of-veterans-affairs/formation-react"
   },
+  "browserslist": [
+    "Chrome 60",
+    "Firefox 56",
+    "iOS 9",
+    "Edge 14",
+    "ChromeAndroid 64",
+    "Safari 10",
+    "ie 11"
+  ],
   "devDependencies": {
     "axe-core": "^3.2.2",
+    "autoprefixer": "^9.5.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
@@ -57,6 +67,7 @@
     "mocha": "^4.0.1",
     "ncp": "^2.0.0",
     "node-sass": "^4.8.3",
+    "postcss-loader": "^3.0.0",
     "promisify-node": "^0.4.0",
     "react": "^16.7.0",
     "react-docgen": "^2.19.0",

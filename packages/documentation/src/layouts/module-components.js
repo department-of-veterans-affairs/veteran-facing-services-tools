@@ -4,7 +4,7 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { MDXProvider } from '@mdx-js/tag';
 import { LiveProvider, LiveEditor } from 'react-live';
 
-import Layout from './layout';
+import SidebarLayout from './SidebarLayout';
 import PropsTable from '../components/propstable';
 import './module-components.scss';
 
@@ -41,14 +41,14 @@ export default class ModuleComponentsLayout extends Component {
 
     return (
       <MDXProvider components={{ code: MyCodeComponent }}>
-        <Layout location={location}>
+        <SidebarLayout location={location}>
           <div className="content">
             {children}
             <h2>{displayName}</h2>
             {jsDocBlock && (
               <div>
                 <h3>JsDocs:</h3>
-                <div className="rendered-component">
+                <div className="site-c-reactcomp__rendered">
                   {jsDockBlocks.map((block, i) => (
                     <p key={`${block}-${i}`}>{block}</p>
                   ))}
@@ -62,7 +62,7 @@ export default class ModuleComponentsLayout extends Component {
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
             <PropsTable propMetaData={this.sortedReqiuredProps()} />
           </div>
-        </Layout>
+        </SidebarLayout>
       </MDXProvider>
     );
   }
