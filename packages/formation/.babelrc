@@ -10,6 +10,7 @@
       "modules": false,
       "debug": false
     }],
+    "@babel/react",
   ],
   "plugins": [
     // Stage 2
@@ -22,14 +23,22 @@
     "@babel/plugin-syntax-import-meta",
     ["@babel/plugin-proposal-class-properties", { "loose": false }],
     "@babel/plugin-proposal-json-strings",
-    ["module-resolver", {
-      "root": "./js"
+    ["transform-react-remove-prop-types", {
+      "removeImport": true
     }]
   ],
-  // Share polyfills between files.
   "env": {
     "test": {
-      "presets": ["@babel/env"],
+      "presets": [
+        ["@babel/env", {
+          "targets": {
+            "node": "current"
+          },
+          "modules": "auto",
+          "debug": true
+        }],
+        "@babel/react",
+      ],
       "plugins": [
         "dynamic-import-node",
         // Stage 2
