@@ -31,7 +31,11 @@
     "test": {
       "presets": [
         ["@babel/env", {
-          "modules": true,
+          "targets": {
+            "node": "current"
+          },
+          "modules": "auto",
+          "debug": true
         }],
         "@babel/react",
       ],
