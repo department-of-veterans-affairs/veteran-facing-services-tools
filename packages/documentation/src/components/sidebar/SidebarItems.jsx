@@ -39,37 +39,41 @@ function ComponentList() {
   );
 }
 
-export default function SidebarItems({ items }) {
+export default function SidebarItems({ items, isSublist = false }) {
   if (!items.length) {
     return null;
   }
 
   return (
     <ul className="site-c-sidenav-list">
-      {items.map(item => (
-        <li key={item.name}>
-          {!!item.items && (
+      {items.map(item => {
+        if (item.items) {
+          return (
             <li key={item.name}>
-              <h4>{item.name}</h4>
-              <SidebarItems items={item.items} />
+              {isSublist && item.name}
+              {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
+              <SidebarItems isSublist items={item.items} />
             </li>
-          )}
-          {item.query === 'componentList' && (
+          );
+        }
+        if (item.query === 'componentList') {
+          return (
             <li key={item.name}>
-              <h4>{item.name}</h4>
+              {isSublist && item.name}
+              {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
               <ComponentList />
             </li>
-          )}
-          {!!item.href && (
+          );
+        }
+        if (item.href) {
+          return (
             <li key={item.name}>
               <Link to={item.href}>{item.name}</Link>
             </li>
-          )}
-          {!item.href && !item.items && !item.query && (
-            <li key={item.name}>{item.name} (future)</li>
-          )}
-        </li>
-      ))}
+          );
+        }
+        return <li key={item.name}>{item.name} (future)</li>;
+      })}
     </ul>
   );
 }
