@@ -3,10 +3,10 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-
 module.exports = {
   entry: {
-    formation: './sass/full.scss',
+    formationCSS: './sass/full.scss',
+    formation: './js/index.js',
   },
   mode: 'production',
   output: {
@@ -72,6 +72,11 @@ module.exports = {
             outputPath: 'fonts/'
           }
         }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: [/node_modules/, /__tests__/],
+        use: ['babel-loader']
       }
     ]
   },
