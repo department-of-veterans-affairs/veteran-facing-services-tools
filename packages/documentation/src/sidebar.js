@@ -23,19 +23,6 @@ module.exports = {
           ],
         },
         {
-          name: 'Project and environment structure',
-          items: [
-            {
-              name: 'VA.gov environments',
-              href: 'getting-started/environments',
-            },
-            {
-              name: 'Bundles and Code organization',
-              href: 'getting-started/bundles-and-code-organization',
-            },
-          ],
-        },
-        {
           name: 'Common tasks',
           items: [
             {
@@ -134,6 +121,14 @@ module.exports = {
             {
               name: 'Client overview',
               href: 'architecture/site-structure/client-overview',
+            },
+            {
+              name: 'VA.gov environments',
+              href: 'architecture/site-structure/environments',
+            },
+            {
+              name: 'Bundles and Code organization',
+              href: 'architecture/site-structure/bundles-and-code-organization',
             },
             {
               name: 'Styling',

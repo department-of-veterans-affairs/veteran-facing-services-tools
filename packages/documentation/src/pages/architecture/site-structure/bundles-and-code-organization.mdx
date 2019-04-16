@@ -1,10 +1,18 @@
 # Bundles and Code Organization
 
 ## Application Bundling with Webpack
-- most applications leverage the [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/) to code split their source into
+Webpack is a modular asset bundler used to build the VA.gov client application. Its responsibilities include:
+  - dependency resolution in JavaScript and CSS files,
+  - splitting the project into application specific and shared resources during the build process,
+  - enabling support for legacy browsers,
+  - performance optimization, and
+  - providing the application launch behavior that ties all of this together.
+
+Most applications leverage the [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/) to code split their source into
 	- entries files that are application specific e.g. facilities-locator.entry.js, and
 	- a vendor.js file containing common modules shared between entry points
 - Webpage loads application specific files on demand. More information on this can be found in [Webpack code splitting](https://webpack.js.org/guides/code-splitting/)
+
 
 ### Common bundles
 - `settings.js`
