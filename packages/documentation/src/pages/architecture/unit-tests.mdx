@@ -1,4 +1,4 @@
-## Unit Tests
+## How do unit tests work?
 
 #### Where they live
 - Tests can live anywhere in the `src` directory, but in general are located in a directory close to the code or application that they are written to test.
@@ -17,9 +17,8 @@ There are 5 times tests can run:
     - Only linting is run automatically
   3. Before merging a branch to master via Jenkins
     - Unit tests, e2e tests, and code climate are automatically run during this time
-  4. Before merging a branch to production via Jenkins
+  4. After merging to master
     - Accessibility tests are automatically run during this time
-  5. After merging to production (this is planned for removal)
     - Unit tests and e2e tests are run automatically
 
 #### How to debug
@@ -58,7 +57,7 @@ Write tests as you go! New functionality added in a PR should ideally be covered
 - **path**: utilities for working with file and directory paths
 - **react-dom**: used for findDOMNode
 - **react-dom/test-utils**: test utilities for React components, being replaced by Enzyme
-- **skin-deep**: test helpers using React's shallowRender
+- **skin-deep**: test helpers using React's shallowRender (Deprecated in favor of Enzyme)
 
 5. Display and watch test results
 - **mocha**: testing framework
@@ -102,35 +101,19 @@ Write tests as you go! New functionality added in a PR should ideally be covered
 
 Our unit tests are run on Node as opposed to in a browser. The benefit of this is that the tests run much faster. The downside is that we aren't provided with a window or DOM upon which to make calls or append elements. This will break ReactTestUtil's `simulate()` calls. To remedy, a fake window and document are provided using jsdom and bootstrapped in `test/util/mocha-setup.js`, which is required via `test/mocha.opts`.
 
-2. Why Electron?
-
-At the time we implemented Electron (Jan 2017), it was faster to run the e2e tests in Electron than in PhantomJS, which is what we were using before. However, there are some downsides to using Electron:
-- It is harder to debug tests (no access to devtools)
-- There are some known issues with resizing the window to test at different widths
-
-Possible solutions:
-- Offer a command line option to run the e2e tests either with Electron or just using Chrome's webdriver, as opposed to having to make a configuration change
-- The headless option might be faster than Electron now (Jan 2018); investigate this further
-
-3. Why Saucelabs?
-
-Saucelabs was originally added to be used on a merge to production, for one-off testing situations, or for running tests on different window sizes and browsers. However, it was a huge lift to make this possible and is very difficult to get all tests to pass everywhere.
-
-One benefit of Saucelabs is that it can be used to test on specific browsers to debug a problem. However, Browserstack may be easier to use for this. Automated testing is better supported in Saucelabs, but manual testing is easier to do in Browserstack.
-
-4. How do we do accessibility testing?
+2. How do we do accessibility testing?
 
 We use both manual tests (VoiceOver, typically) and automated tests (using aXe).
 
 NVDA another option for manual testing and is supposed to be a better tool than VoiceOver, but it is only available on Windows. It would be a huge lift to get NVDA set up using Browserstack or some other virtual environment.
 
-5. How do you measure code coverage?
+3. How do you measure code coverage?
 
 It is possible to measure code coverage by running the command line script `npm run test:coverage`.
 
 We are planning to turn off code climate, which is currently run before merging to master during the PR review stage. However, it might be useful to replace it with something like coveralls in order to more consistently measure our code coverage with each addition of code.
 
-6. How to use visual regression tests
+4. How to use visual regression tests
 
 Visual regression tests work by creating a baseline and then comparing screenshots against that master. The baseline images can be found at `logs/visual-regression/baseline/`, and the diffs (if any) can be found at `logs/visual-regression/diffs`.
 
