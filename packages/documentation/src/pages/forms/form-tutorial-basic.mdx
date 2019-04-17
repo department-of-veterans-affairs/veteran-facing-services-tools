@@ -1,25 +1,26 @@
 ---
-title: Vets Website Form Tutorial - Basic
+title: VAFS tutorial - basic
 ---
 
-# Form Tutorial - Basic
+# Basic tutorial
 
-In this doc, we'll walk through creating a new form and making some simple changes.
+In this doc, we'll walk through creating a new form and making some simple changes. 
+
+Prerequisites: 
+- VA.gov [running locally](/getting-started)
+- [VA.gov Yeoman generator](/platform/generator) installed locally (first step in linked page)
+
+If you both of those steps completed, you're ready to get started.
 
 ## Setting up
 
-If you haven't already, get [vets-website](https://github.com/department-of-veterans-affairs/vets-website) set up and running on your machine.
-
-The first step after that is to get the basic scaffolding set up for a new application. We have a [generator tool](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) to help you set up the files needed for the new React app and form. In the root of `vets-website`, you should install and run Yeoman and the generator:
+To begin, run the generator from the root of your local vets-website repository:
 
 ```bash
-npm install -g yo
-npm install -g @department-of-veterans-affairs/generator-vets-website
-
 yo @department-of-veterans-affairs/vets-website
 ```
 
-You can answer the questions with the [documentation](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) as a guide, or if you're just looking to try things out, here are the answers I'm using for this tutorial:
+You can answer the questions with the [usage documentation](/platform/generator) as a guide. This tutorial uses the following answers to the questions asked by the generator:
 
 - What's the name of your application? This will be the default page title. `My new form`
 - What folder in `src/applications/` should your app live in? This can be a subfolder. `new-form`
@@ -34,7 +35,13 @@ You can answer the questions with the [documentation](https://github.com/departm
 - What's the benefit description for this form? `new form benefits`
 - Which form template would you like to start with? `Choose 'BLANK: A form without any fields'`
 
-After you run the generator, run `yarn watch` (or restart it if you already had it running) and navigate to http://localhost:3001/new-form. You should see something like this:
+After you run the generator, run
+
+```bash
+yarn watch
+```
+
+If you already had it running, restart the watch commmand. After the watch task successfully starts up, navigate to http://localhost:3001/new-form (or the path you entered when asked by the generator). You should see something like this:
 
 ![](../../images/forms/initial-form.png)
 
@@ -80,7 +87,7 @@ const formConfig = {
 };
 ```
 
-There's a lot of information already there, and you can check out the [form config specifications](https://github.com/usds/us-forms-system/tree/master/docs) to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
+There's a lot of information already there, and you can check out the [form config specification](/forms/docs/spec) to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
 
 At the most basic level, our forms consist of: widgets, fields, pages, and chapters.
 
@@ -241,6 +248,5 @@ Once you've reviewed your form, you have to click the checkbox to agree to the p
 
 That's it! Continue on in our documentation to learn about building more complex forms and the whole process for building and submitting a new form.
 
-<hr/>
 
-Next: [Vets Website Form Tutorial - Intermediate](./form-tutorial-intermediate)
+Next: [Intermediate tutorial](./form-tutorial-intermediate)
