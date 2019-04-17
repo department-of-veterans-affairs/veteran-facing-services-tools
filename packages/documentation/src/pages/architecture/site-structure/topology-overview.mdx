@@ -52,7 +52,7 @@ The reverse proxies also manage access to the legacy EWIS content for www.va.gov
 
 API requests to VA backend dependencies must be routed back to the VA network. This is done by a forward-proxy deployment running [haproxy](http://www.haproxy.org/), which acts as a load balancer for the VA backends. Additionally, there are some external dependencies which must be routed back through the TIC to reach the Internet. Many of these backends are documented in [External Service Integrations](https://github.com/department-of-veterans-affairs/devops/tree/master/docs/External%20Service%20Integrations)
 
-Most VA systmes also connect to other systems (for example, My HealtheVet connects to VistA and EVSS connects to BGS and VBMS), creating a dependency tree. Much of that complexity is abstracted by API calls, but it can affect our infrastructure, especially when an upstream dependency goes down.
+Most VA systems also connect to other systems (for example, My HealtheVet connects to VistA and EVSS connects to BGS and VBMS), creating a dependency tree. Much of that complexity is abstracted by API calls, but it can affect our infrastructure, especially when an upstream dependency goes down.
 
 This is an outdated diagram and needs to be updated, but gives the basic idea:
 
