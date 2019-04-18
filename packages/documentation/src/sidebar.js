@@ -133,10 +133,6 @@ module.exports = {
           name: 'Site structure',
           items: [
             {
-              name: 'Topology',
-              href: '/architecture/site-structure/topology-overview',
-            },
-            {
               name: 'Client overview',
               href: '/architecture/site-structure/client-overview',
             },
