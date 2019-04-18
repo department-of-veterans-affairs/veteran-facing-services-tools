@@ -16,34 +16,42 @@ module.exports = {
               name: '2. Access internal tools',
               href: '/getting-started/internal-tools',
             },
-            {
-              name: '3. Leverage CI workflow',
-              href: '/getting-started/workflow',
-            },
           ],
         },
         {
           name: 'Common tasks',
           items: [
             {
-              name: 'Running VA.gov locally',
-              href: '/getting-started/common-tasks/local',
+              name: 'Run and Build VA.gov',
+              href: '/getting-started/common-tasks/run-build',
             },
             {
-              name: 'Building VA.gov',
-              href: '/getting-started/common-tasks/build',
+              name: 'Run tests',
+              href: '/getting-started/common-tasks/test',
             },
             {
-              name: 'Running tests',
-              href: '/getting-started/common-tasks/tests',
-            },
-            {
-              name: 'Linting your code',
-              href: '/getting-started/common-tasks/lint',
+              name: 'VA.gov workflow',
+              items: [
+                {
+                  name: 'Overview',
+                  href: '/getting-started/common-tasks/workflow/overview',
+                },
+                {
+                  name: 'Write',
+                  href: '/getting-started/common-tasks/workflow/write',
+                },
+                {
+                  name: 'Review',
+                  href: '/getting-started/common-tasks/workflow/review',
+                },
+                {
+                  name: 'Deploy',
+                  href: '/getting-started/common-tasks/workflow/deploy',
+                },
+              ],
             },
             {
               name: 'Creating a new React application',
-              href: '/getting-started/common-tasks/new-app',
             },
             {
               name: 'Writing a unit test',
@@ -57,40 +65,7 @@ module.exports = {
               name: 'Updating Formation',
               // href: '/getting-started/common-tasks/update-formation'
             },
-            {
-              name: 'Releases',
-              href: '/getting-started/common-tasks/releases',
-            },
-            {
-              name: 'Reviewing feature branches',
-              href: '/getting-started/common-tasks/reviewing-feature-branches',
-            },
-            {
-              name: 'Documentation',
-              items: [
-                {
-                  name: 'Adding new pages to this site',
-                  href: '/getting-started/common-tasks/doc-page',
-                },
-                {
-                  name: 'Adding pages from Github to this site',
-                  href: '/getting-started/common-tasks/external-doc-page',
-                },
-                {
-                  name: 'Add Graphs to MDX',
-                  href: '/getting-started/common-tasks/add-graphs-to-mdx',
-                },
-                {
-                  name: 'Creating A Gatsby Plugin',
-                  href: '/getting-started/common-tasks/creating-gatsby-plugins',
-                },
-              ],
-            },
           ],
-        },
-        {
-          name: 'Standards and conventions',
-          items: [],
         },
       ],
     },
@@ -254,6 +229,34 @@ module.exports = {
         {
           name: 'Monitoring',
           items: [],
+        },
+      ],
+    },
+    {
+      id: 'documentation',
+      name: 'This site',
+      href: '/this-site',
+      items: [
+        {
+          name: 'Common tasks',
+          items: [
+            {
+              name: 'Adding new pages to this site',
+              href: '/this-site/common-tasks/doc-page',
+            },
+            {
+              name: 'Adding pages from Github to this site',
+              href: '/this-site/common-tasks/external-doc-page',
+            },
+            {
+              name: 'Add Graphs to MDX',
+              href: '/this-site/common-tasks/add-graphs-to-mdx',
+            },
+            {
+              name: 'Creating A Gatsby Plugin',
+              href: '/this-site/common-tasks/creating-gatsby-plugins',
+            },
+          ],
         },
       ],
     },
