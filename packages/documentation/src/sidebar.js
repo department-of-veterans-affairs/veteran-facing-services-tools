@@ -219,7 +219,12 @@ module.exports = {
         },
         {
           name: 'Architecture',
-          items: [],
+          items: [
+            {
+              name: 'About the schema and uiSchema objects',
+              href: '/forms/architecture/about-the-schema-and-uischema-objects',
+            },
+          ],
         },
         {
           name: 'Common tasks',
