@@ -230,29 +230,24 @@ module.exports = {
     },
     {
       id: 'documentation',
-      name: 'This site',
-      href: '/this-site',
+      name: 'Documentation guide',
+      href: '/documentation-guide',
       items: [
         {
-          name: 'Common tasks',
-          items: [
-            {
-              name: 'Adding new pages to this site',
-              href: '/this-site/common-tasks/doc-page',
-            },
-            {
-              name: 'Adding pages from Github to this site',
-              href: '/this-site/common-tasks/external-doc-page',
-            },
-            {
-              name: 'Add Graphs to MDX',
-              href: '/this-site/common-tasks/add-graphs-to-mdx',
-            },
-            {
-              name: 'Creating A Gatsby Plugin',
-              href: '/this-site/common-tasks/creating-gatsby-plugins',
-            },
-          ],
+          name: 'Adding new pages to this site',
+          href: '/documentation-guide/doc-page',
+        },
+        {
+          name: 'Adding pages from Github to this site',
+          href: '/documentation-guide/external-doc-page',
+        },
+        {
+          name: 'Add Graphs to MDX',
+          href: '/documentation-guide/add-graphs-to-mdx',
+        },
+        {
+          name: 'Creating A Gatsby Plugin',
+          href: '/documentation-guide/creating-gatsby-plugins',
         },
       ],
     },
