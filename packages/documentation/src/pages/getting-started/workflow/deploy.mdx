@@ -14,7 +14,7 @@ Code goes through several steps to get to production. This document describes th
 Jenkins performs the following tasks after a pull request is merged into `master`
 
 1. **Build** `master` branch to create an deployment artifact (.tar file)
-1. **Deploy** the artifact to dev.va.gov and staging.va.gov
+1. **Deploy** to development and staging using deployment artifact
 1. [Create a release](https://help.github.com/en/articles/creating-releases) in GitHub from master, tag artifacts of that commit SHA hash with release name
 1. **Deploy** to production using deployment artifact according to automated deployment schedule
 
