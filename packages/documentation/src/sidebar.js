@@ -19,6 +19,27 @@ module.exports = {
           ],
         },
         {
+          name: 'VA.gov workflow',
+          items: [
+            {
+              name: 'Overview',
+              href: '/getting-started/workflow/overview',
+            },
+            {
+              name: 'Write',
+              href: '/getting-started/workflow/write',
+            },
+            {
+              name: 'Review',
+              href: '/getting-started/workflow/review',
+            },
+            {
+              name: 'Deploy',
+              href: '/getting-started/workflow/deploy',
+            },
+          ],
+        },
+        {
           name: 'Common tasks',
           items: [
             {
@@ -28,27 +49,6 @@ module.exports = {
             {
               name: 'Run tests',
               href: '/getting-started/common-tasks/test',
-            },
-            {
-              name: 'VA.gov workflow',
-              items: [
-                {
-                  name: 'Overview',
-                  href: '/getting-started/common-tasks/workflow/overview',
-                },
-                {
-                  name: 'Write',
-                  href: '/getting-started/common-tasks/workflow/write',
-                },
-                {
-                  name: 'Review',
-                  href: '/getting-started/common-tasks/workflow/review',
-                },
-                {
-                  name: 'Deploy',
-                  href: '/getting-started/common-tasks/workflow/deploy',
-                },
-              ],
             },
             {
               name: 'Creating a new React application',
