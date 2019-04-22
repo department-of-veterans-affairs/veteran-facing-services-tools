@@ -43,7 +43,7 @@ module.exports = {
           name: 'Common tasks',
           items: [
             {
-              name: 'Run and Build VA.gov',
+              name: 'Run and build VA.gov',
               href: '/getting-started/common-tasks/run-build',
             },
             {
@@ -103,7 +103,7 @@ module.exports = {
               href: 'architecture/site-structure/environments',
             },
             {
-              name: 'Bundles and Code organization',
+              name: 'Bundles and code organization',
               href: 'architecture/site-structure/bundles-and-code-organization',
             },
             {
@@ -246,11 +246,11 @@ module.exports = {
           href: '/documentation-guide/external-doc-page',
         },
         {
-          name: 'Add Graphs to MDX',
+          name: 'Add graphs to MDX',
           href: '/documentation-guide/add-graphs-to-mdx',
         },
         {
-          name: 'Creating A Gatsby Plugin',
+          name: 'Creating a Gatsby plugin',
           href: '/documentation-guide/creating-gatsby-plugins',
         },
       ],
