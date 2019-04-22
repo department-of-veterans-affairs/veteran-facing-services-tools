@@ -1,0 +1,20 @@
+# VA.gov workflow
+
+VA.gov uses a [Continuous Integration](https://www.thoughtworks.com/continuous-integration) process, which consists of the following steps:
+
+1. [Write](/getting-started/common-tasks/workflow/write)
+    - Determine which issue to work on
+    - Create feature branch
+    - Code new functionality
+    - Write tests for new functionality
+2. [Review](/getting-started/common-tasks/workflow/review)
+    - Submit pull request
+    - Run unit tests and compliance scans (kicked off when a pull request is created)
+    - Test and peer review code (read: code review)
+3. [Deploy](/getting-started/common-tasks/workflow/deploy)
+    - Merge code to stable code base
+
+_Each project's code base has a branch called `master` by default. Anything in `master` is deemed to be stable and deployable. This means that **anything you merge will need to be ready to immediately be live or hidden in some way behind a feature flag**._
+
+## References
+[GitHub Flow](https://guides.github.com/introduction/flow/)
