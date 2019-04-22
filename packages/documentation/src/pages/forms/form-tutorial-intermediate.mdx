@@ -1,14 +1,14 @@
 ---
-title: Form Tutorial - Intermediate
+title: VAFS tutorial - intermediate
 ---
 
-# Form Tutorial - Intermediate
+# Intermediate tutorial
 
-## Form Validation & Conditional Fields
+Previous: [Basic tutorial](./form-tutorial-basic)
 
 Now that you've gone through and created a really simple form using the tutorial, let's take a look at how to handle some common use cases on forms.
 
-### Custom validation
+## Form validation
 
 Because our forms are based on JSON Schema, you can rely on the built in types and pattern property to do a lot of your validation. However, sometimes you need validation rules that go beyond what JSON Schema offers. To write custom validation, we have a `ui:validation` helper:
 
@@ -108,7 +108,7 @@ page1: {
 }
 ```
 
-### Conditional required fields
+## Conditional required fields
 
 In some cases you may want to have fields be required only under certain conditions. To handle that, you can use the `ui:required` helper:
 
@@ -141,7 +141,7 @@ page1: {
 
 In the above config, `myOtherField` will be required if `myField` equals "test". The `formData` parameter contains all of the form data, across all pages, so your conditional logic can be based on any other data in the form.
 
-### Conditionally displayed fields
+## Conditionally displayed fields
 
 Often when building forms you'll need to hide and show fields based on form data or other information. Our form system has three ways of doing so.
 
@@ -149,7 +149,7 @@ Often when building forms you'll need to hide and show fields based on form data
 
 A common pattern is to expand some fields "underneath" others, when a user enters information in a field that requires more information to be collected:
 
-TODO: expandUnder image
+![](../../images/forms/expand_under.png)
 
 To do that, you can use the `expandUnder` option:
 
@@ -189,7 +189,6 @@ In the above example, `myConditionalField` will display whenever `myField` has a
 
 If you just need to hide or show a field, without the expand under treatment, you can use `hideIf`:
 
-
 ```js
 page1: {
   path: 'first-page',
@@ -222,7 +221,7 @@ page1: {
 
 In the above example, `myConditionalField` is hidden when `myField` is not true (meaning it's false or undefined).
 
-### Conditional pages
+## Conditional pages
 
 Another situation you may encounter is needing to make an entire page of the form conditional. You can do that with the `depends` property:
 
@@ -250,7 +249,7 @@ page1: {
 
 The depends function is passed the current form data, so you can check different conditions and return false if want to skip a page. Note that you want to make sure you're checking data a user would enter before potentially reaching this page, otherwise they won't ever see it.
 
-### View only data
+## View-only data
 
 In some cases, you may have fields that you don't need to submit along with the form data. A confirmation email field, for example. In other cases you may also want to group fields into objects but not have that grouping reflected in the submitted data. This can be useful if you need to conditionally hide a group of fields and don't want to write hideIf functions every individual field.
 
@@ -284,7 +283,7 @@ page1: {
 
 Since we've prefixed `confirmEmail` with `view:`, that field will be removed before submitting the completed form.
 
-If you prefix an object with `view:`, some slightly different will happen:
+If you prefix an object with `view:`, something slightly different will happen:
 
 ```js
 page1: {
@@ -334,10 +333,7 @@ If we had left off the `view:` prefix it would be:
 }
 ```
 
-That should get you started with some of the common validation and conditional field scenarios. Many of the options above have extra parameters or options that may help with some less common scenarios, so make sure to check the form config spec for a full picture of all the options offered.
+That should get you started with some of the common validation and conditional field scenarios. Many of the options above have extra parameters or options that may help with some less common scenarios, so make sure to check the [form config specification](/forms/docs/spec) for a full picture of all the options offered.
 
-<hr/>
 
-Back: [Vets Website Form Tutorial - Basic](/forms/form-tutorial-basic)
-
-Next: [Vets Website Form Tutorial - Advanced](/forms/form-tutorial-advanced)
+Next: [Advanced tutorial](./form-tutorial-advanced)

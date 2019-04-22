@@ -196,23 +196,23 @@ module.exports = {
           name: 'Tutorial',
           items: [
             {
-              name: 'Form Tutorial - Basic',
+              name: '1. Basic',
               href: '/forms/form-tutorial-basic',
             },
             {
-              name: 'Form Tutorial - Intermediate',
+              name: '2. Intermediate',
               href: '/forms/form-tutorial-intermediate',
             },
             {
-              name: 'Form Tutorial - Advanced',
+              name: '3. Advanced',
               href: '/forms/form-tutorial-advanced',
             },
             {
-              name: 'Setting up Save in Progress',
+              name: '4. Setting up Save in Progress',
               href: '/forms/save-in-progress',
             },
             {
-              name: 'Forms in Production',
+              name: '5. Forms in production',
               href: '/forms/forms-in-production',
             },
           ],
@@ -243,6 +243,10 @@ module.exports = {
         {
           name: 'Feature flags',
           href: '/platform/feature-flags',
+        },
+        {
+          name: 'Application generator',
+          href: '/platform/generator',
         },
         {
           name: 'Identity',
