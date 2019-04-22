@@ -1,0 +1,47 @@
+# Run tests
+
+## Prerequisite
+
+- [Run or build](/getting-started/common-tasks/run-build) the app
+
+## Test commands
+
+| Test type | Test all | Test one | Requires local build to run| Test target | Modules used |
+| --- | --- | --- | --- | --- | --- |
+| Unit | `yarn test:unit` | `yarn test:unit ./PATH-TO-TEST-FILE` | no | `*.unit.spec.js(x)` | [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), [Sinon](https://sinonjs.org/), [JSDom](https://github.com/jsdom/jsdom), [Enzyme](https://airbnb.io/enzyme/) |
+| Lint | `yarn lint` | `yarn lint:js` or `yarn lint:sass` | no | `*.js`, `*.scss` | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [sass-lint](https://github.com/sasstools/sass-lint) |
+| End to end | `yarn test:e2e` | `yarn test:e2e ./PATH-TO-TEST-FILE` | yes | `*.e2e.spec.js` | [Nightwatch.js](http://nightwatchjs.org/) |
+ | Accessibility | `yarn test:accessibility` | | yes | all pages in `sitemap.xml` | [Nightwatch.js](http://nightwatchjs.org/) |
+
+## Requires local build or run
+
+Some tests require [running or building](/getting-started/common-tasks/run-build)
+VA.gov:
+- **testing while running `watch` task**: tests will automatically be run against the site running on that server
+- **testing with a local build**: if nothing is running at `http://localhost:3001`, tests start an Express server and serve the build output in `build/localhost`
+
+## Unit tests
+
+- run all of our [Mocha](https://mochajs.org/)/[Chai](http://chaijs.com/)/[Sinon](https://sinonjs.org/)-based unit tests with the file extension `.unit.spec.js(x)`
+- use [JSDom](https://github.com/jsdom/jsdom) and [Enzyme](https://airbnb.io/enzyme/) to test browser and React behavior
+- are located in `test/` directories near the code they're testing in `src/`
+
+## Linting
+
+- verify consistency of JavaScript
+- enforce code formatting rules
+- automatically run on `git commit` as a precommit hook
+
+_We strongly recommend that you set up your editor to show you ESLint errors automatically as you're writing code. This makes the linter far less annoying in day to day use. ESLint has [integrations](https://eslint.org/docs/user-guide/integrations) for nearly all popular editors._
+
+## End to end tests
+
+- run all of our [Nightwatch.js](http://nightwatchjs.org/) tests in headless Chrome with the file extension `.e2e.spec.js`
+- simulate an actual user completing tasks in our tools and services.
+- are located in `test/` directories near the application they're testing in `src/`
+
+_End to end tests will only pass if they are run against their mock api server. This server is started by the end to end test automatically when vets-api is **not** running_
+
+## Accessibility tests
+
+- a variation of e2e tests that run aXe against our content pages running in Chrome.
