@@ -1,10 +1,8 @@
-:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
-
 # Common patterns for building forms
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
 
-### In this guide
+## In this guide
 
 - [Writing custom field validation](#writing-custom-field-validation)
 - [Validating a field based on other fields in the same object](#validating-a-field-based-on-other-fields-in-the-same-object)
@@ -14,7 +12,7 @@ Some forms require custom validation, styles, or conditional information based o
 - [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
 - [Conditionally including a page](#conditionally-including-a-page)
 
-### Writing custom field validation
+## Writing custom field validation
 
 To add field validations to your forms that JSON Schema doesn't provide, use the array `ui:validations` in the `uiSchema` object. `ui:validations` can be a function or an object.
 
@@ -54,7 +52,7 @@ When items in the `ui:validations` array are objects, they have two properties:
 }
 ```
 
-### Validating a field based on other fields in the same object
+## Validating a field based on other fields in the same object
 
 You can use `ui:validations` to validate objects in order to compare subfields. For example, given this schema:
 
@@ -97,7 +95,7 @@ The function must be referenced in the `uiSchema`:
 }
 ```
 
-### Changing drop-down options based on data in another field
+## Changing drop-down options based on data in another field
 
 Use the `updateSchema` option in `uiSchema` to change a list of enums:
 
@@ -125,7 +123,7 @@ Only the properties in the returned object are changed in the current schema. Th
 
 For a long list of options, create all variations of the schema outside of the update function and use the update function to switch between them. You won't need to create a new schema object each time data changes in the form, requiring your field to re-render.
 
-### Creating a block of text with no associated fields
+## Creating a block of text with no associated fields
 
 Use 'ui:description' to show text or a custom component before the fields in a particular object in the schema.
 
@@ -151,7 +149,7 @@ To create a block of text with no fields that follow, create an empty view objec
 }
 ```
 
-### Conditionally hiding a group of fields
+## Conditionally hiding a group of fields
 
 Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
 
@@ -202,7 +200,7 @@ The `hideIf` function is passed a copy of the current `formData` in order to det
 
 Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
 
-### Styling expanded or collapsed fields
+## Styling expanded or collapsed fields
 
 To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
 
@@ -232,7 +230,7 @@ To indent or otherwise style fields that are expanded or collapsed with the `exp
 
 In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
 
-### Conditionally including a page
+## Conditionally including a page
 
 The `depends` property determines whether a page is active or not. `depends` can work in a few ways:
 
@@ -289,4 +287,3 @@ If a user types 'open sesame' for the `passPhrase` on the first page, `otherPage
 
 **Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
 
-[Back to *Building a Form*](./README.md)

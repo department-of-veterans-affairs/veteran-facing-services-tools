@@ -19,6 +19,7 @@
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-plugin-sitemap": "^2.0.6",
     "gatsby-remark-images": "^3.0.3",
+    "gatsby-remark-slug": "^0.1.0",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-javascript-frontmatter": "^2.0.5",
     "gatsby-transformer-react-docgen": "^3.0.0",

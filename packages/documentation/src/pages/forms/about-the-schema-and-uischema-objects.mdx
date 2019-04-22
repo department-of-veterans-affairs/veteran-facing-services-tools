@@ -5,8 +5,8 @@ The VA.gov Forms System lets you build web-based forms using the JSON Schema sta
 - [Understanding the `schema` object](#understanding-the-schema-object)
   - [Describing object fields and arrays](#describing-object-fields-and-arrays)
 - [Understanding the `uiSchema` object](#understanding-the-uischema-object)
-  - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
-  - [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-forms-system-options)
+  - [Configuring `uiSchema` using RJSF options](#configuring-uischema-using-rjsf-options)
+  - [Configuring `uiSchema` using VAFS options](#configuring-uischema-using-vafs-options)
 
 ## Understanding the schema object
 
@@ -56,7 +56,7 @@ Arrays work similarly to objects. This example describes an array of boolean val
 
 ## Understanding the uiSchema object
 
-The `uiSchema` object was introduced by [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form#react-jsonschema-form), or *rjsf*, as a means of describing how a form page should be rendered from a `schema`. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents. In VAFS, `uiSchema` follows the format described in the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object), with some custom VAFS additions. The `schema` and `uiSchema` objects should have a similar structure, with the same fields organized in the same way with these exceptions:
+The `uiSchema` object was introduced by [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form#react-jsonschema-form), or *RJSF*, as a means of describing how a form page should be rendered from a `schema`. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents. In VAFS, `uiSchema` follows the format described in the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object), with some custom VAFS additions. The `schema` and `uiSchema` objects should have a similar structure, with the same fields organized in the same way with these exceptions:
 
 - `uiSchema` doesn't need to contain all the fields found in the `schema` object.
 - `uiSchema` doesn't need a `properties` object for sub-fields.
@@ -100,9 +100,9 @@ For array fields, you must specify an `items` object that contains the fields fo
 }
 ```
 
-### Configuring `uiSchema` using rjsf options
+### Configuring `uiSchema` using RJSF options
 
-If you're not already familiar with the rjsf uiSchema options, see the [rjsf library documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object). Some commonly used options include:
+If you're not already familiar with the RJSF uiSchema options, see the [RJSF library documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object). Some commonly used options include:
 
 - [ui:order](https://github.com/mozilla-services/react-jsonschema-form#object-fields-ordering): An array of field names in the order in which they should appear.
 - [ui:widget](https://github.com/mozilla-services/react-jsonschema-form#alternative-widgets): The name of an alternative widget to use for the field, for example, a custom widget called `yesNo`.
@@ -111,7 +111,7 @@ If you're not already familiar with the rjsf uiSchema options, see the [rjsf lib
 
 ### Configuring `uiSchema` using VAFS options
 
-The VAFS code includes additional `uiSchema` functionality not found in the rjsf library.
+The VAFS code includes additional `uiSchema` functionality not found in the RJSF library.
 
 ```js
 {

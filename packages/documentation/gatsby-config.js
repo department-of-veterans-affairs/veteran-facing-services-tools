@@ -31,10 +31,10 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
-        extensions: ['.mdx'],
+        extensions: ['.mdx', '.md'],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
-          default: require.resolve("./src/layouts/SidebarLayout.jsx"),
+          default: require.resolve('./src/layouts/SidebarLayout.jsx'),
         },
         gatsbyRemarkPlugins: [
           {
@@ -46,7 +46,10 @@ module.exports = {
           },
           {
             resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
-          }
+          },
+          {
+            resolve: 'gatsby-remark-slug'
+          },
         ],
       }
     },
