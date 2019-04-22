@@ -10,28 +10,32 @@ module.exports = {
           items: [
             {
               name: '1. Set up VA.gov locally',
-              href: 'getting-started',
+              href: '/getting-started',
             },
             {
               name: '2. Access internal tools',
-              href: 'getting-started/internal-tools',
-            },
-            {
-              name: '3. Leverage CI workflow',
-              href: 'getting-started/workflow',
+              href: '/getting-started/internal-tools',
             },
           ],
         },
         {
-          name: 'Project and environment structure',
+          name: 'VA.gov workflow',
           items: [
             {
-              name: 'VA.gov environments',
-              href: 'getting-started/environments',
+              name: 'Overview',
+              href: '/getting-started/workflow/overview',
             },
             {
-              name: 'Bundles and Code organization',
-              href: 'getting-started/bundles-and-code-organization',
+              name: 'Write',
+              href: '/getting-started/workflow/write',
+            },
+            {
+              name: 'Review',
+              href: '/getting-started/workflow/review',
+            },
+            {
+              name: 'Deploy',
+              href: '/getting-started/workflow/deploy',
             },
           ],
         },
@@ -39,70 +43,33 @@ module.exports = {
           name: 'Common tasks',
           items: [
             {
-              name: 'Running VA.gov locally',
-              href: 'getting-started/common-tasks/local',
+              name: 'Run and build VA.gov',
+              href: '/getting-started/common-tasks/run-build',
             },
             {
-              name: 'Building VA.gov',
-              href: 'getting-started/common-tasks/build',
-            },
-            {
-              name: 'Running tests',
-              href: 'getting-started/common-tasks/tests',
-            },
-            {
-              name: 'Linting your code',
-              href: 'getting-started/common-tasks/lint',
+              name: 'Run tests',
+              href: '/getting-started/common-tasks/test',
             },
             {
               name: 'Creating a new React application',
-              href: 'getting-started/common-tasks/new-app',
             },
             {
               name: 'Writing a unit test',
-              // href: 'getting-started/common-tasks/write-unit-test'
+              // href: '/getting-started/common-tasks/write-unit-test'
             },
             {
               name: 'Writing an end-to-end test',
-              // href: 'getting-started/common-tasks/write-e2e-test'
+              // href: '/getting-started/common-tasks/write-e2e-test'
             },
             {
               name: 'Updating Formation',
-              // href: 'getting-started/common-tasks/update-formation'
-            },
-            {
-              name: 'Adding new pages to this site',
-              href: 'getting-started/common-tasks/doc-page',
-            },
-            {
-              name: 'Adding pages from Github to this site',
-              href: 'getting-started/common-tasks/external-doc-page',
-            },
-            {
-              name: 'Add Graphs to MDX',
-              href: 'getting-started/common-tasks/add-graphs-to-mdx',
-            },
-            {
-              name: 'Creating A Gatsby Plugin',
-              href: 'getting-started/common-tasks/creating-gatsby-plugins',
-            },
-            {
-              name: 'Releases',
-              href: 'getting-started/common-tasks/releases',
-            },
-            {
-              name: 'Reviewing feature branches',
-              href: 'getting-started/common-tasks/reviewing-feature-branches',
+              // href: '/getting-started/common-tasks/update-formation'
             },
             {
               name: 'Unit Tests',
               href: 'getting-started/common-tasks/unit-tests',
             },
           ],
-        },
-        {
-          name: 'Standards and conventions',
-          items: [],
         },
       ],
     },
@@ -116,15 +83,15 @@ module.exports = {
           items: [
             {
               name: 'How are URLs created',
-              href: 'architecture/metalsmith/urls',
+              href: '/architecture/metalsmith/urls',
             },
             {
               name: 'How templates work',
-              href: 'architecture/metalsmith/templates',
+              href: '/architecture/metalsmith/templates',
             },
             {
               name: 'How to create collections and related links',
-              href: 'architecture/metalsmith/collections',
+              href: '/architecture/metalsmith/collections',
             },
           ],
         },
@@ -132,16 +99,20 @@ module.exports = {
           name: 'Site structure',
           items: [
             {
-              name: 'Topology',
-              href: 'architecture/site-structure/topology-overview',
+              name: 'Client overview',
+              href: '/architecture/site-structure/client-overview',
             },
             {
-              name: 'Client overview',
-              href: 'architecture/site-structure/client-overview',
+              name: 'VA.gov environments',
+              href: 'architecture/site-structure/environments',
+            },
+            {
+              name: 'Bundles and code organization',
+              href: 'architecture/site-structure/bundles-and-code-organization',
             },
             {
               name: 'Styling',
-              href: 'architecture/site-structure/styling-overview',
+              href: '/architecture/site-structure/styling-overview',
             },
           ],
         },
@@ -150,23 +121,19 @@ module.exports = {
           items: [
             {
               name: 'React standards',
-              href: 'architecture/front-end-standards/react',
+              href: '/architecture/front-end-standards/react',
             },
             {
               name: 'Redux standards',
-              href: 'architecture/front-end-standards/redux',
+              href: '/architecture/front-end-standards/redux',
             },
             {
               name: 'Styles',
-              href: 'architecture/front-end-standards/styles',
-            },
-            {
-              name: 'React standards',
-              href: 'architecture/front-end-standards/react',
+              href: '/architecture/front-end-standards/styles',
             },
             {
               name: 'Accessibility',
-              href: 'architecture/front-end-standards/accessibility',
+              href: '/architecture/front-end-standards/accessibility',
             },
             {
               name: 'Documented Decisions',
@@ -187,11 +154,11 @@ module.exports = {
         },
         {
           name: 'Visual regression testing',
-          href: 'architecture/visual-regression-testing',
+          href: '/architecture/visual-regression-testing',
         },
         {
           name: 'Teamsite',
-          href: 'architecture/teamsite',
+          href: '/architecture/teamsite',
         },
       ],
     },
@@ -201,31 +168,27 @@ module.exports = {
       href: '/forms',
       items: [
         {
-          name: 'Introduction',
-          href: 'forms/when-to-use-fs',
-        },
-        {
           name: 'Tutorial',
           items: [
             {
-              name: 'Form Tutorial - Basic',
-              href: 'forms/form-tutorial-basic',
+              name: '1. Basic',
+              href: '/forms/form-tutorial-basic',
             },
             {
-              name: 'Form Tutorial - Intermediate',
-              href: 'forms/form-tutorial-intermediate',
+              name: '2. Intermediate',
+              href: '/forms/form-tutorial-intermediate',
             },
             {
-              name: 'Form Tutorial - Advanced',
-              href: 'forms/form-tutorial-advanced',
+              name: '3. Advanced',
+              href: '/forms/form-tutorial-advanced',
             },
             {
-              name: 'Setting up Save in Progress',
-              href: 'forms/save-in-progress',
+              name: '4. Setting up Save in Progress',
+              href: '/forms/save-in-progress',
             },
             {
-              name: 'Forms in Production',
-              href: 'forms/forms-in-production',
+              name: '5. Forms in production',
+              href: '/forms/forms-in-production',
             },
           ],
         },
@@ -254,7 +217,11 @@ module.exports = {
         },
         {
           name: 'Feature flags',
-          href: 'platform/feature-flags',
+          href: '/platform/feature-flags',
+        },
+        {
+          name: 'Application generator',
+          href: '/platform/generator',
         },
         {
           name: 'Identity',
@@ -267,6 +234,29 @@ module.exports = {
         {
           name: 'Monitoring',
           items: [],
+        },
+      ],
+    },
+    {
+      id: 'documentation',
+      name: 'Documentation guide',
+      href: '/documentation-guide',
+      items: [
+        {
+          name: 'Adding new pages to this site',
+          href: '/documentation-guide/doc-page',
+        },
+        {
+          name: 'Adding pages from Github to this site',
+          href: '/documentation-guide/external-doc-page',
+        },
+        {
+          name: 'Add graphs to MDX',
+          href: '/documentation-guide/add-graphs-to-mdx',
+        },
+        {
+          name: 'Creating a Gatsby plugin',
+          href: '/documentation-guide/creating-gatsby-plugins',
         },
       ],
     },

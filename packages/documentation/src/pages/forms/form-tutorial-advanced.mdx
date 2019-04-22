@@ -1,10 +1,12 @@
 ---
-title: Form Tutorial - Advanced
+title: VAFS tutorial - intermediate
 ---
 
-## Form Tutorial - Advanced
+# Advanced tutorial
 
-#### Using Common Definitions
+Previous: [Intermediate tutorial](./form-tutorial-intermediate)
+
+## Using Common Definitions
 
 All of our forms share schemas with the back-end through `vets-json-schema`, the repository where we store JSON Schemas for validating data submitted to a `vets-api` API endpoint. Assuming you've created one of those schemas, the next step is to incorporate that into your form, along with other common definitions we've built.
 
@@ -109,7 +111,7 @@ Finally, in the code you can see that we're using `fullNameUI` in the `uiSchema`
 Often you'll need to slightly modify common definitions on the front-end to change a label or some conditional logic. The way we typically do that is to use our data utilities to set values on the schema. For example, say we needed to make our `veteranFullName` field expand underneath another field:
 
 ```js
-import _ from 'lodash/fp';
+import { set } from 'platform/utilities/data';
 import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
 import fullNameUI from '../../common/schemaform/definitions/fullName';
 // ...code omitted...
@@ -136,11 +138,7 @@ const formConfig = {
           'ui:title': 'My field',
           'ui:widget': 'yesNo'
         },
-        veteranFullName: _.merge(fullNameUI, {
-          'ui:options': {
-            expandUnder: 'myField'
-          }
-        })
+        veteranFullName: set('ui:options.expandUnder', 'myField', fullNameUI)
       },
       schema: {
         type: 'object',
@@ -154,7 +152,7 @@ const formConfig = {
 };
 ```
 
-We've imported the [Lodash FP (functional programming) library](https://github.com/lodash/lodash/wiki/FP-Guide) and using its `merge` function to merge our `ui:options` into the `fullNameUI` object, so that we don't have to redefine all of the configuration in there. All of the Lodash FP methods treat objects as immutable, not modifying anything you pass in to them, so you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
+We're using one of the available data utilities to set the expandUnder value for fullNameUI in a way that doesn't modify the existing fullNameUI object. All of the data functions in `platform/utilities/data` treat objects as immutable, not modifying anything you pass in to them, so you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
 
 ## Things to watch out for
 
@@ -163,8 +161,4 @@ The point of having these common definitions and sharing a schema between the fr
 - Since we're importing individual fields from `fullSchema`, it can be easy to miss required field rules, since we often import those directly. Make sure you're marking all the necessary fields as required in your form config.
 - Importing individual fields makes it easy to group them in ways specific to the front-end, so make sure if you are grouping things, you're using property names prefixed with `view:` to remove that grouping before submitting.
 
-<hr/>
-
-Back: [Vets Website Form Tutorial - Intermediate](./form-tutorial-intermediate)
-
-Next: [Setting up Save in Progress](./save-in-progress)
+Next: [Setting up Save in Progress](/forms/save-in-progress)

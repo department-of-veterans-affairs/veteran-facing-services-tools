@@ -1,46 +1,58 @@
 ---
-title: Vets Website Form Tutorial - Basic
+title: VAFS tutorial - basic
 ---
 
-## Form Tutorial - Basic
+# Basic tutorial
 
-#### Creating Your First Form
+In this doc, we'll walk through creating a new form and making some simple changes. 
 
-In this doc, we'll walk through creating a new form and making some simple changes.
+Prerequisites: 
+- VA.gov [running locally](/getting-started)
+- [VA.gov Yeoman generator](/platform/generator) installed locally (first step in linked page)
 
-## Setting up
+If you both of those steps completed, you're ready to get started.
 
-If you haven't already, get [vets-website](https://github.com/department-of-veterans-affairs/vets-website) set up and running on your machine.
+## Create new form application with Yeoman generator
 
-The first step after that is to get the basic scaffolding set up for a new application. We have a [generator tool](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) to help you set up the files needed for the new React app and form. In the root of `vets-website`, you should install and run Yeoman and the generator:
+To begin, run the generator from the root of your local vets-website repository:
 
 ```bash
-npm install -g yo
-npm install -g @department-of-veterans-affairs/generator-vets-website
-
 yo @department-of-veterans-affairs/vets-website
 ```
 
-You can answer the questions with the [documentation](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) as a guide, or if you're just looking to try things out, here are the answers I'm using for this tutorial:
+This tutorial uses the following answers to the questions asked by the generator:
 
-- What's the name of your application? This will be the default page title. `My new form`
-- What folder in `src/applications/` should your app live in? This can be a subfolder. `new-form`
-- What should be the name of your app's entry bundle? `newForm`
-- What's the root url for this app? `/new-form`
-- Is this a form app? `Y`
-- What's your form number? `XX-230`
-- What's the Google Analytics event prefix you want to use? `new-form-`
-- What's the respondent burden of this form in minutes? `30`
-- What's the OMB control number for this form? `XX3344`
-- What's the OMB expiration date (in M/D/YYYY format) for this form? `5/31/2018`
-- What's the benefit description for this form? `new form benefits`
-- Which form template would you like to start with? `Choose 'BLANK: A form without any fields'`
+| Question | Answer |
+| -------- | ------ |
+| What's the name of your application? | My new form |
+| What folder in `src/applications/` should your app live in? | new-form |
+| What should be the name of your app's entry bundle? | newForm |
+| What's the root url for this app? | /new-form |
+| Is this a form app? | Y |
+| What's your form number? | XX-230 |
+| What's the Google Analytics event prefix you want to use? | new-form- |
+| What's the respondent burden of this form in minutes? | 30 |
+| What's the OMB control number for this form? | XX3344 |
+| What's the OMB expiration date (in M/D/YYYY format) for this form? | 5/31/2018 |
+| What's the benefit description for this form? | new form benefits |
+| Which form template would you like to start with? | BLANK: A form without any fields |
 
-After you run the generator, run `yarn watch` (or restart it if you already had it running) and navigate to http://localhost:3001/new-form. You should see something like this:
+After answering the questions, the generator will create several source files for a new form application in `/src/applications/new-form`.
+
+## Open the new form application
+
+Next you'll need to start the site up locally (restart this task if it is already running):
+```bash
+yarn watch
+```
+
+Then navigate to http://localhost:3001/new-form.
+
+You should see something like this:
 
 ![](../../images/forms/initial-form.png)
 
-## Updating your form
+## Update your form
 
 Now that you're up and running, we can add a new page and field to our form. If you open up `src/applications/new-form/config.js`, you should see a `formConfig` variable:
 
@@ -82,7 +94,7 @@ const formConfig = {
 };
 ```
 
-There's a lot of information already there, and you can check out the [form config specifications](https://github.com/usds/us-forms-system/tree/master/docs) to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
+There's a lot of information already there, and you can check out the [form config specification](/forms/docs/spec) to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
 
 At the most basic level, our forms consist of: widgets, fields, pages, and chapters.
 
@@ -243,6 +255,5 @@ Once you've reviewed your form, you have to click the checkbox to agree to the p
 
 That's it! Continue on in our documentation to learn about building more complex forms and the whole process for building and submitting a new form.
 
-<hr/>
 
-Next: [Vets Website Form Tutorial - Intermediate](./form-tutorial-intermediate)
+Next: [Intermediate tutorial](./form-tutorial-intermediate)
