@@ -188,12 +188,41 @@ module.exports = {
           ],
         },
         {
-          name: 'Architecture',
-          items: [],
-        },
-        {
-          name: 'Common tasks',
-          items: [],
+          name: 'Documentation',
+          items: [
+            {
+              name: 'About the schema and uiSchema objects',
+              href: '/forms/about-the-schema-and-uischema-objects',
+            },
+            {
+              name: 'Available widgets',
+              href: '/forms/available-widgets',
+            },
+            {
+              name: 'Common patterns',
+              href: '/forms/common-patterns-for-building-forms',
+            },
+            {
+              name: 'Config options',
+              href: '/forms/config-options',
+            },
+            {
+              name: 'Component hierarchy',
+              href: '/forms/component-hierarchy',
+            },
+            {
+              name: 'Creating a form config file',
+              href: '/forms/creating-a-form-config-file',
+            },
+            {
+              name: 'Creating custom fields and widgets',
+              href: '/forms/creating-custom-fields-and-widgets',
+            },
+            {
+              name: 'Form features and usage guidelines',
+              href: '/forms/available-features-and-usage-guidelines',
+            },
+          ],
         },
       ],
     },
