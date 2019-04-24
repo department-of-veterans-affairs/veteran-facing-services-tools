@@ -16,7 +16,10 @@ const isElementInViewport = (
 };
 
 const loadAccordionHandler = () => {
-  const usaAccordion = [...document.getElementsByClassName('usa-accordion')];
+  const usaAccordion = [
+    ...document.getElementsByClassName('usa-accordion'),
+    ...document.getElementsByClassName('usa-accordion-bordered'),
+  ];
   const usaAccordionContentElements = [
     ...document.getElementsByClassName('usa-accordion-content'),
   ];
@@ -34,10 +37,9 @@ const loadAccordionHandler = () => {
     element.addEventListener('click', e => {
       const target = e.target;
       const other = [
-        ...e.currentTarget.parentElement.getElementsByClassName(
-          'usa-accordion-button',
-        ),
+        ...e.currentTarget.getElementsByClassName('usa-accordion-button'),
       ].filter(item => item !== target);
+
       const multiSelectable = toBoolean(
         element.getAttribute('aria-multiselectable'),
       );
