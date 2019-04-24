@@ -1,7 +1,63 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import sidebarData from '../sidebar';
 import MobileNav from './MobileNav';
+import { Index } from 'elasticlunr';
+// Graphql query used to retrieve the serialized search index.
+export const query = graphql`
+  query SearchIndexExampleQuery {
+    siteSearchIndex {
+      index
+    }
+  }
+`;
+
+// Search component
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ``,
+      results: [],
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" value={this.state.query} onChange={this.search} />
+        <ul>
+          {this.state.results.map(page => (
+            <li>
+              {page.title}: {page.keywords.join(`,`)}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  getOrCreateIndex = () => {
+    return this.index
+      ? this.index
+      : // Create an elastic lunr index and hydrate with graphql query results
+        Index.load(this.props.data.siteSearchIndex.index);
+  }
+
+  search = evt => {
+    const query = evt.target.value;
+    this.index = this.getOrCreateIndex();
+    this.setState({
+      query,
+      // Query the index with search string to get an [] of IDs
+      results: this.index
+        .search(query)
+        // Map over each ID and return the full document
+        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+    });
+  };
+}
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -95,7 +151,7 @@ export default class Header extends React.Component {
             </nav>
           </div>
         </header>
-
+        <Search />
         <div
           id="mobile-search-container"
           className="site-search-container site-seach-container--mobile"

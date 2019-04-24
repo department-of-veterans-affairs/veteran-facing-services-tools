@@ -4,6 +4,7 @@
   "description": "Developer Document Site for VA.gov",
   "version": "0.1.0",
   "dependencies": {
+    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "@department-of-veterans-affairs/formation": "^6.1.3",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@mdx-js/mdx": "^0.16.6",
@@ -39,6 +40,9 @@
     "gatsby"
   ],
   "license": "MIT",
+  "resolutions": {
+    "graphql": "14.1.1"
+  },
   "scripts": {
     "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
     "deploy": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths && gh-pages -d public -e .; fi",
