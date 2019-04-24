@@ -1,110 +1,95 @@
 ## How do unit tests work?
 
-#### List of tests
-
-| Test Type         | Description                                                                                                                                                                                                                                                                           | File Format   | Where                                                                                                              | When                                                                                        |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Unit              | Test for individual functions or components                                                                                                                                                                                                                                           | .unit.spec.js | Any .unit.spec.js file located in the /src folder. Typically located in a directory close to the code being tested | Locally through npm script commands<br/><br/>Jenkins build (Unit)<br/><br/>After merging to master          |
-| e2e               | Test a specific user flow from beginning to end                                                                                                                                                                                                                                       | .e2e.spec.js  | Any .e2e.spec.js file located in the /src folder. Typically located in a directory close to the code being tested  | Locally through npm script commands<br/><br/>Jenkins build (e2e)<br/><br/>After merging to master           |
-| Visual Regression | Used for testing each page for any visual changes. This should help us catch any site wide changes that might introduce bugs due to a visual code change. <br/><br/>To find out more about visual regression testing go to: <br/>[visual-regression-testing](/architecture/visual-regression-testing) |               | Test is run through a script located at /src/platform/testing/visual-regression/index.js                           | Locally through npm script commands                                                         |
-| Accessibility     | Tests accessibility of pages and components                                                                                                                                                                                                                                           |               | **axe-core**: automated accessibility testing                                                                      | Locally through npm script commands<br/><br/>Jenkins build (accessibility)<br/><br/>After merging to master |
-| Linting           | Test code quality                                                                                                                                                                                                                                                                     | .js           | Any .js file located in the /src folder.                                                                           | During the pre-commit hook<br/><br/>Jenkins build (Lint)                                            |
-| Code Coverage     | How much code is covered with tests                                                                                                                                                                                                                                                   |               | Any .js file located in the /src folder.                                                                           | Jenkins build (Unit)                                                                        |
-
-#### Where they live
-- Tests can live anywhere in the `src` directory, but in general are located in a directory close to the code or application that they are written to test.
-- The `.unit.spec.js` file extension is used for unit tests, while `.e2e.spec.js` is used for end-to-end (E2E) tests.
-- Visual regression test config has its own directory under `src/platform/testing/visual-regression`
-- Test commands are specified in `package.json`, as well as in vets-website's `README.md`
-- Configuration files for nightwatch and sass-lint live under `config/`
-- Scripts for running nightwatch tests live under `script/`
-
-#### When they run/ how they run
-There are 5 times tests can run:
-
-  1. At any time during local development by running one of the npm scripts specified in `package.json`
-    - Any tests can be run during this time
-  2. During the pre-commit hook
-    - Only linting is run automatically
-  3. Before merging a branch to master via Jenkins
-    - Unit tests, e2e tests, and code climate are automatically run during this time
-  4. After merging to master
-    - Accessibility tests are automatically run during this time
-    - Unit tests and e2e tests are run automatically
+|Test Type|Description|File Format|Where|When|Libraries|
+|---|---|---|---|---|---|
+| Unit | Test for individual functions or components | *.unit.spec.js | Any .unit.spec.js file located in the `/src` folder. Typically located in a directory close to the code being tested | Locally through npm script commands<br/><br/>Jenkins build (Unit)<br/><br/>After merging to master | [mocha.js](https://mochajs.org/)<br/><br/>[chai.js](https://www.chaijs.com/)<br/><br/>[chai-as-promised](https://github.com/domenic/chai-as-promised)<br/><br/>[sinon.js](https://sinonjs.org/)<br/><br/>[enzyme](https://airbnb.io/enzyme/)<br/><br/>[enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16)<br/><br/>[react-dom](https://www.npmjs.com/package/react-dom)<br/><br/>[react-dom/test-utils](https://reactjs.org/docs/test-utils.html)<br/><br/>[react-test-renderer](https://www.npmjs.com/package/react-test-renderer)<br/><br/>[jsdom](https://airbnb.io/enzyme/docs/guides/jsdom.html) |
+| e2e | Test a specific user flow from beginning to end | *.e2e.spec.js  | Any .e2e.spec.js file located in the `/src` folder. Typically located in a directory close to the code being tested<br/><br/> We use nightwatch.js to run our e2e tests. <br/><br/> Nightwatch configuration files can be found in `config/`<br/><br/> Scripts for running nightwatch tests live under `script/` | Locally through npm script commands<br/><br/>Jenkins build (e2e)<br/><br/>After merging to master | [nightwatch.js](http://nightwatchjs.org/)<br/><br/>[saucelabs](https://saucelabs.com/)<br/><br/>[selenium-server](https://www.npmjs.com/package/selenium-server)|
+| Visual Regression | Used for testing each page for any visual changes. This should help us catch any site wide changes that might introduce bugs due to a visual code changes. <br/><br/>To find out more about visual regression testing go to: <br/>[visual-regression-testing](/architecture/visual-regression-testing) | | Tests are run through a script found at `/src/platform/testing/visual-regression/index.js` | Locally through npm script commands | [puppeteer](https://github.com/GoogleChrome/puppeteer)<br/><br/>[resemble](https://github.com/rsmbl/Resemble.js?files=1)|
+| Accessibility | Tests accessibility of pages and components | | **axe-core**: automated accessibility testing | Locally through npm script commands<br/><br/>Jenkins build (accessibility)<br/><br/>After merging to master | [axe-core](https://github.com/dequelabs/axe-core)|
+| Linting | Test code quality | *.js | Any .js file located in the `/src` folder. | During the pre-commit hook<br/><br/>Jenkins build (Lint) | [eslint](https://eslint.org/)<br/><br/>[eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)<br/><br/>[eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)<br/><br/>[eslint-plugin-no-unsafe-innerhtml](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml)<br/><br/>[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)<br/><br/>[eslint-plugin-scanjs-rules](https://www.npmjs.com/package/eslint-plugin-scanjs-rules)|
+| Sass Linting | Test sass code quality | *.scss | Any .scss file located in the `/src` folder.<br/><br/> The sass-lint configuration file can be found in `config/` | Locally through npm script commands | [sass-lint](https://github.com/sasstools/sass-lint)|
+| Code Coverage | How much code is covered with tests |  | Any .js file located in the `/src` folder. | Jenkins build (Unit) | [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter)|
 
 #### How to debug
+
 For unit tests:
 - You can put a console.log in your test code. When you run the test, the output will be in the command line.
 - Use Chrome devtools to debug unit tests
-- VSCode's (or any other editor's) debugging tool for mocha tests
-- Karma has some pretty great tools for running your tests in a browser so that you can set breakpoints and see the test execute. But we're not using Karma in vets-website, so if we wanted this functionality we would have to add it.
+    1. Go to [chrome://inspect/](chrome://inspect/).
+    2. Add a `debugger` statement in your test code and if you want to run only your test add the **.only** on your test like so. Make sure to remove the **.only** once you are done.
+      ```
+        it.only('testing something', () => {
+          debugger
+
+          expect(value).to.eq(true);
+        })
+      ```
+    3. run in the terminal
+      ```
+        $ BABEL_ENV=test node_modules/.bin/mocha --inspect-brk --opts src/platform/testing/unit/mocha.opts --recursive '{test,src}/**/*.unit.spec.js?(x)' src/platform/testing/unit/helper.js
+      ```
+    4. Go to your Node Chrome Developer Tools. Under `Remote Target` you should see your test running. Click on the link where your test is running to open the debugger tool.
+    5. You will want to press the debugger play button to start the program. It will initially pause on the first line of code.
+    6. It might take awhile for the tests to setup, just be patient and eventually it will run.
+    7. Once the test runs, your code should break at your debugger statement.
+- VSCode's debugging tool for unit tests
+    - Add this `Mocha Tests` configuration to your `.vscode/launch.json` file
+      ```
+        {
+          "version": "0.2.0",
+          "configurations": [
+              {
+                  "type": "node",
+                  "request": "launch",
+                  "name": "Mocha Tests",
+                  "env": {"BABEL_ENV": "test"},
+                  "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
+                  "runtimeArgs": [
+                      "--inspect",
+                      "--opts",
+                      "${workspaceFolder}/src/platform/testing/unit/mocha.opts",
+                      "--recursive",
+                      "${workspaceFolder}/{test,src}/**/*.unit.spec.js?(x)",
+                      "${workspaceFolder}/src/platform/testing/unit/helper.js"
+                  ],
+                  "port": 9229
+              }
+          ]
+        }
+      ```
+    - Now you can add breakpoints or debugger statements to debug your code through the VSCode debugger tools.
 
 For e2e tests:
-- It's possible to set an infinite pause (`.pause()`) in the test code and then see what's happening at a given point in the browser where the test is running. It is also possible to use the Chrome devtools and inspect what's going on (this is only possible when the browser is Chrome and not Electron, so you would need to disable Electron is `config/nightwatch.js`).
+- It's possible to set an infinite pause (`.pause()`) in the test code and then see what's happening at a given point in the browser where the test is running.
 
+    ```
+      client
+        .openUrl('http://localhost:3000')
+        .waitForElementVisible('body', Timeouts.normal)
+        .pause()
+        .click('.submit_button')
+    ```
+- Using Node Chrome DevTools. You can add a (`.perform`) method and either console.log or add a debugger statement to debug your code in the callback function.
+    1. add a perform method in your code.
+    ```
+    client
+      .openUrl('http://localhost:3000')
+      .waitForElementVisible('body', Timeouts.normal)
+      .perform(() => {
+        console.log(testData);
 
-#### When we write them
-Write tests as you go! New functionality added in a PR should ideally be covered by unit and e2e tests, where applicable.
-
-
-### Libraries
-
-1. Test environment
-- **mocha**: testing framework
-
-2. Test structure
-- **mocha**: testing framework
-
-3. Assertion functions
-- **chai**: assertion library, can be used with an JS testing framework
-- **chai-as-promised**: includes assertions for promises
-
-4. Test utilities/helpers
-- **enzyme**: testing utility for React, use in place of React test-utils
-- **enzyme-adapter-react-16**
-- **fs**: makes file system operations easier
-- **lodash**: library with utility functions for commonly used tasks, using functional programming
-- **moment**: library for parsing, manipulating, and displaying dates and times in JS
-- **path**: utilities for working with file and directory paths
-- **react-dom**: used for findDOMNode
-- **react-dom/test-utils**: test utilities for React components, being replaced by Enzyme
-- **skin-deep**: test helpers using React's shallowRender (Deprecated in favor of Enzyme)
-
-5. Display and watch test results
-- **mocha**: testing framework
-
-6. Mocks, spies, stubs
-- **sinon**: test spies, stubs, and mocks
-
-7. Browser environment
-- **chromedriver**: a server that links the browser (Chrome) to the test driver (Selenium), enabling you to execute actions in the browser through a test
-- **jsdom**: JS headless browser that creates a realistic testing environment with a DOM to which elements can be mounted
-- **nightwatch**: Node.js framework for e2e tests that runs on a selenium server
-- **saucelabs**: automated cross-browser testing, allows you to run tests on a server
-- **selenium-server**: automates browsers
-
-8. Linting
-- **eslint**: for linting purposes
-- **eslint-config-airbnb**: Airbnb's lint rules
-- **eslint-plugin-jsx-a11y**: catches potential accessibility issues
-- **eslint-plugin-no-unsafe-innerhtml**: catches potential security vulnerabilities
-- **eslint-plugin-react**: React specific linting rules
-- **eslint-plugin-scanjs-rules**: static analysis of JS code
-- **sass-lint**: linter for sass and scss
-
-9. Visual regression testing
-- **puppeteer**: Automates browser testing
-- **resemble**: Image analysis
-
-10. Accessibility testing
-- **axe-core**: automated accessibility testing
-
-11. Original libraries
-- **jsonschema**: JSON Schema specification
-- **react**: JS front-end framework
-- **react-jsonschema-form**: react-jsonschema-form library
-- **react-test-renderer**: renders React components to pure JavaScript objects
-
+        debugger
+      })
+      .click('.submit_button')
+    ```
+    2. open up [chrome://inspect](chrome://inspect) in your browser.
+    3. In your terminal run. You can pass in a specific file path to test after the `nightwatch.js` or leave it blank to run all tests.
+    ```
+    $ BABEL_ENV=test WEB_PORT=3001 node --inspect-brk node_modules/nightwatch/bin/runner.js -c config/nightwatch.js [optional file to test]
+    ```
+    4. Go to your Node Chrome Developer Tools. Under `Remote Target` you should see your test running. Click on the link where your test is running to open the debugger tool.
+    5. You will want to press the debugger play button to start the program. It will initially pause on the first line of code.
+    6. after the program starts it should pause at your debugger statement or you should see your console.logs in the console.
 
 ### Questions
 
@@ -121,11 +106,3 @@ NVDA another option for manual testing and is supposed to be a better tool than 
 3. How do you measure code coverage?
 
 It is possible to measure code coverage by running the command line script `npm run test:coverage`.
-
-We are planning to turn off code climate, which is currently run before merging to master during the PR review stage. However, it might be useful to replace it with something like coveralls in order to more consistently measure our code coverage with each addition of code.
-
-4. How to use visual regression tests
-
-Visual regression tests work by creating a baseline and then comparing screenshots against that master. The baseline images can be found at `logs/visual-regression/baseline/`, and the diffs (if any) can be found at `logs/visual-regression/diffs`.
-
-Any part of the image that is pink is a visual change (including colors).
