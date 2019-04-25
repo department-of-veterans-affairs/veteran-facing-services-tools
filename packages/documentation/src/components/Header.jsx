@@ -27,8 +27,6 @@ class Search extends React.Component {
   search(evt) {
     const query = evt.target.value;
     this.index = this.getOrCreateIndex();
-    console.log(query);
-    console.log(this.state.results);
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
@@ -37,17 +35,30 @@ class Search extends React.Component {
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     });
-  };
+  }
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
+      <div id="search-container" className="site-search-container">
+        <i className="fas fa-search search-icon" />
+        <input
+          autoComplete="off"
+          type="search"
+          className="site-search-container__input"
+          id="search-input"
+          value={this.state.query}
+          onChange={this.search}
+          placeholder="Search..."
+          aria-label="search"
+        />
+        <ul
+          id="results-container"
+          className="site-search-results"
+          role="listbox"
+        >
           {this.state.results.map(page => (
             <li key={page.id}>
               <Link to={`/${page.path}`}>{page.title}</Link>
-              {`: ${page.tags.join(`,`)}`}
             </li>
           ))}
         </ul>
@@ -93,21 +104,18 @@ export default class Header extends React.Component {
                 </em>
               </div>
               <div className="site-c-header__utility-links">
-                <div id="search-container" className="site-search-container">
-                  <i className="fas fa-search search-icon" />
-                  <input
-                    type="search"
-                    className="site-search-container__input"
-                    id="search-input"
-                    placeholder="Search..."
-                    aria-label="Search"
-                  />
-                  <ul
-                    id="results-container"
-                    className="site-search-results"
-                    role="listbox"
-                  />
-                </div>
+                <StaticQuery
+                  query={graphql`
+                    query SearchIndexQuery {
+                      siteSearchIndex {
+                        index
+                      }
+                    }
+                  `}
+                  render={data => (
+                    <Search searchIndex={data.siteSearchIndex.index} />
+                  )}
+                />
               </div>
               <button
                 type="button"
@@ -148,16 +156,6 @@ export default class Header extends React.Component {
             </nav>
           </div>
         </header>
-        <StaticQuery
-          query={graphql`
-            query SearchIndexQuery {
-              siteSearchIndex {
-                index
-              }
-            }
-          `}
-          render={data => <Search searchIndex={data.siteSearchIndex.index} />}
-        />
         <div
           id="mobile-search-container"
           className="site-search-container site-seach-container--mobile"

@@ -10,26 +10,6 @@ module.exports = {
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
-    {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-      options: {
-        // Fields to index
-        fields: [`title`, `tags`],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          MarkdownRemark: {
-            title: node => {
-              console.log(node);
-              console.log('test')
-              return node.frontmatter.title;
-            },
-            tags: node => node.frontmatter.tags,
-            path: node => node.frontmatter.path,
-          },
-        },
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -86,5 +66,51 @@ module.exports = {
     `gatsby-transformer-remark`,
     `github-api-pages`,
     `mdx-pages`,
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, `tags`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          SitePage: {
+            title: node => {
+              if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
+                return node.context.frontmatter.title;
+              }
+
+              return '';
+            },
+            tags: node => {
+              if (node.context && node.context.frontmatter && node.context.frontmatter.tags) {
+                return node.context.frontmatter.tags;
+              }
+
+              return '';
+            },
+            path: node => node.path,
+          },
+          Mdx: {
+            title: node => {
+              console.log(node);
+              if (node && node.frontmatter && node.frontmatter.title) {
+                return node.frontmatter.title;
+              }
+
+              return '';
+            },
+            tags: node => {
+              if (node && node.frontmatter && node.frontmatter.tags) {
+                return node.frontmatter.tags;
+              }
+
+              return '';
+            },
+            path: node => `/visual-design/components${node.fields.slug}`,
+          },
+        },
+      },
+    },
   ],
 }
