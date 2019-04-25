@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@andrew-codes/gatsby-plugin-elasticlunr-search@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@andrew-codes/gatsby-plugin-elasticlunr-search/-/gatsby-plugin-elasticlunr-search-1.0.4.tgz#2b2ace31903177961198b1e218f882667a31f228"
-  integrity sha512-P6RR3oAl1BVNhEZBXst/KEXLi2T2x2D6J6UBwmsgZNf0lLtHL/7N68KeLN+J2VKcAmvDpJ83o2KEj3ft/jND8g==
-  dependencies:
-    elasticlunr "^0.9.5"
-    graphql "^0.11.7"
-
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -766,6 +758,13 @@
   version "5.8.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.1.tgz#cbafbfe8894c4e3e3c3a9da6774e249ac1f2da8b"
   integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
+
+"@gatsby-contrib/gatsby-plugin-elasticlunr-search@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@gatsby-contrib/gatsby-plugin-elasticlunr-search/-/gatsby-plugin-elasticlunr-search-2.2.1.tgz#3067ed316c28ea933810b46ff0cccb43ed4ac9c6"
+  integrity sha512-fWIjc54pV3DRzpMmmb0t89VxP8eZ1YRrgzkd2d2arM6qYDew7aoHv6muSOGJeJtoWmOJZ72u9cUfB4Ssoz+dsQ==
+  dependencies:
+    elasticlunr "^0.9.5"
 
 "@gatsbyjs/relay-compiler@2.0.0-printer-fix.2":
   version "2.0.0-printer-fix.2"
@@ -5999,7 +5998,7 @@ graphql-type-json@^0.2.1:
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.1.tgz#d2c177e2f1b17d87f81072cd05311c0754baa420"
   integrity sha1-0sF34vGxfYf4EHLNBTEcB1S6pCA=
 
-graphql@14.1.1, graphql@^0.11.7, graphql@^14.1.1:
+graphql@14.1.1, graphql@^14.1.1:
   version "14.1.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.1.1.tgz#d5d77df4b19ef41538d7215d1e7a28834619fac0"
   integrity sha512-C5zDzLqvfPAgTtP8AUPIt9keDabrdRAqSWjj2OPRKrKxI9Fb65I36s1uCs1UUBFnSWTdO7hyHi7z1ZbwKMKF6Q==
