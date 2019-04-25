@@ -74,91 +74,13 @@ module.exports = {
       ],
     },
     {
-      id: 'architecture',
-      name: 'Architecture',
-      href: '/architecture',
+      id: 'visual-design',
+      name: 'Visual design',
+      href: '/visual-design',
       items: [
         {
-          name: 'Metalsmith',
-          items: [
-            {
-              name: 'How are URLs created',
-              href: '/architecture/metalsmith/urls',
-            },
-            {
-              name: 'How templates work',
-              href: '/architecture/metalsmith/templates',
-            },
-            {
-              name: 'How to create collections and related links',
-              href: '/architecture/metalsmith/collections',
-            },
-          ],
-        },
-        {
-          name: 'Site structure',
-          items: [
-            {
-              name: 'Client overview',
-              href: '/architecture/site-structure/client-overview',
-            },
-            {
-              name: 'VA.gov environments',
-              href: 'architecture/site-structure/environments',
-            },
-            {
-              name: 'Bundles and code organization',
-              href: 'architecture/site-structure/bundles-and-code-organization',
-            },
-            {
-              name: 'Styling',
-              href: '/architecture/site-structure/styling-overview',
-            },
-          ],
-        },
-        {
-          name: 'Front End Standards',
-          items: [
-            {
-              name: 'React standards',
-              href: '/architecture/front-end-standards/react',
-            },
-            {
-              name: 'Redux standards',
-              href: '/architecture/front-end-standards/redux',
-            },
-            {
-              name: 'Styles',
-              href: '/architecture/front-end-standards/styles',
-            },
-            {
-              name: 'Accessibility',
-              href: '/architecture/front-end-standards/accessibility',
-            },
-            {
-              name: 'Documented Decisions',
-              href:
-                'architecture/front-end-standards/documented-decisions/summary',
-            },
-          ],
-        },
-        {
-          name: 'How does the build work?',
-        },
-        {
-          name: 'How do unit tests work?',
-          href: 'architecture/unit-testing',
-        },
-        {
-          name: 'How do end-to-end tests work?',
-        },
-        {
-          name: 'Visual regression testing',
-          href: '/architecture/visual-regression-testing',
-        },
-        {
-          name: 'Teamsite',
-          href: '/architecture/teamsite',
+          name: 'Formation components',
+          query: 'componentList',
         },
       ],
     },
@@ -237,32 +159,104 @@ module.exports = {
       href: '/platform',
       items: [
         {
-          name: 'Formation',
-          items: [],
+          name: 'Site structure',
+          items: [
+            {
+              name: 'Client overview',
+              href: '/platform/site-structure/client-overview',
+            },
+            {
+              name: 'VA.gov environments',
+              href: '/platform/site-structure/environments',
+            },
+            {
+              name: 'Bundles and code organization',
+              href: '/platform/site-structure/bundles-and-code-organization',
+            },
+            {
+              name: 'Styling',
+              href: '/platform/site-structure/styling-overview',
+            },
+          ],
         },
         {
-          name: 'Formation components',
-          query: 'componentList',
+          name: 'Architecture',
+          items: [
+            {
+              name: 'Metalsmith',
+              items: [
+                {
+                  name: 'How are URLs created',
+                  href: '/platform/architecture/metalsmith/urls',
+                },
+                {
+                  name: 'How templates work',
+                  href: '/platform/architecture/metalsmith/templates',
+                },
+                {
+                  name: 'How to create collections and related links',
+                  href: '/platform/architecture/metalsmith/collections',
+                },
+              ],
+            },
+            {
+              name: 'Teamsite',
+              href: '/platform/architecture/teamsite',
+            },
+            {
+              name: 'How does the build work?',
+            },
+            {
+              name: 'How do unit tests work?',
+              href: '/platform/unit-testing',
+            },
+            {
+              name: 'How do end-to-end tests work?',
+            },
+          ],
         },
         {
-          name: 'Feature flags',
-          href: '/platform/feature-flags',
+          name: 'Front End Standards',
+          items: [
+            {
+              name: 'React standards',
+              href: '/platform/front-end-standards/react',
+            },
+            {
+              name: 'Redux standards',
+              href: '/platform/front-end-standards/redux',
+            },
+            {
+              name: 'Styles',
+              href: '/platform/front-end-standards/styles',
+            },
+            {
+              name: 'Accessibility',
+              href: '/platform/front-end-standards/accessibility',
+            },
+            {
+              name: 'Documented Decisions',
+              href:
+                '/platform/front-end-standards/documented-decisions/summary',
+            },
+          ],
         },
         {
-          name: 'Application generator',
-          href: '/platform/generator',
-        },
-        {
-          name: 'Identity',
-          items: [],
-        },
-        {
-          name: 'Static content',
-          items: [],
-        },
-        {
-          name: 'Monitoring',
-          items: [],
+          name: 'Tools',
+          items: [
+            {
+              name: 'Visual regression testing',
+              href: '/platform/tools/visual-regression-testing',
+            },
+            {
+              name: 'Feature flags',
+              href: '/platform/tools/feature-flags',
+            },
+            {
+              name: 'Application generator',
+              href: '/platform/tools/generator',
+            },
+          ],
         },
       ],
     },

@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     if (node.frontmatter.name) {
       createPage({
-        path: `/platform/${node.parent.name.toLowerCase()}/`,
+        path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
         component: path.resolve('./src/layouts/module-components.js'),
         context: {
           id: node.id,
