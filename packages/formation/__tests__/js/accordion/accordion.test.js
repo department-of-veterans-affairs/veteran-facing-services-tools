@@ -204,7 +204,7 @@ describe('accordion', () => {
     );
   });
 
-  it('.usa-accordion click should not effect .usa-accordion-bordered when clicked', () => {
+  it('.usa-accordion click should not affect .usa-accordion-bordered when clicked', () => {
     require('../../../js');
 
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');

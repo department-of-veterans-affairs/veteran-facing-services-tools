@@ -36,9 +36,9 @@ const loadAccordionHandler = () => {
   usaAccordion.forEach(element => {
     element.addEventListener('click', e => {
       const target = e.target;
-      const other = [
-        ...e.currentTarget.getElementsByClassName('usa-accordion-button'),
-      ].filter(item => item !== target);
+      const other = Array.from(
+        element.getElementsByClassName('usa-accordion-button'),
+      ).filter(item => item !== target);
 
       const multiSelectable = toBoolean(
         element.getAttribute('aria-multiselectable'),
@@ -64,7 +64,9 @@ const loadAccordionHandler = () => {
         dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
         target.setAttribute('aria-expanded', !targetExpandedAttr);
 
-        if (!isElementInViewport(element)) element.scrollIntoView();
+        if (!isElementInViewport(target)) {
+          element.scrollIntoView();
+        }
       }
     });
   });
