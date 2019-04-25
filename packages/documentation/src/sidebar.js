@@ -261,6 +261,10 @@ module.exports = {
       href: '/documentation-guide',
       items: [
         {
+          name: 'Documentation style guide',
+          href: '/documentation-guide/documentation-style-guide',
+        },
+        {
           name: 'Adding new pages to this site',
           href: '/documentation-guide/doc-page',
         },
