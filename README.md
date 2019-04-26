@@ -64,7 +64,7 @@ Once your changes are approved, squash merge them to master. Also, if your chang
 
 ### 3. Build and publish
 
-* Run `npm run build`
+* Run `yarn uild`
 * For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
 
 ### 4. Update consuming apps
