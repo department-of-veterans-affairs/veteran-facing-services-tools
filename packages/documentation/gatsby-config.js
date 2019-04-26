@@ -78,6 +78,8 @@ module.exports = {
             title: node => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
                 return node.context.frontmatter.title;
+              } else {
+                console.info('Page title missing from front matter.', node);
               }
 
               return '';
@@ -85,29 +87,13 @@ module.exports = {
             tags: node => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.tags) {
                 return node.context.frontmatter.tags;
+              } else {
+                console.info('Page tags missing from front matter.', node);
               }
 
               return '';
             },
             path: node => node.path,
-          },
-          Mdx: {
-            title: node => {
-              console.log(node);
-              if (node && node.frontmatter && node.frontmatter.title) {
-                return node.frontmatter.title;
-              }
-
-              return '';
-            },
-            tags: node => {
-              if (node && node.frontmatter && node.frontmatter.tags) {
-                return node.frontmatter.tags;
-              }
-
-              return '';
-            },
-            path: node => `/visual-design/components${node.fields.slug}`,
           },
         },
       },

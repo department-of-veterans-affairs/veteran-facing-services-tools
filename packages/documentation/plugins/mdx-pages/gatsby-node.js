@@ -40,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 name
+                title
               }
               parent {
                 ... on File {
@@ -66,6 +67,9 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           id: node.id,
           source: 'component',
+          frontmatter: {
+            ...node.frontmatter,
+          },
           name: node.frontmatter.name,
         },
       });
