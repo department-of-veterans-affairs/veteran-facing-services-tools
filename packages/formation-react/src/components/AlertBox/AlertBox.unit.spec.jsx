@@ -81,4 +81,14 @@ describe('<AlertBox />', () => {
         isVisible
       />,
     ));
+
+  it('should pass aXe check when `backgroundOnly` is `true`', () =>
+    axeCheck(
+      <AlertBox
+        headline={Headline}
+        content={Content}
+        status="info"
+        backgroundOnly
+      />,
+    ));
 });
