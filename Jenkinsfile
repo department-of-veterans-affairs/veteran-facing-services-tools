@@ -6,6 +6,7 @@ pipeline {
   }
   environment {
     BABEL_CACHE_PATH = '${env.WORKSPACE}'
+    BABEL_DISABLE_CACHE = 1
     NODE_ENV = 'production'
   }
 
