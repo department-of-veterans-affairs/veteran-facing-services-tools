@@ -57,7 +57,6 @@ module.exports = function(api) {
             ],
           },
           useBuiltIns: 'entry',
-          modules: false,
           debug: false,
         },
       ],
