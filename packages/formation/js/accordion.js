@@ -26,9 +26,13 @@ const loadAccordionHandler = () => {
 
   usaAccordionContentElements.forEach(el => {
     if (el.getAttribute('aria-hidden') === null) {
+      const buttonElement = el.parentElement.querySelector(
+        `[aria-controls="${el.id}"]`,
+      );
+
       el.setAttribute(
         'aria-hidden',
-        !toBoolean(el.previousElementSibling.getAttribute('aria-expanded')),
+        !toBoolean(buttonElement.getAttribute('aria-expanded')),
       );
     }
   });
