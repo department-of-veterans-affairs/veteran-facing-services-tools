@@ -8,21 +8,26 @@ import { Index } from 'elasticlunr';
 const maxDisplayedSearchResults = 5;
 
 function StringWithBoldQuery(props) {
-  const { string, query } = props;
+  const { string, queries } = props;
+  const lowerCasedQueries = queries.map(query => query.toLowerCase());
+  const lowerCasedString = string.toLowerCase();
 
-  if (!string.toLowerCase().includes(query.toLowerCase())) {
+  const matchedQuery = lowerCasedQueries.find(query =>
+    lowerCasedString.includes(query),
+  );
+  if (!matchedQuery) {
     return <>{string}</>;
   }
 
-  const queryStartIndex = string.toLowerCase().indexOf(query.toLowerCase());
+  const queryStartIndex = lowerCasedString.indexOf(matchedQuery);
 
   return (
     <>
       {string.slice(0, queryStartIndex)}
       <strong>
-        {string.slice(queryStartIndex, queryStartIndex + query.length)}
+        {string.slice(queryStartIndex, queryStartIndex + matchedQuery.length)}
       </strong>
-      {string.slice(queryStartIndex + query.length)}
+      {string.slice(queryStartIndex + matchedQuery.length)}
     </>
   );
 }
@@ -64,7 +69,9 @@ class Search extends React.Component {
               ...result,
               filteredTags: result.tags
                 .split(',')
-                .filter(tag => tag.includes(query))
+                .filter(tag =>
+                  query.split(' ').find(queryPart => tag.includes(queryPart)),
+                )
                 .map(tag => tag.trim())
                 .sort((tagA, tagB) => {
                   if (tagA.indexOf(query) < tagB.indexOf(query)) {
@@ -110,14 +117,20 @@ class Search extends React.Component {
             <Link key={page.id} to={`${page.path}`}>
               <li>
                 <div className="site-search-result-title">
-                  <StringWithBoldQuery string={page.title} query={page.query} />
+                  <StringWithBoldQuery
+                    string={page.title}
+                    queries={[page.query]}
+                  />
                 </div>
                 {page.filteredTags.length > 0 && (
                   <div className="site-search-result-tags">
-                    <em>Tags: </em>
+                    <em>Matching Tags: </em>
                     {page.filteredTags.map((tag, index) => (
                       <React.Fragment key={index}>
-                        <StringWithBoldQuery string={tag} query={page.query} />
+                        <StringWithBoldQuery
+                          string={tag}
+                          queries={page.query.split(' ')}
+                        />
                         {index < page.filteredTags.length - 1 && `, `}
                       </React.Fragment>
                     ))}
