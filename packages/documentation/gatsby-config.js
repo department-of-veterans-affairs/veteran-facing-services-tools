@@ -75,11 +75,12 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
-            title: node => {
+            title: (node, getNode) => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
+                // console.log(getNode(node.internal.contentDigest));
                 return node.context.frontmatter.title;
               } else {
-                console.info('Page title missing from front matter.', node);
+                // console.info('Page title missing from front matter.', node);
               }
 
               return '';

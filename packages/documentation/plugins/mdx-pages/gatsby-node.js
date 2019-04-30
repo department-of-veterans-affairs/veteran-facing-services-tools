@@ -40,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               frontmatter {
                 name
+                tags
                 title
               }
               parent {

@@ -5,6 +5,28 @@ import sidebarData from '../sidebar';
 import MobileNav from './MobileNav';
 import { Index } from 'elasticlunr';
 
+const maxDisplayedSearchResults = 5;
+
+function StringWithBoldQuery(props) {
+  const { string, query } = props;
+
+  if (!string.toLowerCase().includes(query.toLowerCase())) {
+    return <>{string}</>;
+  }
+
+  const queryStartIndex = string.toLowerCase().indexOf(query.toLowerCase());
+
+  return (
+    <>
+      {string.slice(0, queryStartIndex)}
+      <strong>
+        {string.slice(queryStartIndex, queryStartIndex + query.length)}
+      </strong>
+      {string.slice(queryStartIndex + query.length)}
+    </>
+  );
+}
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -26,15 +48,43 @@ class Search extends React.Component {
 
   search(evt) {
     const query = evt.target.value;
-    this.index = this.getOrCreateIndex();
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, { expand: true })
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    });
+    if (query.length > 2) {
+      this.index = this.getOrCreateIndex();
+      this.setState({
+        query,
+        // Query the index with search string to get an [] of IDs
+        results: this.index
+          .search(query, { expand: true })
+          // Map over each ID and return the full document
+          .splice(0, maxDisplayedSearchResults)
+          .map(({ ref }) => {
+            const result = this.index.documentStore.getDoc(ref);
+
+            return {
+              ...result,
+              filteredTags: result.tags
+                .split(',')
+                .filter(tag => tag.includes(query))
+                .map(tag => tag.trim())
+                .sort((tagA, tagB) => {
+                  if (tagA.indexOf(query) < tagB.indexOf(query)) {
+                    return -1;
+                  }
+                  if (tagA.indexOf(query) > tagB.indexOf(query)) {
+                    return 1;
+                  }
+                  return 0;
+                }),
+              query,
+            };
+          }),
+      });
+    } else {
+      this.setState({
+        query,
+        results: [],
+      });
+    }
   }
 
   render() {
@@ -57,9 +107,24 @@ class Search extends React.Component {
           role="listbox"
         >
           {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={`/${page.path}`}>{page.title}</Link>
-            </li>
+            <Link key={page.id} to={`${page.path}`}>
+              <li>
+                <div className="site-search-result-title">
+                  <StringWithBoldQuery string={page.title} query={page.query} />
+                </div>
+                {page.filteredTags.length > 0 && (
+                  <div className="site-search-result-tags">
+                    <em>Tags: </em>
+                    {page.filteredTags.map((tag, index) => (
+                      <React.Fragment key={index}>
+                        <StringWithBoldQuery string={tag} query={page.query} />
+                        {index < page.filteredTags.length - 1 && `, `}
+                      </React.Fragment>
+                    ))}
+                  </div>
+                )}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
