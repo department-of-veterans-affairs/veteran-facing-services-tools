@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link, StaticQuery } from 'gatsby';
 import sidebarData from '../sidebar';
+import Search from './Search';
 import MobileNav from './MobileNav';
 
 export default class Header extends React.Component {
@@ -40,21 +42,18 @@ export default class Header extends React.Component {
                 </em>
               </div>
               <div className="site-c-header__utility-links">
-                <div id="search-container" className="site-search-container">
-                  <i className="fas fa-search search-icon" />
-                  <input
-                    type="search"
-                    className="site-search-container__input"
-                    id="search-input"
-                    placeholder="Search..."
-                    aria-label="Search"
-                  />
-                  <ul
-                    id="results-container"
-                    className="site-search-results"
-                    role="listbox"
-                  />
-                </div>
+                <StaticQuery
+                  query={graphql`
+                    query SearchIndexQuery {
+                      siteSearchIndex {
+                        index
+                      }
+                    }
+                  `}
+                  render={data => (
+                    <Search searchIndex={data.siteSearchIndex.index} />
+                  )}
+                />
               </div>
               <button
                 type="button"
@@ -95,7 +94,6 @@ export default class Header extends React.Component {
             </nav>
           </div>
         </header>
-
         <div
           id="mobile-search-container"
           className="site-search-container site-seach-container--mobile"
