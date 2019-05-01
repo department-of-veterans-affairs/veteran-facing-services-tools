@@ -19,16 +19,14 @@ const loadAccordionHandler = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
     .forEach(el => {
-      if (el.getAttribute('aria-hidden') === null) {
-        const buttonElement = el.parentElement.querySelector(
-          `[aria-controls="${el.id}"]`,
-        );
-        const hiddenValue = !toBoolean(
-          buttonElement.getAttribute('aria-expanded'),
-        );
+      const buttonElement = el.parentElement.querySelector(
+        `[aria-controls="${el.id}"]`,
+      );
+      const hiddenValue = !toBoolean(
+        buttonElement.getAttribute('aria-expanded'),
+      );
 
-        el.setAttribute('aria-hidden', hiddenValue);
-      }
+      el.setAttribute('aria-hidden', hiddenValue);
     });
 
   document
