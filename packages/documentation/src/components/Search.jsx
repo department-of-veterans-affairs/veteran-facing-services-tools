@@ -67,7 +67,11 @@ export default class Search extends React.Component {
               filteredTags: result.tags
                 .split(',')
                 .filter(tag =>
-                  query.split(' ').find(queryPart => tag.includes(queryPart)),
+                  query
+                    .split(' ')
+                    .find(queryPart =>
+                      tag.toLowerCase().includes(queryPart.toLowerCase()),
+                    ),
                 )
                 .map(tag => tag.trim()),
               query,
