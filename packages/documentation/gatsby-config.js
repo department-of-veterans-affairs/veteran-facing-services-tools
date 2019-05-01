@@ -77,10 +77,9 @@ module.exports = {
           SitePage: {
             title: (node, getNode) => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
-                // console.log(getNode(node.internal.contentDigest));
                 return node.context.frontmatter.title;
               } else {
-                // console.info('Page title missing from front matter.', node);
+                console.info('Page title missing from front matter.', node);
               }
 
               return '';
@@ -88,8 +87,6 @@ module.exports = {
             tags: node => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.tags) {
                 return node.context.frontmatter.tags;
-              } else {
-                console.info('Page tags missing from front matter.', node);
               }
 
               return '';

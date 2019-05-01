@@ -110,7 +110,7 @@ class Search extends React.Component {
                 <div className="site-search-result-title">
                   <StringWithBoldQuery
                     string={page.title}
-                    queries={[page.query]}
+                    queries={page.query.split(' ')}
                   />
                 </div>
                 {page.filteredTags.length > 0 && (
