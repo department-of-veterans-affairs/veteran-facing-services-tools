@@ -19,7 +19,7 @@ const loadAccordionHandler = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
     .forEach(el => {
-      const buttonElement = el.parentElement.querySelector(
+      const buttonElement = document.querySelector(
         `[aria-controls="${el.id}"]`,
       );
       const hiddenValue = !toBoolean(
