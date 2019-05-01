@@ -65,10 +65,6 @@ module.exports = {
               name: 'Updating Formation',
               // href: '/getting-started/common-tasks/update-formation'
             },
-            {
-              name: 'Unit Tests',
-              href: 'getting-started/common-tasks/unit-tests',
-            },
           ],
         },
       ],
@@ -208,7 +204,6 @@ module.exports = {
             },
             {
               name: 'How do unit tests work?',
-              href: '/platform/unit-testing',
             },
             {
               name: 'How do end-to-end tests work?',
