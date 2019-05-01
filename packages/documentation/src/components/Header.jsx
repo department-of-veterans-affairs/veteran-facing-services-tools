@@ -72,16 +72,7 @@ class Search extends React.Component {
                 .filter(tag =>
                   query.split(' ').find(queryPart => tag.includes(queryPart)),
                 )
-                .map(tag => tag.trim())
-                .sort((tagA, tagB) => {
-                  if (tagA.indexOf(query) < tagB.indexOf(query)) {
-                    return -1;
-                  }
-                  if (tagA.indexOf(query) > tagB.indexOf(query)) {
-                    return 1;
-                  }
-                  return 0;
-                }),
+                .map(tag => tag.trim()),
               query,
             };
           }),
