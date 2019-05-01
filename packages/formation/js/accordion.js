@@ -51,9 +51,12 @@ const loadAccordionHandler = () => {
       if (target.getAttribute('aria-controls')) {
         if (!multiSelectable) {
           other.forEach(el => {
+            const contentEl = el.getAttribute('aria-controls');
+
             el.setAttribute('aria-expanded', 'false');
-            el.parentElement
-              .querySelector('.usa-accordion-content')
+
+            document
+              .getElementById(contentEl)
               .setAttribute('aria-hidden', 'true');
           });
         }
