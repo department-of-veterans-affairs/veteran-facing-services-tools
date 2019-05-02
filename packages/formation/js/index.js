@@ -7,7 +7,5 @@ if (
 ) {
   loadAccordionHandler();
 } else {
-  domready(() => {
-    loadAccordionHandler();
-  });
+  domready(loadAccordionHandler);
 }

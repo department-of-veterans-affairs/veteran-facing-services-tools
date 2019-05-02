@@ -15,7 +15,7 @@ const isElementInViewport = (
   );
 };
 
-const loadAccordionHandler = () => {
+const addAriaHiddenAttr = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
     .forEach(el => {
@@ -28,7 +28,14 @@ const loadAccordionHandler = () => {
 
       el.setAttribute('aria-hidden', hiddenValue);
     });
+};
 
+const getOtherButtons = (element, target) =>
+  Array.from(element.getElementsByClassName('usa-accordion-button')).filter(
+    item => item !== target,
+  );
+
+const addAccordionClickHandler = () => {
   document
     .querySelectorAll('.usa-accordion, .usa-accordion-bordered')
     .forEach(element => {
@@ -38,27 +45,25 @@ const loadAccordionHandler = () => {
         // Checks whether the button has a click event already assigned to it.
         // Specifically React Components.
         if (!target.onclick) {
-          const other = Array.from(
-            element.getElementsByClassName('usa-accordion-button'),
-          ).filter(item => item !== target);
-
           const multiSelectable = toBoolean(
             element.getAttribute('aria-multiselectable'),
           );
 
-          if (target.getAttribute('aria-controls')) {
-            if (!multiSelectable) {
-              other.forEach(el => {
-                const contentEl = el.getAttribute('aria-controls');
+          const hasAriaControlsAttr = target.getAttribute('aria-controls');
 
-                el.setAttribute('aria-expanded', 'false');
+          if (hasAriaControlsAttr && !multiSelectable) {
+            getOtherButtons(element, target).forEach(el => {
+              const contentEl = el.getAttribute('aria-controls');
 
-                document
-                  .getElementById(contentEl)
-                  .setAttribute('aria-hidden', 'true');
-              });
-            }
+              el.setAttribute('aria-expanded', 'false');
 
+              document
+                .getElementById(contentEl)
+                .setAttribute('aria-hidden', 'true');
+            });
+          }
+
+          if (hasAriaControlsAttr) {
             const dropDownElement = document.getElementById(
               target.getAttribute('aria-controls'),
             );
@@ -76,6 +81,11 @@ const loadAccordionHandler = () => {
         }
       });
     });
+};
+
+const loadAccordionHandler = () => {
+  addAriaHiddenAttr();
+  addAccordionClickHandler();
 };
 
 export default loadAccordionHandler;
