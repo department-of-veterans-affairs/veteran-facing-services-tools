@@ -45,7 +45,7 @@ class AlertBox extends React.Component {
     const closeButton = this.props.onCloseAlert && (
       <button
         className="va-alert-close"
-        aria-label={this.props.closeBtnAriaLabel || 'Close notification'}
+        aria-label={this.props.closeBtnAriaLabel}
         onClick={this.props.onCloseAlert}
       >
         <i className="fas fa-times-circle" aria-label="Close icon" />
@@ -131,6 +131,7 @@ AlertBox.propTypes = {
 AlertBox.defaultProps = {
   isVisible: true,
   backgroundOnly: false,
+  closeBtnAriaLabel: 'Close notification',
 };
 
 export default AlertBox;
