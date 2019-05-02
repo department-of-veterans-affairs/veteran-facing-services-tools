@@ -34,39 +34,44 @@ const loadAccordionHandler = () => {
     .forEach(element => {
       element.addEventListener('click', e => {
         const target = e.target;
-        const other = Array.from(
-          element.getElementsByClassName('usa-accordion-button'),
-        ).filter(item => item !== target);
 
-        const multiSelectable = toBoolean(
-          element.getAttribute('aria-multiselectable'),
-        );
+        // Checks whether the button has a click event already assigned to it.
+        // Specifically React Components.
+        if (!target.onclick) {
+          const other = Array.from(
+            element.getElementsByClassName('usa-accordion-button'),
+          ).filter(item => item !== target);
 
-        if (target.getAttribute('aria-controls')) {
-          if (!multiSelectable) {
-            other.forEach(el => {
-              const contentEl = el.getAttribute('aria-controls');
-
-              el.setAttribute('aria-expanded', 'false');
-
-              document
-                .getElementById(contentEl)
-                .setAttribute('aria-hidden', 'true');
-            });
-          }
-
-          const dropDownElement = document.getElementById(
-            target.getAttribute('aria-controls'),
-          );
-          const targetExpandedAttr = toBoolean(
-            target.getAttribute('aria-expanded'),
+          const multiSelectable = toBoolean(
+            element.getAttribute('aria-multiselectable'),
           );
 
-          dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
-          target.setAttribute('aria-expanded', !targetExpandedAttr);
+          if (target.getAttribute('aria-controls')) {
+            if (!multiSelectable) {
+              other.forEach(el => {
+                const contentEl = el.getAttribute('aria-controls');
 
-          if (!isElementInViewport(target)) {
-            element.scrollIntoView();
+                el.setAttribute('aria-expanded', 'false');
+
+                document
+                  .getElementById(contentEl)
+                  .setAttribute('aria-hidden', 'true');
+              });
+            }
+
+            const dropDownElement = document.getElementById(
+              target.getAttribute('aria-controls'),
+            );
+            const targetExpandedAttr = toBoolean(
+              target.getAttribute('aria-expanded'),
+            );
+
+            dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
+            target.setAttribute('aria-expanded', !targetExpandedAttr);
+
+            if (!isElementInViewport(target)) {
+              element.scrollIntoView();
+            }
           }
         }
       });

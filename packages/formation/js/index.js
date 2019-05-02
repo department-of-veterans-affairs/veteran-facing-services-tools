@@ -1,4 +1,5 @@
 import loadAccordionHandler from './accordion';
+import domready from 'domready';
 
 if (
   document.readyState === 'complete' &&
@@ -6,5 +7,7 @@ if (
 ) {
   loadAccordionHandler();
 } else {
-  document.addEventListener('DOMContentLoaded', loadAccordionHandler);
+  domready(() => {
+    loadAccordionHandler();
+  });
 }
