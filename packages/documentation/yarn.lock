@@ -1043,10 +1043,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@department-of-veterans-affairs/formation@^6.1.3":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.2.0.tgz#d22bf01897b2459bca99b9ff591e789b6433cfaa"
-  integrity sha512-TPpW5s+Qu7lENpN2KNsjlUI28RB3++tIV9J+PwWG9gRJiAMEY1ilPKa/nS2z3ryZnH1Vn+lB6fCgPyvOyzMB5Q==
+"@department-of-veterans-affairs/formation@^6.2.3":
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.2.3.tgz#dc57df4008ac04a55434066e6d74b821e078734b"
+  integrity sha512-gcY+LqaIrgc31lvQ0Sn3kg7Yevq6joK1qnVFN2cpNeqosHRElSxrvDA+UjFBspBxW0mbXLTXME7iyZWfGtpwdw==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.6.3"
     foundation-sites "5"
