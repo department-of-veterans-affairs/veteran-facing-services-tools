@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     description: `Resources and documention for the Development within the VA.gov project`,
     siteUrl: `https://department-of-veterans-affairs.github.io/veteran-facing-services-tools`,
-    title: `VA.gov | Client Applicaiton Documentation`,
+    title: `VA.gov | Client Application Documentation`,
     sidebar: require('./src/sidebar.js')
   },
   pathPrefix: '/veteran-facing-services-tools',
