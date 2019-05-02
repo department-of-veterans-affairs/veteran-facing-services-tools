@@ -4,7 +4,7 @@
   "description": "Developer Document Site for VA.gov",
   "version": "0.1.0",
   "dependencies": {
-    "@department-of-veterans-affairs/formation": "^6.2.4",
+    "@department-of-veterans-affairs/formation": "^6.2.5",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@mdx-js/mdx": "^0.16.6",
