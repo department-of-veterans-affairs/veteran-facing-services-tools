@@ -15,7 +15,7 @@ const isElementInViewport = (
   );
 };
 
-const loadAccordionHandler = () => {
+const addAriaHiddenAttr = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
     .forEach(el => {
@@ -28,23 +28,31 @@ const loadAccordionHandler = () => {
 
       el.setAttribute('aria-hidden', hiddenValue);
     });
+};
 
+const getOtherButtons = (element, target) =>
+  Array.from(element.getElementsByClassName('usa-accordion-button')).filter(
+    item => item !== target,
+  );
+
+const addAccordionClickHandler = () => {
   document
     .querySelectorAll('.usa-accordion, .usa-accordion-bordered')
     .forEach(element => {
       element.addEventListener('click', e => {
         const target = e.target;
-        const other = Array.from(
-          element.getElementsByClassName('usa-accordion-button'),
-        ).filter(item => item !== target);
 
-        const multiSelectable = toBoolean(
-          element.getAttribute('aria-multiselectable'),
-        );
+        // Checks whether the button has a click event already assigned to it.
+        // Specifically React Components.
+        if (!target.onclick) {
+          const multiSelectable = toBoolean(
+            element.getAttribute('aria-multiselectable'),
+          );
 
-        if (target.getAttribute('aria-controls')) {
-          if (!multiSelectable) {
-            other.forEach(el => {
+          const hasAriaControlsAttr = target.getAttribute('aria-controls');
+
+          if (hasAriaControlsAttr && !multiSelectable) {
+            getOtherButtons(element, target).forEach(el => {
               const contentEl = el.getAttribute('aria-controls');
 
               el.setAttribute('aria-expanded', 'false');
@@ -55,22 +63,29 @@ const loadAccordionHandler = () => {
             });
           }
 
-          const dropDownElement = document.getElementById(
-            target.getAttribute('aria-controls'),
-          );
-          const targetExpandedAttr = toBoolean(
-            target.getAttribute('aria-expanded'),
-          );
+          if (hasAriaControlsAttr) {
+            const dropDownElement = document.getElementById(
+              target.getAttribute('aria-controls'),
+            );
+            const targetExpandedAttr = toBoolean(
+              target.getAttribute('aria-expanded'),
+            );
 
-          dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
-          target.setAttribute('aria-expanded', !targetExpandedAttr);
+            dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
+            target.setAttribute('aria-expanded', !targetExpandedAttr);
 
-          if (!isElementInViewport(target)) {
-            element.scrollIntoView();
+            if (!isElementInViewport(target)) {
+              element.scrollIntoView();
+            }
           }
         }
       });
     });
+};
+
+const loadAccordionHandler = () => {
+  addAriaHiddenAttr();
+  addAccordionClickHandler();
 };
 
 export default loadAccordionHandler;
