@@ -45,7 +45,7 @@ class AlertBox extends React.Component {
     const closeButton = this.props.onCloseAlert && (
       <button
         className="va-alert-close"
-        aria-label="Close notification"
+        aria-label={this.props.closeBtnAriaLabel || 'Close notification'}
         onClick={this.props.onCloseAlert}
       >
         <i className="fas fa-times-circle" aria-label="Close icon" />
@@ -57,7 +57,6 @@ class AlertBox extends React.Component {
 
     return (
       <div
-        aria-live="polite"
         className={alertClass}
         ref={ref => {
           this._ref = ref;
@@ -101,6 +100,11 @@ AlertBox.propTypes = {
    * Optional headline.
    */
   headline: PropTypes.node,
+
+  /**
+   * Optional Close button aria-label.
+   */
+  closeBtnAriaLabel: PropTypes.string,
 
   /**
    * Close event handler if the alert  can be dismissed or closed.
