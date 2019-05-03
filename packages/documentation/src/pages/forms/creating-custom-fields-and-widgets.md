@@ -1,3 +1,7 @@
+---
+title: Creating custom fields and widgets
+---
+
 # Creating custom fields and widgets
 
 You can customize the base library to satisfy the unique requirements of your particular form.
