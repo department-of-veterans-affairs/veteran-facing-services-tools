@@ -1,5 +1,5 @@
 import loadAccordionHandler from './accordion';
-import SideBarMenu from './sidenav';
+import addSidenavListeners from './sidenav';
 import domready from 'domready';
 
 if (
@@ -7,8 +7,8 @@ if (
   (document.readyState !== 'loading' && !document.documentElement.doScroll)
 ) {
   loadAccordionHandler();
-  SideBarMenu();
+  addSidenavListeners();
 } else {
   domready(loadAccordionHandler);
-  domready(SideBarMenu);
+  domready(addSidenavListeners);
 }
