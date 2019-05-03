@@ -1,3 +1,8 @@
+---
+title: Metalsmith - How templates work for Markdown pages
+tags: tinyliquid, Liquid, page-react, page-react-sidebar, page-breadcrumbs, page-playbook, home
+---
+
 # How templates work for Markdown pages
 
 Templates use [tinyliquid](https://github.com/leizongmin/tinyliquid/), a JavaScript implementation of [Liquid](https://shopify.github.io/liquid/).
@@ -11,7 +16,7 @@ There are three "wrapper" templates currently in use for Markdown content. They'
 - `home`: Template for the home page
 - `home`: Template for the home page without search
 
-`page-breadcrumbs` is a container template that loads layouts for the content between the header and the footer. Those are in `content/layouts/includes/`. 
+`page-breadcrumbs` is a container template that loads layouts for the content between the header and the footer. Those are in `content/layouts/includes/`.
 
 Templates are loaded based on the value of the `template` property in the [YAML](http://yaml.org/)/front-page data of each content file -- the text between the `---`. Content files can be found in `content/pages/`.
 
@@ -23,5 +28,5 @@ Templates are loaded based on the value of the `template` property in the [YAML]
 
 ## Content meta data
 
-To date, we've used [YAML](http://yaml.org/) syntax in Markdown files as a way to structure data such as related links (majorlinks) and navigation cards. 
+To date, we've used [YAML](http://yaml.org/) syntax in Markdown files as a way to structure data such as related links (majorlinks) and navigation cards.
 
