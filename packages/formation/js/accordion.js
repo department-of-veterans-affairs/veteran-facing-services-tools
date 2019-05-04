@@ -15,6 +15,16 @@ const isElementInViewport = (
   );
 };
 
+const addAriasExpandedAttr = () => {
+  document.querySelectorAll('.usa-accordion-button').forEach(element => {
+    const hasAriasExpandedAttr = element.getAttribute('aria-expanded');
+
+    if (!hasAriasExpandedAttr) {
+      element.setAttribute('aria-expanded', false);
+    }
+  });
+};
+
 const addAriaHiddenAttr = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
@@ -40,11 +50,12 @@ const addAccordionClickHandler = () => {
     .querySelectorAll('.usa-accordion, .usa-accordion-bordered')
     .forEach(element => {
       element.addEventListener('click', e => {
-        const target = e.target;
+        const target = e.target.closest('.usa-accordion-button');
 
         // Checks whether the button has a click event already assigned to it.
+        // and if it is a .usa-accordion-button.
         // Specifically React Components.
-        if (!target.onclick) {
+        if (target && !target.onclick) {
           const multiSelectable = toBoolean(
             element.getAttribute('aria-multiselectable'),
           );
@@ -85,6 +96,7 @@ const addAccordionClickHandler = () => {
 
 const loadAccordionHandler = () => {
   addAriaHiddenAttr();
+  addAriasExpandedAttr();
   addAccordionClickHandler();
 };
 

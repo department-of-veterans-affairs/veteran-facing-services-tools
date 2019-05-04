@@ -93,7 +93,7 @@ document.body.innerHTML = `
     <button class="usa-accordion-button"
       aria-expanded="false"
       aria-controls="b-a5">
-      Fifth Amendment
+      <span class="usa-banner-button-text">Here’s how you know</span>
     </button>
     <div id="b-a5" class="usa-accordion-content">
       No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
@@ -103,6 +103,14 @@ document.body.innerHTML = `
 `;
 
 describe('accordion', () => {
+  it('should set aria-expanded attribute on load if non exists', () => {
+    require('../../../js');
+
+    const a1Element = document.querySelector('[aria-controls="a1"]');
+
+    expect(a1Element.getAttribute('aria-expanded')).toEqual('false');
+  });
+
   it('should set aria-hidden attribute on load if non exists', () => {
     require('../../../js');
 
@@ -267,6 +275,18 @@ describe('accordion', () => {
       'false',
     );
     expect(document.getElementById('b-a4').getAttribute('aria-hidden')).toEqual(
+      'false',
+    );
+  });
+
+  it('clicking on nested tag in .usa-accordion-button should open content', () => {
+    require('../../../js');
+
+    const usaBannerTextEl = document.querySelector('.usa-banner-button-text');
+
+    usaBannerTextEl.click();
+
+    expect(document.getElementById('b-a5').getAttribute('aria-hidden')).toEqual(
       'false',
     );
   });
