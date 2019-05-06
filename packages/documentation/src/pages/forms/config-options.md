@@ -1,3 +1,7 @@
+---
+title: form config options
+---
+
 # Form config options
 
 ```js

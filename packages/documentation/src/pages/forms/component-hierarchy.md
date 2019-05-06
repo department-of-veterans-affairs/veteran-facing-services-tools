@@ -1,3 +1,8 @@
+---
+title: About the React component hierarchy
+tags: Form component, fields, widgets, Field component
+---
+
 # About the React component hierarchy
 
 The VAFS builds a React application of a form, and determines which React components to render based on the description of the form in the form configuration file.
