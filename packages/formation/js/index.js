@@ -9,6 +9,8 @@ if (
   loadAccordionHandler();
   addSidenavListeners();
 } else {
-  domready(loadAccordionHandler);
-  domready(addSidenavListeners);
+  domready(() => {
+    loadAccordionHandler();
+    addSidenavListeners();
+  });
 }
