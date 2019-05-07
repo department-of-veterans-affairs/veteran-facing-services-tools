@@ -1,203 +1,33 @@
 ## How do unit tests work?
 
-Table of Contents
- - [Unit](#unit)
- - [End to End](#end-to-end)
- - [How to debug](#how-to-debug)
-
-### Unit
-**Description**: Used to test individual functions or components.
-
 **File format**: *.unit.spec.js
 
 **Where**: Any *.unit.spec.js file located in the `/src` folder. Typically located in a directory close to the code being tested.
 
 **When**: Locally through npm script commands, Jenkins build (Unit), and After merging to master
 
-**Libraries used**: [mocha.js](https://mochajs.org/), [chai.js](https://www.chaijs.com/), [chai-as-promised](https://github.com/domenic/chai-as-promised), [sinon.js](https://sinonjs.org/), [enzyme](https://airbnb.io/enzyme/), [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16), [react-dom](https://www.npmjs.com/package/react-dom), [react-dom/test-utils](https://reactjs.org/docs/test-utils.html), [react-test-renderer](https://www.npmjs.com/package/react-test-renderer), [jsdom](https://airbnb.io/enzyme/docs/guides/jsdom.html), [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter)
-
 **Process**:
 
-1. Mocha builds target unit test files in the same environment
-2. Babel is used to transpile the unit tests
-3. CHOMA (not sure if this is a Mocha extension or something else) randomizes the test execution
-4. Unit tests are executed serially
-5. Mocha uses the [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter) reporterer to output the test results. This is used by Jenkins to for reporting.
-6. example of a success report
-7. exmaple of a failure report
+```mermaid
+graph TB
+    A["Checks environment"] --> B["Babel transpiles unit tests"];
+    B["Babel transpiles unit tests"] --> C["Test files get built in the environment folder"];
+    C["Test files get built in the environment folder"] --> D["CHOMA randomizes test execution order"];
+    D["CHOMA randomizes test execution order"] -- Unit tests are executed serially --> F["mocha-junit-reporter generates XML report file"];
+    F["mocha-junit-reporter generates XML report file"] -- this file is used by Jenkins to trigger a failure or success --> G["Jenkins will display a failure or success"];
+```
 
-**Debugging**:
+**Libraries used**:
 
-- You can put a console.log in your test code. When you run the test, the output will be in the command line.
-- Use Chrome devtools to debug unit tests
-    1. Go to [chrome://inspect/](chrome://inspect/).
-    2. Add a `debugger` statement in your test code and if you want to run only your test add the **.only** on your test like so. Make sure to remove the **.only** once you are done.
-      ```
-        it.only('testing something', () => {
-          debugger
-
-          expect(value).to.eq(true);
-        })
-      ```
-    3. run in the terminal
-      ```
-        $ BABEL_ENV=test node_modules/.bin/mocha --inspect-brk --opts src/platform/testing/unit/mocha.opts --recursive '{test,src}/**/*.unit.spec.js?(x)' src/platform/testing/unit/helper.js
-      ```
-    4. Go to your Node Chrome Developer Tools. Under `Remote Target` you should see your test running. Click on the link where your test is running to open the debugger tool.
-    5. You will want to press the debugger play button to start the program. It will initially pause on the first line of code.
-    6. It might take awhile for the tests to setup, just be patient and eventually it will run.
-    7. Once the test runs, your code should break at your debugger statement.
-- VSCode's debugging tool for unit tests
-    - Add this `Mocha Tests` configuration to your `.vscode/launch.json` file
-      ```
-        {
-          "version": "0.2.0",
-          "configurations": [
-              {
-                  "type": "node",
-                  "request": "launch",
-                  "name": "Mocha Tests",
-                  "env": {"BABEL_ENV": "test"},
-                  "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
-                  "runtimeArgs": [
-                      "--inspect",
-                      "--opts",
-                      "${workspaceFolder}/src/platform/testing/unit/mocha.opts",
-                      "--recursive",
-                      "${workspaceFolder}/{test,src}/**/*.unit.spec.js?(x)",
-                      "${workspaceFolder}/src/platform/testing/unit/helper.js"
-                  ],
-                  "port": 9229
-              }
-          ]
-        }
-      ```
-    - Now you can add breakpoints or debugger statements to debug your code through the VSCode debugger tools.
-
-    ### End to End
-    **Description**: Used to test user flow fro start to end.
-
-    **File format**: *.e2e.spec.js
-
-    **Where**: Any *.e2e.spec.js file located in the `/src` folder. Typically located in a directory close to the code being tested. We use nightwatch.js to run our e2e tests. Nightwatch configuration files can be found in `config/`. Scripts for running nightwatch tests live under `script/`
-
-    **When**: Locally through npm script commands, Jenkins build (e2e), and After merging to master
-
-    **Libraries used**: [nightwatch.js](http://nightwatchjs.org/), [saucelabs](https://saucelabs.com/), [selenium-server](https://www.npmjs.com/package/selenium-server)
-
-    **Process**:
-
-    1. Launches a mock api
-    2. Tests are executed using nightwatch with babel configuration
-    3. Will run headless on Jekins build
-
-    **Debugging**:
-    - It's possible to set an infinite pause (`.pause()`) in the test code and then see what's happening at a given point in the browser where the test is running.
-
-        ```
-          client
-            .openUrl('http://localhost:3000')
-            .waitForElementVisible('body', Timeouts.normal)
-            .pause()
-            .click('.submit_button')
-        ```
-    - Using Node Chrome DevTools. You can add a (`.perform`) method and either console.log or add a debugger statement to debug your code in the callback function.
-        1. add a perform method in your code.
-        ```
-        client
-          .openUrl('http://localhost:3000')
-          .waitForElementVisible('body', Timeouts.normal)
-          .perform(() => {
-            console.log(testData);
-
-            debugger
-          })
-          .click('.submit_button')
-        ```
-        2. open up [chrome://inspect](chrome://inspect) in your browser.
-        3. In your terminal run. You can pass in a specific file path to test after the `nightwatch.js` or leave it blank to run all tests.
-        ```
-        $ BABEL_ENV=test WEB_PORT=3001 node --inspect-brk node_modules/nightwatch/bin/runner.js -c config/nightwatch.js [optional file to test]
-        ```
-        4. Go to your Node Chrome Developer Tools. Under `Remote Target` you should see your test running. Click on the link where your test is running to open the debugger tool.
-        5. You will want to press the debugger play button to start the program. It will initially pause on the first line of code.
-        6. after the program starts it should pause at your debugger statement or you should see your console.logs in the console.
-
-### Visual Regression
-**Description**: Used to test visual diffs on pages. Find out more at [/architecture/visual-regression-testing](/architecture/visual-regression-testing)
-
-**File format**: *.e2e.spec.js
-
-**Where**: Tests are run through a script found at `/src/platform/testing/visual-regression/index.js`
-
-**When**: Locally through npm script commands
-
-**Libraries used**: [puppeteer](https://github.com/GoogleChrome/puppeteer), [resemble](https://github.com/rsmbl/Resemble.js?files=1)
-
-**Process**:
-
-### Accessibility
-**Description**: Used to test visual diffs on pages. Find out more at [/architecture/visual-regression-testing](/architecture/visual-regression-testing)
-
-**File format**: **axe-core**: automated accessibility testing
-
-**Where**: Tests are run through a script found at `/src/platform/testing/visual-regression/index.js`
-
-**When**: Locally through npm script commands<br/><br/>Jenkins build (accessibility)<br/><br/>After merging to master
-
-**Libraries used**: [axe-core](https://github.com/dequelabs/axe-core)
-
-**Process**:
-
-  1. Launches a mock api
-  2. Tests are executed using nightwatch with babel configuration and accessibility environment
-  3. Will run headless on Jekins build
-
-### Linting
-**Description**: Checks for code quality for all JavaScript and JSX files.
-
-**File format**: *.js/*.jsx
-
-**Where**: Any *.js file located in the `/src` folder
-
-**When**: Locally through npm script commands, during the pre-commit hook, and Jenkins build (Lint)
-
-**Libraries used**: [eslint](https://eslint.org/), [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb), [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), [eslint-plugin-no-unsafe-innerhtml](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml), [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), [eslint-plugin-scanjs-rules](https://www.npmjs.com/package/eslint-plugin-scanjs-rules)
-
-### Sass Linting
-**Description**: Checks for code quality for all Scss files.
-
-**File format**: *.scss
-
-**Where**: Any .scss file located in the `/src` folder. The sass-lint configuration file can be found in `config/`
-
-**When**: Locally through npm script commands
-
-**Libraries used**: [sass-lint](https://github.com/sasstools/sass-lint)
-
-### Code Coverage
-**Description**: Checks for code quality for all Scss files.
-
-**File format**: *.js
-
-**Where**: Any *.js file located in the `/src` folder
-
-**When**: Locally through npm script commands, and Jenkins build (Unit)
-
-**Libraries used**: [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter)
-
-## Questions
-
-1. How does jsdom fit into our testing environment?
-
-Our unit tests are run on Node as opposed to in a browser. The benefit of this is that the tests run much faster. The downside is that we aren't provided with a window or DOM upon which to make calls or append elements. This will break ReactTestUtil's `simulate()` calls. To remedy, a fake window and document are provided using jsdom and bootstrapped in `test/util/mocha-setup.js`, which is required via `test/mocha.opts`.
-
-2. How do we do accessibility testing?
-
-We use both manual tests (VoiceOver, typically) and automated tests (using aXe).
-
-NVDA another option for manual testing and is supposed to be a better tool than VoiceOver, but it is only available on Windows. It would be a huge lift to get NVDA set up using Browserstack or some other virtual environment.
-
-3. How do you measure code coverage?
-
-It is possible to measure code coverage by running the command line script `npm run test:coverage`.
+- [mocha.js](https://mochajs.org/): Test framework.
+- [chai.js](https://www.chaijs.com/): BDD / TDD assertion library.
+- [chai-as-promised](https://github.com/domenic/chai-as-promised): Extends Chai with assertions about promises.
+- [sinon.js](https://sinonjs.org/): Standalone test spies, stubs and mocks.
+- [enzyme](https://airbnb.io/enzyme/): Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
+- [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16): Enzyme React 16 integration.
+- [react-dom](https://www.npmjs.com/package/react-dom): React DOM Library needed for testing React Components.
+- [react-dom/test-utils](https://reactjs.org/docs/test-utils.html): Test utilities for React DOM.
+- [react-test-renderer](https://www.npmjs.com/package/react-test-renderer): This package provides an experimental React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
+- [jsdom](https://airbnb.io/enzyme/docs/guides/jsdom.html): A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js.
+- [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter): Produces JUnit-style XML test results. This is used specifically for Jenkins to trigger a failure or success.
+- [choma](https://github.com/lennym/choma): Random execution order for mocha suites.

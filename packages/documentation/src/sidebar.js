@@ -51,6 +51,10 @@ module.exports = {
               href: '/getting-started/common-tasks/test',
             },
             {
+              name: 'Debugging tests',
+              href: '/getting-started/common-tasks/debugging-tests',
+            },
+            {
               name: 'Creating a new React application',
             },
             {
