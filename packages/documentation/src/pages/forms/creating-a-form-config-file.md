@@ -1,3 +1,7 @@
+---
+title: Creating a form config file
+---
+
 # Creating a form config file
 
 Your form is generated from a JSON Schema configuration file called `form.js`, along with a few other key configuration files.

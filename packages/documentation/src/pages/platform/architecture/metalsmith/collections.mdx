@@ -1,8 +1,13 @@
+---
+title: Adding a collection of related links for Markdown pages
+tags: metalsmith-collections
+---
+
 # Adding a collection of related links for Markdown pages
 
 Our current publishing system, Metalsmith, provides a way to group related content using what it calls _collections_. Using collections requires the `metalsmith-collections` plugin ([documentation](https://github.com/segmentio/metalsmith-collections)).
 
-Content grouped within a collection is displayed in the sidebar navigation, and the next/previous links. Next and previous links are set based on the sorting order (`sortBy` property of the collection; see below) 
+Content grouped within a collection is displayed in the sidebar navigation, and the next/previous links. Next and previous links are set based on the sorting order (`sortBy` property of the collection; see below)
 
 Viewing `src/site/components/navigation-sidebar.html` and `src/site/components/navigation-next-previous.html` _may_ clarify some of what's in this document.
 
@@ -63,11 +68,11 @@ In general you should:
 - **Use a collection objects to configure collections.** Items within a collection directory will be added to the collection automatically
 - **Add a collection property to include an index or other file** in the collection. For example, `exposure-to-hazardous-materials/agent-orange.md` is also an index page for several Agent Orange-related disability pages and should have a `disabilityExposureHazMat` property.
 
-**NOTE:** Adding a `collection` property in YAML will not override a path-based collection value. You'll actually need to move the file. 
+**NOTE:** Adding a `collection` property in YAML will not override a path-based collection value. You'll actually need to move the file.
 
 ## Ordering pages within a collection
 
-When defining a collection, you may choose to sort pages by date, or by title. In many cases, however, the desired page order may not use either of those fields. 
+When defining a collection, you may choose to sort pages by date, or by title. In many cases, however, the desired page order may not use either of those fields.
 
 To control the order of display within a collection, add an `order` property to the front matter of each page.
 
@@ -90,7 +95,7 @@ order: 1
 ---
 ```
 
-`children` should be the identifier for the child collection. 
+`children` should be the identifier for the child collection.
 
 ## Current collections and hierarchy
 
