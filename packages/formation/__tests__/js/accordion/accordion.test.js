@@ -102,18 +102,16 @@ document.body.innerHTML = `
 </ul>
 `;
 
+require('../../../js');
+
 describe('accordion', () => {
   it('should set aria-expanded attribute on load if non exists', () => {
-    require('../../../js');
-
     const a1Element = document.querySelector('[aria-controls="a1"]');
 
     expect(a1Element.getAttribute('aria-expanded')).toEqual('false');
   });
 
   it('should set aria-hidden attribute on load if non exists', () => {
-    require('../../../js');
-
     const ariaHiddenIsSet = [
       ...document.getElementsByClassName('usa-accordion-content'),
     ].every(
@@ -129,8 +127,6 @@ describe('accordion', () => {
   });
 
   it('should show if clicked', () => {
-    require('../../../js');
-
     const a1El = document.getElementById('a1');
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
 
@@ -141,8 +137,6 @@ describe('accordion', () => {
   });
 
   it('.usa-accordion-bordered should show if clicked', () => {
-    require('../../../js');
-
     const a1El = document.getElementById('b-a1');
     const a1BtnEl = document.querySelector('[aria-controls="b-a1"]');
 
@@ -153,8 +147,6 @@ describe('accordion', () => {
   });
 
   it('should hide if clicked', () => {
-    require('../../../js');
-
     const a1El = document.getElementById('a1');
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
 
@@ -165,8 +157,6 @@ describe('accordion', () => {
   });
 
   it('.usa-accordion-bordered should hide if clicked', () => {
-    require('../../../js');
-
     const a1El = document.getElementById('b-a1');
     const a1BtnEl = document.querySelector('[aria-controls="b-a1"]');
 
@@ -177,8 +167,6 @@ describe('accordion', () => {
   });
 
   it('should close any other open dropdowns if clicked', () => {
-    require('../../../js');
-
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
     const a2BtnEl = document.querySelector('[aria-controls="a2"]');
 
@@ -196,8 +184,6 @@ describe('accordion', () => {
   });
 
   it('.usa-accordion-bordered should close any other open dropdowns if clicked', () => {
-    require('../../../js');
-
     const a1BtnEl = document.querySelector('[aria-controls="b-a1"]');
     const a2BtnEl = document.querySelector('[aria-controls="b-a2"]');
 
@@ -215,8 +201,6 @@ describe('accordion', () => {
   });
 
   it('.usa-accordion click should not affect .usa-accordion-bordered when clicked', () => {
-    require('../../../js');
-
     const a1BtnEl = document.querySelector('[aria-controls="a1"]');
     const bA1BtnEl = document.querySelector('[aria-controls="b-a1"]');
 
@@ -237,8 +221,6 @@ describe('accordion', () => {
     document
       .querySelector('.usa-accordion')
       .setAttribute('aria-multiselectable', true);
-
-    require('../../../js');
 
     const a3BtnEl = document.querySelector('[aria-controls="a3"]');
     const a4BtnEl = document.querySelector('[aria-controls="a4"]');
@@ -261,8 +243,6 @@ describe('accordion', () => {
       .querySelector('.usa-accordion-bordered')
       .setAttribute('aria-multiselectable', true);
 
-    require('../../../js');
-
     const a3BtnEl = document.querySelector('[aria-controls="b-a3"]');
     const a4BtnEl = document.querySelector('[aria-controls="b-a4"]');
 
@@ -280,8 +260,6 @@ describe('accordion', () => {
   });
 
   it('clicking on nested tag in .usa-accordion-button should open content', () => {
-    require('../../../js');
-
     const usaBannerTextEl = document.querySelector('.usa-banner-button-text');
 
     usaBannerTextEl.click();
