@@ -69,10 +69,6 @@ module.exports = {
               name: 'Updating Formation',
               // href: '/getting-started/common-tasks/update-formation'
             },
-            {
-              name: 'Unit Tests',
-              href: 'getting-started/common-tasks/unit-tests',
-            },
           ],
         },
       ],
