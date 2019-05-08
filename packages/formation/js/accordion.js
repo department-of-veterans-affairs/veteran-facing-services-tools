@@ -15,6 +15,16 @@ const isElementInViewport = (
   );
 };
 
+const addAriasExpandedAttr = () => {
+  document.querySelectorAll('.usa-accordion-button').forEach(element => {
+    const hasAriasExpandedAttr = element.getAttribute('aria-expanded');
+
+    if (!hasAriasExpandedAttr) {
+      element.setAttribute('aria-expanded', false);
+    }
+  });
+};
+
 const addAriaHiddenAttr = () => {
   document
     .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
@@ -40,19 +50,22 @@ const addAccordionClickHandler = () => {
     .querySelectorAll('.usa-accordion, .usa-accordion-bordered')
     .forEach(element => {
       element.addEventListener('click', e => {
-        const target = e.target;
+        const accordionButton = e.target.closest('.usa-accordion-button');
 
         // Checks whether the button has a click event already assigned to it.
+        // and if it is a .usa-accordion-button.
         // Specifically React Components.
-        if (!target.onclick) {
+        if (accordionButton && !accordionButton.onclick) {
           const multiSelectable = toBoolean(
             element.getAttribute('aria-multiselectable'),
           );
 
-          const hasAriaControlsAttr = target.getAttribute('aria-controls');
+          const hasAriaControlsAttr = accordionButton.getAttribute(
+            'aria-controls',
+          );
 
           if (hasAriaControlsAttr && !multiSelectable) {
-            getOtherButtons(element, target).forEach(el => {
+            getOtherButtons(element, accordionButton).forEach(el => {
               const contentEl = el.getAttribute('aria-controls');
 
               el.setAttribute('aria-expanded', 'false');
@@ -65,16 +78,23 @@ const addAccordionClickHandler = () => {
 
           if (hasAriaControlsAttr) {
             const dropDownElement = document.getElementById(
-              target.getAttribute('aria-controls'),
+              accordionButton.getAttribute('aria-controls'),
             );
-            const targetExpandedAttr = toBoolean(
-              target.getAttribute('aria-expanded'),
+            const accordionButtonExpandedAttr = toBoolean(
+              accordionButton.getAttribute('aria-expanded'),
             );
 
-            dropDownElement.setAttribute('aria-hidden', targetExpandedAttr);
-            target.setAttribute('aria-expanded', !targetExpandedAttr);
+            dropDownElement.setAttribute(
+              'aria-hidden',
+              accordionButtonExpandedAttr,
+            );
 
-            if (!isElementInViewport(target)) {
+            accordionButton.setAttribute(
+              'aria-expanded',
+              !accordionButtonExpandedAttr,
+            );
+
+            if (!isElementInViewport(accordionButton)) {
               element.scrollIntoView();
             }
           }
@@ -85,6 +105,7 @@ const addAccordionClickHandler = () => {
 
 const loadAccordionHandler = () => {
   addAriaHiddenAttr();
+  addAriasExpandedAttr();
   addAccordionClickHandler();
 };
 

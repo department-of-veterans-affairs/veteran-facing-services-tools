@@ -51,6 +51,10 @@ module.exports = {
               href: '/getting-started/common-tasks/test',
             },
             {
+              name: 'Debugging tests',
+              href: '/getting-started/common-tasks/debugging-tests',
+            },
+            {
               name: 'Creating a new React application',
             },
             {
@@ -204,6 +208,7 @@ module.exports = {
             },
             {
               name: 'How do unit tests work?',
+              href: '/platform/unit-testing',
             },
             {
               name: 'How do end-to-end tests work?',
