@@ -19,6 +19,30 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   }
 }
 
+// Contents in this media query are from the shame file on vets-website
+@media (min-width: $xsmall-screen) and (max-width: $medium-screen - 1) {
+   .va-sidebarnav {
+      display: none;
+    }
+
+    button {
+      &.va-sidebarnav-close {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+
+        &:hover,
+        &:focus {
+          background-color: $mm-gray;
+        }
+      }
+  }
+}
+
+.left-side-nav-title {
+  color: $color-black;
+}
+
 .va-sidebarnav {
   color: $color-link-default;
 
@@ -84,6 +108,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
     &--opened {
       visibility: visible;
+      display: block;
 
       & > div {
         transform: translateX(0);
@@ -367,4 +392,3 @@ $level-3-hover-padding: 8px 12px 8px 30px;
     margin: 5px 0 0 3px;
   }
 }
-
