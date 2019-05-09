@@ -24,6 +24,15 @@ class SideBarMenu {
   }
 
   init() {
+    // Just in case we ever use this with server-side rendering
+    if (window) {
+      window.matchMedia('(min-width: 768px)').addListener(() => {
+        if (this.menu && this.menu.getAttribute('aria-hidden') === 'false') {
+          this.closeMenu();
+        }
+      });
+    }
+
     this.menuTrigger.forEach(mt => {
       mt.addEventListener('click', domEvent => {
         this.openMenu(domEvent.currentTarget);
