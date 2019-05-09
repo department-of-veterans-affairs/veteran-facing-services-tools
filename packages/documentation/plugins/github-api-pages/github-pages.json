@@ -2,7 +2,7 @@
   "owner": "department-of-veterans-affairs",
   "repo": "vets.gov-team",
   "directoryPaths": [
-    "Work Practices/Engineering/Writing_Small_PRs.md",
-    "Work Practices/Engineering/Code Review Norms.md"
+    "Practice Areas/Engineering/Writing_Small_PRs.md",
+    "Practice Areas/Engineering/Code Review Norms.md"
   ]
 }

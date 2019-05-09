@@ -2,21 +2,19 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from './Layout';
+import SidebarLayout from './SidebarLayout';
 
 export default class ExternalLayout extends Component {
   render() {
     const { data, location } = this.props;
 
     return (
-      <Layout location={location}>
-        <h2>{data.markdownRemark.fields.slug}</h2>
-
+      <SidebarLayout location={location}>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
         />
-      </Layout>
+      </SidebarLayout>
     );
   }
 }
