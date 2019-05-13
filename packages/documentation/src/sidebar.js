@@ -55,7 +55,20 @@ module.exports = {
               href: '/getting-started/common-tasks/debugging-tests',
             },
             {
-              name: 'Creating a new React application',
+              name: 'Adding a new feature to VA.gov',
+              href: '/getting-started/common-tasks/new-feature',
+              items: [
+                {
+                  name: 'Applications',
+                },
+                {
+                  name: 'Widgets',
+                  href: '/getting-started/common-tasks/new-widget',
+                },
+                {
+                  name: 'Content pages',
+                },
+              ],
             },
             {
               name: 'Writing a unit test',
