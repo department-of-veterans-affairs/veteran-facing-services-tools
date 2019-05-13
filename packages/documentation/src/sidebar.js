@@ -60,6 +60,7 @@ module.exports = {
               items: [
                 {
                   name: 'Applications',
+                  href: '/getting-started/common-tasks/new-application',
                 },
                 {
                   name: 'Widgets',
@@ -67,6 +68,7 @@ module.exports = {
                 },
                 {
                   name: 'Content pages',
+                  href: '/getting-started/common-tasks/new-page',
                 },
               ],
             },
