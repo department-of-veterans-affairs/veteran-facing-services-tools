@@ -41,6 +41,10 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
 .left-side-nav-title {
   color: $color-black;
+  padding-left: 1em;
+  @include media($small-desktop-screen) {
+    padding-left: 0;
+  }
 }
 
 .va-sidebarnav {
@@ -109,6 +113,8 @@ $level-3-hover-padding: 8px 12px 8px 30px;
     &--opened {
       visibility: visible;
       display: block;
+      position: fixed;
+      z-index: $top-layer;
 
       & > div {
         transform: translateX(0);
@@ -141,6 +147,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       margin-bottom: -1px;
     }
   }
+
   .left-side-nav-title {
     padding-bottom: 25px;
     > .icon-small {
