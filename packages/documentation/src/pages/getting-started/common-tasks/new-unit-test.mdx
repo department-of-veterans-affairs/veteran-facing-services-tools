@@ -1,0 +1,119 @@
+---
+title: Writing a unit test
+tags: Mocha, Chai, Enzyme
+---
+
+# Writing a unit test
+
+## Unit testing overview
+
+- `vets-website` uses
+  - Mocha for running unit tests
+  - Chai for test assertions
+  - Enzyme for mounting and inspecting React components
+- Unit tests are **coolocated with application folder** in a test directory that matches the application directory structure
+```
+- 📂 MyApplication
+  - 📂 components
+    - MyComponent.jsx
+  - 📂 tests
+    - 📂 components
+      - MyComponent.unit.spec.jsx
+```
+- Mocha runs all unit tests under `/src` folder that end with `.unit.spec.js(x)`
+
+## Unit test conventions
+```
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import MyComponent from '../../components/MyComponent';
+
+describe('MyApplication', () => {
+  describe('MyComponent', () => {
+    it('renders privacy act disclosure when state.show is true', () => {
+        const componentUnderTest = shallow(<MyComponent />);
+        ...
+        expect(someCondition).to.be.true;
+
+        componentUnderTest.unmount();
+    })
+  });
+});
+```
+
+- use `describe` to organize tests by application and feature
+  - two levels is adequate depending on the size of the application being tested
+- use `it` to describe the unit test
+  - use active voice
+  - describe the behavior in terms specific to the unit
+  - don't abstract the test description with business logic
+  - **Recommended**:
+    - `it('truncates the address property when it is longer than 15 characters')`
+    - `it('renders an error when props.errors contains at least one item')`
+  - **Not recommended**:
+    - `it('shortens the address when the user has a long address')`
+    - `it('shows an error when the user is not logged in')`
+  - use Enzyme's [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components
+  - always `unmount` components at the end of the test
+
+## Conventions for testing form system generated forms
+
+```
+import { DefinitionTester } from '../../../../../platform/testing/unit/schemaform-utils';
+
+describe('MyForm FormID', () => {
+
+const {
+    schema,
+    uiSchema,
+    arrayPath,
+  } = formConfig.chapters.myFormChapter.pages.myFormPage;
+
+  it('renders myFormPage form', () => {
+    const form = mount(
+      <DefinitionTester
+        arrayPath={arrayPath}
+        pagePerItemIndex={0}
+        definitions={formConfig.defaultDefinitions}
+        schema={schema}
+        data={initialData}
+        formData={initialData}
+        uiSchema={uiSchema}
+      />,
+    );
+
+    expect(form.find('select').length).to.equal(6); // from/to months, days; country, state
+    expect(form.find('input').length).to.equal(4); // facility name, from/to years, city
+    form.unmount();
+  });
+  ```
+
+- organize forms config tests by page
+- use the `<DefinitionTester />` to render form configs for testing
+- test at least
+  - number of each type of input is rendered (example above)
+  - any conditional display logic on the page
+  - all field level validation errors
+- use the other `schemaform-utils` for filling out form data:
+  - `fillData` - Enzyme helper that fires a change event with a value for an element at the given selector
+```
+fillData(
+  form, // mounted <DefinitionTester />
+  'select#root_blah' // selector
+  'USA', // value
+);
+```
+  - `fillDate` - Enzyme helper that fills in a date field with data from the given date string.
+```
+fillDate(
+  form, // mounted <DefinitionTester />
+  'select#root_blah' // selector
+  '1950-1-3', // value
+);
+```
+
+## Other utilities
+
+- mocking fetch
+
+## Legacy tools
