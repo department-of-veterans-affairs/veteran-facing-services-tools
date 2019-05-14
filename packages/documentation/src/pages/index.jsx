@@ -13,20 +13,24 @@ export default function Index({ location }) {
         <ul>
           <li>
             If you're looking to get your environment set up, visit our{' '}
-            <Link to="/getting-started">Getting Started</Link> section.
+            <Link to="/getting-started">Getting started</Link> section.
           </li>
           <li>
-            If you're interested in the architecture of VA.gov and how it works,
-            see <Link to="/architecture">Architecture</Link>.
+            If you're looking to understand how to use our visual styles and
+            components, visit our <Link to="/visual-design">Visual design</Link>{' '}
+            section.
           </li>
           <li>
             For information about building forms on VA.gov, visit the{' '}
             <Link to="/forms">Forms</Link> section.
           </li>
           <li>
-            For all other information about the VFS platform (including
-            Formation React components), visit the{' '}
+            For all other information about the VFS platform, visit the{' '}
             <Link to="/platform">Platform</Link> section.
+          </li>
+          <li>
+            For info about writing documentation on this site, see the{' '}
+            <Link to="/documentation-guide">Documentation guide</Link> section.
           </li>
         </ul>
       </div>
