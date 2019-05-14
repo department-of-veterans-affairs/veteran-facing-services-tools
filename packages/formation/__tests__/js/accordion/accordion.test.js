@@ -1,3 +1,6 @@
+// Mock for window.matchMedia
+import '../../matchMedia.mock';
+
 document.body.innerHTML = `
 <h6>Borderless</h6>
 
