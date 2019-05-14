@@ -13,15 +13,15 @@ Broadly, we have three kinds of features on VA.gov: static content pages, applic
 
 ### Content pages
 
-Static content pages are pages that are built through the Metalsmith build process and are static html stored in AWS. If you're reading this site, you're probably not the person who would be addding one of these pages. Typically these pages are added by content editors in the vagov-content repo or in the Drupal CMS. You may, however, be tasked with adding more complex behaviors to these pages, which is discussed later in the widgets section.
+Static [content pages](/getting-started/common-tasks/new-page) are pages that are built through the Metalsmith build process and are static html stored in AWS. If you're reading this site, you're probably not the person who would be addding one of these pages. Typically these pages are added by content editors in the vagov-content repo or in the Drupal CMS. You may, however, be tasked with adding more complex behaviors to these pages, which is discussed later in the widgets section.
 
 ### Widgets
 
-On VA.gov, we use the term "widgets" to describe features that implement some kind of dynamic behavior in a contained place on a page. Examples of this include our saved application widgets, which display information about in progress applications a logged user may have, which is shown on various static content pages. Typically these widgets are written in React and are lazily loaded in separate bundles from the default static pages JS bundle.
+On VA.gov, we use the term "[widgets](/getting-started/common-tasks/new-widget)" to describe features that implement some kind of dynamic behavior in a contained place on a page. Examples of this include our saved application widgets, which display information about in progress applications a logged user may have, which is shown on various static content pages. Typically these widgets are written in React and are lazily loaded in separate bundles from the default static pages JS bundle.
 
 ### Applications
 
-The third type of feature are applications. These are Javascript applications, written with React/Redux, that control all of the UI for a page and may have multiple client-side pages. There is an static content page for each of these applications that contains only a header, footer, and `div` for the React application to mount to. These applications have their own JS bundle and the most flexibility for how to render content for a Veteran to interact with.
+The third type of feature are [applications](/getting-started/common-tasks/new-application). These are Javascript applications, written with React/Redux, that control all of the UI for a page and may have multiple client-side pages. There is an static content page for each of these applications that contains only a header, footer, and `div` for the React application to mount to. These applications have their own JS bundle and the most flexibility for how to render content for a Veteran to interact with.
 
 Examples of applications include our multi page forms, the claim status tracker app, etc.
 
