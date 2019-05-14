@@ -39,6 +39,16 @@ function ComponentList() {
   );
 }
 
+function SidebarItem({ item }) {
+  if (item.href) {
+    return (
+      <li key={item.name}>
+        <Link to={item.href}>{item.name}</Link>
+      </li>
+    );
+  }
+  return <li key={item.name}>{item.name} (future)</li>;
+}
 export default function SidebarItems({ items, isSublist = false }) {
   if (!items.length) {
     return null;
@@ -50,7 +60,7 @@ export default function SidebarItems({ items, isSublist = false }) {
         if (item.items) {
           return (
             <li key={item.name}>
-              {isSublist && item.name}
+              {isSublist && <SidebarItem item={item} />}
               {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
               <SidebarItems isSublist items={item.items} />
             </li>
@@ -59,20 +69,13 @@ export default function SidebarItems({ items, isSublist = false }) {
         if (item.query === 'componentList') {
           return (
             <li key={item.name}>
-              {isSublist && item.name}
+              {isSublist && <SidebarItem item={item} />}
               {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
               <ComponentList />
             </li>
           );
         }
-        if (item.href) {
-          return (
-            <li key={item.name}>
-              <Link to={item.href}>{item.name}</Link>
-            </li>
-          );
-        }
-        return <li key={item.name}>{item.name} (future)</li>;
+        return <SidebarItem item={item} key={item.name} />;
       })}
     </ul>
   );
