@@ -26,18 +26,12 @@ const addAriasExpandedAttr = () => {
 };
 
 const addAriaHiddenAttr = () => {
-  document
-    .querySelectorAll('.usa-accordion-content:not([aria-hidden])')
-    .forEach(el => {
-      const buttonElement = document.querySelector(
-        `[aria-controls="${el.id}"]`,
-      );
-      const hiddenValue = !toBoolean(
-        buttonElement.getAttribute('aria-expanded'),
-      );
+  document.querySelectorAll('.usa-accordion-content').forEach(el => {
+    const buttonElement = document.querySelector(`[aria-controls="${el.id}"]`);
+    const hiddenValue = !toBoolean(buttonElement.getAttribute('aria-expanded'));
 
-      el.setAttribute('aria-hidden', hiddenValue);
-    });
+    el.setAttribute('aria-hidden', hiddenValue);
+  });
 };
 
 const getOtherButtons = (element, target) =>
