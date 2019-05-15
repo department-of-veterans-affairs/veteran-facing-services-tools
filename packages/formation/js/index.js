@@ -6,11 +6,11 @@ if (
   document.readyState === 'complete' &&
   (document.readyState !== 'loading' && !document.documentElement.doScroll)
 ) {
-  loadAccordionHandler();
   addSidenavListeners();
+  loadAccordionHandler();
 } else {
   domready(() => {
-    loadAccordionHandler();
     addSidenavListeners();
+    loadAccordionHandler();
   });
 }

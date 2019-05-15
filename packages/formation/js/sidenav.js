@@ -15,6 +15,7 @@ class SideBarMenu {
     this.getMenu = this.getMenu.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.addCloseMenuListener = this.addCloseMenuListener.bind(this);
     this.captureFocus = this.captureFocus.bind(this);
     this.checkAccordionFocus = this.checkAccordionFocus.bind(this);
     this.findKeyNodes = this.loadKeyNodes.bind(this);
@@ -100,7 +101,7 @@ class SideBarMenu {
       .getElementsByClassName('va-btn-sidebarnav-trigger')[0]
       .setAttribute('hidden', 'true');
     document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-    this.closeMenu(trigger);
+    this.addCloseMenuListener();
     if (trigger.className.includes('va-btn-sidebarnav-trigger')) {
       // main trigger, switch focus to close button
       this.closeControl.focus();
@@ -126,17 +127,21 @@ class SideBarMenu {
     this.lastTabbableElement.removeEventListener('keydown', this.captureFocus);
   }
 
-  closeMenu() {
+  addCloseMenuListener() {
     const close = this.menu.querySelector('.va-sidebarnav-close');
     close.addEventListener('click', () => {
-      this.menu.classList.remove('va-sidebarnav--opened');
-      this.menu.setAttribute('aria-hidden', 'true');
-      document.getElementsByTagName('body')[0].style.overflow = 'initial';
-      document
-        .getElementsByClassName('va-btn-sidebarnav-trigger')[0]
-        .removeAttribute('hidden');
+      this.closeMenu();
       this.removeListeners();
     });
+  }
+
+  closeMenu() {
+    this.menu.classList.remove('va-sidebarnav--opened');
+    this.menu.setAttribute('aria-hidden', 'true');
+    document.getElementsByTagName('body')[0].style.overflow = 'initial';
+    document
+      .getElementsByClassName('va-btn-sidebarnav-trigger')[0]
+      .removeAttribute('hidden');
   }
 }
 
