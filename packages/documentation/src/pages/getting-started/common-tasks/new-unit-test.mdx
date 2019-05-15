@@ -1,6 +1,6 @@
 ---
 title: Writing a unit test
-tags: Mocha, Chai, Enzyme
+tags: Mocha, Chai, Enzyme, schemaform-utils,
 ---
 
 # Writing a unit test
@@ -8,10 +8,10 @@ tags: Mocha, Chai, Enzyme
 ## Unit testing overview
 
 - `vets-website` uses
-  - Mocha for running unit tests
-  - Chai for test assertions
-  - Enzyme for mounting and inspecting React components
-- Unit tests are **coolocated with application folder** in a test directory that matches the application directory structure
+  - [Mocha](https://mochajs.org/) for running unit tests
+  - [Chai](http://chaijs.com/) for test assertions
+  - [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
+- Unit tests are **collocated with application folder** in a test directory that matches the application directory structure
 ```
 - 📂 MyApplication
   - 📂 components
@@ -56,10 +56,10 @@ describe('MyApplication', () => {
   - use Enzyme's [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components
   - always `unmount` components at the end of the test
 
-## Conventions for testing form system generated forms
+## Unit testing forms with schemaform-utils
 
 ```
-import { DefinitionTester } from '../../../../../platform/testing/unit/schemaform-utils';
+import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
 
 describe('MyForm FormID', () => {
 
@@ -95,7 +95,8 @@ const {
   - any conditional display logic on the page
   - all field level validation errors
 - use the other `schemaform-utils` for filling out form data:
-  - `fillData` - Enzyme helper that fires a change event with a value for an element at the given selector
+
+>- `fillData()` - Enzyme helper that fires a change event with a value for an element at the given selector
 ```
 fillData(
   form, // mounted <DefinitionTester />
@@ -103,7 +104,8 @@ fillData(
   'USA', // value
 );
 ```
-  - `fillDate` - Enzyme helper that fills in a date field with data from the given date string.
+
+>- `fillDate()` - Enzyme helper that fills in a date field with data from the given date string.
 ```
 fillDate(
   form, // mounted <DefinitionTester />
@@ -112,8 +114,28 @@ fillDate(
 );
 ```
 
+>- `selectCheckbox()` - Enzyme helper that fires a change event with a value for a checkbox at the given name
+
 ## Other utilities
 
-- mocking fetch
+_These utilities can be found in `platform/testing/unit/helpers.js`_
+
+- `mockFetch()` -  A function to mock the global fetch function and return the value provided in returnVal
+  - `resetFetch()` - resets the mocked fetch set with `mockFetch()`
+  - `mockApiRequest()` - decorated `mockFetch()` that adds typical API headers to `returnVal`
+  - `mockMultipleApiRequests()` - decorated `mockFetch()` that mocks a fetch call for each response object in an array
+```
+mockFetch(
+  new Error('fake error'), // returnVal
+  false, // shouldResolve: false returns rejected promise. default is true
+);
+```
+
+_This utility can be found in `platform/utilities/storage/localstorage.js`_
+
+- `getLocalStorage()` - convenience accessor for local storage and implements a fallback. Useful for stubbing localstorage.
+
 
 ## Legacy tools
+
+- While ReactTestUtils are used in many of our tests, it's recommended that updated or new tests always use Enzyme
