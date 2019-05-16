@@ -58,7 +58,7 @@ describe('my-application', () => {
   - use Enzyme's [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components
   - always `unmount` components at the end of the test
 
-## Unit testing forms with schemaform-utils
+## Writing unit tests for VAFS pages
 
 ```
 import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
@@ -140,4 +140,4 @@ _This utility can be found in `platform/utilities/storage/localstorage.js`_
 
 ## Legacy tools
 
-- While ReactTestUtils are used in many of our tests, it's recommended that updated or new tests always use Enzyme
+- While ReactTestUtils and SkinDeep are used in many of our tests, it's recommended that updated or new tests always use Enzyme
