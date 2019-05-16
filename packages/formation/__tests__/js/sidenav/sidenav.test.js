@@ -139,6 +139,8 @@ describe('Sidenav', () => {
     expect(
       navElement.classList.value.includes('va-sidebarnav--opened'),
     ).toEqual(true);
+    expect(navElement.getAttribute('aria-hidden')).toEqual('false');
+    expect(mobileSideNavButton.getAttribute('hidden')).toEqual('true');
   });
 
   it('should hide sidenav when clicking on close button', () => {
@@ -156,5 +158,6 @@ describe('Sidenav', () => {
       navElement.classList.value.includes('va-sidebarnav--opened'),
     ).toEqual(false);
     expect(mobileSideNavButton.getAttribute('hidden')).toEqual(null);
+    expect(navElement.getAttribute('aria-hidden')).toEqual('true');
   });
 });
