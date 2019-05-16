@@ -1,5 +1,5 @@
 ---
-title: Writing a unit test
+title: Write a unit test
 tags: Mocha, Chai, Enzyme, schemaform-utils,
 ---
 
@@ -14,12 +14,13 @@ tags: Mocha, Chai, Enzyme, schemaform-utils,
   - [Sinon](https://sinonjs.org/) for stubs and spies
 - Unit tests are **collocated with application folder** in a test directory that matches the application directory structure
 ```
-- 📂 MyApplication
-  - 📂 components
-    - MyComponent.jsx
-  - 📂 tests
+- 📂 src
+  - 📂 my-application
     - 📂 components
-      - MyComponent.unit.spec.jsx
+      - MyComponent.jsx
+    - 📂 tests
+      - 📂 components
+        - MyComponent.unit.spec.jsx
 ```
 - Mocha runs all unit tests under `/src` folder that end with `.unit.spec.js(x)`
 
@@ -29,7 +30,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import MyComponent from '../../components/MyComponent';
 
-describe('MyApplication', () => {
+describe('my-application', () => {
   describe('MyComponent', () => {
     it('renders privacy act disclosure when state.show is true', () => {
         const componentUnderTest = shallow(<MyComponent />);

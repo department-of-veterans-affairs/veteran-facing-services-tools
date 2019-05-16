@@ -73,7 +73,7 @@ module.exports = {
               ],
             },
             {
-              name: 'Writing a unit test',
+              name: 'Write a unit test',
               href: '/getting-started/common-tasks/new-unit-test',
             },
             {
