@@ -143,6 +143,9 @@ describe('Sidenav', () => {
 
   it('should hide sidenav when clicking on close button', () => {
     global.window.innerWidth = '600px';
+    const mobileSideNavButton = document.querySelector(
+      '.va-btn-sidebarnav-trigger',
+    );
     const navElement = document.querySelector('nav');
 
     const closeButton = navElement.querySelector('.va-btn-close-icon');
@@ -152,5 +155,6 @@ describe('Sidenav', () => {
     expect(
       navElement.classList.value.includes('va-sidebarnav--opened'),
     ).toEqual(false);
+    expect(mobileSideNavButton.getAttribute('hidden')).toEqual(null);
   });
 });
