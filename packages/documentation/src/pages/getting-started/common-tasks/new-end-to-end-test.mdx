@@ -1,23 +1,23 @@
 ---
-title: Write an end to end test
+title: Write an end-to-end test
 tags: Nightwatch, mockapi, e2e
 ---
 
-# Write an end to end test
+# Write an end-to-end test
 
-Front end engineers use end-to-end tests in `vets-website` to validate multipage applications with client-side routing. They are primarily used to assert that:
+Front end engineers use end-to-end (e2e) tests in `vets-website` to validate multipage applications with client-side routing. They are primarily used to assert that:
 - client applications render their inputs
 - client-side navigation occurs when the required fields are populated
 
-## End to end testing overview
+## end-to-end testing overview
 
 - `vets-website` uses [Nightwatch](https://nightwatchjs.org) to run the tests and provide the browser client
-- End to end tests are **collocated in application folder** with the application they test
-- Two node apps run with the end to end tests:
+- end-to-end tests are **collocated in application folder** with the application they test
+- Two node apps run with the end-to-end tests:
   - `mockapi.js` - hosts mock responses (see [Mocking API responses](#mocking-api-responses))
   - `test-server.js` - builds and hosts `vets-website` with support for client-side routes
 
-## End to end tests conventions
+## end-to-end tests conventions
 
 **00-main-test-file.e2e.spec.js**
 ```
@@ -91,7 +91,7 @@ _These are recommendations not requirements._
   - **02-accessibility.e2e.spec.js** - validates accessibility
   - **03-auth.e2e.spec.js** - validates authentication
   - **04-cross-cutting-feature.e2e.spec.js** - validates one feature used across several pages (e.g. save in progress)
-- export the end to end test using `E2eHelpers.createE2eTest()`- see [Helpers](#helpers)
+- export the end-to-end test using `E2eHelpers.createE2eTest()`- see [Helpers](#helpers)
 - group tests by pages and use a comment to indicate what page is being tested
 - mock all api responses before starting the test. See [Mocking API responses](#mockimg-api-responses)
 - use `waitForElementVisible` before interacting with any element on the page
@@ -104,7 +104,7 @@ _These are recommendations not requirements._
 
 **my-application-helpers.js**
 
-A mock server runs with the end to end tests to allow tests to make production-like calls.
+A mock server runs with the end-to-end tests to allow tests to make production-like calls.
 
 ```
 const mock = require('platform/testing/e2e/mock-helpers');
@@ -125,7 +125,7 @@ function initApplicationSubmitMock() {
 ```
 
 - `mock-helpers.js` for mocking data
-  - mock server is started as part of the end to end testing script
+  - mock server is started as part of the end-to-end testing script
 - mock all api calls in your application e.g. submit and upload calls
 
 ## Custom Nightwatch commands
@@ -140,7 +140,7 @@ _Command commands are available on the Nightwatch client e.g. `client.axeCheck()
 - [`fillAddress(baseName, address}`)](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/fillAddress.js#L2-L5) - fills an address widget with the value provided
 - [`fillCheckbox(selector, predicate, ...predicateParams`)](https://github.com/department-of-veterans-affairs/vets-website/blob/343d77e2d7509cdcecee4b41c723d01ca0147881/src/platform/testing/e2e/nightwatch-commands/fillCheckbox.js#L4-L7) - clicks the checkbox at the selector when the predicate returns true
 - [`fillDate(fieldName, dateString}`)](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/fillDate.js#L4-L6) - fills a date widget at the fieldName with the dateString provided e.g. 1990-1-28
-- [`openUrl(url, disableForesee = true)`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/nightwatch-commands/openUrl.js) - navigates to url and disables user feedback module (this can interfere with end to end tests)
+- [`openUrl(url, disableForesee = true)`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/nightwatch-commands/openUrl.js) - navigates to url and disables user feedback module (this can interfere with end-to-end tests)
 - [`selectRadio(fieldName, value)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectRadio.js#L2-L6) - selects the provided option on yesNo widget at the field name
 - [`selectYesNo(fieldName, predicate)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectYesNo.js#L2-L6) - selects the provided options on yesNo widget at the field name when the predicate returns true
 
@@ -149,5 +149,5 @@ _Command commands are available on the Nightwatch client e.g. `client.axeCheck()
 `src/platform/testing/e2e` contains other useful helpers
 
 - [`createE2eTest(beginApplication)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/helpers.js#L78-L81) - disables smooth scrolling and starts and ends test
-- [`overrideSmoothFormsScrolling(client)` and `overrideFormsScrolling(client)](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectYesNo.js#L2-L6) - disables smooth scrolling during end to end testing
+- [`overrideSmoothFormsScrolling(client)` and `overrideFormsScrolling(client)](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectYesNo.js#L2-L6) - disables smooth scrolling during end-to-end testing
 - [`expectNavigationAwayFrom(client, urlString)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/helpers.js#L94) - asserts the current page is not at the `urlString`
