@@ -84,8 +84,8 @@ _These are recommendations not requirements._
 
 - separate navigation from field input
   - use a **main test file** for navigation, assertions, and calls helpers
-  - use a **helper file** that for filling out forms
-- create separate, numbered **main test files** to organize tests by their focus
+  - use a **helper file** for filling out forms
+- create separate, numbered **main test files** to organize tests by their focus:
   - **00-all-fields.e2e.spec.js** - required and optional fields
   - **01-required.e2e.spec.js** - only required fields
   - **02-accessibility.e2e.spec.js** - validates accessibility
@@ -97,7 +97,7 @@ _These are recommendations not requirements._
 - use `waitForElementVisible` before interacting with any element on the page
 - use `Timeouts` constants for setting timeouts (`platform/testing/e2e/timeouts.js`)
 - use helpers for filling data and performing actions on the page
-- perform `axeCheck` on the main body of the application on each page- see [Custom Nightwatch commands](#custom-nightwatch-commands)
+- perform `axeCheck` on the main body of the application on each page - see [Custom Nightwatch commands](#custom-nightwatch-commands)
 - assert that each navigation is successful
 
 ## Mocking API responses
@@ -149,5 +149,5 @@ _Command commands are available on the Nightwatch client e.g. `client.axeCheck()
 `src/platform/testing/e2e` contains other useful helpers
 
 - [`createE2eTest(beginApplication)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/helpers.js#L78-L81) - disables smooth scrolling and starts and ends test
-- [`overrideSmoothFormsScrolling(client)` and `overrideFormsScrolling(client)](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectYesNo.js#L2-L6) - disables smooth scrolling during end-to-end testing
+- [`overrideSmoothFormsScrolling(client)` and `overrideFormsScrolling(client)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/nightwatch-commands/selectYesNo.js#L2-L6) - disables smooth scrolling during end-to-end testing
 - [`expectNavigationAwayFrom(client, urlString)`](https://github.com/department-of-veterans-affairs/vets-website/blob/d721cf0581c6b7d6f26903540dfc27f26a16a7be/src/platform/testing/e2e/helpers.js#L94) - asserts the current page is not at the `urlString`
