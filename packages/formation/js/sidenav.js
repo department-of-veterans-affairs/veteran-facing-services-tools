@@ -151,12 +151,16 @@ function addActiveState() {
     '#va-detailpage-sidebar[data-drupal-sidebar]',
   );
   if (sideNav) {
-    const current = document.getElementsByClassName('usa-current')[0];
-    const parent = current.closest('.usa-accordion-content')
-      .previousElementSibling;
-    const ariaExpanded =
-      parent.getAttribute('aria-expanded') === 'false' ? 'true' : 'false';
-    parent.setAttribute('aria-expanded', ariaExpanded);
+    const current = sideNav.getElementsByClassName('usa-current')[0];
+    if (current) {
+      const accordionContent = current.closest('.usa-accordion-content');
+      if (accordionContent) {
+        const parent = accordionContent.previousElementSibling;
+        const ariaExpanded =
+          parent.getAttribute('aria-expanded') === 'false' ? 'true' : 'false';
+        parent.setAttribute('aria-expanded', ariaExpanded);
+      }
+    }
   }
 }
 
