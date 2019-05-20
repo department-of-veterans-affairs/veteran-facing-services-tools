@@ -16,13 +16,15 @@ const isElementInViewport = (
 };
 
 const addAriasExpandedAttr = () => {
-  document.querySelectorAll('.usa-accordion-button').forEach(element => {
-    const hasAriasExpandedAttr = element.getAttribute('aria-expanded');
+  Array.from(document.querySelectorAll('.usa-accordion-button')).forEach(
+    element => {
+      const hasAriasExpandedAttr = element.getAttribute('aria-expanded');
 
-    if (!hasAriasExpandedAttr) {
-      element.setAttribute('aria-expanded', false);
-    }
-  });
+      if (!hasAriasExpandedAttr) {
+        element.setAttribute('aria-expanded', false);
+      }
+    },
+  );
 };
 
 const addAriaHiddenAttr = () => {
