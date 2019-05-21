@@ -1,13 +1,13 @@
 ---
 title: Va.gov downtime notifications
-tags: pagerduty,maintenance windows,scheduled downtime
+tags: pagerduty,maintenance windows,scheduled downtime,banner
 ---
 
 # Downtime Notifications
 Downtime Notications are a mechanism for handling outages of external services in the consuming front-end applications. 
 
 ## Overview
-- Available as a React component in [`vets-website`](https://github.com/department-of-veterans-affairs/vets-website/blob/cb1d8072a94b8847e0af0c697ff879b42db354f7/src/platform/monitoring/DowntimeNotification/index.jsx).
+- Available as a React component in [vets-website](https://github.com/department-of-veterans-affairs/vets-website/blob/cb1d8072a94b8847e0af0c697ff879b42db354f7/src/platform/monitoring/DowntimeNotification/index.jsx).
 - Consumers of the React component register required-services as dependencies via React props
 - Driven by [PagerDuty maintenance windows](https://dsva.pagerduty.com/maintenance_windows) so that downtime for a certain service can be scheduled without requiring a deployment. [More info on PagerDuty maintenance windows](https://support.pagerduty.com/docs/maintenance-windows).
 - After a maintenance window is added in Pager Duty, an application wrapped in the Downtime Notification React component typically responds in one of three ways:
@@ -17,7 +17,7 @@ Downtime Notications are a mechanism for handling outages of external services i
 
 ## How to use
 1. Identify required-services for the application
-    - These services should be added into [`externalServices`](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/monitoring/DowntimeNotification/config/externalServices.js) if they have not already been. The value must match that in the devops [config](https://github.com/department-of-veterans-affairs/devops/blob/a4b5432061ae60a4f77952bbe5f668a1355ee007/ansible/deployment/config/vets-api/prod-settings.local.yml.j2#L232).
+    - These services should be added into [externalServices](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/monitoring/DowntimeNotification/config/externalServices.js) if they have not already been. The value must match that in the devops [config](https://github.com/department-of-veterans-affairs/devops/blob/a4b5432061ae60a4f77952bbe5f668a1355ee007/ansible/deployment/config/vets-api/prod-settings.local.yml.j2#L232).
     - These dependencies may not be directly accessed by your application, but are more likely to be dependencies of the API method(s) consumed by your application. For example, the Search app requires Search.gov to function, even though it doesn't directly hit Search.gov.
 1. Import the Downtime Notification React component into the application React code, usually the topmost container.
 1. In the render method, render a Downtime Notification React component passing the identified dependencies as props and the affected components as React children.
@@ -74,6 +74,7 @@ export default connect(
 ```
 
 The render-flow for this container is:
+
 1. `MyApp`'s `render` method is executed
 1. `DowntimeNotification` issues a GET request to the VA API for all registered maintenance windows.
 1. `DowntimeNotification` processes the response JSON data into a map.
