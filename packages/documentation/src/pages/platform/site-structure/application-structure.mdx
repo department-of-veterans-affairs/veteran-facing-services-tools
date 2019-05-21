@@ -1,0 +1,23 @@
+# Application structure
+
+In this doc, we'll go over how VA.gov applications are structured and how they use shared platform code.
+
+
+## Structure of a page
+
+A typical application page on VA.gov looks something like this:
+
+![Abbreviated dashboard with red boxes drawn around React mount points](../../../images/platform/react-mount-points.png)
+
+Each of the areas marked with a red box is a separately mounted React component. These React components shared a common Redux store:
+
+```mermaid
+graph TD
+A[Redux store]
+B[User navigation]-->A
+C[Site navigation]-->A
+D[Main application]-->A
+E[Footer]
+F[Announcements]-->A
+```
+
