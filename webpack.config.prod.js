@@ -74,9 +74,14 @@ module.exports = {
         }
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: [/node_modules/, /__tests__/],
-        use: ['babel-loader']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            root: '../../'
+          }
+        },
       }
     ]
   },
