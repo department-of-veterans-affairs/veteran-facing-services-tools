@@ -1,7 +1,3 @@
-import elementClosest from 'element-closest';
-
-elementClosest(window);
-
 const toBoolean = value => value === 'true';
 
 const isElementInViewport = (
