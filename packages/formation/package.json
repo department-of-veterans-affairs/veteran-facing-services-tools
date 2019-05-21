@@ -28,6 +28,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
     "domready": "^1.0.8",
+    "element-closest": "^3.0.1",
     "foundation-sites": "5"
   },
   "peerDependencies": {

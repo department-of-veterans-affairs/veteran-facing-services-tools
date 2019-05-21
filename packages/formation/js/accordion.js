@@ -1,3 +1,7 @@
+import elementClosest from 'element-closest';
+
+elementClosest(window);
+
 const toBoolean = value => value === 'true';
 
 const isElementInViewport = (
@@ -28,32 +32,33 @@ const addAriasExpandedAttr = () => {
 };
 
 const addAriaHiddenAttr = () => {
-  document.querySelectorAll('.usa-accordion-content').forEach(el => {
-    const buttonElement = document.querySelector(`[aria-controls="${el.id}"]`);
-
-    if (buttonElement) {
-      const hiddenValue = !toBoolean(
-        buttonElement.getAttribute('aria-expanded'),
+  Array.from(document.querySelectorAll('.usa-accordion-content')).forEach(
+    el => {
+      const buttonElement = document.querySelector(
+        `[aria-controls="${el.id}"]`,
       );
 
-      el.setAttribute('aria-hidden', hiddenValue);
-    }
-  });
+      if (buttonElement) {
+        const hiddenValue = !toBoolean(
+          buttonElement.getAttribute('aria-expanded'),
+        );
+
+        el.setAttribute('aria-hidden', hiddenValue);
+      }
+    },
+  );
 };
 
-const getParents = (elem, selector) => {
+const getAccordionParents = elem => {
   // Setup parents array
   const parents = [];
 
   // Get matching parent elements
-  for (let i = 0; elem && elem !== document; elem = elem.parentNode) { // eslint-disable-line
+  // eslint-disable-next-line
+  for (let i = 0; elem && elem !== document; elem = elem.parentNode) {
     // Add matching parents to array
     if (i !== 0) {
-      if (selector) {
-        if (elem.matches(selector)) {
-          parents.push(elem);
-        }
-      } else {
+      if (elem.classList.contains('usa-accordion')) {
         parents.push(elem);
       }
     }
@@ -69,65 +74,65 @@ const getOtherButtons = (element, target) =>
   );
 
 const addAccordionClickHandler = () => {
-  document
-    .querySelectorAll('.usa-accordion, .usa-accordion-bordered')
-    .forEach(element => {
-      const parents = getParents(element, '.usa-accordion');
+  Array.from(
+    document.querySelectorAll('.usa-accordion, .usa-accordion-bordered'),
+  ).forEach(element => {
+    const parents = getAccordionParents(element);
 
-      if (parents.length === 0) {
-        element.addEventListener('click', e => {
-          const accordionButton = e.target.closest('.usa-accordion-button');
+    if (parents.length === 0) {
+      element.addEventListener('click', e => {
+        const accordionButton = e.target.closest('.usa-accordion-button');
 
-          // Checks whether the button has a click event already assigned to it.
-          // and if it is a .usa-accordion-button.
-          // Specifically React Components.
-          if (accordionButton && !accordionButton.onclick) {
-            const multiSelectable = toBoolean(
-              element.getAttribute('aria-multiselectable'),
+        // Checks whether the button has a click event already assigned to it.
+        // and if it is a .usa-accordion-button.
+        // Specifically React Components.
+        if (accordionButton && !accordionButton.onclick) {
+          const multiSelectable = toBoolean(
+            element.getAttribute('aria-multiselectable'),
+          );
+
+          const hasAriaControlsAttr = accordionButton.getAttribute(
+            'aria-controls',
+          );
+
+          if (hasAriaControlsAttr && !multiSelectable) {
+            getOtherButtons(element, accordionButton).forEach(el => {
+              const contentEl = el.getAttribute('aria-controls');
+
+              el.setAttribute('aria-expanded', 'false');
+
+              document
+                .getElementById(contentEl)
+                .setAttribute('aria-hidden', 'true');
+            });
+          }
+
+          if (hasAriaControlsAttr) {
+            const dropDownElement = document.getElementById(
+              accordionButton.getAttribute('aria-controls'),
+            );
+            const accordionButtonExpandedAttr = toBoolean(
+              accordionButton.getAttribute('aria-expanded'),
             );
 
-            const hasAriaControlsAttr = accordionButton.getAttribute(
-              'aria-controls',
+            dropDownElement.setAttribute(
+              'aria-hidden',
+              accordionButtonExpandedAttr,
             );
 
-            if (hasAriaControlsAttr && !multiSelectable) {
-              getOtherButtons(element, accordionButton).forEach(el => {
-                const contentEl = el.getAttribute('aria-controls');
+            accordionButton.setAttribute(
+              'aria-expanded',
+              !accordionButtonExpandedAttr,
+            );
 
-                el.setAttribute('aria-expanded', 'false');
-
-                document
-                  .getElementById(contentEl)
-                  .setAttribute('aria-hidden', 'true');
-              });
-            }
-
-            if (hasAriaControlsAttr) {
-              const dropDownElement = document.getElementById(
-                accordionButton.getAttribute('aria-controls'),
-              );
-              const accordionButtonExpandedAttr = toBoolean(
-                accordionButton.getAttribute('aria-expanded'),
-              );
-
-              dropDownElement.setAttribute(
-                'aria-hidden',
-                accordionButtonExpandedAttr,
-              );
-
-              accordionButton.setAttribute(
-                'aria-expanded',
-                !accordionButtonExpandedAttr,
-              );
-
-              if (!isElementInViewport(accordionButton)) {
-                element.scrollIntoView();
-              }
+            if (!isElementInViewport(accordionButton)) {
+              element.scrollIntoView();
             }
           }
-        });
-      }
-    });
+        }
+      });
+    }
+  });
 };
 
 const loadAccordionHandler = () => {
