@@ -7,7 +7,7 @@ tags: pagerduty,maintenance windows,scheduled downtime,banner
 Downtime Notications are a mechanism for handling outages of external services in the consuming front-end applications. 
 
 ## Overview
-- Available as a React component in [vets-website](https://github.com/department-of-veterans-affairs/vets-website/blob/cb1d8072a94b8847e0af0c697ff879b42db354f7/src/platform/monitoring/DowntimeNotification/index.jsx).
+- Available as a React component in [vets-website](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/monitoring/DowntimeNotification/index.jsx).
 - Consumers of the React component register required-services as dependencies via React props
 - Driven by [PagerDuty maintenance windows](https://dsva.pagerduty.com/maintenance_windows) so that downtime for a certain service can be scheduled without requiring a deployment. [More info on PagerDuty maintenance windows](https://support.pagerduty.com/docs/maintenance-windows).
 - After a maintenance window is added in Pager Duty, an application wrapped in the Downtime Notification React component typically responds in one of three ways:
