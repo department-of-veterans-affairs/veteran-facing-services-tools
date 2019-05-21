@@ -268,6 +268,10 @@ module.exports = {
               href: '/platform/tools/feature-flags',
             },
             {
+              name: 'Downtime notifications',
+              href: '/platform/tools/downtime-notifications',
+            },
+            {
               name: 'Application generator',
               href: '/platform/tools/generator',
             },
