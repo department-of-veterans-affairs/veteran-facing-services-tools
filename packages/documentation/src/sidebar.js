@@ -77,8 +77,8 @@ module.exports = {
               href: '/getting-started/common-tasks/new-unit-test',
             },
             {
-              name: 'Writing an end-to-end test',
-              // href: '/getting-started/common-tasks/write-e2e-test'
+              name: 'Write an end-to-end test',
+              href: '/getting-started/common-tasks/new-end-to-end-test',
             },
             {
               name: 'Updating Formation',
