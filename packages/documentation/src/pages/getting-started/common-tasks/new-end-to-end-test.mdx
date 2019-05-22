@@ -1,6 +1,6 @@
 ---
 title: Write an end-to-end test
-tags: Nightwatch, mockapi, e2e
+tags: Nightwatch, mockapi, e2e, axe
 ---
 
 # Write an end-to-end test
@@ -9,15 +9,17 @@ Front end engineers use end-to-end (e2e) tests in `vets-website` to validate mul
 - client applications render their inputs
 - client-side navigation occurs when the required fields are populated
 
-## end-to-end testing overview
+## End-to-end testing overview
 
 - `vets-website` uses [Nightwatch](https://nightwatchjs.org) to run the tests and provide the browser client
 - end-to-end tests are **collocated in application folder** with the application they test
 - Two node apps run with the end-to-end tests:
   - `mockapi.js` - hosts mock responses (see [Mocking API responses](#mocking-api-responses))
-  - `test-server.js` - builds and hosts `vets-website` with support for client-side routes
+  - `test-server.js` - builds a server that handles client side routes
+- `vets-website` must be started before end-to-end tests are run
+- `vets-api` should not be running when end-to-end tests are run
 
-## end-to-end tests conventions
+## End-to-end tests conventions
 
 **00-main-test-file.e2e.spec.js**
 ```
@@ -30,8 +32,17 @@ const FormsTestHelpers = require('platform/testing/e2e/form-helpers');
 // export the test using E2eHelpers.createE2eTest
 module.exports = E2eHelpers.createE2eTest(client => {
   // mock api responses
-  MyApplicationHelpers.initApplicationSubmitMock();
-  MyApplicationHelpers.initEnrollmentStatusMock();
+  client.mockData({
+  // path to mock
+    path: '/v0/my-application',
+  // verb to mock
+    verb: 'post',
+  // mock response
+    value: {
+      formSubmissionId: '123fake-submission-id-567',
+      timestamp: '2016-05-16',
+    },
+  });
 
   // use a comment to indicate what page is being tested
   // Introduction page
@@ -93,7 +104,7 @@ _These are recommendations not requirements._
   - **04-cross-cutting-feature.e2e.spec.js** - validates one feature used across several pages (e.g. save in progress)
 - export the end-to-end test using `E2eHelpers.createE2eTest()`- see [Helpers](#helpers)
 - group tests by pages and use a comment to indicate what page is being tested
-- mock all api responses before starting the test. See [Mocking API responses](#mockimg-api-responses)
+- mock all api responses before starting the test. See [Mocking API responses](#mocking-api-responses)
 - use `waitForElementVisible` before interacting with any element on the page
 - use `Timeouts` constants for setting timeouts (`platform/testing/e2e/timeouts.js`)
 - use helpers for filling data and performing actions on the page
@@ -102,31 +113,11 @@ _These are recommendations not requirements._
 
 ## Mocking API responses
 
-**my-application-helpers.js**
-
 A mock server runs with the end-to-end tests to allow tests to make production-like calls.
 
-```
-const mock = require('platform/testing/e2e/mock-helpers');
-
-function initApplicationSubmitMock() {
-  mock(null, {
-  // path to mock
-    path: '/v0/my-application',
-  // verb to mock
-    verb: 'post',
-  // mock response
-    value: {
-      formSubmissionId: '123fake-submission-id-567',
-      timestamp: '2016-05-16',
-    },
-  });
-}
-```
-
-- `mock-helpers.js` for mocking data
+- [`mockData(data, token = nul)`](https://github.com/department-of-veterans-affairs/vets-website/blob/6d97a63bd60d79864661cc757814ca041648d5c9/src/platform/testing/e2e/nightwatch-commands/mockData.js#L12-L14)
+  - custom Nighwatch command that mocks the data at the endpoint provided
   - mock server is started as part of the end-to-end testing script
-- mock all api calls in your application e.g. submit and upload calls
 
 ## Custom Nightwatch commands
 
