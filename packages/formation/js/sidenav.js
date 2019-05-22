@@ -1,13 +1,13 @@
-/*
-@param menuTrigger: One or more elements that have menus attached. Typically
-this will be .va-btn-sidebarnav-trigger
-*/
 import {
   isTab,
   isReverseTab,
   getTabbableElements,
 } from './utilities/accessibility';
 
+/*
+@param menuTrigger: One or more elements that have menus attached. Typically
+this will be .va-btn-sidebarnav-trigger
+*/
 class SideBarMenu {
   constructor(menuTrigger) {
     this.menuTrigger = Array.from(menuTrigger);
