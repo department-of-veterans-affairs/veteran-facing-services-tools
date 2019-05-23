@@ -24,8 +24,8 @@ class CollapsiblePanel extends React.Component {
       window.VetsGov.scroll || {
         duration: 500,
         delay: 2,
-        smooth: true,
-      },
+        smooth: true
+      }
     );
   }
 
@@ -41,7 +41,7 @@ class CollapsiblePanel extends React.Component {
         if (isOpening) {
           this.scrollToTop();
         }
-      },
+      }
     );
   }
 
@@ -56,8 +56,12 @@ class CollapsiblePanel extends React.Component {
       );
     }
 
+    const accordionClass = this.props.borderless
+      ? 'usa-accordion'
+      : 'usa-accordion-bordered';
+
     return (
-      <div className={`usa-accordion${this.props.borderless ? '' : '-bordered'} form-review-panel`}>
+      <div className={`${accordionClass} form-review-panel`}>
         <Element name={`collapsible-panel-${this.id}-scroll-element`} />
         <div className="accordion-header clearfix">
           <button
@@ -75,6 +79,10 @@ class CollapsiblePanel extends React.Component {
   }
 }
 
+CollapsiblePanel.defaultProps = {
+  borderless: false
+};
+
 CollapsiblePanel.propTypes = {
   /**
    * panel label
@@ -83,7 +91,7 @@ CollapsiblePanel.propTypes = {
   /**
    * If set to true, panel content will be borderless
    */
-  borderless: PropTypes.bool,
+  borderless: PropTypes.bool
 };
 
 export default CollapsiblePanel;
