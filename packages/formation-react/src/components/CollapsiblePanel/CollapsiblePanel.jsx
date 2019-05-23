@@ -57,7 +57,7 @@ class CollapsiblePanel extends React.Component {
     }
 
     return (
-      <div className="usa-accordion-bordered form-review-panel">
+      <div className={`usa-accordion${this.props.borderless ? '' : '-bordered'} form-review-panel`}>
         <Element name={`collapsible-panel-${this.id}-scroll-element`} />
         <div className="accordion-header clearfix">
           <button
@@ -80,6 +80,10 @@ CollapsiblePanel.propTypes = {
    * panel label
    */
   panelName: PropTypes.string.isRequired,
+  /**
+   * If set to true, panel content will be borderless
+   */
+  borderless: PropTypes.bool,
 };
 
 export default CollapsiblePanel;
