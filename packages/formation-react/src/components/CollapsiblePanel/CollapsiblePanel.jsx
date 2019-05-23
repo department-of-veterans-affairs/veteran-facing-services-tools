@@ -79,10 +79,6 @@ class CollapsiblePanel extends React.Component {
   }
 }
 
-CollapsiblePanel.defaultProps = {
-  borderless: false,
-};
-
 CollapsiblePanel.propTypes = {
   /**
    * panel label
