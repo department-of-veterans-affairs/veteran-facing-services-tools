@@ -56,12 +56,12 @@ class CollapsiblePanel extends React.Component {
       );
     }
 
-    const accordionClass = this.props.borderless
-      ? 'usa-accordion'
-      : 'usa-accordion-bordered';
-
     return (
-      <div className={`${accordionClass} form-review-panel`}>
+      <div
+        className={`${
+          this.props.borderless ? 'usa-accordion' : 'usa-accordion-bordered'
+        } form-review-panel`}
+      >
         <Element name={`collapsible-panel-${this.id}-scroll-element`} />
         <div className="accordion-header clearfix">
           <button
