@@ -20,12 +20,11 @@ export default function createAdditionalInfoWidget() {
   const widgets = qSA(document, '.additional-info-container');
 
   if (widgets.length) {
-    console.log(widgets.length);
     widgets.forEach(el => {
       const titleNode = qS(el, '.additional-info-title');
       const titleText =
         (titleNode && titleNode.textContent) || 'More information';
-        console.log(titleText);
+      const dataset = qS(el, '.additional-info-content').parentNode.dataset;
       const contentMarkup = qS(el, '.additional-info-content').innerHTML;
       const additionalInfoId = uniqueId('additional-info-');
 
@@ -48,12 +47,19 @@ export default function createAdditionalInfoWidget() {
       const chevron = qS(el, 'i.fa-angle-down');
       const button = qS(el, 'button');
 
+      const additionalInfoClickEvent = new CustomEvent(
+        '@department-of-veterans-affairs/formation/additional-info/button-clicked',
+        { bubbles: true, detail: { titleText, dataset } },
+      );
+
       button.addEventListener('click', () => {
         const ariaExpanded = JSON.parse(button.getAttribute('aria-expanded'));
 
         button.setAttribute('aria-expanded', `${!ariaExpanded}`);
         button.parentNode.classList.toggle('form-expanding-group-open');
         chevron.classList.toggle('open');
+
+        button.dispatchEvent(additionalInfoClickEvent);
       });
     });
   }

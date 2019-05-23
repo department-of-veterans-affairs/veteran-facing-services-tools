@@ -2,23 +2,27 @@
 import { expect } from 'chai';
 import additionalInfoWidget from '../../../js/additional-info';
 
-describe('static page additional information widget', () => {
-  function qS(rootNode, selector) {
-    return rootNode.querySelector(selector);
-  }
+function qS(rootNode, selector) {
+  return rootNode.querySelector(selector);
+}
 
+describe('static page additional information widget', () => {
   const basicTemplate = `<div class="form-expanding-group additional-info-container">
-  <span id="tooltip-1">
-    <div class="additional-info-content">
-      <ul>
-        <li>info A</li>
-        <li>info B</li>
-        <li>info C</li>
-        <li>info D</li>
-      </ul>
-    </div>
-  </span>
-</div>`;
+    <span id="tooltip-1">
+      <div class="additional-info-content">
+        <ul>
+          <li>info A</li>
+          <li>info B</li>
+          <li>info C</li>
+          <li>info D</li>
+        </ul>
+      </div>
+    </span>
+  </div>`;
+
+  afterEach(() => {
+    document.getElementsByTagName('html')[0].innerHTML = '';
+  });
 
   it('should display a default title and content', () => {
     document.body.insertAdjacentHTML('beforeend', basicTemplate);
