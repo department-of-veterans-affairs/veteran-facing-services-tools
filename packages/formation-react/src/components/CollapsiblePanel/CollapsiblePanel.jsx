@@ -24,8 +24,8 @@ class CollapsiblePanel extends React.Component {
       window.VetsGov.scroll || {
         duration: 500,
         delay: 2,
-        smooth: true
-      }
+        smooth: true,
+      },
     );
   }
 
@@ -41,7 +41,7 @@ class CollapsiblePanel extends React.Component {
         if (isOpening) {
           this.scrollToTop();
         }
-      }
+      },
     );
   }
 
