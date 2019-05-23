@@ -80,7 +80,7 @@ class CollapsiblePanel extends React.Component {
 }
 
 CollapsiblePanel.defaultProps = {
-  borderless: false
+  borderless: false,
 };
 
 CollapsiblePanel.propTypes = {
@@ -91,7 +91,7 @@ CollapsiblePanel.propTypes = {
   /**
    * If set to true, panel content will be borderless
    */
-  borderless: PropTypes.bool
+  borderless: PropTypes.bool,
 };
 
 export default CollapsiblePanel;
