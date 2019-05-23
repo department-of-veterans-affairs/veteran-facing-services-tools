@@ -192,6 +192,10 @@ module.exports = {
               name: 'Styling',
               href: '/platform/site-structure/styling-overview',
             },
+            {
+              name: 'Page and application Javascript structure',
+              href: '/platform/site-structure/application-structure',
+            },
           ],
         },
         {
