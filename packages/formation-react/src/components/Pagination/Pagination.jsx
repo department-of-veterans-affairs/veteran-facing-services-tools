@@ -13,16 +13,12 @@ class Pagination extends React.Component {
     this.pageNumbers = this.pageNumbers.bind(this);
   }
 
-  getAriaLabelSuffix() {
-    return this.props.ariaLabelSuffix || '';
-  }
-
   next() {
     let nextPage;
     if (this.props.pages > this.props.page) {
       nextPage = (
         <a
-          aria-label={`Load next page ${this.getAriaLabelSuffix()}`}
+          aria-label={`Load next page ${this.props.ariaLabelSuffix}`}
           onClick={() => {this.props.onPageSelect(this.props.page + 1);}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page + 1)}
           tabIndex="0">
@@ -38,7 +34,7 @@ class Pagination extends React.Component {
     if (this.props.page > 1) {
       prevPage = (
         <a
-          aria-label={`Load previous page ${this.getAriaLabelSuffix()}`}
+          aria-label={`Load previous page ${this.props.ariaLabelSuffix}`}
           onClick={() => {this.props.onPageSelect(this.props.page - 1);}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page - 1)}
           tabIndex="0">
@@ -64,7 +60,7 @@ class Pagination extends React.Component {
           <a aria-label="...">
             ...
           </a>
-          <a aria-label={`Load last page ${this.getAriaLabelSuffix()}`} onClick={() => {this.props.onPageSelect(totalPages);}}>
+          <a aria-label={`Load last page ${this.props.ariaLabelSuffix}`} onClick={() => {this.props.onPageSelect(totalPages);}}>
             {totalPages}
           </a>
         </span>
@@ -134,7 +130,7 @@ class Pagination extends React.Component {
         <a
           key={pageNumber}
           className={pageClass}
-          aria-label={`Load page ${pageNumber} ${this.getAriaLabelSuffix()}`}
+          aria-label={`Load page ${pageNumber} ${this.props.ariaLabelSuffix}`}
           onClick={() => this.props.onPageSelect(pageNumber)}
           onKeyDown={e => this.handleKeyDown(e, pageNumber)}
           tabIndex="0">
@@ -166,6 +162,7 @@ Pagination.propTypes = {
 
 Pagination.defaultProps = {
   maxPageListLength: 10,
+  ariaLabelSuffix: '',
 };
 
 export default Pagination;
