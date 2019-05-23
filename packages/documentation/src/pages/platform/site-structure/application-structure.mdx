@@ -1,6 +1,6 @@
 ---
 title: Page and application Javascript structure
-tags: page, bundle, react, javascript, structure, webpack, site-wide
+tags: bundle, react, webpack, site-wide
 ---
 
 # Page and application Javascript structure
@@ -59,7 +59,7 @@ The components in the yellow boxes are the common site-wide components started b
 
 ## Structure of a React application
 
-Our React applications can vary in structure depending on what their purpose is, but typically they have a reducer and actionsfor Redux related logic and routes and components for the rest of the application. Routes are typically the best place to start looking at an application. Again using `/my-va` as an example, you can see the React components to start looking at in the [routes.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/applications/personalization/dashboard/routes.jsx) file:
+Our React applications can vary in structure depending on what their purpose is, but typically they have a reducer and actions for Redux related logic and routes and components for the rest of the application. Routes are typically the best place to start looking at an application. Again using `/my-va` as an example, you can see the React components to start looking at in the [routes.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/applications/personalization/dashboard/routes.jsx) file:
 
 ```jsx
 import DashboardApp from './containers/DashboardApp';
