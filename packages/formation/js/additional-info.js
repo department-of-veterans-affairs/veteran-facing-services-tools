@@ -6,7 +6,7 @@ function qSA(rootNode, selector) {
   return Array.from(rootNode.querySelectorAll(selector));
 }
 
-function qS(rootNode, selector) {
+export function qS(rootNode, selector) {
   return rootNode.querySelector(selector);
 }
 

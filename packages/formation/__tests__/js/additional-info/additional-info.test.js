@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import additionalInfoWidget from '../../../js/additional-info';
-
-function qS(rootNode, selector) {
-  return rootNode.querySelector(selector);
-}
+import additionalInfoWidget, { qS } from '../../../js/additional-info';
 
 describe('static page additional information widget', () => {
   const basicTemplate = `<div class="form-expanding-group additional-info-container">
