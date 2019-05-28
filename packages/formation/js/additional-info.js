@@ -1,7 +1,3 @@
-function uniqueId() {
-  return Math.floor(Math.random() * Math.floor(100000));
-}
-
 function qSA(rootNode, selector) {
   return Array.from(rootNode.querySelectorAll(selector));
 }
@@ -20,13 +16,13 @@ export default function createAdditionalInfoWidget() {
   const widgets = qSA(document, '.additional-info-container');
 
   if (widgets.length) {
-    widgets.forEach(el => {
+    widgets.forEach((el, index) => {
       const titleNode = qS(el, '.additional-info-title');
       const titleText =
         (titleNode && titleNode.textContent) || 'More information';
       const dataset = qS(el, '.additional-info-content').parentNode.dataset;
       const contentMarkup = qS(el, '.additional-info-content').innerHTML;
-      const additionalInfoId = uniqueId('additional-info-');
+      const additionalInfoId = `additional-info-${index}`;
 
       const template = `
           <button type="button" class="additional-info-button va-button-link" aria-controls="${additionalInfoId}" aria-expanded="false">
