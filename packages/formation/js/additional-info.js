@@ -47,10 +47,13 @@ export default function createAdditionalInfoWidget() {
       const chevron = qS(el, 'i.fa-angle-down');
       const button = qS(el, 'button');
 
-      const additionalInfoClickEvent = new CustomEvent(
+      const additionalInfoClickEvent = document.createEvent('Event');
+      additionalInfoClickEvent.initEvent(
         '@department-of-veterans-affairs/formation/additional-info/button-clicked',
-        { bubbles: true, detail: { titleText, dataset } },
+        true,
+        true,
       );
+      additionalInfoClickEvent.detail = { titleText, dataset };
 
       button.addEventListener('click', () => {
         const ariaExpanded = JSON.parse(button.getAttribute('aria-expanded'));
