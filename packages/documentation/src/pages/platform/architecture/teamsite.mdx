@@ -100,15 +100,15 @@ Both scripts compare production Teamsite header and footer against images in `ve
 - compares snapsshots of `<header>` and `.footerNav` on current subdomain Teamsite pages
 - [jest-image-snapshot](https://github.com/americanexpress/jest-image-snapshot) uses [pixelmatch](https://github.com/mapbox/pixelmatch) to detect failure
 - Diff images show **left center right** the **baseline diff new** images
-![Example Diff Image](../../images/platform/teamsite/diff-image-example.png)
+![Example Diff Image](../../../images/platform/teamsite/diff-image-example.png)
 
 ## What To Do When The Test Fails
 - If needed, run `npm run vrt` locally
 - The test log will show a
   - Summary of successes and failures
- ![Test Summary Example](../../images/platform/teamsite/vrt-test-summary-example.png)
+ ![Test Summary Example](../../../images/platform/teamsite/vrt-test-summary-example.png)
   - Failure details for each test with path to diff image for failure
- ![Failure Detail Example](../../images/platform/teamsite/cli-failure-example.png)
+ ![Failure Detail Example](../../../images/platform/teamsite/cli-failure-example.png)
 - **If failure is caused by production issue**
   - Repair issue and publish to production
   - Verify `npm run test:vrt` succeeds
