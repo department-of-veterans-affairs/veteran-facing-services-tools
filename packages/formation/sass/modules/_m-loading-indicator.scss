@@ -2,10 +2,22 @@
   text-align: center;
 
   .loading-indicator {
-    min-height: 8em;
-    background: url('#{$formation-image-path}/loading-state.svg') center center no-repeat;
-    background-size: contain;
-    text-align: center;
+    display: block;
+    height: 8em;
+    margin-top: 2em;
+
+    &:after {
+      content: " ";
+      display: inline-block;
+      width: 7em;
+      height: 7em;
+      margin: 1px;
+      border-radius: 50%;
+      border: 8px solid #0071BB;
+      border-color: #0071BB transparent #0071BB transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
     &:focus {
       outline: none;
     }
@@ -14,4 +26,13 @@
 
 .async-loader {
   padding-bottom: 1em;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
