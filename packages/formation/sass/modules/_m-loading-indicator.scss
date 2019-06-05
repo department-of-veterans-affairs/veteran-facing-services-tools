@@ -15,7 +15,7 @@
       border-radius: 50%;
       border: 8px solid #0071BB;
       border-color: #0071BB transparent #0071BB transparent;
-      animation: lds-dual-ring 1.2s linear infinite;
+      animation: spin 1.2s linear infinite;
     }
 
     &:focus {
@@ -28,7 +28,7 @@
   padding-bottom: 1em;
 }
 
-@keyframes lds-dual-ring {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
