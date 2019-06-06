@@ -3,18 +3,18 @@
 
   .loading-indicator {
     display: block;
-    height: 8em;
-    margin-top: 2em;
+    height: units(8);
+    margin-top: units(2);
 
     &:after {
       content: " ";
       display: inline-block;
-      width: 7em;
-      height: 7em;
+      width: units(7);
+      height: units(7);
       margin: 1px;
       border-radius: 50%;
-      border: 8px solid #0071BB;
-      border-color: #0071BB transparent #0071BB transparent;
+      border: 8px solid  $color-primary;
+      border-color:  $color-primary transparent  $color-primary transparent;
       animation: spin 1.2s linear infinite;
     }
 
@@ -25,7 +25,7 @@
 }
 
 .async-loader {
-  padding-bottom: 1em;
+  padding-bottom: units(1);
 }
 
 @keyframes spin {
