@@ -31,8 +31,19 @@ You'll need to choose what type of version update to make:
 
 > If you are unsure of what to pick, do a major version update on modules that are changing.
 
-### 2. Create a release 
-You will need a github [personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). This should be set aS **GITHUB_API_KEY** in your environment variable. 
+### 2. Merge your PR to master
+
+Once your changes are approved, squash merge them to master. Also, if your change is a breaking change, please prefix your commit message with `BREAKING CHANGE: `. Also keep in mind that your commit messages will be in a changelog that people use to figure out what has changed between releases, so make sure it accurately describes your changes.
+
+### 3. Build and publish
+
+* Checkout the master branch
+* Run `yarn build`
+* For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
+
+### 4. Create a release 
+You will need a github [personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+This should be set aS **GITHUB_API_KEY** in your environment variable. 
 - Navigate to the package folder
 - Run the release script
     ```
@@ -40,15 +51,6 @@ You will need a github [personal access token](https://help.github.com/en/articl
     ```
 - Once the script has succeeded, go to the link provided in the console
 - Edit the release and add any relevant information.
-
-### 3. Merge your PR to master
-
-Once your changes are approved, squash merge them to master. Also, if your change is a breaking change, please prefix your commit message with `BREAKING CHANGE: `. Also keep in mind that your commit messages will be in a changelog that people use to figure out what has changed between releases, so make sure it accurately describes your changes.
-
-### 4. Build and publish
-
-* Run `yarn build`
-* For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
 
 ### 5. Update consuming apps
 
