@@ -82,7 +82,7 @@ module.exports = {
             },
             {
               name: 'Updating Formation',
-              // href: '/getting-started/common-tasks/update-formation'
+              href: '/getting-started/common-tasks/updating-formation',
             },
           ],
         },
