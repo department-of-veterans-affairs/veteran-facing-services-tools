@@ -202,7 +202,7 @@ module.exports = {
           name: 'Architecture',
           items: [
             {
-              name: 'Site build process',
+              name: 'Metalsmith static site',
               href: '/platform/architecture/static-site',
               items: [
                 {
@@ -220,7 +220,11 @@ module.exports = {
               ],
             },
             {
-              name: 'Build and deployment process flows',
+              name: 'CMS overview',
+              href: '/platform/architecture/cms',
+            },
+            {
+              name: 'Continuous integration and deployment flows',
               href: '/platform/architecture/build-deploy-flows',
             },
             {
