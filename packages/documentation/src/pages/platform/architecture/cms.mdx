@@ -32,7 +32,7 @@ All Drupal environments require you to either be on the VA network or the SOCKS 
 
 ## How content is transformed into pages
 
-VA.gov is a static html/js/css site, built with a static site generator tool called Metalsmith. During the Metalsmith build process we query the appropriate Drupal environment with a GraphQL query. The results of that query are transformed into pages through the Metalsmith build pipeline. There are liquid templates specific to page content that came from Drupal, generally denoted with a `.drupal.liquid` suffix. Each `entity` from Drupal has a corresponding `entityType`, which is used to choose the entry template for each `entity` (i.e. page) from Drupal.
+VA.gov is a static html/js/css site, built with a static site generator tool called Metalsmith. During the Metalsmith build process we query the appropriate Drupal environment with a GraphQL query. The results of that query are transformed into pages through the Metalsmith build pipeline. There are [liquid](https://shopify.github.io/liquid/) templates specific to page content that came from Drupal, generally denoted with a `.drupal.liquid` suffix. Each `entity` from Drupal has a corresponding `entityType`, which is used to choose the entry template for each `entity` (i.e. page) from Drupal.
 
 - [Metalsmith build process diagram](/platform/architecture/static-site)
 - [Primary GraphQL query](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/site/stages/build/drupal/graphql/GetAllPages.graphql.js)
