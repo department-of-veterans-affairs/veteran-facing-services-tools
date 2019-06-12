@@ -202,28 +202,34 @@ module.exports = {
           name: 'Architecture',
           items: [
             {
-              name: 'Metalsmith',
+              name: 'Metalsmith static site',
+              href: '/platform/architecture/static-site',
               items: [
                 {
                   name: 'How are URLs created',
-                  href: '/platform/architecture/metalsmith/urls',
+                  href: '/platform/architecture/static-site/urls',
                 },
                 {
                   name: 'How templates work',
-                  href: '/platform/architecture/metalsmith/templates',
+                  href: '/platform/architecture/static-site/templates',
                 },
                 {
                   name: 'How to create collections and related links',
-                  href: '/platform/architecture/metalsmith/collections',
+                  href: '/platform/architecture/static-site/collections',
                 },
               ],
             },
             {
-              name: 'Teamsite',
-              href: '/platform/architecture/teamsite',
+              name: 'CMS overview',
+              href: '/platform/architecture/cms',
             },
             {
-              name: 'How does the build work?',
+              name: 'Continuous integration and deployment flows',
+              href: '/platform/architecture/build-deploy-flows',
+            },
+            {
+              name: 'Teamsite',
+              href: '/platform/architecture/teamsite',
             },
             {
               name: 'How do unit tests work?',
