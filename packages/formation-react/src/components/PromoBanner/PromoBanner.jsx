@@ -24,7 +24,7 @@ class PromoBanner extends React.Component {
 
     return (
       <div className="vads-c-promo-banner">
-        <div className="usa-grid-full">
+        <div className="vads-l-grid-container">
           <div className="vads-c-promo-banner__body">
             <div className="vads-c-promo-banner__content">
               <div className="vads-c-promo-banner__content-icon">
