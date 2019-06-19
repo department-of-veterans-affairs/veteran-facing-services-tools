@@ -23,11 +23,11 @@ class PromoBanner extends React.Component {
     );
 
     return (
-      <div className="va-promo-banner">
+      <div className="vads-c-promo-banner">
         <div className="usa-grid-full">
-          <div className="va-promo-banner-body">
-            <div className="va-promo-banner-content">
-              <div className="va-promo-banner-content-icon">
+          <div className="vads-c-promo-banner__body">
+            <div className="vads-c-promo-banner__content">
+              <div className="vads-c-promo-banner__content-icon">
                 <span className="fa-stack fa-lg">
                   <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
                   <i className={iconClasses} />
@@ -38,7 +38,7 @@ class PromoBanner extends React.Component {
                 this.props.render()
               ) : (
                 <a
-                  className="va-promo-banner-content-link"
+                  className="vads-c-promo-banner__content-link"
                   href={this.props.href}
                   onClick={this.props.onClose}
                 >
@@ -48,7 +48,7 @@ class PromoBanner extends React.Component {
               )}
             </div>
 
-            <div className="va-promo-banner-close">
+            <div className="vads-c-promo-banner__close">
               <button
                 type="button"
                 aria-label="Dismiss this announcement"

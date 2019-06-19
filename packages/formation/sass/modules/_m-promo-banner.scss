@@ -1,4 +1,4 @@
-.va-promo-banner {
+.vads-c-promo-banner {
   z-index: $base-layer + 1;
   position: fixed;
   bottom: 0;
@@ -9,19 +9,19 @@
   color: $color-link-default;
   font-weight: 700;
 
-  .va-promo-banner-body {
+  .vads-c-promo-banner__body {
     display: table;
     width: 100%;
   }
 
-  .va-promo-banner-content, va-promo-banner-close {
+  .vads-c-promo-banner__content, va-promo-banner-close {
     display: table-cell;
   }
 
-  .va-promo-banner-content {
+  .vads-c-promo-banner__content {
     padding: units(1);
 
-    .va-promo-banner-content-icon {
+    .vads-c-promo-banner__content-icon {
       margin-right: units(1);
       display: none;
       @include media($medium-screen) {
@@ -29,7 +29,7 @@
       }
     }
 
-    .va-promo-banner-content-link {
+    .vads-c-promo-banner__content-link {
       vertical-align: middle;
       display: inline-block;
       text-decoration: none;
@@ -40,7 +40,7 @@
     }
   }
 
-  .va-promo-banner-close {
+  .vads-c-promo-banner__close {
     text-align: center;
     vertical-align: middle;
     border-left: 1px solid $color-gray-lighter;
