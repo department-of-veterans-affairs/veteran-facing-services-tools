@@ -39,12 +39,16 @@ export class RenderedComponent extends React.Component {
   render () {
     return (
       <div className="site-c-reactcomp__rendered">
-        <PromoBanner
-          type={PROMO_BANNER_TYPES.announcement}
-          onClose={() => this.setState({ dismissed: true }}
-          href="https://missionact.va.gov/"
-          text="Learn how you can get easier access to health care with the MISSION Act"
-        />
+        {!this.state.dismissed ? (
+          <PromoBanner
+            type={PROMO_BANNER_TYPES.announcement}
+            onClose={() => this.setState({ dismissed: true }}
+            href="https://missionact.va.gov/"
+            text="Learn how you can get easier access to health care with the MISSION Act"
+          />
+        ) : (
+          <span>PromoBanner was dismissed!</span>
+        )}
       </div>
     );
   }
