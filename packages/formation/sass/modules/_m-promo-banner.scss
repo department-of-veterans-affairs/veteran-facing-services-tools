@@ -14,12 +14,13 @@
     width: 100%;
   }
 
-  .vads-c-promo-banner__content, va-promo-banner-close {
+  .vads-c-promo-banner__content, .vads-c-promo-banner__close {
     display: table-cell;
   }
 
   .vads-c-promo-banner__content {
     padding: units(1);
+    line-height: units(2.5);
 
     .vads-c-promo-banner__content-icon {
       margin-right: units(1);
