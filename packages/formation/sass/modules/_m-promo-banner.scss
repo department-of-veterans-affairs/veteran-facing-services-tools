@@ -12,6 +12,8 @@
   .vads-c-promo-banner__body {
     display: table;
     width: 100%;
+    max-width: $site-max-width;
+    margin: 0 auto;
   }
 
   .vads-c-promo-banner__content, .vads-c-promo-banner__close {

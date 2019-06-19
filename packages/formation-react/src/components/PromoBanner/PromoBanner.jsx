@@ -24,40 +24,37 @@ class PromoBanner extends React.Component {
 
     return (
       <div className="vads-c-promo-banner">
-        <div className="vads-l-grid-container">
-          <div className="vads-c-promo-banner__body">
-            <div className="vads-c-promo-banner__content">
-              <div className="vads-c-promo-banner__content-icon">
-                <span className="fa-stack fa-lg">
-                  <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
-                  <i className={iconClasses} />
-                </span>
-              </div>
-
-              {this.props.render ? (
-                this.props.render()
-              ) : (
-                <a
-                  className="vads-c-promo-banner__content-link"
-                  href={this.props.href}
-                  onClick={this.props.onClose}
-                >
-                  {this.props.text}{' '}
-                  <i className="fas fa-angle-right vads-u-margin-left--1" />
-                </a>
-              )}
+        <div className="vads-c-promo-banner__body">
+          <div className="vads-c-promo-banner__content">
+            <div className="vads-c-promo-banner__content-icon">
+              <span className="fa-stack fa-lg">
+                <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
+                <i className={iconClasses} />
+              </span>
             </div>
 
-            <div className="vads-c-promo-banner__close">
-              <button
-                type="button"
-                aria-label="Dismiss this announcement"
+            {this.props.render ? (
+              this.props.render()
+            ) : (
+              <a
+                className="vads-c-promo-banner__content-link"
+                href={this.props.href}
                 onClick={this.props.onClose}
-                className="va-button-link vads-u-margin-top--1"
               >
-                <i className="fas fa-times-circle vads-u-font-size--lg" />
-              </button>
-            </div>
+                {this.props.text} <i className="fas fa-angle-right" />
+              </a>
+            )}
+          </div>
+
+          <div className="vads-c-promo-banner__close">
+            <button
+              type="button"
+              aria-label="Dismiss this announcement"
+              onClick={this.props.onClose}
+              className="va-button-link vads-u-margin-top--1"
+            >
+              <i className="fas fa-times-circle vads-u-font-size--lg" />
+            </button>
           </div>
         </div>
       </div>
