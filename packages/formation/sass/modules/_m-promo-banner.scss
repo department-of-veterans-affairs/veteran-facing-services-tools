@@ -9,19 +9,19 @@
   color: $color-link-default;
   font-weight: 700;
 
-  &-body {
+  .va-promo-banner-body {
     display: table;
     width: 100%;
   }
 
-  &-content, &-close {
+  .va-promo-banner-content, va-promo-banner-close {
     display: table-cell;
   }
 
-  &-content {
+  .va-promo-banner-content {
     padding: units(1);
 
-    &-icon {
+    .va-promo-banner-content-icon {
       margin-right: units(1);
       display: none;
       @include media($medium-screen) {
@@ -29,7 +29,7 @@
       }
     }
 
-    &-link {
+    .va-promo-banner-content-link {
       vertical-align: middle;
       display: inline-block;
       text-decoration: none;
@@ -40,7 +40,7 @@
     }
   }
 
-  &-close {
+  .va-promo-banner-close {
     text-align: center;
     vertical-align: middle;
     border-left: 1px solid $color-gray-lighter;
