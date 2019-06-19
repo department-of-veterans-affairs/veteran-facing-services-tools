@@ -43,7 +43,7 @@ class PromoBanner extends React.Component {
                   onClick={this.props.onClose}
                 >
                   {this.props.text}{' '}
-                  <i className="fas fa-angle-right fa-lg vads-u-margin-left--1" />
+                  <i className="fas fa-angle-right vads-u-margin-left--1" />
                 </a>
               )}
             </div>
