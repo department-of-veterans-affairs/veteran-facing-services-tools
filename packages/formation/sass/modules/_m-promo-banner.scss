@@ -4,54 +4,53 @@
   bottom: 0;
   left: 0;
   width: 100%;
-
   background-color: $color-gray-lightest;
   color: $color-link-default;
   font-weight: 700;
+}
 
-  .vads-c-promo-banner__body {
-    display: table;
-    width: 100%;
-    max-width: $site-max-width;
-    margin: 0 auto;
+.vads-c-promo-banner__body {
+  display: table;
+  width: 100%;
+  max-width: $site-max-width;
+  margin: 0 auto;
+}
+
+.vads-c-promo-banner__content, .vads-c-promo-banner__close {
+  display: table-cell;
+}
+
+.vads-c-promo-banner__content {
+  padding: units(1);
+  line-height: units(2.5);
+}
+
+.vads-c-promo-banner__content-icon {
+  margin-right: units(1);
+  display: none;
+  @include media($medium-screen) {
+    display: inline-block;
   }
+}
 
-  .vads-c-promo-banner__content, .vads-c-promo-banner__close {
-    display: table-cell;
+.vads-c-promo-banner__content-link {
+  vertical-align: middle;
+  display: inline-block;
+  text-decoration: none;
+  &:hover, &:visited {
+    background-color: transparent;
+    color: $color-link-default;
   }
+}
 
-  .vads-c-promo-banner__content {
-    padding: units(1);
-    line-height: units(2.5);
-
-    .vads-c-promo-banner__content-icon {
-      margin-right: units(1);
-      display: none;
-      @include media($medium-screen) {
-        display: inline-block;
-      }
-    }
-
-    .vads-c-promo-banner__content-link {
-      vertical-align: middle;
-      display: inline-block;
-      text-decoration: none;
-      &:hover, &:visited {
-        background-color: transparent;
-        color: $color-link-default;
-      }
-    }
-  }
-
-  .vads-c-promo-banner__close {
-    text-align: center;
-    vertical-align: middle;
-    border-left: 1px solid $color-gray-lighter;
-    padding: 0 units(2);
-    @include media($medium-screen) {
-      text-align: right;
-      border: none;
-      padding: 0;
-    }
+.vads-c-promo-banner__close {
+  text-align: center;
+  vertical-align: middle;
+  border-left: 1px solid $color-gray-lighter;
+  padding: 0 units(2);
+  @include media($medium-screen) {
+    text-align: right;
+    border: none;
+    padding: 0;
   }
 }
