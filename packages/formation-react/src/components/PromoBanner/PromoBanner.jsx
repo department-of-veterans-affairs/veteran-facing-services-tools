@@ -23,7 +23,7 @@ class PromoBanner extends React.Component {
     );
 
     return (
-      <div className="vads-c-promo-banner">
+      <div className="vads-c-promo-banner vads-c-promo-banner--fixed-bottom">
         <div className="vads-c-promo-banner__body">
           <div className="vads-c-promo-banner__content">
             <div className="vads-c-promo-banner__content-icon">
