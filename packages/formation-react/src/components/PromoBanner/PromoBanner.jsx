@@ -14,52 +14,50 @@ const PROMO_BANNER_ICONS = new Map([
   [PROMO_BANNER_TYPES.emailSignup, 'fa-envelope'],
 ]);
 
-class PromoBanner extends React.Component {
-  render() {
-    const iconClasses = classnames(
-      'fas',
-      'fa-stack-1x',
-      PROMO_BANNER_ICONS.get(this.props.type),
-    );
+function PromoBanner({ type, onClose, render, href, text }) {
+  const iconClasses = classnames(
+    'fas',
+    'fa-stack-1x',
+    PROMO_BANNER_ICONS.get(type),
+  );
 
-    return (
-      <div className="vads-c-promo-banner">
-        <div className="vads-c-promo-banner__body">
-          <div className="vads-c-promo-banner__content">
-            <div className="vads-c-promo-banner__content-icon">
-              <span className="fa-stack fa-lg">
-                <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
-                <i className={iconClasses} />
-              </span>
-            </div>
-
-            {this.props.render ? (
-              this.props.render()
-            ) : (
-              <a
-                className="vads-c-promo-banner__content-link"
-                href={this.props.href}
-                onClick={this.props.onClose}
-              >
-                {this.props.text} <i className="fas fa-angle-right" />
-              </a>
-            )}
+  return (
+    <div className="vads-c-promo-banner">
+      <div className="vads-c-promo-banner__body">
+        <div className="vads-c-promo-banner__content">
+          <div className="vads-c-promo-banner__content-icon">
+            <span className="fa-stack fa-lg">
+              <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
+              <i className={iconClasses} />
+            </span>
           </div>
 
-          <div className="vads-c-promo-banner__close">
-            <button
-              type="button"
-              aria-label="Dismiss this announcement"
-              onClick={this.props.onClose}
-              className="va-button-link vads-u-margin-top--1"
+          {render ? (
+            render()
+          ) : (
+            <a
+              className="vads-c-promo-banner__content-link"
+              href={href}
+              onClick={onClose}
             >
-              <i className="fas fa-times-circle vads-u-font-size--lg" />
-            </button>
-          </div>
+              {text} <i className="fas fa-angle-right" />
+            </a>
+          )}
+        </div>
+
+        <div className="vads-c-promo-banner__close">
+          <button
+            type="button"
+            aria-label="Dismiss this announcement"
+            onClick={onClose}
+            className="va-button-link vads-u-margin-top--1"
+          >
+            <i className="fas fa-times-circle vads-u-font-size--lg" />
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 PromoBanner.propTypes = {
@@ -68,7 +66,6 @@ PromoBanner.propTypes = {
   render: PropTypes.func,
   href: PropTypes.string,
   text: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default PromoBanner;
