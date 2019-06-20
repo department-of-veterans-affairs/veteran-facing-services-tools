@@ -1,15 +1,12 @@
 .vads-c-promo-banner {
-  background-color: $color-gray-lightest;
-  color: $color-link-default;
-  font-weight: 700;
-}
-
-.vads-c-promo-banner--fixed-bottom {
   z-index: $base-layer + 1;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: $color-gray-lightest;
+  color: $color-link-default;
+  font-weight: 700;
 }
 
 .vads-c-promo-banner__body {
