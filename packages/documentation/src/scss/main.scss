@@ -4,6 +4,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 $formation-asset-path: '~@department-of-veterans-affairs/formation/assets';
 
 @import "~@department-of-veterans-affairs/formation/sass/full";
+@import "~@department-of-veterans-affairs/formation/sass/site/m-vet-nav";
 
 @import "base";
 @import "header";

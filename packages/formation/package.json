@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/formation",
-  "version": "6.5.1",
+  "version": "6.6.3",
   "description": "The VA design system",
   "keywords": [
     "va",
@@ -20,6 +20,7 @@
   "scripts": {
     "build": "node ./scripts/build.js",
     "prepare": "node ./scripts/build.js",
+    "release": "PACKAGE=formation VERSION=$npm_package_version node ../../scripts/release.js",
     "test": "jest"
   },
   "bugs": {
