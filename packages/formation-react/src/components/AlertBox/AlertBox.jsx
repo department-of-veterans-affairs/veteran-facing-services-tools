@@ -54,6 +54,7 @@ class AlertBox extends React.Component {
 
     const alertHeading = this.props.headline;
     const alertText = this.props.content || this.props.children;
+    const H = `h${this.props.level}`;
 
     return (
       <div
@@ -63,9 +64,7 @@ class AlertBox extends React.Component {
         }}
       >
         <div className="usa-alert-body">
-          {alertHeading && (
-            <h3 className="usa-alert-heading">{alertHeading}</h3>
-          )}
+          {alertHeading && <H className="usa-alert-heading">{alertHeading}</H>}
           {alertText && <div className="usa-alert-text">{alertText}</div>}
         </div>
         {closeButton}
@@ -126,12 +125,18 @@ AlertBox.propTypes = {
    * accented left edge or an icon
    */
   backgroundOnly: PropTypes.bool,
+
+  /**
+   * The header level to use with the headline prop
+   */
+  level: PropTypes.number,
 };
 
 AlertBox.defaultProps = {
   isVisible: true,
   backgroundOnly: false,
   closeBtnAriaLabel: 'Close notification',
+  level: 3,
 };
 
 export default AlertBox;
