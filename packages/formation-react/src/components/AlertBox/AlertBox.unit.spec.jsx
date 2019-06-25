@@ -58,7 +58,7 @@ describe('<AlertBox />', () => {
       <AlertBox
         content={Content}
         status="info"
-        level="4"
+        level={4}
         headline="Testing"
         isVisible
         className="foo"
