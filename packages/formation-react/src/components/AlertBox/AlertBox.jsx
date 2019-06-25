@@ -73,6 +73,7 @@ class AlertBox extends React.Component {
   }
 }
 
+/* eslint-disable consistent-return */
 AlertBox.propTypes = {
   /**
    * Determines the color and icon of the alert box.
@@ -127,10 +128,20 @@ AlertBox.propTypes = {
   backgroundOnly: PropTypes.bool,
 
   /**
-   * The header level to use with the headline prop
+   * The header level to use with the headline prop, must be a number 1-6
    */
-  level: PropTypes.number,
+  level(props, propName) {
+    const level = parseInt(props[propName], 10);
+    if (Number.isNaN(level) || level < 1 || level > 6) {
+      return new Error(
+        `Invalid prop: AlertBox level must be a number from 1-6, was passed ${
+          props[propName]
+        }`,
+      );
+    }
+  },
 };
+/* eslint-enable consistent-return */
 
 AlertBox.defaultProps = {
   isVisible: true,
