@@ -84,7 +84,6 @@ const addAccordionClickHandler = () => {
         // Specifically React Components.
         if (accordionButton && !accordionButton.onclick) {
           const multiSelectable =
-            // Don't use aria-multiselectable, it's not a valid use of that attribute
             toBoolean(element.getAttribute('aria-multiselectable')) ||
             toBoolean(element.getAttribute('data-multiselectable'));
 
@@ -130,6 +129,18 @@ const addAccordionClickHandler = () => {
       });
     }
   });
+
+  // Don't use aria-multiselectable, it's not a valid use of that attribute
+  if (
+    document.querySelectorAll(
+      '.usa-accordion[aria-multiselectable], .usa-accordion-bordered[aria-multiselectable]',
+    ).length
+  ) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'Accordion elements are not a valid context for aria-multiselectable, use data-multiselectable instead',
+    );
+  }
 };
 
 const loadAccordionHandler = () => {
