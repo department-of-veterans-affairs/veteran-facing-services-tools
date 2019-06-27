@@ -83,9 +83,10 @@ const addAccordionClickHandler = () => {
         // and if it is a .usa-accordion-button.
         // Specifically React Components.
         if (accordionButton && !accordionButton.onclick) {
-          const multiSelectable = toBoolean(
-            element.getAttribute('aria-multiselectable'),
-          );
+          const multiSelectable =
+            // Don't use aria-multiselectable, it's not a valid use of that attribute
+            toBoolean(element.getAttribute('aria-multiselectable')) ||
+            toBoolean(element.getAttribute('data-multiselectable'));
 
           const hasAriaControlsAttr = accordionButton.getAttribute(
             'aria-controls',
