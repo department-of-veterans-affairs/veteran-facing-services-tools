@@ -220,10 +220,10 @@ describe('accordion', () => {
     );
   });
 
-  it('should show both dropdown if aria-multiselectable is true', () => {
+  it('should show both dropdown if data-multiselectable is true', () => {
     document
       .querySelector('.usa-accordion')
-      .setAttribute('aria-multiselectable', true);
+      .setAttribute('data-multiselectable', true);
 
     const a3BtnEl = document.querySelector('[aria-controls="a3"]');
     const a4BtnEl = document.querySelector('[aria-controls="a4"]');
@@ -241,10 +241,10 @@ describe('accordion', () => {
     );
   });
 
-  it('.usa-accordion-bordered should show both dropdown if aria-multiselectable is true', () => {
+  it('.usa-accordion-bordered should show both dropdown if data-multiselectable is true', () => {
     document
       .querySelector('.usa-accordion-bordered')
-      .setAttribute('aria-multiselectable', true);
+      .setAttribute('data-multiselectable', true);
 
     const a3BtnEl = document.querySelector('[aria-controls="b-a3"]');
     const a4BtnEl = document.querySelector('[aria-controls="b-a4"]');
