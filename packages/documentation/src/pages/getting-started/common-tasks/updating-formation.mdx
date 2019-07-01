@@ -1,5 +1,5 @@
 ---
-title: Updating Formation and Formataion React 
+title: Updating Formation and Formataion React
 tags: formation, formation-react, update, release, publish, npm
 ---
 
@@ -21,7 +21,7 @@ After you've tested and previewed your changes locally it's time to publish a ne
 
 ### 1. Submit your PR
 
-Submit a PR that includes all of your code changes. This should include the bump in versions you need, which you can change directly in the package.json files for the modules that are changing. Modules like `formation-react` depend on `formation` via a peer dependency, so you may need to update that as well. We try to keep the peer dependency loose and only update it for breaking changes.
+Submit a PR that includes all of your code changes. This should include the bump in versions you need, which you can change directly in the `package.json` files for the modules that are changing. Modules like `formation-react` depend on `formation` via a peer dependency, so you may need to update that as well. We try to keep the peer dependency loose and only update it for breaking changes.
 
 You'll need to choose what type of version update to make:
 
@@ -41,9 +41,9 @@ Once your changes are approved, squash merge them to master. Also, if your chang
 * Run `yarn build`
 * For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
 
-### 4. Create a release 
+### 4. Create a release
 You will need a github [personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
-This should be set as **GITHUB_API_KEY** in your environment variable. 
+This should be set as **GITHUB_API_KEY** in your environment variable.
 - Navigate to the package folder
 - Run the release script
     ```
