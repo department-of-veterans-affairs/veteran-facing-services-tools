@@ -152,6 +152,10 @@
     @include focus-gold-light-outline;
     outline-offset: 0;
   }
+  &:disabled {
+    text-decoration: none;
+    color: $color-gray-light !important;
+  }
 }
 
 @mixin modal-close-button {
