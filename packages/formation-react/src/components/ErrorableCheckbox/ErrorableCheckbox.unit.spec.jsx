@@ -139,4 +139,25 @@ describe('<ErrorableCheckbox/>', () => {
     expect(inputs.prop('id')).to.equal(labels.prop('htmlFor'));
     tree.unmount();
   });
+
+  it('adds optional aria-labelledby attribute', () => {
+    const tree = shallow(
+      <ErrorableCheckbox
+        label=""
+        ariaLabelledBy="headingId"
+        onValueChange={_update => {}}
+      />,
+    );
+
+    // Ensure label text is empty string.
+    const labels = tree.find('label');
+    expect(labels).to.have.lengthOf(1);
+    expect(labels.text()).to.equal('');
+
+    // Ensure label aria-labelledby is attached to input id.
+    const inputs = tree.find('input');
+    expect(inputs).to.have.lengthOf(1);
+    expect(inputs.prop('aria-labelledby')).to.equal('headingId');
+    tree.unmount();
+  });
 });
