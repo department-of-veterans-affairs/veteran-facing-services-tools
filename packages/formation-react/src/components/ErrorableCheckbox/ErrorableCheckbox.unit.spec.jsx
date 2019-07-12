@@ -140,7 +140,7 @@ describe('<ErrorableCheckbox/>', () => {
     tree.unmount();
   });
 
-  it('adds optional aria-labelledby attribute', () => {
+  it('adds aria-labelledby attribute', () => {
     const tree = shallow(
       <ErrorableCheckbox
         label=""
