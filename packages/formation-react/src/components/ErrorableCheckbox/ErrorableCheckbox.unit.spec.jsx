@@ -143,7 +143,6 @@ describe('<ErrorableCheckbox/>', () => {
   it('adds aria-labelledby attribute', () => {
     const tree = shallow(
       <ErrorableCheckbox
-        label=""
         ariaLabelledBy="headingId"
         onValueChange={_update => {}}
       />,
