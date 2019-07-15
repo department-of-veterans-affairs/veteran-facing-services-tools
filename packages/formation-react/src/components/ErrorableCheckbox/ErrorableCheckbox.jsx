@@ -90,11 +90,6 @@ ErrorableCheckbox.propTypes = {
   name: PropTypes.string,
   /**
    * Label [string or object] for the checkbox. Either this or ariaLabelledBy is required.
-   * IF you have a SEPARATE HEADING (outside this component) that “labels” this
-   * checkbox, use ariaLabelledBy instead of this.
-   * Screen-readers read sr-only content, which would be redundant if you had a
-   * separate, external heading also serving as this component‘s “label.”
-   * E.g., see /src/applications/personalization/preferences/components/PreferenceOption.jsx
    */
   /* eslint-disable consistent-return */
   label: (props, propName, componentName) => {
@@ -120,8 +115,6 @@ ErrorableCheckbox.propTypes = {
   labelAboveCheckbox: PropTypes.string,
   /**
    * aria-labelledby attribute [string] (external-heading ID). Either this or label is required.
-   * IF you have a SEPARATE HEADING (outside this component) that “labels” this
-   * checkbox, pass that heading‘s ID value here, instead of using label.
    */
   /* eslint-disable consistent-return */
   ariaLabelledBy: (props, propName, componentName) => {
