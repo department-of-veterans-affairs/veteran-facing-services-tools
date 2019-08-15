@@ -127,19 +127,18 @@ const addAccordionClickHandler = () => {
 
             // Fire event for subscription by any consuming apps that need to
             // handle click further (e.g., for analytics).
-            const accordionClickEvent = new CustomEvent(
+            const accordionClickEvent = document.createEvent('Event');
+            accordionClickEvent.initEvent(
               '@department-of-veterans-affairs/formation/accordion/button-clicked',
-              {
-                bubbles: true,
-                cancelable: true,
-                detail: {
-                  toggle:
-                    accordionButton.getAttribute('aria-expanded') === 'true'
-                      ? 'expand'
-                      : 'collapse',
-                },
-              },
+              true,
+              true,
             );
+            accordionClickEvent.detail = {
+              toggle:
+                accordionButton.getAttribute('aria-expanded') === 'true'
+                  ? 'expand'
+                  : 'collapse',
+            };
             accordionButton.dispatchEvent(accordionClickEvent);
           }
         }
