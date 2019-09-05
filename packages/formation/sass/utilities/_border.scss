@@ -47,7 +47,7 @@ $border_sizes: (
         border-right: #{$size} solid !important;
       }
 
-      .vads-u-border-bottom--#{$size} {
+      .#{$bp_name}\:vads-u-border-bottom--#{$size} {
         border-bottom: #{$size} solid !important;
       }
 
