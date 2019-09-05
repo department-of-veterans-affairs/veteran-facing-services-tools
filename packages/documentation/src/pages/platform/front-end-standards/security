@@ -16,7 +16,7 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
   - Your application is on a VA.gov subdomain, needs to connect to `vets-api`, but is not currently listed in the allowed origins
 - More [info on cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
-## Content Security Policy (CS)
+## Content Security Policy (CSP)
 
 - All VA.gov pages must return a Content Security Policy header that allows only known scripts to run on the page
 - The CSP must be *enforced* i.e. not set to `report-only`
