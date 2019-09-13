@@ -160,3 +160,96 @@ There are a couple ways to do release toggles that each have UX trade offs.
 ### Flipper UI
 
 - Overview of toggle management UI can be found [here](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md)
+
+### Adding a new feature toggle 
+
+Follow these steps to add and use a new feature toggle to use in `vets-website`
+
+1. Determine your feature toggle name. 
+
+_There are no naming conventions yet. Current examples namespace with the app name first e.g. facilityLocatorShowCommunityCares, profileShowDirectDeposit_
+
+2. Add the feature toggle name to 
+ - using camel case in `vets-website`: [/src/platform/utilities/feature-toggles/feature-toggle-query-list.json](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/feature-toggle-query-list.json) 
+
+ ```json
+{
+    "featureToggleQueryList": ["appNameThenYourFeatureName"]
+}
+ ```
+
+ - using snake case in `vets-api': [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml)
+
+  ```yml
+ features:
+   app_name_then_your_feature_name:
+     description: >
+       On https://www.va.gov/find-locations/ enables search box. 
+       This toggle is owned by the search team.
+  ```
+
+3. Submit a PR for each of these. 
+
+_Crosslinking the PRs in a comment will make it easier for the reviewers to check_ 
+
+4. Run `vet-api` locally 
+
+_This can be done on master after your PR is merged or off of your feature branch_
+
+5. Navigate to the dev Flipper Admin: [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features)
+
+_See the Flipper admin [documentation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md#managing-feature-toggles) for the username / password_
+
+6. Using the **snake case** variant of your feature toggle name, add your feature toggle to the Flipper admin. 
+
+ ![](../../../images/platform/feature-flags/adding-feature-toggle.png)
+ 
+7. Use the selector helper to build a selector for your feature toggle. For example: 
+
+```js
+// import the toggleValues helper
+import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
+
+// use the toggleValues helper to select the toggle values list
+export const appNameThenYourFeatureName = state =>
+  toggleValues(state).appNameThenYourFeatureName;
+```
+
+_The toggleValues object is simply a flat list of toggleName -> boolean key value pairs._
+
+8. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into yoru component.
+
+```js
+function mapStateToProps(state) {
+  return {
+    showYourFeatureName:
+      appNameThenYourFeatureName(state),
+  };
+}
+
+...
+// inside your connected component
+
+render() {
+   const { showYourFeatureName } = this.props;
+
+   return (
+     { showYourFeatureName && <NewFeature /> }
+   );
+}
+```
+
+_Currently the feature toggles values are only available on the global redux state._ 
+
+9. Use the Flipper admin to test out the toggle locally. 
+
+  ![](../../../images/platform/feature-flags/change-feature-toggle-value.png)
+
+_Updating the feature toggle state on the website requires refreshing the page. This value can take up to a minute to update in staging and production._
+
+#### Other considerations 
+
+- Each environment has it's own set of feature toggle values. 
+- Test your feature toggle in staging before using it in production. 
+- Remove release toggles as soon as they are not needed. 
+- Make toggles that are easy to delete by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code 
