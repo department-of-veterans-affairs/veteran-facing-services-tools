@@ -3,7 +3,7 @@
     "packages/documentation/*",
     "packages/formation/*",
     "packages/formation-react/*",
-    "vagov-eslint/*"
+    "packages/vagov-eslint/*"
   ],
   "version": "independent",
   "npmClient": "yarn",
