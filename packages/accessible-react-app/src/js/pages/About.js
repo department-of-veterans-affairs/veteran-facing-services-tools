@@ -30,6 +30,7 @@ const About = props => {
         headerId={HEADER_ID}
         headerText={title}
       >
+        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
         <section aria-label="Company History" role="region">
           <h2>The things AnyCorp does!</h2>
           <p>
@@ -46,6 +47,7 @@ const About = props => {
           </p>
           <p>
             We are located at the base of a beautiful mountain!
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <img src={lake} />
           </p>
         </section>
