@@ -1,17 +1,20 @@
 import React from 'react';
 
-export default ({ pageContext }) => {
+import SidebarLayout from '../layouts/SidebarLayout';
+
+export default ({ location, pageContext }) => {
   const { html, sourceUrl } = pageContext;
 
   // eslint-disable-next-line react/no-danger
   const content = <div dangerouslySetInnerHTML={{ __html: html }} />;
 
   return (
-    <div>
+    <SidebarLayout location={location}>
+      <div>{content}</div>
       <div>
-        {content}
-        <a href={sourceUrl}>Source</a>
+        <h5>Source:</h5>
+        <a href={sourceUrl}>{sourceUrl}</a>
       </div>
-    </div>
+    </SidebarLayout>
   );
 };
