@@ -17,7 +17,7 @@
     "commonjs": true,
     "es6": true,
     "mocha": true,
-    "jest": true,
+    "jest": true
   },
   "globals": {
     "PerformanceObserver": true,
@@ -27,7 +27,8 @@
   },
   "rules": {
     // Override airbnb style.
-    "camelcase": [2, {"allow": ["UNSAFE_componentWillMount"]}],
+    "arrow-parens": [2, "as-needed"],
+    "camelcase": [2, { "allow": ["UNSAFE_componentWillMount"] }],
     "va-enzyme/unmount": 2,
     "func-names": 2,
     "import/no-extraneous-dependencies": 0,
