@@ -14,9 +14,11 @@ const About = props => {
       <aside className="ac-layout--two-column__aside">
         <div>
           <p>
-            This is the <strong>aside</strong> element. It should be used for
-            content related to the main area. Asides include links to other
-            sections, image callouts, and quoted text.
+            This is the
+            <strong>aside</strong>
+            element. It should be used for content related to the main area.
+            Asides include links to other sections, image callouts, and quoted
+            text.
           </p>
           <p>
             <a href="https://github.com">Github</a>
