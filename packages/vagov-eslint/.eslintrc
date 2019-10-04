@@ -27,7 +27,6 @@
   },
   "rules": {
     // Override airbnb style.
-    "arrow-parens": [2, "as-needed"],
     "camelcase": [2, { "allow": ["UNSAFE_componentWillMount"] }],
     "va-enzyme/unmount": 2,
     "func-names": 2,
