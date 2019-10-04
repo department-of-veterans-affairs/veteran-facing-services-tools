@@ -6,4 +6,4 @@
 **/*.config.*
 **/*.conf.*
 /packages/formation-react/*.js
-/packages/accessible-react-app/*.js
+/packages/accessible-react-app/*
