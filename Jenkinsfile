@@ -18,12 +18,15 @@ pipeline {
       }
     }
 
-    stage('lint, test, and build') {
+    stage('test, and build') {
       steps {
         parallel (
+          /*
+          TODO: fix the bootstrapping and add this back
           'lint': {
             sh 'npm run lint'
           },
+          */
           'test': {
             sh 'NODE_ENV=test npm run test'
           },
