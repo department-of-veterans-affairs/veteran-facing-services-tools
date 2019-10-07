@@ -70,6 +70,10 @@ module.exports = {
                   name: 'Content pages',
                   href: '/getting-started/common-tasks/new-page',
                 },
+                {
+                  name: 'Analytics',
+                  href: '/getting-started/common-tasks/analytics',
+                },
               ],
             },
             {
