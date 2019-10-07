@@ -18,9 +18,9 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
 
 ## Content Security Policy (CSP)
 
-- All VA.gov pages must return a Content Security Policy header that allows only known scripts to run on the page
-- The CSP must be *enforced* i.e. not set to `report-only`
-- The `report-uri` should point to a VA platform error capturing service (Sentry)
+- All VA.gov pages return a Content Security Policy header that allows only known scripts to run on the page
+- The CSP is enforced i.e. not set to `report-only`
+- The `report-uri` points to a VA platform error capturing service (Sentry)
   - VA.gov throttles these reports by including the `report-uri` only on a small % of responses
 - Updates to CSP headers returned by or `vets-website` assets must be made through the devops team and must be reviewed by the [frontend review group](https://github.com/orgs/department-of-veterans-affairs/teams/frontend-review-group)
 - More [info on CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
