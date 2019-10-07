@@ -1043,13 +1043,14 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@department-of-veterans-affairs/formation@^6.2.5":
-  version "6.2.6"
-  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.2.6.tgz#c2f9b7ed35f032414e857d04392d5fc3cd83e875"
-  integrity sha512-H6fezdggWe7bCsRIGnK90HacxwjI2sWISDdZbSgN70X487qRaSEsR1IYEpivp/i3+kCaIex+Q6duH0S+WCGINw==
+"@department-of-veterans-affairs/formation@^6.6.3":
+  version "6.7.3"
+  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.7.3.tgz#b0694678429ad0d1a7fc0f029b9938e13b084317"
+  integrity sha512-QqE7iLXO2UFspTDx6nFzfuIYmS7H5IRhjGfua5Jws02F5+5LiSqfxCiuWDcQBZm/niajziZSIvoS3fir3RS6vQ==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.6.3"
     domready "^1.0.8"
+    element-closest "^3.0.1"
     foundation-sites "5"
 
 "@fortawesome/fontawesome-free@^5.6.3", "@fortawesome/fontawesome-free@^5.8.1":
@@ -4377,6 +4378,11 @@ element-closest@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-2.0.2.tgz#72a740a107453382e28df9ce5dbb5a8df0f966ec"
   integrity sha1-cqdAoQdFM4LijfnOXbtajfD5Zuw=
+
+element-closest@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-3.0.1.tgz#0b2000266ae43a800274401dc39486f5e4bfbce2"
+  integrity sha512-Wm8B0in+k6GsSCra8vLVnFIjIrff2T1s2b++jU6VL6mqIteP19THxDXwT5JDrmJPlqT3YifOK9cu28+uRGUdew==
 
 elliptic@^6.0.0:
   version "6.4.1"
