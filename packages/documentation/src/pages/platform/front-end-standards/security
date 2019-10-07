@@ -6,7 +6,7 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
 
 ## HTTPS
 
-- All connections made by VA.gov must be secure (HTTPS)
+- All connections made to VA.gov must be secure (HTTPS)
 - VA.gov automatically redirects to a secure protocol if a non secure connection is attempted 
 
 ## Cross-Origin Resource Sharing (CORS)
