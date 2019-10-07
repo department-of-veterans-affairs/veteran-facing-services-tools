@@ -7,11 +7,11 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
 ## HTTPS
 
 - All connections made to VA.gov must be secure (HTTPS)
-- VA.gov automatically redirects to a secure protocol if a non secure connection is attempted 
+- VA.gov implements HSTS and automatically redirects to a secure protocol if a non secure connection is attempted 
 
 ## Cross-Origin Resource Sharing (CORS)
 
-- Some cross origin connections made by VA.gov must support CORS including **all** XHR connections and web font downloads. 
+- Some cross origin connections made to VA.gov must support CORS including **all** XHR connections and web font downloads. 
 - Updates to CORS headers returned by `vets-api` services or `vets-website` assets must be made through the devops team and must be reviewed by the [frontend review group](https://github.com/orgs/department-of-veterans-affairs/teams/frontend-review-group). Example:  
   - Your application is on a VA.gov subdomain, needs to connect to `vets-api`, but is not currently listed in the allowed origins
 - More [info on cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
