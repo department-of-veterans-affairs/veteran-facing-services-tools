@@ -264,6 +264,10 @@ module.exports = {
               href: '/platform/front-end-standards/accessibility',
             },
             {
+              name: 'Security',
+              href: '/platform/front-end-standards/security',
+            },
+            {
               name: 'Documented Decisions',
               href:
                 '/platform/front-end-standards/documented-decisions/summary',
