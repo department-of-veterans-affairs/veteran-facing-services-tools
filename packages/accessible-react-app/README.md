@@ -18,15 +18,15 @@ sooner.
 
 ## Getting Started
 
-The simplest way to get started with AnyCorp is to clone the `va.gov-team` repository. Open a
+The simplest way to get started with AnyCorp is to clone the `veteran-facing-services-tools` repository. Open a
 terminal or command shell and type the following commands. `$` is a command prompt and should
 not be typed with the commands.
 
 1. Use the first option if you do not have an SSH key for the repository:
-   - \$ `git clone https://github.com/department-of-veterans-affairs/va.gov-team.git`
-   - \$ `git clone git@github.com:department-of-veterans-affairs/va.gov-team.git`
+   - \$ `git clone https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git`
+   - \$ `git clone git@https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git`
 2. \$ `cd va.gov-team`
-3. \$ `cd platform/accessibility/react-a11y-demo`
+3. \$ `cd packages/accessible-react-app`
 4. \$ `yarn install`
 5. \$ `yarn start`
 
@@ -37,12 +37,11 @@ The last command `yarn start` starts the Webpack dev server, opens a browser win
 
 - \$ `yarn build` creates a version of the app that includes content-security
   policy headers and will resolve URLs like `localhost:8080/awards` using an Express server.
-- \$ `yarn lint` runs an ESLint check
 
 ## Accessibility
 
 AnyCorp contains a number of accessibility issues. Some of them can be detected with automated
-tools. Other issues like focus management will require manual testing and coordination to remediate.
+tools. Other issues like focus management will require manual testing and coordination to remediate. Documentation will be forthcoming to identify these issues and how they might be remediated.
 
 ### Designing Accessibily
 
