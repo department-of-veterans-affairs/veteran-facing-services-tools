@@ -8,7 +8,9 @@ p,
 a,
 span,
 ul,
-li {
+li,
+label,
+legend {
   font-size: 1.6rem;
   line-height: 1.5;
 }

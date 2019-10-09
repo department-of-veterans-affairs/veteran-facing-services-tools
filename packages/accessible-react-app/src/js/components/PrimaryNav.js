@@ -17,6 +17,9 @@ const PrimaryNav = props => {
         <li className="ac-primary-nav__list-item">
           <Link to="/awards">Awards We&rsquo;ve Won</Link>
         </li>
+        <li className="ac-primary-nav__list-item">
+          <Link to="/feedback">Your Feedback</Link>
+        </li>
       </ul>
     </nav>
   );
