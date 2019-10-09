@@ -17,10 +17,10 @@ const Feedback = props => {
 
   return (
     <Layout headerText={title} title={title}>
-      <Main headerId={HEADER_ID} headerText={title}>
-        <p>Send us your feedback!</p>
+      <Main headerId={HEADER_ID} headerText={title} setFocus>
+        <p>Tell AnyCorp what you think!</p>
         <button onClick={handleOpenModal} type="button">
-          Tell us your feedback!
+          Open our feedback form
         </button>
         <Modal
           aria={{
@@ -36,7 +36,7 @@ const Feedback = props => {
             className="ac-layout--flex ac-layout--justify-between"
             id="feedback_header"
           >
-            <h2 id="feedback_heading">AnyCorp Wants Your Feedback!</h2>
+            <h2 id="feedback_heading">AnyCorp Wants to Hear From You!</h2>
             <button
               aria-label="Close feedback modal"
               className="ac-form__button--close"
