@@ -7,6 +7,7 @@
 .ac-form__legend {
   border-top: 3px solid #ccc;
   display: block;
+  font-weight: var(--font-weight-700);
   font-weight: 700;
   margin: 0;
   padding: 1em 0 0;
@@ -18,7 +19,33 @@
   margin: 1em 0 0.25em;
 }
 
+.ac-form__input,
+.ac-form__textarea {
+  border: 1px solid #666666;
+  font-size: 2em;
+  padding: 0.5em;
+  width: 20em;
+}
+
+.ac-form__textarea {
+  height: 10em;
+}
+
 .ac-form__button {
   display: block;
   margin: 1.5em 0 0;
+}
+
+.ac-form__button--close {
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-purple);
+  background-color: rebeccapurple;
+  color: var(--color-white);
+  color: #ffffff;
+  font-weight: var(--font-weight-700);
+  font-weight: 700;
+  font-size: 3em;
+  height: 2em;
+  width: 2em;
 }

@@ -38,11 +38,12 @@ const Feedback = props => {
           >
             <h2 id="feedback_heading">AnyCorp Wants Your Feedback!</h2>
             <button
+              aria-label="Close feedback modal"
               className="ac-form__button--close"
               onClick={handleCloseModal}
               type="button"
             >
-              Close modal
+              <span aria-hidden="true">X</span>
             </button>
           </div>
           <div id="feedback_description">
@@ -61,15 +62,32 @@ const Feedback = props => {
                 <label className="ac-form__label" htmlFor="name">
                   Your name
                 </label>
-                <input type="text" id="name" aria-required="true" required />
+                <input
+                  aria-required="true"
+                  className="ac-form__input"
+                  type="text"
+                  id="name"
+                  required
+                />
                 <label className="ac-form__label" htmlFor="email">
                   Your email address
                 </label>
-                <input type="email" id="email" aria-required="true" required />
+                <input
+                  aria-required="true"
+                  className="ac-form__input"
+                  type="email"
+                  id="email"
+                  required
+                />
                 <label className="ac-form__label" htmlFor="feedback">
                   Your feedback
                 </label>
-                <textarea id="feedback" />
+                <textarea
+                  aria-required="true"
+                  className="ac-form__textarea"
+                  id="feedback"
+                  required
+                />
                 <button
                   className="ac-form__button"
                   onClick={handleCloseModal}

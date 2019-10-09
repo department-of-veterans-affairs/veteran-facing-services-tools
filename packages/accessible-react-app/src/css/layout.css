@@ -12,6 +12,7 @@ div {
 
 header {
   align-items: center;
+  background-color: var(--color-purple);
   background-color: rebeccapurple;
   display: flex;
   justify-content: space-between;
