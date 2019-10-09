@@ -1,8 +1,8 @@
-const { name: EVENT_NAMESPACE } = require('../package.json');
+const { name: PACKAGE_NAME } = require('../package.json');
 
 const EVENT_NAMES = {
-  EXPAND: `${EVENT_NAMESPACE}/additional-info/expand`,
-  COLLAPSE: `${EVENT_NAMESPACE}/additional-info/collapse`,
+  EXPAND: `${PACKAGE_NAME}/additional-info/expand`,
+  COLLAPSE: `${PACKAGE_NAME}/additional-info/collapse`,
 };
 
 function qSA(rootNode, selector) {
