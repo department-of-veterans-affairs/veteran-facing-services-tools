@@ -21,7 +21,9 @@ const Home = props => {
           This should be the next focusable elment after the global skip link is
           clicked:
           <br />
-          <a href="https://google.com">Google search page</a>
+          <a href="https://google.com" style={{ outline: '0' }}>
+            Google search page
+          </a>
         </p>
       </Main>
     </Layout>
