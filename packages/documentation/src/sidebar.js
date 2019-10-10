@@ -70,6 +70,10 @@ module.exports = {
                   name: 'Content pages',
                   href: '/getting-started/common-tasks/new-page',
                 },
+                {
+                  name: 'Analytics',
+                  href: '/getting-started/common-tasks/analytics',
+                },
               ],
             },
             {
@@ -258,6 +262,10 @@ module.exports = {
             {
               name: 'Accessibility',
               href: '/platform/front-end-standards/accessibility',
+            },
+            {
+              name: 'Security',
+              href: '/platform/front-end-standards/security',
             },
             {
               name: 'Documented Decisions',
