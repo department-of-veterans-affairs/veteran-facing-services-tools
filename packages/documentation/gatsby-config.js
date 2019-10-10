@@ -10,6 +10,15 @@ module.exports = {
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
+    {
+      resolve: 'gatsby-source-git',
+      options: {
+        name: 'va.gov-team',
+        remote: 'https://github.com/department-of-veterans-affairs/va.gov-team.git',
+        branch: 'master',
+        patterns: 'platform/working-with-vsp/**'
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -75,9 +84,12 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
-            title: (node, getNode) => {
+            title: node => {
               if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
                 return node.context.frontmatter.title;
+              } else if (node.context && node.context.sourceUrl && node.context.title) {
+                // Search by title derived from documents pulled from the GitHub repo.
+                return node.context.title;
               } else {
                 console.info('Page title missing from front matter.', node);
               }
