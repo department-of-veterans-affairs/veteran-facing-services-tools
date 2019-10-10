@@ -10,8 +10,10 @@
     "clean": "rm -rf dist/",
     "lint:fix": "eslint --fix './src/**/*.{js,jsx}'",
     "start": "yarn webpackDev",
+    "start:lan": "yarn webpackDev:lan",
     "server": "node server.js",
     "webpackDev": "webpack-dev-server --open --mode development --config webpack.dev.config --hot",
+    "webpackDev:lan": "webpack-dev-server --open --mode development --host 0.0.0.0 --config webpack.dev.config --hot",
     "webpackBuild": "webpack --mode production --config webpack.build.config"
   },
   "devDependencies": {
@@ -50,6 +52,7 @@
     "react-dom": "npm:@hot-loader/react-dom",
     "react-helmet": "^5.2.1",
     "react-hot-loader": "^4.12.12",
+    "react-modal": "^3.10.1",
     "react-router-dom": "^5.0.1"
   }
 }
