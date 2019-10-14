@@ -12,6 +12,7 @@ div {
 
 header {
   align-items: center;
+  background-color: var(--color-purple);
   background-color: rebeccapurple;
   display: flex;
   justify-content: space-between;
@@ -33,6 +34,14 @@ img {
 
 #grid-container aside {
   order: 2;
+}
+
+.ac-layout--flex {
+  display: flex;
+}
+
+.ac-layout--justify-between {
+  justify-content: space-between;
 }
 
 @media (min-width: 30em) {

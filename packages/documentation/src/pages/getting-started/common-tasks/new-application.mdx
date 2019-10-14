@@ -21,16 +21,29 @@ Here are the steps for manually setting up a new application. We're going to wal
 
 2. Add a manifest.json file in the new folder. This file contains important information about your application:
 
-```json
+```js
 {
   // Name of your application, not Veteran facing
-  appName: "My new application",
+  "appName": "My new application",
   // The Webpack entry point to the bundle for your application
-  entryFile: "./my-new-application-entry.jsx",
+  "entryFile": "./my-new-application-entry.jsx",
   // The Webpack bundle name for your app. Must be unique.
-  entryName: "my-new-application",
+  "entryName": "my-new-application",
   // The root url where your application lives
-  rootUrl: "/my-new-application",
+  "rootUrl": "/my-new-application",
+  // Properties specific to rendering your application's HTML landing page
+  "template": {
+    // Document title
+    "title": "My new application",
+    // Standard Metalsmith Liquid template for React applications
+    "layout": "page-react.html",
+    // <meta name="description">
+    "description": "A new application!",
+    // <meta name="keywords">
+    "keywords": "not required, but good practice for public apps",
+    // A feature flag, indicating that this application is excluded from production builds
+    "vagovprod" false
+  }
 }
 ```
 
@@ -113,16 +126,22 @@ And that's it! If you fill out the routes.jsx file with pages that exist, you sh
 
 ## Going to production
 
-The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to create a content page for your application. In dev/staging, our Metalsmith pipeline will create a temporary one.
+The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to remove the feature flag added into your application's `manifest.json`.
 
-In `vagov-content`, you can add a page with the following frontmatter:
+```js
+{
+  "appName": "My new application",
+  "entryFile": "./my-new-application-entry.jsx",
+  "entryName": "my-new-application",
+  "rootUrl": "/my-new-application",
+  "template": {
+    "title": "My new application",
+    "layout": "page-react.html",
+    "description": "A new application!",
+    "keywords": "not required, but good practice for public apps",
 
-```md
----
-title: My new application 
-entryname: my-new-application
-layout: page-react.html
----
+    // ALLOW THIS TO SHIP TO PRODUCTION BY REMOVING LINE BELOW
+    // "vagovprod" false
+  }
+}
 ```
-
-The most important thing to note is that the `entryname` property should match the `entryName` property in your manifest file and that the page should be in the location that matches the `rootUrl` path. In this case, that would be `pages/my-new-application.md` or `pages/my-new-application/index.md` in `vagov-content`.
