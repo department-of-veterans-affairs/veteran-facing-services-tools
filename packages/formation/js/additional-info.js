@@ -1,3 +1,10 @@
+const { name: PACKAGE_NAME } = require('../package.json');
+
+const EVENT_NAMES = {
+  EXPAND: `${PACKAGE_NAME}/additional-info/expand`,
+  COLLAPSE: `${PACKAGE_NAME}/additional-info/collapse`,
+};
+
 function qSA(rootNode, selector) {
   return Array.from(rootNode.querySelectorAll(selector));
 }
@@ -20,7 +27,6 @@ export default function createAdditionalInfoWidget() {
       const titleNode = qS(el, '.additional-info-title');
       const titleText =
         (titleNode && titleNode.textContent) || 'More information';
-      const dataset = qS(el, '.additional-info-content').parentNode.dataset;
       const contentMarkup = qS(el, '.additional-info-content').innerHTML;
       const additionalInfoId = `additional-info-${index}`;
 
@@ -43,22 +49,26 @@ export default function createAdditionalInfoWidget() {
       const chevron = qS(el, 'i.fa-angle-down');
       const button = qS(el, 'button');
 
-      const additionalInfoClickEvent = document.createEvent('Event');
-      additionalInfoClickEvent.initEvent(
-        '@department-of-veterans-affairs/formation/additional-info/button-clicked',
-        true,
-        true,
-      );
-      additionalInfoClickEvent.detail = { titleText, dataset };
+      const additionalInfoExpandEvent = document.createEvent('Event');
+      additionalInfoExpandEvent.initEvent(EVENT_NAMES.EXPAND, true, true);
+
+      const additionalInfoCollapseEvent = document.createEvent('Event');
+      additionalInfoCollapseEvent.initEvent(EVENT_NAMES.COLLAPSE, true, true);
 
       button.addEventListener('click', () => {
         const ariaExpanded = JSON.parse(button.getAttribute('aria-expanded'));
+        const isExpanded = !ariaExpanded;
 
-        button.setAttribute('aria-expanded', `${!ariaExpanded}`);
-        button.parentNode.classList.toggle('form-expanding-group-open');
-        chevron.classList.toggle('open');
+        button.setAttribute('aria-expanded', `${isExpanded}`);
+        button.parentNode.classList.toggle(
+          'form-expanding-group-open',
+          isExpanded,
+        );
+        chevron.classList.toggle('open', isExpanded);
 
-        button.dispatchEvent(additionalInfoClickEvent);
+        el.dispatchEvent(
+          isExpanded ? additionalInfoExpandEvent : additionalInfoCollapseEvent,
+        );
       });
     });
   }
