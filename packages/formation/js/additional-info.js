@@ -66,11 +66,9 @@ export default function createAdditionalInfoWidget() {
         );
         chevron.classList.toggle('open', isExpanded);
 
-        if (isExpanded) {
-          el.dispatchEvent(additionalInfoExpandEvent);
-        } else {
-          el.dispatchEvent(additionalInfoCollapseEvent);
-        }
+        el.dispatchEvent(
+          isExpanded ? additionalInfoExpandEvent : additionalInfoCollapseEvent,
+        );
       });
     });
   }
