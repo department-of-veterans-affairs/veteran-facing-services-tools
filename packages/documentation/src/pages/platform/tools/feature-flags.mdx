@@ -106,24 +106,24 @@ All liquid templates have access to the current feature flag state:
 
 **Note:** From within the JavaScript context, the feature flags are in `global.cmsFeatureFlags`, but within the Liquid template context, they can be found in `enabledFeatureFlags`.
 
-## Release Toggles 
+## Release Toggles
 
-_This feature is in active development and will replace the current approaches to managing release toggles._ 
+_This feature is in active development and will replace the current approaches to managing release toggles._
 
-### Overview 
+### Overview
 
 - Allows for production toggle switching without redeploying `vets-website`
-- Provides a UI for managing feature toggle behavior 
-- Provides code helpers for handling common UX scenarios 
+- Provides a UI for managing feature toggle behavior
+- Provides code helpers for handling common UX scenarios
 
-### Client behavior 
+### Client behavior
 
-1. During the build process, feature toggle values are retrieved and included in each of the static html pages. 
+1. During the build process, feature toggle values are retrieved and included in each of the static html pages.
 2. When the page loads, the feature toggle client retrieves the bootstrapped values from the static html and renders the page using those values.
-3. After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service. 
-4. The page is updated using the latest feature toggle values. 
+3. After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service.
+4. The page is updated using the latest feature toggle values.
 
-### User experience considerations 
+### User experience considerations
 
 There are a couple ways to do release toggles that each have UX trade offs.
 
@@ -134,23 +134,23 @@ There are a couple ways to do release toggles that each have UX trade offs.
 
 - **Ignore the bootstrapped values and show a loading state for the feature**
 
-  - The app will show a loading state for the new feature while the toggle values are retrieved from the service 
-  - This works well for content that is visible on the initial render of the page. There's no standardized approach; the way this is updated is depdendent on the UX goals. 
+  - The app will show a loading state for the new feature while the toggle values are retrieved from the service
+  - This works well for content that is visible on the initial render of the page. There's no standardized approach; the way this is updated is depdendent on the UX goals.
 
 ### Flipper UI
 
 - Overview of toggle management UI can be found [here](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md)
 
-### Adding a new feature toggle 
+### Adding a new feature toggle
 
 Follow these steps to add and use a new feature toggle to use in `vets-website`
 
-1. Determine your feature toggle name. 
+1. Determine your feature toggle name.
 
 _There are no naming conventions yet. Current examples namespace with the app name first e.g. facilityLocatorShowCommunityCares, profileShowDirectDeposit_
 
-2. Add the feature toggle name to 
- - `vets-website` using camel case: [/src/platform/utilities/feature-toggles/feature-toggle-query-list.json](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/feature-toggle-query-list.json) 
+2. Add the feature toggle name to
+ - `vets-website` using camel case: [/src/platform/utilities/feature-toggles/feature-toggle-query-list.json](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/feature-toggle-query-list.json)
 
  ```json
 {
@@ -164,27 +164,23 @@ _There are no naming conventions yet. Current examples namespace with the app na
  features:
    app_name_then_your_feature_name:
      description: >
-       On https://www.va.gov/find-locations/ enables search box. 
+       On https://www.va.gov/find-locations/ enables search box.
        This toggle is owned by the search team.
   ```
 
-3. Submit a PR for each of these. 
+3. Submit a PR for each of these.
 
-_Crosslinking the PRs in a comment will make it easier for the reviewers to check_ 
+_Crosslinking the PRs in a comment will make it easier for the reviewers to check_
 
-4. Run `vets-api` locally 
+4. Run `vets-api` locally
 
 _This can be done on master after your PR is merged or off of your feature branch_
 
-5. Navigate to the dev Flipper Admin: [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features)
+5. Navigate to the dev Flipper Admin: [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name.  If not, restart your rails server.
 
 _See the Flipper admin [documentation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md#managing-feature-toggles) for the username / password_
 
-6. Using the **snake case** variant of your feature toggle name, add your feature toggle to the Flipper admin. 
-
- ![](../../../images/platform/feature-flags/adding-feature-toggle.png)
- 
-7. Use the selector helper to build a selector for your feature toggle. For example: 
+6. Use the selector helper to build a selector for your feature toggle. For example:
 
 ```js
 // import the toggleValues helper
@@ -197,7 +193,7 @@ export const appNameThenYourFeatureName = state =>
 
 _The toggleValues object is simply a flat list of toggleName -> boolean key value pairs._
 
-8. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into yoru component.
+7. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into your component.
 
 ```js
 function mapStateToProps(state) {
@@ -219,17 +215,17 @@ render() {
 }
 ```
 
-_Currently the feature toggles values are only available on the global redux state._ 
+_Currently the feature toggles values are only available on the global redux state._
 
-9. Use the Flipper admin to test out the toggle locally. 
+8. Use the Flipper admin to test out the toggle locally.
 
   ![](../../../images/platform/feature-flags/change-feature-toggle-value.png)
 
 _Updating the feature toggle state on the website requires refreshing the page. This value can take up to a minute to update in staging and production._
 
-#### Other considerations 
+#### Other considerations
 
-- Each environment has it's own set of feature toggle values. 
-- Test your feature toggle in staging before using it in production. 
-- Remove release toggles as soon as they are not needed. 
-- Make toggles that are easy to delete by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code 
+- Each environment has its own set of feature toggle values.
+- Test your feature toggle in staging before using it in production.
+- Remove release toggles as soon as they are not needed.
+- Make toggles that are easy to delete by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code
