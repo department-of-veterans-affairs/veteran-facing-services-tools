@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 class SortableTable extends Component {
@@ -43,6 +43,9 @@ class SortableTable extends Component {
 
     // DEPRECATING in favor of onHeaderClick: A callback for when a header is clicked.
     onSort: PropTypes.func,
+
+    // A function that returns JSX to be rendered within a cell.
+    renderCustomCell: PropTypes.func,
   };
 
   onHeaderClick = (value, order) => () => {
@@ -97,20 +100,39 @@ class SortableTable extends Component {
     );
   }
 
+  renderCell = (item, field) => {
+    const { renderCustomCell } = this.props;
+
+    // If they provided a `renderCustomCell` prop, execute it.
+    if (renderCustomCell) {
+      return renderCustomCell(item, field);
+    }
+
+    // Otherwise, return the field value in the item.
+    return item[field.value];
+  }
+
   renderRow = (item) => {
+    const { renderCell } = this;
+    const { fields } = this.props;
+
     return (
       <tr key={item.id} className={item.rowClass}>
-        {this.props.fields.map(field => (
-          <td key={`${item.id}-${field.value}`}>{item[field.value]}</td>
+        {fields.map(field => (
+          <td key={`${item.id}-${field.value}`}>
+            {renderCell(item, field)}
+          </td>
         ))}
       </tr>
     );
   }
 
   render() {
-    const headers = this.props.fields.map(this.renderHeader);
-    const rows = this.props.data.map(this.renderRow);
-    const tableClass = classNames('va-sortable-table', this.props.className);
+    const { className, data, fields } = this.props;
+
+    const headers = fields.map(this.renderHeader);
+    const rows = data.map(this.renderRow);
+    const tableClass = classNames('va-sortable-table', className);
 
     return (
       <table className={tableClass}>
