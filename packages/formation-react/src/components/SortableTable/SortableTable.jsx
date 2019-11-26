@@ -38,16 +38,10 @@ class SortableTable extends Component {
       }),
     ).isRequired,
 
-    // DEPRECATING: A callback for when a header is clicked.
-    onSort: PropTypes.func,
     // A callback for when a header is clicked.
     onHeaderClick: PropTypes.func,
-
-    /**
-     * Each object represents data for a row.
-     * An optional class may be provided to style specific rows.
-     */
-    renderCell: PropTypes.func,
+    // DEPRECATING in favor of onHeaderClick: A callback for when a header is clicked.
+    onSort: PropTypes.func,
   };
 
   onHeaderClick = (value, order) => () => {
