@@ -58,7 +58,7 @@ class SortableTable extends Component {
     this.props.onHeaderClick(value, order);
   }
 
-  makeHeader = (field) => {
+  renderHeader = (field) => {
     if (field.nonSortable) {
       return <th key={field.value}>{field.label}</th>;
     }
@@ -97,7 +97,7 @@ class SortableTable extends Component {
     );
   }
 
-  makeRow(item) {
+  renderRow = (item) => {
     return (
       <tr key={item.id} className={item.rowClass}>
         {this.props.fields.map(field => (
@@ -108,8 +108,8 @@ class SortableTable extends Component {
   }
 
   render() {
-    const headers = this.props.fields.map(this.makeHeader);
-    const rows = this.props.data.map(this.makeRow);
+    const headers = this.props.fields.map(this.renderHeader);
+    const rows = this.props.data.map(this.renderRow);
     const tableClass = classNames('va-sortable-table', this.props.className);
 
     return (
