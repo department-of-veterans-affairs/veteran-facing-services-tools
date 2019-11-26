@@ -1,19 +1,69 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
-class SortableTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.makeHeader = this.makeHeader.bind(this);
-    this.makeRow = this.makeRow.bind(this);
+class SortableTable extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+
+    /**
+     * Field value to sort by in either ascending or descending order.
+     * The `value` must be one of the values in the `fields` prop.
+     */
+    currentSort: PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      order: PropTypes.oneOf(['ASC', 'DESC']),
+    }).isRequired,
+
+    /**
+     * Mappings of header labels to properties on the objects in `data`.
+     */
+    fields: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+    /**
+     * Each object represents data for a row.
+     * An optional class may be provided to style specific rows.
+     */
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+        values: PropTypes.arrayOf(
+          PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        ),
+        rowClass: PropTypes.string,
+      }),
+    ).isRequired,
+
+    // DEPRECATING: A callback for when a header is clicked.
+    onSort: PropTypes.func,
+    // A callback for when a header is clicked.
+    onHeaderClick: PropTypes.func,
+
+    /**
+     * Each object represents data for a row.
+     * An optional class may be provided to style specific rows.
+     */
+    renderCell: PropTypes.func,
+  };
+
+  onHeaderClick = (value, order) => () => {
+    const { onSort } = this.props;
+
+    // This is a legacy prop that is being renamed to `onHeaderClick`.
+    if (onSort) {
+      console.warn('WARNING: `onSort` is being deprecated in favor of `onHeaderClick` for <SortableTable />.');
+      onSort(value, order);
+    }
+
+    // This replaces `this.props.onSort`.
+    this.props.onHeaderClick(value, order);
   }
 
-  handleSort(value, order) {
-    return () => this.props.onSort(value, order);
-  }
-
-  makeHeader(field) {
+  makeHeader = (field) => {
     if (field.nonSortable) {
       return <th key={field.value}>{field.label}</th>;
     }
@@ -41,9 +91,9 @@ class SortableTable extends React.Component {
     return (
       <th key={field.value}>
         <a
+          onClick={this.onHeaderClick(field.value, nextSortOrder)}
           role="button"
           tabIndex="0"
-          onClick={this.handleSort(field.value, nextSortOrder)}
         >
           {field.label}
           {sortIcon}
@@ -53,12 +103,11 @@ class SortableTable extends React.Component {
   }
 
   makeRow(item) {
-    const cells = this.props.fields.map(field => (
-      <td key={`${item.id}-${field.value}`}>{item[field.value]}</td>
-    ));
     return (
       <tr key={item.id} className={item.rowClass}>
-        {cells}
+        {this.props.fields.map(field => (
+          <td key={`${item.id}-${field.value}`}>{item[field.value]}</td>
+        ))}
       </tr>
     );
   }
@@ -78,43 +127,5 @@ class SortableTable extends React.Component {
     );
   }
 }
-
-SortableTable.propTypes = {
-  className: PropTypes.string,
-
-  /**
-   * Field value to sort by in either ascending or descending order.
-   * The `value` must be one of the values in the `fields` prop.
-   */
-  currentSort: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    order: PropTypes.oneOf(['ASC', 'DESC']),
-  }).isRequired,
-
-  /**
-   * Mappings of header labels to properties on the objects in `data`.
-   */
-  fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  /**
-   * Each object represents data for a row.
-   * An optional class may be provided to style specific rows.
-   */
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-      values: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-      ),
-      rowClass: PropTypes.string,
-    }),
-  ).isRequired,
-
-  onSort: PropTypes.func,
-};
 
 export default SortableTable;
