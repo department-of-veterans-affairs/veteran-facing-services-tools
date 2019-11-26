@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 class SortableTable extends Component {
   static propTypes = {
+    // Used to pass custom classes.
     className: PropTypes.string,
 
     /**
@@ -15,15 +16,14 @@ class SortableTable extends Component {
       order: PropTypes.oneOf(['ASC', 'DESC']),
     }).isRequired,
 
-    /**
-     * Mappings of header labels to properties on the objects in `data`.
-     */
+    // Mappings of header labels to properties on the objects in `data`.
     fields: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
       }),
     ).isRequired,
+
     /**
      * Each object represents data for a row.
      * An optional class may be provided to style specific rows.
@@ -40,6 +40,7 @@ class SortableTable extends Component {
 
     // A callback for when a header is clicked.
     onHeaderClick: PropTypes.func,
+
     // DEPRECATING in favor of onHeaderClick: A callback for when a header is clicked.
     onSort: PropTypes.func,
   };
