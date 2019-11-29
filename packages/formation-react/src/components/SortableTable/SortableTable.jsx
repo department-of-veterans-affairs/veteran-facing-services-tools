@@ -31,10 +31,11 @@ class SortableTable extends Component {
     data: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+        renderCustomCell: PropTypes.func,
+        rowClass: PropTypes.string,
         values: PropTypes.arrayOf(
           PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         ),
-        rowClass: PropTypes.string,
       }),
     ).isRequired,
 
@@ -43,9 +44,6 @@ class SortableTable extends Component {
 
     // DEPRECATING in favor of onHeaderClick: A callback for when a header is clicked.
     onSort: PropTypes.func,
-
-    // A function that returns JSX to be rendered within a cell.
-    renderCustomCell: PropTypes.func,
   };
 
   onHeaderClick = (value, order) => () => {
@@ -101,11 +99,11 @@ class SortableTable extends Component {
   }
 
   renderCell = (item, field) => {
-    const { renderCustomCell } = this.props;
+    const renderCustomCell = get(item, 'renderCustomCell');
 
-    // If they provided a `renderCustomCell` prop, execute it.
+    // If the item has a `renderCustomCell` property, execute it.
     if (renderCustomCell) {
-      return renderCustomCell(item, field);
+      return renderCustomCell(field);
     }
 
     // Otherwise, return the field value in the item.
