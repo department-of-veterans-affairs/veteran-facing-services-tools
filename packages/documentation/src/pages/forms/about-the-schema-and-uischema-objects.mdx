@@ -140,15 +140,16 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
   // Renders a custom review field on the review page. Only used when you specify a widget
   // component. The `children` parameter is a component from the `'ui:reviewWidget'`, but
   // is only rendered by this custom reviewField if the schema for it is not an `object`
-  // or `array`
+  // or `array`; NOTE: you must return a div with a "review-row" class name and include
+  // child <dt> and <dd> elements to maintain accessibility standards
   'ui:reviewField': ({ children, schema, uiSchema }) => (
-    <dl className="review-row">
+    <div className="review-row">
       <dt>
         {uiSchema['ui:title']}
         {uiSchema['ui:description]}
       </dt>
       <dd>{children}</dd>
-    </dl>
+    </div>
   ),
 
   // Provides a function to make a field conditionally required. The data in the whole form,
