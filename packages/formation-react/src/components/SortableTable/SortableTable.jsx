@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import get from 'lodash/get';
 
 class SortableTable extends Component {
   static propTypes = {
@@ -47,7 +48,7 @@ class SortableTable extends Component {
   };
 
   onHeaderClick = (value, order) => () => {
-    const { onSort } = this.props;
+    const { onHeaderClick, onSort } = this.props;
 
     // This is a legacy prop that is being renamed to `onHeaderClick`.
     if (onSort) {
@@ -55,8 +56,13 @@ class SortableTable extends Component {
       onSort(value, order);
     }
 
+    // Escape early if no `onHeaderClick` prop is provided.
+    if (!onHeaderClick) {
+      return;
+    }
+
     // This replaces `this.props.onSort`.
-    this.props.onHeaderClick(value, order);
+    onHeaderClick(value, order);
   }
 
   renderHeader = (field) => {
