@@ -45,11 +45,6 @@ class SortableTable extends Component {
   onHeaderClick = (value, order) => () => {
     const { onHeaderClick } = this.props;
 
-    // This is a legacy prop that is being renamed to `onHeaderClick`.
-    if (onSort) {
-      console.error('WARNING: The `onSort` prop is now deprecated in favor of the `onHeaderClick` prop for <SortableTable />.');
-    }
-
     // This replaces `this.props.onSort`.
     if (onHeaderClick) {
       onHeaderClick(value, order);
