@@ -56,13 +56,10 @@ class SortableTable extends Component {
       onSort(value, order);
     }
 
-    // Escape early if no `onHeaderClick` prop is provided.
-    if (!onHeaderClick) {
-      return;
-    }
-
     // This replaces `this.props.onSort`.
-    onHeaderClick(value, order);
+    if (onHeaderClick) {
+      onHeaderClick(value, order);
+    }
   }
 
   renderHeader = (field) => {
@@ -104,27 +101,14 @@ class SortableTable extends Component {
     );
   }
 
-  renderCell = (item, field) => {
-    const renderCustomCell = get(item, 'renderCustomCell');
-
-    // If the item has a `renderCustomCell` property, execute it.
-    if (renderCustomCell) {
-      return renderCustomCell(field);
-    }
-
-    // Otherwise, return the field value in the item.
-    return item[field.value];
-  }
-
   renderRow = (item) => {
-    const { renderCell } = this;
     const { fields } = this.props;
 
     return (
       <tr key={item.id} className={item.rowClass}>
         {fields.map(field => (
           <td key={`${item.id}-${field.value}`}>
-            {renderCell(item, field)}
+            {item[field.value]}
           </td>
         ))}
       </tr>
