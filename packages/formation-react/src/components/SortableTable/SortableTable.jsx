@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import get from 'lodash/get';
 
 class SortableTable extends Component {
   static propTypes = {
@@ -32,7 +31,6 @@ class SortableTable extends Component {
     data: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-        renderCustomCell: PropTypes.func,
         rowClass: PropTypes.string,
         values: PropTypes.arrayOf(
           PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
