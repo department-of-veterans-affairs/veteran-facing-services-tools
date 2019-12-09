@@ -40,18 +40,14 @@ class SortableTable extends Component {
 
     // A callback for when a header is clicked.
     onHeaderClick: PropTypes.func,
-
-    // DEPRECATING in favor of onHeaderClick: A callback for when a header is clicked.
-    onSort: PropTypes.func,
   };
 
   onHeaderClick = (value, order) => () => {
-    const { onHeaderClick, onSort } = this.props;
+    const { onHeaderClick } = this.props;
 
     // This is a legacy prop that is being renamed to `onHeaderClick`.
     if (onSort) {
-      console.warn('WARNING: The `onSort` prop is being deprecated in favor of the `onHeaderClick` prop for <SortableTable />.');
-      onSort(value, order);
+      console.error('WARNING: The `onSort` prop is now deprecated in favor of the `onHeaderClick` prop for <SortableTable />.');
     }
 
     // This replaces `this.props.onSort`.
