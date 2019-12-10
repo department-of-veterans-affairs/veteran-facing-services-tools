@@ -42,13 +42,13 @@ class SortableTable extends Component {
     onHeaderClick: PropTypes.func,
   };
 
-  onHeaderClick = (value, order) => () => {
-    const { onHeaderClick } = this.props;
+  static defaultProps = {
+    onHeaderClick: () => {},
+  };
 
+  onHeaderClick = (value, order) => () => {
     // This replaces `this.props.onSort`.
-    if (onHeaderClick) {
-      onHeaderClick(value, order);
-    }
+    this.props.onHeaderClick(value, order);
   }
 
   renderHeader = (field) => {
