@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 const ally = require('ally.js');
 
 /**
@@ -13,7 +15,7 @@ const ally = require('ally.js');
  */
 exports.command = function allyConfirmFocusableObject(selector, callback) {
   return this.execute(
-    sel => {
+    function(sel) {
       const focusableItems = ally.query.focusable({
         context: sel,
         includeContext: true,

@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 const ally = require('ally.js');
 
 /**
@@ -18,7 +20,7 @@ const ally = require('ally.js');
  */
 exports.command = function allyCheckDisabled(selector, disabled, callback) {
   return this.execute(
-    sel => {
+    function(sel) {
       const target = document.querySelector(sel);
       const disabledTarget = ally.is.disabled(target);
 

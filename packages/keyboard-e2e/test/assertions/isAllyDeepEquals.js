@@ -1,3 +1,5 @@
+/* eslint-disable valid-typeof */
+
 /**
  * Checks if the number of focusable and tabbable elements are correct.
  * This is a simple equality check, to make sure the right number of

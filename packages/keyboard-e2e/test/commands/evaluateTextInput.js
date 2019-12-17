@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 /**
  * Evaluate inputs and text areas for basic keyboard functionality:
  *

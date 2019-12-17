@@ -18,6 +18,7 @@
 - [How to simulate "enter" keypress in integration
   test?](https://discuss.emberjs.com/t/how-simulate-enter-keypress-in-integration-test/13762)
 - [StackOverflow: How to write a Nightwatch custom command using jQuery](https://stackoverflow.com/questions/36830349/how-to-write-a-nightwatch-custom-command-using-jquery)
+- [Github Issues: browser.execute doesn't accept arrow functions](https://github.com/nightwatchjs/nightwatch/issues/1920)
 
 ## Global Variable Handling
 

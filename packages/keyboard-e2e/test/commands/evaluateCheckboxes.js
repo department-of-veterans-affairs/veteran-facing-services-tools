@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 /**
  * Evaluate checkboxes for basic keyboard functionality:
  *
@@ -24,7 +26,7 @@ exports.command = function evaluateCheckboxes(selectorArray) {
   const element = selectorArray[0];
   const client = this;
 
-  return client.waitForElementVisible(element, 1000, () => {
+  return client.waitForElementVisible(element, 1000, function() {
     for (let i = 0; i < arrLength; i += 1) {
       this.assert
         .isActiveElement(selectorArray[i])

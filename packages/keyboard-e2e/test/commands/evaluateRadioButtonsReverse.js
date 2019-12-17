@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 /**
  * Evaluate radio buttons for basic reverse keyboard functionality:
  *
@@ -28,7 +30,7 @@ exports.command = function evaluateRadioButtonsReverse(
   const element = selectorArray[0];
   const client = this;
 
-  return client.waitForElementVisible(element, 1000, () => {
+  return client.waitForElementVisible(element, 1000, function() {
     for (let i = arrLength - 1; i >= 0; i -= 1) {
       this.keys(arrowPressed).assert.isActiveElement(selectorArray[i]);
     }

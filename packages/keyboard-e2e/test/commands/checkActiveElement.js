@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 /**
  * Checks if the given element is focused on the page.
  *
@@ -9,7 +11,9 @@
  */
 exports.command = function checkActiveElement(selector, callback) {
   return this.execute(
-    sel => document.querySelector(sel) === document.activeElement,
+    function(sel) {
+      return document.querySelector(sel) === document.activeElement;
+    },
     [selector],
     callback,
   );

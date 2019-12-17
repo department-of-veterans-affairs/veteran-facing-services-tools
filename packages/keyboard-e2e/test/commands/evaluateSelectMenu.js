@@ -1,3 +1,5 @@
+/* eslint-disable func-names, prefer-arrow-callback */
+
 /**
  * Evaluate select menus for basic keyboard functionality:
  *

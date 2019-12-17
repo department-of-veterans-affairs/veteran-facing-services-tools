@@ -1,3 +1,5 @@
+/* eslint-disable valid-typeof */
+
 /**
  * Checks if the query returns an object of focusable element(s). This method can
  * be used as a smoke test to ensure the checks are working properly or to
@@ -17,7 +19,8 @@
  */
 exports.assertion = function isAllyFocusableObject(selector, msg) {
   this.message = msg || `[ALLY.JS] ${selector} returned a focusable object.`;
-  this.pass = value => typeof value === 'object';
+  this.expected = 'object';
+  this.pass = value => typeof value === this.expected;
   this.value = result => result;
   this.command = callback =>
     this.api.allyConfirmFocusableObject(selector, callback);

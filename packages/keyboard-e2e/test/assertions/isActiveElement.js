@@ -1,3 +1,5 @@
+/* eslint-disable valid-typeof */
+
 /**
  * Checks if the given element is focused on the page.
  *
