@@ -1,0 +1,8 @@
+.native-focusable {
+  background: #00DD00;
+}
+
+[type="checkbox"].native-focusable + label,
+[type="radio"].native-focusable + label {
+  color: #3f7ebd;
+}

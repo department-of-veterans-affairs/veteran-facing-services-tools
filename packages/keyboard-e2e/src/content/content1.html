@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Content 1</title>
+    <link rel="stylesheet" href="../css/main.bundle.css" />
+  </head>
+
+  <body data-nwId="content-1-body">
+    <a href="#main-container" id="skip-nav">Skip to Content</a>
+    <header>
+      <h1>Hi, I'm Content One</h1>
+    </header>
+
+    <main id="main-container" tabindex="-1">
+      <form action="#">
+        <fieldset>
+          <legend>
+            <h2>
+              Basic Information
+              <span>All fields required unless marked optional</span>
+            </h2>
+          </legend>
+
+          <label for="name">
+            <span class="c-form__label">Your Name</span>
+            <span class="c-form__label--secondary"
+              >Include first and last name</span
+            >
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-1"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
+
+          <label for="age">
+            <span class="c-form__label">Your Age In Years</span>
+            <span class="c-form__label--secondary">Two digits, 0-9 only</span>
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-2"
+            type="text"
+            id="age"
+            name="age"
+            pattern="[0-9]{1,2}"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2>
+              Methods of Contact
+              <span>All fields required unless marked optional</span>
+            </h2>
+          </legend>
+
+          <label for="email">
+            <span class="c-form__label">Your Email Address</span>
+            <span class="c-form__label--secondary"
+              >Must be a valid address</span
+            >
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-3"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+
+          <label for="telephone">
+            <span class="c-form__label">Your Telephone Number</span>
+            <span class="c-form__label--secondary">Optional</span>
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-4"
+            type="tel"
+            id="telephone"
+            name="telephone"
+          />
+
+          <label for="twitter">
+            <span class="c-form__label">Your Twitter Username</span>
+            <span class="c-form__label--secondary">Optional</span>
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-5"
+            type="text"
+            id="twitter"
+            name="twitter"
+          />
+
+          <label for="keybase">
+            <span class="c-form__label">Your Keybase Username</span>
+            <span class="c-form__label--secondary">Optional</span>
+          </label>
+          <input
+            data-nwId="content-1-form-1-input-6"
+            type="text"
+            id="keybase"
+            name="keybase"
+          />
+
+          <label for="textarea-optional">
+            <span class="c-form__label">Other Social Media Accounts</span>
+            <span class="c-form__label--secondary">Optional</span>
+          </label>
+          <textarea
+            cols="35"
+            data-nwId="content-1-form-textarea-1"
+            id="textarea-optional"
+            rows="5"
+          ></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2>
+              Preferred Ways to Contact You
+              <span>If no boxes are checked, we will default to email</span>
+            </h2>
+          </legend>
+          <ul data-nwId="content-1-form-1-checkboxes">
+            <li>
+              <input
+                data-nwId="content-1-form-1-checkbox-1"
+                id="checkbox-email"
+                type="checkbox"
+                name="checkbox-contacts"
+                value="checkbox-email"
+              />
+              <label for="checkbox-email">Email</label>
+            </li>
+
+            <li>
+              <input
+                data-nwId="content-1-form-1-checkbox-2"
+                id="checkbox-telephone"
+                type="checkbox"
+                name="checkbox-contacts"
+                value="checkbox-telephone"
+              />
+              <label for="checkbox-telephone">Telephone</label>
+            </li>
+
+            <li>
+              <input
+                data-nwId="content-1-form-1-checkbox-3"
+                id="checkbox-twitter"
+                type="checkbox"
+                name="checkbox-contacts"
+                value="checkbox-twitter"
+              />
+              <label for="checkbox-twitter">Twitter</label>
+            </li>
+
+            <li>
+              <input
+                data-nwId="content-1-form-1-checkbox-4"
+                id="checkbox-keybase"
+                type="checkbox"
+                name="checkbox-contacts"
+                value="checkbox-keybase"
+              />
+              <label for="checkbox-keybase">Keybase</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2>
+              Would You Like to Receive Email Updates?
+              <span>You can change your mind any time</span>
+            </h2>
+          </legend>
+          <ul data-nwId="content-1-form-1-radio-buttons">
+            <li>
+              <input
+                data-nwId="content-1-form-1-radio-1"
+                id="radio-yes"
+                type="radio"
+                name="radio-subscribe"
+                value="radio-yes"
+                checked
+              />
+              <label for="radio-yes">Yes, please send me updates</label>
+            </li>
+
+            <li>
+              <input
+                data-nwId="content-1-form-1-radio-2"
+                id="radio-no"
+                type="radio"
+                name="radio-subscribe"
+                value="radio-no"
+              />
+              <label for="radio-no">No, I do not wish to receive updates</label>
+            </li>
+
+            <li>
+              <input
+                data-nwId="content-1-form-1-radio-3"
+                id="radio-maybe"
+                type="radio"
+                name="radio-subscribe"
+                value="radio-maybe"
+              />
+              <label for="radio-maybe">Maybe, ask me tomorrow</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2>Security Questions</h2>
+            <div>
+              <label class="c-form__label" for="sec-1">Question One</label>
+              <select data-nwId="content-1-form-1-select-1" id="sec-1">
+                <option value="value1">What is your favorite color?</option>
+                <option value="value2">What is your favorite car?</option>
+                <option value="value3"
+                  >What is your favorite sports team?</option
+                >
+                <option value="value4"
+                  >What is your favorite subject in school?</option
+                >
+                <option value="value5"
+                  >What is your favorite musician or band?</option
+                >
+              </select>
+            </div>
+          </legend>
+        </fieldset>
+
+        <div>
+          <button data-nwId="content-1-form-1-button-1">Submit</button>
+        </div>
+      </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/ally.js/1.4.1/ally.min.js"></script>
+  </body>
+</html>
