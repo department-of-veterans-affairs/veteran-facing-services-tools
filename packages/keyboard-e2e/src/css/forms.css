@@ -1,0 +1,51 @@
+form {
+  padding: 0 0 3rem;
+}
+
+fieldset {
+  margin-bottom: 2.5rem;
+}
+
+legend {
+  width: 100%;
+}
+
+legend h2 {
+  border-top: 2px solid #727272;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.25rem 0 0 0.125rem;
+}
+
+legend span {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 400;
+  margin: 0.25rem 0 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  border: 1px solid #727272;
+  font-size: 1em;
+  padding: 0.25rem 1rem;
+  width: 25rem;
+}
+
+.c-form__label,
+.c-form__label--secondary {
+  display: block;
+}
+
+.c-form__label {
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.c-form__label--secondary {
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
