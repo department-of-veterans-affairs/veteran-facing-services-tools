@@ -90,7 +90,6 @@ class Modal extends React.Component {
     const focusableElement = this.element.querySelector(
       this.props.focusSelector,
     );
-    debugger;
     if (focusableElement) {
       // we only want to set `lastFocus` when the modal first pops up, not every
       // time the user tabs through all elements in the modal
