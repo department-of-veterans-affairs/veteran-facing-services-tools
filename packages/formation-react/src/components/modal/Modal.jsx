@@ -42,7 +42,6 @@ class Modal extends React.Component {
   teardownModal() {
     if (this.state.lastFocus) {
       this.state.lastFocus.focus();
-      this.setState({ lastFocus: null });
     }
     document.body.classList.remove('modal-open');
     document.removeEventListener('keydown', this.handleDocumentKeyDown, false);
@@ -91,6 +90,7 @@ class Modal extends React.Component {
     const focusableElement = this.element.querySelector(
       this.props.focusSelector,
     );
+    debugger;
     if (focusableElement) {
       // we only want to set `lastFocus` when the modal first pops up, not every
       // time the user tabs through all elements in the modal
