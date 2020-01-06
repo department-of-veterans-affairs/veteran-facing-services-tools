@@ -26,6 +26,7 @@ class Modal extends React.Component {
   componentWillUnmount() {
     if (this.props.visible) {
       this.teardownModal();
+      this.setState({ lastFocus: null })
     }
   }
 
@@ -45,7 +46,6 @@ class Modal extends React.Component {
       setTimeout(() => {
         this.state.lastFocus.focus();
       }, 0)
-      this.setState({ lastFocus: null })
     }
     document.body.classList.remove('modal-open');
     document.removeEventListener('keydown', this.handleDocumentKeyDown, false);
