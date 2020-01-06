@@ -17,7 +17,6 @@ class Modal extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.visible && this.props.visible) {
-      this.setState({ lastFocus: document.activeElement });
       this.setupModal();
     } else if (prevProps.visible && !this.props.visible) {
       this.teardownModal();
@@ -31,6 +30,7 @@ class Modal extends React.Component {
   }
 
   setupModal() {
+    this.setState({ lastFocus: document.activeElement });
     this.applyFocusToFirstModalElement();
     document.body.classList.add('modal-open');
     document.addEventListener('keydown', this.handleDocumentKeyDown, false);
