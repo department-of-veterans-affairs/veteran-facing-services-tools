@@ -17,6 +17,7 @@ class Modal extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.visible && this.props.visible) {
+      this.setState({ lastFocus: document.activeElement });
       this.setupModal();
     } else if (prevProps.visible && !this.props.visible) {
       this.teardownModal();
@@ -26,7 +27,6 @@ class Modal extends React.Component {
   componentWillUnmount() {
     if (this.props.visible) {
       this.teardownModal();
-      this.setState({ lastFocus: null })
     }
   }
 
@@ -97,9 +97,6 @@ class Modal extends React.Component {
     if (focusableElement) {
       // we only want to set `lastFocus` when the modal first pops up, not every
       // time the user tabs through all elements in the modal
-      if (!this.state.lastFocus) {
-        this.setState({ lastFocus: document.activeElement });
-      }
       focusableElement.focus();
     }
   }
