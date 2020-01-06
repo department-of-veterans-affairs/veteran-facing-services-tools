@@ -41,7 +41,10 @@ class Modal extends React.Component {
 
   teardownModal() {
     if (this.state.lastFocus) {
-      this.state.lastFocus.focus();
+      // Ensure last focus is set before completing modal teardown
+      setTimeout(() => {
+        this.state.lastFocus.focus();
+      }, 0)
     }
     document.body.classList.remove('modal-open');
     document.removeEventListener('keydown', this.handleDocumentKeyDown, false);
@@ -49,6 +52,7 @@ class Modal extends React.Component {
     if (this.props.clickToClose) {
       document.removeEventListener('click', this.handleDocumentClicked, true);
     }
+    this.setState({ lastFocus: null })
   }
 
   handleDocumentKeyDown = event => {
