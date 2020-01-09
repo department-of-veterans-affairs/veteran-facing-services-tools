@@ -16,7 +16,7 @@
   margin: 0 auto;
 }
 
-.vads-c-promo-banner__content, .vads-c-promo-banner__close {
+.vads-c-promo-banner__content, .vads-c-promo-banner__close, .vads-c-promo-banner__icon {
   display: table-cell;
 }
 
@@ -24,15 +24,17 @@
   padding: units(1);
   line-height: units(2.5);
   @include media($medium-screen) {
-    padding-left: 0;
+    // padding-left: 0;
   }
 }
 
-.vads-c-promo-banner__content-icon {
+.vads-c-promo-banner__icon {
+  width: 54px;
   margin-right: units(1);
+  padding: units(1) 0;
   display: none;
   @include media($medium-screen) {
-    display: inline-block;
+    display: table-cell;
   }
 }
 
