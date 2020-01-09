@@ -23,9 +23,6 @@
 .vads-c-promo-banner__content {
   padding: units(1);
   line-height: units(2.5);
-  @include media($medium-screen) {
-    // padding-left: 0;
-  }
 }
 
 .vads-c-promo-banner__icon {
