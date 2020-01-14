@@ -47,35 +47,42 @@ Drupal is queried in the Jenkins build process for any vets-website branch. On J
 
 ### Automated accessibility checking
 
-All pages created and managed with the content management system are required to pass accessiblity scans for [WCAG2 Level A and AA](https://www.w3.org/TR/WCAG20/) compliance. The Jenkins build process automatically scans every page, and will break on Section 508 or WCAG violations. To help prevent this, we have [created an accessibility check](https://github.com/department-of-veterans-affairs/vets-website/pull/10836) that can be used on `localhost` and the CMS preview servers.
+All pages created and managed with the content management system are required to pass accessiblity scans for [WCAG2 Level A and AA](https://www.w3.org/TR/WCAG20/) compliance. To help prevent a broad class of errors, we have [created an accessibility checker](https://github.com/department-of-veterans-affairs/vets-website/pull/10836) that can be used on localhost and the [CMS preview servers](#preview-server) listed below.
 
 #### Reviewing issues on localhost
 
-1. Start your SOCKS proxy
-2. Open a terminal window and type the following command except the dollar sign:
-3. `$ npm run build -- --pull-drupal --entry=static-pages --accessibility`
-4. When Step 3 is complete, type the following command:
-5. `$ npm run preview`
-6. Open a browser window and enter URL **http://localhost:3001/preview?nodeId=67**
-7. Click on the light blue banner at the top of the screen to learn more about any accessibility issues
+- Start your SOCKS proxy
+- Open a terminal window
+- Build Va.gov locally (run this command in the terminal):
+  ```
+  $ npm run build -- --pull-drupal --entry=static-pages --accessibility
+  ```
+- When Step 3 is complete, type the following command in the terminal:
+  ```
+  $ npm run preview
+  ```
+- Open a browser window and copy this URL: **http://localhost:3001/preview?nodeId=67**
+- Click on the light blue banner at the top of the screen to learn more about any accessibility issues
 
 #### Reviewing issues on a preview server
 
-1. Start your SOCKS proxy
-2. Append `/preview?nodeId=<UNIQUE_ID>` to your preview environment URL in a new browser window
-3. Click on the light blue banner at the top of the screen to learn more about any accessibility issues
+- Start your SOCKS proxy
+- Open a browser window and copy this URL: **http://preview-dev.vfs.va.gov/preview?nodeId=67**
+- Click on the light blue banner at the top of the screen to learn more about any accessibility issues
 
 #### Interpreting accessibility violations and warnings
 
 The accessibility preview shows Section 508 and WCAG violations, as well as best practice warnings. The Jenkins build process will break on accessibility violations, but not best practice warnings.
 
-Click the text that reads `There are N accessibility issues on this page` to expand a list of issues. Click an individual issue to get more detailed information. Each issue contains five elements, the most important being **Tags**.
+Click the text **There are N accessibility issues on this page** inside the light blue banner. The text will expand to show a list of accessibility issues. Click an individual issue to get more detailed information.
 
-1. Description - a brief explanation of the issue
-2. Impact - the amount of trouble this issue could cause for users
-3. Tags - the type of issue. Any tags that include **wcag2** or **wcag1** are violations and **must** be fixed.
-4. Help - a link to the Deque University help page for this issue
-5. HTML - a text rendering of the HTML fragment that is causing or contains the issue
+Each issue contains five elements:
+
+- **Description:** a brief explanation of the issue
+- **Impact:** the amount of trouble this issue could cause for users
+- **Tags:** the type of issue. Any tags that include [WCAG violations](https://www.w3.org/TR/WCAG20/) and **must** be fixed.<br/>_This is the most important item to focus on._
+- **Help:** a link to the Deque University help page for this issue
+- **HTML:** a text rendering of the HTML fragment that is causing or contains the issue
 
 If you are having trouble determining why an accessibility issue is being shown, or would like guidance on best practices, reach out to the VSP product support team on Slack.
 
