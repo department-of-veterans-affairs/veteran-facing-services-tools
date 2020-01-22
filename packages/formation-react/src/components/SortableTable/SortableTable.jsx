@@ -82,7 +82,6 @@ class SortableTable extends Component {
         <button
           className="va-button-link vads-u-font-weight--bold vads-u-color--base vads-u-text-decoration--none"
           onClick={this.onHeaderClick(field.value, nextSortOrder)}
-          role="button"
           tabIndex="0"
         >
           {field.label}
