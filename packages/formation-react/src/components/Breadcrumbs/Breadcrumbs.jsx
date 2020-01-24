@@ -28,16 +28,11 @@ class Breadcrumbs extends Component {
   };
 
   render() {
-    const { ariaLabel, customClasses, className, id, listId, mobileFirstProp } = this.props;
+    const { ariaLabel, className, id, listId, mobileFirstProp } = this.props;
 
     // Derive IDs.
     const breadcrumbId = id || uniqueId('va-breadcrumbs-');
     const breadcrumbListId = listId || uniqueId('va-breadcrumbs-list-');
-
-    // Warn if they are using legacy props.
-    if (customClasses) {
-      console.warn('The prop `customClasses` for the <Breadcrumbs /> component has been deprecated. Please use the prop `className` instead.')
-    }
 
     return (
       <nav
