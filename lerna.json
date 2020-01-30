@@ -1,10 +1,5 @@
 {
-  "packages": [
-    "packages/documentation/*",
-    "packages/formation/*",
-    "packages/formation-react/*",
-    "packages/vagov-eslint/*"
-  ],
+  "packages": ["packages/*"],
   "version": "independent",
   "npmClient": "yarn",
   "npmClientArgs": ["--no-lockfile"]
