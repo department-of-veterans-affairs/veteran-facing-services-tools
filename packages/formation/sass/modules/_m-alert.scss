@@ -8,6 +8,8 @@
   width: 100%;
 
   &::before {
+    display: block;
+    width: auto;
     background: none;
     font-family: "Font Awesome 5 Free";
     font-size: 2rem;
