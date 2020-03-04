@@ -1,3 +1,5 @@
+# https://help.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions#starting-with-the-nodejs-workflow-template
+
 name: Node.js CI
 
 on: [push]
@@ -12,7 +14,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+
+      # https://github.com/tcort/markdown-link-check#installation
       - run: npm install -g markdown-link-check
+
         env:
           CI: true
+
+      # https://github.com/tcort/markdown-link-check#check-links-from-a-local-markdown-folder-recursive
       - run: find . -name \*.md -exec markdown-link-check {} \;
