@@ -429,6 +429,8 @@ To configure this feature, place a `preSubmitInfo` object in the `formConfig`. T
 * `field`: The name of the form field for the required checkbox. This field has the value `true` in the submitted form data.
 * `label`: A text string or React element that labels the checkbox.
 * `error`: A text string or React element displayed as an error message if the user attempts to submit the form without checking the checkbox.
+* `customComponent`: An override component that will replace the default "PrivacyAgreementTemplate" inside the preSubmitInfo component.
+
 
 This is an example of `preSubmitInfo`:
 
@@ -438,12 +440,16 @@ preSubmitInfo: {
   field: 'privacyAgreementAccepted',
   label: <span>I have read and accept the <a href="/privacy">privacy policy</a>.</span>,
   error: 'You must accept the privacy policy before continuing',
+  customComponent: ImportedCustomComponent
 }
 ```
-
+#### default PrivacyAgreementTemplate:
 ![Required checkbox before form submission](../../images/forms/Required-Checkbox.jpg)
 
-### Usage guidelines
+### example of customComponent override:
+![Required checkbox before form submission](../../images/forms/preSubmitInfo-customComponent.jpeg)
+
+#### Usage guidelines
 
 If you don't specify a `preSubmitInfo` section, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
