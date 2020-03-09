@@ -1,33 +1,177 @@
 ---
-title: Front end feature flags
+title: Feature toggles
 tags: vagovprod, vagovstaging, vagovdev
 ---
 
-# Front end feature flags
+# Feature toggles
 
-Agile and user centric workflows often use testing of partially complete features to refine or research experiences. This document provides recommendations on using feature flags to manage new unreleased features in our continuous integration environment.
+Agile and user centric workflows often use testing of partially complete features to refine or research experiences. VSP provides feature toggles (also known as feature flags or feature flippers) that can be used in both vets-api and vets-website to manage unreleased features in a continuous integration environment. 
 
-## Enhancements to Existing Applications
+Feature toggles enable VFS teams to test out new functionality (applications, features, VA.gov content pages, Metalsmith) in the VSP development, staging, or production environments for a set of users. Teams can enable or disable a feature for all users, a percentage of all users, a percentage of all logged in users, a list of users, or users defined in a method.
 
-**STAGING**: Unreleased features should always be made available on [staging.va.gov](https://staging.va.gov) using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/10380007a3ec77047be10e4fb2a42d343c22c5d3/src/platform/utilities/environment/index.js)
+Currently feature toggles are managed by designated administrators (ask in #VSP-Platform-Support slack), but users will be allowed more access in the future. For now, tag the following groups in Slack for more information:
+- Troubleshooting: #vsp-product-support
+- Onboarding: #vsp-product-support
+- Maintenance: #vsp-tools-fe
+- Training documents: #vsp-tools-fe
+- Product feedback or new feature requests: #vsp-tools-fe
 
-**PRODUCTION**: Unreleased features can be made available on www.va.gov by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/92811be079cac99884abc28c2c96da61f08fe2a5/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value
-   - Turning on the enhancement can be done by adding this name/value to the local storage
-      - With a console command ran by the user in the browser, or
-      - With application specific code that automatically checks when a certain query parameter is present.
+Feature toggles are powered by an open-source gem called [Flipper gem](https://github.com/jnunemaker/flipper). Feature toggles:
+- Allow for production toggle switching without redeploying vets-website
+- Provide a user interface for managing feature toggle behavior
+- Provide code helpers for handling common user experience scenarios
 
-## New Applications
+## Client behavior and other design considerations
 
-**STAGING**: Unreleased applications should always be made available on [staging.va.gov](https://staging.va.gov) using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/10380007a3ec77047be10e4fb2a42d343c22c5d3/src/platform/utilities/environment/index.js)
+1. During the build process, feature toggle values are retrieved and included in each of the static HTML pages.
+2. When the page loads, the feature toggle client retrieves the bootstrapped values from the static HTML and renders the page using those values.
+3. After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service.
+4. The page is updated using the latest feature toggle values.
 
-**PRODUCTION**:
-- Unreleased applications can be made available on www.va.gov by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/92811be079cac99884abc28c2c96da61f08fe2a5/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value
-    - Turning on the application can be done by adding this name/value to the local storage
-      - With a console command ran by the user in the browser, or
-      - With application specific code that automatically checks when a certain query parameter is present.
-- Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/e1030d1a499e39eaeceb8f4bdcbd33baf7ee946d/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
+### User experience (UX) considerations
 
-## Content pages
+There are a couple of ways to use feature toggles, both of which have UX trade offs:
+
+- **Use the bootstrapped values on the initial render.** The application uses the values from the static page first and _updates_ the markup if the values retrieved from the service are different. This works well for content that is not visible on the initial render of the page. Ideally, the update is either not visible to users or comes into view using a simple CSS transition.
+- **Ignore the bootstrapped values and show a loading state for the feature.** The applicaton shows a loading state for the new feature while the toggle values are retrieved from the service. This works well for content that is visible on the initial render of the page. There's no standardized approach — the way is dependent on your UX goals.
+
+### <a id="writing-good-feature-flags">Writing good feature flags</a>
+
+- New features or applications should be merged often so they can be included as part of the daily continuous integration deploy.
+- Feature flagged enhancements should be made with code that is [easy to delete](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to) — ideally done simply and with as few checks as possible. Repeating yourself is acceptable in feature flagged code.
+- Making code that is easy to delete ensures that deprecated code is quickly removed once a feature is released.
+- Making features or applications available in production should only be done as needed for testing with users.
+
+## <a id="flipper_ui">Enabling and disabling features</a>
+
+You can enable or disable features in the Flipper user interface (UI):
+
+1. Navigate to the Flipper UI at the following URLs:
+
+|Environment|URL|
+|---|---|
+|Dev|http://localhost:3000/flipper/features|
+|Staging|https://staging-api.va.gov/flipper/features| 
+|Production|https://api.va.gov/flipper/features|
+
+2. To access the Flipper UI, you must sign in using an identity-verified id.me user that is listed in [settings.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml):
+
+```
+flipper:
+  admin_user_emails:
+    - email@email.us
+    - email1@email.us
+```
+
+   <b>Notes:</b> 
+   - If you are not on the list, you can add yourself or your teammates in the file. 
+   - If you're not sure if your account is identity-verified, you can check by going to [this page](https://www.va.gov/profile/). If you need to verify your account you'll see a "Verify with ID.me" button.
+
+3. Once you have logged into the Flipper UI, you can perform the following actions:
+   - Select "Enable for everyone" or "Disable for everyone" to enable or disable the feature for all users. 
+   - For a gradual rollout or an a/b test you can use "Percentage of Logged in Users." "Percentage of Logged in Users" will enable the feature for the same users each time they return to the site as long as you don't change the percentage. 
+   - Use "Percentage of Time" to enable a feature for all users for a percentage of time.
+   - Register a "Group" of users to enable a feature for.
+   - You can also roll out a feature for a select few users by adding their email address to the “Users” section. For performance reasons, the list of users is intended to be small — do not use this option for hundreds of users.
+
+   The values of each toggle are cached in memory for one minute, so it may take that long to see the effect of enabling or disabling the toggle.
+     
+   <img width="1287" alt="Screen Shot" src="https://user-images.githubusercontent.com/19188/74881655-b4d11a80-533b-11ea-8e97-fdea24c10830.png">
+
+## <a id="add-feature-flag">Adding a new feature toggle</a>
+
+Follow these steps to add and use a new feature toggle in vets-website:
+
+1. Determine your feature toggle name.
+
+<b>Note:</b> There are no naming conventions yet. Current examples put the application name first, such as _facilityLocatorShowCommunityCares_ and _profileShowDirectDeposit_.
+
+2. Add the feature name to vets-api (in snake case) by updating [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml):
+
+  ```yml
+ features:
+   app_name_then_your_feature_name:
+     description: >
+       On https://www.va.gov/find-locations/ enables search box.
+       This toggle is owned by the search team.
+  ```
+
+3. Run vets-api locally. This can be done on master after your pull request (PR) is merged or off of your feature branch.
+
+4. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
+
+5. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js):
+
+ ```js
+const FEATURE_FLAG_NAMES = Object.freeze({
+  showYourFeatureName: 'appNameThenYourFeatureName',
+ ```
+
+6. Submit a PR for each feature. Crosslinking the PRs in a comment will make it easier for the reviewers to check.
+
+7. Use the selector helper to build a selector for your feature toggle. For example:
+
+ ```js
+ // import the toggleValues helper
+ import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
+ 
+ // use the toggleValues helper to select the toggle values list
+ export const appNameThenYourFeatureName = state =>
+  toggleValues(state).appNameThenYourFeatureName;
+ ```
+ 
+ The `toggleValues` object is simply a flat list of `toggleName` and boolean key value pairs.
+
+8. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into your component.
+
+ ```js
+ function mapStateToProps(state) {
+   return {
+     showYourFeatureName:
+       appNameThenYourFeatureName(state),
+   };
+ }
+
+ ...
+ // inside your connected component
+ 
+ render() {
+    const { showYourFeatureName } = this.props;
+ 
+    return (
+      { showYourFeatureName && <NewFeature /> }
+    );
+ }
+ ```
+ 
+ Currently the feature toggle values are only available on the global redux state.
+
+9. Use the [Flipper UI](#flipper_ui) to test out the toggle locally.
+
+  ![](../../../images/platform/feature-flags/change-feature-toggle-value.png)
+  
+  Updating the feature toggle state on the website requires refreshing the page. This value can take up to a minute to update in staging and production.
+
+### Other considerations
+
+- Each environment has its own set of feature toggle values.
+- Test your feature toggle in staging before using it in production.
+- Remove release toggles as soon as they are not needed.
+- Make toggles that are easy to delete by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code
+
+## Testing new applications and updates to existing applications
+_Use the methods described in the sections about [enabling and disabling features](#flipper_ui) and [adding feature toggles](#add-feature-flag) before using this method to test features._
+
+In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/10380007a3ec77047be10e4fb2a42d343c22c5d3/src/platform/utilities/environment/index.js).
+
+In the [production environment](https://www.va.gov), you can test unreleased features and applications by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/92811be079cac99884abc28c2c96da61f08fe2a5/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value. You can do this by:
+- Adding the feature name/value to local storage with a console command in the browser
+- Using application specific code that automatically checks when a certain query parameter is present
+
+<b>Note:</b> Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/e1030d1a499e39eaeceb8f4bdcbd33baf7ee946d/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
+
+## Testing content pages
+_Use the methods described in the sections about [enabling and disabling features](#flipper_ui) and [adding feature toggles](#add-feature-flag) before using this method to test features._
 
 ### App-landing pages generated by manifest.json
 Applications can control the HTML landing page associated with the application via a `template` property in the application's `manifest.json`. Properties defined inside the `template` property will pass through the Metalsmith templating process the same way as a vagov-content `.md` file. This means that via the `template` property, your `manifest.json` can implement a feature flag the same way as a `.md` file to prevent its HTML page from rendering in production environments. For example:
@@ -67,19 +211,12 @@ vagovdev: false
 localhost: false
 ```
 
-## Writing good feature flags
-
-- New features or applications should be merged often so they can be included as part of the daily continuous integration deploy.
-- Feature flagged enhancements should be made with code that is [easy to delete](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to)- ideally done simply and with as few checks as possible. Repeating yourself is okay in feature flagged code.
-  - Making code that's easy to delete ensures that deprecated code is quickly removed once a feature is released.
-- Making features or applications available in production should done only as needed for testing with users.
-
 ## CMS feature flags
+_Use the methods described in the sections about [enabling and disabling features](#flipper_ui) and [adding feature toggles](#add-feature-flag) before using this method to test features._
 
-Va.gov creates some pages based on content from the VA's Drupal CMS. The CMS has its own content model, which can sometimes change. When those changes modify the existing structure of the content model, the queries and templates in vets-website that expect a different model may break. And because the CMS and vets-website are separate systems with different deployment processes, we can't push up changes in both systems simultaneously. In order to keep the two systems in sync, we need to be able to turn features on and off in vets-website depending on what environment we're in, and update that feature state whenever a cms deployment happens.
+VA.gov creates some pages based on content from the VA's Drupal CMS. The CMS has its own content model, which can sometimes change. When those changes modify the existing structure of the content model, the queries and templates in vets-website that expect a different model may break. And because the CMS and vets-website are separate systems with different deployment processes, we can't push up changes in both systems simultaneously. In order to keep the two systems in sync, we need to be able to turn features on and off in vets-website depending on what environment we're in, and update that feature state whenever a cms deployment happens.
 
 We've created some infrastructure to make this a little easier to do.
-
 
 ### Creating a flag and turning it on or off
 
@@ -105,127 +242,3 @@ All liquid templates have access to the current feature flag state:
 ```
 
 **Note:** From within the JavaScript context, the feature flags are in `global.cmsFeatureFlags`, but within the Liquid template context, they can be found in `enabledFeatureFlags`.
-
-## Release Toggles
-
-_This feature is in active development and will replace the current approaches to managing release toggles._
-
-### Overview
-
-- Allows for production toggle switching without redeploying `vets-website`
-- Provides a UI for managing feature toggle behavior
-- Provides code helpers for handling common UX scenarios
-
-### Client behavior
-
-1. During the build process, feature toggle values are retrieved and included in each of the static html pages.
-2. When the page loads, the feature toggle client retrieves the bootstrapped values from the static html and renders the page using those values.
-3. After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service.
-4. The page is updated using the latest feature toggle values.
-
-### User experience considerations
-
-There are a couple ways to do release toggles that each have UX trade offs.
-
-- **Use the bootstrapped values on the initial render**
-
-  - The app will use the values from the static page first and _update_ the markup if the values retrieved from the service are different
-  - This works well for content that is not visible on the initial render of the page. Ideally, the update is either not be visible to the user or animates into the view using a simple CSS transition
-
-- **Ignore the bootstrapped values and show a loading state for the feature**
-
-  - The app will show a loading state for the new feature while the toggle values are retrieved from the service
-  - This works well for content that is visible on the initial render of the page. There's no standardized approach; the way this is updated is depdendent on the UX goals.
-
-### Flipper UI
-
-- Overview of toggle management UI can be found [here](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md)
-
-### Adding a new feature toggle
-
-Follow these steps to add and use a new feature toggle to use in `vets-website`
-
-1. Determine your feature toggle name.
-
-_There are no naming conventions yet. Current examples namespace with the app name first e.g. facilityLocatorShowCommunityCares, profileShowDirectDeposit_
-
-2. Add the feature toggle name to
- - `vets-website` using camel case: [/src/platform/utilities/feature-toggles/feature-toggle-query-list.json](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/feature-toggle-query-list.json)
-
- ```json
-{
-    "featureToggleQueryList": ["appNameThenYourFeatureName"]
-}
- ```
-
- - `vets-api` using snake case: [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml)
-
-  ```yml
- features:
-   app_name_then_your_feature_name:
-     description: >
-       On https://www.va.gov/find-locations/ enables search box.
-       This toggle is owned by the search team.
-  ```
-
-3. Submit a PR for each of these.
-
-_Crosslinking the PRs in a comment will make it easier for the reviewers to check_
-
-4. Run `vets-api` locally
-
-_This can be done on master after your PR is merged or off of your feature branch_
-
-5. Navigate to the dev Flipper Admin: [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name.  If not, restart your rails server.
-
-_See the Flipper admin [documentation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/feature-toggles.md#managing-feature-toggles) for the username / password_
-
-6. Use the selector helper to build a selector for your feature toggle. For example:
-
-```js
-// import the toggleValues helper
-import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
-
-// use the toggleValues helper to select the toggle values list
-export const appNameThenYourFeatureName = state =>
-  toggleValues(state).appNameThenYourFeatureName;
-```
-
-_The toggleValues object is simply a flat list of toggleName -> boolean key value pairs._
-
-7. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into your component.
-
-```js
-function mapStateToProps(state) {
-  return {
-    showYourFeatureName:
-      appNameThenYourFeatureName(state),
-  };
-}
-
-...
-// inside your connected component
-
-render() {
-   const { showYourFeatureName } = this.props;
-
-   return (
-     { showYourFeatureName && <NewFeature /> }
-   );
-}
-```
-
-_Currently the feature toggles values are only available on the global redux state._
-
-8. Use the Flipper admin to test out the toggle locally.
-
-  ![](../../../images/platform/feature-flags/change-feature-toggle-value.png)
-
-_Updating the feature toggle state on the website requires refreshing the page. This value can take up to a minute to update in staging and production._
-
-#### Other considerations
-
-- Each environment has its own set of feature toggle values.
-- Test your feature toggle in staging before using it in production.
-- Remove release toggles as soon as they are not needed.
-- Make toggles that are easy to delete by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code
