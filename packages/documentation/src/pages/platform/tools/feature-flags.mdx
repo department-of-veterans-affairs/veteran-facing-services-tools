@@ -7,13 +7,6 @@ tags: vagovprod, vagovstaging, vagovdev
 
 VSP provides feature toggles (also known as feature flags or feature flippers) that can be used in both vets-api and vets-website to manage unreleased features in a continuous integration environment. Feature toggles enable VFS teams to test out new functionality (applications, features, VA.gov content pages, Metalsmith) in the VSP development, staging, or production environments for a set of users. Teams can enable or disable a feature for all users, a percentage of all users, a percentage of all logged in users, a list of users, or users defined in a method.
 
-Currently feature toggles are managed by designated administrators (ask in #VSP-Platform-Support slack), but users will be allowed more access in the future. For now, tag the following groups in Slack for more information:
-- Troubleshooting: #vsp-product-support
-- Onboarding: #vsp-product-support
-- Maintenance: #vsp-tools-fe
-- Training documents: #vsp-tools-fe
-- Product feedback or new feature requests: #vsp-tools-fe
-
 Feature toggles:
 - Allow for production toggle switching without redeploying vets-website
 - Provide a user interface for managing feature toggle behavior
@@ -123,7 +116,7 @@ You can enable or disable features in the Flipper UI:
 |Staging|https://staging-api.va.gov/flipper/features| 
 |Production|https://api.va.gov/flipper/features|
 
-2. To access the Flipper UI, you must sign in using an identity-verified id.me user that is listed in [settings.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml):
+2. To access the Flipper UI, you must sign in using an [identity-verified id.me user](https://github.com/department-of-veterans-affairs/va.gov-team/blob/3290d3c0a6390922efd4a6adb23607ac6f7b8f53/products/identity-personalization/va.gov-login-process.md) that is listed in [settings.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml):
 
 ```
 flipper:
@@ -230,3 +223,12 @@ All liquid templates have access to the current feature flag state:
 ```
 
 **Note:** From within the JavaScript context, the feature flags are in `global.cmsFeatureFlags`, but within the Liquid template context, they can be found in `enabledFeatureFlags`.
+
+## Communication
+
+Currently feature toggles are managed by designated administrators (ask in #VSP-Platform-Support slack), but users will be allowed more access in the future. For now, tag the following groups in Slack if you need more information:
+- Troubleshooting: #vsp-product-support
+- Onboarding: #vsp-product-support
+- Maintenance: #vsp-tools-fe
+- Training documents: #vsp-tools-fe
+- Product feedback or new feature requests: #vsp-tools-fe
