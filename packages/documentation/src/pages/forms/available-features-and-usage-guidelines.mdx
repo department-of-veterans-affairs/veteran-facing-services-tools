@@ -443,17 +443,17 @@ preSubmitInfo: {
   CustomComponent: CustomPreSubmitComponent
 }
 ```
-#### Default `PrivacyAgreement`
+### Default `PrivacyAgreement`
 ![Required checkbox before form submission](../../images/forms/Required-Checkbox.jpg)
 
-#### `CustomComponent` example
+### `CustomComponent` example
 ![Required checkbox before form submission](../../images/forms/preSubmitInfo-customComponent.jpeg)
 
-#### Usage guidelines
+### Usage guidelines
 
 If you don't specify a `preSubmitInfo` section, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
-`sectionCompleted` is a function which expects a single boolean parameter indicating when all conditions of your `CustomPreSubmitComponent` are met. If not toggled to true form will not submit.
+`sectionCompleted` is a function which expects a single boolean parameter indicating when all conditions of your `preSubmitInfo.CustomComponent` are met. Until `sectionCompleted` is called with `true`, the form will not submit.
 
 For the code implementation, see [PreSubmitSection](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/PreSubmitSection.jsx) and [SubmitController](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/review/SubmitController.jsx).
 
