@@ -75,12 +75,12 @@ import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
 
 // use the toggleValues helper to select the toggle values list
 export const appNameThenYourFeatureName = state =>
- toggleValues(state).appNameThenYourFeatureName;
+  toggleValues(state).appNameThenYourFeatureName;
 ```
 
 8. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into your component.
 
-**Note:** Currently the feature toggle values are only available on the global redux state.
+   **Note:** Currently the feature toggle values are only available on the global redux state.
 
 ```js
 function mapStateToProps(state) {
