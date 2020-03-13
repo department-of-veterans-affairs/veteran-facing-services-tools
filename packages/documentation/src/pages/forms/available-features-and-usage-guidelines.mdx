@@ -461,7 +461,7 @@ preSubmitInfo: {
 
 | Prop | Description | Required |
 | -------- | ------ | ------ |
-| formData | Data object from the rest of the form, so your CustomComponent can be reactive to external data | false |
+| formData | Data object containing the form’s data so your `CustomComponent` can be reactive to form changes | false |
 | preSubmitInfo | Data object, See table above | false |
 | sectionCompleted | Is a function, provided by `PreSubmitSection`, which expects a single boolean parameter indicating when all conditions of your `preSubmitInfo.CustomComponent` are met. Until `sectionCompleted` is called with `true`, the form will not submit. | true |
 | showError | Boolean to toggle errors, errors can also be handled internally | false |
