@@ -6,7 +6,7 @@ module.exports = {
     description: `Resources and documentation for Development within the VA.gov project`,
     siteUrl: `https://department-of-veterans-affairs.github.io/veteran-facing-services-tools`,
     title: `VA.gov | Client Application Documentation`,
-    sidebar: require('./src/sidebar.js')
+    sidebar: require('./src/sidebar.js'),
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
@@ -14,10 +14,11 @@ module.exports = {
       resolve: 'gatsby-source-git',
       options: {
         name: 'va.gov-team',
-        remote: 'https://github.com/department-of-veterans-affairs/va.gov-team.git',
+        remote:
+          'https://github.com/department-of-veterans-affairs/va.gov-team.git',
         branch: 'master',
-        patterns: 'platform/working-with-vsp/**'
-      }
+        patterns: 'platform/working-with-vsp/**',
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -50,17 +51,20 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1035,
-              sizeByPixelDensity: true
-            }
+              sizeByPixelDensity: true,
+            },
           },
           {
-            resolve: path.resolve(__dirname, './plugins/remark/gatsby-remark-mdx-mermaid'),
+            resolve: path.resolve(
+              __dirname,
+              './plugins/remark/gatsby-remark-mdx-mermaid',
+            ),
           },
           {
-            resolve: 'gatsby-remark-slug'
+            resolve: 'gatsby-remark-slug',
           },
         ],
-      }
+      },
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
@@ -68,8 +72,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `../formation-react/src/components`,
-        name: 'components'
-      }
+        name: 'components',
+      },
     },
     `gatsby-transformer-react-docgen`,
     `gatsby-transformer-remark`,
@@ -85,9 +89,17 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
             title: node => {
-              if (node.context && node.context.frontmatter && node.context.frontmatter.title) {
+              if (
+                node.context &&
+                node.context.frontmatter &&
+                node.context.frontmatter.title
+              ) {
                 return node.context.frontmatter.title;
-              } else if (node.context && node.context.sourceUrl && node.context.title) {
+              } else if (
+                node.context &&
+                node.context.sourceUrl &&
+                node.context.title
+              ) {
                 // Search by title derived from documents pulled from the GitHub repo.
                 return node.context.title;
               } else {
@@ -97,7 +109,11 @@ module.exports = {
               return '';
             },
             tags: node => {
-              if (node.context && node.context.frontmatter && node.context.frontmatter.tags) {
+              if (
+                node.context &&
+                node.context.frontmatter &&
+                node.context.frontmatter.tags
+              ) {
                 return node.context.frontmatter.tags;
               }
 
@@ -109,4 +125,4 @@ module.exports = {
       },
     },
   ],
-}
+};
