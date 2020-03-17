@@ -13,7 +13,14 @@ Feature toggles:
 - Provide code helpers for handling common user experience scenarios
 - Are powered by an open-source gem called [Flipper gem](https://github.com/jnunemaker/flipper)
 
-## Client behavior and other design considerations
+See the following sections for information about creating feature toggles:
+- [Client behavior and other design considerations](#client)
+- Adding a new feature toggle
+   - [Frontend](#add-feature-flag) 
+   - [Backend](#backend)
+- [Enabling and disabling features](#flipper-ui)
+
+## <a id="client">Client behavior and other design considerations</a>
 
 1. During the build process, feature toggle values are retrieved and included in each of the static HTML pages.
 2. When the page loads, the feature toggle client retrieves the bootstrapped values from the static HTML and renders the page using those values.
@@ -34,7 +41,7 @@ There are a couple of ways to use feature toggles, both of which have UX trade o
 - Remove feature toggles as soon as they are not needed.
 - Make toggles that are [easy to delete](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to) by gating a behavior in as few places as possible. It's often better to have blocks of repeating code that can be quickly deleted later than it is to gate several small pieces of code.
 
-## <a id="add-feature-flag">Adding a new feature toggle</a>
+## <a id="add-feature-flag">Adding a new feature toggle (frontend)</a>
 
 Follow these steps to add and use a new feature toggle in vets-website:
 
@@ -102,9 +109,31 @@ render() {
 }
 ```
 
-9. Use the [Flipper UI](#flipper_ui) to test out the toggle locally. Refresh the page to update the feature toggle state. This value can take up to a minute to update in staging and production.
+9. Use the [Flipper UI](#flipper-ui) to test out the toggle locally. Refresh the page to update the feature toggle state. This value can take up to a minute to update in staging and production.
 
-#### Backend example
+## <a id="backend">Adding a new feature toggle (backend)</a>
+
+Follow these steps to add and use a new feature toggle in vets-website:
+
+1. Determine your feature toggle name.
+
+   <b>Note:</b> There are no naming conventions yet. Current examples put the application name first, such as _facilityLocatorShowCommunityCares_ and _profileShowDirectDeposit_.
+
+2. Add the feature name to vets-api (in snake case) by updating [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml):
+
+  ```yml
+ features:
+   app_name_then_your_feature_name:
+     description: >
+       On https://www.va.gov/find-locations/ enables search box.
+       This toggle is owned by the search team.
+  ```
+
+3. Run vets-api locally. This can be done on master after your pull request (PR) is merged or off of your feature branch.
+
+4. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
+
+### Backend example
 
 ```rb
 def base_method_name(params)
@@ -140,7 +169,7 @@ RSpec.describe Object do
 end
 ```
 
-## <a id="flipper_ui">Enabling and disabling features</a>
+## <a id="flipper-ui">Enabling and disabling features</a>
 
 You can enable or disable features in the Flipper UI:
 
@@ -176,8 +205,10 @@ flipper:
      
    <img width="1287" alt="Screen Shot" src="https://user-images.githubusercontent.com/19188/74881655-b4d11a80-533b-11ea-8e97-fdea24c10830.png">
 
+_The following sections contain information that will be phased out._
+
 ## Testing new applications and updates to existing applications
-_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper_ui) feature toggles. The method described in this section will be phased out._
+_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
 
 In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/10380007a3ec77047be10e4fb2a42d343c22c5d3/src/platform/utilities/environment/index.js).
 
@@ -188,7 +219,7 @@ In the [production environment](https://www.va.gov), you can test unreleased fea
 <b>Note:</b> Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/e1030d1a499e39eaeceb8f4bdcbd33baf7ee946d/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
 
 ## Testing content pages
-_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper_ui) feature toggles. The method described in this section will be phased out._
+_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
 
 ### App-landing pages generated by manifest.json
 Applications can control the HTML landing page associated with the application via a `template` property in the application's `manifest.json`. Properties defined inside the `template` property will pass through the Metalsmith templating process the same way as a vagov-content `.md` file. This means that via the `template` property, your `manifest.json` can implement a feature flag the same way as a `.md` file to prevent its HTML page from rendering in production environments. For example:
@@ -229,7 +260,7 @@ localhost: false
 ```
 
 ## Testing CMS feature flags
-_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper_ui) feature toggles. The method described in this section will be phased out._
+_Use the method described above to [add](#add-feature-flag) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
 
 VA.gov creates some pages based on content from the VA's Drupal CMS. The CMS has its own content model, which can sometimes change. When those changes modify the existing structure of the content model, the queries and templates in vets-website that expect a different model may break. And because the CMS and vets-website are separate systems with different deployment processes, we can't push up changes in both systems simultaneously. In order to keep the two systems in sync, we need to be able to turn features on and off in vets-website depending on what environment we're in, and update that feature state whenever a cms deployment happens.
 
