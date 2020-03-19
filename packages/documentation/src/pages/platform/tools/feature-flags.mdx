@@ -5,7 +5,7 @@ tags: vagovprod, vagovstaging, vagovdev
 
 # Feature toggles
 
-Feature toggles (also known as feature flags or feature flippers) can be used in both vets-api and vets-website to manage unreleased features in a continuous integration environment. Feature toggles enable VFS teams to test out new functionality (applications, features, VA.gov content pages, Metalsmith) in the VSP development, staging, or production environments for a set of users. Teams can enable or disable a feature for all users, a percentage of all users, a percentage of all logged in users, a list of users, or users defined in a method.
+Feature toggles (also known as feature flags or feature flippers) can be used in both vets-api and vets-website to manage unreleased features in a continuous integration environment. Feature toggles enable VFS teams to test out new functionality (applications, features, VA.gov content pages, Metalsmith) in the VSP development, staging, or production environments for a set of users. Teams can enable or disable a feature for all users, a percentage of all users, a percentage of all logged-in users, a list of users, or users defined in a method.
 
 Feature toggles:
 - Allow for production toggle switching without redeploying vets-website
@@ -31,8 +31,8 @@ See the following sections for information about creating feature toggles:
 
 There are a couple of ways to use feature toggles, both of which have UX trade offs:
 
-- **Use the bootstrapped values on the initial render.** The application uses the values from the static page first and _updates_ the markup if the values retrieved from the service are different. This works well for content that is not visible on the initial render of the page. Ideally, the update is either not visible to users or comes into view using a simple CSS transition.
-- **Ignore the bootstrapped values and show a loading state for the feature.** The applicaton shows a loading state for the new feature while the toggle values are retrieved from the service. This works well for content that is visible on the initial render of the page. There's no standardized approach — the way is dependent on your UX goals.
+- **Use the bootstrapped values on the initial render.** The application uses the values from the static page first and _updates_ the markup if the values retrieved from the service are different. This works well for content that is not visible on the initial render of the page. Ideally, the update either is not visible to users or comes into view using a simple CSS transition.
+- **Ignore the bootstrapped values and show a loading state for the feature.** The application shows a loading state for the new feature while the toggle values are retrieved from the service. This works well for content that is visible on the initial render of the page. There's no standardized approach — the way is dependent on your UX goals.
 
 ### <a id="writing-good-feature-flags">Writing good feature toggles</a>
 
@@ -85,7 +85,7 @@ export const appNameThenYourFeatureName = state =>
   toggleValues(state).appNameThenYourFeatureName;
 ```
 
-8. Use the feature toggle value to gate your new behavior. For example, you can use the select above in `mapStateToProps` to pass the toggle as a prop into your component.
+8. Use the feature toggle value to gate your new behavior. For example, you can use the selector above in `mapStateToProps` to pass the toggle as a prop into your component.
 
    **Note:** Currently the feature toggle values are only available on the global redux state.
 
