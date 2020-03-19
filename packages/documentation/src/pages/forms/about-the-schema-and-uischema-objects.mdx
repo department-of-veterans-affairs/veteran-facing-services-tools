@@ -231,13 +231,17 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     hideOnReview: true || false,
 
     // Hides the specified field on the review page when the field value is `false`.
-    hideOnReviewIfFalse: true || false
+    hideOnReviewIfFalse: true || false,
+
+    // Hide review row entry if the form value is an empty string, null or undefined
+    // This option is ignored if there is a custom `'ui:reviewField'` defined
+    hideEmptyValueInReview: true || false,
 
     // A function that conditionally hides fields in the form. `hideIf` provides the `index`
     // argument when you use `ui:required` on data inside an array.
     hideIf: function (formData, index) {
       return true || false;
-    }
+    },
 
     // A function that conditionally replaces the current field's schema. `updateSchema`
     // provides the `index` argument when you use `ui:required` on data inside an array.

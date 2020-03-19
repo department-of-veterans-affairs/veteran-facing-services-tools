@@ -416,6 +416,7 @@ These properties are nested under `uiSchema: { 'ui:options': {} }`:
 - `hideOnReview`: Hides the field on the review page; takes a `boolean`
 - `hideOnReviewIfFalse`: Hides the field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
+- `hideEmptyValueInReview`: Hides the review row (e.g. "Street address 3") if the form data is an empty string, `null` or `undefined`. This option does not work if a custom `'ui:reviewField'` is controlling the review output.
 
 For the code implementation, see the [review folder](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/review).
 
