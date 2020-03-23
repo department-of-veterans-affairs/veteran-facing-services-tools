@@ -22,20 +22,11 @@ See the following sections for information about creating feature toggles:
 
 ## <a id="client">Client behavior and other design considerations</a>
 
-1. During the build process, feature toggle values are retrieved and included in each of the static HTML pages.
-2. When the page loads, the feature toggle client retrieves the bootstrapped values from the static HTML and renders the page using those values.
-3. After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service.
-4. The page is updated using the latest feature toggle values.
-
-### Considering the user experience (UX)
-
-There are a couple of ways to use feature toggles, both of which have UX trade offs:
-
-- **Use the bootstrapped values on the initial render.** The application uses the values from the static page first and _updates_ the markup if the values retrieved from the service are different. This works well for content that is not visible on the initial render of the page. Ideally, the update either is not visible to users or comes into view using a simple CSS transition.
-- **Ignore the bootstrapped values and show a loading state for the feature.** The application shows a loading state for the new feature while the toggle values are retrieved from the service. This works well for content that is visible on the initial render of the page. There's no standardized approach — the way is dependent on your UX goals.
+After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service and the page is updated using the latest feature toggle values. The application shows a loading state for the new feature while the toggle values are retrieved from the service.
 
 ### <a id="writing-good-feature-flags">Writing good feature toggles</a>
 
+Keep the following items in mind as you add feature toggles:
 - Remember that each environment has its own set of feature toggle values.
 - Test your feature toggle in staging before using it in production.
 - Remove feature toggles as soon as they are not needed.
