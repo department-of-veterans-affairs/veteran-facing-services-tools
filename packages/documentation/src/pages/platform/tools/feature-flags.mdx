@@ -13,18 +13,16 @@ Feature toggles:
 - Provide code helpers for handling common user experience scenarios
 - Are powered by an open-source gem called [Flipper gem](https://github.com/jnunemaker/flipper)
 
+After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service and the page is updated using the latest feature toggle values. The application shows a loading state for the new feature while the toggle values are retrieved from the service.
+
 See the following sections for information about creating feature toggles:
-- [Client behavior and other design considerations](#client)
+- [Writing good feature flags](#writing-good-feature-flags)
 - Adding a new feature toggle
    - [Frontend](#add-feature) 
    - [Backend](#backend)
 - [Enabling and disabling features](#flipper-ui)
 
-## <a id="client">Client behavior and other design considerations</a>
-
-After the page is rendered, the feature toggle client retrieves the latest toggle values from the feature toggle service and the page is updated using the latest feature toggle values. The application shows a loading state for the new feature while the toggle values are retrieved from the service.
-
-### <a id="writing-good-feature-flags">Writing good feature toggles</a>
+## <a id="writing-good-feature-flags">Writing good feature toggles</a>
 
 Keep the following items in mind as you add feature toggles:
 - Remember that each environment has its own set of feature toggle values.
