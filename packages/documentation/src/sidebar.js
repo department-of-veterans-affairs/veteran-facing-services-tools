@@ -283,7 +283,7 @@ module.exports = {
             },
             {
               name: 'Feature toggles',
-              href: '/platform/tools/feature-flags',
+              href: '/platform/tools/feature-toggles',
             },
             {
               name: 'Downtime notifications',
