@@ -282,7 +282,7 @@ module.exports = {
               href: '/platform/tools/visual-regression-testing',
             },
             {
-              name: 'Feature flags',
+              name: 'Feature toggles',
               href: '/platform/tools/feature-flags',
             },
             {
