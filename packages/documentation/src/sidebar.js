@@ -168,6 +168,10 @@ module.exports = {
               name: 'Form features and usage guidelines',
               href: '/forms/available-features-and-usage-guidelines',
             },
+            {
+              name: 'Using available fields',
+              href: '/forms/user-available-fields',
+            },
           ],
         },
       ],
