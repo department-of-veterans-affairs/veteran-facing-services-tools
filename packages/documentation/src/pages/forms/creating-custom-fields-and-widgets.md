@@ -12,7 +12,7 @@ You can customize the base library to satisfy the unique requirements of your pa
 - [Customizing fields, widgets, and events from RJSF](#customizing-fields-and-widgets-from-rjsf)
 - [Supporting multi-page forms](#supporting-multi-page-forms)
 
-## How VAFS uses RJSF
+### How VAFS uses RJSF
 
 The VAFS code uses react-jsonschema-form, or RJSF, to render form fields, but it builds a scaffolding on top of it to support multi-page forms and common form patterns. Additionally, VAFS uses RJSF to create a form configuration spec that allows developers to specify the structure of a multi-page form.
 
@@ -23,19 +23,19 @@ RJSF passes all field and widget components to `SchemaField` (and most other com
 - `ObjectField`
 - `ArrayField`
 - `FieldTemplate`
-- [TextWidget](/forms/available-widgets.md#textwidget)
-- [SelectWidget](/forms/available-widgets.md#selectwidget)
-- [EmailWidget](/forms/available-widgets.md#emailwidget)
-- [CheckboxWidget](/forms/available-widgets.md#checkboxwidget)
-- [RadioWidget](/forms/available-widgets.md#radiowidget)
+- [TextWidget](./available-widgets#textwidget)
+- [SelectWidget](./available-widgets#selectwidget)
+- [EmailWidget](./available-widgets#emailwidget)
+- [CheckboxWidget](./available-widgets#checkboxwidget)
+- [RadioWidget](./available-widgets#radiowidget)
 - `TextareaWidget`
 
 The VAFS uses these custom fields and widgets:
 
-- [YesNoWidget](/forms/available-widgets.md#yesnowidget)
-- [DateWidget](/forms/available-widgets.md#datewidget)
-- [SSNWidget](/forms/available-widgets.md#ssnwidget)
-- [PhoneNumberWidget](/forms/available-widgets.md#phonenumberwidget)
+- [YesNoWidget](./available-widgets#yesnowidget)
+- [DateWidget](./available-widgets#datewidget)
+- [SSNWidget](./available-widgets#ssnwidget)
+- [PhoneNumberWidget](./available-widgets#phonenumberwidget)
 
 Writing custom widgets is similar to writing React components: A value is passed in, and an `onChange` hook is provided for changing data. Other properties like the schemas and field ID are also provided.
 
