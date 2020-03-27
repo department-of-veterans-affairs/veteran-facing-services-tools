@@ -240,10 +240,6 @@ module.exports = {
               href: '/platform/architecture/teamsite',
             },
             {
-              name: 'How do unit tests work?',
-              href: '/platform/unit-testing',
-            },
-            {
               name: 'How do end-to-end tests work?',
             },
           ],
@@ -272,6 +268,14 @@ module.exports = {
               href: '/platform/front-end-standards/security',
             },
             {
+              name: 'Unit testing',
+              href: '/platform/unit-testing',
+            },
+            {
+              name: 'Manual reviews',
+              href: '/platform/front-end-standards/manual-reviews',
+            },
+            {
               name: 'Documented Decisions',
               href:
                 '/platform/front-end-standards/documented-decisions/summary',
@@ -288,10 +292,6 @@ module.exports = {
             {
               name: 'Feature toggles',
               href: '/platform/tools/feature-toggles',
-            },
-            {
-              name: 'Manual reviews',
-              href: '/platform/tools/manual-reviews',
             },
             {
               name: 'Downtime notifications',
