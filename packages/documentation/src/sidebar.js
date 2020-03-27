@@ -290,6 +290,10 @@ module.exports = {
               href: '/platform/tools/feature-toggles',
             },
             {
+              name: 'Manual reviews',
+              href: '/platform/tools/manual-reviews',
+            },
+            {
               name: 'Downtime notifications',
               href: '/platform/tools/downtime-notifications',
             },
