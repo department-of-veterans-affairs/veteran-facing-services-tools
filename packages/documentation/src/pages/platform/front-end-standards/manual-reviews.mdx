@@ -27,8 +27,12 @@ Examples:
 
 VSP enforces [ESLint rules](https://github.com/department-of-veterans-affairs/va.gov-team/tree/master/platform/engineering/frontend/eslint) through CircleCI to enforce code quality. ESLint rules are included in the `.eslintrc` file, which is located in the root folder. Any rules that VSP is [testing for inclusion](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/frontend/eslint/adding-new-rules.md) are located in the `circle.eslint.json` file.
 
-When ESLint rules are disabled, VSP will review each case individually. VFS teams are responsible for resolving any errors. 
+When ESLint rules are disabled, VSP will review each case individually. 
 
 ### Adding icons
 
 VSP uses Font Awesome as a dependency, which uses the `<i>` tag for adding icons. Sometimes an icon is used as decoration, but other times it is used to convey meaning to the user. VSP reviews the code to ensure that whenever an icon is being used to convey meaning, the meaning is also conveyed to a screen reader.
+
+## Actions to take
+
+If a manual review is triggered, VSP will review the PR and will notify you of any issues that need to resolved. You are responsible for resolving any errors. 
