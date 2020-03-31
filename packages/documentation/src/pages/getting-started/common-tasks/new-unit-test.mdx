@@ -30,9 +30,11 @@ For example, you might create a unit test file for each page in a form and then 
       - 📂 components
         - MyComponent.unit.spec.jsx
 ```
-- Mocha runs all unit tests under `/src` folder that end with `.unit.spec.js(x)`
-
+   **Note:** Mocha runs all unit tests under `/src` folder that end with `.unit.spec.js(x)`.
+   
 ## Unit test conventions
+
+Use the following conventions when writing a unit test.
 
 ```
 import { expect } from 'chai';
@@ -66,7 +68,7 @@ describe('my-application', () => {
   - Use Enzyme's [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components.
   - Always `unmount` components at the end of the test.
   
-## Writing unit tests for VAFS pages
+## Unit tests for forms pages
 
 ```
 import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
@@ -99,7 +101,7 @@ const {
   ```
 
 - Organize forms config tests by page.
-- Use the `<DefinitionTester />` to render form configs for testing.
+- Use `<DefinitionTester />` to render form configs for testing.
 - Test at least the following:
   - Number of each type of input is rendered (example above)
   - Any conditional display logic on the page
@@ -126,9 +128,9 @@ fillDate(
 
 >- `selectCheckbox()` - Enzyme helper that fires a change event with a value for a checkbox at the given name
 
-## Example unit test
+## Example unit tests
 
-VSP provides helper utilities to make writing tests easier. The following example illustrates some of these helpers. You can find this unit test at `src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx`:
+VSP provides helper utilities to make writing tests easier. The following example unit tests illustrate some of these helpers. You can find these unit tests at `src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx`:
 
 ```js
 import React from 'react';
@@ -159,9 +161,9 @@ describe('VIC veteran information', () => {
 });
 ```
 
-Helpers are imported from `schemaform-utils.jsx`. The most important item in the list is `DefinitionTester`, which is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
+Helpers are imported from `schemaform-utils.jsx`. The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
 
-This unit test uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTester` component that is passed in the schema information from the `veteranInformation` page as props. The test checks to make sure there are 7 `input` and 4 `select` entries on the page. When there are errors with definitions on the form pages, you will often see inputs not being rendered, so this helps check for that scenario.
+This example uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTester` component that is passed in the schema information from the `veteranInformation` page as props. The test checks to make sure there are 7 `input` and 4 `select` entries on the page. When there are errors with definitions on the form pages, you will often see inputs not being rendered, so this helps check for that scenario.
 
 The next test in the file checks to see that the right fields are marked as required:
 
@@ -187,7 +189,7 @@ The next test in the file checks to see that the right fields are marked as requ
 
 This test simulates a form submission and then counts the number of error elements on the page, which is expected to be 6. The test checks that the existing validation rules are still generally in place and that additional rules haven't been added.
 
-Finally, this test fills in all the data and submits the form:
+Finally, this example test fills in all the data and submits the form:
 
 ```js
   it('should submit with all info filled in', () => {
@@ -215,26 +217,7 @@ Finally, this test fills in all the data and submits the form:
   });
 ```
 
-Helper functions make the correct Enzyme calls to fill in data, so there isn't a lot of repeated code. Those helpers are documented in the `schemaform-utils.jsx` file. At the end, the test checks that no errors are displayed and that the `onSubmit` prop was called, which will only happen if the data passed all the page's validation rules.
-
-Now that you've see these three tests, you should be able to get started writing your own tests. Testing conditional logic works as you might expect, where the helpers fill in data, then check to see that the right number of inputs appear in the page after that change. Some of the tests also directly test logic in `depends` functions on the page configuration.
-
-## Libraries
-
-Unit tests use the following libraries:
-
-- [mocha.js](https://mochajs.org/): Test framework.
-- [chai.js](https://www.chaijs.com/): BDD / TDD assertion library.
-- [chai-as-promised](https://github.com/domenic/chai-as-promised): Extends Chai with assertions about promises.
-- [sinon.js](https://sinonjs.org/): Standalone test spies, stubs and mocks.
-- [enzyme](https://airbnb.io/enzyme/): Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
-- [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16): Enzyme React 16 integration.
-- [react-dom](https://www.npmjs.com/package/react-dom): React DOM Library needed for testing React Components.
-- [react-dom/test-utils](https://reactjs.org/docs/test-utils.html): Test utilities for React DOM.
-- [react-test-renderer](https://www.npmjs.com/package/react-test-renderer): This package provides an experimental React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
-- [jsdom](https://airbnb.io/enzyme/docs/guides/jsdom.html): A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js.
-- [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter): Produces JUnit-style XML test results. This is used specifically for Jenkins so it can output and track test results in its system.
-- [choma](https://github.com/lennym/choma): Random execution order for mocha suites.
+Helper functions make the correct Enzyme calls to fill in data, so there isn't a lot of repeated code. The helpers are documented in the `schemaform-utils.jsx` file. The helpers fill in data and then check that the right number of inputs appear on the page after that change. Some of the tests also directly test logic in `depends` functions on the page configuration. 
 
 ## Other utilities
 
@@ -259,3 +242,20 @@ mockFetch(
 ## Legacy tools
 
 While ReactTestUtils and SkinDeep are used in many of our tests, use Enzyme for any updated or new tests.
+
+## Libraries
+
+Unit tests use the following libraries:
+
+- [mocha.js](https://mochajs.org/): Test framework.
+- [chai.js](https://www.chaijs.com/): BDD / TDD assertion library.
+- [chai-as-promised](https://github.com/domenic/chai-as-promised): Extends Chai with assertions about promises.
+- [sinon.js](https://sinonjs.org/): Standalone test spies, stubs and mocks.
+- [enzyme](https://airbnb.io/enzyme/): Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
+- [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16): Enzyme React 16 integration.
+- [react-dom](https://www.npmjs.com/package/react-dom): React DOM Library needed for testing React Components.
+- [react-dom/test-utils](https://reactjs.org/docs/test-utils.html): Test utilities for React DOM.
+- [react-test-renderer](https://www.npmjs.com/package/react-test-renderer): This package provides an experimental React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
+- [jsdom](https://airbnb.io/enzyme/docs/guides/jsdom.html): A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js.
+- [mocha-junit-reporter](https://www.npmjs.com/package/mocha-junit-reporter): Produces JUnit-style XML test results. This is used specifically for Jenkins so it can output and track test results in its system.
+- [choma](https://github.com/lennym/choma): Random execution order for mocha suites.
