@@ -166,7 +166,7 @@ describe('VIC veteran information', () => {
 });
 ```
 
-Helpers are imported from `schemaform-utils.jsx`. The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
+Helpers are imported from [`schemaform-utils.jsx`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/unit/schemaform-utils.jsx). The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
 
 This example uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTester` component that is passed in the schema information from the `veteranInformation` page as props. The test checks to make sure there are 7 `input` and 4 `select` entries on the page. When there are errors with definitions on the form pages, you will often see inputs not being rendered, so this helps check for that scenario.
 
@@ -204,7 +204,7 @@ Finally, this example test fills in all the data and submits the form:
         onSubmit={onSubmit}
         definitions={formConfig.defaultDefinitions}
         schema={schema}
-        data=\{{}}
+        data={{}}
         uiSchema={uiSchema}
         />
     );
