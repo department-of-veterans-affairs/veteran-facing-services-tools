@@ -1,11 +1,11 @@
 ---
-title: Write a unit test
+title: Writing a unit test
 tags: Mocha, Chai, Enzyme, schemaform-utils
 ---
 
-# Write a unit test
+# Writing a unit test
 
-All new code that is added to `vets-website` should be unit tested. Write unit tests as you build to make sure your form (or other component) is behaving as you expect and to help guard against future bugs.
+All new code that is added to `vets-website` should be unit tested and unit tests should cover at least 75% of code paths. Write unit tests as you build to make sure your form (or other component) is behaving as you expect and to help guard against future bugs.
 
 For example, you might create a unit test file for each page in a form and then test the following scenarios:
 
@@ -13,7 +13,7 @@ For example, you might create a unit test file for each page in a form and then 
 - The correct number of fields display validation errors if you submit without entering any information.
 - Any conditional logic on the page displays under the correct conditions.
 
-## Unit testing overview
+## Unit test overview
 
 - The `vets-website` repo uses:
   - [Mocha](https://mochajs.org/) for running unit tests
@@ -30,7 +30,10 @@ For example, you might create a unit test file for each page in a form and then 
       - 📂 components
         - MyComponent.unit.spec.jsx
 ```
-   **Note:** Mocha runs all unit tests under `/src` folder that end with `.unit.spec.js(x)`.
+
+Mocha runs any *file_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
+
+[Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to master.
    
 ## Unit test conventions
 
@@ -69,6 +72,8 @@ describe('my-application', () => {
   - Always `unmount` components at the end of the test.
   
 ## Unit tests for forms pages
+
+Use the following guidelines when writing a unit test for forms pages.
 
 ```
 import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
@@ -218,10 +223,6 @@ Finally, this example test fills in all the data and submits the form:
 ```
 
 Helper functions make the correct Enzyme calls to fill in data, so there isn't a lot of repeated code. The helpers are documented in the `schemaform-utils.jsx` file. The helpers fill in data and then check that the right number of inputs appear on the page after that change. Some of the tests also directly test logic in `depends` functions on the page configuration. 
-
-## Run a unit test
-
-See [Run tests](/getting-started/common-tasks/test) for information about how to run a unit test.
 
 ## Other utilities
 
