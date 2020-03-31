@@ -47,7 +47,7 @@ module.exports = {
               href: '/getting-started/common-tasks/run-build',
             },
             {
-              name: 'Run tests',
+              name: 'Running tests',
               href: '/getting-started/common-tasks/test',
             },
             {
@@ -77,11 +77,11 @@ module.exports = {
               ],
             },
             {
-              name: 'Write a unit test',
+              name: 'Writing a unit test',
               href: '/getting-started/common-tasks/new-unit-test',
             },
             {
-              name: 'Write an end-to-end test',
+              name: 'Writing an end-to-end test',
               href: '/getting-started/common-tasks/new-end-to-end-test',
             },
             {
