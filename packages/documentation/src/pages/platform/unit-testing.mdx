@@ -1,25 +1,16 @@
-## How do unit tests work?
+# Unit testing
 
-**File format**: *.unit.spec.js
+All new code that is added to `vets-website` should be unit tested and unit tests should cover at least 75% of code paths. Write unit tests as you build to make sure your form (or other component) is behaving as you expect and to help guard against future bugs.
 
-**Where**: Any *.unit.spec.js file located in the `/src` folder. Typically located in a directory close to the code being tested.
+**Unit test file format:** *file_name*.unit.spec.js
 
-**When**: Locally through npm script commands, Jenkins build (Unit), and After merging to master
+**Where:** Any *file_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
 
-** How **: [/getting-started/common-tasks/test](/getting-started/common-tasks/test)
+**When:** [Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to master.
 
-**Process**:
+**How:** [Write a unit test.](/getting-started/common-tasks/new-unit-test)
 
-```mermaid
-graph TB
-    A["Checks environment"] --> B["Babel transpiles unit tests"];
-    B["Babel transpiles unit tests"] --> C["Test files get built in the environment folder"];
-    C["Test files get built in the environment folder"] --> D["CHOMA randomizes test execution order"];
-    D["CHOMA randomizes test execution order"] -- Unit tests are executed serially --> F["mocha-junit-reporter generates XML report file"];
-    F["mocha-junit-reporter generates XML report file"] -- this file is used by Jenkins to trigger a failure or success --> G["Jenkins will display a failure or success"];
-```
-
-**Libraries used**:
+**Libraries used:**
 
 - [mocha.js](https://mochajs.org/): Test framework.
 - [chai.js](https://www.chaijs.com/): BDD / TDD assertion library.

@@ -47,7 +47,7 @@ module.exports = {
               href: '/getting-started/common-tasks/run-build',
             },
             {
-              name: 'Run tests',
+              name: 'Running tests',
               href: '/getting-started/common-tasks/test',
             },
             {
@@ -77,11 +77,11 @@ module.exports = {
               ],
             },
             {
-              name: 'Write a unit test',
+              name: 'Writing a unit test',
               href: '/getting-started/common-tasks/new-unit-test',
             },
             {
-              name: 'Write an end-to-end test',
+              name: 'Writing an end-to-end test',
               href: '/getting-started/common-tasks/new-end-to-end-test',
             },
             {
@@ -240,10 +240,6 @@ module.exports = {
               href: '/platform/architecture/teamsite',
             },
             {
-              name: 'How do unit tests work?',
-              href: '/platform/unit-testing',
-            },
-            {
               name: 'How do end-to-end tests work?',
             },
           ],
@@ -270,6 +266,14 @@ module.exports = {
             {
               name: 'Security',
               href: '/platform/front-end-standards/security',
+            },
+            {
+              name: 'Unit testing',
+              href: '/platform/unit-testing',
+            },
+            {
+              name: 'Manual reviews',
+              href: '/platform/front-end-standards/manual-reviews',
             },
             {
               name: 'Documented Decisions',
