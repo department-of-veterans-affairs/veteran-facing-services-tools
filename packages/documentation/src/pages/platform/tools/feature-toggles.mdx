@@ -16,7 +16,7 @@ Feature toggles:
 See the following sections for information about creating feature toggles:
 - [Writing good feature toggles](#writing-good-feature-toggles)
 - Adding a new feature toggle
-   - [Frontend](#add-feature) 
+   - [Frontend](#add-feature)
    - [Backend](#backend)
 - [Enabling and disabling features](#flipper-ui)
 
@@ -43,16 +43,20 @@ Follow these steps to add and use a new feature toggle in vets-website:
   ```yml
  features:
    app_name_then_your_feature_name:
+     actor_type: user
      description: >
-       On https://www.va.gov/find-locations/ enables search box.
-       This toggle is owned by the search team.
+       This describes what the feature does and
+       which team is responsible for the toggle.
   ```
+3. Determine how you want the feature toggle to be "sticky".
+  For the behavior to be consistent across all devices for a logged in user choose "user" as the  actor_type.
+  For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie_id" as the actor_type.
 
-3. Run vets-api locally. This can be done on master after your pull request (PR) is merged or off of your feature branch.
+4. Run vets-api locally. This can be done on master after your pull request (PR) is merged or off of your feature branch.
 
-4. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
+5. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
 
-5. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js):
+6. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js):
 
 ```js
 const FEATURE_FLAG_NAMES = Object.freeze({
@@ -60,9 +64,9 @@ const FEATURE_FLAG_NAMES = Object.freeze({
 })
 ```
 
-6. Submit a PR for each feature. Crosslinking the PRs in a comment will make it easier for the reviewers to check.
+7. Submit a PR for each feature. Crosslinking the PRs in a comment will make it easier for the reviewers to check.
 
-7. Use the selector helper to build a selector for your feature toggle.
+8. Use the selector helper to build a selector for your feature toggle.
 
    **Note:** In the following example, the `toggleValues` object is a flat list of `toggleName` and boolean key value pairs.
 
@@ -75,7 +79,7 @@ export const appNameThenYourFeatureName = state =>
   toggleValues(state).appNameThenYourFeatureName;
 ```
 
-8. Use the feature toggle value to gate your new behavior. For example, you can use the selector above in `mapStateToProps` to pass the toggle as a prop into your component.
+9. Use the feature toggle value to gate your new behavior. For example, you can use the selector above in `mapStateToProps` to pass the toggle as a prop into your component.
 
    **Note:** Currently the feature toggle values are only available on the global redux state.
 
@@ -99,7 +103,7 @@ render() {
 }
 ```
 
-9. Use the [Flipper UI](#flipper-ui) to test out the toggle locally. Refresh the page to update the feature toggle state. This value can take up to a minute to update in staging and production.
+10. Use the [Flipper UI](#flipper-ui) to test out the toggle locally. Refresh the page to update the feature toggle state. This value can take up to a minute to update in staging and production.
 
 ## <a id="backend">Adding a new feature toggle (backend)</a>
 
@@ -112,16 +116,20 @@ Follow these steps to add and use a new feature toggle in vets-api:
 2. Add the feature name to vets-api (in snake case) by updating [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml):
 
   ```yml
- features:
-   app_name_then_your_feature_name:
+  features:
+     app_name_then_your_feature_name:
+     actor_type: user
      description: >
-       On https://www.va.gov/find-locations/ enables search box.
-       This toggle is owned by the search team.
+       This describes what the feature does and
+       which team is responsible for the toggle.
   ```
+3. Determine how you want the feature toggle to be "sticky".
+  For the behavior to be consistent across all devices for a logged in user choose "user" as the  actor_type.
+  For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie_id" as the actor_type.
 
-3. Run vets-api locally. This can be done on master after your PR is merged or off of your feature branch.
+4. Run vets-api locally. This can be done on master after your PR is merged or off of your feature branch.
 
-4. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
+5. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
 
 ### Backend example
 
@@ -137,7 +145,7 @@ def base_method_name_feature_enabled(params)
   # How it behaves with the feature toggle enabled
 end
 def base_method_name_feature_disabled(params)
-  # How it behaves without the feature toggle enabled 
+  # How it behaves without the feature toggle enabled
 end
 
 ### spec
@@ -168,10 +176,10 @@ You can enable or disable features in the Flipper UI:
 |Environment|URL|
 |---|---|
 |Dev|http://localhost:3000/flipper/features|
-|Staging|https://staging-api.va.gov/flipper/features| 
+|Staging|https://staging-api.va.gov/flipper/features|
 |Production|https://api.va.gov/flipper/features|
 
-2. To access the Flipper UI, you must sign in using an [identity-verified id.me user](https://github.com/department-of-veterans-affairs/va.gov-team/blob/3290d3c0a6390922efd4a6adb23607ac6f7b8f53/products/identity-personalization/va.gov-login-process.md) that is listed in [settings.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml):
+2. To access the Flipper UI, you must sign in using an [identity-verified id.me user](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/products/identity-personalization/va.gov-login-process.md) that is listed in [settings.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml):
 
 ```
 flipper:
@@ -180,19 +188,19 @@ flipper:
     - email1@email.us
 ```
 
-   <b>Notes:</b> 
-   - If you are not on the list, you can add yourself or your teammates to the file. 
+   <b>Notes:</b>
+   - If you are not on the list, you can add yourself or your teammates to the file.
    - If you're not sure if your account is identity-verified, you can check by going to [this page](https://www.va.gov/profile/). If you need to verify your account you'll see a "Verify with ID.me" button.
 
 3. Once you have logged into the Flipper UI, you can perform the following actions:
-   - Select "Enable for everyone" or "Disable for everyone" to enable or disable the feature for all users. 
-   - For a gradual rollout or an a/b test you can use "Percentage of Logged in Users." "Percentage of Logged in Users" will enable the feature for the same users each time they return to the site as long as you don't change the percentage. 
+   - Select "Enable for everyone" or "Disable for everyone" to enable or disable the feature for all users.
+   - For a gradual rollout or an a/b test you can use "Percentage of Logged in Users." "Percentage of Logged in Users" will enable the feature for the same users each time they return to the site as long as you don't change the percentage.
    - Use "Percentage of Time" to enable a feature for all users for a percentage of time.
    - Register a "Group" of users to enable a feature for.
    - You can also roll out a feature for a select few users by adding their email address to the “Users” section. For performance reasons, the list of users is intended to be small — do not use this option for hundreds of users.
 
    The values of each toggle are cached in memory for one minute, so it may take that long to see the effect of enabling or disabling the toggle.
-     
+
    ![Screen Shot](https://user-images.githubusercontent.com/19188/74881655-b4d11a80-533b-11ea-8e97-fdea24c10830.png)
 
 *The following sections contain information that will be phased out.*
@@ -200,13 +208,13 @@ flipper:
 ## Testing new applications and updates to existing applications
 *Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
 
-In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/10380007a3ec77047be10e4fb2a42d343c22c5d3/src/platform/utilities/environment/index.js).
+In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/environment/index.js).
 
-In the [production environment](https://www.va.gov), you can test unreleased features and applications by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/92811be079cac99884abc28c2c96da61f08fe2a5/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value. You can do this by:
+In the [production environment](https://www.va.gov), you can test unreleased features and applications by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value. You can do this by:
 - Adding the feature name/value to local storage with a console command in the browser
 - Using application specific code that automatically checks when a certain query parameter is present
 
-<b>Note:</b> Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/e1030d1a499e39eaeceb8f4bdcbd33baf7ee946d/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
+<b>Note:</b> Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
 
 ## Testing content pages
 *Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
