@@ -9,11 +9,11 @@ Welcome to the VA digital services platform front-end overview. The goal of this
 
 The overall architecture for VA.gov is comprised of an API backend written in Ruby on Rails ([vets-api](https://github.com/department-of-veterans-affairs/vets-api)) and a static front-end, written in HTML, CSS, and Javascript (`vets-website`). There's no server-side rendering or processing for the front-end; the build process compiles everything into static resources which are served to users.
 
-## Build process
+## Content build process
 
-The build process for this is controlled by a tool called [Metalsmith](http://www.metalsmith.io/), which is a pluggable Node.js static site generator. In general, everything in Metalsmith is a plugin, so if you're looking for specific parts of the build process, expect to check out a plugin or two. We use Metalsmith because it's flexible and because it's Javascript based, it's easy to integrate with the rest of our tools.
+The build process has two primary kinds of functionality that it processes: static content pages and Javascript applications. Most of VA.gov consists of content that lives in Markdown files and the Drupal CMS, and is converted into HTML by a Metalsmith plugin. There are shared templates and other enhancements to make this content easier to structure.
 
-The build process has two primary kinds of functionality that it processes: static content pages and Javascript applications. Most of VA.gov consists of content that lives in Markdown files and is converted into HTML by a Metalsmith plugin. There are shared templates and other enhancements to make this content easier to structure.
+The content build process for this is controlled by a tool called [Metalsmith](http://www.metalsmith.io/), which is a pluggable Node.js static site generator. In general, everything in Metalsmith is a plugin, so if you're looking for specific parts of the build process, expect to check out a plugin or two. We use Metalsmith because it's flexible and because it's Javascript based, it's easy to integrate with the rest of our tools.
 
 ## Javascript applications
 
