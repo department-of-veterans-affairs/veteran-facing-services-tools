@@ -8,6 +8,7 @@ class Pagination extends Component {
   static propTypes = {
     ariaLabelSuffix: PropTypes.string,
     className: PropTypes.string,
+    disableGATracking: PropTypes.bool,
     maxPageListLength: PropTypes.number.isRequired,
     onPageSelect: PropTypes.func.isRequired,
     page: PropTypes.number.isRequired,
@@ -17,8 +18,22 @@ class Pagination extends Component {
 
   static defaultProps = {
     ariaLabelSuffix: '',
+    disableGATracking: false,
     maxPageListLength: 10,
   };
+
+  onPageSelect = (page, eventID) => {
+    // Propogate via the prop.
+    this.props.onPageSelect(page);
+
+    // Conditionally track the event.
+    if (window.dataLayer && !disableGATracking) {
+      window.dataLayer.push({
+        event: eventID,
+        'paginate-page-number': page,
+      });
+    }
+  }
 
   next = () => {
     let nextPage;
@@ -26,7 +41,7 @@ class Pagination extends Component {
       nextPage = (
         <a
           aria-label={`Load next page ${this.props.ariaLabelSuffix}`}
-          onClick={() => {this.props.onPageSelect(this.props.page + 1);}}
+          onClick={() => {this.onPageSelect(this.props.page + 1, 'nav-paginate-next');}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page + 1)}
           tabIndex="0">
           Next
@@ -42,7 +57,7 @@ class Pagination extends Component {
       prevPage = (
         <a
           aria-label={`Load previous page ${this.props.ariaLabelSuffix}`}
-          onClick={() => {this.props.onPageSelect(this.props.page - 1);}}
+          onClick={() => {this.onPageSelect(this.props.page - 1, 'nav-paginate-previous');}}
           onKeyDown={e => this.handleKeyDown(e, this.props.page - 1)}
           tabIndex="0">
           <abbr title="Previous">Prev</abbr>
@@ -67,7 +82,7 @@ class Pagination extends Component {
           <a aria-label="...">
             ...
           </a>
-          <a aria-label={`Load last page ${this.props.ariaLabelSuffix}`} onClick={() => {this.props.onPageSelect(totalPages);}}>
+          <a aria-label={`Load last page ${this.props.ariaLabelSuffix}`} onClick={() => {this.onPageSelect(totalPages, 'nav-paginate-number');}}>
             {totalPages}
           </a>
         </span>
@@ -119,7 +134,7 @@ class Pagination extends Component {
     const keyCode = e.which || e.keyCode;
     if (keyCode === 13 || keyCode === 32) {
       e.preventDefault();
-      this.props.onPageSelect(pageNumber)
+      this.onPageSelect(pageNumber, 'nav-paginate-number');
     }
   }
 
@@ -141,7 +156,7 @@ class Pagination extends Component {
           key={pageNumber}
           className={pageClass}
           aria-label={`Load page ${pageNumber} ${ariaLabelSuffix}`}
-          onClick={() => onPageSelect(pageNumber)}
+          onClick={() => onPageSelect(pageNumber, 'nav-paginate-number')}
           onKeyDown={e => this.handleKeyDown(e, pageNumber)}
           tabIndex="0">
           {pageNumber}
