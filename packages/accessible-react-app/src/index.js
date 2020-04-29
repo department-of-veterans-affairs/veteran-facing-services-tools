@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import App from './js/App';
 import './css/main.css';
 
+/* FE Talking Point - React Axe */
 if (process.env.NODE_ENV === 'development') {
   const axe = require('react-axe'); // eslint-disable-line global-require
   axe(React, ReactDOM, 1000);

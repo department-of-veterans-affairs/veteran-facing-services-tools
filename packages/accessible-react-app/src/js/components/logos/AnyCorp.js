@@ -14,16 +14,17 @@ const AnyCorp = props => {
 
   return (
     <svg
+      aria-label="AnyCorp homepage"
       data-name="Layer 1"
       focusable="false"
       height={height}
       id="Layer_1"
-      role="presentation"
+      role="img"
       viewBox="0 0 144 144"
       width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>Untitled-1</title>
+      <title>AnyCorp home</title>
       <rect style={styleOne} width="144" height="144" rx="12" />
       <path
         style={styleTwo}

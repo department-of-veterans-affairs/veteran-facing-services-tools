@@ -18,6 +18,10 @@ header {
   justify-content: space-between;
 }
 
+main {
+  outline: 0;
+}
+
 img {
   margin: 2em 0;
   max-width: 100%;
