@@ -8,18 +8,28 @@ class Pagination extends Component {
   static propTypes = {
     ariaLabelSuffix: PropTypes.string,
     className: PropTypes.string,
-    disableGATracking: PropTypes.bool,
+    enableAnaltyics: PropTypes.bool,
     maxPageListLength: PropTypes.number.isRequired,
     onPageSelect: PropTypes.func.isRequired,
     page: PropTypes.number.isRequired,
     pages: PropTypes.number.isRequired,
     showLastPage: PropTypes.bool,
+    trackEvent: PropTypes.func,
   };
 
   static defaultProps = {
     ariaLabelSuffix: '',
-    disableGATracking: false,
+    enableAnaltyics: true,
     maxPageListLength: 10,
+    trackEvent: (...args) => {
+      // Escape early if Google Analytics (GA) is not enabled.
+      if (!window.dataLayer) {
+        return;
+      }
+
+      // Track event in GA.
+      window.dataLayer.push(...args);
+    }
   };
 
   onPageSelect = (page, eventID) => {
@@ -27,8 +37,8 @@ class Pagination extends Component {
     this.props.onPageSelect(page);
 
     // Conditionally track the event.
-    if (window.dataLayer && !disableGATracking) {
-      window.dataLayer.push({
+    if (this.props.enableAnaltyics) {
+      this.props.trackEvent({
         event: eventID,
         'paginate-page-number': page,
       });
