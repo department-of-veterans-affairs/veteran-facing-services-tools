@@ -272,7 +272,7 @@ module.exports = {
               href: '/platform/unit-testing',
             },
             {
-              name: 'Manual reviews',
+              name: 'Automated code quality',
               href: '/platform/front-end-standards/manual-reviews',
             },
             {
