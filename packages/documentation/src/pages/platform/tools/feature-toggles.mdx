@@ -56,7 +56,7 @@ Follow these steps to add and use a new feature toggle in vets-website:
 
 5. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
 
-6. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js):
+6. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js).
 
 ```js
 const FEATURE_FLAG_NAMES = Object.freeze({
@@ -66,9 +66,9 @@ const FEATURE_FLAG_NAMES = Object.freeze({
 
 7. Submit a PR for each feature. Crosslinking the PRs in a comment will make it easier for the reviewers to check.
 
-8. Use the selector helper to build a selector for your feature toggle.
+8. Use the selector helper to build a [selector](https://daveceddia.com/redux-selectors/) for your feature toggle. See an example [here](https://github.com/department-of-veterans-affairs/vets-website/blob/f6178ac59b1d691e0f31fb36903b8ba54091b517/src/applications/gi/containers/ProfilePage.jsx#L118).
 
-   **Note:** In the following example, the `toggleValues` object is a flat list of `toggleName` and boolean key value pairs.
+   **Note:** In the following example, the `toggleValues` object is a flat list of `toggleName` and boolean key value pairs. Also, note that `toggleValues` is imported from `platform/site-wide/feature-toggles/selectors` and `FEATURE_FLAG_NAMES` is imported from `platform/utilities/feature-toggles/featureFlagNames`.
 
 ```js
 // import the toggleValues helper
