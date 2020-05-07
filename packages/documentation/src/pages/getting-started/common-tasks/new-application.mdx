@@ -55,7 +55,7 @@ Here are the steps for manually setting up a new application. We're going to wal
     "description": "A new application!",
     // <meta name="keywords">
     "keywords": "not required, but good practice for public apps",
-    // A feature flag, indicating that this application is excluded from production builds
+    // A feature toggle, indicating that this application is excluded from production builds
     "vagovprod" false
   }
 }
@@ -141,12 +141,11 @@ And that's it! If you fill out the routes.jsx file with pages that exist, you sh
 
 ## Going to production
 
-The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to remove the feature flag added into your application's `manifest.json`.
+The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to remove the feature toggle added into your application's entry in the `registry.json`.
 
 ```js
 {
   "appName": "My new application",
-  "entryFile": "./my-new-application-entry.jsx",
   "entryName": "my-new-application",
   "rootUrl": "/my-new-application",
   "template": {
@@ -155,8 +154,8 @@ The above steps will only enable your application in our staging and dev environ
     "description": "A new application!",
     "keywords": "not required, but good practice for public apps",
 
-    // ALLOW THIS TO SHIP TO PRODUCTION BY REMOVING LINE BELOW
-    // "vagovprod" false
+    // ALLOW THIS TO SHIP TO PRODUCTION BY SETTING THIS TO TRUE
+    "vagovprod" false
   }
 }
 ```
