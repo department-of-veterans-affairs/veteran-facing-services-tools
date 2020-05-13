@@ -11,7 +11,7 @@ These instructions cover the installation of dependencies needed for running VA.
 - **Backend and local tools setup** - links to other setup instructions for running `vets-api` and retrieving static content
 
 ## Prerequisites
-- [homebrew](http://brew.sh/) is recommended for for installing `nvm` but other installation approaches are on [nvm Github page](https://github.com/creationix/nvm#installation-and-update)
+For Mac, [homebrew](http://brew.sh/) is recommended for installing `nvm` but other installation approaches are on [nvm Github page](https://github.com/creationix/nvm#installation-and-update).
 
 ## Node setup
 
@@ -85,19 +85,28 @@ git clone git@github.com:department-of-veterans-affairs/vets-api-mockdata.git
 
 ## Start up the front end
 
-7. Install `vets-website` dependencies
+7. Install `vets-website` dependencies. See these [common commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/README.md) for more information.
 ```bash
 yarn install
 ```
 
-8. Start the local development server
+8. Build `vets-website`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy).
+```bash
+yarn build
+```
+If you do not have access to the SOCKS proxy, you can fetch the latest cached version of the content.
+```bash
+yarn fetch-drupal-cache
+```
+
+9. Start the local development server.
 ```bash
 yarn watch
 ```
 
 *Build is complete when the CLI says* `Compiled successfully`
 
-9. Open [http://localhost:3001](http://localhost:3001) in a browser
+10. Open [http://localhost:3001](http://localhost:3001) in a browser
 
 ## Backend and internal tools set up
 
