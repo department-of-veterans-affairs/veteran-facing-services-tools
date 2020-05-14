@@ -1,0 +1,111 @@
+---
+title: Telephone
+name: Telephone
+tags: telephone, component
+---
+
+import Telephone, { CONTACTS, PATTERNS } from './Telephone';
+
+### Code:
+
+```javascript
+import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/formation-react/ProgressBar'
+
+// Minimal example
+<Telephone contact={CONTACTS.VA_BENEFITS} />
+
+/* Renders as
+<a href="tel:+18008271000" aria-label="800. 8 2 7. 1000" class="no-wrap">
+  800-827-1000
+</a>
+*/
+
+// Adding a pattern
+<Telephone
+  contact={CONTACTS.VA_311}
+  pattern={PATTERNS.WRAP_CODE}
+/>
+
+/* Renders as
+<a href="tel:+18446982311" aria-label="8 4 4. 6 9 8. 2 3 1 1" class="no-wrap">
+  (844) 698-2311
+</a>
+*/
+
+// Showing all options
+<Telephone
+  contact="18884424551" // leading "1" is removed
+  className="foo"
+  pattern={false} // Ignored when text is included
+  ariaLabel="8 8 8. 4 4 2. 4 5 5 1"
+  onClick={() => {}}
+/>
+  1-888-GI-BILL-1
+</Telephone>
+
+/* Renders as
+<a href="tel:+18884424551" aria-label="8 8 8. 4 4 2. 4 5 5 1" class="no-wrap foo">
+  1-888-GI-BILL-1
+</a>
+*/
+```
+
+### Rendered Component
+
+<div className="site-c-reactcomp__rendered">
+  <strong>Minimal example</strong>
+  <p>
+    <Telephone contact={CONTACTS.VA_BENEFITS} />
+  </p>
+
+  <strong>Adding a pattern</strong>
+  <p>
+    <Telephone
+      contact={CONTACTS.VA_311}
+      pattern={PATTERNS.WRAP_CODE}
+    />
+  </p>
+
+  <strong>Showing all options</strong>
+  <p>
+    <Telephone
+      contact="18884424551"
+      className="foo"
+      pattern={false}
+      ariaLabel="8 8 8. 4 4 2. 4 5 5 1"
+      onClick={() => {}}
+    />
+      1-888-GI-BILL-1
+    </Telephone>
+  </p>
+</div>
+
+### Predefined contacts
+
+| Key | Number | Description |
+|:----|:-------|:------------|
+| `222_VETS` | `8772228387` | VA Help Line |
+| `4AID_VET` | `8774243838` | National Call Center for Homeless Veterans |
+| `911` | `911` | Emergency! |
+| `CAREGIVER` | `8552603274` | VA National Caregiver Support Line |
+| `CRISIS_LINE` | `8002738255` | Veterans Crisis hotline |
+| `CRISIS_TTY` | `8007994889` | Veterans Crisis hotline TTY |
+| `DS_LOGON` | `8005389552` | Defense Manpower Data Center |
+| `DS_LOGON_TTY` | `8663632883` | Defense Manpower Data Center TTY |
+| `GI_BILL` | `8884424551` | Education Call Center (1-888-GI-BILL-1) |
+| `GO_DIRECT` | `8003331795` | Go Direct/Direct Express (Treasury) |
+| `HELP_DESK` | `8555747286` | VA Help desk |
+| `HELP_TTY` | `8008778339` | VA Help Desk TTY |
+| `MY_HEALTHEVET` | `8773270022` | My HealtheVet help desk |
+| `NCA` | `8005351117` | National Cemetery Scheduling Office |
+| `TESC` | `8882242950` | U.S. Treasury Electronic Payment Solution Center |
+| `VA_311` | `8446982311` | VA Help desk (VA311) |
+| `VA_BENEFITS` | `8008271000` | Veterans Benefits Assistance |
+
+### Predefined patterns
+
+| Key | Pattern | Description |
+|:----|:--------|:------------|
+| `911` | `###` | Matches the `911` contact number |
+| `DEFAULT` | `###-###-####` | Current phone pattern used throughout the site |
+| `WRAP_AREACODE` | `(###) ###-####` | Extra pattern; currently used for testing |
