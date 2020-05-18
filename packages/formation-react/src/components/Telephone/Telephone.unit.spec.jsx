@@ -79,7 +79,7 @@ describe('Widget <Telephone />', () => {
       <Telephone contact={CONTACTS.DS_LOGON} extension="555" />,
     );
     const props = wrapper.props();
-    expect(props.href).to.equal('tel:+18005389552;ext=555');
+    expect(props.href).to.equal('tel:+18005389552,555');
     expect(props['aria-label']).to.equal(
       '800. 5 3 8. 9 5 5 2. extension 5 5 5.',
     );
@@ -95,7 +95,7 @@ describe('Widget <Telephone />', () => {
       />,
     );
     const props = wrapper.props();
-    expect(props.href).to.equal('tel:+18005553000;ext=70');
+    expect(props.href).to.equal('tel:+18005553000,70');
     expect(props['aria-label']).to.equal('1. 800. 5 5 5. 3000. extension 70.');
     expect(wrapper.text()).to.equal('+1-800-555-3000, ext. 70');
     wrapper.unmount();
