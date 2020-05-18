@@ -12,7 +12,7 @@ describe('Widget <Telephone />', () => {
     const props = wrapper.props();
     expect(wrapper.type()).to.equal('a');
     expect(props.href).to.equal('tel:+18005551212');
-    expect(props['aria-label']).to.equal('800. 5 5 5. 1 2 1 2');
+    expect(props['aria-label']).to.equal('800. 5 5 5. 1 2 1 2.');
     expect(wrapper.text()).to.equal('800-555-1212');
     wrapper.unmount();
   });
@@ -20,7 +20,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact="1-800-555-1000" />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005551000');
-    expect(props['aria-label']).to.equal('800. 5 5 5. 1000');
+    expect(props['aria-label']).to.equal('800. 5 5 5. 1000.');
     expect(wrapper.text()).to.equal('800-555-1000');
     wrapper.unmount();
   });
@@ -52,7 +52,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact={CONTACTS.DS_LOGON} />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005389552');
-    expect(props['aria-label']).to.equal('800. 5 3 8. 9 5 5 2');
+    expect(props['aria-label']).to.equal('800. 5 3 8. 9 5 5 2.');
     expect(wrapper.text()).to.equal('800-538-9552');
     wrapper.unmount();
   });
@@ -60,7 +60,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact={CONTACTS.VA_311} />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18446982311');
-    expect(props['aria-label']).to.equal('8 4 4. 6 9 8. 2 3 1 1');
+    expect(props['aria-label']).to.equal('8 4 4. 6 9 8. 2 3 1 1.');
     expect(wrapper.text()).to.equal('844-698-2311');
     wrapper.unmount();
   });
@@ -68,8 +68,36 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact={CONTACTS['911']} />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:911');
-    expect(props['aria-label']).to.equal('9 1 1');
+    expect(props['aria-label']).to.equal('9 1 1.');
     expect(wrapper.text()).to.equal('911');
+    wrapper.unmount();
+  });
+
+  // extension
+  it('should render a known number + extension', () => {
+    const wrapper = shallow(
+      <Telephone contact={CONTACTS.DS_LOGON} extension="555" />,
+    );
+    const props = wrapper.props();
+    expect(props.href).to.equal('tel:+18005389552;ext=555');
+    expect(props['aria-label']).to.equal(
+      '800. 5 3 8. 9 5 5 2. extension 5 5 5.',
+    );
+    expect(wrapper.text()).to.equal('800-538-9552, ext. 555');
+    wrapper.unmount();
+  });
+  it('should render a custom number + extension', () => {
+    const wrapper = shallow(
+      <Telephone
+        contact="18005553000"
+        pattern={PATTERNS.OUTSIDE_US}
+        extension="70"
+      />,
+    );
+    const props = wrapper.props();
+    expect(props.href).to.equal('tel:+18005553000;ext=70');
+    expect(props['aria-label']).to.equal('1. 800. 5 5 5. 3000. extension 70.');
+    expect(wrapper.text()).to.equal('+1-800-555-3000, ext. 70');
     wrapper.unmount();
   });
 
@@ -80,7 +108,7 @@ describe('Widget <Telephone />', () => {
     );
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18884424551');
-    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1');
+    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1.');
     expect(props.className).to.equal('no-wrap foo');
     expect(wrapper.text()).to.equal('888-442-4551');
     wrapper.unmount();
@@ -93,7 +121,7 @@ describe('Widget <Telephone />', () => {
     );
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18884424551');
-    expect(props['aria-label']).to.equal('1. 8 8 8. 4 4 2. 4 5 5 1');
+    expect(props['aria-label']).to.equal('1. 8 8 8. 4 4 2. 4 5 5 1.');
     expect(wrapper.text()).to.equal('+1-888-442-4551');
     wrapper.unmount();
   });
@@ -101,7 +129,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact="5551212" pattern="###_####" />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:5551212');
-    expect(props['aria-label']).to.equal('5 5 5. 1 2 1 2');
+    expect(props['aria-label']).to.equal('5 5 5. 1 2 1 2.');
     expect(wrapper.text()).to.equal('555_1212');
     wrapper.unmount();
   });
@@ -111,14 +139,14 @@ describe('Widget <Telephone />', () => {
     expect(props.href).to.equal('tel:711');
     // not sure if including a period and a space is a big deal; probably
     // an edge case either way
-    expect(props['aria-label']).to.equal('7. 1. 1');
+    expect(props['aria-label']).to.equal('7. 1. 1.');
     expect(wrapper.text()).to.equal('7 1 1');
     wrapper.unmount();
   });
 
   // label
   it('should render a custom label string', () => {
-    const ariaLabel = '800. 5 5 5. 12 12';
+    const ariaLabel = '800. 5 5 5. 12 12.';
     const wrapper = shallow(
       <Telephone contact={CONTACTS.GI_BILL} ariaLabel={ariaLabel} />,
     );
@@ -136,7 +164,7 @@ describe('Widget <Telephone />', () => {
     );
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18884424551');
-    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1');
+    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1.');
     expect(wrapper.text()).to.equal('1-888-GI-BILL-1');
     wrapper.unmount();
   });

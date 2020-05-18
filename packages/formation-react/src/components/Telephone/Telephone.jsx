@@ -84,9 +84,10 @@ const formatTelLabel = number =>
  * Telephone component
  * @param {string|number} contact (required) - telephone number, with or without
  *  formatting; all non-digit characters will be stripped out
- * @param {string} className (required) - additional space-separated class names
+ * @param {string} extension (optional) - telephone extension
+ * @param {string} className (optional) - additional space-separated class names
  *  to add to the link
- * @param {string} pattern (required) - Link text format pattern, using "#" as
+ * @param {string} pattern (optional) - Link text format pattern, using "#" as
  *  the digit placeholder
  * @param {string} ariaLabel (optional) - if included, this custom aria-label
  *  will replace the generated aria-label
@@ -99,6 +100,7 @@ const formatTelLabel = number =>
 function Telephone({
   // phone number (length _must_ match the pattern; leading "1" is removed)
   contact = '', // telephone number
+  extension = '', // phone extension
   className = '', // additional css class to add
   pattern = '', // output format; defaults to patterns.default value
   ariaLabel = '', // custom aria-label
@@ -106,30 +108,42 @@ function Telephone({
   children,
 }) {
   // strip out non-digits for use in href: "###-### ####" => "##########"
-  const contactString = parseNumber(contact.toString());
-  const cleanNumber = CONTACTS[contactString] || contactString;
+  const parsedNumber = parseNumber(contact.toString());
+  const phoneNumber = CONTACTS[parsedNumber] || parsedNumber;
 
   // Capture "911" pattern here
-  const contactPattern = pattern || PATTERNS[contactString] || PATTERNS.DEFAULT;
+  const contactPattern = pattern || PATTERNS[parsedNumber] || PATTERNS.DEFAULT;
   const patternLength = contactPattern.match(/#/g).length;
-  const formattedTel = formatTelText(cleanNumber, contactPattern);
+  const formattedNumber = formatTelText(phoneNumber, contactPattern, extension);
 
-  if (!cleanNumber || cleanNumber.length !== patternLength) {
+  if (!phoneNumber || phoneNumber.length !== patternLength) {
     throw new Error(
-      `Contact number "${cleanNumber}" does not match the pattern (${contactPattern})`,
+      `Contact number "${phoneNumber}" does not match the pattern (${contactPattern})`,
     );
   }
 
-  const href = cleanNumber.length === 10 ? `+1${cleanNumber}` : cleanNumber;
+  const formattedAriaLabel =
+    ariaLabel ||
+    `${formatTelLabel(formattedNumber)}${
+      extension ? `. extension ${formatTelLabelBlock(extension)}.` : '.'
+    }`;
+
+  const href = `tel:${
+    phoneNumber.length === 10 ? `+1${phoneNumber}` : phoneNumber
+  }${
+    // extension format from RFC3966 https://tools.ietf.org/html/rfc3966#page-5
+    extension ? `;ext=${extension}` : ''
+  }`;
 
   return (
     <a
       className={`no-wrap ${className}`}
-      href={`tel:${href}`}
-      aria-label={ariaLabel || formatTelLabel(formattedTel)}
+      href={href}
+      aria-label={formattedAriaLabel}
       onClick={onClick}
     >
-      {children || formattedTel}
+      {children ||
+        `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
     </a>
   );
 }
