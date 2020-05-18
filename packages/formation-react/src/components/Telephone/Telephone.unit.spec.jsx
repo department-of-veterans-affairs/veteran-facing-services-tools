@@ -89,12 +89,12 @@ describe('Widget <Telephone />', () => {
   // pattern
   it('should render a custom pattern', () => {
     const wrapper = shallow(
-      <Telephone contact={CONTACTS.GI_BILL} pattern={PATTERNS.WRAP_AREACODE} />,
+      <Telephone contact={CONTACTS.GI_BILL} pattern={PATTERNS.OUTSIDE_US} />,
     );
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18884424551');
-    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1');
-    expect(wrapper.text()).to.equal('(888) 442-4551');
+    expect(props['aria-label']).to.equal('1. 8 8 8. 4 4 2. 4 5 5 1');
+    expect(wrapper.text()).to.equal('+1-888-442-4551');
     wrapper.unmount();
   });
   it('should render a 7-digit custom pattern', () => {

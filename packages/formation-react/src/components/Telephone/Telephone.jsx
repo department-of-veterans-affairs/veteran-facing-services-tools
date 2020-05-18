@@ -24,7 +24,7 @@ export const CONTACTS = Object.freeze({
 export const PATTERNS = {
   911: '###', // needed to match 911 CONTACT
   DEFAULT: '###-###-####',
-  WRAP_AREACODE: '(###) ###-####',
+  OUTSIDE_US: '+1-###-###-####',
 };
 
 // Strip out leading "1" and any non-digits
