@@ -170,7 +170,7 @@ module.exports = {
             },
             {
               name: 'Using available fields',
-              href: '/forms/user-available-fields',
+              href: '/forms/using-available-fields',
             },
           ],
         },
