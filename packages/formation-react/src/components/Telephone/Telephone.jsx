@@ -158,6 +158,13 @@ Telephone.propTypes = {
   contact: PropTypes.string.isRequired,
 
   /**
+   * Options extension for the telephone number. Only include the numbers,
+   * "ext" will be added automatically along with "extension" within the
+   * aria-label
+   */
+  extension: PropTypes.string,
+
+  /**
    * Additional class name to add to the link.
    */
   className: PropTypes.string,
