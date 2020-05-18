@@ -39,7 +39,7 @@ const formatTelText = (num, pattern) => {
   return pattern.replace(/#/g, () => num[i++] || '');
 };
 
-const formatBlock = number => {
+const formatTelLabelBlock = number => {
   const len = number.length - 1;
   // return rounded number as a grouped value, e.g. `800` or `1000`
   // but split non-round numbers, e.g. `827` => `8 2 7`
@@ -53,7 +53,7 @@ const formatTelLabel = number =>
   number
     .split(/[^\d]+/)
     .filter(n => n)
-    .map(formatBlock)
+    .map(formatTelLabelBlock)
     .join('. ');
 
 function Telephone({
