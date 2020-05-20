@@ -51,27 +51,18 @@ const formatTelText = (num, pattern) => {
 };
 
 /**
- * Group number parts that are divisible by 1000 or 100 (chose the greater one,
- * if possible) and spread out other numbers; we want the screenreader to sound
- * out the numbers as we typically say them, e.g. "eight hundred five five five
- * one thousand" (800-555-1000)
+ * Add a space between each number part
  * @param {string} number - number part, e.g. area code, prefix, line number
  * @return {string} - formatted number part for use in aria-label
  */
-const formatTelLabelBlock = number => {
-  const len = number.length - 1;
-  // return rounded number as a grouped value, e.g. `800` or `1000`
-  // but split non-round numbers, e.g. `827` => `8 2 7`
-  const isRoundNumber = parseInt(number.slice(-len), 10) === 0;
-  return isRoundNumber ? number : number.split('').join(' ');
-};
+const formatTelLabelBlock = number => number.split('').join(' ');
 
 /**
  * Format telephone number for label
  * @param {string} number - Expected a phone number with or without dashes that
  * matches the number of "#" within the default or set pattern
  * @return {string} - Combined phone number parts within the label separated by
- * periods, e.g. "800-555-1212" becomes "800. 5 5 5. 1 2 1 2"
+ * periods, e.g. "800-555-1212" becomes "8 0 0. 5 5 5. 1 2 1 2"
  */
 const formatTelLabel = number =>
   number

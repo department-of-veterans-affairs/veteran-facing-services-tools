@@ -12,7 +12,7 @@ describe('Widget <Telephone />', () => {
     const props = wrapper.props();
     expect(wrapper.type()).to.equal('a');
     expect(props.href).to.equal('tel:+18005551212');
-    expect(props['aria-label']).to.equal('800. 5 5 5. 1 2 1 2.');
+    expect(props['aria-label']).to.equal('8 0 0. 5 5 5. 1 2 1 2.');
     expect(wrapper.text()).to.equal('800-555-1212');
     wrapper.unmount();
   });
@@ -20,7 +20,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact="1-800-555-1000" />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005551000');
-    expect(props['aria-label']).to.equal('800. 5 5 5. 1000.');
+    expect(props['aria-label']).to.equal('8 0 0. 5 5 5. 1 0 0 0.');
     expect(wrapper.text()).to.equal('800-555-1000');
     wrapper.unmount();
   });
@@ -52,7 +52,7 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(<Telephone contact={CONTACTS.DS_LOGON} />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005389552');
-    expect(props['aria-label']).to.equal('800. 5 3 8. 9 5 5 2.');
+    expect(props['aria-label']).to.equal('8 0 0. 5 3 8. 9 5 5 2.');
     expect(wrapper.text()).to.equal('800-538-9552');
     wrapper.unmount();
   });
@@ -81,7 +81,7 @@ describe('Widget <Telephone />', () => {
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005389552,555');
     expect(props['aria-label']).to.equal(
-      '800. 5 3 8. 9 5 5 2. extension 5 5 5.',
+      '8 0 0. 5 3 8. 9 5 5 2. extension 5 5 5.',
     );
     expect(wrapper.text()).to.equal('800-538-9552, ext. 555');
     wrapper.unmount();
@@ -96,7 +96,9 @@ describe('Widget <Telephone />', () => {
     );
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005553000,70');
-    expect(props['aria-label']).to.equal('1. 800. 5 5 5. 3000. extension 70.');
+    expect(props['aria-label']).to.equal(
+      '1. 8 0 0. 5 5 5. 3 0 0 0. extension 7 0.'
+    );
     expect(wrapper.text()).to.equal('+1-800-555-3000, ext. 70');
     wrapper.unmount();
   });
@@ -146,7 +148,7 @@ describe('Widget <Telephone />', () => {
 
   // label
   it('should render a custom label string', () => {
-    const ariaLabel = '800. 5 5 5. 12 12.';
+    const ariaLabel = '8 0 0. 5 5 5. 12 12.';
     const wrapper = shallow(
       <Telephone contact={CONTACTS.GI_BILL} ariaLabel={ariaLabel} />,
     );
