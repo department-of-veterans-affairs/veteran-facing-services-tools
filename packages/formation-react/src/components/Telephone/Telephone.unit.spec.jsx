@@ -16,7 +16,7 @@ describe('Widget <Telephone />', () => {
     expect(wrapper.text()).to.equal('800-555-1212');
     wrapper.unmount();
   });
-  it('should render a number with a leading "1"', () => {
+  it('should render a number without a leading "1"', () => {
     const wrapper = shallow(<Telephone contact="1-800-555-1000" />);
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005551000');
@@ -67,8 +67,8 @@ describe('Widget <Telephone />', () => {
   it('should render 911 (a known number)', () => {
     const wrapper = shallow(<Telephone contact={CONTACTS['911']} />);
     const props = wrapper.props();
-    expect(props.href).to.equal('tel:911');
-    expect(props['aria-label']).to.equal('9 1 1.');
+    expect(props.href).to.equal('tel:+1911');
+    expect(props['aria-label']).to.equal('1. 9 1 1.');
     expect(wrapper.text()).to.equal('911');
     wrapper.unmount();
   });
@@ -97,7 +97,7 @@ describe('Widget <Telephone />', () => {
     const props = wrapper.props();
     expect(props.href).to.equal('tel:+18005553000,70');
     expect(props['aria-label']).to.equal(
-      '1. 8 0 0. 5 5 5. 3 0 0 0. extension 7 0.'
+      '1. 8 0 0. 5 5 5. 3 0 0 0. extension 7 0.',
     );
     expect(wrapper.text()).to.equal('+1-800-555-3000, ext. 70');
     wrapper.unmount();

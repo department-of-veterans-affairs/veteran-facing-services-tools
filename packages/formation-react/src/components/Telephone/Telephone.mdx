@@ -47,6 +47,13 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
 </a>
 */
 
+// Special case (911)
+<Telephone contact={CONTACTS.911} />
+
+/* Renders as
+<a href="tel:+1911" aria-label="1. 9 1 1." class="no-wrap">911</a>
+*/
+
 // Showing all options
 <Telephone
   contact="18884424551" // leading "1" is removed
@@ -88,6 +95,12 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
       contact="8005551212"
       extension="123"
     />
+  </p>
+
+  <strong>Special case (911)</strong>
+  <p>
+    <!-- prevent accidental clicks in this demo page -->
+    <Telephone contact={CONTACTS.911} onClick={e => e.preventDefault()} />
   </p>
 
   <strong>Showing all options</strong>

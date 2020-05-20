@@ -21,10 +21,16 @@ export const CONTACTS = Object.freeze({
   VA_BENEFITS: '8008271000', // Veterans Benefits Assistance
 });
 
+// Patterns used in formatting visible text
 export const PATTERNS = {
   911: '###', // needed to match 911 CONTACT
   DEFAULT: '###-###-####',
   OUTSIDE_US: '+1-###-###-####',
+};
+
+// Custom aria labels (only used internally)
+const LABELS = {
+  911: '1. 9 1 1.',
 };
 
 /**
@@ -115,13 +121,14 @@ function Telephone({
 
   const formattedAriaLabel =
     ariaLabel ||
+    LABELS[parsedNumber] || // custom 911 aria-label
     `${formatTelLabel(formattedNumber)}${
       extension ? `. extension ${formatTelLabelBlock(extension)}.` : '.'
     }`;
 
-  const href = `tel:${
-    phoneNumber.length === 10 ? `+1${phoneNumber}` : phoneNumber
-  }${
+  // Add a "+1" to the tel for all included patterns
+  const isIncludedPattern = Object.values(PATTERNS).includes(contactPattern);
+  const href = `tel:${isIncludedPattern ? `+1${phoneNumber}` : phoneNumber}${
     // extension format ";ext=" from RFC3966 https://tools.ietf.org/html/rfc3966#page-5
     // but it seems that using a comma to pause for 2 seconds might be a better
     // solution - see https://dsva.slack.com/archives/C8E985R32/p1589814301103200
