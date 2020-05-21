@@ -7,6 +7,7 @@ tags: telephone, component
 import Telephone, { CONTACTS, PATTERNS } from './Telephone';
 
 ### Code:
+
 ```javascript
 import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/formation-react/Telephone';
 
@@ -48,7 +49,7 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
 */
 
 // Special case (911)
-<Telephone contact={CONTACTS.911} />
+<Telephone contact={CONTACTS['911']} />
 
 /* Renders as
 <a href="tel:+1911" aria-label="1. 9 1 1." class="no-wrap">911</a>
@@ -100,10 +101,8 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
   <strong>Special case (911)</strong>
   <p>
     <Telephone
-      contact={CONTACTS.911}
-      onClick={(e) => {
-        e.preventDefault()
-      }}
+      contact={CONTACTS['911']}
+      onClick={e => e.preventDefault()}
     />
   </p>
 
