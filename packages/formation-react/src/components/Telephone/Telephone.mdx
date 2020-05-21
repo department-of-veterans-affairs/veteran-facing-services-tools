@@ -99,7 +99,12 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
 
   <strong>Special case (911)</strong>
   <p>
-    <Telephone contact={CONTACTS.911} onClick={e => e.preventDefault()} />
+    <Telephone
+      contact={CONTACTS.911}
+      onClick={(e) => {
+        e.preventDefault()
+      }}
+    />
   </p>
 
   <strong>Showing all options</strong>
