@@ -48,11 +48,11 @@ import MyComponent from '../../components/MyComponent';
 describe('my-application', () => {
   describe('MyComponent', () => {
     it('renders privacy act disclosure when state.show is true', () => {
-        const componentUnderTest = shallow(<MyComponent />);
+        const wrapper = shallow(<MyComponent />);
         ...
         expect(someCondition).to.be.true;
 
-        componentUnderTest.unmount();
+        wrapper.unmount();
     })
   });
 });
