@@ -39,7 +39,8 @@ Mocha runs any *file_name*.unit.spec.js file located in the `/src` folder. This 
 
 Use the following conventions when writing a unit test.
 
-```
+```js
+import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import MyComponent from '../../components/MyComponent';
@@ -47,11 +48,11 @@ import MyComponent from '../../components/MyComponent';
 describe('my-application', () => {
   describe('MyComponent', () => {
     it('renders privacy act disclosure when state.show is true', () => {
-        const componentUnderTest = shallow(<MyComponent />);
+        const wrapper = shallow(<MyComponent />);
         ...
         expect(someCondition).to.be.true;
 
-        componentUnderTest.unmount();
+        wrapper.unmount();
     })
   });
 });
@@ -75,7 +76,7 @@ describe('my-application', () => {
 
 Use the following guidelines when writing a unit test for forms pages.
 
-```
+```js
 import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
 
 describe('MyForm FormID', () => {
