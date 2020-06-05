@@ -58,7 +58,7 @@ Unfortunately, invalid HTML in `va.gov-team` Markdown files can break the build 
 
 ##### Solution 
 
-To fix the `Expected corresponding JSX closing tag for <img>` error, you need to the following:
+To fix the `Expected corresponding JSX closing tag for <img>` error, you need to do the following:
 
 1. Find the invalid HTML in the `va.gov-team` repo
    1. Look for a string from the error message in the `va.gov-team` repo to find the offending Markdown file
