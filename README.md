@@ -72,6 +72,7 @@ To fix the `Expected corresponding JSX closing tag for <img>` error, you need to
 3. Rerun `veteran-facing-services-tools` build
    - Options
      - Rerun the Jenkins job
+     ![restart jenkins build](https://user-images.githubusercontent.com/6130520/83898908-31d2a500-a71d-11ea-8236-be138fd7ef31.gif)
      - Whitespace push
 
 ##### Example `va.gov-team` PR: https://github.com/department-of-veterans-affairs/va.gov-team/pull/9869
