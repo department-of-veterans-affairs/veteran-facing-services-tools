@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { MDXProvider } from '@mdx-js/tag';
 import { LiveProvider, LiveEditor } from 'react-live';
@@ -68,7 +67,7 @@ export default class ModuleComponentsLayout extends Component {
   }
 }
 
-export const pageQuery = graphql`
+export const pageQuery = `
   query($id: String!, $name: String!) {
     mdx(id: { eq: $id }) {
       id
