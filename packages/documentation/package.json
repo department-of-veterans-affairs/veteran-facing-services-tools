@@ -44,9 +44,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "resolutions": {
-    "graphql": "14.1.1"
-  },
   "scripts": {
     "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
     "deploy": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths && gh-pages -d public -e .; fi",
