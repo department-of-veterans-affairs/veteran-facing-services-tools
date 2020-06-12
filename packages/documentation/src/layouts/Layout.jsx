@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery } from 'gatsby';
 
 import Header from '../components/Header';
 import '../scss/main.scss';
@@ -40,7 +40,7 @@ class Layout extends React.Component {
 
     return (
       <StaticQuery
-        query={graphql`
+        query={`
           query SiteTitleQuery {
             site {
               siteMetadata {
