@@ -67,36 +67,36 @@ export default class ModuleComponentsLayout extends Component {
   }
 }
 
-export const pageQuery = `
-  query($id: String!, $name: String!) {
-    mdx(id: { eq: $id }) {
-      id
-      code {
-        body
-      }
-      tableOfContents
-    }
-    componentMetadata(displayName: { eq: $name }) {
-      id
-      displayName
-      docblock
-      doclets
-      childrenComponentProp {
-        name
-        docblock
-        required
-        parentType {
-          name
-        }
-        type {
-          value
-        }
-        defaultValue {
-          value
-          computed
-        }
-      }
-      composes
-    }
-  }
-`;
+// export const pageQuery = `
+//   query($id: String!, $name: String!) {
+//     mdx(id: { eq: $id }) {
+//       id
+//       code {
+//         body
+//       }
+//       tableOfContents
+//     }
+//     componentMetadata(displayName: { eq: $name }) {
+//       id
+//       displayName
+//       docblock
+//       doclets
+//       childrenComponentProp {
+//         name
+//         docblock
+//         required
+//         parentType {
+//           name
+//         }
+//         type {
+//           value
+//         }
+//         defaultValue {
+//           value
+//           computed
+//         }
+//       }
+//       composes
+//     }
+//   }
+// `;
