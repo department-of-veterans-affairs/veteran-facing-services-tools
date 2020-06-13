@@ -29,15 +29,15 @@ module.exports = {
       },
     },
     // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `vagov-documentation`,
-    //     short_name: `vagov-documentation`,
-    //     start_url: `/`,
-    //   },
-    // },
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `vagov-documentation`,
+        short_name: `vagov-documentation`,
+        start_url: `/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
