@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/tag';
 import { LiveProvider, LiveEditor } from 'react-live';
 
