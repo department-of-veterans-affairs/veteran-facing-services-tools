@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { MDXProvider } from '@mdx-js/tag';
+import { MDXRenderer, MDXProvider } from 'gatsby-plugin-mdx';
 import { LiveProvider, LiveEditor } from 'react-live';
 
 import SidebarLayout from './SidebarLayout';
