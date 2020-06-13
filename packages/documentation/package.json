@@ -28,7 +28,6 @@
     "gatsby-transformer-javascript-frontmatter": "^2.3.5",
     "gatsby-transformer-react-docgen": "^5.2.5",
     "gatsby-transformer-remark": "2.8.15",
-    "gatsby-transformer-sharp": "2.5.5",
     "gh-pages": "^3.0.0",
     "node-github-graphql": "^0.2.7",
     "node-sass": "^4.11.0",
