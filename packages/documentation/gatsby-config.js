@@ -46,20 +46,20 @@ module.exports = {
         name: 'components',
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `../formation-react/src/components`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: `../formation-react/src/components`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
         mediaTypes: ['text/x-markdown'],
-        // defaultLayouts: {
-        //   default: require.resolve('./src/layouts/SidebarLayout.jsx'),
-        // },
+        defaultLayouts: {
+          default: require.resolve('./src/layouts/SidebarLayout.jsx'),
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
