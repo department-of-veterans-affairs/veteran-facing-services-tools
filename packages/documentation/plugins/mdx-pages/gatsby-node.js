@@ -60,31 +60,31 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error('Error querying for custom pages');
   }
 
-  result.data.allMdx.edges.forEach(({ node }) => {
-    if (node.frontmatter.name) {
-      createPage({
-        path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
-        component: path.resolve('./src/layouts/module-components.js'),
-        context: {
-          id: node.id,
-          source: 'component',
-          frontmatter: {
-            ...node.frontmatter,
-          },
-          name: node.frontmatter.name,
-        },
-      });
-    }
-  });
+  // result.data.allMdx.edges.forEach(({ node }) => {
+  //   if (node.frontmatter.name) {
+  //     createPage({
+  //       path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
+  //       component: path.resolve('./src/layouts/module-components.js'),
+  //       context: {
+  //         id: node.id,
+  //         source: 'component',
+  //         frontmatter: {
+  //           ...node.frontmatter,
+  //         },
+  //         name: node.frontmatter.name,
+  //       },
+  //     });
+  //   }
+  // });
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      alias: {
-        components: path.resolve('../formation-react/src/components'),
-      },
-    },
-  });
-};
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+//       alias: {
+//         components: path.resolve('../formation-react/src/components'),
+//       },
+//     },
+//   });
+// };
