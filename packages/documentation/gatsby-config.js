@@ -37,6 +37,21 @@ module.exports = {
         start_url: `/`,
       },
     },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `../formation-react/src/components`,
+        name: 'components',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `../formation-react/src/components`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -65,15 +80,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `../formation-react/src/components`,
-        name: 'components',
-      },
-    },
     `gatsby-transformer-react-docgen`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -91,7 +97,6 @@ module.exports = {
       },
     },
     // `github-api-pages`,
-    `mdx-pages`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
