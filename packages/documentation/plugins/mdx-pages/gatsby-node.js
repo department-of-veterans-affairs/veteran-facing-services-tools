@@ -4,29 +4,29 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   const parent = getNode(node.parent);
 
-  if (node.internal.type === `Mdx`) {
-    if (parent.name) {
-      if (parent.name === 'index') {
-        createNodeField({
-          node,
-          name: `slug`,
-          value: `/`,
-        });
-      } else {
-        createNodeField({
-          node,
-          name: `slug`,
-          value: `/${parent.name.toLowerCase()}/`,
-        });
-      }
+  // if (node.internal.type === `Mdx`) {
+  //   if (parent.name) {
+  //     if (parent.name === 'index') {
+  //       createNodeField({
+  //         node,
+  //         name: `slug`,
+  //         value: `/`,
+  //       });
+  //     } else {
+  //       createNodeField({
+  //         node,
+  //         name: `slug`,
+  //         value: `/${parent.name.toLowerCase()}/`,
+  //       });
+  //     }
 
-      createNodeField({
-        node,
-        name: `sourceInstanceName`,
-        value: `${parent.sourceInstanceName}`,
-      });
-    }
-  }
+  //     createNodeField({
+  //       node,
+  //       name: `sourceInstanceName`,
+  //       value: `${parent.sourceInstanceName}`,
+  //     });
+  //   }
+  // }
 };
 
 exports.createPages = async ({ graphql, actions }) => {
