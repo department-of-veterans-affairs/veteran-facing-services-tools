@@ -13,10 +13,4 @@ describe('<SidebarBlock />', () => {
     expect(wrapper.text()).to.equal('Here is the headerHere is the content');
     wrapper.unmount();
   });
-  it('should throw an error when no header is given', () => {
-    const mockContent = <div>Here is the content</div>;
-    const wrapper = shallow(<SidebarBlock content={mockContent} />);
-    expect(wrapper.text()).to.equal('Here is the content');
-    wrapper.unmount();
-  });
 });
