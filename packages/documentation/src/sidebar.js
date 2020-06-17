@@ -88,6 +88,10 @@ module.exports = {
               name: 'Updating Formation',
               href: '/getting-started/common-tasks/updating-formation',
             },
+            {
+              name: 'URL Routing',
+              href: '/getting-started/common-tasks/routing',
+            },
           ],
         },
       ],
