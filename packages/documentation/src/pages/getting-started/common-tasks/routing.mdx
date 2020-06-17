@@ -1,6 +1,6 @@
 # Routing
 
-## Proxy Config
+## Reverse Proxy Config
 
 The proxy handles incoming URL requests to va.gov and is managed through a [proxy config](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml) file.
 
@@ -37,7 +37,6 @@ To redirect from one URL to another, use the `redirects` section with a `src`, `
     dest: /coronavirus-veteran-frequently-asked-questions/
     matcher: "~*"
 ```  
-
 
 
 
