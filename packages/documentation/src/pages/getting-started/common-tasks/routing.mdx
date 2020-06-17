@@ -15,7 +15,7 @@ For example, a React app running at `www.va.gov/appPath` would need this added:
 ```
 By default, one url path maps to one document. This configuration changes the default behavior so that any additional path parts after `/appPath` like `/appPath/IntroductionPage` will return the document at `/appPath`.
 
-## Redirects
+## Server-side Redirects
 
 To redirect from one URL to another, use the `redirects` section with a `src`, `dest`, and optional params such as:
 ```yaml
@@ -37,5 +37,4 @@ To redirect from one URL to another, use the `redirects` section with a `src`, `
     dest: /coronavirus-veteran-frequently-asked-questions/
     matcher: "~*"
 ```  
-
 
