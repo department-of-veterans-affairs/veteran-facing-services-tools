@@ -12,7 +12,7 @@ const SidebarBlock = props => (
 
 SidebarBlock.propTypes = {
   heading: PropTypes.string.isRequired,
-  content: PropTypes.object.isRequired,
+  content: PropTypes.element.isRequired,
 };
 
 export default SidebarBlock;
