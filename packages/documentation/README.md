@@ -24,6 +24,11 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Instructions on generating personal access tokens are [here](https://help.github.com/en/articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization).
 
+    Summary:
+
+    - Go to <https://github.com/settings/tokens>
+    - Use an existing token, or create one with at least "`public_repo` Access public repositories" access
+
 1.  **Start developing.**
 
     Navigate to the documentation package and run.
@@ -48,13 +53,13 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 1. **Run build and publish task**
 
-    Navigate to the documentation package and run.
+   Navigate to the documentation package and run.
 
-    ```
-    GITHUB_API_KEY=your-personal-access-token yarn build
-    ```
+   ```
+   GITHUB_API_KEY=your-personal-access-token yarn build
+   ```
 
-    This will build the Gatsby site for github pages and push the changes to the `origin gh-pages` branch.
+   This will build the Gatsby site for github pages and push the changes to the `origin gh-pages` branch.
 
 ## 🧐 What's inside?
 
