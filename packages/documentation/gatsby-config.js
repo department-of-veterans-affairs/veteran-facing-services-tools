@@ -64,10 +64,7 @@ module.exports = {
             },
           },
           {
-            resolve: path.resolve(
-              __dirname,
-              './plugins/remark/gatsby-remark-mdx-mermaid',
-            ),
+            resolve: 'gatsby-remark-mermaid',
           },
           {
             resolve: 'gatsby-remark-slug',

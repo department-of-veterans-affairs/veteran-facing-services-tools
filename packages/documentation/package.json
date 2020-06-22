@@ -21,6 +21,7 @@
     "gatsby-plugin-sharp": "2.6.11",
     "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^3.3.10",
+    "gatsby-remark-mermaid": "^2.0.0",
     "gatsby-remark-slug": "^0.1.0",
     "gatsby-source-filesystem": "2.3.11",
     "gatsby-source-git": "^1.0.2",
