@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, StaticQuery } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 
 /**
  * Sidebar
@@ -10,10 +10,11 @@ import { Link, StaticQuery } from 'gatsby';
 function ComponentList() {
   return (
     <StaticQuery
-      query={`
+      query={graphql`
         query ComponentListQuery {
           components: allSitePage(
             filter: { context: { source: { eq: "component" } } }
+            sort: { fields: [context___name], order: ASC }
           ) {
             edges {
               node {
