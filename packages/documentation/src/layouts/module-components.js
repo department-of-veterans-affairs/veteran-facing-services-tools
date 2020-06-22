@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { LiveProvider, LiveEditor } from 'react-live';
@@ -29,7 +30,7 @@ export default class ModuleComponentsLayout extends Component {
     const { displayName, docblock } = data.componentMetadata;
     const jsDocBlock = docblock;
     const jsDockBlocks = jsDocBlock.split(/\r?\n/);
-    const mdxCodeBlock = data.mdx.code.body;
+    const mdxCodeBlock = data.mdx.body;
     // Window is not available during build, so this was added deal with making
     // window available to some components.
     // Tried to add it to componentDidMount but it didn't work correctly.
@@ -67,13 +68,11 @@ export default class ModuleComponentsLayout extends Component {
   }
 }
 
-export const pageQuery = `
+export const pageQuery = graphql`
   query($id: String!, $name: String!) {
     mdx(id: { eq: $id }) {
       id
-      code {
-        body
-      }
+      body
       tableOfContents
     }
     componentMetadata(displayName: { eq: $name }) {
