@@ -47,12 +47,6 @@ module.exports = {
         name: 'components',
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-page-creator`,
-    //   options: {
-    //     path: `../formation-react/src/components`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
