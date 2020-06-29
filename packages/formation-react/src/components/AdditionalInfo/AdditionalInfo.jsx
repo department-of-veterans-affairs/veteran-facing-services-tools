@@ -28,7 +28,7 @@ export default class AdditionalInfo extends React.Component {
     const trigger = (
       <button
         type="button"
-        className="additional-info-button va-button-link"
+        className="additional-info-button va-button-link vads-u-display--block"
         aria-expanded={this.state.open ? 'true' : 'false'}
         aria-controls={this.expandedContentId}
         onClick={this.toggle}
