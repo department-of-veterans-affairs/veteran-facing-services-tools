@@ -25,6 +25,7 @@ These form features are available in the VAFS library. We've provided informatio
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
 - [Remote error and event monitoring](#remote-error-and-event-monitoring)
+- [Custom Submission Error](#form-submit-error)
 
 ## Form instructions
 
@@ -498,3 +499,64 @@ formConfig = {
 ## Usage guidelines
 
 Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not or cannot report. We highly recommend that you use an error-reporting and/or event-reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
+
+## Form Submit Error
+
+### Default Submission Error
+
+This is the default custom error message on every form, and looks as follows:
+![Custom error message example](../../images/forms/default-submit-error.png)
+
+This component has optional dialog based on whether the user is signed in or not, and has an options for additional dialog.example
+
+For implementation details the internal code is found here [DefaultErrorMessage](https://github.com/department-of-veterans-affairs/vets-website/blob/d622923e4879098562f52dc0ef4f8accda8d359d/src/platform/forms/save-in-progress/RoutedSavableReviewPage.jsx#L85)
+
+### Custom Submission Error
+
+If your form requires a more custom error message you can pass in a custom component that returns a [DSVA Alertbox](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/visual-design/components/alertbox/)
+
+#### Usage guidelines
+
+First you will need a component that returns a AlertBox might look something like this:
+
+```js
+const SubmitError = () => {
+  const ErrorBody = () => {
+    return (
+      <div>
+        <h2 className="vads-u-font-size--h4">What you can do</h2>
+
+        <p>
+          If you feel you’ve entered your information correctly, please call the{' '}
+          <a href="https://www.va.gov/">VA.gov</a> help desk at{' '}
+          <a href="tel:8555747286">855-574-7286</a>
+          (TTY: 711). We’re here Monday-Friday, 8:00 a.m.-8:00 p.m. ET.
+        </p>
+      </div>
+    );
+  };
+
+  return (
+    <AlertBox
+      headline="We can’t process your electronic application."
+      content={ErrorBody()}
+      status="error"
+    />
+  );
+};
+};
+```
+
+Then add it to your formConfig as follows:
+
+```js
+formConfig = {
+  ...
+    submissionError: SubmitError,
+  ...
+};
+```
+
+One you fill out your form and submit incorrect data, your output will looking something like this:
+![Custom error message example](../../images/forms/custom-submit-error.png)
+
