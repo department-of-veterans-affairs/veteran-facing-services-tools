@@ -18,21 +18,21 @@ const getIndexMdx = (location) => {
   }
 
   // Test second Level of the sidebar object
-  const level2Sections = sidebarSection.items.map((item) => {
-    const level2Item = item.items.find(
-      (lvl2Item) => lvl2Item.href === location.pathname,
-    );
-    return level2Item ? level2Item : null;
-  });
+  if (sidebarSection?.items) {
+    const level2Sections = sidebarSection.items.map((item) => {
+      return item.items
+        ? item.items.find((lvl2Item) => lvl2Item.href === location.pathname)
+        : null;
+    });
 
-  const level2 = level2Sections.map((section) => {
-    if (section && section.href && section.href === location.pathname) {
-      return section && section.indexmdx ? true : false;
+    const level2 = level2Sections.map((section) => {
+      if (section && section.href && section.href === location.pathname) {
+        return section && section.indexmdx ? true : false;
+      }
+    });
+    if (level2.find((indexmdx) => indexmdx)) {
+      return '/index';
     }
-  });
-
-  if (level2.find((indexmdx) => indexmdx)) {
-    return '/index';
   }
 
   return '';
