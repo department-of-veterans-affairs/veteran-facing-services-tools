@@ -30,6 +30,7 @@ const getIndexMdx = (location) => {
         return section && section.indexmdx ? true : false;
       }
     });
+
     if (level2.find((indexmdx) => indexmdx)) {
       return '/index';
     }
