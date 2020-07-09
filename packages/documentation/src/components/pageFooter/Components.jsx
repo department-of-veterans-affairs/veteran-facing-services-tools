@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 
 /**
- * Sidebar
+ * Finds a specific component inside a list
  *
- * @param {props} props
+ * @param {string} componentToMatch
  */
 
 function ComponentList({ componentToMatch }) {
