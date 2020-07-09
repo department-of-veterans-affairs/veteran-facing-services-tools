@@ -4,7 +4,11 @@ import Documentation from './Documentation';
 
 const getGithubHref = (location) => {
   if (location.pathname.includes('components')) {
-    return <Components pathname={location.pathname} />;
+    const pathName = location.pathname.replace(
+      '/veteran-facing-services-tools',
+      '',
+    );
+    return <Components pathname={pathName} />;
   } else {
     return <Documentation location={location} />;
   }
