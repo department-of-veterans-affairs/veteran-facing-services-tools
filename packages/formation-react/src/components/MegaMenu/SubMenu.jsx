@@ -35,12 +35,12 @@ const SubMenu = ({
     const filteredColumns = getColumns(mobileMediaQuery, columns);
 
     return (
-      <FocusLock as={id} disabled={!mobileMediaQuery.matches}>
-        <div
-          className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
-          id={id}
-          role="group"
-        >
+      <div
+        className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
+        id={id}
+        role="group"
+      >
+        <FocusLock disabled={!mobileMediaQuery.matches}>
           <div>
             <button
               className="back-button"
@@ -81,8 +81,8 @@ const SubMenu = ({
               columnThreeLinkClicked={columnThreeLinkClicked}
             />
           ))}
-        </div>
-      </FocusLock>
+        </FocusLock>
+      </div>
     );
   }
 
