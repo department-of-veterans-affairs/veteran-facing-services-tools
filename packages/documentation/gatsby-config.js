@@ -38,8 +38,17 @@ module.exports = {
         start_url: `/`,
       },
     },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `../formation-react/src/components`,
+        name: 'components',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
         mediaTypes: ['text/x-markdown'],
@@ -55,10 +64,7 @@ module.exports = {
             },
           },
           {
-            resolve: path.resolve(
-              __dirname,
-              './plugins/remark/gatsby-remark-mdx-mermaid',
-            ),
+            resolve: 'gatsby-remark-mermaid',
           },
           {
             resolve: 'gatsby-remark-slug',
@@ -66,18 +72,23 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
+    `gatsby-transformer-react-docgen`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        path: `../formation-react/src/components`,
-        name: 'components',
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [],
       },
     },
-    `gatsby-transformer-react-docgen`,
-    `gatsby-transformer-remark`,
-    `github-api-pages`,
+    // `github-api-pages`,
     `mdx-pages`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
@@ -88,7 +99,7 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
-            title: node => {
+            title: (node) => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -108,7 +119,7 @@ module.exports = {
 
               return '';
             },
-            tags: node => {
+            tags: (node) => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -119,7 +130,7 @@ module.exports = {
 
               return '';
             },
-            path: node => node.path,
+            path: (node) => node.path,
           },
         },
       },

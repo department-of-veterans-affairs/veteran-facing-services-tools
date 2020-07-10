@@ -7,6 +7,7 @@ const PrimaryNav = props => {
 
   return (
     <nav aria-label={ariaLabel}>
+      {/* FE Talking Point - Unique aria-labels for repeated blocks like <nav> */}
       <ul className="ac-primary-nav">
         <li className="ac-primary-nav__list-item">
           <Link to="/">Home</Link>

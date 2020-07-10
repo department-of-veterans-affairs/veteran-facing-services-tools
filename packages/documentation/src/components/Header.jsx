@@ -50,7 +50,7 @@ export default class Header extends React.Component {
                       }
                     }
                   `}
-                  render={data => (
+                  render={(data) => (
                     <Search searchIndex={data.siteSearchIndex.index} />
                   )}
                 />

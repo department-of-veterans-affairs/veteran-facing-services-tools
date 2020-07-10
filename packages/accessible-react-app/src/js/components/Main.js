@@ -7,11 +7,12 @@ const Main = props => {
 
   const headingOne = useRef(null);
 
+  /* FE Talking Point - Active Focus Management */
   useEffect(() => {
     if (setFocus) {
       headingOne.current.focus();
     }
-  }, [setFocus]);
+  });
 
   return (
     <main
@@ -19,6 +20,7 @@ const Main = props => {
       className={className}
       id={MAIN_ID}
       role="main"
+      tabIndex={-1}
     >
       <h1 id={headerId} ref={headingOne} tabIndex={-1}>
         {headerText}

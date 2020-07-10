@@ -22,6 +22,7 @@ const Feedback = props => {
         <button onClick={handleOpenModal} type="button">
           Open our feedback form
         </button>
+        {/* FE Talking Point - Modal Window Behavior and Labeling */}
         <Modal
           aria={{
             describedby: 'feedback_description',

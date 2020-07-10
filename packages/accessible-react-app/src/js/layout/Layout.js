@@ -11,6 +11,8 @@ const Layout = props => {
 
   return (
     <>
+      {/* FE Talking Point - React.Fragment for cleaner HTML */}
+      {/* FE Talking Point - WCAG SC 2.4.2: Page Titled */}
       <Helmet>
         <title>{title}</title>
       </Helmet>

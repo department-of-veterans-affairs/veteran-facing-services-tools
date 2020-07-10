@@ -30,6 +30,20 @@ Here are the steps for manually setting up a new application. We're going to wal
   // The Webpack bundle name for your app. Must be unique.
   "entryName": "my-new-application",
   // The root url where your application lives
+  // This one is only used by webpack-dev-server for local development
+  "rootUrl": "/my-new-application",
+}
+```
+
+3. Add an entry to `src/applications/registry.json`. This file contains information that the content build needs to create the landing page for your application:
+
+```js
+{
+  // Name of your application, not Veteran facing
+  "appName": "My new application",
+  // The Webpack bundle name for your app. Must be unique.
+  "entryName": "my-new-application",
+  // The root url where your application lives
   "rootUrl": "/my-new-application",
   // Properties specific to rendering your application's HTML landing page
   "template": {
@@ -41,19 +55,20 @@ Here are the steps for manually setting up a new application. We're going to wal
     "description": "A new application!",
     // <meta name="keywords">
     "keywords": "not required, but good practice for public apps",
-    // A feature flag, indicating that this application is excluded from production builds
+    // A feature toggle, indicating that this application is excluded from production builds
     "vagovprod" false
   }
 }
 ```
+   
 
-3. Create the file you referenced in the `entryFile` property above:
+4. Create the file you referenced in the `entryFile` property above:
 
 ```jsx
 import 'platform/polyfills';
 import './sass/my-new-application.scss';
 
-import startApp from '../../platform/startup';
+import startApp from 'platform/startup';
 
 import routes from './routes';
 import reducer from './reducers';
@@ -69,7 +84,7 @@ startApp({
 
 This file uses our `startApp` helper to create a React/Redux app that has client-side routes handled with `react-router`. You can leave out the routes or reducer if you don't need Redux or `react-router`. There's also a reference to a Sass file, which will set up the styles for your application.
 
-4. Create Sass file (`src/applications/my-new-application/sass/my-new-application.sass`):
+5. Create Sass file (`src/applications/my-new-application/sass/my-new-application.sass`):
 
 ```scss
 @import "~@department-of-veterans-affairs/formation/sass/shared-variables";
@@ -77,7 +92,7 @@ This file uses our `startApp` helper to create a React/Redux app that has client
 // Your custom sass
 ```
 
-5. Create reducer (`src/applications/my-new-application/reducers/index.js`):
+6. Create reducer (`src/applications/my-new-application/reducers/index.js`):
 
 ```js
 
@@ -101,7 +116,7 @@ export default {
 
 This is a normal Redux reducer, and can be broken up into different state slices as needed. The only thing to note is that it needs to return an object, not a function. This object will get merged with other state data and then turned into a function using Redux's `combineReducers` function.
 
-6. Create routes file (`src/applications/my-new-application/routes.jsx`):
+7. Create routes file (`src/applications/my-new-application/routes.jsx`):
 
 ```jsx
 import React from 'react';
@@ -126,12 +141,11 @@ And that's it! If you fill out the routes.jsx file with pages that exist, you sh
 
 ## Going to production
 
-The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to remove the feature flag added into your application's `manifest.json`.
+The above steps will only enable your application in our staging and dev environments. In order to enable it in production, you'll have to remove the feature toggle added into your application's entry in the `registry.json`.
 
 ```js
 {
   "appName": "My new application",
-  "entryFile": "./my-new-application-entry.jsx",
   "entryName": "my-new-application",
   "rootUrl": "/my-new-application",
   "template": {
@@ -140,8 +154,8 @@ The above steps will only enable your application in our staging and dev environ
     "description": "A new application!",
     "keywords": "not required, but good practice for public apps",
 
-    // ALLOW THIS TO SHIP TO PRODUCTION BY REMOVING LINE BELOW
-    // "vagovprod" false
+    // ALLOW THIS TO SHIP TO PRODUCTION BY SETTING THIS TO TRUE
+    "vagovprod" false
   }
 }
 ```

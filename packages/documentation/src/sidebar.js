@@ -4,6 +4,7 @@ module.exports = {
       id: 'getting-started',
       name: 'Getting started',
       href: '/getting-started',
+      indexmdx: true,
       items: [
         {
           name: 'Start up guide',
@@ -88,6 +89,10 @@ module.exports = {
               name: 'Updating Formation',
               href: '/getting-started/common-tasks/updating-formation',
             },
+            {
+              name: 'URL Routing',
+              href: '/getting-started/common-tasks/routing',
+            },
           ],
         },
       ],
@@ -96,6 +101,7 @@ module.exports = {
       id: 'visual-design',
       name: 'Visual design',
       href: '/visual-design',
+      indexmdx: true,
       items: [
         {
           name: 'Formation components',
@@ -107,6 +113,7 @@ module.exports = {
       id: 'forms',
       name: 'Forms',
       href: '/forms',
+      indexmdx: true,
       items: [
         {
           name: 'Tutorial',
@@ -170,7 +177,7 @@ module.exports = {
             },
             {
               name: 'Using available fields',
-              href: '/forms/user-available-fields',
+              href: '/forms/using-available-fields',
             },
           ],
         },
@@ -180,6 +187,7 @@ module.exports = {
       id: 'platform',
       name: 'Platform',
       href: '/platform',
+      indexmdx: true,
       items: [
         {
           name: 'Site structure',
@@ -191,6 +199,7 @@ module.exports = {
             {
               name: 'VA.gov environments',
               href: '/platform/site-structure/environments',
+              indexmdx: true,
             },
             {
               name: 'Bundles and code organization',
@@ -212,6 +221,7 @@ module.exports = {
             {
               name: 'Metalsmith static site',
               href: '/platform/architecture/static-site',
+              indexmdx: true,
               items: [
                 {
                   name: 'How are URLs created',
@@ -272,7 +282,7 @@ module.exports = {
               href: '/platform/unit-testing',
             },
             {
-              name: 'Manual reviews',
+              name: 'Automated code quality',
               href: '/platform/front-end-standards/manual-reviews',
             },
             {
@@ -309,6 +319,7 @@ module.exports = {
       id: 'documentation',
       name: 'Documentation guide',
       href: '/documentation-guide',
+      indexmdx: true,
       items: [
         {
           name: 'Documentation style guide',

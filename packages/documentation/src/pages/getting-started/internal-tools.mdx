@@ -6,9 +6,9 @@ tags: SOCKS proxy, Jenkins, Sentry, Grafana, SwitchyOmega
 # Internal Tools
 
 
-**This content/page is no longer maintained and likely outdated.** 
- 
-*[Please see the most current documentation in the va.gov-team repo >](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/orientation/request-access-to-tools.md)*
+**This content/page is no longer maintained and likely outdated.**
+
+*[Please see the most current documentation in the va.gov-team repo.](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md)*
 
 
 
@@ -101,17 +101,25 @@ There are slightly different commands to connect to the proxy depending on wheth
 
 - If you're on the VA network, run:
 
-```bash
-ssh socks-va -D 2001 -N &
-```
+  ```bash
+  ssh socks-va -D 2001 -N &
+  ```
 
- - If you're on the internet (outside the VA network), run:
+- If you're on the internet (outside the VA network), run:
 
-```bash
-ssh socks -D 2001 -N &
-```
+  ```bash
+  ssh socks -D 2001 -N &
+  ```
 
-_The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
+- Alternatively, if you have the `devops` repo cloned on your device, add the following alias:
+
+  ```bash
+  alias socks=~/path_to_repo/devops/utilities/socks.sh
+  ```
+
+  then use `socks on` or `socks off` to toggle.
+
+**Note**: _The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
 
 _After running the command below, continue to_ **Testing and Using thje SOCKS proxy**
 

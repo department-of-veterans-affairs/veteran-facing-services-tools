@@ -12,6 +12,7 @@ const About = props => {
   return (
     <Layout headerText={title} title={title}>
       <aside className="ac-layout--two-column__aside">
+        {/* FE Talking Point - WCAG SC 2.4.3: Focus Order */}
         <div>
           <p>
             This is the <strong>aside</strong> element. It should be used for
@@ -27,7 +28,9 @@ const About = props => {
         className="ac-layout--two-column__main"
         headerId={HEADER_ID}
         headerText={title}
+        setFocus
       >
+        {/* FE Talking Point - Linting */}
         {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
         <section aria-label="Company History" role="region">
           <h2>The things AnyCorp does!</h2>
