@@ -14,6 +14,7 @@ function ComponentList() {
         query ComponentListQuery {
           components: allSitePage(
             filter: { context: { source: { eq: "component" } } }
+            sort: { fields: [context___name], order: ASC }
           ) {
             edges {
               node {

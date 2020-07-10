@@ -1,8 +1,8 @@
 {
   "owner": "department-of-veterans-affairs",
-  "repo": "vets.gov-team",
+  "repo": "va.gov-team",
   "directoryPaths": [
-    "Practice Areas/Engineering/Writing_Small_PRs.md",
-    "Practice Areas/Engineering/Code Review Norms.md"
+    "platform/engineering/backend/writing-small-prs.md",
+    "platform/engineering/code_review_guidelines.md"
   ]
 }
