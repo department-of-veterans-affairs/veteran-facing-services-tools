@@ -3,11 +3,12 @@ import React from 'react';
 import classNames from 'classnames';
 
 const ESCAPE_KEY = 27;
+const TAB_KEY = 9;
 
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { lastFocus: null };
+    this.state = { lastFocus: null, isTabbingBackwards: false };
   }
 
   componentDidMount() {
@@ -29,9 +30,13 @@ class Modal extends React.Component {
   }
 
   setupModal() {
-    this.applyFocusToModal();
+    this.setState({ lastFocus: document.activeElement });
+    this.setInitialModalFocus();
+    // NOTE: With this PR (https://github.com/department-of-veterans-affairs/vets-website/pull/11712)
+    // we rely on the existence of `body.modal-open` to determine if a modal is
+    // currently open and adjust programmatic scrolling if there is.
     document.body.classList.add('modal-open');
-    document.addEventListener('keyup', this.handleDocumentKeyUp, false);
+    document.addEventListener('keydown', this.handleDocumentKeyDown, false);
     document.addEventListener('focus', this.handleDocumentFocus, true);
     if (this.props.clickToClose) {
       document.addEventListener('click', this.handleDocumentClicked, true);
@@ -40,19 +45,29 @@ class Modal extends React.Component {
 
   teardownModal() {
     if (this.state.lastFocus) {
-      this.state.lastFocus.focus();
+      // Ensure last focus is set before completing modal teardown
+      setTimeout(() => {
+        this.state.lastFocus.focus();
+      }, 0);
     }
     document.body.classList.remove('modal-open');
-    document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
+    document.removeEventListener('keydown', this.handleDocumentKeyDown, false);
     document.removeEventListener('focus', this.handleDocumentFocus, true);
     if (this.props.clickToClose) {
       document.removeEventListener('click', this.handleDocumentClicked, true);
     }
   }
 
-  handleDocumentKeyUp = event => {
+  handleDocumentKeyDown = event => {
     if (event.keyCode === ESCAPE_KEY) {
       this.handleClose(event);
+    }
+    if (event.keyCode === TAB_KEY) {
+      if (event.shiftKey) {
+        this.setState({ isTabbingBackwards: true });
+      } else {
+        this.setState({ isTabbingBackwards: false });
+      }
     }
   };
 
@@ -64,7 +79,11 @@ class Modal extends React.Component {
   handleDocumentFocus = event => {
     if (this.props.visible && !this.element.contains(event.target)) {
       event.stopPropagation();
-      this.applyFocusToModal();
+      if (this.state.isTabbingBackwards) {
+        this.applyFocusToLastModalElement();
+      } else {
+        this.applyFocusToFirstModalElement();
+      }
     }
   };
 
@@ -74,13 +93,37 @@ class Modal extends React.Component {
     }
   };
 
-  applyFocusToModal() {
+  setInitialModalFocus() {
+    if (this.props.initialFocusSelector) {
+      const focusableElement = this.element.querySelector(
+        this.props.initialFocusSelector,
+      );
+      if (focusableElement) {
+        focusableElement.focus();
+      }
+    } else {
+      this.applyFocusToFirstModalElement();
+    }
+  }
+
+  applyFocusToFirstModalElement() {
     const focusableElement = this.element.querySelector(
       this.props.focusSelector,
     );
     if (focusableElement) {
-      this.setState({ lastFocus: document.activeElement });
       focusableElement.focus();
+    }
+  }
+
+  applyFocusToLastModalElement() {
+    const allFocusableElements = this.element.querySelectorAll(
+      this.props.focusSelector,
+    );
+    const focusableModalElements = Array.from(allFocusableElements).filter(el =>
+      this.element.contains(el),
+    );
+    if (focusableModalElements.length) {
+      focusableModalElements[focusableModalElements.length - 1].focus();
     }
   }
 
@@ -220,10 +263,16 @@ Modal.propTypes = {
    */
   hideCloseButton: PropTypes.bool,
   /**
-   * Selector to use to find elements to focus on when the
-   * modal is opened
+   * Selector to use to find elements that should be focusable
+   * within the modal
    */
   focusSelector: PropTypes.string,
+  /**
+   * Selector to explicitly specify which element should receive
+   * focus when the modal is open, if the initially focused element
+   * is not the first focusable element in the document
+   */
+  initialFocusSelector: PropTypes.string,
 };
 
 Modal.defaultProps = {

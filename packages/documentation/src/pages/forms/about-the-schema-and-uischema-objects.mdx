@@ -137,6 +137,21 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
   // component. Can also be used with regular widgets.
   'ui:reviewWidget': WidgetComponent,
 
+  // Renders a custom review field on the review page. Only used when you specify a widget
+  // component. The `children` parameter is a component from the `'ui:reviewWidget'`, but
+  // is only rendered by this custom reviewField if the schema for it is not an `object`
+  // or `array`; NOTE: you must return a div with a "review-row" class name and include
+  // child <dt> and <dd> elements to maintain accessibility standards
+  'ui:reviewField': ({ children, schema, uiSchema }) => (
+    <div className="review-row">
+      <dt>
+        {uiSchema['ui:title']}
+        {uiSchema['ui:description]}
+      </dt>
+      <dd>{children}</dd>
+    </div>
+  ),
+
   // Provides a function to make a field conditionally required. The data in the whole form,
   // with no page breaks, is the only parameter. Don't make a field required in the JSON
   // schema and in addition to using `ui:required` on that field. The index argument is
@@ -216,13 +231,23 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     hideOnReview: true || false,
 
     // Hides the specified field on the review page when the field value is `false`.
-    hideOnReviewIfFalse: true || false
+    hideOnReviewIfFalse: true || false,
+
+    // Hide review row entry if the form value is an empty string, null or undefined
+    // This option is ignored if there is a custom `'ui:reviewField'` defined
+    hideEmptyValueInReview: true || false,
+
+    // Hides label added before the widget
+    hideLabelText: true || false,
+
+    // use label or legend (inside fieldset)
+    showFieldLabel: 'label', // vs anything other than 'label'
 
     // A function that conditionally hides fields in the form. `hideIf` provides the `index`
     // argument when you use `ui:required` on data inside an array.
     hideIf: function (formData, index) {
       return true || false;
-    }
+    },
 
     // A function that conditionally replaces the current field's schema. `updateSchema`
     // provides the `index` argument when you use `ui:required` on data inside an array.

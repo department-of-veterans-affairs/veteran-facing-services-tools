@@ -14,7 +14,7 @@ const PROMO_BANNER_ICONS = new Map([
   [PROMO_BANNER_TYPES.emailSignup, 'fa-envelope'],
 ]);
 
-function PromoBanner({ type, onClose, render, href, text }) {
+function PromoBanner({ type, onClose, render, href, target, text }) {
   const iconClasses = classnames(
     'fas',
     'fa-stack-1x',
@@ -24,20 +24,21 @@ function PromoBanner({ type, onClose, render, href, text }) {
   return (
     <div className="vads-c-promo-banner">
       <div className="vads-c-promo-banner__body">
-        <div className="vads-c-promo-banner__content">
-          <div className="vads-c-promo-banner__content-icon">
-            <span className="fa-stack fa-lg">
-              <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
-              <i className={iconClasses} />
-            </span>
-          </div>
+        <div className="vads-c-promo-banner__icon">
+          <span className="fa-stack fa-lg">
+            <i className="vads-u-color--white fa fa-circle fa-stack-2x" />
+            <i className={iconClasses} />
+          </span>
+        </div>
 
+        <div className="vads-c-promo-banner__content">
           {render ? (
             render()
           ) : (
             <a
               className="vads-c-promo-banner__content-link"
               href={href}
+              target={target}
               onClick={onClose}
             >
               {text} <i className="fas fa-angle-right" />
@@ -65,6 +66,7 @@ PromoBanner.propTypes = {
   onClose: PropTypes.func.isRequired,
   render: PropTypes.func,
   href: PropTypes.string,
+  target: PropTypes.string,
   text: PropTypes.string,
 };
 

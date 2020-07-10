@@ -5,4 +5,5 @@
 **/.cache/
 **/*.config.*
 **/*.conf.*
-/packages/formation-react/*.js
+**/packages/formation-react/*.js
+**/packages/accessible-react-app/*

@@ -1,0 +1,40 @@
+{
+  "name": "vets-keyboard-e2e",
+  "version": "0.1.0",
+  "description": "A suite of tools for end-to-end keyboard accessibility",
+  "main": "index.js",
+  "author": "Trevor Pierce",
+  "license": "CC0-1.0",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "ally.js": "^1.4.1",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-register": "^6.26.0",
+    "chromedriver": "^78.0.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "events": "^2.0.0",
+    "expose-loader": "^0.7.5",
+    "jquery": "^3.3.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "nightwatch": "^1.0.8",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "scripts": {
+    "start": "rimraf dist/ && webpack --profile --progress --colors && webpack-dev-server",
+    "test": "./node_modules/.bin/nightwatch"
+  }
+}

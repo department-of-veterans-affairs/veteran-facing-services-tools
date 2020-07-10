@@ -4,6 +4,7 @@ module.exports = {
       id: 'getting-started',
       name: 'Getting started',
       href: '/getting-started',
+      indexmdx: true,
       items: [
         {
           name: 'Start up guide',
@@ -47,7 +48,7 @@ module.exports = {
               href: '/getting-started/common-tasks/run-build',
             },
             {
-              name: 'Run tests',
+              name: 'Running tests',
               href: '/getting-started/common-tasks/test',
             },
             {
@@ -70,19 +71,27 @@ module.exports = {
                   name: 'Content pages',
                   href: '/getting-started/common-tasks/new-page',
                 },
+                {
+                  name: 'Analytics',
+                  href: '/getting-started/common-tasks/analytics',
+                },
               ],
             },
             {
-              name: 'Write a unit test',
+              name: 'Writing a unit test',
               href: '/getting-started/common-tasks/new-unit-test',
             },
             {
-              name: 'Write an end-to-end test',
+              name: 'Writing an end-to-end test',
               href: '/getting-started/common-tasks/new-end-to-end-test',
             },
             {
               name: 'Updating Formation',
               href: '/getting-started/common-tasks/updating-formation',
+            },
+            {
+              name: 'URL Routing',
+              href: '/getting-started/common-tasks/routing',
             },
           ],
         },
@@ -92,6 +101,7 @@ module.exports = {
       id: 'visual-design',
       name: 'Visual design',
       href: '/visual-design',
+      indexmdx: true,
       items: [
         {
           name: 'Formation components',
@@ -103,6 +113,7 @@ module.exports = {
       id: 'forms',
       name: 'Forms',
       href: '/forms',
+      indexmdx: true,
       items: [
         {
           name: 'Tutorial',
@@ -164,6 +175,10 @@ module.exports = {
               name: 'Form features and usage guidelines',
               href: '/forms/available-features-and-usage-guidelines',
             },
+            {
+              name: 'Using available fields',
+              href: '/forms/using-available-fields',
+            },
           ],
         },
       ],
@@ -172,6 +187,7 @@ module.exports = {
       id: 'platform',
       name: 'Platform',
       href: '/platform',
+      indexmdx: true,
       items: [
         {
           name: 'Site structure',
@@ -183,6 +199,7 @@ module.exports = {
             {
               name: 'VA.gov environments',
               href: '/platform/site-structure/environments',
+              indexmdx: true,
             },
             {
               name: 'Bundles and code organization',
@@ -204,6 +221,7 @@ module.exports = {
             {
               name: 'Metalsmith static site',
               href: '/platform/architecture/static-site',
+              indexmdx: true,
               items: [
                 {
                   name: 'How are URLs created',
@@ -232,10 +250,6 @@ module.exports = {
               href: '/platform/architecture/teamsite',
             },
             {
-              name: 'How do unit tests work?',
-              href: '/platform/unit-testing',
-            },
-            {
               name: 'How do end-to-end tests work?',
             },
           ],
@@ -260,6 +274,18 @@ module.exports = {
               href: '/platform/front-end-standards/accessibility',
             },
             {
+              name: 'Security',
+              href: '/platform/front-end-standards/security',
+            },
+            {
+              name: 'Unit testing',
+              href: '/platform/unit-testing',
+            },
+            {
+              name: 'Automated code quality',
+              href: '/platform/front-end-standards/manual-reviews',
+            },
+            {
               name: 'Documented Decisions',
               href:
                 '/platform/front-end-standards/documented-decisions/summary',
@@ -274,8 +300,8 @@ module.exports = {
               href: '/platform/tools/visual-regression-testing',
             },
             {
-              name: 'Feature flags',
-              href: '/platform/tools/feature-flags',
+              name: 'Feature toggles',
+              href: '/platform/tools/feature-toggles',
             },
             {
               name: 'Downtime notifications',
@@ -293,6 +319,7 @@ module.exports = {
       id: 'documentation',
       name: 'Documentation guide',
       href: '/documentation-guide',
+      indexmdx: true,
       items: [
         {
           name: 'Documentation style guide',

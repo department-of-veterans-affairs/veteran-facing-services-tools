@@ -1,0 +1,8 @@
+/node_modules/
+/dist/
+/logs/
+/tests_output/
+
+.DS_Store
+chromedriver.log
+geckodriver.log

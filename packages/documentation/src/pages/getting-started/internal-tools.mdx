@@ -5,6 +5,14 @@ tags: SOCKS proxy, Jenkins, Sentry, Grafana, SwitchyOmega
 
 # Internal Tools
 
+
+**This content/page is no longer maintained and likely outdated.**
+
+*[Please see the most current documentation in the va.gov-team repo.](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md)*
+
+
+
+
 These instructions cover the configuration of a SOCKS proxy necessary for access to:
 
 * Static `vets-website` content
@@ -57,40 +65,16 @@ Below are configuration instructions for internal or external developers.
 
 ### For internal developers
 
-1. Change to your working directory, clone and change to the devops repository
-```bash
-cd ~/YOUR-WORKING-DIRECTORY
-git clone git@github.com:department-of-veterans-affairs/devops.git
-cd devops
-```
+1. Create an issue in the va.gov-team repo using the issue template named "Environment Access Request Template" which can be found [here](https://github.com/department-of-veterans-affairs/va.gov-team/issues/new?assignees=&labels=external-request%2C+operations&template=Environment-Access-Request-Template.md&title=Access+for+%5Bindividual%5D). In filling out the template you will provide your public ssh key.
 
-2. Checkout a branch using your lowercase first and last name
-```bash
-git checkout -b add-key-first-last
-```
-3. Copy your public key into the `authorized_keys` folder renaming the file with your email address
-```bash
-cp ~/.ssh/id_rsa_vagov.pub ./ansible/roles/dsva-config/files/authorized_keys/YOUR@EMAIL.COM
-```
-4. Edit the `./ansible/global/config.yml` in the `devops` repo by adding your email address to the list of emails under the appropriate group (`developers:`, `devops:`, etc.)
+2. Once approval has been verified and this is reflected on the issue you created, your public key will be added to the devops repo which will give you access to the internal tools.
 
-*Please try to keep this list alphebetized.*
-
-5. Commit and push your changes to the `devops` repo
-```bash
-git add .
-git commit -m 'add ssh keys for first-name last-name'
-git push origin add-key-first-last
-```
-
-6. Create a PR for this branch on Github. In the #vetsgov-devops channel on the DSVA Slack, share a link to the PR and indicate that you need your ssh keys added to the `devops` repo.
-
-7. Copy the SSH config from the `devops` repo to `~/.ssh`
+3. Copy the SSH [config](https://github.com/department-of-veterans-affairs/devops/blob/master/ssh/config) from the `devops` repo to `~/.ssh`
 ```bash
 cp ./ssh/config ~/.ssh/config
 ```
 
-8. Add your SSH key to your local agent
+4. Add your SSH key to your local agent
 ```bash
 ssh-add -K ~/.ssh/id_rsa_vagov
 ```
@@ -102,9 +86,7 @@ ssh-add -K ~/.ssh/id_rsa_vagov
     IdentityFile ~/.ssh/id_rsa_vagov
 ```
 
-9. Wait for `devops` team to review, approve, and merge your pull request
-
-*Once your pull request is merged, an update job should automatically run to update the jumpboxes and SOCKS proxy endpoints. This job takes about 5 minutes to run. Wait five minutes, then continue with* **Starting the SOCKS proxy**.
+*Once your public key has been added to the devops repo, an update job should automatically run to update the jumpboxes and SOCKS proxy endpoints. This job takes about 5 minutes to run. Wait five minutes, then continue with* **Starting the SOCKS proxy**.
 
 ### For external developers
 
@@ -119,17 +101,25 @@ There are slightly different commands to connect to the proxy depending on wheth
 
 - If you're on the VA network, run:
 
-```bash
-ssh socks-va -D 2001 -N &
-```
+  ```bash
+  ssh socks-va -D 2001 -N &
+  ```
 
- - If you're on the internet (outside the VA network), run:
+- If you're on the internet (outside the VA network), run:
 
-```bash
-ssh socks -D 2001 -N &
-```
+  ```bash
+  ssh socks -D 2001 -N &
+  ```
 
-_The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
+- Alternatively, if you have the `devops` repo cloned on your device, add the following alias:
+
+  ```bash
+  alias socks=~/path_to_repo/devops/utilities/socks.sh
+  ```
+
+  then use `socks on` or `socks off` to toggle.
+
+**Note**: _The first time you connect to the jumpbox, ssh will prompt to ask if you are sure you want to connect to a new host. You will be unable to respond "yes" if ssh is in the background, so either bring it to the foreground with `fg` or omit the `&` character from the above command._
 
 _After running the command below, continue to_ **Testing and Using thje SOCKS proxy**
 

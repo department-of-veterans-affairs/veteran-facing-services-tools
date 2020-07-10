@@ -1,3 +1,7 @@
+The documentation site can be found at https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/.
+
+---
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
@@ -19,6 +23,11 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     This only needs to be done once. This token is needed for Gatsby to pull content from github repos.
 
     Instructions on generating personal access tokens are [here](https://help.github.com/en/articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization).
+
+    Summary:
+
+    - Go to <https://github.com/settings/tokens>
+    - Use an existing token, or create one with at least "`public_repo` Access public repositories" access
 
 1.  **Start developing.**
 
@@ -44,13 +53,13 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 1. **Run build and publish task**
 
-    Navigate to the documentation package and run.
+   Navigate to the documentation package and run.
 
-    ```
-    GITHUB_API_KEY=your-personal-access-token yarn build
-    ```
+   ```
+   GITHUB_API_KEY=your-personal-access-token yarn build
+   ```
 
-    This will build the Gatsby site for github pages and push the changes to the `origin gh-pages` branch.
+   This will build the Gatsby site for github pages and push the changes to the `origin gh-pages` branch.
 
 ## 🧐 What's inside?
 
