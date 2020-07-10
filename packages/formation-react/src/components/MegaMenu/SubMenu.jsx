@@ -35,7 +35,7 @@ const SubMenu = ({
     const filteredColumns = getColumns(mobileMediaQuery, columns);
 
     return (
-      <FocusLock as={id}>
+      <FocusLock as={id} disabled={!mobileMediaQuery.matches}>
         <div
           className={mobileMediaQuery.matches ? 'mm-link-container-small' : ''}
           id={id}
