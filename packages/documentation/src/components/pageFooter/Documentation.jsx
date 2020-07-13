@@ -55,7 +55,7 @@ const getPathName = (location) => {
     '',
   );
 
-  // Check for additional '/' at the end when refresing the browser
+  // Check for additional '/' at the end when refreshing the browser
   if (pathName.length > 0 && pathName.charAt(pathName.length - 1) === '/') {
     pathName = pathName.substring(0, pathName.length - 1);
   }
