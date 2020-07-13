@@ -11,10 +11,7 @@ import sidebarData from '../../sidebar';
  */
 
 const getIndexMdx = (location) => {
-  const pathName = location.pathname.replace(
-    '/veteran-facing-services-tools',
-    '',
-  );
+  const pathName = getPathName(location);
 
   const sidebarSection = sidebarData.sections.find((section) =>
     pathName.includes(section.href),
@@ -51,14 +48,30 @@ const getIndexMdx = (location) => {
   return '';
 };
 
-export default function Documentation({ location }) {
-  const base = `https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages`;
-  const documentation = '/documentation/src/pages';
-  const pathName = location.pathname.replace(
+const getPathName = (location) => {
+  // Remove extra path in production environment
+  let pathName = location.pathname.replace(
     '/veteran-facing-services-tools',
     '',
   );
-  const link = base + documentation + pathName + getIndexMdx(location) + '.mdx';
+
+  // Check for additional '/' at the end when refresing the browser
+  if (pathName.length > 0 && pathName.charAt(pathName.length - 1) === '/') {
+    pathName = pathName.substring(0, pathName.length - 1);
+  }
+
+  return pathName;
+};
+
+export default function Documentation({ location }) {
+  const base = `https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages`;
+  const documentation = '/documentation/src/pages';
+  const link =
+    base +
+    documentation +
+    getPathName(location) +
+    getIndexMdx(location) +
+    '.mdx';
 
   return <Link to={link}>Edit this page on GitHub</Link>;
 }
