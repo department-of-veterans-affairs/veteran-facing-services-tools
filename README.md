@@ -8,12 +8,12 @@ There is [another repository for the documentation site](https://github.com/depa
 
 ## Repositories
 
-- formation
+- [formation](./packages/formation)
    - Styles and assets for the VA design system
-- formation-react
+- [formation-react](./packages/formation-react)
    - React implementations of some of the patterns in formation.
-- documentation
-   - Documentation for how the set of Veteran facing services platform works
+- [documentation](./packages/documentation)
+   - Documentation for how the set of Veteran facing services platform works. After following setup steps below, see [README](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages/documentation/README.md) for local development quickstart.
 
 ## Setup
 
