@@ -7696,10 +7696,8 @@ gatsby-plugin-manifest@^2.4.11:
     semver "^5.7.1"
     sharp "^0.25.1"
 
-gatsby-plugin-mdx@^1.2.15:
+"gatsby-plugin-mdx@file:plugins/gatsby-plugin-mdx(forked)":
   version "1.2.15"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.15.tgz#359195813490873749fbcacc76151790b2db8451"
-  integrity sha512-qLtb4bvsEYDNyO/qrGgdjSUeNDH33uN+UZpG3OHz9UjVv4WxcYO1NfKbkjw3Uy62ajjcBr0zuyZJMm4WyQWu4w==
   dependencies:
     "@babel/core" "^7.10.2"
     "@babel/generator" "^7.10.2"
