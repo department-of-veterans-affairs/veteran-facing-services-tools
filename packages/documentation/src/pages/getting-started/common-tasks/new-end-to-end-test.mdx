@@ -11,7 +11,9 @@ Front end engineers use end-to-end (e2e) tests in `vets-website` to validate mul
 
 ## End-to-end testing overview
 
-- `vets-website` uses [Nightwatch](https://nightwatchjs.org) to run the tests and provide the browser client
+- `vets-website` uses [Nightwatch](https://nightwatchjs.org) to run some of the older end-to-end tests
+  - New end-to-end tests should be written in Cypress going forward.
+  - Refer to the [Cypress migration guide](https://github.com/department-of-veterans-affairs/va.gov-team/blob/6dccdd3ac61d7fbfa8b30e317230cc9212a7c9f8/teams/vsp/teams/tools/frontend/cypress-migration-guide.md) to convert old tests or write new tests.
 - end-to-end tests are **collocated in application folder** with the application they test
 - Two node apps run with the end-to-end tests:
   - `mockapi.js` - hosts mock responses (see [Mocking API responses](#mocking-api-responses))
