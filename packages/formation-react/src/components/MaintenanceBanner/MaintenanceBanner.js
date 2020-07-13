@@ -8,6 +8,7 @@ import AlertBox from '../AlertBox';
 
 export const MAINTENANCE_BANNER = 'MAINTENANCE_BANNER';
 
+// @WARNING: This is currently only used once in vets-website.
 export class MaintenanceBanner extends Component {
   static propTypes = {
     content: PropTypes.string.isRequired,

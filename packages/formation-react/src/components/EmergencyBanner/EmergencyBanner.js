@@ -7,6 +7,7 @@ import AlertBox from '../AlertBox';
 
 const EMERGENCY_BANNER_LOCALSTORAGE = 'EMERGENCY_BANNER';
 
+// @WARNING: This is currently only used once in vets-website.
 export class EmergencyBanner extends Component {
   static propTypes = {
     content: PropTypes.string.isRequired,
