@@ -13,10 +13,20 @@ Sadly, not every application includes a form, e.g. claim status tool. You won't
 see this save-in-progress menu or link show up on those pages.
 
 This save-in-progress menu will allow you to:
-- [Copy and paste in predefined form data](copy-and-paste-in-predefined-form-data)
-- [Edit the data without being on a specific page](edit-the-data-without-being-on-a-specific-page)
-- [Add missing data without needing to include _all_ the form data](add-missing-data-without-needing-to-include-all-the-form-data)
-- [Jump to a specific page within the form](jump-to-a-specific-page-within-the-form)
+- [Using the Save in Progress menu](#using-the-save-in-progress-menu)
+  - [Activating & Deactivating](#activating--deactivating)
+    - [Activate](#activate)
+    - [Deactivate](#deactivate)
+  - [Buttons](#buttons)
+    - [Close](#close)
+    - [Replace versus merge button](#replace-versus-merge-button)
+      - [Replace](#replace)
+      - [Merge](#merge)
+    - [<a name="copy-and-paste-in-predefined-form-data" aria-hidden="true">Copy and paste in predefined form data</a>](#copy-and-paste-in-predefined-form-data)
+    - [<a name="edit-the-data-without-being-on-a-specific-page" aria-hidden="true">Edit the data without being on a specific page</a>](#edit-the-data-without-being-on-a-specific-page)
+    - [<a name="add-missing-data-without-needing-to-include-all-the-form-data" aria-hidden="true">Add missing data without needing to include all the form data</a>](#add-missing-data-without-needing-to-include-all-the-form-data)
+  - [Return url](#return-url)
+    - [<a name="jump-to-a-specific-page-within-the-form" aria-hidden="true">Jump to a specific page within the form</a>](#jump-to-a-specific-page-within-the-form)
 
 <img width="506" alt="save-in-progress menu" src="../../images/forms/sips-menu.png" />
 
@@ -98,7 +108,7 @@ This is likely the button that is used the most.
 The merge button will combine either a small part of the form data into the
 complete data, i.e. merge a partial bit of data into the full data set. A more
 specific example is shared in the [add missing data without needing to include
-_all_ the form data](Add-missing-data-without-needing-to-include-all-the-form-data) section.
+_all_ the form data](#add-missing-data-without-needing-to-include-all-the-form-data) section.
 
 ### <a name="copy-and-paste-in-predefined-form-data" aria-hidden="true">Copy and paste in predefined form data</a>
 
@@ -145,7 +155,7 @@ Within the save-in-progress menu, the textarea containing the "Form data" is edi
 
 Edit the value, then use the "Replace" button.
 
-### <a name="add-missing-data-without-needing-to-include-all-the-form-data" aria-hidden="true">Add missing data without needing to include _all_ the form data</a>
+### <a name="add-missing-data-without-needing-to-include-all-the-form-data" aria-hidden="true">Add missing data without needing to include all the form data</a>
 
 For example, if you only want to update the "relationship" field, even without
 being on that page, add the following snippet:
@@ -168,7 +178,7 @@ form, then continue the form and open the menu a second time. Set the target
 page and use the "Replace" button again. This isn't ideal, but it'll work until
 a more optimal solution is found.
 
-<img width="387" alt="Return url select" src="../../images/forms/sips-menu-return-url.png">
+<img width="387" alt="Return url select" src="../../images/forms/sips-menu-return-url.png" />
 
 ### <a name="jump-to-a-specific-page-within-the-form" aria-hidden="true">Jump to a specific page within the form</a>
 
@@ -179,6 +189,6 @@ a more optimal solution is found.
   it may be that the target url may not be a valid destination. You may have to
   restart the form to fix this problem.
 
-<img width="485" alt="Return url select" src="../../images/forms/sips-menu-return-url-expanded.png">
+<img width="485" alt="Return url select" src="../../images/forms/sips-menu-return-url-expanded.png" />
 
 Next: [Forms in production](/forms/forms-in-production)
