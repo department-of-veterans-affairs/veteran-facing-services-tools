@@ -135,7 +135,11 @@ module.exports = {
               href: '/forms/save-in-progress',
             },
             {
-              name: '5. Forms in production',
+              name: '5. Using the Save in Progress menu',
+              href: '/forms/save-in-progress-menu',
+            },
+            {
+              name: '6. Forms in production',
               href: '/forms/forms-in-production',
             },
           ],
