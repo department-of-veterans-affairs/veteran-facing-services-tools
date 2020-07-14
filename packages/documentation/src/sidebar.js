@@ -4,6 +4,7 @@ module.exports = {
       id: 'getting-started',
       name: 'Getting started',
       href: '/getting-started',
+      indexmdx: true,
       items: [
         {
           name: 'Start up guide',
@@ -100,6 +101,7 @@ module.exports = {
       id: 'visual-design',
       name: 'Visual design',
       href: '/visual-design',
+      indexmdx: true,
       items: [
         {
           name: 'Formation components',
@@ -111,6 +113,7 @@ module.exports = {
       id: 'forms',
       name: 'Forms',
       href: '/forms',
+      indexmdx: true,
       items: [
         {
           name: 'Tutorial',
@@ -184,6 +187,7 @@ module.exports = {
       id: 'platform',
       name: 'Platform',
       href: '/platform',
+      indexmdx: true,
       items: [
         {
           name: 'Site structure',
@@ -195,6 +199,7 @@ module.exports = {
             {
               name: 'VA.gov environments',
               href: '/platform/site-structure/environments',
+              indexmdx: true,
             },
             {
               name: 'Bundles and code organization',
@@ -216,6 +221,7 @@ module.exports = {
             {
               name: 'Metalsmith static site',
               href: '/platform/architecture/static-site',
+              indexmdx: true,
               items: [
                 {
                   name: 'How are URLs created',
@@ -313,6 +319,7 @@ module.exports = {
       id: 'documentation',
       name: 'Documentation guide',
       href: '/documentation-guide',
+      indexmdx: true,
       items: [
         {
           name: 'Documentation style guide',
