@@ -19,6 +19,7 @@ class CollapsiblePanel extends React.Component {
   }
 
   scrollToTop() {
+    window.VetsGov = window.VetsGov ?? {};
     scroller.scrollTo(
       `collapsible-panel-${this.id}-scroll-element`,
       window.VetsGov.scroll || {
