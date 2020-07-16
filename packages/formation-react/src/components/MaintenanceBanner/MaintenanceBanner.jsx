@@ -14,6 +14,10 @@ export class MaintenanceBanner extends Component {
     content: PropTypes.string.isRequired,
     expiresAt: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
+    localStorage: PropTypes.shape({
+      getItem: PropTypes.func.isRequired,
+      setItem: PropTypes.func.isRequired,
+    }).isRequired,
     startsAt: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     warnContent: PropTypes.string,
@@ -24,7 +28,7 @@ export class MaintenanceBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dismissed: window && window.localStorage && localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
+      dismissed: props.localStorage && props.localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
     };
   }
 
@@ -63,8 +67,8 @@ export class MaintenanceBanner extends Component {
   };
 
   onCloseAlert = () => {
-    if (window && window.localStorage) {
-      localStorage.setItem(MAINTENANCE_BANNER, this.props.id);
+    if (this.props.localStorage) {
+      this.props.localStorage.setItem(MAINTENANCE_BANNER, this.props.id);
     }
     this.setState({ dismissed: true });
   };

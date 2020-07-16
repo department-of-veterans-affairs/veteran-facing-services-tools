@@ -11,6 +11,10 @@ const EMERGENCY_BANNER_LOCALSTORAGE = 'EMERGENCY_BANNER';
 export class EmergencyBanner extends Component {
   static propTypes = {
     content: PropTypes.string.isRequired,
+    localStorage: PropTypes.shape({
+      getItem: PropTypes.func.isRequired,
+      setItem: PropTypes.func.isRequired,
+    }).isRequired,
     recordEvent: PropTypes.func,
     showClose: PropTypes.bool,
     title: PropTypes.string.isRequired,
@@ -26,9 +30,8 @@ export class EmergencyBanner extends Component {
     super(props);
     this.state = {
       dismissed:
-        window &&
-        window.localStorage &&
-        localStorage.getItem(EMERGENCY_BANNER_LOCALSTORAGE) ===
+        props.localStorage &&
+        props.localStorage.getItem(EMERGENCY_BANNER_LOCALSTORAGE) ===
           this.prepareEmergencyBannerID(),
     };
   }
@@ -36,8 +39,8 @@ export class EmergencyBanner extends Component {
   prepareEmergencyBannerID = () => `${this.props.title}:${this.props.content}`;
 
   dismiss = () => {
-    if (window && window.localStorage) {
-      localStorage.setItem(
+    if (this.props.localStorage) {
+      this.props.localStorage.setItem(
         EMERGENCY_BANNER_LOCALSTORAGE,
         this.prepareEmergencyBannerID(),
       );
