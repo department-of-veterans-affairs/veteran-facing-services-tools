@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import moment from 'moment';
 // Relative imports.
-import MaintenanceBanner, { MAINTENANCE_BANNER } from './index';
+import MaintenanceBanner, { MAINTENANCE_BANNER } from './MaintenanceBanner.jsx';
 
 const deriveDefaultProps = (startsAt = moment()) => {
   const expiresAt = startsAt.clone().add(2, 'hours');

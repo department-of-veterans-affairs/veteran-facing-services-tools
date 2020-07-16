@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 // Relative
-import EmergencyBanner from './index';
+import EmergencyBanner from './EmergencyBanner.jsx';
 
 describe('<EmergencyBanner>', () => {
   const defaultProps = {
