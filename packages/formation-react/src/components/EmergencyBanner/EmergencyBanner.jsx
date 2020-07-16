@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 // Relative imports.
-import AlertBox from '../AlertBox';
+import AlertBox from '../AlertBox/AlertBox.jsx';
 
 const EMERGENCY_BANNER_LOCALSTORAGE = 'EMERGENCY_BANNER';
 
