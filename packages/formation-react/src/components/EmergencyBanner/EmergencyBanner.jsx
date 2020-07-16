@@ -42,7 +42,7 @@ export class EmergencyBanner extends Component {
   };
 
   onClick = event => {
-    if (event.target?.nodeName === 'A') {
+    if (event.target && event.target.nodeName === 'A') {
       this.props.recordEvent({
         event: 'nav-warning-alert-box-content-link-click',
         alertBoxHeading: this.props.title,
