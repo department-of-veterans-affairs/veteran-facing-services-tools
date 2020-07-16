@@ -24,7 +24,7 @@ export class MaintenanceBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dismissed: localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
+      dismissed: window && window.localStorage && localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
     };
   }
 
@@ -63,7 +63,9 @@ export class MaintenanceBanner extends Component {
   };
 
   onCloseAlert = () => {
-    localStorage.setItem(MAINTENANCE_BANNER, this.props.id);
+    if (window && window.localStorage) {
+      localStorage.setItem(MAINTENANCE_BANNER, this.props.id);
+    }
     this.setState({ dismissed: true });
   };
 

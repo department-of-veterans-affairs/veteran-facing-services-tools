@@ -26,18 +26,22 @@ export class EmergencyBanner extends Component {
     super(props);
     this.state = {
       dismissed:
+        window &&
+        window.localStorage &&
         localStorage.getItem(EMERGENCY_BANNER_LOCALSTORAGE) ===
-        this.prepareEmergencyBannerID(),
+          this.prepareEmergencyBannerID(),
     };
   }
 
   prepareEmergencyBannerID = () => `${this.props.title}:${this.props.content}`;
 
   dismiss = () => {
-    localStorage.setItem(
-      EMERGENCY_BANNER_LOCALSTORAGE,
-      this.prepareEmergencyBannerID(),
-    );
+    if (window && window.localStorage) {
+      localStorage.setItem(
+        EMERGENCY_BANNER_LOCALSTORAGE,
+        this.prepareEmergencyBannerID(),
+      );
+    }
     this.setState({ dismissed: true });
   };
 
