@@ -14,7 +14,7 @@ export class EmergencyBanner extends Component {
     localStorage: PropTypes.shape({
       getItem: PropTypes.func.isRequired,
       setItem: PropTypes.func.isRequired,
-    }).isRequired,
+    }),
     recordEvent: PropTypes.func,
     showClose: PropTypes.bool,
     title: PropTypes.string.isRequired,

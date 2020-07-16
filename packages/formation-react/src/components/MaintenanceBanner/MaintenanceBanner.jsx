@@ -17,7 +17,7 @@ export class MaintenanceBanner extends Component {
     localStorage: PropTypes.shape({
       getItem: PropTypes.func.isRequired,
       setItem: PropTypes.func.isRequired,
-    }).isRequired,
+    }),
     startsAt: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     warnContent: PropTypes.string,
