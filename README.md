@@ -6,7 +6,7 @@ There is [another repository for the documentation site](https://github.com/depa
 
 
 
-## Repositories
+## Packages
 
 - [formation](./packages/formation)
    - Styles and assets for the VA design system
