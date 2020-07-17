@@ -1,0 +1,567 @@
+---
+title: JSON schema
+---
+
+# JSON schema
+Form data is represented by `schema` objects and the JSON schema standard describes the allowed shape of the `schema` objects. For more information about the JSON schema standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
+
+For JSON schema validator libraries, the VA Forms Library uses [ajv](https://www.npmjs.com/package/ajv) for unit tests and [jsonschema](https://www.npmjs.com/package/jsonschema) in the code.
+
+- [Fields](#fields)
+- [Objects](#objects)
+- [Arrays](#arrays)
+- [Definitions](#definitions)
+- [Dependencies](#dependencies)
+
+## Fields
+A field is the simplest example of a schema. The field type is determined by the `type` parameter.
+
+```js
+const schema = {
+  type: "string"
+};
+```
+
+### Type
+The base field types in JSON Schema include:
+- `string`
+- `number`
+- `integer`
+- `boolean`
+- `null`
+ 
+### Titles and descriptions
+Fields can have titles and descriptions specified by the `title` keyword in the schema and `description` keyword in the schema. These keywords can also be overridden by the `ui:title` and `ui:description` keywords in the uiSchema.
+
+```js
+const schema = {
+  title: "My form",
+  description: "My description",
+  type: "string"
+};
+```
+ 
+### Enumerated values
+All base schema types support the enum attribute, which restricts the user to select among a list of options.
+
+```js
+const schema = {
+  type: "string",
+  enum: ["one", "two", "three"]
+};
+```
+
+#### Custom labels for enum fields
+This library supports a custom `enumNames` property for `enum` fields, which, however is not JSON-Schema compliant (see below for a compliant approach). The `enumNames` property allows defining custom labels for each option of an `enum`:
+
+```js
+const schema = {
+  type: "number",
+  enum: [1, 2, 3],
+  enumNames: ["one", "two", "three"]
+};
+```
+
+JSON Schema has an alternative approach to enumerations using `anyOf`.
+
+```js
+const schema = {
+  "type": "number",
+  "anyOf": [
+    {
+      "type": "number",
+      "title": "one",
+      "enum": [
+        1
+      ]
+    },
+    {
+      "type": "number",
+      "title": "two",
+      "enum": [
+        2
+      ]
+    },
+    {
+      "type": "number",
+      "title": "three",
+      "enum": [
+        3
+      ]
+    }
+  ]
+};
+```
+
+#### Disabled attribute for enum fields
+To disable an option, use the `ui:enumDisabled property` in the uiSchema.
+
+```js
+const schema = {
+  type: "boolean",
+  enum: [true, false]
+};
+
+const uiSchema={
+  "ui:enumDisabled": [true],
+};
+```
+
+### Nullable types
+JSON Schema supports specifying multiple types in an array; however, react-jsonschema-form only supports a restricted subset of this — nullable types, in which an element is either a given type or equal to null.
+
+```js
+const schema = {
+  type: ["string", "null"]
+};
+```
+
+## Objects
+
+Objects are defined with a type equal to `object` and properties specified in the `properties` keyword.
+
+This example describes a JSON document that is an object with one property called `myField`, which is a number, meaning `{ myField: 2 }` would be valid:
+
+```js
+const schema = {
+  "title": "My title",
+  "description": "My description",
+  "type": "object",
+  "properties": {
+    "myField": {
+      "type": "number"
+    }
+  }
+}
+```
+
+However, `{}` is also valid. 
+
+### Required properties
+You can specify which properties are required using the `required` attribute, which takes an array of property names passed as strings. As in this example, `required` is always on the object that contains the field, not the field itself:
+
+```js
+const schema = {
+  "title": "My title",
+  "description": "My description",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    }
+  },
+  "required": ["name"]
+};
+
+```
+
+### Specifying property order
+Since the order of object properties in Javascript and JSON is not guaranteed, the uiSchema object spec allows you to define the order in which properties are rendered using the `ui:order` property.
+
+If a guaranteed fixed order is only important for some fields, you can insert a wildcard (`*`) item in your `ui:order` definition. All fields that are not referenced explicitly anywhere in the list will be rendered.
+
+```js
+const schema = {
+  type: "object",
+  properties: {
+    foo: {type: "string"},
+    bar: {type: "string"}
+  }
+};
+
+const uiSchema = {
+  "ui:order": ["bar", "foo"]
+};
+
+```
+
+### Additional properties
+The `additionalProperties` keyword allows the user to add properties with arbitrary key names. Set this keyword equal to a schema object. In this way, an add button for new properties is shown by default.
+
+```js
+const schema = {
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "number",
+    "enum": [1, 2, 3]
+  }
+};
+```
+
+You can also define uiSchema options for `additionalProperties` by setting the `additionalProperties` attribute in the uiSchema.
+
+#### Expandable option
+You can turn support for `additionalProperties` off with the `expandable` option in uiSchema:
+
+```js
+const uiSchema = {
+  "ui:options":  {
+    expandable: false
+  }
+};
+```
+
+## Arrays
+Arrays are defined with a type equal to `array`, and array items' schemas are specified in the `items` keyword. 
+
+### Arrays of a single field
+Arrays of a single field type or objects can be specified. This example describes an array of boolean values: `[true, false, true]`. Items can be an object schema or any other type of schema as well:
+
+```js
+const schema = {
+  type: 'array',
+  items: {
+    type: 'boolean'
+  }
+}
+```
+
+### uiSchema for array items
+To specify a uiSchema that applies to array items, specify the uiSchema value within the `items` property.
+
+```js
+const schema = {
+  'ui:title': 'My form',
+  toursOfDuty: {
+    items: {
+      branchName: {
+        'ui:title': 'Branch'
+      }
+    }
+  }
+}
+```
+
+### additionalItems keyword
+The `additionalItems` keyword allows the user to add additional items of a given schema.
+
+### Array item options
+- `orderable` option: Array items are orderable by default, and react-jsonschema-form renders up and down buttons alongside them. The uiSchema `orderable` options allows you to disable ordering.
+- `addable` option: If either `items` or `additionalItems` contains a schema object, an add button for new items is shown by default. You can turn this off with the `addable` option in uiSchema.
+- `removable` option: A remove button is shown by default for an item if `items` contains a schema object, or the item is an `additionalItems` instance. You can turn this off with the `removable` option in uiSchema.
+
+### Multiple-choice list
+The default behavior for array fields is a list of text inputs with add/remove buttons. There are two alternative widgets for picking multiple elements from a list of choices. Typically this applies when a schema has an `enum` list for the `items` property of an array field, and the `uniqueItems` property set to `true`.
+
+By default, this will render a multiple select box. If you prefer a list of checkboxes, just set the `uiSchema ui:widget` directive to checkboxes for that field:
+
+```js
+const schema = {
+  type: "array",
+  title: "A multiple-choice list",
+  items: {
+    type: "string",
+    enum: ["foo", "bar", "fuzz", "qux"],
+  },
+  uniqueItems: true
+};
+
+const uiSchema = {
+  "ui:widget": "checkboxes"
+};
+```
+### Specifying the minimum or maximum number of items
+Note that when an array property is marked as required, an empty array is considered valid. If the array needs to be populated, you can specify the minimum number of items using the `minItems` property.
+
+```js
+const schema = {
+  type: "array",
+  minItems: 2,
+  title: "A multiple-choice list",
+  items: {
+    type: "string",
+    enum: ["foo", "bar", "fuzz", "qux"],
+  },
+  uniqueItems: true
+};
+```
+
+You can also specify the maximum number of items in an array using the `maxItems` property.
+
+### Inline checkboxes
+By default, checkboxes are stacked. If you prefer them inline, set the `inline` property to true:
+
+```js
+const schema = {
+  type: "array",
+  minItems: 2,
+  title: "A multiple-choice list",
+  items: {
+    type: "string",
+    enum: ["foo", "bar", "fuzz", "qux"],
+  },
+  uniqueItems: true
+};
+
+const uiSchema = {
+  "ui:widget": "checkboxes",
+  "ui:options": {
+    inline: true
+  }
+};
+```
+## Definitions
+This library supports common definitions, which means you don't have to copy and paste commonly used field schemas. All of our forms share schemas with the back-end through `vets-json-schema`, the repository where we store JSON Schemas for validating data submitted to a `vets-api` API endpoint. Assuming you've created one of those schemas, the next step is to incorporate that into your form, along with other common definitions.
+
+```js
+import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
+import fullNameUI from '../../common/schemaform/definitions/fullName';
+// ...code omitted...
+
+const {
+  veteranFullName
+} = fullSchema.properties;
+
+const {
+  fullName
+} = fullSchema.definitions;
+
+const formConfig = {
+  // ...code omitted...
+  definitions: {
+    fullName
+  },
+  // ...code omitted...
+    page1: {
+      path: 'first-page',
+      title: 'First Page',
+      uiSchema: {
+        veteranFullName: fullNameUI
+      },
+      schema: {
+        type: 'object',
+        properties: {
+          veteranFullName
+        }
+      }
+    }
+   // ...code omitted...
+};
+```
+## Dependencies
+
+Dependencies can be used to create dynamic schemas that change fields based on what data is entered.
+
+### Property dependencies
+This library supports conditionally making fields required based on the presence of other fields.
+
+In the following example the billing_address field will be required if credit_card is defined.
+
+```js
+const schema = {
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" },
+    "billing_address": { "type": "string" }
+  },
+
+  "required": ["name"],
+
+  "dependencies": {
+    "credit_card": ["billing_address"]
+  }
+};
+```
+
+In the following example the billing_address field will be required if credit_card is defined and the credit_card field will be required if billing_address is defined, making them both required if either is defined.
+
+```js
+const schema = {
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" },
+    "billing_address": { "type": "string" }
+  },
+
+  "required": ["name"],
+
+  "dependencies": {
+    "credit_card": ["billing_address"],
+    "billing_address": ["credit_card"]
+  }
+};
+```
+
+### Schema dependencies
+This library also supports modifying portions of a schema based on form data.
+
+```js
+const schema = {
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" }
+  },
+
+  "required": ["name"],
+
+  "dependencies": {
+    "credit_card": {
+      "properties": {
+        "billing_address": { "type": "string" }
+      },
+      "required": ["billing_address"]
+    }
+  }
+};
+```
+In this example the `billing_address` field will be displayed in the form if `credit_card` is defined.
+
+### Dynamic
+The JSON Schema standard says that the dependency is triggered if the property is present. However, sometimes it's useful to have more sophisticated rules guiding the application of the dependency. For example, maybe you have three possible values for a field, and each one should lead to adding a different question. For this, we support a very restricted use of the `oneOf` keyword.
+
+```js
+const schema = {
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "Do you have any pets?": {
+      "type": "string",
+      "enum": [
+        "No",
+        "Yes: One",
+        "Yes: More than one"
+      ],
+      "default": "No"
+    }
+  },
+  "required": [
+    "Do you have any pets?"
+  ],
+  "dependencies": {
+    "Do you have any pets?": {
+      "oneOf": [
+        {
+          "properties": {
+            "Do you have any pets?": {
+              "enum": [
+                "No"
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "Do you have any pets?": {
+              "enum": [
+                "Yes: One"
+              ]
+            },
+            "How old is your pet?": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "How old is your pet?"
+          ]
+        },
+        {
+          "properties": {
+            "Do you have any pets?": {
+              "enum": [
+                "Yes: More than one"
+              ]
+            },
+            "Do you want to get rid of any?": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "Do you want to get rid of any?"
+          ]
+        }
+      ]
+    }
+  }
+};
+```
+
+In this example the user is prompted with different follow-up questions dynamically based on their answer to the first question.
+
+In these examples, the "Do you have any pets?" question is validated against the corresponding property in each schema in the `oneOf` array. If exactly one matches, the rest of that schema is merged with the existing schema.
+
+### oneOf, anyOf, and allOf
+react-jsonschema-form supports custom widgets for `oneOf`, `anyOf`, and `allOf`.
+
+A schema with `oneOf` is valid if exactly one of the subschemas is valid.
+
+```js
+const schema = {
+    type: "object",
+    oneOf: [
+      {
+        properties: {
+          lorem: {
+            type: "string",
+          },
+        },
+        required: ["lorem"],
+      },
+      {
+        properties: {
+          ipsum: {
+            type: "string",
+          },
+        },
+        required: ["ipsum"],
+      },
+    ],
+  };
+```
+
+A schema with `anyOf` is valid if at least one of the subschemas is valid.
+
+```js
+const schema = {
+    type: "object",
+    anyOf: [
+      {
+        properties: {
+          lorem: {
+            type: "string",
+          },
+        },
+        required: ["lorem"],
+      },
+      {
+        properties: {
+          lorem: {
+            type: "string",
+          },
+          ipsum: {
+            type: "string",
+          },
+        }
+      },
+    ],
+  };
+```
+
+A schema with `allOf` is valid if all of the subschemas are valid. When allOf is specified in a schema, the specified subschemas are merged to create a combined subschema that is valid.
+
+```js
+const schema = {
+  title: "Field",
+  allOf: [
+    {
+      type: ["string", "boolean"]
+    },
+    {
+      type: "boolean"
+    },
+  ],
+  };
+```
