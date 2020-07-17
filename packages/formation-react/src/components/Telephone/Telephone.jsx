@@ -35,7 +35,7 @@ export const PATTERNS = {
 
 // Custom aria labels (only used internally)
 const LABELS = {
-  711: 'TTY: 7 1 1.'
+  711: 'TTY: 7 1 1.',
   911: '1. 9 1 1.',
 };
 
