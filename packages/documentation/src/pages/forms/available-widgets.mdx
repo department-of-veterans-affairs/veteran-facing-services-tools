@@ -1,14 +1,14 @@
 ---
-title: Available form widgets
+title: Widgets
 ---
 
-# Available form widgets
+# Widgets
 
 Widgets are React components that return specific form elements. Set these widgets in a config file while building your form.
 
-Some widgets are associated with particular schema types or formats. There are additional widgets available, but VAFS uses definitions they're included in, rather than just the field.
+Some widgets are associated with particular schema types or formats. There are additional widgets available, but the VA Forms Library uses the definitions they're included in rather than just the field.
 
-Widgets from the [react-jsonschema-form library](/forms/about-the-schema-and-uischema-objects#understanding-the-uischema-object) include string mappings. Widgets created specifically for VAFS do not have mappings, and therefore must be specified by passing the component for the widget directly to the config. To include such widgets, import the widget at the top of the file:
+Widgets from the [react-jsonschema-form library](https://react-jsonschema-form.readthedocs.io/en/latest/usage/widgets/) include string mappings. Widgets created specifically for the VA Forms Library do not have mappings, and therefore must be specified by passing the component for the widget directly to the config. To include such widgets, import the widget at the top of the file:
 
 ```js
 import CurrencyWidget from 'platform/forms-system/src/js/widgets/CurrencyWidget';
