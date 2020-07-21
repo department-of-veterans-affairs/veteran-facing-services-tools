@@ -144,15 +144,23 @@ module.exports = {
           name: 'Documentation',
           items: [
             {
-              name: 'About the schema and uiSchema objects',
+              name: 'About the schema and uiSchema',
               href: '/forms/about-the-schema-and-uischema-objects',
             },
+             {
+              name: 'Schema',
+              href: '/forms/schema',
+            },
+             {
+              name: 'uiSchema',
+              href: '/forms/uischema',
+            },
             {
-              name: 'Available widgets',
+              name: 'Widgets',
               href: '/forms/available-widgets',
             },
             {
-              name: 'Common patterns',
+              name: 'Custom validation and conditional formatting',
               href: '/forms/common-patterns-for-building-forms',
             },
             {
