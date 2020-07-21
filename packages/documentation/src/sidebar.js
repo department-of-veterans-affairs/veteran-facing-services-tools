@@ -155,6 +155,10 @@ module.exports = {
                   name: 'uiSchema',
                   href: '/forms/uischema',
                 },
+                {
+                  name: 'Component hierarchy',
+                  href: '/forms/component-hierarchy',
+                },                
               ],
             },
             {
@@ -166,24 +170,26 @@ module.exports = {
               href: '/forms/common-patterns-for-building-forms',
             },
             {
-              name: 'Config options',
-              href: '/forms/config-options',
-            },
-            {
-              name: 'Component hierarchy',
-              href: '/forms/component-hierarchy',
-            },
+              name: 'Form features and usage guidelines',
+              href: '/forms/available-features-and-usage-guidelines',
+            },            
             {
               name: 'Creating a form config file',
               href: '/forms/creating-a-form-config-file',
+              items: [
+                {
+                  name: 'Config options',
+                  href: '/forms/config-options',
+                },
+                {
+                  name: 'Common variables',
+                  href: '/forms/common-variables',
+                },        
+              ],
             },
             {
               name: 'Creating custom fields and widgets',
               href: '/forms/creating-custom-fields-and-widgets',
-            },
-            {
-              name: 'Form features and usage guidelines',
-              href: '/forms/available-features-and-usage-guidelines',
             },
             {
               name: 'Using available fields',
