@@ -146,14 +146,16 @@ module.exports = {
             {
               name: 'About the schema and uiSchema',
               href: '/forms/about-the-schema-and-uischema-objects',
-            },
-             {
-              name: 'Schema',
-              href: '/forms/schema',
-            },
-             {
-              name: 'uiSchema',
-              href: '/forms/uischema',
+              items: [
+                {
+                  name: 'Schema',
+                  href: '/forms/schema',
+                },
+                {
+                  name: 'uiSchema',
+                  href: '/forms/uischema',
+                },
+              ],
             },
             {
               name: 'Widgets',
