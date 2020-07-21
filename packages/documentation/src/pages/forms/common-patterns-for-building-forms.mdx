@@ -1,27 +1,26 @@
 ---
-title: Common patterns for building forms
+title: Custom validation and conditional formatting
 tags: custom field validation, conditional fields, conditional pages, dynamic drop down, expand under, text block
 ---
 
-# Common patterns for building forms
+# Custom validation and conditional formatting
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
 
-## In this guide
-
-- [Writing custom field validation](#writing-custom-field-validation)
+- [Writing a custom field validation](#writing-a-custom-field-validation)
 - [Validating a field based on other fields in the same object](#validating-a-field-based-on-other-fields-in-the-same-object)
 - [Changing drop-down options based on data in another field](#changing-drop-down-options-based-on-data-in-another-field)
-- [Creating a block of text with no associated fields](#creating-a-block-of-text-with-no-associated-fields)
+- [Showing a block of text with no associated fields](#showing-a-block-of-text-with-no-associated-fields)
 - [Conditionally hiding a group of fields](#conditionally-hiding-a-group-of-fields)
+- [Conditionally hiding a page](#conditionally-hiding-a-page)
 - [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
-- [Conditionally including a page](#conditionally-including-a-page)
 
-## Writing custom field validation
+
+## Writing a custom field validation
 
 To add field validations to your forms that JSON Schema doesn't provide, use the array `ui:validations` in the `uiSchema` object. `ui:validations` can be a function or an object.
 
-If you pass a function, `ui:validations` is called with these arguments:
+If you pass a function, `ui:validations` is called with these parameters:
 
 - `errors`: The errors object for the field.
 - `fieldData`: The data for the field.
@@ -43,6 +42,21 @@ When items in the `ui:validations` array are objects, they have two properties:
 
 - `options`: The object that's passed to the validation function. This allows you to configure your validation function for different fields in the form.
 - `validator`: A function with the same signature as above, plus the `options` object.
+
+The parameters are the same as for a function:
+- `errors`: The errors object for the field.
+- `fieldData`: The data for the field.
+- `formData`: The current form data.
+- `schema`: The current JSON Schema for the field.
+- `errorMessages`: The error messsage object for the field, if available.
+- `options`: The options object from the first parameter.
+
+To raise an error, the call method on the `errors` object is passed into the validator method `addError`: 
+```js
+addErrors: [String]
+```
+
+Forms can be validated at either the field level or at the page level. Below is an example of a field level validation. This code will validate isolated form field data.
 
 ```js
 {
@@ -99,8 +113,22 @@ The function must be referenced in the `uiSchema`:
   }
 }
 ```
+Forms can be validated at either the field level or at the page level. The following example is a a page level validation that will return page level data.
+
+```js
+{
+  validator: (errors, pageData) => {
+    const { email, confirmEmail } = pageData;
+    if (email !== confirmEmail) {
+      errors.confirmEmail.addError('Please ensure your entries match');
+    }
+  }
+}
+```
 
 ## Changing drop-down options based on data in another field
+
+In a form, you can change the available options in a dropdown menu. This will only update the `enum` and the `enumNames` properties and will not replace or delete the other properties. 
 
 Use the `updateSchema` option in `uiSchema` to change a list of enums:
 
@@ -124,13 +152,44 @@ Use the `updateSchema` option in `uiSchema` to change a list of enums:
 }
 ```
 
+When items in `ui:options` are objects, you can use the `updateSchema` function with the following parameters:
+
+- `form`: The current form object.
+- `pageSchema`: The current JSON schema for the page.
+
+The `enum` and `enumNames` properties are changed based on the inputs.
+
+**Note:** For a long list of options, create all variations of the schema *outside* of the update function and use the update function to switch between them. This prevents your field from needing to re-render, since you won't need to create a new schema object each time data changes in the form.
+
+```js
+const optionsGroup1 = { 
+          enum: ['option1', 'option2'],
+          enumNames: ['Option 1', 'Option 2']
+};
+const optionsGroup2 = { 
+          enum: ['option1', 'option3'],
+          enumNames: ['Option 1', 'Option 3']
+};
+
+// schema
+{
+  'ui:options': {
+    updateSchema: (form, pageSchema) {
+      if (form.myField === 'otherOption') {
+        return optionsGroup1;
+      } else {
+        return optionsGroup2;
+      }
+    }
+  }
+}
+```
+
 Only the properties in the returned object are changed in the current schema. The object returned isn't used as an exact replacement for the schema, and if the current schema contains other properties, they aren't removed.
 
-For a long list of options, create all variations of the schema outside of the update function and use the update function to switch between them. You won't need to create a new schema object each time data changes in the form, requiring your field to re-render.
+## Showing a block of text with no associated fields
 
-## Creating a block of text with no associated fields
-
-Use 'ui:description' to show text or a custom component before the fields in a particular object in the schema.
+In order to show a block of text that will not be sent to the API, but rendered on the UI, we need to define the block in both the `schema` and `uiSchema`. Use `ui:description` to show text or a custom component before the fields in a particular object in the schema. The property must have the `view:` prefix and both the `schema` and `uiSchema` must have the same property name. In the following example, the property name is `textObject`.
 
 To create a block of text with no fields that follow, create an empty view object:
 
@@ -156,10 +215,30 @@ To create a block of text with no fields that follow, create an empty view objec
 
 ## Conditionally hiding a group of fields
 
-Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
+Sometimes fields in a form are siblings to others, but should be hidden conditionally. In instances where we want to conditionally hide fields, we can wrap those fields in a `view:` object. We must reference this property in both the `schema` and `uiSchema`. In our `uiSchema`, we add a property of `hideIf` and pass it a conditional function. If true, all siblings will be hidden that are in our `view:` object.
 
 ```js
-schema: {
+const schema = {
+  FIELD_NAME: { ... },
+  'view:PROP_NAME_OPTIONS: {
+    SOME_FIELD_NAME_TO_HIDE: { ... },
+  }
+}
+
+const uiSchema = {
+  FIELD_NAME: { ... },
+  'view:PROP_NAME_OPTIONS: {
+    hideIf: (formData) => /* Some condition here */,
+    SOME_FIELD_NAME_TO_HIDE: { ... },
+  }
+}
+```
+
+
+For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
+
+```js
+const schema = {
   type: 'object',
   properties: {
     employed: { type: 'boolean' },
@@ -174,7 +253,7 @@ schema: {
 To accomplish this, the `schema` and `uiSchema` are written as:
 
 ```js
-schema: {
+const schema = {
   type: 'object',
   properties: {
     employed: { type: 'boolean' },
@@ -188,7 +267,7 @@ schema: {
     otherMonthlyIncome: { type: 'string' }
   }
 },
-uiSchema: {
+const schema = {
   employed: { 'ui:title': 'I am employed' },
   'view:jobInformation': {
     'ui:options': {
@@ -203,41 +282,13 @@ uiSchema: {
 
 The `hideIf` function is passed a copy of the current `formData` in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless `employed` is `true`.
 
-Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
+Objects from the form config with names that start with `view:` are not passed to the backend, but fields within those `view:` objects are passed to the backend by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
 
-## Styling expanded or collapsed fields
+## Conditionally hiding a page
 
-To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
+If you need to hide a page if a condition is or is not met, you can do so by passing a `depends` property at the page level config. The `depends` property determines whether a page is active or not, which allows you to conditionally skip a page if needed.
 
-```js
-// uiSchema
-{
-  field1: {
-    'ui:title': 'This field expands/collapses other items',
-    'ui:options': {
-      expandUnderClassNames: 'schemaform-expandUnder-indent'
-    }
-  },
-  field2: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  },
-  field3: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  }
-}
-```
-
-In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
-
-## Conditionally including a page
-
-The `depends` property determines whether a page is active or not. `depends` can work in a few ways:
+For example, the following example will only show the page if any of the items in the array are true. The `depends` property can work in a few ways:
 
 ```js
 // With an object
@@ -290,5 +341,34 @@ chapterName: {
 
 If a user types 'open sesame' for the `passPhrase` on the first page, `otherPageName` is active. For any other value, including no value, `otherPageName` is inactive and the page is skipped.
 
-**Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
+**Note:** Don't use the pass phrase as a secure login or other authentication mechanism. Within the source, the text of a pass phrase is clear text, even when it's in a function.
 
+## Styling expanded or collapsed fields
+
+If you need to indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
+
+```js
+// uiSchema
+{
+  field1: {
+    'ui:title': 'This field expands/collapses other items',
+    'ui:options': {
+      expandUnderClassNames: 'schemaform-expandUnder-indent'
+    }
+  },
+  field2: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  },
+  field3: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  }
+}
+```
+
+In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
