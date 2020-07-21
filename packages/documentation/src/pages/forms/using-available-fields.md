@@ -5,8 +5,6 @@ tags: fields, reviewcardfield
 
 # ReviewCardField
 
-## What does it do?
-
 The `reviewCardField` is used as a wrapper around user data that _shouldn't_ need to be modified. It is currently being used to group user data such as:
 
 - Phone & email
