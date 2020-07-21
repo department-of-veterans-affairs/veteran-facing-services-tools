@@ -1,19 +1,25 @@
 ---
-title: Custom validation and conditional formatting
-tags: custom field validation, conditional fields, conditional pages, dynamic drop down, expand under, text block
+title: Common patterns
+tags: custom field validation, conditional fields, conditional pages, dynamic drop down, expand under, text block, list loop
 ---
 
-# Custom validation and conditional formatting
+# Common patterns
 
-Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
+Some forms require custom validation, styles, or conditional information based on user input. Use these common patterns to address those needs.
 
+**Custom validation:**
 - [Writing a custom field validation](#writing-a-custom-field-validation)
 - [Validating a field based on other fields in the same object](#validating-a-field-based-on-other-fields-in-the-same-object)
+
+**Conditional formatting:**
 - [Changing drop-down options based on data in another field](#changing-drop-down-options-based-on-data-in-another-field)
 - [Showing a block of text with no associated fields](#showing-a-block-of-text-with-no-associated-fields)
 - [Conditionally hiding a group of fields](#conditionally-hiding-a-group-of-fields)
 - [Conditionally hiding a page](#conditionally-hiding-a-page)
+
+**Custom styling**
 - [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
+- [Creating a list loop](#creating-a-list-loop)
 
 
 ## Writing a custom field validation
@@ -372,3 +378,130 @@ If you need to indent or otherwise style fields that are expanded or collapsed w
 ```
 
 In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
+
+## Creating a list loop
+
+There are times when you may need to allow the user to enter a list of items, such as a list of children or a list of spouses, and then allow them to enter detailed information about each list item on a subsequent page. This is often referred to as a `list loop`. The way this is achieved in our form system is with an `array` of form field objects. On the first page, the user enters each item in the list as the items in the `array` and then each subsequent page, where the user enters details about each list item, is then bound to the `array` in the code using a special JSON property.
+
+### Creating an Array of Items
+
+For example, you received a design that requires a Veteran to enter in each of their chilren and then on subsequent pages to enter in details about each respective child. You need to tell the form system that you are creating an array and then do that on the first page, where you ask the user to enter in each of their children. Add the child object, which is the collection of form fields that will capture all of the initial information on the first page (in your design this is probably name, birthday, and so on), to the form schema. In this code example, the child object is named `childrenToAdd`:
+
+```js
+export const informationCchema = {
+  type: 'object',
+  properties: {
+    childrenToAdd: {
+      type: 'array',
+      minItems: 1,
+      items: {
+        type: 'object',
+        properties: {
+          first: {},
+          middle: {},
+          last: {},
+          ssn: {},
+          birthDate: {},
+        },
+      },
+    },
+  },
+};
+
+```
+
+There are a few things worth pointing out in this code:
+- The JSON objects for `first`, `middle`, `last`, `ssn`, and `birthDate` are empty for now. Normally you would fill these in with the details of what each of those fields need to include, but we left them blank for the sake of brevity. 
+- `childrenToAdd` is of `type: 'array'`. This is where we are setting up the `array` that will be used to capture subsequent pages of information about each child. You can name this array anything, but you will need to reference this same name for that array in the schemas for any susequent pages. 
+- `minItems: 1` is used. This parameter is optional, but tells the form system that it should create at least one of these children when the form is loaded. This allows you to making fields conditionally required, since you will need to reference something in the form for the condition and there might be an error if there is not at least one of these items. 
+
+Once the first page is created, you need to create the next page where you might capture some more details about each child. Here is what the code looks like for a second page where the form asks for the address of each child entered:
+
+```js
+export const addressSchema = {
+  type: 'object',
+  properties: {
+    childrenToAdd: {
+      type: 'array',
+      minItems: 1,
+      items: {
+        type: 'object',
+        properties: {
+          state: {},
+          street: {},
+          city: {},
+          postal: {},
+        },
+      },
+    },
+  },
+};
+```
+
+This code is very similar to the first page and that is because the same `array` called `childrenToAdd` needs to be referenced so that the forms library knows what array we are talking about and where to put the information the user adds. 
+
+### Importing and using pages
+
+Both of these schemas export a  `constant` named `schema`, but how does the forms libary use this? Inside the `form.js` file inside your config you need to do a few things. First you need to import these `schema` objects and assign them. If you want to name the two pages `Child Information` and `Child Address`, here is what the imports and the usage would look like:
+
+```js
+import { informationSchema } from './our-child-information-file.js';
+// you would most likey import a uiSchema as well
+
+import { addressSchema } from './our-child-address-file.js';
+// again you would most likely import a uiSchema as well
+
+import IntroductionPage from '../containers/IntroductionPage';
+import ConfirmationPage from '../containers/ConfirmationPage';
+
+
+const formConfig = {
+  urlPrefix: '/',
+  submitUrl: '/v0/api',
+  trackingPrefix: 'new-form-',
+  introduction: IntroductionPage,
+  confirmation: ConfirmationPage,
+  formId: 'XX-230',
+  version: 0,
+  prefillEnabled: true,
+  savedFormMessages: {
+    notFound: 'Please start over to apply for new form benefits.',
+    noAuth: 'Please sign in again to continue your application for new form benefits.'
+  },
+  title: 'My new form',
+  defaultDefinitions: {
+  },
+  chapters: {
+    chapter1: {
+      title: 'Chapter 1',
+      pages: {
+        childInformation: {
+          path: 'child-information',
+          title: 'Child Information',
+          schema: informationSchema,
+          // you would most likely use your uiSchema here
+          }
+        },
+        childAddress: {
+          path: 'child-address/:index',
+          title: 'Child Address',
+          showPagePerItem: true,
+          arrayPath: 'childrenToAdd',
+          schema: addressSchema,
+          // you would most likely use your uiSchema here
+        },
+      }
+    }
+  }
+};
+
+```
+
+The `informationSchema` and `addressSchema` objects that we creating earlier are imported. Normally you would separately create a uiSchema to go with each of these objects that holds the corresponding UI information about how the fields should be displayed, what error messages should be displayed, etc. 
+
+These `schema` objects are assigned to pages within the `formConfig` object with a few special properties. First the two pages are set up. On the second page, make sure that the `path` includes `/:index`. Because we are creating an array and on each page item in the array, the forms library needs to know what item to associate what data with. 
+
+On the second page, make sure to add the property `showPagePerItem: true` to ensure that there are separate pages for each item in the array. On the first page of the form, the user will enter in a few children. They will then be shown a `childAddress` page for the first child and then a separate `childAddress` page for the second child, and so on for all of the children entered. 
+
+Note that `arrayPath: 'childrenToAdd'` is used. This is the name we gave the `array` inside the form `schema` objects so we need to reference it here. The forms library will take care of connecting the dots as to what data goes with each item in the `array`.
+
