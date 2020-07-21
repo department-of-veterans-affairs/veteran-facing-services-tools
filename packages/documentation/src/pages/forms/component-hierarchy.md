@@ -23,6 +23,8 @@ At the top level, RJSF uses a `Form` component to take the schema inputs and ren
 - *Fields* generally match the `type` attribute in a `schema` object. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget. To specify a particular field, set the `ui:field` property to a specific field.
 - A *widget* is the HTML input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by RJSF, the defaults are overwritten with these versions.
 
+See [JSON schema](/forms/schema) for more information.
+
 ### Example schema: `string` object
 
 ```
