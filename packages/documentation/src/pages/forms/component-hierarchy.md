@@ -1,29 +1,27 @@
 ---
-title: About the React component hierarchy
+title: React component hierarchy
 tags: Form component, fields, widgets, Field component
 ---
 
-# About the React component hierarchy
+# React component hierarchy
 
 The VAFS builds a React application of a form, and determines which React components to render based on the description of the form in the form configuration file.
 
-## In this guide
-
-- [About the `Form` component, fields, and widgets](#about-the-form-component-fields-and-widgets)
+- [`Form` component, fields, and widgets](#form-component-fields-and-widgets)
   - [Example schema: `string` object](#example-schema-string-object)
   - [Example schema: `string` with `enum` property](#example-schema-string-with-enum-property)
   - [Example schema: `object`](#example-schema-object)
   - [Example schema: `ArrayField`](#example-schema-arrayfield)
 - [Field component props](#field-component-props)
-  - [About the `onChange` field component](#about-the-onchange-field-component)
-  - [About the `uiSchema` field component](#about-the-uischema-field-component)
+  - [`onChange` field component](#onchange-field-component)
+  - [`uiSchema` field component](#uischema-field-component)
 
-## About the `Form` component, fields, and widgets
+## `Form` component, fields, and widgets
 
 At the top level, RJSF uses a `Form` component to take the schema inputs and render a hierarchy of components for each field of the form:
 
 - *Fields* generally match the `type` attribute in a `schema` object. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget. To specify a particular field, set the `ui:field` property to a specific field.
-- A *widget* is the html input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by RJSF, the defaults are overwritten with these versions.
+- A *widget* is the HTML input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by RJSF, the defaults are overwritten with these versions.
 
 ### Example schema: `string` object
 
@@ -137,14 +135,14 @@ In order for each component to know what to render, field components pass a coll
 - `name`: The property name of the current field. For example, the object schema above would be named `field1`.
 - `required`: If the field is required or not (i.e. the property name is in the schema's `required` array).
 - `schema`: The schema for the specific field.
-- `uiSchema`: The ui schema for this field. See "[About the `uiSchema` field component](#about-the-uischema-field-component)."
+- `uiSchema`: The ui schema for this field. See "[`uiSchema` field component](#uischema-field-component)."
 - `errorSchema`: An object that contains the list of errors for the current field and any child properties, if the field is an array or object.
 - `idSchema`: An object that contains the field IDs for the current field and any child properties. The library generates IDs for each field by joining each property name with an underscore.
 - `formData`: The actual data entered for the field so far.
-- `onChange`: The function that's called when data changes. See "[About the `onChange` field component](#about-the-onchange-field-component)."
+- `onChange`: The function that's called when data changes. See "[`onChange` field component](#onchange-field-component)."
 - `onBlur`: The function that's called when focus is lost on a widget.
 
-### About the `onChange` field component
+### `onChange` field component
 
 When a user enters data, each widget calls `onChange`. Each component in the hierarchy passes an `onChange` handler to child fields. When child data changes, the component combines it with the rest of the data and calls the `onChange` prop passed to it from its parent.
 
@@ -168,6 +166,6 @@ In this example:
 
 Similar to Redux, all state is kept in the `Form` component, or the root of the form. All data processing and validation happens in `Form`, or is triggered by hooks provided by `Form`. The VAFS code built on top of this processes the schemas and form data in Redux, triggered by events provided by `Form`.
 
-### About the `uiSchema` field component
+### `uiSchema` field component
 
-Along with the regular JSON Schema, a UI schema for UI-specific options that don't fit within the JSON Schema standard is also optionally defined for each field. The UI schema is passed to the form config file as an object, `uiSchema`, for each field. For more information, see "[Understanding the `uiSchema` object](/forms/about-the-schema-and-uischema-objects#understanding-the-uischema-object)."
+Along with the regular JSON Schema, a UI schema for UI-specific options that don't fit within the JSON Schema standard is also optionally defined for each field. The UI schema is passed to the form config file as an object, `uiSchema`, for each field. For more information, see "[`uiSchema`](/forms/uischema)."
