@@ -116,32 +116,32 @@ module.exports = {
       indexmdx: true,
       items: [
         {
-          name: 'Tutorial',
+          name: 'Getting started with forms',
           items: [
             {
-              name: '1. Basic',
+              name: 'Creating a new form',
               href: '/forms/form-tutorial-basic',
             },
             {
-              name: '2. Intermediate',
+              name: 'Adding complex features',
               href: '/forms/form-tutorial-intermediate',
             },
             {
-              name: '3. Advanced',
+              name: 'Using common definitions',
               href: '/forms/form-tutorial-advanced',
             },
             {
-              name: '4. Setting up Save in Progress',
+              name: 'Setting up Save in Progress',
               href: '/forms/save-in-progress',
             },
             {
-              name: '5. Forms in production',
+              name: 'Migrating form data',
               href: '/forms/forms-in-production',
             },
           ],
         },
         {
-          name: 'Documentation',
+          name: 'Reference',
           items: [
             {
               name: 'About the schema and uiSchema',
@@ -162,7 +162,7 @@ module.exports = {
               href: '/forms/available-widgets',
             },
             {
-              name: 'Custom validation and conditional formatting',
+              name: 'Common patterns',
               href: '/forms/common-patterns-for-building-forms',
             },
             {
