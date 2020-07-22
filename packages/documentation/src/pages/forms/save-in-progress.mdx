@@ -4,13 +4,10 @@ title: Setting up Save in Progress
 
 # Setting up Save in Progress
 
-Previous: [Advanced tutorial](/forms/form-tutorial-advanced)
-
-Forms on VA.gov support the ability to save them while in progress to a user's account and resume them later. Enabling Save in Progress requires
-
-- Configuring naming and messaging options in the **form config**.
-- Making the Save In Progress form retrievable on the **user profile** page.
-- Adding links to the Save In Progress on **static pages**.
+VA.gov supports the ability to save forms while they are in progress to a user's account and resume them later. Enabling Save in Progress requires you to:
+- Configure naming and messaging options in the **form config**.
+- Make the Save In Progress form retrievable on the **user profile** page.
+- Add links to the Save in Progress on **static pages**.
 
 ## Form config
 
@@ -29,7 +26,7 @@ const formConfig = {
 }
 ```
 
-This is from our health care application. The most important piece of information is `formId`, which is the key that will be used to save the form data on the backend. Once you choose this, you can't change it in production. We also set a version, typically to 0, which can be incremented if you need to migrate form data in production.
+This example is from our health care application. The most important piece of information is `formId`, which is the key that will be used to save the form data on the backend. Once you choose this, you can't change it in production. You also set a version, typically to `0`, which can be incremented if you need to migrate form data in production.
 
 There are also a couple of messages you can set, which show up in various places on the form (primarily on the intro page).
 
@@ -39,7 +36,7 @@ You will also need to make a couple changes in the user profile code, so that yo
 
 ## Static pages
 
-Your form will likely be linked somewhere in the static content for VA.gov. In those places, we have the ability to replace something like an "Apply now" button with a widget to resume or start over an in progress form.
+Your form will likely be linked somewhere in the static content for VA.gov. In those places, we have the ability to replace something like an **Apply now** button with a widget to resume or start over an in-progress form.
 
 In your content page, you can add front matter to set up a widget:
 
@@ -59,7 +56,7 @@ And somewhere in the file, where you want the widget to show up:
 </div>
 ```
 
-Note that the id matches the `root` property in the front matter. This is the link that will show up will the Javascript code is loading or if it fails to load.
+Note that the ID matches the `root` property in the front matter. This is the link that will show up will the Javascript code is loading or if it fails to load.
 
 Also note the `data-widget-type` property. You'll need make that custom for your form and add it to the list in `src/applications/static-pages/widgetTypes.js`.
 
@@ -81,4 +78,4 @@ Once you've got all that set up, your form should appear on the profile page:
 
 ![](../../images/forms/saved_form.png)
 
-Next: [Forms in production](/forms/forms-in-production)
+Next, now that your form is in prouction, [learn how to migrate data](/forms/forms-in-production) if you need to change the structure of the form.
