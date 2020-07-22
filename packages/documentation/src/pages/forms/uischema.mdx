@@ -229,7 +229,7 @@ This property renders string fields on the review page. It is always used when y
 ```
 
 ### ui:reviewField
-This property renders a custom review field on the review page and is only used when you specify a widget component. The `children` parameter is a component from the `ui:reviewWidget`, but is only rendered by this custom `reviewField` if the schema for it is not an `object` or `array`. **Note:** You must return a div with a "review-row" class name and include child <dt> and <dd> elements to maintain accessibility standards.
+This property renders a custom review field on the review page and is only used when you specify a widget component. The `children` parameter is a component from the `ui:reviewWidget`, but is only rendered by this custom `reviewField` if the schema for it is not an `object` or `array`. **Note:** You must return a div with a "review-row" class name and include child `<dt>` and `<dd>` elements to maintain accessibility standards.
 
 ```js
  'ui:reviewField': ({ children, schema, uiSchema }) => (
