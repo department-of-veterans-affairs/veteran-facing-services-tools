@@ -1,19 +1,15 @@
 ---
-title: VAFS - advanced tutorial
+title: Using common definitions
 tags: common defintions, fullSchema
 ---
 
-# Advanced tutorial
+# Using common definitions
 
-Previous: [Intermediate tutorial](/forms/form-tutorial-intermediate)
-
-## Using Common Definitions
-
-All of our forms share schemas with the back-end through `vets-json-schema`, the repository where we store JSON Schemas for validating data submitted to a `vets-api` API endpoint. Assuming you've created one of those schemas, the next step is to incorporate that into your form, along with other common definitions we've built.
+Now that you've learned about [adding some complex features to your form](/forms/form-tutorial-intermediate), let's learn about common definitions. All of the VA forms share schemas with the backend through `vets-json-schema`, which is the repository where we store JSON Schemas for validating data submitted to a `vets-api` endpoint. Assuming you've created one of those schemas, the next step is to incorporate that into your form, along with other common definitions.
 
 ## Adding your schema
 
-Assuming you've created your form using our form scaffolding generator, you should have some commented out lines in your `config/form.js` file:
+If you created your form using the Yeoman form scaffolding generator, you should see some lines that are commented out in your `config/form.js` file:
 
 ```js
 // import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
@@ -25,7 +21,7 @@ Assuming you've created your form using our form scaffolding generator, you shou
 // const { } = fullSchema.definitions;
 ```
 
-If you uncomment those lines and update the import path to match your schema's file name, you can start pulling in individual definitions and properties to use in your form. We try to use the properties from the shared schema as much as possible, since it helps keep the front-end and back-end in sync and avoid validation errors in production. For example, if you want to import an `email` field from your schema, you can do something like this:
+If you uncomment those lines and update the import path to match your schema's file name, you can start pulling in individual definitions and properties to use in your form. Use the properties from the shared schema as much as possible, since it helps keep the frontend and backend synchronized and avoids validation errors in production. For example, if you want to import an `email` field from your schema, you can do something like this:
 
 ```js
 import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
@@ -59,11 +55,11 @@ const formConfig = {
 };
 ```
 
-Here we're using Javascript's object shorthand syntax to set the `email` property to the object from the shared schema properties. That way we know we're using the same field name and using the same definition type as what will be used by the back-end. Note that we still need to be careful that we include all the fields we need from `fullSchema`.
+This command uses Javascript's object shorthand syntax to set the `email` property to the object from the shared schema properties. That way you know you're using the same field name and using the same definition type that will be used by the backend. Make sure to include all the fields you need from `fullSchema`.
 
-## Using a common front-end definition
+## Using a common frontend definition
 
-We have a collection of common definitions and fields on the front-end for you to use in your form. Let's try using our common full name field:
+Common definitions and fields are provided on the frontend for you to use in your form. Let's try using the common full name field:
 
 ```js
 import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
@@ -101,15 +97,15 @@ const formConfig = {
 };
 ```
 
-There are a few things going on here. One, we've pulled the `fullName` definition from `fullSchema`. JSON Schema's method of code reuse has you put definitions in a `definitions` object in the schema, then reference them with a `$ref` property, so we have to account for that on the front-end. We can do that by importing it from `fullSchema.definitions` and adding it to the `definitions` object in our form config object.
+There are a few things going on here. First, this property pulls the `fullName` definition from `fullSchema`. for JSON Schema's method of code reuse, you put definitions in a `definitions` object in the schema, then reference them with a `$ref` property. The frontend imports the definition from `fullSchema.definitions` and adds it to the `definitions` object in the form config object.
 
-Second, we've imported `fullNameUI` from our common front-end definitions. For this field, we just have some `uiSchema` configuration that sets labels and widget types. Other fields are more complex, and may require you to call a function to generate the right configuration, and possibly import something for the regular `schema` object as well.
+Second, the `fullNameUI` is imported from the common frontend definitions. For this field, the `uiSchema` configuration sets labels and widget types. Other fields are more complex and may require you to call a function to generate the right configuration, and possibly import something for the regular `schema` object as well.
 
-Finally, in the code you can see that we're using `fullNameUI` in the `uiSchema` object, and we're using `veteranFullName` like we used `email` previously.
+Finally, in the code you can see that the `fullNameUI` is used in the `uiSchema` object and `veteranFullName` is used as `email` was used previously.
 
 ## Modifying common definitions
 
-Often you'll need to slightly modify common definitions on the front-end to change a label or some conditional logic. The way we typically do that is to use our data utilities to set values on the schema. For example, say we needed to make our `veteranFullName` field expand underneath another field:
+You might need to slightly modify common definitions on the frontend to change a label or some conditional logic. Use the data utilities to set values on the schema. For example, say you needed to make the `veteranFullName` field expand underneath another field:
 
 ```js
 import { set } from 'platform/utilities/data';
@@ -153,13 +149,13 @@ const formConfig = {
 };
 ```
 
-We're using one of the available data utilities to set the expandUnder value for fullNameUI in a way that doesn't modify the existing fullNameUI object. All of the data functions in `platform/utilities/data` treat objects as immutable, not modifying anything you pass in to them, so you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
+One of the available data utilities is being used to set the `expandUnder` value for `fullNameUI` in a way that doesn't modify the existing `fullNameUI` object. All of the data functions in `platform/utilities/data` treat objects as immutable, not modifying anything you pass in to them. This means you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
 
 ## Things to watch out for
 
-The point of having these common definitions and sharing a schema between the front-end and back-end is to encourage consistency in our forms and to reduce errors when submitting a form to a `vets-api` endpoint. But following the guide above won't completely prevent those issues. Here are some things to keep in mind:
+The point of having these common definitions and sharing a schema between the frontend and backend is to encourage consistency in your forms and to reduce errors when submitting a form to a `vets-api` endpoint. But following the guide above won't completely prevent those issues. Here are some things to keep in mind:
 
 - Since we're importing individual fields from `fullSchema`, it can be easy to miss required field rules, since we often import those directly. Make sure you're marking all the necessary fields as required in your form config.
-- Importing individual fields makes it easy to group them in ways specific to the front-end, so make sure if you are grouping things, you're using property names prefixed with `view:` to remove that grouping before submitting.
+- Importing individual fields makes it easy to group them in ways specific to the frontend, so make sure if you are grouping things, you're using property names prefixed with `view:` to remove that grouping before submitting.
 
-Next: [Setting up Save in Progress](/forms/save-in-progress)
+Now, learn how to [set up your form to Save in Progress](/forms/save-in-progress).
