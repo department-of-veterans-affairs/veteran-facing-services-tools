@@ -77,6 +77,15 @@ createApplicationStatus(store, {
 
 The main things to note are that the `widgetType` should match the one you added to the widget types list. The code block also has some configuration options for your form that should be easy to get from the form config object.
 
+**Note:** An analytics event is added to the form introduction page by default. To finish setting it up, add an analytics event name to `gaStartEventName` property of the [`SaveInProgressIntro`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/forms/save-in-progress/SaveInProgressIntro.jsx) component, which is used on `IntroductionPage`:
+
+```html
+<SaveInProgressIntro
+  gaStartEventName="my-start-form-event-name"
+  ...
+/>
+```
+
 Once you've got all that set up, your form should appear on the profile page:
 
 ![](../../images/forms/saved_form.png)
