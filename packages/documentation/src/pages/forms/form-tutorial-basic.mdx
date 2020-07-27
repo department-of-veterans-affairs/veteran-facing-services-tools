@@ -5,17 +5,18 @@ tags: yeoman generator, new form, setup form,
 
 # Basic tutorial
 
-In this doc, we'll walk through creating a new form and making some simple changes.
+This doc walks you through creating a new form and making some simple changes.
 
-Prerequisites:
-- VA.gov [running locally](/getting-started)
-- [VA.gov Yeoman generator](/platform/tools/generator) installed locally (first step in linked page)
+Make sure you meet the following prerequisites:
+
+- VA.gov is [running locally](/getting-started).
+- [VA.gov Yeoman generator](/platform/tools/generator) is installed locally (first step in the linked page).
 
 If you both of those steps completed, you're ready to get started.
 
-## Create new form application with Yeoman generator
+## Create a new form with the Yeoman generator
 
-To begin, run the generator from the root of your local vets-website repository:
+To begin, create a new form by running the generator from the root of your local `vets-website` repository:
 
 ```bash
 yo @department-of-veterans-affairs/vets-website
@@ -42,7 +43,8 @@ After answering the questions, the generator will create several source files fo
 
 ## Open the new form application
 
-Next you'll need to start the site up locally (restart this task if it is already running):
+Start the site locally (or restart the site if it is already running):
+
 ```bash
 yarn watch
 ```
@@ -55,7 +57,7 @@ You should see something like this:
 
 ## Update your form
 
-Now that you're up and running, we can add a new page and field to our form. If you open up `src/applications/new-form/config.js`, you should see a `formConfig` variable:
+Now that you're up and running, you can add a new page and field to the form. If you open `src/applications/new-form/config.js`, you should see a `formConfig` variable:
 
 ```js
 const formConfig = {
@@ -95,16 +97,20 @@ const formConfig = {
 };
 ```
 
-There's a lot of information already there, and you can check out the [form config specification](/forms/docs/spec) to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
+A lot of information is automatically included in the file. Check out the [form config specification](/forms/config-options) to see what each property means. For now, let’s look at the content of the form, which lives in `chapters`.
 
 At the most basic level, our forms consist of: widgets, fields, pages, and chapters.
 
-- **Widgets** are the basic form controls, things like `<input/>` and `<select/>` elements.
-- **Fields** are the next level up and contain a widget and a `<label/>`, plus some extra optional description information.
-- We then have **pages**, which are collections of fields.
-- **Chapters** are collections of pages.
+- **Widgets**: The basic form controls, such as `<input/>` and `<select/>` elements.
+- **Fields**: The next level up from widgets, fields contain a widget and a `<label/>`, plus some extra optional description information.
+- **Pages**: Collections of fields.
+- **Chapters**: Collections of pages.
 
-We can see in the config that there's already one chapter, with one page inside it, called `page1`. In the `page1` object there are a few pieces of information, which we can mostly ignore for now. The important properties for us right now are `uiSchema` and `schema`. `schema` is the initial structure of our page, in the form of a [JSON Schema](https://spacetelescope.github.io/understanding-json-schema/). This describes the type of data that will result from a user filling in our form. It's also used by the form library to determine what fields and widgets to display in the application, except when overridden by `uiSchema`. `uiSchema` is an object that has extra, user interface-focused information to help render the form.
+There's already one chapter in the config file. It contains one page, called `page1`. For now, you can ignore most of the information in the `page1` object. The important properties are `uiSchema` and `schema`.
+
+The `schema` is the initial structure of our page, in the form of a [JSON Schema](https://spacetelescope.github.io/understanding-json-schema/). This property describes the type of data that will result from a user filling in the form. It's also used by the form library to determine what fields and widgets to display in the application, except when overridden by `uiSchema`. 
+
+The `uiSchema` is used to add more customization to the form's look and feel. To customize object fields in the uiSchema, the structure of the uiSchema should be `{key: value}`, where `key` is the property key and `value` is an object with the uiSchema configuration for that particular property. 
 
 Let's add a property to `schema`:
 
@@ -125,11 +131,11 @@ page1: {
 }
 ```
 
-Now if you go to http://localhost:3001/new-form/first-page you should see this:
+Now if you go to http://localhost:3001/new-form/first-page you should see this field:
 
 ![](../../images/forms/first-field.png)
 
-That's not the most exciting field, but it's a field! We can add a title to it by adding to `uiSchema`:
+You can add a title to the field by adding to `uiSchema`:
 
 ```js
 page1: {
@@ -155,7 +161,7 @@ That makes it look a little more presentable:
 
 ![](../../images/forms/field-with-label.png)
 
-Note that `uiSchema` doesn't follow exactly the same structure as `schema`: you don't need the `properties` object. This is because `uiSchema` treats everything without a `ui:` prefix as a field name, with one exception for array fields.
+Note that `uiSchema` doesn't follow exactly the same structure as `schema` — you don't need the `properties` object. This is because `uiSchema` treats everything without a `ui:` prefix as a field name, with one exception for array fields.
 
 Changing the the `type` property in your field will change the data accepted and also the way it displays on the form. You can change it to be `boolean` and get a checkbox and `number` to get a number input. If you want a `select` box, you use JSON Schema's `enum` property:
 
@@ -246,7 +252,7 @@ page1: {
 }
 ```
 
-If you do fill in the required information and click Continue, you'll end up on the review page. The review page for our forms is generated based on your chapters and pages and provides a quick way to review the data that you've entered:
+If you do fill in the required information and click **Continue**, you'll end up on the review page. The review page is generated based on your chapters and pages and provides a quick way to review the data that you've entered:
 
 ![](../../images/forms/review.png)
 
@@ -254,7 +260,4 @@ Note that if you refresh in the middle of the form, your data will be lost and t
 
 Once you've reviewed your form, you have to click the checkbox to agree to the privacy policy and then you can submit! For now, though, that Submit button will fail because there's no api to submit the data to.
 
-That's it! Continue on in our documentation to learn about building more complex forms and the whole process for building and submitting a new form.
-
-
-Next: [Intermediate tutorial](/forms/form-tutorial-intermediate)
+That's it! Continue on in our documentation to [learn about building more complex forms](/forms/form-tutorial-intermediate) and the whole process for building and submitting a new form.

@@ -116,39 +116,53 @@ module.exports = {
       indexmdx: true,
       items: [
         {
-          name: 'Tutorial',
+          name: 'Getting started with forms',
           items: [
             {
-              name: '1. Basic',
+              name: 'Creating a new form',
               href: '/forms/form-tutorial-basic',
             },
             {
-              name: '2. Intermediate',
+              name: 'Adding complex features',
               href: '/forms/form-tutorial-intermediate',
             },
             {
-              name: '3. Advanced',
+              name: 'Using common definitions',
               href: '/forms/form-tutorial-advanced',
             },
             {
-              name: '4. Setting up Save in Progress',
+              name: 'Setting up Save in Progress',
               href: '/forms/save-in-progress',
             },
             {
-              name: '5. Forms in production',
+              name: 'Migrating form data',
               href: '/forms/forms-in-production',
             },
           ],
         },
         {
-          name: 'Documentation',
+          name: 'Reference',
           items: [
             {
-              name: 'About the schema and uiSchema objects',
+              name: 'About the schema and uiSchema',
               href: '/forms/about-the-schema-and-uischema-objects',
+              items: [
+                {
+                  name: 'Schema',
+                  href: '/forms/schema',
+                },
+                {
+                  name: 'uiSchema',
+                  href: '/forms/uischema',
+                },
+                {
+                  name: 'Component hierarchy',
+                  href: '/forms/component-hierarchy',
+                },                
+              ],
             },
             {
-              name: 'Available widgets',
+              name: 'Widgets',
               href: '/forms/available-widgets',
             },
             {
@@ -156,24 +170,26 @@ module.exports = {
               href: '/forms/common-patterns-for-building-forms',
             },
             {
-              name: 'Config options',
-              href: '/forms/config-options',
-            },
-            {
-              name: 'Component hierarchy',
-              href: '/forms/component-hierarchy',
-            },
+              name: 'Form features and usage guidelines',
+              href: '/forms/available-features-and-usage-guidelines',
+            },            
             {
               name: 'Creating a form config file',
               href: '/forms/creating-a-form-config-file',
+              items: [
+                {
+                  name: 'Config options',
+                  href: '/forms/config-options',
+                },
+                {
+                  name: 'Common variables',
+                  href: '/forms/common-variables',
+                },        
+              ],
             },
             {
               name: 'Creating custom fields and widgets',
               href: '/forms/creating-custom-fields-and-widgets',
-            },
-            {
-              name: 'Form features and usage guidelines',
-              href: '/forms/available-features-and-usage-guidelines',
             },
             {
               name: 'Using available fields',

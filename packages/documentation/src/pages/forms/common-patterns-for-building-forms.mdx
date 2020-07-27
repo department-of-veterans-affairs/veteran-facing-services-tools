@@ -1,27 +1,32 @@
 ---
-title: Common patterns for building forms
-tags: custom field validation, conditional fields, conditional pages, dynamic drop down, expand under, text block
+title: Common patterns
+tags: custom field validation, conditional fields, conditional pages, dynamic drop down, expand under, text block, list loop
 ---
 
-# Common patterns for building forms
+# Common patterns
 
-Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
+Some forms require custom validation, styles, or conditional information based on user input. Use these common patterns to address those needs.
 
-## In this guide
-
-- [Writing custom field validation](#writing-custom-field-validation)
+**Custom validation**
+- [Writing a custom field validation](#writing-a-custom-field-validation)
 - [Validating a field based on other fields in the same object](#validating-a-field-based-on-other-fields-in-the-same-object)
-- [Changing drop-down options based on data in another field](#changing-drop-down-options-based-on-data-in-another-field)
-- [Creating a block of text with no associated fields](#creating-a-block-of-text-with-no-associated-fields)
-- [Conditionally hiding a group of fields](#conditionally-hiding-a-group-of-fields)
-- [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
-- [Conditionally including a page](#conditionally-including-a-page)
 
-## Writing custom field validation
+**Conditional formatting**
+- [Changing drop-down options based on data in another field](#changing-drop-down-options-based-on-data-in-another-field)
+- [Showing a block of text with no associated fields](#showing-a-block-of-text-with-no-associated-fields)
+- [Conditionally hiding a group of fields](#conditionally-hiding-a-group-of-fields)
+- [Conditionally hiding a page](#conditionally-hiding-a-page)
+
+**Custom styling**
+- [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
+- [Creating a list loop](#creating-a-list-loop)
+
+
+## Writing a custom field validation
 
 To add field validations to your forms that JSON Schema doesn't provide, use the array `ui:validations` in the `uiSchema` object. `ui:validations` can be a function or an object.
 
-If you pass a function, `ui:validations` is called with these arguments:
+If you pass a function, `ui:validations` is called with these parameters:
 
 - `errors`: The errors object for the field.
 - `fieldData`: The data for the field.
@@ -43,6 +48,21 @@ When items in the `ui:validations` array are objects, they have two properties:
 
 - `options`: The object that's passed to the validation function. This allows you to configure your validation function for different fields in the form.
 - `validator`: A function with the same signature as above, plus the `options` object.
+
+The parameters are the same as for a function:
+- `errors`: The errors object for the field.
+- `fieldData`: The data for the field.
+- `formData`: The current form data.
+- `schema`: The current JSON Schema for the field.
+- `errorMessages`: The error messsage object for the field, if available.
+- `options`: The options object from the first parameter.
+
+To raise an error, the call method on the `errors` object is passed into the validator method `addError`: 
+```js
+addErrors: [String]
+```
+
+Forms can be validated at either the field level or at the page level. Below is an example of a field level validation. This code will validate isolated form field data.
 
 ```js
 {
@@ -99,8 +119,22 @@ The function must be referenced in the `uiSchema`:
   }
 }
 ```
+Forms can be validated at either the field level or at the page level. The following example is a a page level validation that will return page level data.
+
+```js
+{
+  validator: (errors, pageData) => {
+    const { email, confirmEmail } = pageData;
+    if (email !== confirmEmail) {
+      errors.confirmEmail.addError('Please ensure your entries match');
+    }
+  }
+}
+```
 
 ## Changing drop-down options based on data in another field
+
+In a form, you can change the available options in a dropdown menu. This will only update the `enum` and the `enumNames` properties and will not replace or delete the other properties. 
 
 Use the `updateSchema` option in `uiSchema` to change a list of enums:
 
@@ -124,13 +158,44 @@ Use the `updateSchema` option in `uiSchema` to change a list of enums:
 }
 ```
 
+When items in `ui:options` are objects, you can use the `updateSchema` function with the following parameters:
+
+- `form`: The current form object.
+- `pageSchema`: The current JSON schema for the page.
+
+The `enum` and `enumNames` properties are changed based on the inputs.
+
+**Note:** For a long list of options, create all variations of the schema *outside* of the update function and use the update function to switch between them. This prevents your field from needing to re-render, since you won't need to create a new schema object each time data changes in the form.
+
+```js
+const optionsGroup1 = { 
+          enum: ['option1', 'option2'],
+          enumNames: ['Option 1', 'Option 2']
+};
+const optionsGroup2 = { 
+          enum: ['option1', 'option3'],
+          enumNames: ['Option 1', 'Option 3']
+};
+
+// schema
+{
+  'ui:options': {
+    updateSchema: (form, pageSchema) {
+      if (form.myField === 'otherOption') {
+        return optionsGroup1;
+      } else {
+        return optionsGroup2;
+      }
+    }
+  }
+}
+```
+
 Only the properties in the returned object are changed in the current schema. The object returned isn't used as an exact replacement for the schema, and if the current schema contains other properties, they aren't removed.
 
-For a long list of options, create all variations of the schema outside of the update function and use the update function to switch between them. You won't need to create a new schema object each time data changes in the form, requiring your field to re-render.
+## Showing a block of text with no associated fields
 
-## Creating a block of text with no associated fields
-
-Use 'ui:description' to show text or a custom component before the fields in a particular object in the schema.
+In order to show a block of text that will not be sent to the API, but rendered on the UI, we need to define the block in both the `schema` and `uiSchema`. Use `ui:description` to show text or a custom component before the fields in a particular object in the schema. The property must have the `view:` prefix and both the `schema` and `uiSchema` must have the same property name. In the following example, the property name is `textObject`.
 
 To create a block of text with no fields that follow, create an empty view object:
 
@@ -156,10 +221,30 @@ To create a block of text with no fields that follow, create an empty view objec
 
 ## Conditionally hiding a group of fields
 
-Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
+Sometimes fields in a form are siblings to others, but should be hidden conditionally. In instances where we want to conditionally hide fields, we can wrap those fields in a `view:` object. We must reference this property in both the `schema` and `uiSchema`. In our `uiSchema`, we add a property of `hideIf` and pass it a conditional function. If true, all siblings will be hidden that are in our `view:` object.
 
 ```js
-schema: {
+const schema = {
+  FIELD_NAME: { ... },
+  'view:PROP_NAME_OPTIONS: {
+    SOME_FIELD_NAME_TO_HIDE: { ... },
+  }
+}
+
+const uiSchema = {
+  FIELD_NAME: { ... },
+  'view:PROP_NAME_OPTIONS: {
+    hideIf: (formData) => /* Some condition here */,
+    SOME_FIELD_NAME_TO_HIDE: { ... },
+  }
+}
+```
+
+
+For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
+
+```js
+const schema = {
   type: 'object',
   properties: {
     employed: { type: 'boolean' },
@@ -174,7 +259,7 @@ schema: {
 To accomplish this, the `schema` and `uiSchema` are written as:
 
 ```js
-schema: {
+const schema = {
   type: 'object',
   properties: {
     employed: { type: 'boolean' },
@@ -188,7 +273,7 @@ schema: {
     otherMonthlyIncome: { type: 'string' }
   }
 },
-uiSchema: {
+const schema = {
   employed: { 'ui:title': 'I am employed' },
   'view:jobInformation': {
     'ui:options': {
@@ -203,41 +288,13 @@ uiSchema: {
 
 The `hideIf` function is passed a copy of the current `formData` in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless `employed` is `true`.
 
-Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
+Objects from the form config with names that start with `view:` are not passed to the backend, but fields within those `view:` objects are passed to the backend by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
 
-## Styling expanded or collapsed fields
+## Conditionally hiding a page
 
-To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
+If you need to hide a page if a condition is or is not met, you can do so by passing a `depends` property at the page level config. The `depends` property determines whether a page is active or not, which allows you to conditionally skip a page if needed.
 
-```js
-// uiSchema
-{
-  field1: {
-    'ui:title': 'This field expands/collapses other items',
-    'ui:options': {
-      expandUnderClassNames: 'schemaform-expandUnder-indent'
-    }
-  },
-  field2: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  },
-  field3: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  }
-}
-```
-
-In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
-
-## Conditionally including a page
-
-The `depends` property determines whether a page is active or not. `depends` can work in a few ways:
+For example, the following example will only show the page if any of the items in the array are true. The `depends` property can work in a few ways:
 
 ```js
 // With an object
@@ -290,5 +347,161 @@ chapterName: {
 
 If a user types 'open sesame' for the `passPhrase` on the first page, `otherPageName` is active. For any other value, including no value, `otherPageName` is inactive and the page is skipped.
 
-**Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
+**Note:** Don't use the pass phrase as a secure login or other authentication mechanism. Within the source, the text of a pass phrase is clear text, even when it's in a function.
+
+## Styling expanded or collapsed fields
+
+If you need to indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
+
+```js
+// uiSchema
+{
+  field1: {
+    'ui:title': 'This field expands/collapses other items',
+    'ui:options': {
+      expandUnderClassNames: 'schemaform-expandUnder-indent'
+    }
+  },
+  field2: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  },
+  field3: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  }
+}
+```
+
+In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
+
+## Creating a list loop
+
+There are times when you may need to allow the user to enter a list of items, such as a list of children or a list of spouses, and then allow them to enter detailed information about each list item on a subsequent page. This is often referred to as a `list loop`. The way this is achieved in our form system is with an `array` of form field objects. On the first page, the user enters each item in the list as the items in the `array` and then each subsequent page, where the user enters details about each list item, is then bound to the `array` in the code using a special JSON property.
+
+### Creating an Array of Items
+
+For example, you received a design that requires a Veteran to enter in each of their chilren and then on subsequent pages to enter in details about each respective child. You need to tell the form system that you are creating an array and then do that on the first page, where you ask the user to enter in each of their children. Add the child object, which is the collection of form fields that will capture all of the initial information on the first page (in your design this is probably name, birthday, and so on), to the form schema. In this code example, the child object is named `childrenToAdd`:
+
+```js
+export const informationCchema = {
+  type: 'object',
+  properties: {
+    childrenToAdd: {
+      type: 'array',
+      minItems: 1,
+      items: {
+        type: 'object',
+        properties: {
+          first: {},
+          middle: {},
+          last: {},
+          ssn: {},
+          birthDate: {},
+        },
+      },
+    },
+  },
+};
+
+```
+
+There are a few things worth pointing out in this code:
+- The JSON objects for `first`, `middle`, `last`, `ssn`, and `birthDate` are empty for now. Normally you would fill these in with the details of what each of those fields need to include, but we left them blank for the sake of brevity. 
+- `childrenToAdd` is of `type: 'array'`. This is where we are setting up the `array` that will be used to capture subsequent pages of information about each child. You can name this array anything, but you will need to reference this same name for that array in the schemas for any susequent pages. 
+- `minItems: 1` is used. This parameter is optional, but tells the form system that it should create at least one of these children when the form is loaded. This allows you to making fields conditionally required, since you will need to reference something in the form for the condition and there might be an error if there is not at least one of these items. 
+
+Once the first page is created, you need to create the next page where you might capture some more details about each child. Here is what the code looks like for a second page where the form asks for the address of each child entered:
+
+```js
+export const addressSchema = {
+  type: 'object',
+  properties: {
+    childrenToAdd: {
+      type: 'array',
+      minItems: 1,
+      items: {
+        type: 'object',
+        properties: {
+          state: {},
+          street: {},
+          city: {},
+          postal: {},
+        },
+      },
+    },
+  },
+};
+```
+
+This code is very similar to the first page and that is because the same `array` called `childrenToAdd` needs to be referenced so that the forms library knows what array we are talking about and where to put the information the user adds. 
+
+### Importing and using pages
+
+Both of these schemas export a  `constant` named `schema`, but how does the forms libary use this? Inside the `form.js` file inside your config you need to do a few things. First you need to import these `schema` objects and assign them. If you want to name the two pages `Child Information` and `Child Address`, here is what the imports and the usage would look like:
+
+```js
+import { informationSchema } from './our-child-information-file.js';
+// you would most likey import a uiSchema as well
+
+import { addressSchema } from './our-child-address-file.js';
+// again you would most likely import a uiSchema as well
+
+import IntroductionPage from '../containers/IntroductionPage';
+import ConfirmationPage from '../containers/ConfirmationPage';
+
+
+const formConfig = {
+  urlPrefix: '/',
+  submitUrl: '/v0/api',
+  trackingPrefix: 'new-form-',
+  introduction: IntroductionPage,
+  confirmation: ConfirmationPage,
+  formId: 'XX-230',
+  version: 0,
+  prefillEnabled: true,
+  savedFormMessages: {
+    notFound: 'Please start over to apply for new form benefits.',
+    noAuth: 'Please sign in again to continue your application for new form benefits.'
+  },
+  title: 'My new form',
+  defaultDefinitions: {
+  },
+  chapters: {
+    chapter1: {
+      title: 'Chapter 1',
+      pages: {
+        childInformation: {
+          path: 'child-information',
+          title: 'Child Information',
+          schema: informationSchema,
+          // you would most likely use your uiSchema here
+          }
+        },
+        childAddress: {
+          path: 'child-address/:index',
+          title: 'Child Address',
+          showPagePerItem: true,
+          arrayPath: 'childrenToAdd',
+          schema: addressSchema,
+          // you would most likely use your uiSchema here
+        },
+      }
+    }
+  }
+};
+
+```
+
+The `informationSchema` and `addressSchema` objects that we creating earlier are imported. Normally you would separately create a uiSchema to go with each of these objects that holds the corresponding UI information about how the fields should be displayed, what error messages should be displayed, etc. 
+
+These `schema` objects are assigned to pages within the `formConfig` object with a few special properties. First the two pages are set up. On the second page, make sure that the `path` includes `/:index`. Because we are creating an array and on each page item in the array, the forms library needs to know what item to associate what data with. 
+
+On the second page, make sure to add the property `showPagePerItem: true` to ensure that there are separate pages for each item in the array. On the first page of the form, the user will enter in a few children. They will then be shown a `childAddress` page for the first child and then a separate `childAddress` page for the second child, and so on for all of the children entered. 
+
+Note that `arrayPath: 'childrenToAdd'` is used. This is the name specified for the `array` inside the form `schema` objects, so we need to reference it here. The forms library will take care of connecting the dots as to what data goes with each item in the `array`.
 
