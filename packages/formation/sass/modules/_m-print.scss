@@ -1,7 +1,26 @@
 // For the print view
 
+.print-only {
+  display: none;
+}
+
 @media print {
   header, footer, nav {
     display: none;
+  }
+  
+  .schemaform-title,
+  .schemaform-subtitle,
+  .screen-only {
+    display: none;
+  }
+  
+  .print-only {
+    display: block;
+  }
+  
+  /* Include href when printing */
+  a:not([href^="tel"]):after {
+    content: " (https://va.gov" attr(href) ")";
   }
 }
