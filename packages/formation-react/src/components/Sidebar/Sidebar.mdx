@@ -5,7 +5,7 @@ tags: sidebar, component
 ---
 
 To use this component you will also need to use the <SidebarBlock />
-component located inside the <Sidebar /> component folder. 
+component located inside the <Sidebar /> component folder.
 These sidebar blocks are passed in as children to the <Sidebar />
 component and they then render the individual blocks of the sidebar.
 
@@ -18,12 +18,14 @@ import SidebarBlock from '@department-of-veterans-affairs/formation-react/Sideba
 const firstSidebarBlock = {
   heading: 'This is the heading',
   content: <div>This is some content</div>,
+  headingLevel: 3,
 };
 
 <Sidebar>
   <SidebarBlock
     heading={firstSidebarBlock.heading}
     content={firstSidebarBlock.content}
+    headingLevel={firstSidebarBlock.headingLevel}
   />
 </Sidebar>;
 ```
@@ -40,3 +42,11 @@ const firstSidebarBlock = {
     </div>
   </div>
 </div>
+
+### Sidebar Block Props
+
+| prop         |      type      | required | notes                                                                                      |
+| ------------ | :------------: | -------: | ------------------------------------------------------------------------------------------ |
+| heading      |     string     |      yes | a string that renders as the text of the heading in the sidebar block                      |
+| content      | React Fragment |      yes | a React fragment that renders as the content of the sidebar block                          |
+| headingLevel |      int       |       no | an alternative heading level if you want the header rendered as something other than an H2 |
