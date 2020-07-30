@@ -23,11 +23,11 @@ class AlertBox extends React.Component {
       return;
     }
 
-    const isInView = window.scrollY <= this._ref.offsetTop;
+    const isInView = this._ref && window.scrollY <= this._ref.offsetTop;
 
-    if (this._ref && !isInView) {
+    if (!isInView) {
       this._ref.scrollIntoView({
-        block: 'end',
+        block: this.props.scrollPosition,
         behavior: 'smooth',
       });
     }
@@ -146,6 +146,7 @@ AlertBox.propTypes = {
 /* eslint-enable consistent-return */
 
 AlertBox.defaultProps = {
+  scrollPosition: 'start',
   isVisible: true,
   backgroundOnly: false,
   closeBtnAriaLabel: 'Close notification',
