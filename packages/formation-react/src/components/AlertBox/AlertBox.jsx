@@ -23,9 +23,9 @@ class AlertBox extends React.Component {
       return;
     }
 
-    const isInView = this._ref && window.scrollY <= this._ref.offsetTop;
+    const isInView = window.scrollY <= this._ref.offsetTop;
 
-    if (!isInView) {
+    if (this._ref && !isInView) {
       this._ref.scrollIntoView({
         block: this.props.scrollPosition,
         behavior: 'smooth',
@@ -117,6 +117,11 @@ AlertBox.propTypes = {
    * If true, page scrolls to alert when it is shown.
    */
   scrollOnShow: PropTypes.bool,
+
+  /**
+   * Defaults to 'start' but customizable.
+   */
+  scrollPosition: PropTypes.string,
 
   /**
    * Optional class name to add to the alert box.
