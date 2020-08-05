@@ -36,6 +36,7 @@ This widget allows you to provide important information, warnings, or step-by-st
 ### Usage guidelines
 
 To include the component, set the `formConfig.introduction` property to a reference to that component. Edit the JSX inside the component to change the content. For example:
+
 ```js
 import Introduction from '../components/Introduction.jsx';
 
@@ -84,6 +85,7 @@ In `formConfig`, define your form's chapters and the pages contained inside each
 VAFS includes the progress bar by default, and will display automatically when the chapters and pages are defined. To remove the progress bar, edit the `FormNav.jsx` component to remove the defined `SegmentedProgressBar` in the HTML.
 
 For the code implementation, see:
+
 - [FormNav.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/FormNav.jsx)
 - [SegmentedProgressBar.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/SegmentedProgressBar.jsx)
 
@@ -273,6 +275,7 @@ To show a custom error message, add the message to the `ui:errorMessages` object
 When you include multiple messages in the `ui:errorMessages` object, they will be evaluated in order.
 
 Your config file may look like this:
+
 ```js
 schema: {
   type: 'object',
@@ -318,6 +321,7 @@ You can set follow up questions to appear only if the user answers a form questi
 ### Usage guidelines
 
 There are 2 fields you can use to conditionally expand a form field:
+
 - `expandUnder`: This property takes the name of the other field upon which your field is shown.
 - `expandUnderCondition`: This property takes 1 of 2 values:
 - The answer to the other field that would satisfy the condition to show your field. If the other field takes boolean data, your field will automatically be shown if the answer to the other field is `true`, so there is no need to include `expandUnderCondition: true` in that case. However, if the other field takes any other type of data, you will need to include `expandUnderCondition`.
@@ -328,6 +332,7 @@ Both fields are nested under the `ui:options` property in the `uiSchema`.
 The `expandUnder` and `expandUnderCondition` properties are distinctly separate from the `depends` property, which conditionally shows entire pages of the form. For more information, see "[Conditionally excluding a page](./common-patterns-for-building-forms.md#conditionally-including-a-page)."
 
 Your config file might look like this:
+
 ```js
 {
   schema: {
@@ -370,6 +375,7 @@ Use this feature to collect multiple items with the same form questions, such as
 To display multiple groups of the same form questions, define the data in the `schema` as `type: 'array'`, with each group of questions as an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
 
 Your config file might look like this:
+
 ```js
 {
   schema: {
@@ -410,10 +416,12 @@ When you build a form with more than one chapter (shown by the segments in a pro
 The review page renders the form data in review mode automatically. However, you can pass some specific options to the form config to customize some review features.
 
 This property is nested directly under `uiSchema`:
+
 - `'ui:reviewWidget'`: takes a widget component to render on the review page for that field. Default review widgets are automatically rendered, so only use this if you need to customize the review widget that is used.
 - `'ui:reviewField'`: allows a custom review component to be built for each field on the review page. It is given the result of the `'ui:reviewWidget'` within the `children` parameter, so this value must be rendered within the custom function.
 
 These properties are nested under `uiSchema: { 'ui:options': {} }`:
+
 - `hideOnReview`: Hides the field on the review page; takes a `boolean`
 - `hideOnReviewIfFalse`: Hides the field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
@@ -427,14 +435,14 @@ Use this feature to require a user to agree they have read terms and conditions,
 
 To configure this feature, place a `preSubmitInfo` object in the `formConfig`. These are the available options:
 
-| Option | Description | Required |
-| -------- | ------ | ------ |
-| CustomComponent | A React element that will replace the default [`PreSubmitSection`](https://github.com/department-of-veterans-affairs/vets-website/blob/f6a5a742b870869550ab2f5af72428353a5a89da/src/platform/forms-system/src/js/components/PreSubmitSection.jsx#L5) component. | false |
-| error | A text string or React element displayed as an error message if the user attempts to submit the form without checking the checkbox. | false |
-| field | The name of the form field for the required checkbox. This field has the value `true` in the submitted form data. | true |
-| label | A text string or React element that labels the checkbox. | true |
-| notice | A text string or [React element](https://reactjs.org/docs/rendering-elements.html) placed above the checkbox and submit button. If the form definition file is `.jsx` the definition can be inline, or use `import` to reference an external component. If not specified, no notice appears. | false, but recommended |
-| required | When `true`, a checkbox and label appear above the submit button. The user must check the box before submitting the form. When `false` or not specified, the `field`, `label`, and `error` options are not used. | false |
+| Option          | Description                                                                                                                                                                                                                                                                                  | Required               |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| CustomComponent | A React element that will replace the default [`PreSubmitSection`](https://github.com/department-of-veterans-affairs/vets-website/blob/f6a5a742b870869550ab2f5af72428353a5a89da/src/platform/forms-system/src/js/components/PreSubmitSection.jsx#L5) component.                              | false                  |
+| error           | A text string or React element displayed as an error message if the user attempts to submit the form without checking the checkbox.                                                                                                                                                          | false                  |
+| field           | The name of the form field for the required checkbox. This field has the value `true` in the submitted form data.                                                                                                                                                                            | true                   |
+| label           | A text string or React element that labels the checkbox.                                                                                                                                                                                                                                     | true                   |
+| notice          | A text string or [React element](https://reactjs.org/docs/rendering-elements.html) placed above the checkbox and submit button. If the form definition file is `.jsx` the definition can be inline, or use `import` to reference an external component. If not specified, no notice appears. | false, but recommended |
+| required        | When `true`, a checkbox and label appear above the submit button. The user must check the box before submitting the form. When `false` or not specified, the `field`, `label`, and `error` options are not used.                                                                             | false                  |
 
 This is an example of `preSubmitInfo`:
 
@@ -447,36 +455,40 @@ preSubmitInfo: {
   CustomComponent: CustomPreSubmitComponent
 }
 ```
+
 ### Default `PrivacyAgreement`
+
 ![Required checkbox before form submission](../../images/forms/Required-Checkbox.jpg)
 
 ### `CustomComponent` example
+
 ![Required checkbox before form submission](../../images/forms/preSubmitInfo-customComponent.jpeg)
 
 ### Usage guidelines
 
-* If you don't specify a **preSubmitInfo**, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
+- If you don't specify a **preSubmitInfo**, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
-* For the **code implementation**, see [PreSubmitSection](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/PreSubmitSection.jsx) and [SubmitController](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/review/SubmitController.jsx).
+- For the **code implementation**, see [PreSubmitSection](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/PreSubmitSection.jsx) and [SubmitController](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/review/SubmitController.jsx).
 
 #### `CustomComponent` props
 
-| Prop | Description | Required |
-| -------- | ------ | ------ |
-| formData | Data object containing the form’s data so your `CustomComponent` can be reactive to form changes | false |
-| preSubmitInfo | Data object, See table above | false |
-| onSectionComplete | Is a function, provided by `PreSubmitSection`, which expects a single boolean parameter indicating when all conditions of your `preSubmitInfo.CustomComponent` are met. Until `onSectionComplete` is called with `true`, the form will not submit. | true |
-| showError | Boolean to toggle errors, errors can also be handled internally | false |
+| Prop              | Description                                                                                                                                                                                                                                        | Required |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| formData          | Data object containing the form’s data so your `CustomComponent` can be reactive to form changes                                                                                                                                                   | false    |
+| preSubmitInfo     | Data object, See table above                                                                                                                                                                                                                       | false    |
+| onSectionComplete | Is a function, provided by `PreSubmitSection`, which expects a single boolean parameter indicating when all conditions of your `preSubmitInfo.CustomComponent` are met. Until `onSectionComplete` is called with `true`, the form will not submit. | true     |
+| showError         | Boolean to toggle errors, errors can also be handled internally                                                                                                                                                                                    | false    |
 
 ## Remote error and event monitoring
 
 If you provide a function for `formConfig.recordEvent`, the library calls that function when notable events occur. If you do not provide a function, the library logs these events onto the browser console.
 
 The `recordEvent` function receives a single object that can contain different information depending on the kind of event being reported. Events reported by the library always have a `event` property that is a string describing the event. The events currently supported by the library are:
-* **validation-failed-on-submit**: This is likely an error in the form definition or a React component, since the form should be completely validated at this point.
-* **form-submit-pending**: An informational message showing that the user has pressed the submit button, and that the form has validated and been sent to the server.
-* **form-submit-successful**: The server returned a status indicating it has accepted the form.
-* **form-submit-error**: The form was submitted, but the server didn't accept the submission. The object contains an `error` and `errorType` with more information about the nature of the error.
+
+- **validation-failed-on-submit**: This is likely an error in the form definition or a React component, since the form should be completely validated at this point.
+- **form-submit-pending**: An informational message showing that the user has pressed the submit button, and that the form has validated and been sent to the server.
+- **form-submit-successful**: The server returned a status indicating it has accepted the form.
+- **form-submit-error**: The form was submitted, but the server didn't accept the submission. The object contains an `error` and `errorType` with more information about the nature of the error.
 
 Other events may be added in the future. This `recordEvent` logs events to Google Analytics, except for pending/successful form submits which are filtered out:
 
@@ -496,16 +508,18 @@ formConfig = {
 };
 ```
 
-## Usage guidelines
+## Form Submission Error
 
 Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not or cannot report. We highly recommend that you use an error-reporting and/or event-reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
-
-## Form Submit Error
 
 ### Default Submission Error
 
 This is the default custom error message on every form, and looks as follows:
 ![Custom error message example](../../images/forms/default-submit-error.png)
+
+#### Usage guidelines
+
+The default component is rendered by not having a key value pair for `submissionError` in the form config
 
 This component has optional dialog based on whether the user is signed in or not, and has an options for additional dialog.example
 
@@ -557,6 +571,14 @@ formConfig = {
 };
 ```
 
-One you fill out your form and submit incorrect data, your output will looking something like this:
+Once you fill out your form and submit incorrect data, your output will looking something like this:
 ![Custom error message example](../../images/forms/custom-submit-error.png)
 
+##### VSP Approval for Custom Error message
+
+<!-- TODO: uncomment this once PR bot has been implimented -->
+<!-- When you open a PR with this custom SubmitError the VSP review bot will tag your PR for VSP approval. -->
+
+Custom error messages will require explicit approval from VSP content & design.
+
+This can be flagged during a regular collaboration cycle review (ie. "please note that this error message would override the default forms system error message on this form") or can be tagged in the DSVA slack in the `#vfs-platform-support` channel
