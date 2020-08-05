@@ -7,21 +7,23 @@ const SidebarBlock = props => {
       {props.heading}
     </h2>
   );
-
-  if (props.headingLevel === 3) {
-    headingContent = (
-      <h3 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
-        {props.heading}
-      </h3>
-    );
-  }
-
-  if (props.headingLevel === 4) {
-    headingContent = (
-      <h4 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
-        {props.heading}
-      </h4>
-    );
+  switch (props.headingLevel) {
+    case 3:
+      headingContent = (
+        <h3 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
+          {props.heading}
+        </h3>
+      );
+      break;
+    case 4:
+      headingContent = (
+        <h4 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
+          {props.heading}
+        </h4>
+      );
+      break;
+    default:
+    // dont change anything
   }
 
   return (
