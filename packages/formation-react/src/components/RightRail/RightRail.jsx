@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Sidebar = props => (
+const RightRail = props => (
   <div className="medium-screen:vads-u-padding-left--4">{props.children}</div>
 );
 
-Sidebar.propTypes = {
+RightRail.propTypes = {
   classes: PropTypes.string,
 };
 
-export default Sidebar;
+export default RightRail;

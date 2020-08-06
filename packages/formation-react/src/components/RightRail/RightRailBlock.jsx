@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SidebarBlock = props => {
-  let headingContent = (
-    <h2 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
-      {props.heading}
-    </h2>
-  );
+  let headingContent = '';
   switch (props.headingLevel) {
     case 3:
       headingContent = (
@@ -23,7 +19,11 @@ const SidebarBlock = props => {
       );
       break;
     default:
-    // dont change anything
+      headingContent = (
+        <h2 className="vads-u-margin-top--0 vads-u-padding-bottom--1p5 vads-u-border-bottom--3px vads-u-border-color--primary sidebar-heading">
+          {props.heading}
+        </h2>
+      );
   }
 
   return (
