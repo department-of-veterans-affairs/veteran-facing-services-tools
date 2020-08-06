@@ -1,5 +1,7 @@
 The documentation site can be found at https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/.
 
+See [Setup Guide](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools#setup) before following documentation below.
+
 ---
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
