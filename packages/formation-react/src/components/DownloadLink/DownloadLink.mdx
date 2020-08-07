@@ -1,0 +1,244 @@
+---
+title: DownloadLink
+name: DownloadLink
+tags: downloadlink, component
+---
+
+import DownloadLink from './DownloadLink';
+
+### Code:
+
+```javascript
+import DownloadLink from '@department-of-veterans-affairs/formation-react/DownloadLink';
+
+// Minimal example
+<DownloadLink href="https://example.com/form.jpg" title="example image" />
+
+/* Renders as
+<a
+  href="https://example.com/form.jpg"
+  type="application/pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  download
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fas fa-download" />
+  Download example image
+  <dfn>
+    <abbr title="graphic">JPG</abbr>
+  </dfn>
+</a>
+*/
+
+// Include a file size (recommended)
+<DownloadLink
+  href="https://example.va.gov/form.pdf"
+  title="second example form"
+  size="1.2Mb"
+/>
+
+/* Renders as
+<a
+  href="https://example.va.gov/form.pdf"
+  type="application/pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  download
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fas fa-download" />
+  Download second example form
+  <dfn>
+    <abbr title="Portable Document Format">PDF</abbr>
+    (1.2<abbr title="Megabytes">MB</abbr>)
+  </dfn>
+</a>
+*/
+
+// Render of an unknown file extension
+// Add a custom `type` definition as needed
+<DownloadLink
+  href="https://example.com/file.xyz"
+  title="some unknown file type"
+/>
+
+/* Renders as
+<a
+  href="https://example.com/file.xyz"
+  target="_blank"
+  rel="noopener noreferrer"
+  download
+  type="application/unknown"
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fas fa-download" />
+  Download some unknown file type
+  <dfn>
+    <abbr title="xyz">XYZ</abbr>
+  </dfn>
+</a>
+*/
+
+// Include custom link content
+<DownloadLink href="https://example.com/readme" title="example">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="16">
+    <path d="M28.7 7.2a28.4 28.4 0 0 0-5.9-5.9C21.2.1 20.4 0 20 0H4.5A2.5 2.5 0 0 0 2 2.5v27C2 30.9 3.1 32 4.5 32h23c1.4 0 2.5-1.1 2.5-2.5V10c0-.4-.1-1.2-1.3-2.8zm-4.2-1.7c1 1 1.8 1.8 2.3 2.5H22V3.2c.7.5 1.6 1.3 2.5 2.3zm3.5 24c0 .3-.2.5-.5.5h-23a.5.5 0 0 1-.5-.5v-27c0-.3.2-.5.5-.5H20v7c0 .6.4 1 1 1h7v19.5z" />
+    <path d="M8 2h4v2H8V2zM12 4h4v2h-4V4zM8 6h4v2H8V6zM12 8h4v2h-4V8zM8 10h4v2H8v-2zM12 12h4v2h-4v-2zM8 14h4v2H8v-2zM12 16h4v2h-4v-2zM8 26.5c0 .8.7 1.5 1.5 1.5h5c.8 0 1.5-.7 1.5-1.5v-5c0-.8-.7-1.5-1.5-1.5H12v-2H8v8.5zm6-2.5v2h-4v-2h4z" />
+  </svg>{' '}
+  Download a readme file
+</DownloadLink>
+
+/* Renders as
+<a
+  href="https://example.com/readme"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="16">
+    <path d="M28.7 7.2a28.4 28.4 0 0 0-5.9-5.9C21.2.1 20.4 0 20 0H4.5A2.5 2.5 0 0 0 2 2.5v27C2 30.9 3.1 32 4.5 32h23c1.4 0 2.5-1.1 2.5-2.5V10c0-.4-.1-1.2-1.3-2.8zm-4.2-1.7c1 1 1.8 1.8 2.3 2.5H22V3.2c.7.5 1.6 1.3 2.5 2.3zm3.5 24c0 .3-.2.5-.5.5h-23a.5.5 0 0 1-.5-.5v-27c0-.3.2-.5.5-.5H20v7c0 .6.4 1 1 1h7v19.5z" />
+    <path d="M8 2h4v2H8V2zM12 4h4v2h-4V4zM8 6h4v2H8V6zM12 8h4v2h-4V8zM8 10h4v2H8v-2zM12 12h4v2h-4v-2zM8 14h4v2H8v-2zM12 16h4v2h-4v-2zM8 26.5c0 .8.7 1.5 1.5 1.5h5c.8 0 1.5-.7 1.5-1.5v-5c0-.8-.7-1.5-1.5-1.5H12v-2H8v8.5zm6-2.5v2h-4v-2h4z" />
+  </svg>
+  Download a readme file
+</a>
+*/
+
+// Showing all properties
+<DownloadLink
+  href="https://example.va.gov/big-doc.doc"
+  title={<>a huge <em>legacy</em> MS doc</>} // string or JSX
+  size="1.2gb"
+
+  // MIME-type determined by file extension; but can be overridden
+  type="application/msword"
+
+  // Additional settings
+  icon="fas fa-download foo" // string or JSX
+  template="Download {title} YAY! {fileInfo}" // string only
+  download="my-document.doc"
+  external={false}
+
+  // any extra properties to add to the link
+  className="foo"
+  data-test="bar"
+  onClick={() => {}}
+/>
+
+/* Renders as
+<a
+  href="https://example.va.gov/big-doc.doc"
+  type="appliction/msword"
+  download="my-document.doc"
+  class="foo"
+  data-test="bar"
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fas fa-download foo" />
+  Download a huge <em>legacy</em> MS doc YAY!
+  <dfn>
+    <abbr title="Word document">DOCX</abbr>
+    (1.2<abbr title="Gigabytes">GB</abbr>)
+  </dfn>
+</a>
+*/
+```
+
+### Rendered Component
+
+<div className="site-c-reactcomp__rendered">
+  <strong>Minimal example</strong>
+  <p>
+    <DownloadLink href="https://example.com/form.jpg" title="example image" />
+  </p>
+
+  <strong>Include a file size (recommended)</strong>
+  <p>
+    <DownloadLink
+      href="https://example.va.gov/form.pdf"
+      title="second example form"
+      size="1.2Mb"
+    />
+  </p>
+
+  <strong>Render of an unknown file extension</strong>
+  <p>
+    <DownloadLink
+      href="https://example.com/file.xyz"
+      title="some unknown file type"
+    />
+  </p>
+
+  <strong>Include custom link content</strong>
+  <p>
+    <DownloadLink href="https://example.com/readme" title="example">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="16">
+        <path d="M28.7 7.2a28.4 28.4 0 0 0-5.9-5.9C21.2.1 20.4 0 20 0H4.5A2.5 2.5 0 0 0 2 2.5v27C2 30.9 3.1 32 4.5 32h23c1.4 0 2.5-1.1 2.5-2.5V10c0-.4-.1-1.2-1.3-2.8zm-4.2-1.7c1 1 1.8 1.8 2.3 2.5H22V3.2c.7.5 1.6 1.3 2.5 2.3zm3.5 24c0 .3-.2.5-.5.5h-23a.5.5 0 0 1-.5-.5v-27c0-.3.2-.5.5-.5H20v7c0 .6.4 1 1 1h7v19.5z" />
+        <path d="M8 2h4v2H8V2zM12 4h4v2h-4V4zM8 6h4v2H8V6zM12 8h4v2h-4V8zM8 10h4v2H8v-2zM12 12h4v2h-4v-2zM8 14h4v2H8v-2zM12 16h4v2h-4v-2zM8 26.5c0 .8.7 1.5 1.5 1.5h5c.8 0 1.5-.7 1.5-1.5v-5c0-.8-.7-1.5-1.5-1.5H12v-2H8v8.5zm6-2.5v2h-4v-2h4z" />
+      </svg>
+      Download a readme file
+    </DownloadLink>
+  </p>
+
+  <strong>Showing all properties</strong>
+  <p>
+    <DownloadLink
+      href="https://example.va.gov/big-doc.doc"
+      title={<>a huge <em>legacy</em> MS doc</>}
+      size="1.2gb"
+      type="application/msword"
+      icon="fas fa-download foo"
+      template="Download {title} YAY! {fileInfo}"
+      download="my-document.doc"
+      external={false}
+      className="foo"
+    />
+  </p>
+</div>
+
+### Predefined file types
+
+This list includes some common MIME-types. If it's missing the one you need, see
+this [extensive list of media MIME-types](https://www.iana.org/assignments/media-types/media-types.xhtml).
+
+| Group | extension | MIME-type |
+|:------|:----------|:----------|
+| compressed | `zip` | `'application/zip'` |
+| compressed | `rar` | `'application/vnd.rar'` |
+| Excel workbook | `xls` | `'application/vnd.ms-excel'` |
+| Excel workbook | `xlsx` | `'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'` |
+| graphic | `jpg` | `'image/jpeg'` |
+| graphic | `jpeg` | `'image/jpeg'` |
+| graphic | `gif` | `'image/gif'` |
+| graphic | `png` | `'image/png'` |
+| graphic | `bmp` | `'image/bmp'` |
+| graphic | `tif` | `'image/tiff'` |
+| graphic | `tiff` | `'image/tiff'` |
+| graphic | `webp` | `'image/webp'` |
+| Portable Document Format | `pdf` | `'application/pdf'` |
+| PowerPoint | `ppt` | `'application/vnd.ms-powerpoint'` |
+| PowerPoint | `pptx` | `'application/vnd.openxmlformats-officedocument.presentationml.presentation'` |
+| text file data | `csv` | `'text/csv'` |
+| test file data | `tsv` | `'text/tab-separated-values'` |
+| text file | `txt` | `'text/plain'` |
+| text file | `rtf` | `'application/rtf'` |
+| video | `avi` | `'video/x-msvideo'` |
+| video | `mp4` | `'application/mp4'` |
+| video | `m4v` | `'video/mp4'` |
+| video | `mkv` | `'video/x-matroska'` |
+| video | `mov` | `'video/quicktime'` |
+| video | `mpg` | `'video/mpe'` |
+| video | `mpeg` | `'video/mpeg'` |
+| video | `ogv` | `'video/ogg'` |
+| video | `webm` | `'video/webm'` |
+| video | `wmv` | `'video/x-ms-asf'` |
+| Word document | `doc` | `'application/msword'` |
+| Word document | `docx` | `'application/vnd.openxmlformats-officedocument.wordprocessingml.document'` |
+
+### Predefined file size units
+
+| Abbreviation | Unit |
+|:-------------|:-----|
+| B  | Bytes     |
+| KB | Kilobytes |
+| MB | Megabytes |
+| GB | Gigabytes |
+
+### Related
+
+DownloadLink is also a sub-component of `AccessibleLink`
