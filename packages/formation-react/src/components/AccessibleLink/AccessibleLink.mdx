@@ -1,0 +1,113 @@
+---
+title: AccessibleLink
+name: AccessibleLink
+tags: accessible, accessiblelink, component
+---
+
+import AccessibleLink, {
+  CONTACTS,
+  PATTERNS,
+  MEDIA_SITES,
+  FILE_TYPES,
+  FILE_SIZES,
+} from './AccessibleLink';
+
+### Code:
+
+```javascript
+import AccessibleLink, {
+  CONTACTS,    // Telephone contacts
+  PATTERNS,    // Telephone pattern
+  MEDIA_SITES, // MediaLink sites
+  FILE_TYPES,  // DownloadLink known MIME-types
+  FILE_SIZES,  // DownloadLink known file sizes (B, KB, MB & GB)
+} from '@department-of-veterans-affairs/formation-react/AccessibleLink';
+
+// Download minimal example
+<AccessibleLink.Download
+  href="https://example.va.gov/form.pdf"
+  title="example form"
+  size="1.2Mb"
+/>
+
+/* Renders as
+<a
+  href="https://example.va.gov/form.pdf"
+  type="application/pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  download
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fas fa-download" />
+  Download example form
+  <dfn>
+    <abbr title="Portable Document Format">PDF</abbr>
+    (1.2<abbr title="Megabytes">MB</abbr>)
+  </dfn>
+</a>
+*/
+
+
+// Media link minimal example
+<AccessibleLink.Media
+  href="https://www.youtube.com/watch?v=xE0LzeRgdAk"
+  title="VA disability compensation"
+/>
+
+/* Renders as
+<a
+  href="https://www.youtube.com/watch?v=xE0LzeRgdAk"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube"/>
+  View video about VA disability compensation
+  <dfn>on YouTube</dfn>
+</a>
+*/
+
+// Telephone link minimal example
+<AccessibleLink.Telephone contact={CONTACTS.VA_BENEFITS} />
+
+/* Renders as
+<a href="tel:+18008271000" aria-label="8 0 0. 8 2 7. 1 0 0 0." class="no-wrap">
+  800-827-1000
+</a>
+*/
+```
+
+### Rendered Component
+
+<div className="site-c-reactcomp__rendered">
+  <strong>Download link minimal example</strong>
+  <p>
+    <AccessibleLink.Download
+      href="https://example.va.gov/form.pdf"
+      title="second example form"
+      size="1.2Mb"
+    />
+  </p>
+  <p>
+    More examples can be found on the DownloadLink component page.
+  </p>
+
+  <strong>Media link minimal example</strong>
+  <p>
+    <AccessibleLink.Media
+      href="https://www.youtube.com/watch?v=xE0LzeRgdAk"
+      title="VA disability compensation"
+    />
+  </p>
+  <p>
+    More examples can be found on the MediaLink component page.
+  </p>
+
+  <strong>Telephone link minimal example</strong>
+  <p>
+    <AccessibleLink.Telephone contact={CONTACTS.VA_BENEFITS} />
+  </p>
+  <p>
+    More examples can be found on the Telephone component page.
+  </p>
+
+</div>

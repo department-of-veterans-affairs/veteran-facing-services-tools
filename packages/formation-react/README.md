@@ -10,12 +10,13 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 
 ## Included components:
 
+- AccessibleLink.js
 - AdditionalInfo.js
 - AlertBox.js
 - Breadcrumbs.js
-- ExpandingGroup.js
-- ErrorableDate.js
+- DownloadLink.js
 - ErrorableCheckbox.js
+- ErrorableDate.js
 - ErrorableFileInput.js
 - ErrorableMonthYear.js
 - ErrorableNumberInput.js
@@ -23,11 +24,14 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 - ErrorableSelect.js
 - ErrorableTextArea.js
 - ErrorableTextInput.js
+- ExpandingGroup.js
 - IconBase.js
 - IconHelp.js
 - IconSearch.js
 - IconUser.js
 - LoadingIndicator.js
+- MediaLink.js
+- MegaMenu.js
 - Modal.js
 - OMBInfo.js
 - Pagination.js
@@ -40,4 +44,3 @@ See [design system](https://department-of-veterans-affairs.github.io/design-syst
 - SystemDownView.js
 - Telephone.js
 - Tooltip.js
-- MegaMenu.js
