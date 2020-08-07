@@ -11,13 +11,23 @@ Note: Check out the [Adding a new feature](/getting-started/common-tasks/new-fea
 
 All the static pages use the `static-pages` entry bundle, so any JS code included from that file will be on all static pages. In order to add a widget, you'll want to create a function that loads your desired React components (or plain JS) asynchronously, and mounts to an element on the page with your widget id.
 
-1. Add a mount point element in the static content page your widget will live on:
+1. Ensure your page includes the `static-pages` bundle:
+
+```markdown
+title: My awesome widget page
+layout: page.html
+---
+```
+
+**Note:** The `entryname` must be absent from the markdown file's front matter or the resulting HTML file will include `${entryname}.js` instead of `static-pages.js`.
+
+2. Add a mount point element in the static content page your widget will live on:
 
 ```html
 <div data-widget-type="my-new-widget" id="someId"></div>
 ```
 
-2. Add a start up function to: `src/applications/static-pages/static-pages-entry.js`:
+3. Add a start up function to: `src/applications/static-pages/static-pages-entry.js`:
 
 ```js
 ...
@@ -35,7 +45,7 @@ export default {
 }
 ```
 
-3. Write your create widget function:
+4. Write your create widget function:
 
 ```js
 export default async function createMyWidget(store, widgetType) {
