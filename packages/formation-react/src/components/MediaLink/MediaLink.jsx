@@ -78,7 +78,11 @@ const MediaLink = props => {
           template,
           type: mediaSite.type || 'site',
           title,
-          siteName: mediaSite.name ? <dfn>on {mediaSite.name}</dfn> : ' ',
+          siteName: mediaSite.name ? (
+            <dfn key="site-name">on {mediaSite.name}</dfn>
+          ) : (
+            ' '
+          ),
         })}
       </>
     );
