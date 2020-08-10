@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buildIcon, createContentFromTemplate } from '../AccessibleLink/utils';
+import { buildIcon, createContentFromTemplate } from '../../helpers/utils';
 
 // List of known media sites
 export const MEDIA_SITES = {

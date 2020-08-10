@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buildIcon, createContentFromTemplate } from '../AccessibleLink/utils';
+import { buildIcon, createContentFromTemplate } from '../../helpers/utils';
 
 // Common file type & MIME-type
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
