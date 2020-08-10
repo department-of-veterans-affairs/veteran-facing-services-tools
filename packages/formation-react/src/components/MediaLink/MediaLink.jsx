@@ -101,7 +101,7 @@ MediaLink.propTypes = {
    * included. If you pass in JSX, please make sure to include a `key` because
    * of the way the template renders the content.
    */
-  title: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /**
    * Template string used to build the link content; defaults to
@@ -119,7 +119,7 @@ MediaLink.propTypes = {
    * the best accessibility practices. This property will be _ignored_ if the
    * MediaLink includes any child elements.
    */
-  icon: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /** By default, all video links are assumed to be to an external video hosting
    * site (currently only YouTube is a recognized address). When this property

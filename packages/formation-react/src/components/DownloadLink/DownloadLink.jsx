@@ -267,7 +267,7 @@ DownloadLink.propTypes = {
    * JSX, please make sure to include a `key` because of the way the template
    * renders the content.
    */
-  title: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element, null]),
 
   /**
    * A template for creating the link content. This will only accept a string,
@@ -312,7 +312,7 @@ DownloadLink.propTypes = {
    * accessibility practices. Note that this property will be ignored if the
    * DownloadLink includes any child elements.
    */
-  icon: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /** Set to true if the url (href) is pointing to an external site, it will
    * include a `target="_blank"` and `rel="noopener noreferrer"` attribute in
