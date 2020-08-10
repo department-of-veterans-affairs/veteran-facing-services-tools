@@ -61,12 +61,13 @@ export const FILE_TYPES = {
 };
 
 // List of known file size units
-export const FILE_SIZES = {
-  B: 'Bytes',
-  KB: 'Kilobytes',
-  MB: 'Megabytes',
-  GB: 'Gigabytes',
-};
+export const FILE_SIZES = [
+  // Decimal (SI) / Binary (IEC)
+  ['B', 'Bytes', 'B', 'Bytes'],
+  ['KB', 'Kilobytes', 'KiB', 'Kibibytes'],
+  ['MB', 'Megabytes', 'MiB', 'Mebibytes'],
+  ['GB', 'Gigabytes', 'GiB', 'Gibibytes'],
+];
 
 // Regex to extract a file extension of a url path
 // https://www.example.com/test.jpg -> jpg
@@ -111,26 +112,42 @@ export const getExtGroup = fileExt =>
 const fileSizeUnitRegex = /[0-9., ]/g;
 
 /**
- * @typedef DownloadLink~sizeData
- * @type {Object.<string>}
- * @property {number} sizeValue - numeric value of file size, e.g. 1.5
- * @property {string} sizeAbbr - size unit abbreviation in uppercase, e.g. "MB"
- * @property {string} sizeName - size unit name spelled out, e.g. "Megabytes"
- */
-/**
  * Extract file size data from a mixed value of number plus size unit, e.g.
  * "1.5mb"
- * @param {string} size - file size data, e.g. "1.5mb"
- * @return {DownloadLink~sizeData}
+ * @param {string|number} size - file size, e.g. "1.5mb" or 1024 (bytes)
+ * @return {JSX} rendered size with unit abbr & full unit in title
  */
-export const getFileSizeData = (size = '') => {
-  const sizeAbbr = size.replace(fileSizeUnitRegex, '').toUpperCase();
-  const sizeValue = parseFloat(size);
-  return {
-    sizeValue,
-    sizeAbbr,
-    sizeName: FILE_SIZES[sizeAbbr] || '',
-  };
+export const renderFileSize = (bytes = 0, si = true, decimalPlaces = 1) => {
+  const base = si ? 1000 : 1024;
+  let size;
+  let units;
+  if (typeof bytes === 'number') {
+    // Handle passing in a numbver, e.g. `1500000`
+    const unitIndex =
+      bytes < 1 ? 0 : Math.floor(Math.log(bytes) / Math.log(base));
+    units = FILE_SIZES[unitIndex || 0] || FILE_SIZES[0];
+    size =
+      bytes < 1 ? 0 : (bytes / base ** unitIndex).toFixed(decimalPlaces) * 1;
+  } else {
+    // Handle passing in a string, e.g. `"1.5mb"`
+    const sizeAbbr = bytes
+      .toString()
+      .replace(fileSizeUnitRegex, '')
+      .toUpperCase();
+    size = parseFloat(bytes);
+    units = FILE_SIZES.find(entry => entry[0] === sizeAbbr) || FILE_SIZES[0];
+  }
+  return (
+    <>
+      {' ('}
+      {size}
+      {(units && units.length && (
+        <abbr title={units[si ? 1 : 3]}>{units[si ? 0 : 2]}</abbr>
+      )) ||
+        units[0]}
+      {')'}
+    </>
+  );
 };
 
 // Regex to replace characters that are reserved/not allowed in file names
@@ -156,8 +173,9 @@ export const processFileName = title =>
  * @param {string} href (required) - url pointing to a downloadable file
  * @param {string} title - title of the file; required if no children are passed
  *  into this component
- * @param {string} size - size of downloadable file; pass in number + unit
- *  abbreviation, e.g. "1.5mb" or "100kb"
+ * @param {string|number} size - size of downloadable file; pass in string
+ *  (number + unit abbreviation, e.g. "1.5mb" or "100kb") or a file size number
+ *  in bytes.
  * @param {string} download - new download file name and extension of the
  *  downloadable file
  * @param {string} type - downloadable file MIME-type; include if the file is
@@ -213,7 +231,6 @@ const DownloadLink = props => {
   }
 
   if (!children) {
-    const { sizeValue, sizeAbbr, sizeName } = getFileSizeData(size);
     resultingContent = (
       <>
         {typeof icon !== 'string' ? icon : buildIcon(icon || 'fas fa-download')}
@@ -225,18 +242,7 @@ const DownloadLink = props => {
               {fileExt && (
                 <abbr title={group || fileExt}>{fileExt.toUpperCase()}</abbr>
               )}
-              {size && (
-                <>
-                  {' ('}
-                  {sizeValue}
-                  {/*
-                  Don't use <abbr> if sizeName is undefined, in case the user
-                  passed in "1.5 Megabytes" as a size */}
-                  {(sizeName && <abbr title={sizeName}>{sizeAbbr}</abbr>) ||
-                    sizeAbbr}
-                  {')'}
-                </>
-              )}
+              {size && renderFileSize(size)}
             </dfn>
           ),
         })}
@@ -274,13 +280,13 @@ DownloadLink.propTypes = {
   template: PropTypes.string,
 
   /**
-   * For downloadable content, please ensure that the file size is also included
-   * as a property. This property is passed in as a string of size plus unit of
-   * measure (case-insensitive), e.g. "1.5mb". Accepted units of measure are "b"
-   * (byte), "kb" (Kilobytes), "mb" (Megabyte) and "gb" (Gigabytes; let's hope
-   * this is never the case!).
+   * For best results, please ensure that a file size is included as a property.
+   * This property is passed in as either a case-insensitive string of number
+   * plus units (e.g. "1.5mb") or the size in bytes. The size is then processed
+   * and eventually rendered inside an `<abbr>` wrapped in a `<dfn>` element to
+   * match the desired accessible pattern
    */
-  size: PropTypes.string,
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /**
    * If a download property is provided it will be included as an attribute in

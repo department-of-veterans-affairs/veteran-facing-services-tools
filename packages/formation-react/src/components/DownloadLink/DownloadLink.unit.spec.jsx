@@ -6,7 +6,7 @@ import DownloadLink, {
   FILE_TYPES,
   getFileExtensionFromUrl,
   getExtGroup,
-  getFileSizeData,
+  renderFileSize,
   processFileName,
 } from './DownloadLink';
 
@@ -17,11 +17,6 @@ const testData = {
     group: 'graphic',
     type: 'image/jpeg',
     size: '400b',
-    sizeData: {
-      sizeValue: 400,
-      sizeAbbr: 'B',
-      sizeName: 'Bytes',
-    },
     result: 'Download Test image JPG (400B)',
   },
   pdf: {
@@ -30,11 +25,6 @@ const testData = {
     group: 'Portable Document Format',
     type: 'application/pdf',
     size: '1.67mb',
-    sizeData: {
-      sizeValue: 1.67,
-      sizeAbbr: 'MB',
-      sizeName: 'Megabytes',
-    },
     result: 'Download A much needed form PDF (1.67MB)',
   },
   txt: {
@@ -43,11 +33,6 @@ const testData = {
     group: 'text file',
     type: 'text/plain',
     size: '321kb',
-    sizeData: {
-      sizeValue: 321,
-      sizeAbbr: 'KB',
-      sizeName: 'Kilobytes',
-    },
     result: 'Download Some random text file TXT (321KB)',
   },
   docx: {
@@ -57,14 +42,33 @@ const testData = {
     type:
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     size: '.03GB',
-    sizeData: {
-      sizeValue: 0.03,
-      sizeAbbr: 'GB',
-      sizeName: 'Gigabytes',
-    },
     result: 'Download MS is the best DOCX (0.03GB)',
   },
 };
+
+const testSizes = [
+  ['400b', '(400<abbr title="Bytes">B</abbr>)'],
+  ['1.67mb', '(1.67<abbr title="Megabytes">MB</abbr>)'],
+  ['321kb', '(321<abbr title="Kilobytes">KB</abbr>)'],
+  ['.03Gb', '(0.03<abbr title="Gigabytes">GB</abbr>)'],
+  [0, '(0<abbr title="Bytes">B</abbr>)'],
+  [199, '(199<abbr title="Bytes">B</abbr>)'],
+  [1000, '(1<abbr title="Kilobytes">KB</abbr>)'],
+  [1170, '(1.2<abbr title="Kilobytes">KB</abbr>)'],
+  [12345, '(12.3<abbr title="Kilobytes">KB</abbr>)'],
+  [3.2e6, '(3.2<abbr title="Megabytes">MB</abbr>)'],
+  [4.57e9, '(4.6<abbr title="Gigabytes">GB</abbr>)'],
+];
+
+const testIECSizes = [
+  [0, '(0<abbr title="Bytes">B</abbr>)'],
+  [1000, '(1000<abbr title="Bytes">B</abbr>)'],
+  [1050, '(1<abbr title="Kibibytes">KiB</abbr>)'],
+  [1170, '(1.1<abbr title="Kibibytes">KiB</abbr>)'],
+  [12345, '(12.1<abbr title="Kibibytes">KiB</abbr>)'],
+  [3.2e6, '(3.1<abbr title="Mebibytes">MiB</abbr>)'],
+  [4.57e9, '(4.3<abbr title="Gibibytes">GiB</abbr>)'],
+];
 
 describe('Widget <DownloadLink />', () => {
   describe('utility functions', () => {
@@ -80,11 +84,18 @@ describe('Widget <DownloadLink />', () => {
         expect(FILE_TYPES[group][key]).to.equal(testData[key].type);
       });
     });
-    it('should return the correct fle size data', () => {
-      Object.keys(testData).forEach(key => {
-        expect(getFileSizeData(testData[key].size)).to.deep.equal(
-          testData[key].sizeData,
-        );
+    it('should return a rendered file (SI) size JSX', () => {
+      testSizes.forEach(size => {
+        const wrapper = shallow(<div>{renderFileSize(size[0])}</div>);
+        expect(wrapper.html()).to.equal(`<div> ${size[1]}</div>`);
+        wrapper.unmount();
+      });
+    });
+    it('should return a rendered file (IEC) size JSX', () => {
+      testIECSizes.forEach(size => {
+        const wrapper = shallow(<div>{renderFileSize(size[0], false)}</div>);
+        expect(wrapper.html()).to.equal(`<div> ${size[1]}</div>`);
+        wrapper.unmount();
       });
     });
     it('should remove invalid filename characters', () => {
