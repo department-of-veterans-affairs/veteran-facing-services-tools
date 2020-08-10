@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 // import { axeCheck } from '../../helpers/test-helpers';
 
 import AccessibleLink from './AccessibleLink';
-import { buildIcon, createContentFromTemplate } from './utils';
+import { buildIcon, createContentFromTemplate } from '../../helpers/utils';
 
 describe('Widget <AccessibleLink />', () => {
   describe('utility functions', () => {
