@@ -1,7 +1,7 @@
 ---
 title: DownloadLink
 name: DownloadLink
-tags: downloadlink, component
+tags: download, link, component
 ---
 
 import DownloadLink from './DownloadLink';
@@ -103,7 +103,7 @@ import DownloadLink from '@department-of-veterans-affairs/formation-react/Downlo
 // Showing all properties
 <DownloadLink
   href="https://example.va.gov/big-doc.doc"
-  title={<>a huge <em>legacy</em> MS doc</>} // string or JSX
+  title={<React.Fragment key="foo">a huge <em>legacy</em> MS doc</React.Fragment>} // string or JSX
   size="1.2gb"
 
   // MIME-type determined by file extension; but can be overridden
@@ -179,7 +179,7 @@ import DownloadLink from '@department-of-veterans-affairs/formation-react/Downlo
   <p>
     <DownloadLink
       href="https://example.va.gov/big-doc.doc"
-      title={<>a huge <em>legacy</em> MS doc</>}
+      title={<React.Fragment key="foo">a huge <em>legacy</em> MS doc</React.Fragment>}
       size="1.2gb"
       type="application/msword"
       icon="fas fa-download foo"
