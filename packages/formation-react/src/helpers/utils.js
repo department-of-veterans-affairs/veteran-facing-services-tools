@@ -27,7 +27,7 @@ export const buildIcon = className => (
  *    color: <strong key="color">blue</strong>,
  *    vehicle: 'truck'
  *  })
- *  //=> ['I', 'want', 'a', '4-wheel', 'drive', <strong>blue</strong>, 'truck']
+ *  //=> ['I', 'want', 'a', '4-wheel', 'drive', <strong key="color">blue</strong>, 'truck']
  */
 const regexPlaceholder = /{.+?}/g;
 export const createContentFromTemplate = props => {

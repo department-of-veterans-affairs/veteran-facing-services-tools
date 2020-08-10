@@ -203,50 +203,45 @@ const DownloadLink = props => {
     linkProps.rel = 'noopener noreferrer';
   }
 
-  if (fileExt) {
-    // *** Download file link ***
-    // fallback to `download` (no set value)
-    linkProps.download = (download && processFileName(download)) || true;
+  // fallback to `download` (no set value; filename stays the same)
+  linkProps.download = (download && processFileName(download)) || true;
 
-    if (!linkProps.type) {
-      linkProps.type =
-        (FILE_TYPES[group] && FILE_TYPES[group][fileExt]) ||
-        'application/unknown';
-    }
+  if (!linkProps.type) {
+    linkProps.type =
+      (FILE_TYPES[group] && FILE_TYPES[group][fileExt]) ||
+      'application/unknown';
+  }
 
+  if (!children) {
     const { sizeValue, sizeAbbr, sizeName } = getFileSizeData(size);
-    if (!children) {
-      resultingContent = (
-        <>
-          {typeof icon !== 'string'
-            ? icon
-            : buildIcon(icon || 'fas fa-download')}
-          {createContentFromTemplate({
-            template,
-            title,
-            fileInfo: (
-              <dfn key="fileInfo">
-                {fileExt && (
-                  <abbr title={group || fileExt}>{fileExt.toUpperCase()}</abbr>
-                )}
-                {size && (
-                  <>
-                    {' ('}
-                    {sizeValue}
-                    {/*
-                    Don't use <abbr> if sizeName is undefined, in case the user
-                    passed in "1.5 Megabytes" as a size */}
-                    {(sizeName && <abbr title={sizeName}>{sizeAbbr}</abbr>) ||
-                      sizeAbbr}
-                    {')'}
-                  </>
-                )}
-              </dfn>
-            ),
-          })}
-        </>
-      );
-    }
+    resultingContent = (
+      <>
+        {typeof icon !== 'string' ? icon : buildIcon(icon || 'fas fa-download')}
+        {createContentFromTemplate({
+          template,
+          title,
+          fileInfo: (
+            <dfn key="fileInfo">
+              {fileExt && (
+                <abbr title={group || fileExt}>{fileExt.toUpperCase()}</abbr>
+              )}
+              {size && (
+                <>
+                  {' ('}
+                  {sizeValue}
+                  {/*
+                  Don't use <abbr> if sizeName is undefined, in case the user
+                  passed in "1.5 Megabytes" as a size */}
+                  {(sizeName && <abbr title={sizeName}>{sizeAbbr}</abbr>) ||
+                    sizeAbbr}
+                  {')'}
+                </>
+              )}
+            </dfn>
+          ),
+        })}
+      </>
+    );
   }
   return <a {...linkProps}>{children || resultingContent}</a>;
 };
@@ -267,7 +262,7 @@ DownloadLink.propTypes = {
    * JSX, please make sure to include a `key` because of the way the template
    * renders the content.
    */
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element, null]),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /**
    * A template for creating the link content. This will only accept a string,

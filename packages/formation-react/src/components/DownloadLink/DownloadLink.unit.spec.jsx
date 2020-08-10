@@ -12,7 +12,7 @@ import DownloadLink, {
 
 const testData = {
   jpg: {
-    url: 'https://www.example.com/test.jpg',
+    href: 'https://www.example.com/test.jpg',
     title: 'Test image',
     group: 'graphic',
     type: 'image/jpeg',
@@ -25,7 +25,7 @@ const testData = {
     result: 'Download Test image JPG (400B)',
   },
   pdf: {
-    url: 'https://www.foo.bar.com/my.folder/file.pdf?value=3.4',
+    href: 'https://www.foo.bar.com/my.folder/file.pdf?value=3.4',
     title: 'A much needed form',
     group: 'Portable Document Format',
     type: 'application/pdf',
@@ -38,7 +38,7 @@ const testData = {
     result: 'Download A much needed form PDF (1.67MB)',
   },
   txt: {
-    url: 'https://www.test.com/file.txt#anchor-link',
+    href: 'https://www.test.com/file.txt#anchor-link',
     title: 'Some random text file',
     group: 'text file',
     type: 'text/plain',
@@ -51,7 +51,7 @@ const testData = {
     result: 'Download Some random text file TXT (321KB)',
   },
   docx: {
-    url: 'https://docs.com/mydoc.docx#table-1.1',
+    href: 'https://docs.com/mydoc.docx#table-1.1',
     title: 'MS is the best',
     group: 'Word document',
     type:
@@ -70,7 +70,7 @@ describe('Widget <DownloadLink />', () => {
   describe('utility functions', () => {
     it('should extract out correct extension', () => {
       Object.keys(testData).forEach(key => {
-        expect(getFileExtensionFromUrl(testData[key].url)).to.equal(key);
+        expect(getFileExtensionFromUrl(testData[key].href)).to.equal(key);
       });
     });
     it('should find the correct extension group & MIME-type', () => {
@@ -105,8 +105,10 @@ describe('Widget <DownloadLink />', () => {
   describe('component', () => {
     it('should render', () => {
       const testCase = testData.pdf;
-      const wrapper = shallow(<DownloadLink href={testCase.url} title="foo" />);
-      expect(wrapper.props().href).to.equal(testCase.url);
+      const wrapper = shallow(
+        <DownloadLink href={testCase.href} title="foo" />,
+      );
+      expect(wrapper.props().href).to.equal(testCase.href);
       expect(wrapper.text()).to.equal(`Download foo PDF`);
       wrapper.unmount();
     });
@@ -115,13 +117,13 @@ describe('Widget <DownloadLink />', () => {
         const testCase = testData[ext];
         const wrapper = shallow(
           <DownloadLink
-            href={testCase.url}
+            href={testCase.href}
             title={testCase.title}
             size={testCase.size}
           />,
         );
         const props = wrapper.props();
-        expect(props.href).to.equal(testCase.url);
+        expect(props.href).to.equal(testCase.href);
         expect(props.rel).to.be.undefined;
         expect(props.target).to.be.undefined;
         expect(props.download).to.be.true;
@@ -134,14 +136,12 @@ describe('Widget <DownloadLink />', () => {
     });
     it('should render title for unknown file types', () => {
       const testCase = {
-        url: 'https://example.com/file.xyz',
+        href: 'https://example.com/file.xyz',
         title: 'Some unknown file type',
       };
-      const wrapper = shallow(
-        <DownloadLink href={testCase.url} title={testCase.title} />,
-      );
+      const wrapper = shallow(<DownloadLink {...testCase} />);
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(props.download).to.be.true;
       expect(props.rel).to.equal('noopener noreferrer');
       expect(props.target).to.equal('_blank');
@@ -151,18 +151,40 @@ describe('Widget <DownloadLink />', () => {
       expect(wrapper.text()).to.equal(`Download ${testCase.title} XYZ`);
       wrapper.unmount();
     });
+    it('should render with download blob & unknown file type', () => {
+      const blob = new Blob(['{ "test": "foo" }'], {
+        type: 'application/json',
+      });
+      const testCase = {
+        href: URL.createObjectURL(blob),
+        title: 'read-me',
+        type: 'application/octet-stream',
+        download: 'test.json',
+      };
+      const wrapper = shallow(<DownloadLink {...testCase} />);
+      const props = wrapper.props();
+      expect(props.href).to.equal(testCase.href);
+      expect(props.download).to.equal(testCase.download);
+      expect(props.rel).to.be.undefined; // not external
+      expect(props.target).to.be.undefined;
+      expect(props.type).to.equal('application/octet-stream');
+      // icon is still rendered
+      expect(wrapper.find('i').length).to.equal(1);
+      expect(wrapper.text()).to.equal(`Download ${testCase.title} `);
+      wrapper.unmount();
+    });
     it('should render a custom download name', () => {
       const testCase = testData.pdf;
       const newFileName = 'food-bar.pdf';
       const wrapper = shallow(
         <DownloadLink
-          href={testCase.url}
+          href={testCase.href}
           title={testCase.title}
           download={newFileName}
         />,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(props.download).to.equal(newFileName);
       wrapper.unmount();
     });
@@ -170,10 +192,14 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const type = 'application/foo';
       const wrapper = shallow(
-        <DownloadLink href={testCase.url} title={testCase.title} type={type} />,
+        <DownloadLink
+          href={testCase.href}
+          title={testCase.title}
+          type={type}
+        />,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(props.type).to.equal(type);
       wrapper.unmount();
     });
@@ -181,9 +207,13 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const icon = 'fax fa-custom';
       const wrapper = shallow(
-        <DownloadLink href={testCase.url} title={testCase.title} icon={icon} />,
+        <DownloadLink
+          href={testCase.href}
+          title={testCase.title}
+          icon={icon}
+        />,
       );
-      expect(wrapper.props().href).to.equal(testCase.url);
+      expect(wrapper.props().href).to.equal(testCase.href);
       expect(wrapper.find('i').props().className).to.equal(
         `vads-u-padding-right--1 ${icon}`,
       );
@@ -193,12 +223,12 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
-          href={testCase.url}
+          href={testCase.href}
           title={testCase.title}
           icon={<svg role="img" aria-hidden="true" />}
         />,
       );
-      expect(wrapper.props().href).to.equal(testCase.url);
+      expect(wrapper.props().href).to.equal(testCase.href);
       expect(wrapper.find('i').length).to.equal(0);
       expect(wrapper.find('svg').length).to.equal(1);
       wrapper.unmount();
@@ -206,10 +236,10 @@ describe('Widget <DownloadLink />', () => {
     it('should render an external link', () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
-        <DownloadLink href={testCase.url} title={testCase.title} external />,
+        <DownloadLink href={testCase.href} title={testCase.title} external />,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(props.rel).to.equal('noopener noreferrer');
       expect(props.target).to.equal('_blank');
       wrapper.unmount();
@@ -218,13 +248,13 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
-          href={testCase.url}
+          href={testCase.href}
           title={testCase.title}
           data-test="extra data attribute"
         />,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(props['data-test']).to.equal('extra data attribute');
       wrapper.unmount();
     });
@@ -232,7 +262,7 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
-          href={testCase.url}
+          href={testCase.href}
           title={
             <span>
               {testCase.title} and some <em>extra</em> stuff
@@ -243,7 +273,7 @@ describe('Widget <DownloadLink />', () => {
         />,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(wrapper.find('i').length).to.equal(1);
       expect(wrapper.text()).to.equal(
         `My custom template for ${testCase.title} and some extra stuff, etc`,
@@ -255,7 +285,7 @@ describe('Widget <DownloadLink />', () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
-          href={testCase.url}
+          href={testCase.href}
           title={testCase.title}
           size={testCase.size}
         >
@@ -265,7 +295,7 @@ describe('Widget <DownloadLink />', () => {
         </DownloadLink>,
       );
       const props = wrapper.props();
-      expect(props.href).to.equal(testCase.url);
+      expect(props.href).to.equal(testCase.href);
       expect(wrapper.find('i').length).to.equal(0);
       expect(wrapper.text()).to.equal(`Download all the things! do it now`);
       expect(wrapper.find('dfn').length).to.equal(0);
