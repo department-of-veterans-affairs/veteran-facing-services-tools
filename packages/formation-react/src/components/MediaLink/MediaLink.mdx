@@ -4,7 +4,7 @@ name: MediaLink
 tags: media, video, social, link, component
 ---
 
-import MediaLink from './MediaLink';
+import MediaLink, { createIcon } from './MediaLink';
 
 ### Code:
 
@@ -23,28 +23,56 @@ import MediaLink from '@department-of-veterans-affairs/formation-react/MediaLink
   target="_blank"
   rel="noopener noreferrer"
 >
-  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube"/>
+  <i
+    role="img"
+    aria-hidden="true"
+    class="vads-u-padding-right--1 fab fa-youtube"
+  />
   View video about VA disability compensation
   <dfn>on YouTube</dfn>
+</a>
+*/
+
+// Internal video with no icon & custom content
+<MediaLink
+  href="https://www.va.gov/media/12345"
+  icon={null}
+  external={false}
+  content={() => (
+    <>
+      Watch this <em>awesome</em> video about our new service!
+    </>
+  )}
+/>
+
+/* Renders as
+<a href="https://www.va.gov/media/12345">
+  Watch this <em>awesome</em> video about our new service!
 </a>
 */
 
 // Unsupported site
 <MediaLink
   href="https://vimeo.com/279619945"
-  title="Why Accessibility Matters"
->
-  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube"/>
-  Watch this video on why accessibility matters on <dfn>Vimeo</dfn>
-</MediaLink>
+  icon="fab fa-vimeo"
+  content={() => (
+    <>
+      Watch this video on why accessibility matters on <dfn>Vimeo</dfn>
+    </>
+  )}
+/>
 
 /* Renders as
 <a
-  href="https://vimeo.com/279619945"\
+  href="https://vimeo.com/279619945"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube" />
+  <i
+    role="img"
+    aria-hidden="true"
+    class="vads-u-padding-right--1 fab fa-vimeo"
+  />
   Watch this video on why accessibility matters on <dfn>Vimeo</dfn>
 </a>
 */
@@ -52,13 +80,14 @@ import MediaLink from '@department-of-veterans-affairs/formation-react/MediaLink
 // Showing all properties
 <MediaLink
   href="https://www.va.gov/some_video_page"
-  title="VA Information about something"
+  title="VA Information on something"
 
-  icon="fas fa-play-circle foo"
-  template="View video about {title}"
+  // equivalent to `icon="fas fa-play-circle foo"`
+  icon={createIcon('fas fa-play-circle foo')}
+  content={({ props }) => <>View video about {props.title}</>}
   external={false}
 
-  // any extra properties to add to the link
+  // extra properties to add to the link (not restricted)
   className="internal-video"
   data-test="bar"
   onClick={() => {}}
@@ -71,30 +100,7 @@ import MediaLink from '@department-of-veterans-affairs/formation-react/MediaLink
     aria-hidden="true"
     class="vads-u-padding-right--1 fas fa-play-circle foo"
   />
-  View video about VA Information about something
-</a>
-*/
-
-// Internal video with custom template
-<MediaLink
-  href="https://www.youtube.com/watch?v=12345"
-  title={
-    <>
-      Check out this <em>awesome</em> <dfn>YouTube</dfn> video about our
-      new product!
-    </>
-  }
-  template="{title}"
-/>
-
-/* Renders as
-<a
-  href="https://www.youtube.com/watch?v=12345"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube" />
-  Check out this <em>awesome</em> <dfn>YouTube</dfn> video about our new product!
+  View video about VA Information on something
 </a>
 */
 ```
@@ -115,15 +121,31 @@ import MediaLink from '@department-of-veterans-affairs/formation-react/MediaLink
     />
   </p>
 
+  <strong>Internal video with no icon &amp; custom content</strong>
+  <p>
+    <MediaLink
+      href="https://www.va.gov/media/12345"
+      icon={null}
+      external={false}
+      content={() => (
+        <>
+          Watch this <em>awesome</em> video about our new service!
+        </>
+      )}
+    />
+  </p>
+
   <strong>Unsupported site</strong>
   <p>
     <MediaLink
       href="https://vimeo.com/279619945"
-      title="Why Accessibility Matters"
-    >
-      <i role="img" aria-hidden="true" class="vads-u-padding-right--1 fab fa-youtube" />
-      Watch this video on why accessibility matters on <dfn>Vimeo</dfn>
-    </MediaLink>
+      icon="fab fa-vimeo"
+      content={() => (
+        <>
+          Watch this video on why accessibility matters on <dfn>Vimeo</dfn>
+        </>
+      )}
+    />
   </p>
 
   <strong>Showing all properties</strong>
@@ -132,24 +154,10 @@ import MediaLink from '@department-of-veterans-affairs/formation-react/MediaLink
       href="https://www.va.gov/some_video_page"
       title="VA Information about something"
       icon="fas fa-play-circle foo"
-      template="View video about {title}"
+      content={({ props }) => <>View video about {props.title}</>}
       external={false}
       className="internal-video"
       data-test="bar"
-    />
-  </p>
-
-  <strong>Internal video with custom template</strong>
-  <p>
-    <MediaLink
-      href="https://www.youtube.com/watch?v=12345"
-      title={
-        <>
-          Check out this <em>awesome</em> <dfn>YouTube</dfn> video about our
-          new product!
-        </>
-      }
-      template="{title}"
     />
   </p>
 </div>

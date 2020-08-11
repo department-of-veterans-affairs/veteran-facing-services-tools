@@ -2,13 +2,13 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import DownloadLink, {
-  FILE_TYPES,
-  getFileExtensionFromUrl,
-  getExtGroup,
+import DownloadLink, { FILE_TYPES, getExtGroup } from './DownloadLink';
+
+import {
   renderFileSize,
   processFileName,
-} from './DownloadLink';
+  getFileExtensionFromUrl,
+} from '../../helpers/link-utils';
 
 const testData = {
   jpg: {
@@ -87,14 +87,14 @@ describe('Widget <DownloadLink />', () => {
     it('should return a rendered file (SI) size JSX', () => {
       testSizes.forEach(size => {
         const wrapper = shallow(<div>{renderFileSize(size[0])}</div>);
-        expect(wrapper.html()).to.equal(`<div> ${size[1]}</div>`);
+        expect(wrapper.html()).to.equal(`<div>${size[1]}</div>`);
         wrapper.unmount();
       });
     });
     it('should return a rendered file (IEC) size JSX', () => {
       testIECSizes.forEach(size => {
         const wrapper = shallow(<div>{renderFileSize(size[0], false)}</div>);
-        expect(wrapper.html()).to.equal(`<div> ${size[1]}</div>`);
+        expect(wrapper.html()).to.equal(`<div>${size[1]}</div>`);
         wrapper.unmount();
       });
     });
@@ -120,7 +120,7 @@ describe('Widget <DownloadLink />', () => {
         <DownloadLink href={testCase.href} title="foo" />,
       );
       expect(wrapper.props().href).to.equal(testCase.href);
-      expect(wrapper.text()).to.equal(`Download foo PDF`);
+      expect(wrapper.text().trim()).to.equal(`Download foo PDF`);
       wrapper.unmount();
     });
     Object.keys(testData).forEach(ext => {
@@ -159,7 +159,7 @@ describe('Widget <DownloadLink />', () => {
       expect(props.type).to.equal('application/unknown');
       // icon is still rendered
       expect(wrapper.find('i').length).to.equal(1);
-      expect(wrapper.text()).to.equal(`Download ${testCase.title} XYZ`);
+      expect(wrapper.text().trim()).to.equal(`Download ${testCase.title} XYZ`);
       wrapper.unmount();
     });
     it('should render with download blob & unknown file type', () => {
@@ -181,7 +181,7 @@ describe('Widget <DownloadLink />', () => {
       expect(props.type).to.equal('application/octet-stream');
       // icon is still rendered
       expect(wrapper.find('i').length).to.equal(1);
-      expect(wrapper.text()).to.equal(`Download ${testCase.title} `);
+      expect(wrapper.text().trim()).to.equal(`Download ${testCase.title}`);
       wrapper.unmount();
     });
     it('should render a custom download name', () => {
@@ -269,7 +269,7 @@ describe('Widget <DownloadLink />', () => {
       expect(props['data-test']).to.equal('extra data attribute');
       wrapper.unmount();
     });
-    it(`should render a custom template`, () => {
+    it(`should render custom content`, () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
@@ -280,34 +280,38 @@ describe('Widget <DownloadLink />', () => {
             </span>
           }
           size={testCase.size}
-          template="My custom template for {title}, etc"
+          content={({ props }) => <>My custom content for {props.title}, etc</>}
         />,
       );
       const props = wrapper.props();
       expect(props.href).to.equal(testCase.href);
       expect(wrapper.find('i').length).to.equal(1);
       expect(wrapper.text()).to.equal(
-        `My custom template for ${testCase.title} and some extra stuff, etc`,
+        `My custom content for ${testCase.title} and some extra stuff, etc`,
       );
       expect(wrapper.find('dfn').length).to.equal(0);
       wrapper.unmount();
     });
-    it(`should render a child elements instead of the icon & template`, () => {
+    it(`should render an custom icon & content`, () => {
       const testCase = testData.pdf;
       const wrapper = shallow(
         <DownloadLink
           href={testCase.href}
           title={testCase.title}
           size={testCase.size}
-        >
-          <>
-            Download all the things! <strong>do it now</strong>
-          </>
-        </DownloadLink>,
+          icon={<i className="fa fas-cog" />}
+          content={() => (
+            <>
+              Download all the things! <strong>do it now</strong>
+            </>
+          )}
+        />,
       );
       const props = wrapper.props();
+      const icon = wrapper.find('i');
       expect(props.href).to.equal(testCase.href);
-      expect(wrapper.find('i').length).to.equal(0);
+      expect(icon.length).to.equal(1);
+      expect(icon.props().className).to.equal('fa fas-cog');
       expect(wrapper.text()).to.equal(`Download all the things! do it now`);
       expect(wrapper.find('dfn').length).to.equal(0);
       wrapper.unmount();
@@ -327,14 +331,15 @@ describe('Widget <DownloadLink />', () => {
         // eslint-disable-next-line va-enzyme/unmount
         shallow(<DownloadLink href="https://example.com/foo.pdf" />);
       }).to.throw(
-        'Download links require either a title property or child elements',
+        'Download links require a title property or custom content function',
       );
     });
-    it('should not throw an error if no title is passed, but has children', () => {
+    it('should not throw an error if no title is passed, but has a content function', () => {
       const wrapper = shallow(
-        <DownloadLink href="https://example.com/foo.pdf">
-          Foo something something... bar
-        </DownloadLink>,
+        <DownloadLink
+          href="https://example.com/foo.pdf"
+          content={() => 'Foo something something... bar'}
+        />,
       );
       expect(wrapper).to.exist;
       wrapper.unmount();

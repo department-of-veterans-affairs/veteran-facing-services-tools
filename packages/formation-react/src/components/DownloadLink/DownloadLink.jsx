@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buildIcon, createContentFromTemplate } from '../../helpers/utils';
+import {
+  createIcon,
+  getFileNameAndExt,
+  getFileExtensionFromUrl,
+  processFileName,
+  renderFileSize,
+} from '../../helpers/link-utils';
 
 // Common file type & MIME-type
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
@@ -60,40 +66,6 @@ export const FILE_TYPES = {
   },
 };
 
-// List of known file size units
-export const FILE_SIZES = [
-  // Decimal (SI) / Binary (IEC)
-  ['B', 'Bytes', 'B', 'Bytes'],
-  ['KB', 'Kilobytes', 'KiB', 'Kibibytes'],
-  ['MB', 'Megabytes', 'MiB', 'Mebibytes'],
-  ['GB', 'Gigabytes', 'GiB', 'Gibibytes'],
-];
-
-// Regex to extract a file extension of a url path
-// https://www.example.com/test.jpg -> jpg
-// https://www.foo.bar.com/my.folder/doc.pdf?version=3.4 -> pdf
-// https://www.test.com/file.txt#anchor-link -> txt
-const fileExtRegex = /(?:\.([^.?#]+))?(?:[?#].*?)?$/;
-
-/**
- * Non-optimal method to find the file name & extension. It splits off the final
- * forward slash (`/`) and processes that portion of the content.
- * @param {string} url
- * @return {string} last portion of a url; after the last forward slash
- */
-const getFileNameAndExt = url => url.split('/').pop();
-
-/**
- * Extract file extension from a url
- * @param {string} url - path to downloadable file
- * @return {string} - Known file extension. If not found, this function returns
- * an empty string
- */
-export const getFileExtensionFromUrl = fileName => {
-  const ext = fileExtRegex.exec(fileName);
-  return ext && ext[1] ? ext[1] : '';
-};
-
 /**
  * Find the file group (with reference to the associated MIME-type) from the
  * list of known file types given the found file extension
@@ -107,109 +79,80 @@ export const getExtGroup = fileExt =>
       )
     : 'Unknown';
 
-// Regex used to replace digits & separators to extract out the file size unit
-// "1.5mb" -> "mb"
-const fileSizeUnitRegex = /[0-9., ]/g;
-
 /**
- * Extract file size data from a mixed value of number plus size unit, e.g.
- * "1.5mb"
- * @param {string|number} size - file size, e.g. "1.5mb" or 1024 (bytes)
- * @return {JSX} rendered size with unit abbr & full unit in title
+ * Object passed to the download link contents render function
+ * @typedef DownloadLink~linkProps
+ * @type {Object.<string, *>}
+ * @property {string} href - link href
+ * @property {string} target - set to '_blank' for external links
+ * @property {string} rel - set to 'noopener noreferrer' for external links
+ * @property {string|boolean} download - download link attribute, set to true to
+ *  keep the current file name, or as a string of file name plus extension to
+ *  rename the file
+ * @property {string} type - file MIME-type
+ * @property {...*} var_args - Include any extra parameters you want to add to the
+ *  download link, e.g. `className`, `onClick`, etc.
  */
-export const renderFileSize = (bytes = 0, si = true, decimalPlaces = 1) => {
-  const base = si ? 1000 : 1024;
-  let size;
-  let units;
-  if (typeof bytes === 'number') {
-    // Handle passing in a numbver, e.g. `1500000`
-    const unitIndex =
-      bytes < 1 ? 0 : Math.floor(Math.log(bytes) / Math.log(base));
-    units = FILE_SIZES[unitIndex || 0] || FILE_SIZES[0];
-    size =
-      bytes < 1 ? 0 : (bytes / base ** unitIndex).toFixed(decimalPlaces) * 1;
-  } else {
-    // Handle passing in a string, e.g. `"1.5mb"`
-    const sizeAbbr = bytes
-      .toString()
-      .replace(fileSizeUnitRegex, '')
-      .toUpperCase();
-    size = parseFloat(bytes);
-    units = FILE_SIZES.find(entry => entry[0] === sizeAbbr) || FILE_SIZES[0];
-  }
-  return (
-    <>
-      {' ('}
-      {size}
-      {(units && units.length && (
-        <abbr title={units[si ? 1 : 3]}>{units[si ? 0 : 2]}</abbr>
-      )) ||
-        units[0]}
-      {')'}
-    </>
-  );
-};
-
-// Regex to replace characters that are reserved/not allowed in file names
-// https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file
-const fileNameRestrictedCharacters = /[<>:"/\\|?*\n\r]/g;
-const reservedFileNames = /^(CON|PRN|AUX|NUL|COM|LPT)$/;
-const trailingPeriod = /\.$/;
-
 /**
- * Sanitize title value to use as a valid OS filename
- * @param {string} title - unprocessed title string
- * @return {string} sanitized download filename
+ * Render download link content
+ * @function content
+ * @param {ReactElement} renderedSize - rendered file size, e.g.
+ *   ` (1.3<abbr title="Megabytes">MB</abbr>)`
+ * @param {ReactElement} renderedExtension - rendered file extension, e.g.
+ *   `<abbr title="Portable Document Format">PDF</abbr>`
+ * @param {DownloadLink~props} props - all props passed into the component
+ * @param {DownloadLink~linkProps} linkProps - read-only link properties
+ * @return {ReactElement} renderedSize & renderedExtension wrapped in a `<dfn>`; or
+ *   customized as desired
  */
-export const processFileName = title =>
-  (title || '')
-    .replace(fileNameRestrictedCharacters, '')
-    .replace(reservedFileNames, '')
-    .replace(trailingPeriod, '')
-    .trim();
-
 /**
- * DownloadLink component
- * @param {string} href (required) - url pointing to a downloadable file
- * @param {string} title - title of the file; required if no children are passed
+ * DownloadLink properties
+ * @typedef DownloadLink~props
+ * @type {object.<string, *>}
+ * @property {string} href (required) - url pointing to a downloadable file
+ * @property {string} title - title of the file; required if no children are passed
  *  into this component
- * @param {string|number} size - size of downloadable file; pass in string
+ * @property {string|number} size - size of downloadable file; pass in string
  *  (number + unit abbreviation, e.g. "1.5mb" or "100kb") or a file size number
  *  in bytes.
- * @param {string} download - new download file name and extension of the
+ * @property {string} download - new download file name and extension of the
  *  downloadable file
- * @param {string} type - downloadable file MIME-type; include if the file is
+ * @property {string} type - downloadable file MIME-type; include if the file is
  *  not in the list of known file extensions
- * @param {string|JSX} icon - Fontawesome icon group + name, e.g.
+ * @property {string|ReactElement} icon - Fontawesome icon group + name, e.g.
  *  "fas fa-download", or some custom icon JSX
- * @param {boolean} external - Set to true if the link is to an external site;
+ * @property {boolean} external - Set to true if the link is to an external site;
  *  setting this adds a blank target (opens a new tab) & no-referrer and opener
  *  rel attribute
- * @param {string} template - link content template; defaults to
- *  `Download {title} {fileInfo}`
- * @param {...*} var_args - Include any extra parameters you want to add to the
+ * @property {function} content - Function that allows custom rendering of the link
+ *  content; This function returns JSX
+ * @property {...*} var_args - Include any extra parameters you want to add to the
  *  download link, e.g. `className`, `onClick`, etc.
+ */
+/**
+ * DownloadLink component
+ * @function DownloadLink
+ * @param {DownloadLink~props}
  */
 const DownloadLink = props => {
   if (!props.href) {
     throw new Error('Download links require an href property');
   }
-  if (!props.title && !props.children) {
-    throw new Error(
-      'Download links require either a title property or child elements',
-    );
-  }
   const {
     external = false,
     title,
-    template = 'Download {title} {fileInfo}',
+    content,
     download,
     icon = '',
-    children,
     size,
     ...linkProps
   } = props;
-  let resultingContent = title;
+
+  if (!title && typeof content !== 'function') {
+    throw new Error(
+      'Download links require a title property or custom content function',
+    );
+  }
 
   const fileName = getFileNameAndExt(linkProps.href);
   const fileExt = getFileExtensionFromUrl(fileName);
@@ -230,26 +173,24 @@ const DownloadLink = props => {
       'application/unknown';
   }
 
-  if (!children) {
-    resultingContent = (
-      <>
-        {typeof icon !== 'string' ? icon : buildIcon(icon || 'fas fa-download')}
-        {createContentFromTemplate({
-          template,
-          title,
-          fileInfo: (
-            <dfn key="fileInfo">
-              {fileExt && (
-                <abbr title={group || fileExt}>{fileExt.toUpperCase()}</abbr>
-              )}
-              {size && renderFileSize(size)}
-            </dfn>
-          ),
-        })}
-      </>
-    );
-  }
-  return <a {...linkProps}>{children || resultingContent}</a>;
+  const renderedSize = renderFileSize(size);
+  const renderedExtension = fileExt && (
+    <abbr title={group || fileExt}>{fileExt.toUpperCase()}</abbr>
+  );
+  return (
+    <a {...linkProps}>
+      {typeof icon !== 'string' ? icon : createIcon(icon || 'fas fa-download')}
+      {(typeof content === 'function' &&
+        content({ renderedExtension, renderedSize, linkProps, props })) || (
+        <>
+          Download {title}{' '}
+          <dfn>
+            {renderedExtension} {renderedSize}
+          </dfn>
+        </>
+      )}
+    </a>
+  );
 };
 
 DownloadLink.propTypes = {
@@ -263,21 +204,21 @@ DownloadLink.propTypes = {
   /**
    * A title for the downloadable file is necessary. Only include a title for
    * the downloadable file and do not include words such as "view", "go to" or
-   * "download". Those can be added in the template property. This property is
-   * required unless custom child elements have been included. If you pass in
-   * JSX, please make sure to include a `key` because of the way the template
-   * renders the content.
+   * "download". Those can be added in the `content` callback function. This
+   * property is required unless a custom `content` function has been defined.
    */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   /**
-   * A template for creating the link content. This will only accept a string,
-   * not JSX. Include `{title}` and `{fileInfo}` within the template to be
-   * replaced by the passed in title, and generated file info markup obtained
-   * from the size property, or include it in a custom template. The default
-   * template is `'Download {title} {fileInfo}'`.
+   * Pass in a function to render the download link content. The parameters
+   * passed into this function includes 1) `linkProps` which contains the
+   * essential, and any extra, parameters passed into the `<DownloadLink>`
+   * component; 2) rendered file size JSX (`renderedSize`) and 3) rendered file
+   * extension (`renderedExtension`). The two separated JSX passed to this
+   * function *must* be wrapped in a `<dfn>` element upon return (to maintain
+   * accessibility); but can otherwise return any content can be returned
    */
-  template: PropTypes.string,
+  content: PropTypes.func,
 
   /**
    * For best results, please ensure that a file size is included as a property.
@@ -325,4 +266,5 @@ DownloadLink.propTypes = {
   external: PropTypes.bool,
 };
 
+export { createIcon };
 export default DownloadLink;

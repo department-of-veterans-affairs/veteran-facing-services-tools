@@ -1,50 +1,19 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-// import sinon from 'sinon';
-// import { axeCheck } from '../../helpers/test-helpers';
 
 import AccessibleLink from './AccessibleLink';
-import { buildIcon, createContentFromTemplate } from '../../helpers/utils';
+import { createIcon } from '../../helpers/link-utils';
 
 describe('Widget <AccessibleLink />', () => {
   describe('utility functions', () => {
     it('should create a valid icon', () => {
       ['fas fa-download', 'fab fa-youtube'].forEach(className => {
-        const wrapper = shallow(buildIcon(className));
+        const wrapper = shallow(createIcon(className));
         expect(wrapper.type()).to.equal('i');
         expect(wrapper.props().className).to.equal(
           `vads-u-padding-right--1 ${className}`,
         );
-        wrapper.unmount();
-      });
-    });
-    it('should create title from template', () => {
-      const templates = [
-        {
-          template: 'a {b} {c} d {e}',
-          result: 'a {b} {c} d {e}',
-        },
-        {
-          template: 'a {b} {c} d {e}',
-          a: 'v',
-          b: 'w',
-          c: 'x',
-          d: 'y',
-          e: 'z',
-          result: 'a w x d z',
-        },
-        {
-          template: 'I want a {type} {color} {vehicle}',
-          color: 'blue',
-          vehicle: 'truck',
-          type: <em key="x">hybrid</em>,
-          result: 'I want a hybrid blue truck',
-        },
-      ];
-      templates.forEach(example => {
-        const wrapper = shallow(<p>{createContentFromTemplate(example)}</p>);
-        expect(wrapper.text()).to.equal(example.result);
         wrapper.unmount();
       });
     });
@@ -66,7 +35,7 @@ describe('Widget <AccessibleLink />', () => {
         <AccessibleLink.Download href={href} title={title} />,
       );
       expect(wrapper.props().href).to.equal(href);
-      expect(wrapper.text()).to.equal(`Download ${title} JPG`);
+      expect(wrapper.text().trim()).to.equal(`Download ${title} JPG`);
       wrapper.unmount();
     });
     it('should render MediaLink component', () => {
@@ -76,7 +45,9 @@ describe('Widget <AccessibleLink />', () => {
         <AccessibleLink.Media href={href} title={title} />,
       );
       expect(wrapper.props().href).to.equal(href);
-      expect(wrapper.text()).to.equal(`View video about ${title} on YouTube`);
+      expect(wrapper.text().trim()).to.equal(
+        `View video about ${title} on YouTube`,
+      );
       wrapper.unmount();
     });
   });

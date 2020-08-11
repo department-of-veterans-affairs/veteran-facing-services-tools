@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import MediaLink, { findMediaSite } from './MediaLink';
+import { createIcon } from '../../helpers/link-utils';
 
 const testSites = {
   unknown: 'https://foo.bar',
@@ -43,23 +44,38 @@ describe('Widget <MediaLink />', () => {
       expect(props.href).to.equal(testSites.unknown);
       expect(props.target).to.equal('_blank');
       expect(props.rel).to.equal('noopener noreferrer');
-      expect(wrapper.text()).to.equal('View site about foobar  ');
+      expect(wrapper.text().trim()).to.equal('View site about foobar');
       expect(wrapper.find('i').props().className).to.equal(
         'vads-u-padding-right--1 fas fa-play-circle',
       );
       wrapper.unmount();
     });
 
+    it('should render content without an icon', () => {
+      const wrapper = shallow(
+        <MediaLink
+          href={testSites.unknown}
+          icon={null}
+          content={() => 'No icon'}
+        />,
+      );
+      const props = wrapper.props();
+      expect(props.href).to.equal(testSites.unknown);
+      expect(props.target).to.equal('_blank');
+      expect(props.rel).to.equal('noopener noreferrer');
+      expect(wrapper.text()).to.equal('No icon');
+      expect(wrapper.find('i').length).to.equal(0);
+      wrapper.unmount();
+    });
+
     it('should render internal site & custom content', () => {
       const wrapper = shallow(
-        <MediaLink href={testSites.unknown} external={false}>
-          <i
-            role="img"
-            aria-hidden="true"
-            className="vads-u-padding-right--1 fas fa-play-circle"
-          />
-          Some internal VA video
-        </MediaLink>,
+        <MediaLink
+          href={testSites.unknown}
+          external={false}
+          icon={createIcon('fas fa-play-circle')}
+          content={() => 'Some internal VA video'}
+        />,
       );
       const props = wrapper.props();
       expect(props.rel).to.be.undefined;
@@ -72,7 +88,7 @@ describe('Widget <MediaLink />', () => {
       wrapper.unmount();
     });
 
-    it('should render custom template', () => {
+    it('should render custom content', () => {
       const wrapper = shallow(
         <MediaLink
           href={testSites.youtube}
@@ -82,7 +98,7 @@ describe('Widget <MediaLink />', () => {
               new product!
             </>
           }
-          template="{title}"
+          content={({ props }) => props.title}
         />,
       );
       const props = wrapper.props();
@@ -112,14 +128,15 @@ describe('Widget <MediaLink />', () => {
         // eslint-disable-next-line va-enzyme/unmount
         shallow(<MediaLink href="https://example.com/foo.pdf" />);
       }).to.throw(
-        'Media links require either a title property or child elements',
+        'Media links require a title property or custom content function',
       );
     });
     it('should not throw an error if no title is passed, but has children', () => {
       const wrapper = shallow(
-        <MediaLink href="https://example.com/foo.pdf">
-          Foo something something... bar
-        </MediaLink>,
+        <MediaLink
+          href="https://example.com/foo.pdf"
+          content={() => 'Foo something something... bar'}
+        />,
       );
       expect(wrapper).to.exist;
       wrapper.unmount();
