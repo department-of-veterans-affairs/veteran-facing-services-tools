@@ -20,6 +20,20 @@ describe('Widget <AccessibleLink />', () => {
   });
 
   describe('component', () => {
+    it('should render main component', () => {
+      const href = 'https://example.com';
+      const wrapper = shallow(<AccessibleLink href={href} />);
+      expect(wrapper.props().href).to.equal(href);
+      wrapper.unmount();
+    });
+    it('should render main component with an icon', () => {
+      const href = 'https://example2.com';
+      const faIcon = 'fas fa-exclamation-circle';
+      const wrapper = shallow(<AccessibleLink href={href} icon={faIcon} />);
+      expect(wrapper.props().href).to.equal(href);
+      expect(wrapper.find('i').props().className).to.contain(faIcon);
+      wrapper.unmount();
+    });
     it('should render Telephone component', () => {
       const contact = '8005551212';
       const wrapper = shallow(<AccessibleLink.Telephone contact={contact} />);

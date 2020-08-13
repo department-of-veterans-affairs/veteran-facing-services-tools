@@ -17,6 +17,26 @@ import AccessibleLink, {
   createIcon,  // create an accessible icon (see DownloadLink or MediaLink for examples)
 } from '@department-of-veterans-affairs/formation-react/AccessibleLink';
 
+// AccessibleLink example
+// This wrapper only passes the properties to a link element
+<AccessibleLink
+  href="https://example.com"
+  icon="fas fa-exclamation-circle"
+>
+  plain link
+/>
+
+/* Renders as
+<a href="https://test.com">
+  <i
+    role="img"
+    aria-hidden="true"
+    class="vads-u-padding-right--1 fas fa-exclamation-circle"
+  />
+  plain link
+</a>
+*/
+
 // Download minimal example
 <AccessibleLink.Download
   href="https://example.va.gov/form.pdf"
