@@ -121,9 +121,9 @@ export const getExtGroup = fileExt =>
  *  not in the list of known file extensions
  * @property {string|ReactElement} icon - Fontawesome icon group + name, e.g.
  *  "fas fa-download", or some custom icon JSX
- * @property {boolean} external - Set to true if the link is to an external site;
- *  setting this adds a blank target (opens a new tab) & no-referrer and opener
- *  rel attribute
+ * @property {boolean} external - Automatically set to `true` since it opens a
+ *  new tab and doesn't disrupt the form flow; when `true` the link includes
+ *  `target="_blank"` & `rel="noreferrer noopener"` attributes
  * @property {function} content - Function that allows custom rendering of the link
  *  content; This function returns JSX
  * @property {...*} var_args - Include any extra parameters you want to add to the
@@ -139,7 +139,7 @@ const DownloadLink = props => {
     throw new Error('Download links require an href property');
   }
   const {
-    external = false,
+    external = true,
     title,
     content,
     download,
@@ -256,10 +256,10 @@ DownloadLink.propTypes = {
    */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  /** Set to true if the url (href) is pointing to an external site, it will
-   * include a `target="_blank"` and `rel="noopener noreferrer"` attribute in
-   * the download link. For links where this property is undefined, it will
-   * default to `false`, but `target` and `rel` attributes will be included if
+  /** Set as true by default to prevent form flow disruption. When set, it
+   * includes a `target="_blank"` and `rel="noopener noreferrer"` attribute in
+   * the download link. For links where this property is `false`, it won't
+   * include the `target` and `rel` attributes, but this will be overridden if
    * the file extension is not a recogized file type. The exported `FILE_TYPES`
    * object contains a list of recognized extensions.
    */
