@@ -150,7 +150,7 @@ function Telephone({
         >
           {children || `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
         </span>
-        <span className="sr-only">
+        <span className="vads-u-visibility--screen-reader">
           {formattedAriaLabel}
         </span>
       </>
