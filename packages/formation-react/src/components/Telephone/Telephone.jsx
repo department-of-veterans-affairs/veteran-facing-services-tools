@@ -108,6 +108,7 @@ function Telephone({
   ariaLabel = '', // custom aria-label
   onClick = () => {},
   children,
+  noHref = false,
 }) {
   // strip out non-digits for use in href: "###-### ####" => "##########"
   const parsedNumber = parseNumber(contact.toString());
@@ -139,6 +140,18 @@ function Telephone({
     // solution - see https://dsva.slack.com/archives/C8E985R32/p1589814301103200
     extension ? `,${extension}` : ''
   }`;
+
+  if (noHref) {
+    return (
+      <span
+        className={`no-wrap ${className}`}
+        aria-label={formattedAriaLabel}
+      >
+        {children ||
+          `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
+      </span>
+    )
+  }
 
   return (
     <a
@@ -175,7 +188,7 @@ Telephone.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Pattern use used while formatting the contact number. Use provided
+   * Pattern are used while formatting the contact number. Use provided
    * PATTERNS, or create a custom one using "#" as a placeholder for each
    * number. Note that the number of "#"'s in the pattern <em>must</em> equal
    * the contact number length or an error is thrown.
@@ -186,6 +199,12 @@ Telephone.propTypes = {
    * Custom aria-label string.
    */
   ariaLabel: PropTypes.string,
+
+  /**
+   * Using this prop, the phone number becomes a non-clickable presentational
+   * span.
+   */
+  noHref: PropTypes.bool,
 
   /**
    * Custom onClick function
