@@ -171,6 +171,19 @@ describe('Widget <Telephone />', () => {
     wrapper.unmount();
   });
 
+  // noHref
+  it('should render a span instead of an a tag', () => {
+    const wrapper = shallow(
+      <Telephone contact={CONTACTS.GI_BILL} className="foo" noHref />,
+    );
+    const props = wrapper.props();
+    expect(props.href).to.not.exist;
+    expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1.');
+    expect(props.className).to.equal('no-wrap foo');
+    expect(wrapper.text()).to.equal('888-442-4551');
+    wrapper.unmount();
+  });
+
   // tracking
   it('should track on click', () => {
     const onClick = sinon.spy();
