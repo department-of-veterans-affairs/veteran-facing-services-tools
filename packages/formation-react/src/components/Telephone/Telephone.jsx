@@ -188,7 +188,7 @@ Telephone.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Pattern are used while formatting the contact number. Use provided
+   * Pattern is used while formatting the contact number. Use provided
    * PATTERNS, or create a custom one using "#" as a placeholder for each
    * number. Note that the number of "#"'s in the pattern <em>must</em> equal
    * the contact number length or an error is thrown.
