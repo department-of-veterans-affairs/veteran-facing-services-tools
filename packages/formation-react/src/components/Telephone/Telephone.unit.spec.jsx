@@ -171,10 +171,10 @@ describe('Widget <Telephone />', () => {
     wrapper.unmount();
   });
 
-  // noHref
+  // notClickable
   it('should render a span instead of an a tag', () => {
     const wrapper = shallow(
-      <Telephone contact={CONTACTS.GI_BILL} className="foo" noHref />,
+      <Telephone contact={CONTACTS.GI_BILL} className="foo" notClickable />,
     );
     const props = wrapper.props();
     expect(wrapper.exists('span')).to.equal(true);

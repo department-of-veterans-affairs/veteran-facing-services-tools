@@ -108,7 +108,7 @@ function Telephone({
   ariaLabel = '', // custom aria-label
   onClick = () => {},
   children,
-  noHref = false,
+  notClickable = false,
 }) {
   // strip out non-digits for use in href: "###-### ####" => "##########"
   const parsedNumber = parseNumber(contact.toString());
@@ -141,15 +141,19 @@ function Telephone({
     extension ? `,${extension}` : ''
   }`;
 
-  if (noHref) {
+  if (notClickable) {
     return (
-      <span
-        className={`no-wrap ${className}`}
-        aria-label={formattedAriaLabel}
-      >
-        {children ||
-          `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
-      </span>
+      <>
+        <span
+          className={`no-wrap ${className}`}
+          aria-hidden="true"
+        >
+          {children || `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
+        </span>
+        <span className="sr-only">
+          {formattedAriaLabel}
+        </span>
+      </>
     )
   }
 
@@ -204,7 +208,7 @@ Telephone.propTypes = {
    * Using this prop, the phone number becomes a non-clickable presentational
    * span.
    */
-  noHref: PropTypes.bool,
+  notClickable: PropTypes.bool,
 
   /**
    * Custom onClick function
