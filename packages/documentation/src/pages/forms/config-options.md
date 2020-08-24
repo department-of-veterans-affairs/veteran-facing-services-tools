@@ -21,8 +21,9 @@ const formConfig = {
   // actions.
   trackingPrefix: '',
 
-  // The title of the form, rendered on all pages.
-  title: '',
+  // The title of the form, rendered on all pages. Accepts a string or function
+  // params include (currentLocation, formConfig, formData, children)
+  title: '', // ({ formData }) => formData.needsNewTitle ? 'Alternate' : 'Form',
 
   // The subtitle of the form, usually the form number. The subtitle is rendered
   // on all pages when there's also a title.
