@@ -178,7 +178,8 @@ describe('Widget <Telephone />', () => {
     );
     expect(wrapper.exists('span')).to.equal(true);
     expect(wrapper.exists('a')).to.equal(false);
-    expect(wrapper.text()).to.equal('888-442-4551');
+    expect(wrapper.text()).to.include('888-442-4551');
+    expect(wrapper.text()).to.include('8 8 8. 4 4 2. 4 5 5 1');
     wrapper.unmount();
   });
 
