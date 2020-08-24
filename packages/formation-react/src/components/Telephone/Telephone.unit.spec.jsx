@@ -176,11 +176,8 @@ describe('Widget <Telephone />', () => {
     const wrapper = shallow(
       <Telephone contact={CONTACTS.GI_BILL} className="foo" notClickable />,
     );
-    const props = wrapper.props();
     expect(wrapper.exists('span')).to.equal(true);
     expect(wrapper.exists('a')).to.equal(false);
-    expect(props.href).to.not.exist;
-    expect(props.className).to.equal('no-wrap foo');
     expect(wrapper.text()).to.equal('888-442-4551');
     wrapper.unmount();
   });
