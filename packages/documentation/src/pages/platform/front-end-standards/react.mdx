@@ -2,18 +2,18 @@
 title: Frontend Best Practices
 ---
 
-# vets.gov Front End Best Practices (WIP)
+# va.gov Front End Best Practices (WIP)
 
 **Last Updated:** April 28, 2017
 
 ## Overview
-This is an initial pass at the best practices followed in vets.gov front-end development.
+This is an initial pass at the best practices followed in va.gov front-end development.
 
 ### Objective
-To promote a consistent approach to vets.gov front-end development by outlining an evolving set of best practices.
+To promote a consistent approach to va.gov front-end development by outlining an evolving set of best practices.
 
 ### Background
-Over the last year, we have launched a number of different single-page React/Redux apps on vets.gov, in addition to building digital forms using a [form-builder library](https://github.com/mozilla-services/react-jsonschema-form) that reuses the same code to run multiple React apps for different forms. This document is an attempt to begin collecting best practices for React/Redux development that the team has and continues to lean toward when architecting and developing front-end applications.
+Over the last year, we have launched a number of different single-page React/Redux apps on va.gov, in addition to building digital forms using a [form-builder library](https://github.com/mozilla-services/react-jsonschema-form) that reuses the same code to run multiple React apps for different forms. This document is an attempt to begin collecting best practices for React/Redux development that the team has and continues to lean toward when architecting and developing front-end applications.
 
 ### High Order Guidelines
 
@@ -32,7 +32,7 @@ In general, we try to use regular components whenever possible and only a few co
 
 There are benefits to using container components, though. It can be painful to pass lots of props all the way down to the leaf components in a component tree and container components allow you to "reset" and grab specific data from the store without all that wiring. They can also improve performance, because passing props down from the root of the component tree means that all intermediate components will re-render whenever data changes. Container components can send data down to their children without all the parents of the container component re-rendering.
 
-On vets.gov, we normally use a single container component per page (or independent widget, like login), and only use other container components if there's a compelling reason for doing so. Our apps have a `containers` folder and a `components` folder that we divide components between.
+On va.gov, we normally use a single container component per page (or independent widget, like login), and only use other container components if there's a compelling reason for doing so. Our apps have a `containers` folder and a `components` folder that we divide components between.
 
 #### Using setState in React components
 
