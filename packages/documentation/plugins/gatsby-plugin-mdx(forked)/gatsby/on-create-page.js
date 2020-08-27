@@ -23,17 +23,22 @@ module.exports = async ({ page, actions }, pluginOptions) => {
     const { frontmatter } = extractExports(code)
 
     deletePage(page)
-    createPage(
-      merge(
-        {
-          context: {
-            frontmatter: {
-              ...frontmatter,
+
+    try {
+      createPage(
+        merge(
+          {
+            context: {
+              frontmatter: {
+                ...frontmatter,
+              },
             },
           },
-        },
-        page
+          page
+        )
       )
-    )
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
