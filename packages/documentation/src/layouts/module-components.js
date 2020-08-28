@@ -15,14 +15,10 @@ const MyCodeComponent = ({ children }) => (
 );
 
 export default class ModuleComponentsLayout extends Component {
-  sortedReqiuredProps() {
-    return this.props.data.componentMetadata.childrenComponentProp.sort(a => {
-      if (a.required) {
-        return -1;
-      }
-
-      return 1;
-    });
+  sortedRequiredProps() {
+    return this.props.data.componentMetadata.childrenComponentProp.sort(a =>
+      a.required ? -1 : 1
+    );
   }
 
   render() {
@@ -67,7 +63,7 @@ export default class ModuleComponentsLayout extends Component {
               {mdxCodeBlock}
             </MDXRenderer>
             <h2 style={{ marginTop: '2rem' }}>Props:</h2>
-            <PropsTable propMetaData={this.sortedReqiuredProps()} />
+            <PropsTable propMetaData={this.sortedRequiredProps()} />
           </div>
         </SidebarLayout>
       </MDXProvider>
