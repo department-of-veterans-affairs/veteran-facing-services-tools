@@ -1,6 +1,3 @@
-/* eslint-disable */
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     description: `Resources and documentation for Development within the VA.gov project`,
@@ -72,13 +69,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `../formation-react/src/components`,
-        name: 'components',
+        name: 'formation-react',
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md'],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve('./src/layouts/SidebarLayout.jsx'),
@@ -116,8 +112,6 @@ module.exports = {
         plugins: [],
       },
     },
-    // `github-api-pages`,
-    `mdx-pages`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
@@ -139,12 +133,11 @@ module.exports = {
                 node.context.sourceUrl &&
                 node.context.title
               ) {
-                // Search by title derived from documents pulled from the GitHub repo.
+                // Use a derived title for docs pulled from external sources.
                 return node.context.title;
-              } else {
-                console.info('Page title missing from front matter.', node);
               }
 
+              console.info('Page title missing from front matter.', node);
               return '';
             },
             tags: (node) => {

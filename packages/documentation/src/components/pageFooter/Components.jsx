@@ -13,7 +13,7 @@ function ComponentList({ componentToMatch }) {
       query={graphql`
         query ComponentsQuery {
           components: allSitePage(
-            filter: { context: { source: { eq: "component" } } }
+            filter: { context: { source: { eq: "formation-react" } } }
             sort: { fields: [context___name], order: ASC }
           ) {
             edges {
