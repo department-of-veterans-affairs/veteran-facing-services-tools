@@ -26,7 +26,14 @@ export default class ModuleComponentsLayout extends Component {
   }
 
   render() {
-    const { children, data, tableOfContents, location } = this.props;
+    const {
+      children,
+      data,
+      location,
+      pageContext,
+      tableOfContents,
+    } = this.props;
+
     const { displayName, docblock } = data.componentMetadata;
     const jsDocBlock = docblock;
     const jsDockBlocks = jsDocBlock.split(/\r?\n/);
@@ -41,7 +48,7 @@ export default class ModuleComponentsLayout extends Component {
 
     return (
       <MDXProvider components={{ code: MyCodeComponent }}>
-        <SidebarLayout location={location}>
+        <SidebarLayout location={location} pageContext={pageContext}>
           <div className="content">
             {children}
             <h2>{displayName}</h2>

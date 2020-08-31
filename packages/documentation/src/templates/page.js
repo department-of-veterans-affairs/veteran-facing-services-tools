@@ -9,12 +9,8 @@ export default ({ location, pageContext }) => {
   const content = <div dangerouslySetInnerHTML={{ __html: html }} />;
 
   return (
-    <SidebarLayout location={location}>
-      <div>{content}</div>
-      <div>
-        <h5>Source:</h5>
-        <a href={sourceUrl}>{sourceUrl}</a>
-      </div>
+    <SidebarLayout location={location} pageContext={pageContext}>
+      {content}
     </SidebarLayout>
   );
 };
