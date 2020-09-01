@@ -6,6 +6,9 @@
 
 const path = require('path');
 
+// Base URL for a GitHub link to the source of a page *from this repo*.
+const GITHUB_FILE_BASE_URL = 'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
+
 /**
  * Creates pages for formation-react docs that were pulled
  * with gatsby-source-filesystem.
@@ -28,6 +31,7 @@ const createFormationReactPages = async ({ graphql, actions, reporter }) => {
               parent {
                 ... on File {
                   name
+                  relativePath
                 }
               }
               fields {
@@ -48,19 +52,7 @@ const createFormationReactPages = async ({ graphql, actions, reporter }) => {
   }
 
   result.data.allMdx.edges.forEach(({ node }) => {
-    if (!node.fileAbsolutePath) return;
-
-    // Confirm that the file path is under formation-react.
-    const match = node.fileAbsolutePath.match(
-      '/packages/formation-react/src/components/.+'
-    );
-
-    if (!match) return;
-
-    // Use the file path to build the source URL.
-    const baseUrl = 'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
-    const [relativePath] = match;
-    const sourceUrl = `${baseUrl}/${relativePath}`;
+    const sourceUrl = `${GITHUB_FILE_BASE_URL}/packages/formation-react/src/components/${node.parent.relativePath}`;
 
     createPage({
       path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
@@ -184,19 +176,16 @@ const setSourceUrl = ({ page, actions, reporter }) => {
 
   // Check if this page is sourced from src/pages.
   const { createPage, deletePage } = actions;
-  const repositoryName = 'veteran-facing-services-tools';
-  const match = page.componentPath.match(
-    `/${repositoryName}(?<relativePath>/packages/documentation/src/pages/.+)`
+  const match = page.componentPath && page.componentPath.match(
+    `/packages/documentation/src/pages/.+`
   );
 
   // Avoid setting source URLs that we can't confidently determine.
   if (!match) return;
 
-  // Finally, build the source URL once we've determined
-  // that the source of the page is src/pages.
-  const baseUrl = `https://github.com/department-of-veterans-affairs/${repositoryName}/blob/master`;
-  const { relativePath } = match.groups;
-  const sourceUrl = `${baseUrl}${relativePath}`;
+  // Build the source URL once we've determined that the page is from src/pages.
+  const [relativePath] = match;
+  const sourceUrl = `${GITHUB_FILE_BASE_URL}${relativePath}`;
 
   deletePage(page);
 
