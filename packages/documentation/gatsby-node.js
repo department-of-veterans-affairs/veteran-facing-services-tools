@@ -173,13 +173,12 @@ const createVaGovTeamPages = async ({ graphql, actions, reporter }) => {
  * External pages, such as those pulled from va.gov-team or formation-react,
  * should already have sources and also source URLs associated with them.
  */
-const setSourceUrl = ({ page, actions }) => {
+const setSourceUrl = ({ page, actions, reporter }) => {
   if (page.context.sourceUrl) return;
 
   // For debugging, log if an externally sourced page is missing the URL.
   if (page.context.source) {
-    // eslint-disable-next-line no-console
-    console.warn(`No source URL found for external page: ${page}`);
+    reporter.warn(`No source URL found for external page: ${page}`);
     return;
   }
 
