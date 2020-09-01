@@ -13,7 +13,7 @@ function ComponentList() {
       query={graphql`
         query ComponentListQuery {
           components: allSitePage(
-            filter: { context: { source: { eq: "component" } } }
+            filter: { context: { source: { eq: "formation-react" } } }
             sort: { fields: [context___name], order: ASC }
           ) {
             edges {
@@ -50,6 +50,7 @@ function SidebarItem({ item }) {
   }
   return <li key={item.name}>{item.name} (future)</li>;
 }
+
 export default function SidebarItems({ items, isSublist = false }) {
   if (!items.length) {
     return null;
