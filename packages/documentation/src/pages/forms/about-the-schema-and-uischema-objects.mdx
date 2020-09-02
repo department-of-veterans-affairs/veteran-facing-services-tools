@@ -152,6 +152,25 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     </div>
   ),
 
+  // Renders a custom object field on the review page. This function creates the wrapper
+  // around the `ui:reviewField` content. This component is passed in parameters
+  // including all the `props` (e.g. `formContext`, `schema`, `uiSchema`, etc), `title`,
+  // `renderedProperties` (the rendered `reviewField`) and `editButton` which is used
+  // to render the review entry;
+  // **Note** this entry will need to be defined in the uiSchema page, outside of the
+  // defined item (one level up).
+  'ui:objectViewField': ({ props, renderedProperties, title, editButton }) => (
+    <>
+      <div className="form-review-panel-page-header-row">
+        <h3 className="form-review-panel-page-header vads-u-font-size--h5">
+          {title}
+        </h3>
+        {editButton}
+      </div>
+      <dl className="review">{renderedProperties}</dl>
+    </>
+  ),
+
   // Provides a function to make a field conditionally required. The data in the whole form,
   // with no page breaks, is the only parameter. Don't make a field required in the JSON
   // schema and in addition to using `ui:required` on that field. The index argument is
