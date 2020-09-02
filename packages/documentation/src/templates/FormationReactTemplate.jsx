@@ -6,7 +6,7 @@ import { LiveProvider, LiveEditor } from 'react-live';
 
 import SidebarLayout from './SidebarLayout';
 import PropsTable from '../components/propstable';
-import './module-components.scss';
+import './formation-react-template.scss';
 
 const MyCodeComponent = ({ children }) => (
   <LiveProvider code={children}>
@@ -14,7 +14,7 @@ const MyCodeComponent = ({ children }) => (
   </LiveProvider>
 );
 
-export default function ModuleComponentsLayout({
+export default function FormationReactTemplate({
   children,
   data,
   location,
