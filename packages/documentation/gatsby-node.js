@@ -56,7 +56,7 @@ const createFormationReactPages = async ({ graphql, actions, reporter }) => {
 
     createPage({
       path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
-      component: path.resolve('./src/layouts/module-components.js'),
+      component: path.resolve('./src/templates/FormationReactTemplate.jsx'),
       context: {
         id: node.id,
         source: node.fields.sourceInstanceName,
@@ -147,7 +147,7 @@ const createVaGovTeamPages = async ({ graphql, actions, reporter }) => {
 
     createPage({
       path: `${relativeDirectory}/${name}`,
-      component: path.resolve('./src/templates/page.js'),
+      component: path.resolve('./src/templates/VaGovTeamTemplate.jsx'),
       context: {
         html,
         source,

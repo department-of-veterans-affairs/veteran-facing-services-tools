@@ -30,11 +30,6 @@ class Layout extends React.Component {
     }
   }
 
-  getSitePages(pages) {
-    // removing the index from the list
-    return pages.filter(page => page.node.fields.slug !== '/');
-  }
-
   render() {
     const { children, location } = this.props;
 
