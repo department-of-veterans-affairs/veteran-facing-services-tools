@@ -4,8 +4,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { LiveProvider, LiveEditor } from 'react-live';
 
-import SidebarLayout from './SidebarLayout';
-import PropsTable from '../components/propstable';
+import PropsTable from '../components/PropsTable';
+import SidebarLayout from '../layouts/SidebarLayout';
 import './formation-react-template.scss';
 
 const MyCodeComponent = ({ children }) => (
