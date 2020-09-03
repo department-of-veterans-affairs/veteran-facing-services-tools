@@ -51,14 +51,21 @@ const parseNumber = number =>
 
 /**
  * Insert the provided number into the pattern
- * @param {string} num - parsed number string (no non-digits included)
+ * @param {string} phoneNumber - parsed number string (no non-digits included)
  * @param {string} pattern - provided pattern (using "#") for link text
  * @return {string} - formatted phone number for link text
  */
 // Create link text from pattern
-const formatTelText = (num, pattern) => {
+const formatTelText = (phoneNumber, pattern) => {
+  const patternLength = pattern.match(/#/g).length;
+
+  // If the pattern does not match the phone number, return the raw phone number.
+  if (phoneNumber.length !== patternLength) {
+    return phoneNumber;
+  }
+
   let i = 0;
-  return pattern.replace(/#/g, () => num[i++] || '');
+  return pattern.replace(/#/g, () => phoneNumber[i++] || '');
 };
 
 /**
@@ -138,8 +145,7 @@ function Telephone({
 
   // Capture 3 digit patterns here
   const contactPattern = deriveContactPattern(pattern, parsedNumber);
-  const patternLength = contactPattern.match(/#/g).length;
-  const formattedNumber = formatTelText(phoneNumber, contactPattern, extension);
+  const formattedNumber = formatTelText(phoneNumber, contactPattern);
 
   // Show nothing if no phone number was provided.
   if (!phoneNumber) {
