@@ -27,7 +27,7 @@ export const CONTACTS = Object.freeze({
 
 // Patterns used in formatting visible text
 export const PATTERNS = {
-  911: '###', // needed to match 911 CONTACT
+  '3_DIGIT': '###',
   DEFAULT: '###-###-####',
   OUTSIDE_US: '+1-###-###-####',
 };
@@ -83,6 +83,28 @@ const formatTelLabel = number =>
     .join('. ');
 
 /**
+ * Derive the contact pattern value
+ * @param {string} pattern (optional) - Link text format pattern, using "#" as
+ *  the digit placeholder
+ * @param {string} parsedNumber (optional) - Telephone number with non-digit characters
+ * stripped out
+ */
+const deriveContactPattern = (pattern, parsedNumber) => {
+  // Use their pattern if provided.
+  if (pattern) {
+    return pattern;
+  }
+
+  // If the number is 3 digits, use that pattern as the default.
+  if (parsedNumber && parsedNumber.length === PATTERNS['3_DIGIT'].length) {
+    return PATTERNS['3_DIGIT'];
+  }
+
+  // Use the default pattern.
+  return PATTERNS.DEFAULT;
+}
+
+/**
  * Telephone component
  * @param {string|number} contact (required) - telephone number, with or without
  *  formatting; all non-digit characters will be stripped out
@@ -114,15 +136,15 @@ function Telephone({
   const parsedNumber = parseNumber(contact.toString());
   const phoneNumber = CONTACTS[parsedNumber] || parsedNumber;
 
-  // Capture "911" pattern here
-  const contactPattern = pattern || PATTERNS[parsedNumber] || PATTERNS.DEFAULT;
+  // Capture 3 digit patterns here
+  const contactPattern = deriveContactPattern(pattern, parsedNumber);
   const patternLength = contactPattern.match(/#/g).length;
   const formattedNumber = formatTelText(phoneNumber, contactPattern, extension);
 
-  if (!phoneNumber || phoneNumber.length !== patternLength) {
-    throw new Error(
-      `Contact number "${phoneNumber}" does not match the pattern (${contactPattern})`,
-    );
+  // Show nothing if no phone number was provided.
+  if (!phoneNumber) {
+    console.warn('Contact number is missing so the <Telephone /> component did not render.');
+    return null;
   }
 
   const formattedAriaLabel =
