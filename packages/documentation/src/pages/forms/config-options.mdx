@@ -40,6 +40,68 @@ const formConfig = {
   // necessary updates to the data or form schema ahead of time.
   prefillTransformer: (pages, formData, metadata ) => { pages, formData, metadata },
 
+  // An array of functions that are applied during a form's lifecycle
+  // The number of migration functions should be equal to the version
+  migrations: []
+
+  version: 0
+  
+  // Path to vets-api controller for form submission
+  submitUrl: `${environment.API_URL}/v0/health_care_applications`
+  
+  // Function that is called upon form submission
+  submit:  (form, formConfig) => {}
+  
+  transformForSubmit:
+
+  // These properties are typically passed into a SaveInProgessIntro component in the form's introduction property
+  // <SaveInProgressIntro
+        prefillEnabled={props.route.formConfig.prefillEnabled}
+        messages={props.route.formConfig.savedFormMessages}
+        verifyRequiredPrefill={props.route.formConfig.verifyRequiredPrefill}
+        downtime={this.props.route.formConfig.downtime}
+    >
+  //
+  
+  savedFormMessages: {
+    notFound: errorMessages.savedFormNotFound,
+    noAuth: errorMessages.savedFormNoAuth,
+  }
+  prefillEnabled: false
+  downtime:
+  verifyRequiredPrefill: false
+  
+  
+  confirmation:
+  
+  preSubmitInfo:
+  
+  footerContent:
+  
+  getHelp:
+  
+  errorText:
+      
+  intentToFileUrl:
+  
+  onFormLoaded:
+  
+  formSavedPage:
+  
+  additionalRoutes:
+  
+  submitErrorText:
+  
+  authorize:
+  
+  getAuthorizationState:
+  
+  authorizationMessage:
+  
+  submissionError:
+  
+  customText:
+  
   // The object that contains the configuration for each chapter.
   chapters: {
     // Each property is the key for a chapter.
