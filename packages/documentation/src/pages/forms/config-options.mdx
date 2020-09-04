@@ -67,33 +67,26 @@ const formConfig = {
   submissionError: ({ form }) => {}
 
 
-  // These properties are typically passed into a SaveInProgressIntro component in the form's introduction container
+  // The following properties are typically passed into a SaveInProgressIntro component in the form's introduction container
   // <SaveInProgressIntro
         prefillEnabled={props.route.formConfig.prefillEnabled}
         messages={props.route.formConfig.savedFormMessages}
         verifyRequiredPrefill={props.route.formConfig.verifyRequiredPrefill}
         downtime={this.props.route.formConfig.downtime}
     >
-  //
-  //
   savedFormMessages: {
     notFound: errorMessages.savedFormNotFound,
     noAuth: errorMessages.savedFormNoAuth,
   }
-
-  //
   prefillEnabled: false
-
-  //
   downtime: {
     requiredForPrefill: true,
     dependencies: [services.evss, services.emis, services.mvi, services.vet360],
     message: DowntimeMessage,
   },
-
-  //
   verifyRequiredPrefill: false
-  
+
+
   // Additional information to be displayed on the Review page
   // See platform/forms/preSubmitInfo for standard object
   preSubmitInfo: {}
