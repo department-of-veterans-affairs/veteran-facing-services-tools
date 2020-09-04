@@ -8,6 +8,7 @@ tags: fields, reviewcardfield
 ## In this guide
 
 - [Using the `ReviewCardField`](#using-the-revewcardfield)
+- [Misc Field options](#misc-field-options)
 
 ## Using the ReviewCardField
 
@@ -97,7 +98,6 @@ contactInfo: {
       startInEdit: false,
       volatileData: false,
       itemName: 'Name',
-      itemNameLowerCase: 'name',
     },
     phone: phoneUI('Home phone'),
     emailAddress: emailUI(),
@@ -112,8 +112,7 @@ contactInfo: {
 - `volatileData` - If this is truthy, the component pattern changes slightly so only completely new data can be entered, but not edited. This is useful for bank account information.
 - `reviewTitle` - The title shown on the review card. Defaults to `'ui:title'`
 - `editTitle` - The title shown on the edit card. Defaults to `'ui:title'`
-- `itemName` - The name of the set of data in the card. This shows up as the title of the data set and may be in title case.
-- `itemNameLowerCase` - The name of the set of data. This shows up as a `"New {itemNameLowerCase || itemName}"` button or `"Add additional {itemNameLowerCase || itemName}"`, only if `volatileData` is set to `true`. This is included in addition to `itemName` because converting title-case to lower case isn't always a simple process, e.g. abbreviations and certain words need to be capitalized ("Veteran").
+- `itemName` - The name of the set of data in the card. This shows up as a "New {itemName}" button, only if `volatileData` is set to `true`.
 
 ### `schema`
 
@@ -133,3 +132,24 @@ properties: {
   },
 },
 ```
+
+
+## Misc Field options
+
+### `addAnotherLabel`
+
+- Only applies when setting a schema type to `array`.
+- The `ArrayField` code will add an "Add Another" button with a suffix from `itemName` (usually in title-case)
+- Including an `addAnotherLabel` replaces the add another button text:
+
+  ```js
+  names: {
+    'ui:title': 'Bunch of names',
+    'ui:options': {
+      itemName: 'Name', // title case
+      addAnotherLabel: 'Add another name' // sentence case
+    }
+  }
+  ```
+
+  Results in a title of "New Name" & a button containing "Add another name"
