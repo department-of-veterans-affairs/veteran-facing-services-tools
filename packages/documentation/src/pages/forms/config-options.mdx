@@ -44,17 +44,30 @@ const formConfig = {
   // The number of migration functions should be equal to the version
   migrations: []
 
+  // Indicates the version of a form, this should be increased when a migration is required
   version: 0
-  
+
+
+  // The following are properties used during form submission
+  //
   // Path to vets-api controller for form submission
   submitUrl: `${environment.API_URL}/v0/health_care_applications`
   
   // Function that is called upon form submission
   submit:  (form, formConfig) => {}
-  
-  transformForSubmit:
 
-  // These properties are typically passed into a SaveInProgessIntro component in the form's introduction property
+  // Called during form submission to transform submitted schema data
+  // Calling transformForSubmit in platform/forms-system/src/js/helpers will remove view fields from the schema data
+  transformForSubmit: (formConfig, form) {}
+
+  // Component use as part of the default error message if submission of the form fails
+  errorText: ''
+
+  // Component that replaces the default error message component if submission of the form fails
+  submissionError: ({ form }) => {}
+
+
+  // These properties are typically passed into a SaveInProgressIntro component in the form's introduction container
   // <SaveInProgressIntro
         prefillEnabled={props.route.formConfig.prefillEnabled}
         messages={props.route.formConfig.savedFormMessages}
@@ -62,45 +75,68 @@ const formConfig = {
         downtime={this.props.route.formConfig.downtime}
     >
   //
-  
+  //
   savedFormMessages: {
     notFound: errorMessages.savedFormNotFound,
     noAuth: errorMessages.savedFormNoAuth,
   }
+
+  //
   prefillEnabled: false
-  downtime:
+
+  //
+  downtime: {
+    requiredForPrefill: true,
+    dependencies: [services.evss, services.emis, services.mvi, services.vet360],
+    message: DowntimeMessage,
+  },
+
+  //
   verifyRequiredPrefill: false
   
-  
-  confirmation:
-  
-  preSubmitInfo:
-  
-  footerContent:
-  
-  getHelp:
-  
-  errorText:
-      
-  intentToFileUrl:
-  
-  onFormLoaded:
-  
-  formSavedPage:
-  
-  additionalRoutes:
-  
-  submitErrorText:
-  
-  authorize:
-  
-  getAuthorizationState:
-  
-  authorizationMessage:
-  
-  submissionError:
-  
-  customText:
+  // Additional information to be displayed on the Review page
+  // See platform/forms/preSubmitInfo for standard object
+  preSubmitInfo: {}
+
+  // Content to be displayed at bottom of a form, see platform/forms/components/FormFooter for standard object
+  footerContent: FormFooter
+
+  // Component that is displayed as part of standard footerContent property
+  getHelp: GetHelpComponent
+
+  // Function called during the loading of a form
+  onFormLoaded: ({formData, savedForms, returnUrl, formConfig, router }) => {}
+
+  // Component displayed when a form has been saved
+  // If not provided platform/forms/save-in-progress/FormSaved.jsx is used instead
+  formSavedPage: FormSaved
+
+  // Provides additional routes that are not found within the page lists
+  // introduction and review-and-submit pages are added in automatically
+  additionalRoutes: [
+      {
+          path: 'additional-route',
+          component: AdditionalComponent,
+          pageKey: 'additional-route',
+          depends: () => {},
+      }
+  ]
+
+  // Functions and string properties used in platform/forms/components/AuthorizationComponent.jsx for form 686
+  authorize: () => {}
+  getAuthorizationState: () => {}
+  authorizationMessage: ''
+
+  // Custom text values that will be used through out a form
+  customText: {
+    reviewPageTitle: 'Review order details',
+    appSavedSuccessfullyMessage: 'Order has been saved.',
+    startNewAppButtonText: 'Start a new order',
+    continueAppButtonText: 'Continue your order',
+    finishAppLaterMessage: 'Finish this order later.',
+    appType: 'order',
+    appAction: 'placing your order',
+  },
   
   // The object that contains the configuration for each chapter.
   chapters: {
