@@ -42,29 +42,29 @@ const formConfig = {
 
   // An array of functions that are applied during a form's lifecycle
   // The number of migration functions should be equal to the version
-  migrations: []
+  migrations: [],
 
   // Indicates the version of a form, this should be increased when a migration is required
-  version: 0
+  version: 0,
 
 
   // The following are properties used during form submission
   //
   // Path to vets-api controller for form submission
-  submitUrl: `${environment.API_URL}/v0/health_care_applications`
+  submitUrl: `${environment.API_URL}/v0/health_care_applications`,
   
   // Function that is called upon form submission
-  submit:  (form, formConfig) => {}
+  submit:  (form, formConfig) => {},
 
   // Called during form submission to transform submitted schema data
   // Calling transformForSubmit in platform/forms-system/src/js/helpers will remove view fields from the schema data
-  transformForSubmit: (formConfig, form) {}
+  transformForSubmit: (formConfig, form) => {},
 
   // Component use as part of the default error message if submission of the form fails
-  errorText: ''
+  errorText: '',
 
   // Component that replaces the default error message component if submission of the form fails
-  submissionError: ({ form }) => {}
+  submissionError: ({ form }) => {},
 
 
   // The following properties are typically passed into a SaveInProgressIntro component in the form's introduction container
@@ -77,32 +77,32 @@ const formConfig = {
   savedFormMessages: {
     notFound: errorMessages.savedFormNotFound,
     noAuth: errorMessages.savedFormNoAuth,
-  }
-  prefillEnabled: false
+  },
+  prefillEnabled: false,
   downtime: {
     requiredForPrefill: true,
     dependencies: [services.evss, services.emis, services.mvi, services.vet360],
     message: DowntimeMessage,
   },
-  verifyRequiredPrefill: false
+  verifyRequiredPrefill: false,
 
 
   // Additional information to be displayed on the Review page
   // See platform/forms/preSubmitInfo for standard object
-  preSubmitInfo: {}
+  preSubmitInfo: {},
 
   // Content to be displayed at bottom of a form, see platform/forms/components/FormFooter for standard object
-  footerContent: FormFooter
+  footerContent: FormFooter,
 
   // Component that is displayed as part of standard footerContent property
-  getHelp: GetHelpComponent
+  getHelp: GetHelpComponent,
 
   // Function called during the loading of a form
-  onFormLoaded: ({formData, savedForms, returnUrl, formConfig, router }) => {}
+  onFormLoaded: ({formData, savedForms, returnUrl, formConfig, router }) => {},
 
   // Component displayed when a form has been saved
   // If not provided platform/forms/save-in-progress/FormSaved.jsx is used instead
-  formSavedPage: FormSaved
+  formSavedPage: FormSaved,
 
   // Provides additional routes that are not found within the page lists
   // introduction and review-and-submit pages are added in automatically
@@ -116,9 +116,9 @@ const formConfig = {
   ],
 
   // Functions and string properties used in platform/forms/components/AuthorizationComponent.jsx for form 686
-  authorize: () => {}
-  getAuthorizationState: () => {}
-  authorizationMessage: ''
+  authorize: () => {},
+  getAuthorizationState: () => {},
+  authorizationMessage: '',
 
   // Custom text values that will be used through out a form
   customText: {
@@ -220,11 +220,11 @@ const formConfig = {
         }
       }
     }
-  }
+  },
 
   // Deprecated properties still in use in applications/disability-benefits/all-claims/config/form.js
-  intentToFileUrl
-  submitErrorText
+  intentToFileUrl,
+  submitErrorText,
 }
 
 export default formConfig
