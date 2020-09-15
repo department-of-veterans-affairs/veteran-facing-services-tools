@@ -6177,12 +6177,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
-graphql@^14.5.3:
-  version "14.5.3"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.3.tgz#e025851cc413e153220f4edbbb25d49f55104fa0"
-  integrity sha512-W8A8nt9BsMg0ZK2qA3DJIVU6muWhxZRYLTmc+5XGwzWzVdUdPVlAAg5hTBjiTISEnzsKL/onasu6vl3kgGTbYg==
-  dependencies:
-    iterall "^1.2.2"
+graphql@^15.3.0:
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 growl@1.10.3:
   version "1.10.3"
@@ -7192,11 +7190,6 @@ istanbul-reports@^2.2.2:
   integrity sha512-ZFuTdBQ3PSaPnm02aEA4R6mzQ2AF9w03CYiXADzWbbE48v/EFOWF4MaX4FT0NRdqIk48I7o0RPi+S8TMswaCbQ==
   dependencies:
     handlebars "^4.1.0"
-
-iterall@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
-  integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
 
 jest-changed-files@^24.7.0:
   version "24.7.0"
