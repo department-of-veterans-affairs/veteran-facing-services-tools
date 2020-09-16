@@ -53,7 +53,7 @@
     "axe-core": "^3.2.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.0.2",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-istanbul": "^5.1.1",
