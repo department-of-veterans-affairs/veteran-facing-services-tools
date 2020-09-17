@@ -166,14 +166,21 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     formContext,
     renderedProperties,
     title,
-    editButton,
+    defaultEditButton,
   }) => (
     <>
       <div className="form-review-panel-page-header-row">
         <h3 className="form-review-panel-page-header vads-u-font-size--h5">
           {title}
         </h3>
-        // use {editButton} (JSX), or create a custom edit button
+        /* use the `defaultEditButton` function, or create a custom edit button
+          if the value is not included, it will fall back to its default
+          {defaultEditButton({
+            label: `Edit ${title}`, // aria-label value (default value)
+            onEdit: formContext.onEdit, // onClick function (default function)
+            text: 'Edit', // button textContent (default value)
+          )}
+        */
         <button
           type="button"
           className="edit-btn primary-outline"
