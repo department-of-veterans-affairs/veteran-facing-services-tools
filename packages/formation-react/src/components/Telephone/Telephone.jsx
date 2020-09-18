@@ -28,7 +28,7 @@ export const CONTACTS = Object.freeze({
 
 // Patterns used in formatting visible text
 export const PATTERNS = {
-  911: '###', // needed to match 911 CONTACT
+  '3_DIGIT': '###',
   DEFAULT: '###-###-####',
   OUTSIDE_US: '+1-###-###-####',
 };
@@ -52,14 +52,21 @@ const parseNumber = number =>
 
 /**
  * Insert the provided number into the pattern
- * @param {string} num - parsed number string (no non-digits included)
+ * @param {string} phoneNumber - parsed number string (no non-digits included)
  * @param {string} pattern - provided pattern (using "#") for link text
  * @return {string} - formatted phone number for link text
  */
 // Create link text from pattern
-const formatTelText = (num, pattern) => {
+const formatTelText = (phoneNumber, pattern) => {
+  const patternLength = pattern.match(/#/g).length;
+
+  // If the pattern does not match the phone number, return the raw phone number.
+  if (phoneNumber.length !== patternLength) {
+    return phoneNumber;
+  }
+
   let i = 0;
-  return pattern.replace(/#/g, () => num[i++] || '');
+  return pattern.replace(/#/g, () => phoneNumber[i++] || '');
 };
 
 /**
@@ -82,6 +89,28 @@ const formatTelLabel = number =>
     .filter(n => n)
     .map(formatTelLabelBlock)
     .join('. ');
+
+/**
+ * Derive the contact pattern value
+ * @param {string} pattern (optional) - Link text format pattern, using "#" as
+ *  the digit placeholder
+ * @param {string} parsedNumber (optional) - Telephone number with non-digit characters
+ * stripped out
+ */
+const deriveContactPattern = (pattern, parsedNumber) => {
+  // Use their pattern if provided.
+  if (pattern) {
+    return pattern;
+  }
+
+  // If the number is 3 digits, use that pattern as the default.
+  if (parsedNumber && parsedNumber.length === PATTERNS['3_DIGIT'].length) {
+    return PATTERNS['3_DIGIT'];
+  }
+
+  // Use the default pattern.
+  return PATTERNS.DEFAULT;
+}
 
 /**
  * Telephone component
@@ -109,20 +138,20 @@ function Telephone({
   ariaLabel = '', // custom aria-label
   onClick = () => {},
   children,
+  notClickable = false,
 }) {
   // strip out non-digits for use in href: "###-### ####" => "##########"
   const parsedNumber = parseNumber(contact.toString());
   const phoneNumber = CONTACTS[parsedNumber] || parsedNumber;
 
-  // Capture "911" pattern here
-  const contactPattern = pattern || PATTERNS[parsedNumber] || PATTERNS.DEFAULT;
-  const patternLength = contactPattern.match(/#/g).length;
-  const formattedNumber = formatTelText(phoneNumber, contactPattern, extension);
+  // Capture 3 digit patterns here
+  const contactPattern = deriveContactPattern(pattern, parsedNumber);
+  const formattedNumber = formatTelText(phoneNumber, contactPattern);
 
-  if (!phoneNumber || phoneNumber.length !== patternLength) {
-    throw new Error(
-      `Contact number "${phoneNumber}" does not match the pattern (${contactPattern})`,
-    );
+  // Show nothing if no phone number was provided.
+  if (!phoneNumber) {
+    console.warn('Contact number is missing so the <Telephone /> component did not render.');
+    return null;
   }
 
   const formattedAriaLabel =
@@ -140,6 +169,22 @@ function Telephone({
     // solution - see https://dsva.slack.com/archives/C8E985R32/p1589814301103200
     extension ? `,${extension}` : ''
   }`;
+
+  if (notClickable) {
+    return (
+      <>
+        <span
+          className={`no-wrap ${className}`}
+          aria-hidden="true"
+        >
+          {children || `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
+        </span>
+        <span className="vads-u-visibility--screen-reader">
+          {formattedAriaLabel}
+        </span>
+      </>
+    )
+  }
 
   return (
     <a
@@ -176,7 +221,7 @@ Telephone.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Pattern use used while formatting the contact number. Use provided
+   * Pattern is used while formatting the contact number. Use provided
    * PATTERNS, or create a custom one using "#" as a placeholder for each
    * number. Note that the number of "#"'s in the pattern <em>must</em> equal
    * the contact number length or an error is thrown.
@@ -187,6 +232,12 @@ Telephone.propTypes = {
    * Custom aria-label string.
    */
   ariaLabel: PropTypes.string,
+
+  /**
+   * Using this prop, the phone number becomes a non-clickable presentational
+   * span.
+   */
+  notClickable: PropTypes.bool,
 
   /**
    * Custom onClick function

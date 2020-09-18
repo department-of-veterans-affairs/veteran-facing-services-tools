@@ -24,27 +24,26 @@ describe('Widget <Telephone />', () => {
     expect(wrapper.text()).to.equal('800-555-1000');
     wrapper.unmount();
   });
-  it('should throw an error when number does not match pattern', () => {
+  it('should show the raw number if no number is provided', () => {
     expect(() => {
       const wrapper = shallow(<Telephone />);
+      expect(wrapper.text()).to.equal('');
       wrapper.unmount();
-    }).to.throw('Contact number "" does not match the pattern (###-###-####)');
+    })
   });
-  it('should throw an error when number is less than 10-digits', () => {
+  it('should show the raw number if the number is less than 10-digits', () => {
     expect(() => {
       const wrapper = shallow(<Telephone contact={4321} />);
+      expect(wrapper.text()).to.equal('4321');
       wrapper.unmount();
-    }).to.throw(
-      `Contact number "4321" does not match the pattern (###-###-####)`,
-    );
+    })
   });
-  it('should throw an error when number is more than 10-digits', () => {
+  it('should show the raw number if the number is more than 10-digits', () => {
     expect(() => {
       const wrapper = shallow(<Telephone contact="01234567891" />);
+      expect(wrapper.text()).to.equal('01234567891');
       wrapper.unmount();
-    }).to.throw(
-      'Contact number "01234567891" does not match the pattern (###-###-####)',
-    );
+    })
   });
 
   // known numbers
@@ -168,6 +167,18 @@ describe('Widget <Telephone />', () => {
     expect(props.href).to.equal('tel:+18884424551');
     expect(props['aria-label']).to.equal('8 8 8. 4 4 2. 4 5 5 1.');
     expect(wrapper.text()).to.equal('1-888-GI-BILL-1');
+    wrapper.unmount();
+  });
+
+  // notClickable
+  it('should render a span instead of an a tag', () => {
+    const wrapper = shallow(
+      <Telephone contact={CONTACTS.GI_BILL} className="foo" notClickable />,
+    );
+    expect(wrapper.exists('span')).to.equal(true);
+    expect(wrapper.exists('a')).to.equal(false);
+    expect(wrapper.text()).to.include('888-442-4551');
+    expect(wrapper.text()).to.include('8 8 8. 4 4 2. 4 5 5 1');
     wrapper.unmount();
   });
 

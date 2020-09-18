@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from './Layout';
 import Sidebar from '../components/sidebar/Sidebar';
-import PageFooter from '../components/pageFooter/PageFooter';
+import EditLink from '../components/EditLink';
+import Layout from './Layout';
 
 /**
- * Layout
+ * SidebarLayout
  *
- * @class Layout
+ * @class SidebarLayout
  * @extends {React.Component}
  */
-export default function SidebarLayout({ children, location }) {
+export default function SidebarLayout({ children, location, pageContext }) {
   return (
     <Layout location={location}>
       <div className="vads-l-row">
@@ -21,7 +21,7 @@ export default function SidebarLayout({ children, location }) {
           className="vads-l-col--8 site-c-content__content docSearch-content"
         >
           {children}
-          <PageFooter location={location} />
+          <EditLink sourceUrl={pageContext.sourceUrl} />
         </div>
       </div>
     </Layout>

@@ -1,8 +1,0 @@
-{
-  "owner": "department-of-veterans-affairs",
-  "repo": "va.gov-team",
-  "directoryPaths": [
-    "platform/engineering/backend/writing-small-prs.md",
-    "platform/engineering/code_review_guidelines.md"
-  ]
-}

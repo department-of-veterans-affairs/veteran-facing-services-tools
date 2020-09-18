@@ -56,13 +56,15 @@ Follow these steps to add and use a new feature toggle in vets-website:
 
 5. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
 
-6. Add the feature toggle name (in camel case) to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js).
+6. Add the feature toggle name to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js).
 
-```js
-const FEATURE_FLAG_NAMES = Object.freeze({
- showYourFeatureName: 'appNameThenYourFeatureName',
-})
-```
+    ```js
+    const FEATURE_FLAG_NAMES = Object.freeze({
+     showYourFeatureName: 'app_name_then_your_feature_name',
+    })
+    ```
+
+    **Note:** The key should be camelCase for use in JavaScript, but the value should exactly match the toggle name in `features.yml`.
 
 7. Submit a PR for each feature. Crosslinking the PRs in a comment will make it easier for the reviewers to check.
 

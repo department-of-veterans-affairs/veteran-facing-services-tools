@@ -1,6 +1,3 @@
-/* eslint-disable */
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     description: `Resources and documentation for Development within the VA.gov project`,
@@ -10,6 +7,34 @@ module.exports = {
   },
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
+    {
+    resolve: "gatsby-plugin-google-tagmanager",
+    options: {
+      id: "GTM-T2ZTDXZ",
+
+      // Include GTM in development.
+      //
+      // Defaults to false meaning GTM will only be loaded in production.
+      includeInDevelopment: false,
+
+      // datalayer to be set before GTM is loaded
+      // should be an object or a function that is executed in the browser
+      //
+      // Defaults to null
+      // defaultDataLayer: { platform: "gatsby" },
+
+      // Specify optional GTM environment details.
+      // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+      // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+      // dataLayerName: "YOUR_DATA_LAYER_NAME",
+
+      // Name of the event that is triggered
+      // on every Gatsby route change.
+      //
+      // Defaults to gatsby-route-change
+      // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+    },
+  },
     {
       resolve: 'gatsby-source-git',
       options: {
@@ -44,13 +69,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `../formation-react/src/components`,
-        name: 'components',
+        name: 'formation-react',
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md'],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve('./src/layouts/SidebarLayout.jsx'),
@@ -88,8 +112,6 @@ module.exports = {
         plugins: [],
       },
     },
-    // `github-api-pages`,
-    `mdx-pages`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
@@ -111,12 +133,11 @@ module.exports = {
                 node.context.sourceUrl &&
                 node.context.title
               ) {
-                // Search by title derived from documents pulled from the GitHub repo.
+                // Use a derived title for docs pulled from external sources.
                 return node.context.title;
-              } else {
-                console.info('Page title missing from front matter.', node);
               }
 
+              console.info('Page title missing from front matter.', node);
               return '';
             },
             tags: (node) => {
