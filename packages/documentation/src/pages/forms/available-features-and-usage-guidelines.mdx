@@ -415,10 +415,11 @@ When you build a form with more than one chapter (shown by the segments in a pro
 
 The review page renders the form data in review mode automatically. However, you can pass some specific options to the form config to customize some review features.
 
-This property is nested directly under `uiSchema`:
+These properties are nested directly under `uiSchema`:
 
 - `'ui:reviewWidget'`: takes a widget component to render on the review page for that field. Default review widgets are automatically rendered, so only use this if you need to customize the review widget that is used.
 - `'ui:reviewField'`: allows a custom review component to be built for each field on the review page. It is given the result of the `'ui:reviewWidget'` within the `children` parameter, so this value must be rendered within the custom function.
+- `'ui:objectViewField'`: allows adding a custom wrapper around the rendered `ui:reviewField` content. It should render a header, edit button and passed in `renderedProperties`.
 
 These properties are nested under `uiSchema: { 'ui:options': {} }`:
 
