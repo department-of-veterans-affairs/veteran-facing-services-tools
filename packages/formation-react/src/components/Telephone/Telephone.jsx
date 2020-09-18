@@ -13,6 +13,7 @@ export const CONTACTS = Object.freeze({
   DS_LOGON_TTY: '8663632883', // Defense Manpower Data Center TTY
   GI_BILL: '8884424551', // Education Call Center (1-888-GI-BILL-1)
   GO_DIRECT: '8003331795', // Go Direct/Direct Express (Treasury)
+  HEALTHCARE_ELIGIBILITY_CENTER: '8554888440', // VA Healthcare Eligibility Center (Eligibility Division)
   HELP_DESK: '8555747286', // VA Help desk
   HELP_TTY: '8008778339', // VA Help Desk TTY
   MY_HEALTHEVET: '8773270022', // My HealtheVet help desk
