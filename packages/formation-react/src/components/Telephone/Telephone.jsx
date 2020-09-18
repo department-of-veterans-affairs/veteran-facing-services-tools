@@ -13,6 +13,7 @@ export const CONTACTS = Object.freeze({
   DS_LOGON_TTY: '8663632883', // Defense Manpower Data Center TTY
   GI_BILL: '8884424551', // Education Call Center (1-888-GI-BILL-1)
   GO_DIRECT: '8003331795', // Go Direct/Direct Express (Treasury)
+  HEALTHCARE_ELIGIBILITY_CENTER: '8554888440', // VA Healthcare Eligibility Center (Eligibility Division)
   HELP_DESK: '8555747286', // VA Help desk
   HELP_TTY: '8008778339', // VA Help Desk TTY
   MY_HEALTHEVET: '8773270022', // My HealtheVet help desk
@@ -109,7 +110,7 @@ const deriveContactPattern = (pattern, parsedNumber) => {
 
   // Use the default pattern.
   return PATTERNS.DEFAULT;
-}
+};
 
 /**
  * Telephone component
@@ -149,7 +150,9 @@ function Telephone({
 
   // Show nothing if no phone number was provided.
   if (!phoneNumber) {
-    console.warn('Contact number is missing so the <Telephone /> component did not render.');
+    console.warn(
+      'Contact number is missing so the <Telephone /> component did not render.',
+    );
     return null;
   }
 
@@ -172,17 +175,15 @@ function Telephone({
   if (notClickable) {
     return (
       <>
-        <span
-          className={`no-wrap ${className}`}
-          aria-hidden="true"
-        >
-          {children || `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
+        <span className={`no-wrap ${className}`} aria-hidden="true">
+          {children ||
+            `${formattedNumber}${extension ? `, ext. ${extension}` : ''}`}
         </span>
         <span className="vads-u-visibility--screen-reader">
           {formattedAriaLabel}
         </span>
       </>
-    )
+    );
   }
 
   return (
