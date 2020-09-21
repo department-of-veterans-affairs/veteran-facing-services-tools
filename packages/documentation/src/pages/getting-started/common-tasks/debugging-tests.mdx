@@ -7,7 +7,11 @@ tags: unit test, debugging, mocha, e2e
 
 *** Unit Tests ***
 
-- You can put a console.log in your test code. When you run the test, the output will be in the command line.
+- To run tests with some extra debugging info, you can pass a `--log-level`:
+
+        yarn test:unit --log-level debug
+    
+- You can put a `console.log()` in your test code. When you run the test, the output will be in the command line.
 - Use Chrome devtools to debug unit tests
     1. Go to [chrome://inspect/](chrome://inspect/).
     2. Add a `debugger` statement in your test code and if you want to run only your test add the **.only** on your test like so. Make sure to remove the **.only** once you are done.
