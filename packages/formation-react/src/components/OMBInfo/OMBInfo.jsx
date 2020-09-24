@@ -69,9 +69,11 @@ class OMBInfo extends React.Component {
 
     return (
       <div className="omb-info">
-        <div>
-          Respondent burden: <strong>{resBurden} minutes</strong>
-        </div>
+        {resBurden && (
+          <div>
+            Respondent burden: <strong>{resBurden} minutes</strong>
+          </div>
+        )}
         <div>
           OMB Control #: <strong>{ombNumber}</strong>
         </div>
