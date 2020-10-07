@@ -32,14 +32,12 @@ class AlertBox extends Component {
   }
 
   scrollToAlert = () => {
-    if (!this.props.isVisible || !this.props.scrollOnShow) {
-      return;
-    }
-
-    if (this._ref) {
+    // Without using the setTimeout, React has not added the element
+    // to the DOM when it calls scrollIntoView()
+    if (this.props.isVisible && this.props.scrollOnShow) {
       clearTimeout(this.scrollToAlertTimeout);
       this.scrollToAlertTimeout = setTimeout(() => {
-        this._ref.scrollIntoView({
+        this._ref?.scrollIntoView({
           block: this.props.scrollPosition,
           behavior: 'smooth',
         });
