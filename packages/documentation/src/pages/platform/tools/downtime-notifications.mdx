@@ -15,10 +15,36 @@ Downtime Notications are a mechanism for handling outages of external services i
     1. Displaying a dismissible modal informing the user of upcoming downtime and rendering the application as usual if the maintenance window starts within the hour.
     1. Rendering an alert banner informing the user of active downtime instead of rendering the application if the maintenance window has already started.
 
-## How to use
-1. Identify required-services for the application
-    - These services should be added into [externalServices](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/monitoring/DowntimeNotification/config/externalServices.js) if they have not already been. The value must match that in the devops [config](https://github.com/department-of-veterans-affairs/devops/blob/a4b5432061ae60a4f77952bbe5f668a1355ee007/ansible/deployment/config/vets-api/prod-settings.local.yml.j2#L232).
+## How to use 
+
+Prerequisites 
+- Identify required-services for the application
+    - These services should be available in [externalServices](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/monitoring/DowntimeNotification/config/externalServices.js) if they have not already been. The value must match that in the devops [config](https://github.com/department-of-veterans-affairs/devops/blob/a4b5432061ae60a4f77952bbe5f668a1355ee007/ansible/deployment/config/vets-api/prod-settings.local.yml.j2#L232).
     - These dependencies may not be directly accessed by your application, but are more likely to be dependencies of the API method(s) consumed by your application. For example, the Search app requires Search.gov to function, even though it doesn't directly hit Search.gov.
+    
+### Forms applications
+1. Import the services enum
+```
+import { externalServices } from 'platform/monitoring/DowntimeNotification'
+```
+2. Add a `downtime` property and `dependencies` array to the root of the form config. For example: 
+```
+ downtime: {
+    dependencies: [externalServices.evss, externalServices.emis, externalServices.mvi, externalServices.vet360],
+  },
+``` 
+3. Add additional properties to `downtime` as needed:
+  - `message`
+    - a react component displayed in place of the default downtime message 
+    - custom downtime messages are discouraged 
+  - `requiredForPrefill`
+    - `true`: 
+      - given a user is logged in, when any services in the dependencies array are down, then display downtime notification before starting a form
+      - given a user is logged in and has a saved form, when any services in the dependency array are down, then display the downtime notification before application submission
+      - given a user is not logged in, 
+    - `false` [default]: when any services in the dependencies array are down, then display the downtime notification before application submission
+
+### React applications 
 1. Import the Downtime Notification React component into the application React code, usually the topmost container.
 1. In the render method, render a Downtime Notification React component passing the identified dependencies as props and the affected components as React children.
 
