@@ -18,4 +18,7 @@ updates:
       - dependency-name: "gatsby-plugin-react-helmet"
       - dependency-name: "enzyme-adapter-react-16"
       - dependency-name: "gatsby-remark-mermaid"
+      - dependency-name: "eslint-plugin-prettier"
+        ## Ignore major update version for now
+        versions: ["3.x"]
       
