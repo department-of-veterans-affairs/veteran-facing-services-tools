@@ -81,9 +81,10 @@ class CollapsiblePanel extends React.Component {
 
 CollapsiblePanel.propTypes = {
   /**
-   * panel label
+   * The title of the collapsible panel.
    */
   panelName: PropTypes.string.isRequired,
+
   /**
    * If set to true, panel content will be borderless
    */
