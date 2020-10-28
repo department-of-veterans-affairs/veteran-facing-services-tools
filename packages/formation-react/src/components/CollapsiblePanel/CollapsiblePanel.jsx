@@ -86,7 +86,7 @@ CollapsiblePanel.propTypes = {
   panelName: PropTypes.string.isRequired,
 
   /**
-   * If set to true, panel content will be borderless
+   * If set to true, panel content will be borderless.
    */
   borderless: PropTypes.bool,
 
