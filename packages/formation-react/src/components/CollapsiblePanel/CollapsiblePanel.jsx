@@ -88,6 +88,11 @@ CollapsiblePanel.propTypes = {
    * If set to true, panel content will be borderless
    */
   borderless: PropTypes.bool,
+
+  /**
+   * If set to true, the panel will default to open.
+   */
+  startOpen: PropTypes.bool,
 };
 
 export default CollapsiblePanel;
