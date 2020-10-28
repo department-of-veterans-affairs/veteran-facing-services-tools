@@ -19,5 +19,8 @@ const defaultArgs = {
 export const Default = Template.bind({});
 Default.args = { ...defaultArgs };
 
+export const StartOpen = Template.bind({});
+StartOpen.args = { ...defaultArgs, startOpen: true };
+
 export const Borderless = Template.bind({});
 Borderless.args = { ...defaultArgs, borderless: true };
