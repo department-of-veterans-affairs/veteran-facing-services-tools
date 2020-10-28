@@ -25,8 +25,6 @@ const Template = (args) => {
 
 const defaultArgs = {
   buttonText: 'Helpdesk',
-  // cssClass: 'va-dropdown',
-  // isOpen: this.state?.open,
   isOpen: false,
 };
 
