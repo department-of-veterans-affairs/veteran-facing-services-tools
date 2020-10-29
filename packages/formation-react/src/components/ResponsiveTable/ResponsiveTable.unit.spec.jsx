@@ -3,7 +3,6 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import ResponsiveTable from './ResponsiveTable';
-import { createId } from '../../utils/helpers';
 
 describe('<ResponsiveTable>', () => {
   it('should render', () => {
@@ -53,7 +52,7 @@ describe('<ResponsiveTable>', () => {
     const column1 = wrapper.find('thead > tr > th');
     expect(column1).to.have.lengthOf(1);
     expect(column1.html()).to.contain(fields[0]);
-    expect(column1.key()).to.equal(createId(fields[0]));
+    expect(column1.key()).to.equal(fields[0]);
     expect(column1.props().role).to.equal('columnheader');
     expect(column1.props().scope).to.equal('col');
 
@@ -113,15 +112,13 @@ describe('<ResponsiveTable>', () => {
       />,
     );
 
-    const column1 = wrapper.find(`.${createId(column1Header)}-cell`).first();
+    const column1 = wrapper.find(`.boo-cell`).first();
     expect(column1).to.have.lengthOf(1);
     expect(column1.html()).to.contain(row1Data[column1Header]);
     expect(column1.props().scope).to.equal('row');
     expect(column1.props().role).to.equal('rowheader');
     expect(column1.props().tabIndex).to.equal('-1');
-    expect(column1.key()).to.equal(
-      `${row1Data.key}-${createId(column1Header)}`,
-    );
+    expect(column1.key()).to.equal(`${row1Data.key}-boo`);
 
     const dfn = column1.find('dfn');
     expect(dfn.matchesElement(<dfn>{`${column1Header}: `}</dfn>)).to.equal(
@@ -155,16 +152,14 @@ describe('<ResponsiveTable>', () => {
       />,
     );
 
-    const column2 = wrapper.find(`.${createId(column2Header)}-cell`).first();
+    const column2 = wrapper.find(`.${column2Header}-cell`).first();
     expect(column2).to.have.lengthOf(1);
 
     expect(column2.html()).to.contain(row1Data[column2Header]);
     expect(column2.props().scope).to.be.undefined;
     expect(column2.props().role).to.equal('cell');
     expect(column2.props().tabIndex).to.be.undefined;
-    expect(column2.key()).to.equal(
-      `${row1Data.key}-${createId(column2Header)}`,
-    );
+    expect(column2.key()).to.equal(`${row1Data.key}-${column2Header}`);
 
     const dfn = column2.find('dfn');
     expect(dfn.matchesElement(<dfn>{`${column2Header}: `}</dfn>)).to.equal(

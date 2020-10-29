@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { createId } from '../utils/helpers';
+
+const createId = (name) => name?.toLowerCase().replace(/\s/g, '-');
 
 class ResponsiveTable extends React.Component {
   renderHeader = (column) => {
