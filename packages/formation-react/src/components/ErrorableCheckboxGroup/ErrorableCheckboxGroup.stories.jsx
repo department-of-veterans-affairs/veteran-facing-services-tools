@@ -16,7 +16,6 @@ const Template = (args) => <ErrorableCheckboxGroup {...args} />;
 const defaultArgs = {
   label: 'Errorable Checkbox Group',
   errorMessage: 'This is an error message',
-  label: 'Errorable Checkboxes',
   required: true,
   options: [
     {
