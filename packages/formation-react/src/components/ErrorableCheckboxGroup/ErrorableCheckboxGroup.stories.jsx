@@ -5,15 +5,7 @@ export default {
   title: 'Library/ErrorableCheckboxGroup',
   component: ErrorableCheckboxGroup,
   argTypes: {
-    label: { control: 'text' },
-    id: { control: 'text' },
-    errorMessage: { control: 'text' },
-    label: { control: 'text' },
-    required: { control: 'boolean' },
     options: {
-      control: 'object',
-    },
-    values: {
       control: 'object',
     },
   },
@@ -23,7 +15,6 @@ const Template = (args) => <ErrorableCheckboxGroup {...args} />;
 
 const defaultArgs = {
   label: 'Errorable Checkbox Group',
-  id: 'default',
   errorMessage: 'This is an error message',
   label: 'Errorable Checkboxes',
   required: true,
