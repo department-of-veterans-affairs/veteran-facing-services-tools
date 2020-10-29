@@ -5,9 +5,12 @@ export default {
   title: 'Library/EmergencyBanner',
   component: EmergencyBanner,
   argTypes: {
-    visible: { control: 'boolean' },
-    title: { control: 'text' },
-    content: { control: 'text' },
+    type: {
+      control: {
+        type: 'select',
+        options: ['error', 'undefined'],
+      },
+    },
   },
 };
 
@@ -45,7 +48,7 @@ const defaultArgs = {
 };
 
 export const Default = Template.bind({});
-
 Default.args = {
   ...defaultArgs,
+  type: 'error',
 };
