@@ -4,13 +4,6 @@ import AcceptTermsPrompt from './AcceptTermsPrompt';
 export default {
   title: 'Library/AcceptTermsPrompt',
   component: AcceptTermsPrompt,
-  argTypes: {
-    title: { control: 'text' },
-    headerContent: { control: 'text' },
-    footerContent: { control: 'text' },
-    yesContent: { control: 'text' },
-    termsContent: { control: 'text' },
-  },
 };
 
 const Template = (args) => <AcceptTermsPrompt terms={{ ...args }} />;
