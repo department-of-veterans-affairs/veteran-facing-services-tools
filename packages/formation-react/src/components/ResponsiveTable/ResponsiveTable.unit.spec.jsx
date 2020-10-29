@@ -152,14 +152,14 @@ describe('<ResponsiveTable>', () => {
       />,
     );
 
-    const column2 = wrapper.find(`.${column2Header}-cell`).first();
+    const column2 = wrapper.find(`.column-2-cell`).first();
     expect(column2).to.have.lengthOf(1);
 
     expect(column2.html()).to.contain(row1Data[column2Header]);
     expect(column2.props().scope).to.be.undefined;
     expect(column2.props().role).to.equal('cell');
     expect(column2.props().tabIndex).to.be.undefined;
-    expect(column2.key()).to.equal(`${row1Data.key}-${column2Header}`);
+    expect(column2.key()).to.equal(`${row1Data.key}-column-2`);
 
     const dfn = column2.find('dfn');
     expect(dfn.matchesElement(<dfn>{`${column2Header}: `}</dfn>)).to.equal(
