@@ -52,7 +52,7 @@ describe('<ResponsiveTable>', () => {
     const column1 = wrapper.find('thead > tr > th');
     expect(column1).to.have.lengthOf(1);
     expect(column1.html()).to.contain(fields[0]);
-    expect(column1.key()).to.equal(fields[0]);
+    expect(column1.key()).to.equal('column-1');
     expect(column1.props().role).to.equal('columnheader');
     expect(column1.props().scope).to.equal('col');
 
