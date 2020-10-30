@@ -41,37 +41,37 @@ function ResponsiveTable(props) {
     );
   };
 
-  const renderRow = (item, rowIndex) => (
-    <tr
-      key={rowIndex}
-      className={`${borderClasses} ${rowPaddingClass}`}
-      role="row"
-    >
-      {fields.map((field, index) => (
-        <td
-          data-index={index}
-          className={classNames(borderClasses, {
-            'vads-u-text-align--left': field.alignLeft,
-          })}
-          data-label={`${field.label}:`}
-          key={`${rowIndex}-${field.label}`}
-          role="cell"
-        >
-          {item[field.value] === null ? '---' : item[field.value]}
-        </td>
-      ))}
-    </tr>
-  );
-
   const headers = fields.map(renderHeader);
-  const rows = data.map(renderRow);
 
   return (
     <table aria-labelledby={ariaLabelledBy} className="responsive" role="table">
       <thead>
         <tr role="row">{headers}</tr>
       </thead>
-      <tbody>{rows}</tbody>
+
+      <tbody>
+        {data.map((item, rowIndex) => (
+          <tr
+            key={rowIndex}
+            className={`${borderClasses} ${rowPaddingClass}`}
+            role="row"
+          >
+            {fields.map((field, index) => (
+              <td
+                data-index={index}
+                className={classNames(borderClasses, {
+                  'vads-u-text-align--left': field.alignLeft,
+                })}
+                data-label={`${field.label}:`}
+                key={`${rowIndex}-${field.label}`}
+                role="cell"
+              >
+                {item[field.value] === null ? '---' : item[field.value]}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
