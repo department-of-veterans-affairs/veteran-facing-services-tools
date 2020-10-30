@@ -42,7 +42,6 @@ function ResponsiveTable(props) {
   };
 
   const renderRow = (item, rowIndex) => {
-    let extraClass = '';
     return (
       <tr
         key={rowIndex}
@@ -50,17 +49,15 @@ function ResponsiveTable(props) {
         role="row"
       >
         {fields.map((field, index) => {
-          // This is to right align the amount field and account number fields
+          // The text-align class is to right align the amount field and account number fields
           // since they are numeric
-          if (index === 1 || index === 5) {
-            extraClass = 'vads-u-text-align--left';
-          } else {
-            extraClass = '';
-          }
+
           return (
             <td
               data-index={index}
-              className={`${borderClasses} ${extraClass}`}
+              className={classNames(borderClasses, {
+                'vads-u-text-align--left': field.alignLeft,
+              })}
               data-label={`${field.label}:`}
               key={`${rowIndex}-${field.label}`}
               role="cell"
@@ -93,6 +90,8 @@ ResponsiveTable.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.string,
+      nonSortable: PropTypes.boolean,
+      alignLeft: PropTypes.boolean,
     }),
   ),
   currentSort: PropTypes.shape({

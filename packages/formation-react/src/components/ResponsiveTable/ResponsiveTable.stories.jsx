@@ -56,3 +56,26 @@ Unsortable.args = {
     defaultArgs.fields[1],
   ],
 };
+
+export const AlignLeft = Template.bind({});
+AlignLeft.args = {
+  ...defaultArgs,
+  fields: [
+    {
+      label: 'Cost ($)',
+      value: 'cost',
+      alignLeft: true,
+    },
+    defaultArgs.fields[1],
+  ],
+  data: [
+    {
+      cost: 50.5,
+      column2: 'Food',
+    },
+    {
+      cost: 70.0,
+      column2: 'Utilities',
+    },
+  ],
+};
