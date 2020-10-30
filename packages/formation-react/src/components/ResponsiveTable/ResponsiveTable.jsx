@@ -6,6 +6,8 @@ const borderClasses =
 const rowPaddingClass = 'vads-u-padding-y--2';
 
 function ResponsiveTable(props) {
+  const { currentSort, fields, data, ariaLabelledBy } = props;
+
   const renderHeader = (field) => {
     if (field.nonSortable) {
       return <th key={field.value}>{field.label}</th>;
@@ -13,11 +15,11 @@ function ResponsiveTable(props) {
 
     let sortIcon;
 
-    if (props.currentSort.value === field.value) {
+    if (currentSort.value === field.value) {
       const iconClass = classNames({
         fa: true,
-        'fas fa-caret-down': props.currentSort.order === 'DESC',
-        'fas fa-caret-up': props.currentSort.order === 'ASC',
+        'fas fa-caret-down': currentSort.order === 'DESC',
+        'fas fa-caret-up': currentSort.order === 'ASC',
       });
 
       sortIcon = <i className={iconClass} />;
@@ -39,7 +41,6 @@ function ResponsiveTable(props) {
   };
 
   const renderRow = (item, rowIndex) => {
-    const { fields } = props;
     let extraClass = '';
     return (
       <tr
@@ -71,16 +72,11 @@ function ResponsiveTable(props) {
     );
   };
 
-  const { data, fields } = props;
   const headers = fields.map(renderHeader);
   const rows = data.map(renderRow);
 
   return (
-    <table
-      aria-labelledby={props.ariaLabelledBy}
-      className="responsive"
-      role="table"
-    >
+    <table aria-labelledby={ariaLabelledBy} className="responsive" role="table">
       <thead>
         <tr role="row">{headers}</tr>
       </thead>
