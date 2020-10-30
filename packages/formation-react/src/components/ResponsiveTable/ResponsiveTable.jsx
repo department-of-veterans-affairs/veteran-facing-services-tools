@@ -9,37 +9,36 @@ const rowPaddingClass = 'vads-u-padding-y--2';
 function ResponsiveTable(props) {
   const { currentSort, fields, data, ariaLabelledBy } = props;
 
-  const renderHeader = (field) =>
-    field.nonSortable ? (
-      <th key={field.value}>{field.label}</th>
-    ) : (
-      <th
-        key={field.value}
-        className={borderClasses}
-        role="columnheader"
-        scope="col"
-      >
-        <button className="va-button-link vads-u-font-weight--bold vads-u-color--base vads-u-text-decoration--none">
-          {field.label}
-          {currentSort?.value === field.value && (
-            <i
-              className={classNames({
-                fa: true,
-                'fas fa-caret-down': currentSort.order === 'DESC',
-                'fas fa-caret-up': currentSort.order === 'ASC',
-              })}
-            />
-          )}
-        </button>
-      </th>
-    );
-
-  const headers = fields.map(renderHeader);
-
   return (
     <table aria-labelledby={ariaLabelledBy} className="responsive" role="table">
       <thead>
-        <tr role="row">{headers}</tr>
+        <tr role="row">
+          {fields.map((field) =>
+            field.nonSortable ? (
+              <th key={field.value}>{field.label}</th>
+            ) : (
+              <th
+                key={field.value}
+                className={borderClasses}
+                role="columnheader"
+                scope="col"
+              >
+                <button className="va-button-link vads-u-font-weight--bold vads-u-color--base vads-u-text-decoration--none">
+                  {field.label}
+                  {currentSort?.value === field.value && (
+                    <i
+                      className={classNames({
+                        fa: true,
+                        'fas fa-caret-down': currentSort.order === 'DESC',
+                        'fas fa-caret-up': currentSort.order === 'ASC',
+                      })}
+                    />
+                  )}
+                </button>
+              </th>
+            ),
+          )}
+        </tr>
       </thead>
 
       <tbody>
