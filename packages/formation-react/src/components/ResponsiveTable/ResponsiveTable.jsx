@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 const createId = (name) => name?.toLowerCase().replace(/\s/g, '-');
 
-class ResponsiveTable extends React.Component {
-  renderHeader = (column) => {
+function ResponsiveTable(props) {
+  const renderHeader = (column) => {
     return (
       <th key={`${createId(column)}`} role="columnheader" scope="col">
         {column}
@@ -18,7 +18,7 @@ class ResponsiveTable extends React.Component {
    *            or an object for tables that need options for individual rows
    * @param column The column name
    */
-  renderRowCell = (row, column) => {
+  const renderRowCell = (row, column) => {
     const columnData = row[column];
 
     // This handles the case where columnData is a react.element
@@ -55,8 +55,8 @@ class ResponsiveTable extends React.Component {
     );
   };
 
-  renderRow = (row) => {
-    const { columns } = this.props;
+  const renderRow = (row) => {
+    const { columns } = props;
     const { key, rowClassName } = row;
     return (
       <>
@@ -75,7 +75,7 @@ class ResponsiveTable extends React.Component {
                   tabIndex="-1"
                   key={`${key}-${cellName}`}
                 >
-                  {this.renderRowCell(row, column)}
+                  {renderRowCell(row, column)}
                 </th>
               );
             }
@@ -85,7 +85,7 @@ class ResponsiveTable extends React.Component {
                 role="cell"
                 key={`${key}-${cellName}`}
               >
-                {this.renderRowCell(row, column)}
+                {renderRowCell(row, column)}
               </td>
             );
           })}
@@ -94,23 +94,21 @@ class ResponsiveTable extends React.Component {
     );
   };
 
-  render() {
-    const { columns, data, tableClass } = this.props;
-    const headers = columns.map(this.renderHeader);
-    const classes = classNames('responsive', tableClass);
-    const rows = data.map(this.renderRow);
+  const { columns, data, tableClass } = props;
+  const headers = columns.map(renderHeader);
+  const classes = classNames('responsive', tableClass);
+  const rows = data.map(renderRow);
 
-    return (
-      <table className={classes} role="table">
-        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-        <thead role="rowgroup">
-          <tr role="row">{headers}</tr>
-        </thead>
-        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-        <tbody role="rowgroup">{rows}</tbody>
-      </table>
-    );
-  }
+  return (
+    <table className={classes} role="table">
+      {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+      <thead role="rowgroup">
+        <tr role="row">{headers}</tr>
+      </thead>
+      {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+      <tbody role="rowgroup">{rows}</tbody>
+    </table>
+  );
 }
 
 ResponsiveTable.propTypes = {
