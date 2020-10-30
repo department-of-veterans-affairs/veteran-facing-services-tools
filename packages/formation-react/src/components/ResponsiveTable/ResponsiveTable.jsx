@@ -4,7 +4,8 @@ import classNames from 'classnames';
 
 const createId = (name) => name?.toLowerCase().replace(/\s/g, '-');
 
-function ResponsiveTable(props) {
+function Row({ columns, rowData }) {
+  const { key, rowClassName } = rowData;
   /**
    * @param row The object representing columns in this can either be a string for simple tables, a react element,
    *            or an object for tables that need options for individual rows
@@ -47,48 +48,45 @@ function ResponsiveTable(props) {
     );
   };
 
-  const renderRow = (row) => {
-    const { columns } = props;
-    const { key, rowClassName } = row;
-    return (
-      <>
-        <hr className="responsive-table-row-separator" />
-        <tr key={key} className={rowClassName} role="row">
-          {columns.map((column, index) => {
-            const cellName = createId(column);
+  return (
+    <>
+      <hr className="responsive-table-row-separator" />
+      <tr key={key} className={rowClassName} role="row">
+        {columns.map((column, index) => {
+          const cellName = createId(column);
 
-            if (index === 0) {
-              return (
-                <th
-                  className={`${cellName}-cell`}
-                  scope="row"
-                  /* eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role */
-                  role="rowheader"
-                  tabIndex="-1"
-                  key={`${key}-${cellName}`}
-                >
-                  {renderRowCell(row, column)}
-                </th>
-              );
-            }
+          if (index === 0) {
             return (
-              <td
+              <th
                 className={`${cellName}-cell`}
-                role="cell"
+                scope="row"
+                /* eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role */
+                role="rowheader"
+                tabIndex="-1"
                 key={`${key}-${cellName}`}
               >
                 {renderRowCell(row, column)}
-              </td>
+              </th>
             );
-          })}
-        </tr>
-      </>
-    );
-  };
+          }
+          return (
+            <td
+              className={`${cellName}-cell`}
+              role="cell"
+              key={`${key}-${cellName}`}
+            >
+              {renderRowCell(row, column)}
+            </td>
+          );
+        })}
+      </tr>
+    </>
+  );
+}
 
+function ResponsiveTable(props) {
   const { columns, data, tableClass } = props;
   const classes = classNames('responsive', tableClass);
-  const rows = data.map(renderRow);
 
   return (
     <table className={classes} role="table">
@@ -102,8 +100,13 @@ function ResponsiveTable(props) {
           ))}
         </tr>
       </thead>
+
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-      <tbody role="rowgroup">{rows}</tbody>
+      <tbody role="rowgroup">
+        {data.map((rowData) => (
+          <Row key={rowData.key} columns={columns} rowData={rowData} />
+        ))}
+      </tbody>
     </table>
   );
 }
