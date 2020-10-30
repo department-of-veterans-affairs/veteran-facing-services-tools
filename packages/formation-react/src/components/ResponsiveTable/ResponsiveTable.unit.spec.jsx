@@ -1,176 +1,56 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import ResponsiveTable from './ResponsiveTable.jsx';
+import { payments, fields } from '../../helpers';
 
-import ResponsiveTable from './ResponsiveTable';
-
-describe('<ResponsiveTable>', () => {
-  it('should render', () => {
-    const fields = ['Column 1'];
-    const data = [
-      {
-        'Column 1': 'test',
-      },
-    ];
-    const wrapper = shallow(<ResponsiveTable columns={fields} data={data} />);
-    expect(wrapper.html()).to.not.be.undefined;
-    wrapper.unmount();
-  });
-
-  it('should set tableClass', () => {
-    const fields = ['Column 1'];
-    const data = [
-      {
-        'Column 1': 'test',
-      },
-    ];
+describe('<ResponsiveTable />', () => {
+  it('Should Render', () => {
     const wrapper = shallow(
       <ResponsiveTable
-        columns={fields}
-        data={data}
-        tableClass={'table-class-name'}
-      />,
-    );
-    expect(wrapper.find('.table-class-name')).to.not.be.undefined;
-    wrapper.unmount();
-  });
-
-  it('should render headers from columns', () => {
-    const fields = ['Column 1'];
-    const data = [
-      {
-        'Column 1': 'test',
-      },
-    ];
-    const wrapper = shallow(
-      <ResponsiveTable
-        columns={fields}
-        data={data}
-        tableClass={'table-class-name'}
-      />,
-    );
-    const column1 = wrapper.find('thead > tr > th');
-    expect(column1).to.have.lengthOf(1);
-    expect(column1.html()).to.contain(fields[0]);
-    expect(column1.key()).to.equal('column-1');
-    expect(column1.props().role).to.equal('columnheader');
-    expect(column1.props().scope).to.equal('col');
-
-    wrapper.unmount();
-  });
-
-  it('should render rows from data', () => {
-    const fields = ['Column 1'];
-    const data = [
-      {
-        'Column 1': 'test',
-        rowClassName: 'row-class-name',
-        key: 'row-key',
-      },
-      {
-        'Column 1': 'test',
-        rowClassName: 'row-class-name-2',
-        key: 'row-key',
-      },
-    ];
-    const wrapper = shallow(
-      <ResponsiveTable
-        columns={fields}
-        data={data}
-        tableClass={'table-class-name'}
+        fields={fields}
+        data={payments.payments}
+        currentSort={{
+          value: 'Date',
+          order: 'ASC',
+        }}
       />,
     );
 
-    const row1 = wrapper.find(`.${data[0].rowClassName}`);
-    expect(row1).to.have.lengthOf(1);
-    expect(row1.key()).to.equal(data[0].key);
-    expect(row1.props().role).to.equal('row');
-
-    const column1 = wrapper.find(`.${data[0].rowClassName} th`);
-    expect(column1).to.have.lengthOf(1);
-    expect(column1.html()).to.contain(data[0]['Column 1']);
-
+    expect(wrapper.exists('.responsive')).to.equal(true);
     wrapper.unmount();
   });
 
-  it('should render first column in tbody as th', () => {
-    const column1Header = 'Column 1';
-    const fields = [column1Header, 'Column 2'];
-    const row1Data = {
-      [column1Header]: 'test',
-      'Column 2': 'testt',
-      rowClassName: 'row-class-name',
-      key: 'row-key',
-    };
-
-    const data = [row1Data, { ...row1Data, column1Header: 'test2' }];
+  it('should render the table header', () => {
     const wrapper = shallow(
       <ResponsiveTable
-        columns={fields}
-        data={data}
-        tableClass={'table-class-name'}
+        fields={fields}
+        data={payments.payments}
+        currentSort={{
+          value: 'Date',
+          order: 'ASC',
+        }}
       />,
     );
 
-    const column1 = wrapper.find(`.column-1-cell`).first();
-    expect(column1).to.have.lengthOf(1);
-    expect(column1.html()).to.contain(row1Data[column1Header]);
-    expect(column1.props().scope).to.equal('row');
-    expect(column1.props().role).to.equal('rowheader');
-    expect(column1.props().tabIndex).to.equal('-1');
-    expect(column1.key()).to.equal(`${row1Data.key}-column-1`);
-
-    const dfn = column1.find('dfn');
-    expect(dfn.matchesElement(<dfn>{`${column1Header}: `}</dfn>)).to.equal(
-      true,
-    );
-
-    const span = column1.find('span');
-    expect(
-      span.matchesElement(<span>{row1Data[column1Header]}</span>),
-    ).to.equal(true);
-
+    expect(wrapper.find('thead')).to.have.lengthOf(1);
+    expect(wrapper.find('th')).to.have.lengthOf(6); // Once for each field
     wrapper.unmount();
   });
 
-  it('should render not first columns in tbody as td', () => {
-    const column2Header = 'Column 2';
-    const fields = ['Column 1', column2Header];
-    const row1Data = {
-      'Column 1': 'test',
-      [column2Header]: 'testt',
-      rowClassName: 'row-class-name',
-      key: 'row-key',
-    };
-
-    const data = [row1Data, { ...row1Data, column2Header: 'testt2' }];
+  it('should render all of the rows', () => {
     const wrapper = shallow(
       <ResponsiveTable
-        columns={fields}
-        data={data}
-        tableClass={'table-class-name'}
+        fields={fields}
+        data={payments.payments}
+        currentSort={{
+          value: 'Date',
+          order: 'ASC',
+        }}
       />,
     );
 
-    const column2 = wrapper.find(`.column-2-cell`).first();
-    expect(column2).to.have.lengthOf(1);
-
-    expect(column2.html()).to.contain(row1Data[column2Header]);
-    expect(column2.props().scope).to.be.undefined;
-    expect(column2.props().role).to.equal('cell');
-    expect(column2.props().tabIndex).to.be.undefined;
-    expect(column2.key()).to.equal(`${row1Data.key}-column-2`);
-
-    const dfn = column2.find('dfn');
-    expect(dfn.matchesElement(<dfn>{`${column2Header}: `}</dfn>)).to.equal(
-      true,
-    );
-
-    const span = column2.find('span');
-    expect(
-      span.matchesElement(<span>{row1Data[column2Header]}</span>),
-    ).to.equal(true);
-
+    expect(wrapper.find('tr')).to.have.lengthOf(10); // includes header row
     wrapper.unmount();
   });
 });
