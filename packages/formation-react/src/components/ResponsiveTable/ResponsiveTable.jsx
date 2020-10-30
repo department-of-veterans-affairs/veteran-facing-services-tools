@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 const borderClasses =
   'vads-u-border-top--0 vads-u-border-right--0 vads-u-border-left--0 vads-u-font-family--sans vads-u-padding--0 vads-u-padding-y--0p5 medium-screen:vads-u-padding--1';
 const rowPaddingClass = 'vads-u-padding-y--2';
 
-class ResponsiveTable extends Component {
-  renderHeader = (field) => {
+function ResponsiveTable(props) {
+  const renderHeader = (field) => {
     if (field.nonSortable) {
       return <th key={field.value}>{field.label}</th>;
     }
 
     let sortIcon;
 
-    if (this.props.currentSort.value === field.value) {
+    if (props.currentSort.value === field.value) {
       const iconClass = classNames({
         fa: true,
-        'fas fa-caret-down': this.props.currentSort.order === 'DESC',
-        'fas fa-caret-up': this.props.currentSort.order === 'ASC',
+        'fas fa-caret-down': props.currentSort.order === 'DESC',
+        'fas fa-caret-up': props.currentSort.order === 'ASC',
       });
 
       sortIcon = <i className={iconClass} />;
@@ -38,8 +38,8 @@ class ResponsiveTable extends Component {
     );
   };
 
-  renderRow = (item, rowIndex) => {
-    const { fields } = this.props;
+  const renderRow = (item, rowIndex) => {
+    const { fields } = props;
     let extraClass = '';
     return (
       <tr
@@ -71,24 +71,22 @@ class ResponsiveTable extends Component {
     );
   };
 
-  render() {
-    const { data, fields } = this.props;
-    const headers = fields.map(this.renderHeader);
-    const rows = data.map(this.renderRow);
+  const { data, fields } = props;
+  const headers = fields.map(renderHeader);
+  const rows = data.map(renderRow);
 
-    return (
-      <table
-        aria-labelledby={this.props.ariaLabelledBy}
-        className="responsive"
-        role="table"
-      >
-        <thead>
-          <tr role="row">{headers}</tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
-    );
-  }
+  return (
+    <table
+      aria-labelledby={props.ariaLabelledBy}
+      className="responsive"
+      role="table"
+    >
+      <thead>
+        <tr role="row">{headers}</tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
 }
 
 export default ResponsiveTable;
