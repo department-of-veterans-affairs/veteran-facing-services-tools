@@ -65,7 +65,7 @@ function Row({ columns, rowData }) {
                 tabIndex="-1"
                 key={`${key}-${cellName}`}
               >
-                {renderRowCell(row, column)}
+                {renderRowCell(rowData, column)}
               </th>
             );
           }
@@ -75,7 +75,7 @@ function Row({ columns, rowData }) {
               role="cell"
               key={`${key}-${cellName}`}
             >
-              {renderRowCell(row, column)}
+              {renderRowCell(rowData, column)}
             </td>
           );
         })}
