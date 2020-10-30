@@ -28,10 +28,7 @@ function Row({ columns, rowData }) {
     } else if (columnData.value) {
       const { value, mobileHeader } = columnData;
 
-      cellData = value;
-      if (typeof value === 'string') {
-        cellData = stringCellData(value);
-      }
+      cellData = typeof value === 'string' ? stringCellData(value) : value;
 
       if (mobileHeader) {
         mobileHeaderValue = mobileHeader;
