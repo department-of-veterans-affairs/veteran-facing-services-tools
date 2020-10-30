@@ -14,18 +14,6 @@ function ResponsiveTable(props) {
       return <th key={field.value}>{field.label}</th>;
     }
 
-    let sortIcon;
-
-    if (currentSort?.value === field.value) {
-      const iconClass = classNames({
-        fa: true,
-        'fas fa-caret-down': currentSort.order === 'DESC',
-        'fas fa-caret-up': currentSort.order === 'ASC',
-      });
-
-      sortIcon = <i className={iconClass} />;
-    }
-
     return (
       <th
         key={field.value}
@@ -35,7 +23,15 @@ function ResponsiveTable(props) {
       >
         <button className="va-button-link vads-u-font-weight--bold vads-u-color--base vads-u-text-decoration--none">
           {field.label}
-          {sortIcon}
+          {currentSort?.value === field.value && (
+            <i
+              className={classNames({
+                fa: true,
+                'fas fa-caret-down': currentSort.order === 'DESC',
+                'fas fa-caret-up': currentSort.order === 'ASC',
+              })}
+            />
+          )}
         </button>
       </th>
     );
