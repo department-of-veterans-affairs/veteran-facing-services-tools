@@ -9,12 +9,10 @@ const rowPaddingClass = 'vads-u-padding-y--2';
 function ResponsiveTable(props) {
   const { currentSort, fields, data, ariaLabelledBy } = props;
 
-  const renderHeader = (field) => {
-    if (field.nonSortable) {
-      return <th key={field.value}>{field.label}</th>;
-    }
-
-    return (
+  const renderHeader = (field) =>
+    field.nonSortable ? (
+      <th key={field.value}>{field.label}</th>
+    ) : (
       <th
         key={field.value}
         className={borderClasses}
@@ -35,7 +33,6 @@ function ResponsiveTable(props) {
         </button>
       </th>
     );
-  };
 
   const headers = fields.map(renderHeader);
 
