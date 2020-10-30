@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const borderClasses =
@@ -85,4 +86,18 @@ function ResponsiveTable(props) {
   );
 }
 
+ResponsiveTable.propTypes = {
+  ariaLabelledBy: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.object),
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+  currentSort: PropTypes.shape({
+    value: PropTypes.string,
+    order: PropTypes.string,
+  }),
+};
 export default ResponsiveTable;
