@@ -43,3 +43,16 @@ export const Default = Template.bind({});
 Default.args = {
   ...defaultArgs,
 };
+
+export const Unsortable = Template.bind({});
+Unsortable.args = {
+  ...defaultArgs,
+  fields: [
+    {
+      label: 'Column 1',
+      value: 'column1',
+      nonSortable: true,
+    },
+    defaultArgs.fields[1],
+  ],
+};
