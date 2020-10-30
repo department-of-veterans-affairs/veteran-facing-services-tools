@@ -5,14 +5,6 @@ import classNames from 'classnames';
 const createId = (name) => name?.toLowerCase().replace(/\s/g, '-');
 
 function ResponsiveTable(props) {
-  const renderHeader = (column) => {
-    return (
-      <th key={`${createId(column)}`} role="columnheader" scope="col">
-        {column}
-      </th>
-    );
-  };
-
   /**
    * @param row The object representing columns in this can either be a string for simple tables, a react element,
    *            or an object for tables that need options for individual rows
@@ -95,7 +87,6 @@ function ResponsiveTable(props) {
   };
 
   const { columns, data, tableClass } = props;
-  const headers = columns.map(renderHeader);
   const classes = classNames('responsive', tableClass);
   const rows = data.map(renderRow);
 
@@ -103,7 +94,13 @@ function ResponsiveTable(props) {
     <table className={classes} role="table">
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
       <thead role="rowgroup">
-        <tr role="row">{headers}</tr>
+        <tr role="row">
+          {columns.map((column) => (
+            <th key={`${createId(column)}`} role="columnheader" scope="col">
+              {column}
+            </th>
+          ))}
+        </tr>
       </thead>
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
       <tbody role="rowgroup">{rows}</tbody>
