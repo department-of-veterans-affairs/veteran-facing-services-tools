@@ -41,34 +41,27 @@ function ResponsiveTable(props) {
     );
   };
 
-  const renderRow = (item, rowIndex) => {
-    return (
-      <tr
-        key={rowIndex}
-        className={`${borderClasses} ${rowPaddingClass}`}
-        role="row"
-      >
-        {fields.map((field, index) => {
-          // The text-align class is to right align the amount field and account number fields
-          // since they are numeric
-
-          return (
-            <td
-              data-index={index}
-              className={classNames(borderClasses, {
-                'vads-u-text-align--left': field.alignLeft,
-              })}
-              data-label={`${field.label}:`}
-              key={`${rowIndex}-${field.label}`}
-              role="cell"
-            >
-              {item[field.value] === null ? '---' : item[field.value]}
-            </td>
-          );
-        })}
-      </tr>
-    );
-  };
+  const renderRow = (item, rowIndex) => (
+    <tr
+      key={rowIndex}
+      className={`${borderClasses} ${rowPaddingClass}`}
+      role="row"
+    >
+      {fields.map((field, index) => (
+        <td
+          data-index={index}
+          className={classNames(borderClasses, {
+            'vads-u-text-align--left': field.alignLeft,
+          })}
+          data-label={`${field.label}:`}
+          key={`${rowIndex}-${field.label}`}
+          role="cell"
+        >
+          {item[field.value] === null ? '---' : item[field.value]}
+        </td>
+      ))}
+    </tr>
+  );
 
   const headers = fields.map(renderHeader);
   const rows = data.map(renderRow);
