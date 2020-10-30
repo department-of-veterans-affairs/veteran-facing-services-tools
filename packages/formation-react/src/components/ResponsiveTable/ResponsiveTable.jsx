@@ -16,7 +16,7 @@ function ResponsiveTable(props) {
 
     let sortIcon;
 
-    if (currentSort.value === field.value) {
+    if (currentSort?.value === field.value) {
       const iconClass = classNames({
         fa: true,
         'fas fa-caret-down': currentSort.order === 'DESC',

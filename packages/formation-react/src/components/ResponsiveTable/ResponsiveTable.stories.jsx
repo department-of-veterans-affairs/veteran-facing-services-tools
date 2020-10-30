@@ -10,6 +10,10 @@ export default {
 const Template = (args) => <ResponsiveTable {...args} />;
 
 const defaultArgs = {
+  currentSort: {
+    value: 'column1',
+    order: 'ASC',
+  },
   data: [
     {
       column1: 'Testing',
