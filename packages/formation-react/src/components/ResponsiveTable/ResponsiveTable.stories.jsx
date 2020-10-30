@@ -57,6 +57,21 @@ Unsortable.args = {
   ],
 };
 
+/**
+ * The first item in the first column is displayed as three dashes for a null value
+ */
+export const MissingData = Template.bind({});
+MissingData.args = {
+  ...defaultArgs,
+  data: [
+    {
+      column1: null,
+      column2: 'Things',
+    },
+    defaultArgs.data[1],
+  ],
+};
+
 export const AlignLeft = Template.bind({});
 AlignLeft.args = {
   ...defaultArgs,
