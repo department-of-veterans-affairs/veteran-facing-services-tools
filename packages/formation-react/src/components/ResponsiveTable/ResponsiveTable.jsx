@@ -69,8 +69,19 @@ function ResponsiveTable(props) {
 }
 
 ResponsiveTable.propTypes = {
+  /**
+   * Sets the `aria-labelledby` attribute on the `<table>` element
+   */
   ariaLabelledBy: PropTypes.string,
+  /**
+   * The data for the table, where each item in the array represents a row, and
+   * the property names in each object correspond to the columns
+   */
   data: PropTypes.arrayOf(PropTypes.object),
+  /**
+   * An array of objects representing columns. The `label` is what is displayed, and
+   * the `value` is what is used to match data to the correct column.
+   */
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -79,6 +90,9 @@ ResponsiveTable.propTypes = {
       alignLeft: PropTypes.boolean,
     }),
   ),
+  /**
+   * A way to change the sorted order of the data. Currently unused.
+   */
   currentSort: PropTypes.shape({
     value: PropTypes.string,
     order: PropTypes.string,
