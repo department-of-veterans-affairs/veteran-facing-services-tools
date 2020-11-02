@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import ResponsiveTable from './ResponsiveTable.jsx';
+import { axeCheck } from '../../helpers/test-helpers';
 import { payments, fields } from './test-data';
 
 describe('<ResponsiveTable />', () => {
@@ -53,4 +54,16 @@ describe('<ResponsiveTable />', () => {
     expect(wrapper.find('tr')).to.have.lengthOf(10); // includes header row
     wrapper.unmount();
   });
+
+  it('should pass a basic aXe check', () =>
+    axeCheck(
+      <ResponsiveTable
+        fields={fields}
+        data={payments.payments}
+        currentSort={{
+          value: 'Date',
+          order: 'ASC',
+        }}
+      />,
+    ));
 });
