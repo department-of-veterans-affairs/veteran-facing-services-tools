@@ -6,7 +6,7 @@ const borderClasses =
   'vads-u-border-top--0 vads-u-border-right--0 vads-u-border-left--0 vads-u-font-family--sans vads-u-padding--0 vads-u-padding-y--0p5 medium-screen:vads-u-padding--1';
 const rowPaddingClass = 'vads-u-padding-y--2';
 
-function ResponsiveTable(props) {
+function Table(props) {
   const { currentSort, fields, data, ariaLabelledBy } = props;
 
   return (
@@ -68,7 +68,7 @@ function ResponsiveTable(props) {
   );
 }
 
-ResponsiveTable.propTypes = {
+Table.propTypes = {
   /**
    * Sets the `aria-labelledby` attribute on the `<table>` element
    */
@@ -98,4 +98,4 @@ ResponsiveTable.propTypes = {
     order: PropTypes.string,
   }),
 };
-export default ResponsiveTable;
+export default Table;

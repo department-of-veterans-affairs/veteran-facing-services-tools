@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ResponsiveTable from './ResponsiveTable';
+import Table from './Table';
 
 export default {
-  title: 'Library/ResponsiveTable',
-  component: ResponsiveTable,
+  title: 'Library/Table',
+  component: Table,
 };
 
-const Template = (args) => <ResponsiveTable {...args} />;
+const Template = (args) => <Table {...args} />;
 
 const defaultArgs = {
   currentSort: {

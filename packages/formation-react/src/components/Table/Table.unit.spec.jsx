@@ -1,14 +1,14 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import ResponsiveTable from './ResponsiveTable.jsx';
+import Table from './Table.jsx';
 import { axeCheck } from '../../helpers/test-helpers';
 import { payments, fields } from './test-data';
 
-describe('<ResponsiveTable />', () => {
+describe('<Table />', () => {
   it('Should Render', () => {
     const wrapper = shallow(
-      <ResponsiveTable
+      <Table
         fields={fields}
         data={payments.payments}
         currentSort={{
@@ -24,7 +24,7 @@ describe('<ResponsiveTable />', () => {
 
   it('should render the table header', () => {
     const wrapper = shallow(
-      <ResponsiveTable
+      <Table
         fields={fields}
         data={payments.payments}
         currentSort={{
@@ -41,7 +41,7 @@ describe('<ResponsiveTable />', () => {
 
   it('should render all of the rows', () => {
     const wrapper = shallow(
-      <ResponsiveTable
+      <Table
         fields={fields}
         data={payments.payments}
         currentSort={{
@@ -57,7 +57,7 @@ describe('<ResponsiveTable />', () => {
 
   it('should pass a basic aXe check', () =>
     axeCheck(
-      <ResponsiveTable
+      <Table
         fields={fields}
         data={payments.payments}
         currentSort={{
