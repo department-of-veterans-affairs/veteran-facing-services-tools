@@ -23,6 +23,10 @@ const defaultArgs = {
       column1: 'Second row',
       column2: 'Some things',
     },
+    {
+      column1: 'Third row',
+      column2: 'beeee boop',
+    },
   ],
   fields: [
     {
