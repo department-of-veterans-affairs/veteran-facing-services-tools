@@ -7,7 +7,7 @@ export default {
 };
 
 const Template = (args) => (
-  <div style={{ maxWidth: '90%', margin: 'auto' }}>
+  <div style={{ paddingLeft: '1em' }}>
     <ErrorableCheckbox {...args} />
   </div>
 );
