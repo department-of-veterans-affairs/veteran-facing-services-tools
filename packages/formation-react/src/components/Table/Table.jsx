@@ -54,7 +54,7 @@ function Table(props) {
                 className={classNames(borderClasses, {
                   'vads-u-text-align--left': field.alignLeft,
                 })}
-                data-label={`${field.label}:`}
+                data-label={field.label}
                 key={`${rowIndex}-${field.label}`}
                 role="cell"
               >
