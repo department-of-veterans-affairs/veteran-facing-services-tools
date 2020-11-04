@@ -16,26 +16,42 @@ const defaultArgs = {
   },
   data: [
     {
-      column1: 'Testing',
-      column2: 'Moooore testing',
+      title: 'Declaration of Independence',
+      description:
+        'Statement adopted by the Continental Congress declaring independence from the British Empire',
+      year: '1776',
     },
     {
-      column1: 'Second row',
-      column2: 'Some things',
+      title: 'Bill of Rights',
+      description:
+        'The first ten ammendements of the U.S. Constitution guaranteeing rights and freedoms',
+      year: '1791',
     },
     {
-      column1: 'Third row',
-      column2: 'beeee boop',
+      title: 'Declaration of Sentiments',
+      description:
+        'A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.',
+      year: '1848',
+    },
+    {
+      title: 'Emancipation Proclamation',
+      description:
+        'An executive order granting freedom to slaves in designated southern states.',
+      year: '1863',
     },
   ],
   fields: [
     {
-      label: 'Column 1',
-      value: 'column1',
+      label: 'Document title',
+      value: 'title',
     },
     {
-      label: 'Column 2',
-      value: 'column2',
+      label: 'Description',
+      value: 'description',
+    },
+    {
+      label: 'Year',
+      value: 'year',
     },
   ],
 };
@@ -53,11 +69,12 @@ Unsortable.args = {
   ...defaultArgs,
   fields: [
     {
-      label: 'Column 1',
-      value: 'column1',
+      label: 'Document title',
+      value: 'title',
       nonSortable: true,
     },
     defaultArgs.fields[1],
+    defaultArgs.fields[2],
   ],
 };
 
@@ -69,32 +86,25 @@ MissingData.args = {
   ...defaultArgs,
   data: [
     {
-      column1: null,
-      column2: 'Things',
+      title: 'A document',
+      description: null,
+      year: null,
     },
     defaultArgs.data[1],
   ],
 };
 
+// This story might not be useful
 export const AlignLeft = Template.bind({});
 AlignLeft.args = {
   ...defaultArgs,
   fields: [
-    {
-      label: 'Cost ($)',
-      value: 'cost',
-      alignLeft: true,
-    },
+    defaultArgs.fields[0],
     defaultArgs.fields[1],
-  ],
-  data: [
     {
-      cost: 50.5,
-      column2: 'Food',
-    },
-    {
-      cost: 70.0,
-      column2: 'Utilities',
+      label: 'Year',
+      value: 'year',
+      alignLeft: true,
     },
   ],
 };
