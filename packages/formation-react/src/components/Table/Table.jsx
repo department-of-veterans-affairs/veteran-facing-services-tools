@@ -8,12 +8,13 @@ const rowPaddingClass = 'vads-u-padding-y--2';
 
 function Table(props) {
   const { currentSort, fields, data, ariaLabelledBy } = props;
+  let alignClass;
 
   return (
     <table aria-labelledby={ariaLabelledBy} className="responsive" role="table">
       <thead>
         <tr role="row">
-          {fields.map((field) =>
+          {fields.map(field =>
             field.nonSortable ? (
               <th key={field.value}>{field.label}</th>
             ) : (
@@ -48,19 +49,26 @@ function Table(props) {
             className={`${borderClasses} ${rowPaddingClass}`}
             role="row"
           >
-            {fields.map((field, index) => (
-              <td
-                data-index={index}
-                className={classNames(borderClasses, {
-                  'vads-u-text-align--left': field.alignLeft,
-                })}
-                data-label={`${field.label}:`}
-                key={`${rowIndex}-${field.label}`}
-                role="cell"
-              >
-                {item[field.value] === null ? '---' : item[field.value]}
-              </td>
-            ))}
+            {fields.map((field, index) => {
+              if (field.alignRight) {
+                alignClass = 'vads-u-text-align--right';
+              } else if (field.alignLight) {
+                alignClass = 'vads-u-text-align--left';
+              } else {
+                alignClass = 'vads-u-text-align--left';
+              }
+              return (
+                <td
+                  data-index={index}
+                  className={classNames(borderClasses, alignClass)}
+                  data-label={`${field.label}:`}
+                  key={`${rowIndex}-${field.label}`}
+                  role="cell"
+                >
+                  {item[field.value] === null ? '---' : item[field.value]}
+                </td>
+              );
+            })}
           </tr>
         ))}
       </tbody>
@@ -88,6 +96,7 @@ Table.propTypes = {
       value: PropTypes.string,
       nonSortable: PropTypes.boolean,
       alignLeft: PropTypes.boolean,
+      alignRight: PropTypes.boolean,
     }),
   ),
   /**
