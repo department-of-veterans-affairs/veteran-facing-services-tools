@@ -41,6 +41,14 @@ table.responsive {
       flex-direction: column;
     }
 
+    td:first-child {
+      margin-top: 16px;
+    }
+
+    td:last-child {
+      margin-bottom: 16px;
+    }
+
     td::before {
       /*
        * aria-label has no advantage, it won't be read inside a table
