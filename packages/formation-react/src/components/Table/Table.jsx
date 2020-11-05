@@ -51,7 +51,7 @@ function Table(props) {
           >
             {fields.map((field, index) => {
               if (field.alignRight) {
-                alignClass = 'vads-u-text-align--right';
+                alignClass = 'medium-screen:vads-u-text-align--right';
               } else if (field.alignLight) {
                 alignClass = 'vads-u-text-align--left';
               } else {
