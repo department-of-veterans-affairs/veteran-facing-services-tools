@@ -8,7 +8,6 @@ const rowPaddingClass = 'vads-u-padding-y--2';
 
 function Table(props) {
   const { currentSort, fields, data, ariaLabelledBy } = props;
-  let alignClass;
 
   return (
     <table aria-labelledby={ariaLabelledBy} className="responsive" role="table">
@@ -49,26 +48,25 @@ function Table(props) {
             className={`${borderClasses} ${rowPaddingClass}`}
             role="row"
           >
-            {fields.map((field, index) => {
-              if (field.alignRight) {
-                alignClass = 'medium-screen:vads-u-text-align--right';
-              } else if (field.alignLight) {
-                alignClass = 'vads-u-text-align--left';
-              } else {
-                alignClass = 'vads-u-text-align--left';
-              }
-              return (
-                <td
-                  data-index={index}
-                  className={classNames(borderClasses, alignClass)}
-                  data-label={`${field.label}:`}
-                  key={`${rowIndex}-${field.label}`}
-                  role="cell"
-                >
-                  {item[field.value] === null ? '---' : item[field.value]}
-                </td>
-              );
-            })}
+            {fields.map((field, index) => (
+              <td
+                data-index={index}
+                className={classNames(
+                  borderClasses,
+                  {
+                    'vads-u-text-align--left': field.alignLeft,
+                  },
+                  {
+                    'medium-screen:vads-u-text-align--right': field.alignRight,
+                  },
+                )}
+                data-label={`${field.label}:`}
+                key={`${rowIndex}-${field.label}`}
+                role="cell"
+              >
+                {item[field.value] === null ? '---' : item[field.value]}
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>
@@ -88,7 +86,10 @@ Table.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   /**
    * An array of objects representing columns. The `label` is what is displayed, and
-   * the `value` is what is used to match data to the correct column.
+   * the `value` is what is used to match data to the correct column. The type is
+   * the data type for the column. Available types are -
+   * - String
+   * - Number
    */
   fields: PropTypes.arrayOf(
     PropTypes.shape({
