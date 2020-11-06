@@ -19,7 +19,7 @@
     "lint:js:fix": "npx vagov-eslint lint:js:fix",
     "lint:js:changed": "npx vagov-eslint lint:js:changed",
     "lint:js:changed:fix": "npx vagov-eslint lint:js:changed:fix",
-    "postinstall": "yarn bootstrap",
+    "postinstall": "yarn bootstrap && node ./scripts/check-node-version.js",
     "publish": "lerna publish",
     "version": "lerna version --no-git-tag-version",
     "test-debug": "lerna run test-debug --scope=@department-of-veterans-affairs/formation-react",
@@ -65,6 +65,7 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "chalk": "^2.4.2",
     "clean-webpack-plugin": "^2.0.1",
     "colors": "^1.1.2",
     "copy-webpack-plugin": "^5.0.2",
@@ -95,6 +96,7 @@
     "recast": "^0.14.4",
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.7",
+    "semver": "^7.3.2",
     "sinon": "^4.1.6",
     "style-loader": "^0.19.0",
     "svg-url-loader": "^2.3.0",
@@ -105,5 +107,8 @@
   },
   "dependencies": {
     "graphql": "^14.5.3"
+  },
+  "engines": {
+    "node": ">=14.15.0"
   }
 }

@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:14.15
 
 # Lifted Chrome headless config from: https://hackernoon.com/running-karma-tests-with-headless-chrome-inside-docker-ae4aceb06ed3
 
