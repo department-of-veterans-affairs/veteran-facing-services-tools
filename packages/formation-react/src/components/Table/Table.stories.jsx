@@ -7,7 +7,7 @@ export default {
   component: Table,
 };
 
-const Template = (args) => <Table {...args} />;
+const Template = args => <Table {...args} />;
 
 const defaultArgs = {
   currentSort: {
@@ -105,6 +105,19 @@ AlignLeft.args = {
       label: 'Year',
       value: 'year',
       alignLeft: true,
+    },
+  ],
+};
+
+// This story might not be useful
+export const alignRight = Template.bind({});
+alignRight.args = {
+  ...defaultArgs,
+  data: [
+    {
+      title: 'alignRight',
+      description:
+        'If you need to right align data in a column, in the fields object you can set alignRight to true for that field. This will right align the entire column which is generally used for numerical data in a table.',
     },
   ],
 };

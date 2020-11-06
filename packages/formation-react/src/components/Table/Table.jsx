@@ -51,15 +51,10 @@ function Table(props) {
             {fields.map((field, index) => (
               <td
                 data-index={index}
-                className={classNames(
-                  borderClasses,
-                  {
-                    'vads-u-text-align--left': field.alignLeft,
-                  },
-                  {
-                    'medium-screen:vads-u-text-align--right': field.alignRight,
-                  },
-                )}
+                className={classNames(borderClasses, {
+                  'vads-u-text-align--left': field.alignLeft,
+                  'medium-screen:vads-u-text-align--right': field.alignRight,
+                })}
                 data-label={`${field.label}:`}
                 key={`${rowIndex}-${field.label}`}
                 role="cell"
