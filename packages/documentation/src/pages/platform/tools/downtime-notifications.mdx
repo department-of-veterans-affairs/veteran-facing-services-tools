@@ -129,6 +129,7 @@ If you've created a new backend service that a React application depends on, fol
 - Go to your **staging** service
 - Create a maintenance window sometime in the future.
   - You can specify a message to a user by using the token "USER_MESSAGE: " in the description (i.e. "Down for v16 update. USER_MESSAGE: We'll be back soon!")
+    - * Note that custom messages are discouraged to maintain a consistent user experience.
 - Visit https://staging-api.va.gov/v0/maintenance_windows and ensure that your service's downtime window is listed
   - This information is cached and may have a delay for up to 3 minutes (see: the [PagerDuty::PollMaintenanceWindows job](https://github.com/department-of-veterans-affairs/vets-api/blob/master/app/workers/pager_duty/poll_maintenance_windows.rb)).
 
