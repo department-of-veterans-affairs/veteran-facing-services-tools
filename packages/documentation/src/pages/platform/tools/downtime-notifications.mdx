@@ -112,7 +112,7 @@ The render-flow for this container is:
     - Otherwise, `DowntimeNotification` will renders its children, in this case `MyAppDataGrid`. A dismissible modal is also rendered if downtime is approaching within the hour.
 
 ### Adding a new PagerDuty service
-If you've created a new backend service and have a react application dependent on it, follow these steps to allow the react application to fetch it's downtime windows:
+If you've created a new backend service that a React application depends on, follow these steps to allow the React application to fetch its downtime windows:
 
 #### Configuration
 - Login to PagerDuty (https://dsva.pagerduty.com/)
@@ -138,7 +138,6 @@ If you've created a new backend service and have a react application dependent o
 1. The Account app is another simple [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/account/containers/AccountApp.jsx#L23). This application has two dependencies. If either is down, then the application is considered in maintenance.
 1. The Sign-In Modal is an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/user/authentication/components/SignInModal.jsx#L74) of a component that renders messaging about service downtime, but it does not affect the functionality of the component. Instead, it's more a heads-up for the user about potential difficulty. This is also the case for [Letters](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/letters/containers/LettersApp.jsx#L63).
 1. The Dashboard app consists of components with their own unique dependencies, so that a certain service being in maintenance should result in reduced but partial functionality for the Dashboard. It serves as an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/dashboard/containers/DashboardApp.jsx#L398) of a more complex implementation of Downtime Notifications.
-
 
 
 
