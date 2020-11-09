@@ -113,11 +113,13 @@ AlignLeft.args = {
 export const alignRight = Template.bind({});
 alignRight.args = {
   ...defaultArgs,
-  data: [
+  fields: [
+    defaultArgs.fields[0],
+    defaultArgs.fields[1],
     {
-      title: 'alignRight',
-      description:
-        'If you need to right align data in a column, in the fields object you can set alignRight to true for that field. This will right align the entire column which is generally used for numerical data in a table.',
+      label: 'Year',
+      value: 'year',
+      alignRight: true,
     },
   ],
 };
