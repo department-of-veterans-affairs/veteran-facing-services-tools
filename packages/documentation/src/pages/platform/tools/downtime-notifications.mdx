@@ -111,13 +111,33 @@ The render-flow for this container is:
     - If the current time is in the timeframe of the downtime window, render an alert banner informing the user that this application is undergoing maintenance.
     - Otherwise, `DowntimeNotification` will renders its children, in this case `MyAppDataGrid`. A dismissible modal is also rendered if downtime is approaching within the hour.
 
+### Adding a new PagerDuty service
+If you've created a new backend service that a React application depends on, follow these steps to allow the React application to fetch its downtime windows:
+
+#### Configuration
+- Login to PagerDuty (https://dsva.pagerduty.com/)
+- Create your PagerDuty **Service** (https://dsva.pagerduty.com/service-directory)
+  - This may require you to create a PagerDuty Person, Escalation Policy, and/or Team that is specific to this service.
+  - Follow the naming convention of other backend services in PagerDuty by prepending "External: " to the service name (i.e. "External: MyService").
+  - You may also want to create multiple services for multiple enviornements (i.e. "External: MyService", "Staging: External: MyService", "Dev: External: MyService").
+- In the [vets-api]() repo, add your service to the list of [maintenance services](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml#L441) in `config/settings.yml`.
+- In the [devops]() repo, make the same configuration change to each enviornemnt's config file.
+- Deploy all changes.
+
+#### Testing
+- Login to PagerDuty (https://dsva.pagerduty.com/)
+- Go to your **staging** service
+- Create a maintenance window sometime in the future.
+  - You can specify a message to a user by using the token "USER_MESSAGE: " in the description (i.e. "Down for v16 update. USER_MESSAGE: We'll be back soon!")
+    - * Note that custom messages are discouraged to maintain a consistent user experience.
+- Visit https://staging-api.va.gov/v0/maintenance_windows and ensure that your service's downtime window is listed
+  - This information is cached and may have a delay for up to 3 minutes (see: the [PagerDuty::PollMaintenanceWindows job](https://github.com/department-of-veterans-affairs/vets-api/blob/master/app/workers/pager_duty/poll_maintenance_windows.rb)).
+
 
 ## Other examples
 1. The Search app is a basic [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/search/containers/SearchApp.jsx#L301) of an application having a single service dependency, in this case being Search.gov. The Facility Locator is another [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/facility-locator/containers/FacilityLocatorApp.jsx#L74).
 1. The Account app is another simple [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/account/containers/AccountApp.jsx#L23). This application has two dependencies. If either is down, then the application is considered in maintenance.
 1. The Sign-In Modal is an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/user/authentication/components/SignInModal.jsx#L74) of a component that renders messaging about service downtime, but it does not affect the functionality of the component. Instead, it's more a heads-up for the user about potential difficulty. This is also the case for [Letters](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/letters/containers/LettersApp.jsx#L63).
 1. The Dashboard app consists of components with their own unique dependencies, so that a certain service being in maintenance should result in reduced but partial functionality for the Dashboard. It serves as an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/dashboard/containers/DashboardApp.jsx#L398) of a more complex implementation of Downtime Notifications.
-
-
 
 
