@@ -9,7 +9,6 @@ export default {
 const Template = (args) => {
   const [date, setDate] = useState(args.date);
   const onChange = (newDate) => {
-    console.log('set the date to', newDate);
     setDate(newDate);
   };
   return (
