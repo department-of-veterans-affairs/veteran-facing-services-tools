@@ -12,7 +12,6 @@ lerna-debug.log
 node_modules
 npm-debug.log
 package-lock.json
-packages/formation-react/*.js
 public/dist
 yarn-error.log
 .env
