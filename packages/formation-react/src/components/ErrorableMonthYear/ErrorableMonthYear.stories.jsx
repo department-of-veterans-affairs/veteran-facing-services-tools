@@ -34,7 +34,7 @@ Default.args = { ...defaultArgs };
 export const Error = Template.bind({});
 Error.args = Object.assign({}, defaultArgs, {
   date: {
-    month: { dirty: true },
+    month: { value: '13', dirty: true },
     year: { dirty: true },
   },
   invalidMessage: "That date doesn't work...",
