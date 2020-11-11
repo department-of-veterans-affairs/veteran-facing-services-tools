@@ -225,8 +225,10 @@ ErrorableRadioButtons.propTypes = {
   ).isRequired,
   /**
    * Value object for selected field
-   * value: string value that matches radio button value
-   * dirty: indicates if form is dirty; should be true after any user input
+   *
+   * `value`: string value that matches radio button value
+   *
+   * `dirty`: indicates if form is dirty; should be true after any user input
    */
   value: PropTypes.shape({
     /**
