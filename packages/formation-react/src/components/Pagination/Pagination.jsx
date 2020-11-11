@@ -9,10 +9,23 @@ class Pagination extends Component {
     ariaLabelSuffix: PropTypes.string,
     className: PropTypes.string,
     enableAnalytics: PropTypes.bool,
+    /**
+     * The maximum number of pages to show at once.
+     */
     maxPageListLength: PropTypes.number.isRequired,
     onPageSelect: PropTypes.func.isRequired,
+    /**
+     * The current page number
+     */
     page: PropTypes.number.isRequired,
+    /**
+     * The total number of pages
+     */
     pages: PropTypes.number.isRequired,
+    /**
+     * Whether or not to show the last page number when the page count exceeds
+     * `maxPageListLength`
+     */
     showLastPage: PropTypes.bool,
     trackEvent: PropTypes.func,
   };
@@ -21,6 +34,7 @@ class Pagination extends Component {
     ariaLabelSuffix: '',
     enableAnalytics: true,
     maxPageListLength: 10,
+    showLastPage: false,
     trackEvent: (...args) => {
       // Escape early if Google Analytics (GA) is not enabled.
       if (!window.dataLayer) {
