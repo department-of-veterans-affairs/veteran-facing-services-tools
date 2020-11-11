@@ -27,8 +27,19 @@ class IconHelp extends React.Component {
 }
 
 IconHelp.propTypes = {
-  color: PropTypes.string /* Should be a CSS color */,
+  /**
+   * Should be a CSS color
+   */
+  color: PropTypes.string,
+
+  /**
+   * CSS class that gets applied to the underlying `<svg>` element
+   */
   cssClass: PropTypes.string,
+
+  /**
+   * `id` for the underlying `<svg>` element
+   */
   id: PropTypes.string,
 };
 
