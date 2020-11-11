@@ -7,8 +7,6 @@ export default {
   component: ErrorableSelect,
 };
 
-// const Template = (args) => <ErrorableSelect {...args} />;
-
 const Template = (args) => {
   const [value, setValue] = useState(args.value);
   const onValueChange = (newValue) => {
