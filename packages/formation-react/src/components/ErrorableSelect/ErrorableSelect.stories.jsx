@@ -11,9 +11,9 @@ export default {
 
 const Template = (args) => {
   const [value, setValue] = useState(args.value);
-  const onValueChange = (newField) => {
-    console.log('value changed:', newField);
-    setValue(newField);
+  const onValueChange = (newValue) => {
+    console.log('value changed:', newValue);
+    setValue(newValue);
   };
 
   return (
