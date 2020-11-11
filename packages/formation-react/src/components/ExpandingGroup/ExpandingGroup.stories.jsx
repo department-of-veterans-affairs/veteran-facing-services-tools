@@ -23,8 +23,8 @@ const defaultArgs = {
   open: true,
   showPlus: true,
   children: [
-    <div> This is the first child </div>,
-    <span>This is the second child</span>,
+    <div key="visible"> This is the first child </div>,
+    <span key="hidden">This is the second child</span>,
   ],
 };
 
