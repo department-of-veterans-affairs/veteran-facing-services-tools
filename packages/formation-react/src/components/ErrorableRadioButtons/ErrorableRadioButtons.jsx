@@ -73,7 +73,7 @@ class ErrorableRadioButtons extends React.Component {
     }
 
     const options = _.isArray(this.props.options) ? this.props.options : [];
-    const storedValue = this.props.value.value;
+    const storedValue = this.props.value?.value;
     const optionElements = options.map((option, optionIndex) => {
       let optionLabel;
       let optionValue;
