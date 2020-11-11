@@ -200,8 +200,16 @@ ErrorableRadioButtons.propTypes = {
    */
   onKeyDown: PropTypes.func,
   /**
-   * Array of options to populate group- each item is a string or an object
-   * representing an Expanding Group
+   * Array of options to populate group. Each item is a string or an object
+   * representing an Expanding Group.
+   *
+   * If the option is an object, it takes the following shape:
+   *
+   * `option.label` `<string|element>` - The text to display for the option
+   *
+   * `option.value` `<string|bool> - `The value of the option when selected
+   *
+   * `option.additional` `<string|element>` - Content to show conditionally beneath the option when selected
    */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
