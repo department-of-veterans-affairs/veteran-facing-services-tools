@@ -5,12 +5,15 @@ import IconHelp from './IconHelp';
 export default {
   title: 'Library/IconHelp',
   component: IconHelp,
+  argTypes: {
+    color: { control: 'color' },
+  },
 };
 
 const Template = args => <IconHelp {...args} />;
 
 const defaultArgs = {
-  color: 'red',
+  color: 'black',
   id: 'help-icon',
 };
 
