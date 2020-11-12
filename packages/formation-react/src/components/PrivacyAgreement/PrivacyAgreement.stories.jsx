@@ -9,7 +9,7 @@ export default {
 
 const Template = args => {
   const [checked, setChecked] = useState(args.checked);
-  const handler = newChecked => setChecked(newChecked);
+  const handler = () => setChecked(!checked);
   return (
     <div style={{ paddingLeft: '1em' }}>
       <PrivacyAgreement {...args} onChange={handler} checked={checked} />
