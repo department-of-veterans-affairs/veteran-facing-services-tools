@@ -11,9 +11,6 @@ export const MAINTENANCE_BANNER = 'MAINTENANCE_BANNER';
 // @WARNING: This is currently only used once in vets-website.
 /**
  * Display a maintenance banner for a given time window.
- *
- * **Note:** The times displayed will be 4 hours earlier than the times passed
-     to the component.
  */
 export class MaintenanceBanner extends Component {
   static propTypes = {
@@ -22,7 +19,7 @@ export class MaintenanceBanner extends Component {
      */
     content: PropTypes.string.isRequired,
     /**
-     * A 'moment' object used when downtime expires.
+     * A 'moment' object used when downtime expires. Use `moment.utc()` to get the correct display time.
      */
     expiresAt: PropTypes.object.isRequired,
     /**
@@ -37,7 +34,7 @@ export class MaintenanceBanner extends Component {
       setItem: PropTypes.func.isRequired,
     }),
     /**
-     * A 'moment' object used when downtime starts.
+     * A 'moment' object used when downtime starts. Use `moment.utc()` to get the correct display time.
      */
     startsAt: PropTypes.object.isRequired,
     /**
@@ -49,7 +46,7 @@ export class MaintenanceBanner extends Component {
      */
     warnContent: PropTypes.string,
     /**
-     * A 'moment' object used when pre-downtime starts.
+     * A 'moment' object used when pre-downtime starts. Use `moment.utc()` to get the correct display time.
      */
     warnStartsAt: PropTypes.object,
     /**
