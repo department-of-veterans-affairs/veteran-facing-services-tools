@@ -61,7 +61,9 @@ export class MaintenanceBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dismissed: props.localStorage && props.localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
+      dismissed:
+        props.localStorage &&
+        props.localStorage.getItem(MAINTENANCE_BANNER) === this.props.id,
     };
   }
 
