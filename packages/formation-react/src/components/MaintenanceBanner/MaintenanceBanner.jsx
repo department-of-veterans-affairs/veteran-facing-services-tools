@@ -9,6 +9,12 @@ import AlertBox from '../AlertBox/AlertBox';
 export const MAINTENANCE_BANNER = 'MAINTENANCE_BANNER';
 
 // @WARNING: This is currently only used once in vets-website.
+/**
+ * Display a maintenance banner for a given time window.
+ *
+ * **Note:** The times displayed will be 4 hours earlier than the times passed
+     to the component.
+ */
 export class MaintenanceBanner extends Component {
   static propTypes = {
     /**
