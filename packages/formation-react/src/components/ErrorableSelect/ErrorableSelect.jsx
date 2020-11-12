@@ -154,6 +154,7 @@ ErrorableSelect.propTypes = {
   emptyDescription: PropTypes.string,
 
   /** Object containing:
+   *
    *   - `value`: Value of the select field.
    *   - `dirty`: Whether a field has been touched by the user.
    */
