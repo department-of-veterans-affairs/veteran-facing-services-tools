@@ -15,9 +15,9 @@ export default {
 };
 
 const Template = args => {
-  const startTime = moment(args.startsAt);
-  const endTime = moment(args.expiresAt);
-  const warnStart = moment(args.warnStartsAt);
+  const startTime = moment.utc(moment(args.startsAt));
+  const endTime = moment.utc(moment(args.expiresAt));
+  const warnStart = moment.utc(moment(args.warnStartsAt));
   console.group('Times passed to Template');
   console.log('startTime:', startTime.format('MM/DD/YY HH:mm'));
   console.log('endTime', endTime.format('MM/DD/YY HH:mm'));
