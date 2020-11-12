@@ -41,6 +41,11 @@ IconHelp.propTypes = {
    * `id` for the underlying `<svg>` element
    */
   id: PropTypes.string,
+
+  /**
+   * `role` attribute for the `<svg>` element
+   */
+  role: PropTypes.string,
 };
 
 export default IconHelp;
