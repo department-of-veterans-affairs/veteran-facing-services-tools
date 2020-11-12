@@ -45,7 +45,7 @@ HelpMenu.propTypes = {
   clickHandler: PropTypes.func.isRequired,
 
   /**
-   * Does the menu begin in an open state
+   * The open state of the menu
    */
   isOpen: PropTypes.bool.isRequired,
 };
