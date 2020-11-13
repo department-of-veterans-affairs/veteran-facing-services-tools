@@ -11,7 +11,10 @@ const Template = args => {
   const [showBanner, setShowBanner] = useState(true);
   const onClose = () => setShowBanner(false);
   return showBanner ? (
-    <PromoBanner {...args} onClose={onClose} />
+    <>
+      <PromoBanner {...args} onClose={onClose} />
+      <p>See the open banner on the bottom of the page.</p>
+    </>  
   ) : (
     <button onClick={() => setShowBanner(true)}>Show Banner</button>
   );
