@@ -3,7 +3,6 @@
  * purposes. Use CONTACTS.<key> to get the actual phone number.
  */
 export const contactsMap = Object.freeze({
-  // key: ['phone number', 'Description'],
   '222_VETS': { phoneNumber: '8772228387', description: 'VA Help Line' },
   '4AID_VET': {
     phoneNumber: '8774243838',
