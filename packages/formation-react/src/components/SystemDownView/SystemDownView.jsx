@@ -20,10 +20,14 @@ class SystemDownView extends React.Component {
 }
 
 SystemDownView.propTypes = {
-  // First line of the system down message
+  /**
+   * First line of the system down message 
+   */
   messageLine1: PropTypes.string.isRequired,
 
-  // Optional second line of messaging
+  /**
+   * Optional second line of messaging 
+   */
   messageLine2: PropTypes.string,
 };
 
