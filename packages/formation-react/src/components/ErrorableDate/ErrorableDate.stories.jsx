@@ -6,14 +6,22 @@ export default {
   component: ErrorableDate,
 };
 
+const Template = (args) => {
+  const [date, setDate] = useState(args.date);
+  return (
+    <ErrorableDate
+      {...args}
+      date={date}
+      onValueChange={(date) => setDate(date)}
+    />
+  );
+};
+
 const defaultArgs = {
   required: true,
   label: 'Please tell us a date',
   name: 'Errorable Date',
   requiredMessage: 'Please provide a response',
-};
-
-const defaultDate = {
   date: {
     day: {
       value: '1',
@@ -30,7 +38,14 @@ const defaultDate = {
   },
 };
 
-const errorDate = {
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultArgs,
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  ...defaultArgs,
   date: {
     day: {
       value: '1',
@@ -45,27 +60,4 @@ const errorDate = {
       dirty: true,
     },
   },
-};
-
-const Template = (args) => {
-  const [date, setDate] = useState(args.date);
-  return (
-    <ErrorableDate
-      {...args}
-      date={date}
-      onValueChange={(date) => setDate(date)}
-    />
-  );
-};
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultArgs,
-  ...defaultDate,
-};
-
-export const Error = Template.bind({});
-Error.args = {
-  ...defaultArgs,
-  ...errorDate,
 };
