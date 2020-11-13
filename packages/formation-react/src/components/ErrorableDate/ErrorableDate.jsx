@@ -125,9 +125,7 @@ class ErrorableDate extends React.Component {
                 errorMessage={isValid ? undefined : ''}
                 label="Year"
                 name={`${this.props.name}Year`}
-                max={moment()
-                  .add(100, 'year')
-                  .year()}
+                max={moment().add(100, 'year').year()}
                 min="1900"
                 pattern="[0-9]{4}"
                 field={year}
