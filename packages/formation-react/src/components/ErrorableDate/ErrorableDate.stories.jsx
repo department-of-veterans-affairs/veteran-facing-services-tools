@@ -6,13 +6,13 @@ export default {
   component: ErrorableDate,
 };
 
-const Template = (args) => {
+const Template = args => {
   const [date, setDate] = useState(args.date);
   return (
     <ErrorableDate
       {...args}
       date={date}
-      onValueChange={(date) => setDate(date)}
+      onValueChange={newDate => setDate(newDate)}
     />
   );
 };
