@@ -12,6 +12,14 @@ export default {
       </div>
     ),
   ],
+
+  parameters: {
+    docs: {
+      description: {
+        component: 'Create a segmented progress bar for multi-page forms',
+      },
+    },
+  },
 };
 
 const Template = args => <SegmentedProgressBar {...args} />;
