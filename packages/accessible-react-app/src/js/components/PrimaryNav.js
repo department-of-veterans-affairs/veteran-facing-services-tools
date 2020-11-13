@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const PrimaryNav = props => {
-  const { ariaLabel } = props;
+  const { ariaLabelText } = props;
 
   return (
-    <nav aria-label={ariaLabel}>
-      {/* FE Talking Point - Unique aria-labels for repeated blocks like <nav> */}
-      <ul className="ac-primary-nav">
+    <nav aria-label={ariaLabelText}>
+      {/* SR Talking Point - Unique aria-labels for repeated blocks like <nav> */}
+      {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+      <ul className="ac-primary-nav" role="list">
         <li className="ac-primary-nav__list-item">
           <Link to="/">Home</Link>
         </li>
@@ -21,13 +22,16 @@ const PrimaryNav = props => {
         <li className="ac-primary-nav__list-item">
           <Link to="/feedback">Your Feedback</Link>
         </li>
+        <li className="ac-primary-nav__list-item">
+          <Link to="/information">More Info</Link>
+        </li>
       </ul>
     </nav>
   );
 };
 
 PrimaryNav.propTypes = {
-  ariaLabel: PropTypes.string.isRequired,
+  ariaLabelText: PropTypes.string.isRequired,
 };
 
 export default PrimaryNav;

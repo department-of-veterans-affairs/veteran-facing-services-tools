@@ -1,3 +1,28 @@
+.ac-modal {
+  background: #fff;
+  border: 5px solid #484848;
+  bottom: 0;
+  max-width: 80rem;
+  left: 0;
+  overflow-y: auto;
+  padding: 1rem 2rem 5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ac-modal__feedback--heading {
+  font-size: 2.7rem;
+  margin-bottom: 1.25rem;
+  width: 80%;
+}
+
+.ac-modal__feedback--description {
+  font-size: 1.6rem;
+  margin: 0 0 2rem 0;
+  max-width: 48ch;
+}
+
 .ac-form__fieldset {
   border: 0;
   margin: 0;
@@ -22,9 +47,9 @@
 .ac-form__input,
 .ac-form__textarea {
   border: 1px solid #666666;
-  font-size: 2em;
+  font-size: 2rem;
   padding: 0.5em;
-  width: 20em;
+  width: 30rem;
 }
 
 .ac-form__textarea {
@@ -43,9 +68,30 @@
   background-color: rebeccapurple;
   color: var(--color-white);
   color: #ffffff;
+  height: 5rem;
+  width: 5rem;
+}
+
+.ac-form__button--close span {
   font-weight: var(--font-weight-700);
   font-weight: 700;
-  font-size: 3em;
-  height: 2em;
-  width: 2em;
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ac-modal {
+    bottom: 1.8rem;
+    left: calc(50% - 40rem);
+    padding: 2rem 4rem;
+    top: 1.8rem;
+  }
+
+  .ac-modal__feedback--heading {
+    font-size: 3.2rem;
+  }
+
+  .ac-form__input,
+  .ac-form__textarea {
+    width: 50rem;
+  }
 }

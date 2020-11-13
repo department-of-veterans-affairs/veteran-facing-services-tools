@@ -22,22 +22,25 @@ const Feedback = props => {
         <button onClick={handleOpenModal} type="button">
           Open our feedback form
         </button>
-        {/* FE Talking Point - Modal Window Behavior and Labeling */}
+        {/* SR Talking Point - Modal Window Behavior and Labeling */}
         <Modal
           aria={{
             describedby: 'feedback_description',
             labelledby: 'feedback_heading',
             modal: modalIsOpen,
           }}
+          className="ac-modal"
           isOpen={modalIsOpen}
           onRequestClose={handleCloseModal}
-          shouldCloseOnOverlayClick={false}
+          shouldCloseOnOverlayClick
         >
           <div
             className="ac-layout--flex ac-layout--justify-between"
             id="feedback_header"
           >
-            <h2 id="feedback_heading">AnyCorp Wants to Hear From You!</h2>
+            <h1 className="ac-modal__feedback--heading" id="feedback_heading">
+              AnyCorp Wants to Hear From You!
+            </h1>
             <button
               aria-label="Close feedback modal"
               className="ac-form__button--close"
@@ -47,8 +50,11 @@ const Feedback = props => {
               <span aria-hidden="true">X</span>
             </button>
           </div>
-          <div id="feedback_description">
-            <p>
+          <div>
+            <p
+              className="ac-modal__feedback--description"
+              id="feedback_description"
+            >
               AnyCorp values your opinion. Please take a moment to fill out our
               simple feedback form and let us know how we can improve your
               experience!
@@ -70,9 +76,9 @@ const Feedback = props => {
                   id="name"
                   required
                 />
-                <label className="ac-form__label" htmlFor="email">
-                  Your email address
-                </label>
+                {/* FE Talking Point - Linting */}
+                {/* eslint-disable-next-line jsx-a11y/label-has-for */}
+                <label className="ac-form__label">Your email address</label>
                 <input
                   aria-required="true"
                   className="ac-form__input"

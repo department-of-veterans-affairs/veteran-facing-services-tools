@@ -7,7 +7,7 @@ const Main = props => {
 
   const headingOne = useRef(null);
 
-  /* FE Talking Point - Active Focus Management */
+  /* SR Talking Point - Active Focus Management */
   useEffect(() => {
     if (setFocus) {
       headingOne.current.focus();
@@ -20,8 +20,8 @@ const Main = props => {
       className={className}
       id={MAIN_ID}
       role="main"
-      tabIndex={-1}
     >
+      {/* SR Talking Point - All pages SHOULD have an H1 for the "big idea" */}
       <h1 id={headerId} ref={headingOne} tabIndex={-1}>
         {headerText}
       </h1>

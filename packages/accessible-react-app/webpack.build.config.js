@@ -33,9 +33,7 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          'file-loader?name=public/imgs/[name].[ext]',
-        ],
+        use: ['file-loader?name=public/imgs/[name].[ext]'],
       },
     ],
   },
@@ -71,6 +69,15 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg'],
+    extensions: [
+      '.js',
+      '.jsx',
+      '.scss',
+      '.gif',
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.svg',
+    ],
   },
 };

@@ -14,16 +14,20 @@ const Home = props => {
         <p>This is a brief paragraph about AnyCorp.</p>
         <p>
           AnyCorp is a fictitious company that was created by the Product
-          Support Team to help product, design, and engineering teams learn more
-          about accessibility and 508 compliance.
+          Support Team to help product, research, design, and engineering teams
+          learn more about accessibility and{' '}
+          {/* eslint-disable-next-line jsx-a11y/aria-role */}
+          <span role="text">
+            <span aria-hidden="true">Section 508</span>{' '}
+            <span className="ac-helper--sr-only">Section Five Oh Eight</span>
+          </span>{' '}
+          compliance.
         </p>
         <p>
           This should be the next focusable elment after the global skip link is
           clicked:
           <br />
-          <a href="https://google.com" style={{ outline: '0' }}>
-            Google search page
-          </a>
+          <a href="https://google.com">Google search page</a>
         </p>
       </Main>
     </Layout>

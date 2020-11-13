@@ -14,6 +14,7 @@
 }
 
 .ac-primary-nav__list-item > a {
+  /* SR Talking Point - Color contrast needs to be higher. Don't assume all SR users are blind. */
   color: #bebbbb;
   text-decoration: none;
 }

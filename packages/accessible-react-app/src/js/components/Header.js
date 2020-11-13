@@ -5,9 +5,10 @@ import PrimaryNav from './PrimaryNav';
 
 const Header = () => (
   <>
-    <header role="banner">
+    {/* SR talking point - aria-label for landmarks rotor (menu) */}
+    <header aria-label="AnyCorp site" role="banner">
       <HomeIcon />
-      <PrimaryNav />
+      <PrimaryNav ariaLabelText="Primary page links" />
     </header>
   </>
 );
