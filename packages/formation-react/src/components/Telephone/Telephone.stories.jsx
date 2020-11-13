@@ -61,3 +61,6 @@ Default.args = { ...defaultArgs };
 
 export const DisplayOnly = Template.bind({});
 DisplayOnly.args = { ...defaultArgs, notClickable: true };
+
+export const Extension = Template.bind({});
+Extension.args = { ...defaultArgs, extension: '123' };
