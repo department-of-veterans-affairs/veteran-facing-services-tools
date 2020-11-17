@@ -8,6 +8,14 @@ function execute(command, callback) {
 
 execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
   console.log(output);
+
+  const changedFiles = output.split('\n');
+
+  const libraryChanged =
+    changedFiles.filter(filename => filename.includes('formation-react'))
+      .length > 0;
+
+  console.log(libraryChanged);
 });
 
 console.log('Testing');
