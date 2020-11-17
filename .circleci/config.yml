@@ -5,7 +5,6 @@ jobs:
       - image: circleci/node:14.5.0
     environment:
       LAST_COMMIT: << pipeline.git.base_revision >>
-      CIRCLE_COMPARE_URL: << pipeline.project.git_url >>/compare/<< pipeline.git.base_revision >>..<<pipeline.git.revision>>
     steps:
       - checkout
       - run: node ./scripts/publish-storybook.js

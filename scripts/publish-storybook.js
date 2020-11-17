@@ -7,10 +7,7 @@ function execute(command, callback) {
 }
 
 execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
-  console.log(output);
-
   const changedFiles = output.split('\n');
-
   console.log(changedFiles);
 
   const libraryChanged =
@@ -23,6 +20,3 @@ execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
       : 'No updates made to component library',
   );
 });
-
-console.log('Testing');
-console.log(process.env.CIRCLE_COMPARE_URL);
