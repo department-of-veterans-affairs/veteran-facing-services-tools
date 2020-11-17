@@ -28,8 +28,6 @@ export default class AdditionalInfo extends React.Component {
       'vads-u-display--block',
     );
 
-    console.log('Testing');
-
     const iconClass = classNames({
       fas: true,
       'fa-angle-down': true,
