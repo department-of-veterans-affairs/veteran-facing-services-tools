@@ -252,6 +252,10 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     // read-only on a page that is not a review page.
     viewField: RowViewComponent,
 
+    // For array fields, this will toggle the auto-scroll that happens when an item is added
+    // to the list. This setting will toggle the scroll for both the original page and the review page. 
+    doNotScroll: true,
+    
     // To show a field only when another field is true, set this option to the property name.
     // It wraps the fields with an ExpandingGroup component using the `expandUnder` field as
     // the first question.
