@@ -17,7 +17,11 @@ execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
     changedFiles.filter(filename => filename.includes('formation-react'))
       .length > 0;
 
-  console.log(libraryChanged);
+  console.log(
+    libraryChanged
+      ? 'Need to publish storybook'
+      : 'No updates made to component library',
+  );
 });
 
 console.log('Testing');
