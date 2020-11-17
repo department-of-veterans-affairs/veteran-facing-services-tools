@@ -1,7 +1,16 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+jobs:
+  publish-storybook:
+    environment:
+      CIRCLE_COMPARE_URL: << pipeline.project.git_url >>/compare/<< pipeline.git.base_revision >>..<<pipeline.git.revision>>
+    steps:
+      - run: node ./script/publish-storybook.js
 workflows:
   node-tests:
     jobs:
       - node/test
+  publish:
+    jobs:
+      - publish-storybook
