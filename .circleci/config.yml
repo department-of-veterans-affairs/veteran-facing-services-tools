@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
 jobs:
   publish-storybook:
     docker:
@@ -10,10 +8,8 @@ jobs:
     steps:
       - checkout
       - run: node ./scripts/publish-storybook.js
+
 workflows:
-  node-tests:
-    jobs:
-      - node/test
   publish:
     jobs:
       - publish-storybook
