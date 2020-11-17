@@ -11,6 +11,8 @@ execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
 
   const changedFiles = output.split('\n');
 
+  console.log(changedFiles);
+
   const libraryChanged =
     changedFiles.filter(filename => filename.includes('formation-react'))
       .length > 0;
