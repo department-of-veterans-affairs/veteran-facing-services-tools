@@ -17,5 +17,4 @@ jobs:
 workflows:
   publish:
     jobs:
-      - publish-storybook:
-          context: aws
+      - publish-storybook
