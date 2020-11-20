@@ -11,8 +11,7 @@ jobs:
       LAST_COMMIT: << pipeline.git.base_revision >>
     steps:
       - checkout
-      - aws-cli/setup:
-          aws-region: us-gov-west-1
+      - aws-cli/setup
       - run: node ./scripts/publish-storybook.js
 
 workflows:
