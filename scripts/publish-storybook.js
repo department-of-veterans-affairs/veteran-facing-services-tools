@@ -19,4 +19,8 @@ execute(`git diff --name-only HEAD ${process.env.LAST_COMMIT}`, output => {
       ? 'Need to publish storybook'
       : 'No updates made to component library',
   );
+
+  execute('aws s3 ls', s3Output => {
+    console.log(s3Output);
+  });
 });

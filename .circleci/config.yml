@@ -1,15 +1,22 @@
 version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@1.3.1
+
 jobs:
   publish-storybook:
-    docker:
-      - image: circleci/node:14.5.0
+    executor: aws-cli/default
+    # docker:
+    #   - image: circleci/node:14.5.0
     environment:
       LAST_COMMIT: << pipeline.git.base_revision >>
     steps:
       - checkout
+      - aws-cli/setup:
+          aws-region: us-gov-west-1
       - run: node ./scripts/publish-storybook.js
 
 workflows:
   publish:
     jobs:
-      - publish-storybook
+      - publish-storybook:
+          context: aws
