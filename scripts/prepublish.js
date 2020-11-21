@@ -9,7 +9,6 @@ const chalk = require('chalk');
 const branchName = execSync('git branch --show-current');
 
 if (branchName !== 'master') {
-  console.log(``);
   console.log(
     chalk.yellow(
       `You're currently on branch ${chalk.cyan(
