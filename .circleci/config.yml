@@ -14,7 +14,7 @@ commands:
         description: "The git commit that we are checking against"
         type: string
     steps:
-      - run: git diff --name-only HEAD << parameters.to >> | grep << parameters.in >>
+      - run: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
 
 jobs:
   publish-storybook:
