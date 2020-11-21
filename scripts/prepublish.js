@@ -2,14 +2,11 @@
  * Ensure that we're publishing from the master branch.
  */
 
-const simpleGit = require('simple-git');
+const { execSync } = require('child_process');
 const chalk = require('chalk');
 
-const git = simpleGit();
-
 (async () => {
-  await git.init();
-  const branchName = (await git.branch()).current;
+  const branchName = execSync('git branch --show-current');
 
   if (branchName !== 'master') {
     // eslint-disable-next-line no-console
