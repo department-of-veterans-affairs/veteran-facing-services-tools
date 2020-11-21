@@ -28,7 +28,9 @@ jobs:
       - run:
           name: "Get last published commit"
           # Eventually this will be fetching some value from a BUILD.txt file on s3
-          command: export LAST_PUBLISHED_COMMIT=e50cd7bb7a05654cb38f78308eb2f9183a3ff815
+          command: |
+            echo 'export LAST_PUBLISHED_COMMIT=e50cd7bb7a05654cb38f78308eb2f9183a3ff815'>> $BASH_ENV
+            source $BASH_ENV
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
