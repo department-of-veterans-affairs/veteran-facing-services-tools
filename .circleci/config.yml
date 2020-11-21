@@ -9,7 +9,6 @@ commands:
       in:
         description: "Returns true if this pattern matches any folder/file in the diff"
         type: string
-        default: "formation-react"
       since:
         description: "The git commit that we are checking against"
         type: string
@@ -17,7 +16,7 @@ commands:
       - run: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
 
 jobs:
-  publish-storybook:
+  needs-to-publish-storybook:
     executor: aws-cli/default
     # docker:
     #   - image: circleci/node:14.5.0
@@ -33,4 +32,4 @@ jobs:
 workflows:
   publish:
     jobs:
-      - publish-storybook
+      - needs-to-publish-storybook
