@@ -29,7 +29,6 @@ jobs:
       - check-for-changes:
           in: "formation-react"
           since: "<< pipeline.git.base_revision >>"
-      # - run: node ./scripts/publish-storybook.js
 
 workflows:
   publish:
