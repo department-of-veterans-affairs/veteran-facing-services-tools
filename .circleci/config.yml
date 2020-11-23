@@ -67,7 +67,7 @@ jobs:
 workflows:
   publish:
     jobs:
-      - needs-to-publish-storybook:
+      - needs-to-publish-storybook
       - publish-storybook:
           requires:
             - needs-to-publish-storybook
