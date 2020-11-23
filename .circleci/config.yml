@@ -22,7 +22,6 @@ jobs:
     #   - image: circleci/node:14.5.0
     environment:
       LAST_COMMIT: << pipeline.git.base_revision >>
-      AWS_DEFAULT_REGION: us-gov-west-1
     steps:
       - checkout
       - aws-cli/setup
@@ -35,12 +34,27 @@ jobs:
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
-      - run: aws iam get-user
-      - run: aws s3 ls
+  publish-storybook:
+    executor: aws-cli/default
+    environment:
+      AWS_DEFAULT_REGION: us-gov-west-1
+    steps:
+      - checkout
+      - aws-cli/setup
+      - run: cd packages/formation-react
+      - run:
+          name: "Build Storybook"
+          command: yarn build-storybook
+      - run:
+          name: "Publish storybook"
+          command: aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
 
 workflows:
   publish:
     jobs:
       - needs-to-publish-storybook:
+          context:
+            - Platform
+      - publish-storybook:
           context:
             - Platform
