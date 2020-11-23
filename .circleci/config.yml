@@ -15,6 +15,23 @@ commands:
     steps:
       - run: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
 
+  write-build-info:
+    description: "Write relevant info to the current build/deploy to a file for referencing"
+    parameters:
+      data:
+        description: "The contents of the build file"
+        type: string
+        default: |
+          BUILD_COMMIT=<< pipeline.revision >>
+      dest:
+        description: "The destination of the build file"
+        type: string
+    steps:
+      - run:
+          name: "Writing build info"
+          command: |
+            echo " << parameters.data >> " > << parameters.dest >>/BUILD.txt
+
 jobs:
   needs-to-publish-storybook:
     executor: aws-cli/default
@@ -41,6 +58,8 @@ jobs:
       - run:
           name: "Build Storybook"
           command: cd packages/formation-react && yarn build-storybook
+      - write-build-info:
+          dest: "./storybook-static"
       - run:
           name: "Publish storybook"
           command: cd packages/formation-react && aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
