@@ -41,13 +41,13 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup
-      - run: cd packages/formation-react
+      - run: yarn install
       - run:
           name: "Build Storybook"
-          command: yarn build-storybook
+          command: cd packages/formation-react && yarn build-storybook
       - run:
           name: "Publish storybook"
-          command: aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
+          command: cd packages/formation-react && aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
 
 workflows:
   publish:
