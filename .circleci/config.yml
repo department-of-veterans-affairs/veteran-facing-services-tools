@@ -27,7 +27,6 @@ commands:
         description: "The destination of the build file"
         type: string
     steps:
-      - run: touch << parameters.dest >>/BUILD.txt
       - run:
           name: "Writing build info"
           command: |
