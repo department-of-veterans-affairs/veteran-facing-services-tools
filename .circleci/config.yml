@@ -22,11 +22,12 @@ commands:
         description: "The contents of the build file"
         type: string
         default: |
-          BUILD_COMMIT=<< pipeline.revision >>
+          BUILD_COMMIT=<< pipeline.git.revision >>
       dest:
         description: "The destination of the build file"
         type: string
     steps:
+      - run: touch << parameters.dest >>/BUILD.txt
       - run:
           name: "Writing build info"
           command: |
