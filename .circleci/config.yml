@@ -59,7 +59,7 @@ jobs:
           name: "Build Storybook"
           command: cd packages/formation-react && yarn build-storybook
       - write-build-info:
-          dest: "./storybook-static"
+          dest: "packages/formation-react/storybook-static"
       - run:
           name: "Publish storybook"
           command: cd packages/formation-react && aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
