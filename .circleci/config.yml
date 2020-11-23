@@ -35,6 +35,7 @@ jobs:
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
+      - run: aws iam get-user
       - run: aws s3 ls
 
 workflows:
