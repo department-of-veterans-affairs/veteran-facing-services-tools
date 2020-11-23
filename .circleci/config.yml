@@ -18,13 +18,8 @@ commands:
 jobs:
   needs-to-publish-storybook:
     executor: aws-cli/default
-    # docker:
-    #   - image: circleci/node:14.5.0
-    environment:
-      LAST_COMMIT: << pipeline.git.base_revision >>
     steps:
       - checkout
-      - aws-cli/setup
       - run:
           name: "Get last published commit"
           # Eventually this will be fetching some value from a BUILD.txt file on s3
@@ -34,6 +29,7 @@ jobs:
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
+
   publish-storybook:
     executor: aws-cli/default
     environment:
@@ -53,8 +49,8 @@ workflows:
   publish:
     jobs:
       - needs-to-publish-storybook:
-          context:
-            - Platform
       - publish-storybook:
+          requires:
+            - needs-to-publish-storybook
           context:
             - Platform
