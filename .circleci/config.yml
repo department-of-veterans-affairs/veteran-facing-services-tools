@@ -32,6 +32,18 @@ commands:
           command: |
             echo "<< parameters.data >>" > << parameters.dest >>/BUILD.txt
 
+  copy-to-s3:
+    description: "Copies adirectory to a bucket (and folder) in S3"
+    parameters:
+      source:
+        description: "The local directory to copy"
+        type: string
+      bucket:
+        description: "The S3 bucket (and optional folder) to copy everything to"
+        type: string
+    steps:
+      - run: aws s3 cp << parameters.source >> s3://<< parameters.bucket >> --recursive --acl public-read
+
 jobs:
   needs-to-publish-storybook:
     executor: aws-cli/default
@@ -60,9 +72,9 @@ jobs:
           command: cd packages/formation-react && yarn build-storybook
       - write-build-info:
           dest: "packages/formation-react/storybook-static"
-      - run:
-          name: "Publish storybook"
-          command: cd packages/formation-react && aws s3 cp ./storybook-static/ s3://dev-design.va.gov/storybook --recursive --acl public-read
+      - copy-to-s3:
+          source: "./packages/formation-react/storybook-static"
+          bucket: "dev-design.va.gov/storybook"
 
 workflows:
   publish:
