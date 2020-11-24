@@ -46,7 +46,8 @@ commands:
 
 jobs:
   needs-to-publish-storybook:
-    executor: aws-cli/default
+    docker:
+      - image: circleci/node:14.5.0
     steps:
       - checkout
       - run:
