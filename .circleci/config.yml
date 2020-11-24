@@ -53,6 +53,7 @@ jobs:
           name: "Get last published commit"
           command: |
             echo "export LAST_PUBLISHED_COMMIT=$(curl -s -f https://dev-design.va.gov/storybook/BUILD.txt | sed 's/^.*=\\(.*\\)$/\\1/')" >> $BASH_ENV
+            source $BASH_ENV
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
