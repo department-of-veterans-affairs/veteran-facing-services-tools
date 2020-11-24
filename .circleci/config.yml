@@ -48,12 +48,16 @@ jobs:
   needs-to-publish-storybook:
     docker:
       - image: circleci/node:14.5.0
+    parameters:
+      doc_site:
+        type: string
+        description: "The domain for the doc site containing the build file"
     steps:
       - checkout
       - run:
           name: "Get last published commit"
           command: |
-            echo "export LAST_PUBLISHED_COMMIT=$(curl -s -f https://dev-design.va.gov/storybook/BUILD.txt | sed 's/^.*=\\(.*\\)$/\\1/')" >> $BASH_ENV
+            echo "export LAST_PUBLISHED_COMMIT=$(curl -s -f https://<< parameters.doc_site >>/storybook/BUILD.txt | sed 's/^.*=\\(.*\\)$/\\1/')" >> $BASH_ENV
             source $BASH_ENV
       - check-for-changes:
           in: "formation-react"
@@ -77,9 +81,10 @@ jobs:
           bucket: "dev-design.va.gov/storybook"
 
 workflows:
-  publish:
+  publish-dev:
     jobs:
-      - needs-to-publish-storybook
+      - needs-to-publish-storybook:
+          doc_site: dev-design.va.gov
       - publish-storybook:
           # requires:
           #   - needs-to-publish-storybook
