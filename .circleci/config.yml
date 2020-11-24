@@ -69,7 +69,7 @@ workflows:
     jobs:
       - needs-to-publish-storybook
       - publish-storybook:
-          requires:
-            - needs-to-publish-storybook
+          # requires:
+          #   - needs-to-publish-storybook
           context:
             - Platform
