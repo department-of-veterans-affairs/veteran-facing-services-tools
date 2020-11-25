@@ -106,9 +106,9 @@ workflows:
     jobs:
       - needs-to-publish-storybook:
           doc_site: staging-design.va.gov
-      # - publish-storybook:
-      #     requires:
-      #       - needs-to-publish-storybook
-      #     bucket: staging-design.va.gov
-      #     context:
-      #       - Platform
+      - publish-storybook:
+          requires:
+            - needs-to-publish-storybook
+          bucket: staging-design.va.gov
+          context:
+            - Platform
