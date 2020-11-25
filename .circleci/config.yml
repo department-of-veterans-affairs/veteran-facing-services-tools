@@ -67,9 +67,10 @@ jobs:
           command: |
             echo "export LAST_PUBLISHED_COMMIT=$(curl -s -f https://<< parameters.doc_site >>/storybook/BUILD.txt | sed -r 's/^.*=(.*)$/\1/')" >> $BASH_ENV
             source $BASH_ENV
-      - check-for-changes:
-          in: "formation-react"
-          since: $LAST_PUBLISHED_COMMIT
+      - run: circleci-agent step halt
+      # - check-for-changes:
+      #     in: "formation-react"
+      #     since: $LAST_PUBLISHED_COMMIT
 
   publish-storybook:
     executor: aws-cli/default
