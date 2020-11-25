@@ -18,10 +18,10 @@ commands:
             set +e
             git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
             # Halt without failing if grep didn't find a match
-            if [ $? -eq 1 ]; then
-              echo "AM I RUNNING"
-              circleci-agent step halt
-            fi
+            # if [ $? -eq 1 ]; then
+            #   echo "AM I RUNNING"
+            circleci-agent step halt
+            # fi
 
   write-build-info:
     description: "Write relevant info to the current build/deploy to a file for referencing"
