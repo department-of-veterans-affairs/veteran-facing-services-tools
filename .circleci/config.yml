@@ -61,6 +61,11 @@ jobs:
           command: |
             echo "export LAST_PUBLISHED_COMMIT=$(curl -s -f https://<< parameters.doc_site >>/storybook/BUILD.txt | sed -r 's/^.*=(.*)$/\1/')" >> $BASH_ENV
             source $BASH_ENV
+        # If we didn't find a last published commit, then we need to publish
+      - run: |
+          if [ "$LAST_PUBLISHED_COMMIT" = "" ]; then
+            circleci-agent step halt
+          fi
       - check-for-changes:
           in: "formation-react"
           since: $LAST_PUBLISHED_COMMIT
