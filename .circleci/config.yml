@@ -19,7 +19,7 @@ commands:
             git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
             echo $?
             # Halt without failing if grep didn't find a match
-            if [ "$?" = "1" ]; then
+            if [ $? -eq 1 ]; then
               circleci-agent step halt
             fi
 
