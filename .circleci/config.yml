@@ -15,8 +15,8 @@ commands:
     steps:
       - run:
           command: |
-            set +e
-            git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
+            # set +e
+            # git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
             # Halt without failing if grep didn't find a match
             # if [ $? -eq 1 ]; then
             #   echo "AM I RUNNING"
