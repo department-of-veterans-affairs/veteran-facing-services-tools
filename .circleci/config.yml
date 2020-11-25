@@ -18,6 +18,7 @@ commands:
           command: |
             set +e
             git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
+            echo "Something"
         # Halt if grep didn't find anything
       - run: |
           if [ "$?" = "1" ]; then
