@@ -13,7 +13,14 @@ commands:
         description: "The git commit that we are checking against"
         type: string
     steps:
-      - run: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
+      - run:
+          shell: /bin/sh
+          command: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
+        # Halt if grep didn't find anything
+      - run: |
+          if [ "$?" = "1" ]; then
+            circleci-agent step halt
+          fi
 
   write-build-info:
     description: "Write relevant info to the current build/deploy to a file for referencing"
