@@ -69,6 +69,10 @@ jobs:
     executor: aws-cli/default
     environment:
       AWS_DEFAULT_REGION: us-gov-west-1
+    parameters:
+      bucket:
+        type: string
+        description: "The S3 bucket to copy the storybook build into"
     steps:
       - checkout
       - aws-cli/setup
@@ -80,7 +84,7 @@ jobs:
           dest: "packages/formation-react/storybook-static"
       - copy-to-s3:
           source: "./packages/formation-react/storybook-static"
-          bucket: "dev-design.va.gov/storybook"
+          bucket: "<< parameters.bucket >>/storybook"
 
 workflows:
   publish-dev:
@@ -90,5 +94,6 @@ workflows:
       - publish-storybook:
           # requires:
           #   - needs-to-publish-storybook
+          bucket: dev-design.va.gov
           context:
             - Platform
