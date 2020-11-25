@@ -14,8 +14,9 @@ commands:
         type: string
     steps:
       - run:
-          shell: /bin/sh
-          command: git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
+          command: |
+            set +e
+            git diff --name-only HEAD << parameters.since >> | grep << parameters.in >>
         # Halt if grep didn't find anything
       - run: |
           if [ "$?" = "1" ]; then
