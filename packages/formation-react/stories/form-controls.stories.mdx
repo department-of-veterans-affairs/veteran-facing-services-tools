@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Library/Form controls/Usage" />
 
@@ -18,16 +18,12 @@ Form controls allow users to enter information.
 Text inputs allow people to enter any type of text unless otherwise restricted.
 
 <Canvas>
-  <Story name="Text inputs">
-    {() => (
-      <form class="usa-form">
-        <label for="input-type-text">Text input label</label>
-        <input class="usa-input" id="input-type-text" name="input-type-text" type="text"/>
-        <label for="input-type-textarea">Text area label</label>
-        <textarea class="usa-textarea" id="input-type-textarea" name="input-type-textarea"></textarea>
-      </form>
-    )}
-  </Story>
+  <form class="usa-form">
+    <label for="input-type-text">Text input label</label>
+    <input class="usa-input" id="input-type-text" name="input-type-text" type="text"/>
+    <label for="input-type-textarea">Text area label</label>
+    <textarea class="usa-textarea" id="input-type-textarea" name="input-type-textarea"></textarea>
+  </form>
 </Canvas>
 
 ### Accessibility
@@ -60,19 +56,15 @@ A select box allows users to select one option from a list.
 
 
 <Canvas>
-  <Story name="Select box">
-    {() => (
-      <form class="usa-form">
-        <label for="options">Dropdown label</label>
-        <select class="usa-select" name="options" id="options">
-          <option value>- Select -</option>
-          <option value="value1">Option A</option>
-          <option value="value2">Option B</option>
-          <option value="value3">Option C</option>
-        </select>
-      </form>
-    )}
-  </Story>
+  <form class="usa-form">
+    <label for="options">Dropdown label</label>
+    <select class="usa-select" name="options" id="options">
+      <option value>- Select -</option>
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+  </form>
 </Canvas>
 
 ### Accessibility
@@ -107,31 +99,27 @@ Allows users to select one or more items from a visible list.
 
 
 <Canvas>
-  <Story name="Checkboxes">
-    {() => (
-      <fieldset class="fieldset-input">
-        <legend class="legend-label">Historical figures 1</legend>
-        <div class="form-expanding-group">
-          <div class="form-checkbox-buttons">
-            <input type="checkbox" id="default-0" value="value" checked/>
-            <label name="undefined-0-label" for="default-0">Sojourner Truth</label>
-          </div>
-        </div>
-        <div class="form-expanding-group">
-          <div class="form-checkbox-buttons">
-            <input type="checkbox" id="default-1" value="value" />
-            <label name="undefined-1-label" for="default-1">Frederick Douglass</label>
-          </div>
-        </div>
-        <div class="form-expanding-group">
-          <div class="form-checkbox-buttons">
-            <input type="checkbox" id="default-2" value="value" />
-            <label name="undefined-2-label" for="default-2">Booker T. Washington</label>
-          </div>
-        </div>
-      </fieldset>
-    )}
-  </Story>
+  <fieldset class="fieldset-input">
+    <legend class="legend-label">Historical figures 1</legend>
+    <div class="form-expanding-group">
+      <div class="form-checkbox-buttons">
+        <input type="checkbox" id="default-0" value="value" checked/>
+        <label name="undefined-0-label" for="default-0">Sojourner Truth</label>
+      </div>
+    </div>
+    <div class="form-expanding-group">
+      <div class="form-checkbox-buttons">
+        <input type="checkbox" id="default-1" value="value" />
+        <label name="undefined-1-label" for="default-1">Frederick Douglass</label>
+      </div>
+    </div>
+    <div class="form-expanding-group">
+      <div class="form-checkbox-buttons">
+        <input type="checkbox" id="default-2" value="value" />
+        <label name="undefined-2-label" for="default-2">Booker T. Washington</label>
+      </div>
+    </div>
+  </fieldset>
 </Canvas>
 
 ### Accessibility
@@ -163,33 +151,29 @@ Radio buttons allow users to see all available choices at once and select exactl
 
 
 <Canvas>
-  <Story name="Radio buttons">
-    {() => (
-      <fieldset class="fieldset-input">
-        <legend class="legend-label">Radio Buttons</legend>
-        <div class="form-radio-buttons">
-          <div class="radio-button">
-            <input type="radio" id="defaultId-0" name="defaultName" value="option 1" />
-            <label name="defaultName-0-label" for="defaultId-0">option 1</label>
-          </div>
+  <fieldset class="fieldset-input">
+    <legend class="legend-label">Radio Buttons</legend>
+    <div class="form-radio-buttons">
+      <div class="radio-button">
+        <input type="radio" id="defaultId-0" name="defaultName" value="option 1" />
+        <label name="defaultName-0-label" for="defaultId-0">option 1</label>
+      </div>
+    </div>
+    <div class="form-radio-buttons">
+      <div class="radio-button">
+        <input type="radio" checked="" id="defaultId-1" name="defaultName" value="option 2" />
+        <label name="defaultName-1-label" for="defaultId-1">option 2</label>
+      </div>
+    </div>
+    <div class="form-expanding-group">
+      <div class="form-radio-buttons">
+        <div class="radio-button">
+          <input type="radio" id="defaultId-2" name="defaultName" value="expanding option 3" />
+          <label name="defaultName-2-label" for="defaultId-2">option 3 label</label>
         </div>
-        <div class="form-radio-buttons">
-          <div class="radio-button">
-            <input type="radio" checked="" id="defaultId-1" name="defaultName" value="option 2" />
-            <label name="defaultName-1-label" for="defaultId-1">option 2</label>
-          </div>
-        </div>
-        <div class="form-expanding-group">
-          <div class="form-radio-buttons">
-            <div class="radio-button">
-              <input type="radio" id="defaultId-2" name="defaultName" value="expanding option 3" />
-              <label name="defaultName-2-label" for="defaultId-2">option 3 label</label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    )}
-  </Story>
+      </div>
+    </div>
+  </fieldset>
 </Canvas>
 
 ### Accessibility
