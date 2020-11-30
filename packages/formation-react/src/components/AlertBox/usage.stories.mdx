@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 
 import AlertBox, { ALERT_TYPE } from './AlertBox';
 
@@ -20,34 +20,34 @@ Alerts keep users informed of important and sometimes time-sensitive changes.
 
 Used to provide helpful information to a user or something that warrants attention. Not used for negative consequences.
 
-<Story name="Info" args={{ ...defaultArgs }}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <AlertBox {...defaultArgs} />
+</Canvas>
 
 ## Warning alert
 
 Used to warn a user, such as when there are negative consequences, but necessary when something has gone wrong.
 
-<Story name="Warning" args={{ ...defaultArgs, status: ALERT_TYPE.WARNING }}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <AlertBox {...defaultArgs} status={ALERT_TYPE.WARNING} />
+</Canvas>
 
 ## Success alert
 
 Used to indicate success.
 
-<Story name="Success" args={{ ...defaultArgs, status: ALERT_TYPE.SUCCESS }}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <AlertBox {...defaultArgs} status={ALERT_TYPE.SUCCESS} />
+</Canvas>
 
 ## Error alert
 
 Used when there is a problem or something destructive is about to occur.
 
 
-<Story name="Error" args={{ ...defaultArgs, status: ALERT_TYPE.ERROR }}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <AlertBox {...defaultArgs} status={ALERT_TYPE.ERROR} />
+</Canvas>
 
 
 ## Sign in or tool prompt
@@ -55,28 +55,27 @@ Used when there is a problem or something destructive is about to occur.
 Used to prompt user to sign in, create an account, or launch a tool to access certain information.
 
 
-<Story name="Sign in" args={{
-  status: ALERT_TYPE.CONTINUE,
-  headline: 'You’ll need to sign in',
-  content: <div><p>Please sign in to continue.</p><button class="va-button-primary">Sign in or create an account</button></div>}}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <AlertBox
+    {...defaultArgs}
+    status={ALERT_TYPE.CONTINUE}
+    headline="You’ll need to sign in"
+    content={<div><p>Please sign in to continue</p><button class="va-button-primary">Sign in or create an account</button></div>}/>
+</Canvas>
 
 ## Background color only
 
 Any style of alert box can be made to be background color only. Background color only alerts are only to be used for immediate feedback, such as in single page applications or Ajax forms. They should not be used for static alert messaging.
 
 
-<Story name="Background color only">
-  {() => (
-    <div>
-        <AlertBox backgroundOnly content="Info alert" status={ALERT_TYPE.INFO} />
-        <AlertBox backgroundOnly content="Success alert" status={ALERT_TYPE.SUCCESS} />
-        <AlertBox backgroundOnly content="Warning alert" status={ALERT_TYPE.WARNING} />
-        <AlertBox backgroundOnly content="Error alert" status={ALERT_TYPE.ERROR} />
-    </div>
-  )}
-</Story>
+<Canvas>
+  <div>
+      <AlertBox backgroundOnly content="Info alert" status={ALERT_TYPE.INFO} />
+      <AlertBox backgroundOnly content="Success alert" status={ALERT_TYPE.SUCCESS} />
+      <AlertBox backgroundOnly content="Warning alert" status={ALERT_TYPE.WARNING} />
+      <AlertBox backgroundOnly content="Error alert" status={ALERT_TYPE.ERROR} />
+  </div>
+</Canvas>
 
 
 - Some users might not be able to distinguish differences in the background color, or see the color at all. Do not rely on color alone to convey context.
@@ -89,24 +88,20 @@ Full-width alerts can only appear below the main navigation and are used only fo
 
 ### Warning
 
-<Story name="Full width warning">
-  {() => (
-    <div className="usa-alert-full-width usa-alert-full-width-warning" role="region" aria-labelledby="alert-heading">
-      <AlertBox {...defaultArgs} status={ALERT_TYPE.WARNING} />
-    </div>
-  )}
-</Story>
+<Canvas>
+  <div className="usa-alert-full-width usa-alert-full-width-warning" role="region" aria-labelledby="alert-heading">
+    <AlertBox {...defaultArgs} status={ALERT_TYPE.WARNING} />
+  </div>
+</Canvas>
 
 
 ### Informational
 
-<Story name="Full width info">
-  {() => (
-    <div className="usa-alert-full-width usa-alert-full-width-info" role="region" aria-labelledby="alert-heading">
-      <AlertBox {...defaultArgs} status={ALERT_TYPE.INFO} />
-    </div>
-  )}
-</Story>
+<Canvas>
+  <div className="usa-alert-full-width usa-alert-full-width-info" role="region" aria-labelledby="alert-heading">
+    <AlertBox {...defaultArgs} status={ALERT_TYPE.INFO} />
+  </div>
+</Canvas>
 
 
 ### More about full-width alerts
