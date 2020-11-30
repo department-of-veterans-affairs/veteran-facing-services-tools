@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import PromoBanner, { PROMO_BANNER_TYPES } from './PromoBanner';
 
@@ -33,9 +33,7 @@ Promo banners are fixed content used for dismissible announcements such as new t
 Pertains to content focused on benefits: a new tool, a new online benefit application, etc.
 
 <Canvas>
-  <Story name="Benefit announcements" args={{ ...defaultArgs }}>
-    {Template.bind({})}
-  </Story>
+  <Template {...defaultArgs} />
 </Canvas>
 
 ## Email signup
@@ -43,9 +41,7 @@ Pertains to content focused on benefits: a new tool, a new online benefit applic
 Points to email signups for various VA updates / alerts / communications.
 
 <Canvas>
-  <Story name="Email signup" args={{ ...defaultArgs, type: "email-signup" }}>
-    {Template.bind({})}
-  </Story>
+  <Template {...defaultArgs} type="email-signup" />
 </Canvas>
 
 ## News stories
@@ -53,9 +49,7 @@ Points to email signups for various VA updates / alerts / communications.
 Pertains to newly received or noteworthy information about the VA.
 
 <Canvas>
-  <Story name="News story" args={{ ...defaultArgs, type: "news" }}>
-    {Template.bind({})}
-  </Story>
+  <Template {...defaultArgs} type="news" />
 </Canvas>
 
 
