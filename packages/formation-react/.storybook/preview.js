@@ -4,6 +4,11 @@ import { withHTML } from '@whitespace/storybook-addon-html/react';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+    },
+  },
 };
 
 export const decorators = [withHTML];
