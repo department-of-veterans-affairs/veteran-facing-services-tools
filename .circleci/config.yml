@@ -105,13 +105,13 @@ workflows:
   publish-dev:
     jobs:
       - needs-to-publish-storybook:
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: master
           doc_site: dev-design.va.gov
       - publish-storybook:
-          # requires:
-          #   - needs-to-publish-storybook
+          requires:
+            - needs-to-publish-storybook
           bucket: dev-design.va.gov
           context:
             - Platform
