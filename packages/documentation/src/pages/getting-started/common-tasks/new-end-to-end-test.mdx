@@ -15,12 +15,8 @@ Front end engineers use end-to-end (e2e) tests in `vets-website` to validate mul
 - `vets-website` uses [Cypress](https://www.cypress.io/) to write end-to-end tests. See [Cypress Best Practices on VSP](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/testing/end-to-end/cypress-best-practices-on-vsp.md) and [Cypress Resources Reference Guide](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/testing/end-to-end/vsp-cypress-resources.md) for detailed use cases and documented helpers/mocks.
   - Some older end-to-end tests were written in [Nightwatch](https://nightwatchjs.org) prior to Cypress. All new tests should be written using Cypress moving forward and Nightwatch tests are in the process of being deprecated/migrated to Cypress.
   - Refer to the [Cypress migration guide](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/testing/end-to-end/cypress-migration-guide.md) to convert old tests or write new tests.
-- end-to-end tests are **collocated in application folder** with the application they test
-- Two node apps run with the end-to-end tests:
-  - `mockapi.js` - hosts mock responses (see [Mocking API responses](#mocking-api-responses))
-  - `test-server.js` - builds a server that handles client side routes
-- `vets-website` must be started before end-to-end tests are run
-- `vets-api` should not be running when end-to-end tests are run
+- End-to-end tests are **collocated in application folder** with the application they test
+- Cypress tests can be run using the command `yarn cy:run` (after `yarn watch` to `yarn build`).
 
 ## End-to-end tests conventions
 
