@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-
 import ExpandingGroup from '../ExpandingGroup/ExpandingGroup';
 
 import { makeField } from '../../helpers/fields';
@@ -48,7 +47,16 @@ class ErrorableRadioButtons extends React.Component {
     return null;
   }
 
-  handleChange(domEvent) {
+  handleChange(domEvent, optionLabel) {
+    // If a Google Analytics prefix prop was passed in, fire the standardized event onChange
+    if (this.props.gaEventPrefix && window.dataLayer) {
+      window.dataLayer.push({
+        event: `${this.props.gaEventPrefix}-formChange`,
+        'form-field-type': 'form-radio-buttons',
+        'form-field-label': this.props.label,
+        'form-field-value': optionLabel,
+      });
+    }
     this.props.onValueChange(makeField(domEvent.target.value, true));
   }
 
@@ -108,7 +116,7 @@ class ErrorableRadioButtons extends React.Component {
               onMouseDown={this.props.onMouseDown}
               onKeyDown={this.props.onKeyDown}
               value={optionValue}
-              onChange={this.handleChange}
+              onChange={e => this.handleChange(e, optionLabel)}
             />
 
             <label
