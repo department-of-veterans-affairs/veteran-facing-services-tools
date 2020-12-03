@@ -101,9 +101,9 @@ workflows:
   publish-dev:
     jobs:
       - needs-to-publish-storybook:
-          filters:
-            branches:
-              only: master
+          # filters:
+          #   branches:
+          #     only: master
           doc_site: dev-design.va.gov
       - publish-storybook:
           requires:
