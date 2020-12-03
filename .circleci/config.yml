@@ -89,6 +89,9 @@ jobs:
       - aws-cli/setup
       - run: yarn install
       - run:
+          working_directory: ./packages/formation-react
+          command: yarn install
+      - run:
           name: "Build Storybook"
           command: cd packages/formation-react && yarn build-storybook
       - write-build-info:
