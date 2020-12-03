@@ -87,7 +87,6 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup
-      - run: yarn install
       - run:
           working_directory: ./packages/formation-react
           command: yarn install
@@ -110,8 +109,8 @@ workflows:
           #     only: master
           doc_site: dev-design.va.gov
       - publish-storybook:
-          requires:
-            - needs-to-publish-storybook
+          # requires:
+          #   - needs-to-publish-storybook
           bucket: dev-design.va.gov
           context:
             - Platform
