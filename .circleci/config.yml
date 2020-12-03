@@ -47,6 +47,12 @@ commands:
       - run: aws s3 cp << parameters.source >> s3://<< parameters.bucket >> --recursive --acl public-read
 
 jobs:
+  # This job should be a required job for the publish-storybook job to run
+  # Having this job will prevent "unnecessary" storybook publishes where nothing has changed in formation-react
+  # If this job succeeds, that means that:
+  #   - We didn't find a BUILD.txt file, OR
+  #   - We didn't find a last published commit in the BUILD.txt file, OR
+  #   - We did find a BUILD.txt file with a last published commit, and there have been changes to formation-react since that commit
   needs-to-publish-storybook:
     docker:
       - image: circleci/node:14.5.0
