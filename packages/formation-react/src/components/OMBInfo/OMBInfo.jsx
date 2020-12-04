@@ -5,20 +5,22 @@ import Modal from '../Modal/Modal';
 const modalContents = minutes => (
   <div>
     <h3>Privacy Act Statement</h3>
-    <p>
-      <strong>Respondent Burden:</strong> We need this information to determine
-      your eligibility for education benefits (38 U.S.C. 3471). Title 38, United
-      States Code, allows us to ask for this information. We estimate that you
-      will need an average of {minutes} minutes to review the instructions, find
-      the information, and complete this form. The VA cannot conduct or sponsor
-      a collection of information unless a valid OMB (Office of Management and
-      Budget) control number is displayed. You are not required to respond to a
-      collection of information if this number is not displayed. Valid OMB
-      control numbers can be located on the OMB Internet Page at
-      www.reginfo.gov/public/do/PRAMain. If desired, you can call{' '}
-      <a href="+18008271000">1-800-827-1000</a> to get information on where to
-      send comments or suggestions about this form.
-    </p>
+    {minutes && (
+      <p>
+        <strong>Respondent Burden:</strong> We need this information to
+        determine your eligibility for education benefits (38 U.S.C. 3471).
+        Title 38, United States Code, allows us to ask for this information. We
+        estimate that you will need an average of {minutes} minutes to review
+        the instructions, find the information, and complete this form. The VA
+        cannot conduct or sponsor a collection of information unless a valid OMB
+        (Office of Management and Budget) control number is displayed. You are
+        not required to respond to a collection of information if this number is
+        not displayed. Valid OMB control numbers can be located on the OMB
+        Internet Page at www.reginfo.gov/public/do/PRAMain. If desired, you can
+        call <a href="+18008271000">1-800-827-1000</a> to get information on
+        where to send comments or suggestions about this form.
+      </p>
+    )}
     <p>
       <strong>Privacy Act Notice:</strong> The VA will not disclose information
       collected on this form to any source other than what has been authorized
