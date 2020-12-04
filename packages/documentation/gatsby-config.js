@@ -70,6 +70,7 @@ module.exports = {
       options: {
         path: `../formation-react/src/components`,
         name: 'formation-react',
+        ignore: ['**/*\.stories\.*'],
       },
     },
     {
