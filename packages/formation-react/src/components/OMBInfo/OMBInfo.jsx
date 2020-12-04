@@ -74,12 +74,16 @@ class OMBInfo extends React.Component {
             Respondent burden: <strong>{resBurden} minutes</strong>
           </div>
         )}
-        <div>
-          OMB Control #: <strong>{ombNumber}</strong>
-        </div>
-        <div>
-          Expiration date: <strong>{expDate}</strong>
-        </div>
+        {ombNumber && (
+          <div>
+            OMB Control #: <strong>{ombNumber}</strong>
+          </div>
+        )}
+        {expDate && (
+          <div>
+            Expiration date: <strong>{expDate}</strong>
+          </div>
+        )}
         <div>
           <button className="va-button-link" onClick={this.openModal}>
             Privacy Act Statement
@@ -108,14 +112,18 @@ OMBInfo.propTypes = {
   resBurden: PropTypes.number,
 
   /**
-   * OMB control number / form number
+   * OMB control number / form number. If this
+   * omitted, it will not show in the rendered component. Be sure to get
+   * approval from the design council before leaving it out.
    */
-  ombNumber: PropTypes.string.isRequired,
+  ombNumber: PropTypes.string,
 
   /**
-   * Form expiration date
+   * Form expiration date. If this
+   * omitted, it will not show in the rendered component. Be sure to get
+   * approval from the design council before leaving it out.
    */
-  expDate: PropTypes.string.isRequired,
+  expDate: PropTypes.string,
 };
 
 export default OMBInfo;
