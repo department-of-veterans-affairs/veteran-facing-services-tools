@@ -60,14 +60,18 @@ describe('<OMBInfo/>', () => {
     expect(tree.text()).to.not.contain('OMB Number');
     tree.unmount();
   });
-  it('should render expiration date', () => {
-    const tree = shallow(<OMBInfo expDate="Expiration date" />);
-    expect(tree.text()).to.contain('Expiration date');
+  it('modal should have response burden', () => {
+    const tree = shallow(<OMBInfo resBurden="10" />);
+    tree.find('button').simulate('click');
+    expect(tree.text()).to.contain('Privacy Act Statement');
+    expect(tree.text()).to.contain('Respondent Burden');
     tree.unmount();
   });
-  it('should not render expiration date', () => {
+  it('modal should not have response burden', () => {
     const tree = shallow(<OMBInfo />);
-    expect(tree.text()).to.not.contain('Expiration date');
+    tree.find('button').simulate('click');
+    expect(tree.text()).to.contain('Privacy Act Statement');
+    expect(tree.text()).to.not.contain('Respondent Burden');
     tree.unmount();
   });
 });
