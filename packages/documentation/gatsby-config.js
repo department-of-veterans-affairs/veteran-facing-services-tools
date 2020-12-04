@@ -61,6 +61,7 @@ module.exports = {
         name: `vagov-documentation`,
         short_name: `vagov-documentation`,
         start_url: `/`,
+        icons: [],
       },
     },
     `gatsby-plugin-sass`,
