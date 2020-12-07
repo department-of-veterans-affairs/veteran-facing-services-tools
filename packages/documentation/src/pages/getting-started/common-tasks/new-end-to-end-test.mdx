@@ -69,15 +69,15 @@ Below are some of the commonly used Cypress mocks (accessible from the link abov
 
 Cypress supports extending its client api with [custom commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands).
 
-Below are some of the commonly used custom Cypress commands (accessible from the link above).
+Below are some of the commonly used custom Cypress commands.
 
-- axeCheck
-- expandAccordions
-- injectAxeThenAxeCheck
-- login
-- syncFixtures
-- upload
-- viewportPreset
+- [axeCheck](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/axeCheck.js) - Callback from a11y check that logs aXe violations to console output.
+- [expandAccordions](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/expandAccordions.js) - Expands all accordions and AdditionalInfo components.
+- [injectAxeThenAxeCheck](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/hasCount.js) - Combines two common, sequentially called functions.
+- [login](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/login.js) - Simulates a logged in session.
+- [syncFixtures](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/syncFixtures.js) - Runs task to sync fixtures under a temp path in the Cypress fixtures folder then overwrites `cy.fixture` and the fixture shorthand in `cy.route` to look for fixtures under that temp path.
+- [upload](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/upload.js) - Workaround to support file upload functionality in tests, which is currently not officially implemented.
+- [viewportPreset](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/e2e/cypress/support/commands/viewportPreset.js) - Sets the viewport by preset name.
 
 ## Helpers
 
