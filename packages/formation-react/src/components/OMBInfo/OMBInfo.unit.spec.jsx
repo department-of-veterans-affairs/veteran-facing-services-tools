@@ -62,16 +62,24 @@ describe('<OMBInfo/>', () => {
   });
   it('modal should have response burden', () => {
     const tree = shallow(<OMBInfo resBurden="10" />);
-    tree.find('button').simulate('click');
-    expect(tree.text()).to.contain('Privacy Act Statement');
-    expect(tree.text()).to.contain('Respondent Burden');
+    const instance = tree.instance();
+    const modelContent = shallow(
+      instance.modalContents(instance.props.resBurden),
+    );
+    expect(modelContent.text()).to.contain('Privacy Act Statement');
+    expect(modelContent.text()).to.contain('Respondent Burden');
+    modelContent.unmount();
     tree.unmount();
   });
   it('modal should not have response burden', () => {
     const tree = shallow(<OMBInfo />);
-    tree.find('button').simulate('click');
-    expect(tree.text()).to.contain('Privacy Act Statement');
-    expect(tree.text()).to.not.contain('Respondent Burden');
+    const instance = tree.instance();
+    const modelContent = shallow(
+      instance.modalContents(instance.props.resBurden),
+    );
+    expect(modelContent.text()).to.contain('Privacy Act Statement');
+    expect(modelContent.text()).to.not.contain('Respondent Burden');
+    modelContent.unmount();
     tree.unmount();
   });
 });
