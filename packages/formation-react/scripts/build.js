@@ -48,7 +48,7 @@ function flattenRequires(bufferString) {
 const fileNames = [].concat.apply(
   [],
   [
-    glob.sync('./src/components/**/*.jsx', {
+    glob.sync('./src/components/**/*.@(js|jsx)', {
       ignore: ['./**/*.unit.spec.jsx', './**/*.stories.jsx'],
     }),
     glob.sync('./src/helpers/*.js'),
