@@ -55,7 +55,7 @@ const fileNames = [].concat.apply(
   ],
 );
 
-fileNames.forEach((fileName) => {
+fileNames.forEach(fileName => {
   // read a file into a buffer
   const fileBuffer = fs.readFileSync(fileName);
   // transform the buffer with babel using babelrc
