@@ -33,7 +33,7 @@ export default class DropDownPanel extends React.Component {
 
     return (
       <div
-        className={`va-dropdown ${this.props.className}`}
+        className="va-dropdown"
         ref={(div) => {
           this.dropdownDiv = div;
         }}
@@ -51,7 +51,7 @@ export default class DropDownPanel extends React.Component {
           </span>
         </button>
         <div
-          className="va-dropdown-panel"
+          className={`va-dropdown-panel ${this.props.dropdownPanelClassNames}`}
           id={this.props.id}
           hidden={!this.props.isOpen}
         >
@@ -69,11 +69,6 @@ DropDownPanel.propTypes = {
   buttonText: PropTypes.string.isRequired,
 
   /**
-   * The string of classnames for the container.
-   */
-  className: PropTypes.string,
-
-  /**
    * A function called when the drop down button is clicked. This is often used
    * to set the open state in the parent component, which passes down the new
    * isOpen prop.
@@ -84,6 +79,12 @@ DropDownPanel.propTypes = {
    * Any CSS classes to apply to the button itself.
    */
   cssClass: PropTypes.string,
+
+
+  /**
+   * The string of classnames for the dropdown panel container.
+   */
+  dropdownPanelClassNames: PropTypes.string,
 
   /**
    * An SVG icon to render before the button text.
@@ -107,6 +108,6 @@ DropDownPanel.propTypes = {
 };
 
 DropDownPanel.defaultProps = {
-  className: "",
+  dropdownPanelClassNames: "",
   disabled: false,
 };
