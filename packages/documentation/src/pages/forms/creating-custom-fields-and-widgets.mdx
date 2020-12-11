@@ -37,9 +37,40 @@ The VAFS uses these custom fields and widgets:
 - [SSNWidget](./available-widgets#ssnwidget)
 - [PhoneNumberWidget](./available-widgets#phonenumberwidget)
 
+#### Custom widget and field interface
+
 Writing custom widgets is similar to writing React components: A value is passed in, and an `onChange` hook is provided for changing data. Other properties like the schemas and field ID are also provided.
 
-Custom fields receive all properties listed previously for field components in RJSF.
+These are the properties passed to all custom widget components:
+
+- `disabled`: Boolean for if the field has been disabled through the schema
+- `formContext`: The form context object from RJSF
+- `id`: The string id for the particular field being used
+- `label`: The label text for the field, typically the title from the schema
+- `onChange`: Function that will save data entered in the widget into your form data
+- `onBlur`: Function that marks the field as "blurred," which will reveal any validation errors for that field 
+- `options`: The `ui:options` object from `uiSchema`, if present
+- `options.enumOptions`: An array of enum options and their names, if present in the schema, inserted into `options`
+- `readonly`: If the field is marked `readonly` in the schema
+- `registry`: The registry of field and widgets, generally used by fields to choose the right component to use
+- `required`: If the field is required or not via the schema
+- `value`: The form data for the current property
+
+Widgets are typically meant for input type components where data is saved to a single property in your form data. The props they receive are derived the more broad props of field components. These are the props passed to field components:
+
+- `disabled`: Boolean for if the field has been disabled through the schema
+- `formContext`: The form context object from RJSF
+- `formData`: The form data for the current property
+- `idSchema`: An object with ids for the current property and any sub properties. The `$id` property has the id for the current property
+- `name`: The name of the current property, from `uiSchema`
+- `onChange`: Function that will save data entered in the widget into your form data
+- `onBlur`: Function that marks the field as "blurred," which will reveal any validation errors for that field 
+- `readonly`: If the field is marked `readonly` in the schema
+- `registry`: The registry of field and widgets, generally used by fields to choose the right component to use
+- `required`: If the field is required or not via the schema
+- `uiSchema`: The `uiSchema` object for the current property
+
+The main differences are the inclusion of `idSchema` and `uiSchema`, which along with `schema` allow full access to configuration info for a particular property in your form config.
 
 In addition to customizing fields and widgets, the VAFS code hooks into a number of events provided by `Form` to support our form patterns, found in the `FormPage` component. These events are:
 
