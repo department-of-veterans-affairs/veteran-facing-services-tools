@@ -33,8 +33,8 @@ export default class DropDownPanel extends React.Component {
 
     return (
       <div
-        className="va-dropdown"
-        ref={div => {
+        className={`va-dropdown ${this.props.className}`}
+        ref={(div) => {
           this.dropdownDiv = div;
         }}
       >
@@ -67,6 +67,11 @@ DropDownPanel.propTypes = {
    * The text of the drop down button.
    */
   buttonText: PropTypes.string.isRequired,
+
+  /**
+   * The string of classnames for the container.
+   */
+  className: PropTypes.string,
 
   /**
    * A function called when the drop down button is clicked. This is often used
@@ -102,5 +107,6 @@ DropDownPanel.propTypes = {
 };
 
 DropDownPanel.defaultProps = {
+  className: "",
   disabled: false,
 };
