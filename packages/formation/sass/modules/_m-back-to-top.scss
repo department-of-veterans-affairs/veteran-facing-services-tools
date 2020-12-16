@@ -23,14 +23,11 @@
   }
 
   button {
-    align-items: center;
     bottom: 0;
     background-color: $color-gray-dark;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    display: flex;
     height: 44px;
-    justify-content: center;
     margin: 0;
     opacity: 0;
     padding: 0;
@@ -73,15 +70,9 @@
     &.va-top-button-transition-reset {
       transform: translateY(0px);
     }
-    i {
-      font-size: 24px;
-    }
     @include media($medium-screen) {
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
-    }
-
-    @include media($medium-screen) {
       display: block;
       padding: 1rem 2rem;
       width: auto;
