@@ -29,13 +29,7 @@ function getScrolledDistanceFromTopOfScreen() {
 }
 
 // Responsible for toggling animation classes
-function scrollListener(
-  button,
-  buttonContainer,
-  footer,
-  layoutContainer,
-  buttonClasses,
-) {
+function scrollListener(button, buttonContainer, footer, buttonClasses) {
   const distanceOfScrollingBeforeAppearing = 600;
   const scrollFromTop = getScrolledDistanceFromTopOfScreen();
 
@@ -55,13 +49,11 @@ function scrollListener(
 
   if (isScrolledIntoView(footer)) {
     buttonContainer.classList.add(buttonClasses.containerRelative);
-    layoutContainer.classList.add(buttonClasses.containerRelative);
     button.classList.add(buttonClasses.transitionReset);
   } else if (
     doesElHaveClass(buttonContainer, buttonClasses.containerRelative)
   ) {
     buttonContainer.classList.remove(buttonClasses.containerRelative);
-    layoutContainer.classList.remove(buttonClasses.containerRelative);
     button.classList.remove(buttonClasses.transitionReset);
   }
 }
@@ -74,7 +66,6 @@ export default function setup() {
   if (!upToTopButton) return;
   // The current page likely does not contain a "Back to top" button in its layout.
 
-  const layoutContainer = document.getElementById('usa-width-container');
   const footer = document.getElementById('footerNav');
 
   const buttonClasses = {
@@ -84,16 +75,10 @@ export default function setup() {
     transitionReset: 'va-top-button-transition-reset',
   };
 
-  if (!layoutContainer || !footer) return;
+  if (!buttonContainer || !footer) return;
   // Attach listeners
   upToTopButton.addEventListener('click', navigateToTop);
   window.addEventListener('scroll', () =>
-    scrollListener(
-      upToTopButton,
-      buttonContainer,
-      footer,
-      layoutContainer,
-      buttonClasses,
-    ),
+    scrollListener(upToTopButton, buttonContainer, footer, buttonClasses),
   );
 }
