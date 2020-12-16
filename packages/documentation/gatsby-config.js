@@ -88,13 +88,13 @@ module.exports = {
           default: require.resolve('./src/layouts/SidebarLayout.jsx'),
         },
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1035,
-              // sizeByPixelDensity: true,
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-images`,
+          //   options: {
+          //     maxWidth: 1035,
+          //     // sizeByPixelDensity: true,
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-mermaid',
           },
