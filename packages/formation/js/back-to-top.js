@@ -62,7 +62,7 @@ export default function setup() {
   const buttonContainer = document.getElementById('top-button-container');
   if (!buttonContainer) return;
 
-  const upToTopButton = document.querySelector('.vsa-top-button');
+  const upToTopButton = buttonContainer.querySelector('button');
   if (!upToTopButton) return;
   // The current page likely does not contain a "Back to top" button in its layout.
 

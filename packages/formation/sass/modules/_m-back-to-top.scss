@@ -9,7 +9,7 @@
   width: 100%;
   &.va-top-button-container-relative {
     position: relative;
-    .vsa-top-button {
+    button {
       bottom: 6px;
     }
   }
@@ -22,7 +22,7 @@
     position: relative;
   }
 
-  .vsa-top-button {
+  button {
     align-items: center;
     bottom: 0;
     background-color: $color-gray-dark;
