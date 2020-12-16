@@ -36,7 +36,7 @@ function scrollListener(
   layoutContainer,
   buttonClasses,
 ) {
-  const distanceOfScrollingBeforeAppearing = 100;
+  const distanceOfScrollingBeforeAppearing = 600;
   const scrollFromTop = getScrolledDistanceFromTopOfScreen();
 
   if (
