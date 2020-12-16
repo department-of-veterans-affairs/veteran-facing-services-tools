@@ -8,9 +8,9 @@ module.exports = {
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: "GTM-T2ZTDXZ",
+        id: 'GTM-T2ZTDXZ',
 
         // Include GTM in development.
         //
@@ -76,7 +76,7 @@ module.exports = {
       options: {
         path: `../formation-react/src/components`,
         name: 'formation-react',
-        ignore: ['**/*\.stories\.*'],
+        ignore: ['**/*.stories.*'],
       },
     },
     {
@@ -128,7 +128,7 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
-            title: (node) => {
+            title: node => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -147,7 +147,7 @@ module.exports = {
               console.info('Page title missing from front matter.', node);
               return '';
             },
-            tags: (node) => {
+            tags: node => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -158,7 +158,7 @@ module.exports = {
 
               return '';
             },
-            path: (node) => node.path,
+            path: node => node.path,
           },
         },
       },
