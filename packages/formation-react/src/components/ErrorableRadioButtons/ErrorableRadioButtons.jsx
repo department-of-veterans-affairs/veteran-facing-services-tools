@@ -48,7 +48,7 @@ class ErrorableRadioButtons extends React.Component {
   }
 
   handleChange(domEvent, optionLabel) {
-    // If a Google Analytics prefix prop was passed in, fire the standardized event onChange
+    // If a Google Analytics prop was passed in, fire the standardized event onChange
     if (this.props.standardGAEvent && window.dataLayer) {
       window.dataLayer.push({
         event: `howToWizard-formChange`,
