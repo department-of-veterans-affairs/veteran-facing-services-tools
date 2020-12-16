@@ -82,6 +82,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.md`, `.mdx`],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve('./src/layouts/SidebarLayout.jsx'),
