@@ -67,7 +67,6 @@ function scrollListener(
 }
 
 export default function setup() {
-  console.log('Setting up BTT');
   const buttonContainer = document.getElementById('top-button-container');
   if (!buttonContainer) return;
 
@@ -85,19 +84,16 @@ export default function setup() {
     transitionReset: 'va-top-button-transition-reset',
   };
 
-  console.log(layoutContainer, footer);
-
   if (!layoutContainer || !footer) return;
   // Attach listeners
   upToTopButton.addEventListener('click', navigateToTop);
-  window.addEventListener('scroll', () => {
-    console.log('SCROLLING');
-    return scrollListener(
+  window.addEventListener('scroll', () =>
+    scrollListener(
       upToTopButton,
       buttonContainer,
       footer,
       layoutContainer,
       buttonClasses,
-    );
-  });
+    ),
+  );
 }
