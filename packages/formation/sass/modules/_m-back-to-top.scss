@@ -40,6 +40,12 @@
     right: 0;
     width: 44px;
 
+    &::after {
+      @include media($medium-screen) {
+        content: 'Back to top';
+      }
+    }
+
     &::before {
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
