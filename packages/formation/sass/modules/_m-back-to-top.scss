@@ -64,8 +64,6 @@
       opacity: 1;
     }
     @include media($medium-screen) {
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
       padding: 1rem 2rem;
       width: auto;
     }
