@@ -57,7 +57,6 @@ export default function setup() {
 
   const buttonClasses = {
     transitionIn: 'va-top-button-transition-in',
-    transitionOut: 'va-top-button-transition-out',
     containerRelative: 'va-top-button-container-relative',
     transitionReset: 'va-top-button-transition-reset',
   };
