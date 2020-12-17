@@ -59,6 +59,7 @@ export default function setup() {
   // The current page likely does not contain a "Back to top" button in its layout.
 
   const footer = document.getElementById('footerNav');
+  if (!footer) return;
 
   const buttonClasses = {
     transitionIn: 'va-top-button-transition-in',
@@ -67,7 +68,6 @@ export default function setup() {
     transitionReset: 'va-top-button-transition-reset',
   };
 
-  if (!buttonContainer || !footer) return;
   // Attach listeners
   upToTopButton.addEventListener('click', navigateToTop);
   window.addEventListener('scroll', () =>
