@@ -10,44 +10,44 @@ function navigateToTop() {
   return window.scrollTo(0, 0);
 }
 
-function doesElHaveClass(el, className) {
-  return el.classList.contains(className);
-}
-
 function isScrolledIntoView(el) {
   const elemTop = el.getBoundingClientRect().top;
   // Only partially || completely visible elements return true
   return elemTop >= 0 && elemTop <= window.innerHeight;
 }
 
-// Responsible for toggling animation classes
-function scrollListener(button, buttonContainer, footer, buttonClasses) {
-  const distanceOfScrollingBeforeAppearing = 600;
-  const scrollFromTop = window.scrollY;
+function closure(button, buttonContainer, footer, buttonClasses) {
+  const scrollBreakpoint = 600;
+  let breakpointHit = false;
+  const comparators = [
+    () => window.scrollY > scrollBreakpoint,
+    () => window.scrollY < scrollBreakpoint,
+  ];
+  let compIdx = 0;
 
-  if (
-    scrollFromTop > distanceOfScrollingBeforeAppearing &&
-    !doesElHaveClass(button, buttonClasses.transitionIn)
-  ) {
-    button.classList.add(buttonClasses.transitionIn);
-    button.classList.remove(buttonClasses.transitionOut);
-  } else if (
-    scrollFromTop < distanceOfScrollingBeforeAppearing &&
-    doesElHaveClass(button, buttonClasses.transitionIn)
-  ) {
-    button.classList.add(buttonClasses.transitionOut);
-    button.classList.remove(buttonClasses.transitionIn);
-  }
+  let footerVisibilityChanged = false;
+  const footerComparators = [
+    () => isScrolledIntoView(footer),
+    () => !isScrolledIntoView(footer),
+  ];
+  let footerCompIdx = 0;
 
-  if (isScrolledIntoView(footer)) {
-    buttonContainer.classList.add(buttonClasses.containerRelative);
-    button.classList.add(buttonClasses.transitionReset);
-  } else if (
-    doesElHaveClass(buttonContainer, buttonClasses.containerRelative)
-  ) {
-    buttonContainer.classList.remove(buttonClasses.containerRelative);
-    button.classList.remove(buttonClasses.transitionReset);
-  }
+  return () => {
+    breakpointHit = comparators[compIdx]();
+
+    if (breakpointHit) {
+      button.classList.toggle(buttonClasses.transitionIn);
+      compIdx = (compIdx + 1) % 2;
+    }
+
+    footerVisibilityChanged = footerComparators[footerCompIdx]();
+
+    if (footerVisibilityChanged) {
+      buttonContainer.classList.toggle(buttonClasses.containerRelative);
+      button.classList.toggle(buttonClasses.transitionReset);
+      footerCompIdx = (footerCompIdx + 1) % 2;
+    }
+  };
 }
 
 export default function setup() {
@@ -70,7 +70,8 @@ export default function setup() {
 
   // Attach listeners
   upToTopButton.addEventListener('click', navigateToTop);
-  window.addEventListener('scroll', () =>
-    scrollListener(upToTopButton, buttonContainer, footer, buttonClasses),
+  window.addEventListener(
+    'scroll',
+    closure(upToTopButton, buttonContainer, footer, buttonClasses),
   );
 }
