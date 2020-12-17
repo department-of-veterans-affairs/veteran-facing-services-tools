@@ -18,14 +18,12 @@ function isScrolledIntoView(el) {
 
 function closure(button, buttonContainer, footer, buttonClasses) {
   const scrollBreakpoint = 600;
-  let breakpointHit = false;
   const comparators = [
     () => window.scrollY > scrollBreakpoint,
     () => window.scrollY < scrollBreakpoint,
   ];
   let compIdx = 0;
 
-  let footerVisibilityChanged = false;
   const footerComparators = [
     () => isScrolledIntoView(footer),
     () => !isScrolledIntoView(footer),
@@ -33,16 +31,12 @@ function closure(button, buttonContainer, footer, buttonClasses) {
   let footerCompIdx = 0;
 
   return () => {
-    breakpointHit = comparators[compIdx]();
-
-    if (breakpointHit) {
+    if (comparators[compIdx]()) {
       button.classList.toggle(buttonClasses.transitionIn);
       compIdx = (compIdx + 1) % 2;
     }
 
-    footerVisibilityChanged = footerComparators[footerCompIdx]();
-
-    if (footerVisibilityChanged) {
+    if (footerComparators[footerCompIdx]()) {
       buttonContainer.classList.toggle(buttonClasses.containerRelative);
       button.classList.toggle(buttonClasses.transitionReset);
       footerCompIdx = (footerCompIdx + 1) % 2;
