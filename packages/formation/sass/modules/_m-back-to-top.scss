@@ -10,12 +10,17 @@
   &.va-top-button-container-relative {
     position: relative;
     button {
-      bottom: 6px;
+      transform: translateY(-6px);
     }
   }
 
   .usa-content {
     position: relative;
+  }
+  &:not(.va-top-button-container-relative) {
+    button.va-top-button-transition-in {
+      transform: translateY(-12px);
+    }
   }
 
   button {
@@ -57,10 +62,6 @@
     &.va-top-button-transition-in {
       pointer-events: all;
       opacity: 1;
-      transform: translateY(-12px);
-    }
-    &.va-top-button-transition-reset {
-      transform: translateY(0px);
     }
     @include media($medium-screen) {
       border-bottom-right-radius: 5px;

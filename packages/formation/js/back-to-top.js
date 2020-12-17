@@ -38,7 +38,6 @@ function closure(button, buttonContainer, footer, buttonClasses) {
 
     if (footerComparators[footerCompIdx]()) {
       buttonContainer.classList.toggle(buttonClasses.containerRelative);
-      button.classList.toggle(buttonClasses.transitionReset);
       footerCompIdx = (footerCompIdx + 1) % 2;
     }
   };
@@ -58,7 +57,6 @@ export default function setup() {
   const buttonClasses = {
     transitionIn: 'va-top-button-transition-in',
     containerRelative: 'va-top-button-container-relative',
-    transitionReset: 'va-top-button-transition-reset',
   };
 
   // Attach listeners
