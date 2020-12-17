@@ -15,23 +15,15 @@ function doesElHaveClass(el, className) {
 }
 
 function isScrolledIntoView(el) {
-  const rect = el.getBoundingClientRect();
-  const elemTop = rect.top;
+  const elemTop = el.getBoundingClientRect().top;
   // Only partially || completely visible elements return true
   return elemTop >= 0 && elemTop <= window.innerHeight;
-}
-
-function getScrolledDistanceFromTopOfScreen() {
-  return window.pageYOffset !== undefined
-    ? window.pageYOffset
-    : (document.documentElement || document.body.parentNode || document.body)
-        .scrollTop;
 }
 
 // Responsible for toggling animation classes
 function scrollListener(button, buttonContainer, footer, buttonClasses) {
   const distanceOfScrollingBeforeAppearing = 600;
-  const scrollFromTop = getScrolledDistanceFromTopOfScreen();
+  const scrollFromTop = window.scrollY;
 
   if (
     scrollFromTop > distanceOfScrollingBeforeAppearing &&
