@@ -18,27 +18,21 @@ function isScrolledIntoView(el) {
 
 function closure(button, buttonContainer, footer, buttonClasses) {
   const scrollBreakpoint = 600;
-  const comparators = [
-    () => window.scrollY > scrollBreakpoint,
-    () => window.scrollY < scrollBreakpoint,
-  ];
-  let compIdx = 0;
+  const breakpointCheck = () => window.scrollY > scrollBreakpoint;
+  let hasHitBreakpoint = false;
 
-  const footerComparators = [
-    () => isScrolledIntoView(footer),
-    () => !isScrolledIntoView(footer),
-  ];
-  let footerCompIdx = 0;
+  const footerCheck = () => isScrolledIntoView(footer);
+  let footerVisChanged = false;
 
   return () => {
-    if (comparators[compIdx]()) {
+    if (breakpointCheck() !== hasHitBreakpoint) {
       button.classList.toggle(buttonClasses.transitionIn);
-      compIdx = (compIdx + 1) % 2;
+      hasHitBreakpoint = !hasHitBreakpoint;
     }
 
-    if (footerComparators[footerCompIdx]()) {
+    if (footerCheck() !== footerVisChanged) {
       buttonContainer.classList.toggle(buttonClasses.containerRelative);
-      footerCompIdx = (footerCompIdx + 1) % 2;
+      footerVisChanged = !footerVisChanged;
     }
   };
 }
