@@ -1,10 +1,20 @@
 import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Library/Top TEST" />
+<Meta title="Library/Back to top" />
 
 # Back to top
 
 The "Back to top" button will appear after the use has scrolled partway down the page, and clicking it will take them to the top
+
+The _actual_ BTT component consists of the following - the rest is just context:
+
+```html
+  <div id="top-button-container">
+    <div class="usa-content">
+      <button type="button" className="usa-button" />
+    </div>
+  </div>
+```
 
 <Canvas>
   <Story name="default">
