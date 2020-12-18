@@ -49,6 +49,7 @@
       font-weight: 900;
       content: '\F062';
       margin-right: 0;
+      font-size: 2rem;
 
       @include media($medium-screen) {
         margin-right: 1.5em;
