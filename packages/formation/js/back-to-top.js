@@ -3,10 +3,11 @@
  * It's to be used on long article pages.
  * There is some complexity in the animation toggling function "scrollListener"
  */
-// import { focusElement } from 'platform/utilities/ui';
 
 function navigateToTop() {
-  // focusElement('#content');
+  const el = document.querySelector('#content');
+  if (el) el.focus();
+
   return window.scrollTo(0, 0);
 }
 
