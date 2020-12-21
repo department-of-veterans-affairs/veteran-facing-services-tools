@@ -52,7 +52,7 @@
       font-size: 2rem;
 
       @include media($medium-screen) {
-        margin-right: 1.5em;
+        margin-right: 0.5em;
         font-size: 1.5rem;
       }
     }
@@ -65,7 +65,8 @@
       opacity: 1;
     }
     @include media($medium-screen) {
-      padding: 1rem 2rem;
+      padding-left: 17px;
+      padding-right: 19px;
       width: auto;
     }
   }
