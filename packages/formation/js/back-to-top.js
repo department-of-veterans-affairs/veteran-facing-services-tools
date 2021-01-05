@@ -1,7 +1,6 @@
 /**
  * This button is used for navigating the user back to the top of the page.
  * It's to be used on long article pages.
- * There is some complexity in the animation toggling function "scrollListener"
  */
 
 function navigateToTop() {
