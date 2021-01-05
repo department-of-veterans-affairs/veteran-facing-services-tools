@@ -4,7 +4,7 @@
  */
 
 function navigateToTop() {
-  const el = document.querySelector('#content');
+  const el = document.querySelector('body.merger');
   if (el) el.focus();
 
   return window.scrollTo(0, 0);
