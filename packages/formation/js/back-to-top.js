@@ -4,7 +4,7 @@
  */
 
 function navigateToTop() {
-  const el = document.querySelector('body.merger');
+  const el = document.querySelector('body');
   if (el) el.focus();
 
   return window.scrollTo(0, 0);
@@ -38,7 +38,7 @@ function closure(button, buttonContainer, footer, buttonClasses) {
 }
 
 export default function setup() {
-  const buttonContainer = document.getElementById('top-button-container');
+  const buttonContainer = document.getElementById('back-to-top-container');
   if (!buttonContainer) return;
 
   const upToTopButton = buttonContainer.querySelector('button');

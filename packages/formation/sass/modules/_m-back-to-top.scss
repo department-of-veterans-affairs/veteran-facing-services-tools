@@ -1,12 +1,14 @@
 //=============================
 // Up To Top Button Styles
 //=============================
-#top-button-container {
+#back-to-top-container {
   bottom: 0;
   pointer-events: none;
   position: fixed;
   width: 100%;
 
+  // This is used to put the button into the normal doc flow rather than
+  // have its absolute position go below the footer
   &.va-top-button-container-relative {
     position: relative;
     button {
