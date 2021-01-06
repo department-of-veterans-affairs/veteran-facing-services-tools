@@ -4,9 +4,12 @@ This module contains reusable react components from [vets-website](https://githu
 
 `npm install @department-of-veterans-affairs/formation-react`
 
-`import @department-of-veterans-affairs/formation-react/COMPONENTNAME`
+`import COMPONENTNAME from '@department-of-veterans-affairs/formation-react/COMPONENTNAME'`
 
-See [design system](https://department-of-veterans-affairs.github.io/design-system/) and its [repo](https://github.com/department-of-veterans-affairs/design-system) for more info on components.
+See [design
+system](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/visual-design)
+or
+[Storybook](https://design.va.gov/storybook/?path=/story/about-introduction--page).
 
 ## Included components:
 
