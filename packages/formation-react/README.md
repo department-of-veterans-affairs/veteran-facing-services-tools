@@ -11,6 +11,15 @@ system](https://department-of-veterans-affairs.github.io/veteran-facing-services
 or
 [Storybook](https://design.va.gov/storybook/?path=/story/about-introduction--page).
 
+## Running Storybook locally
+From the project root, run the following commands:
+1. `yarn install`
+1. `cd packages/formation-react`
+1. `yarn install`
+    - It's a Lerna thing. For some reason, it doesn't work without _both_
+      installs. ¯\_(ツ)_/¯
+1. `yarn storybook`
+
 ## Included components:
 
 - AdditionalInfo.js
