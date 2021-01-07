@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ErrorableNumberInput from './ErrorableNumberInput';
 
 export default {
-  title: 'Library/Form controls/ErrorableNumberInput',
+  title: 'Components/Form controls/ErrorableNumberInput',
   component: ErrorableNumberInput,
 };
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ErrorableSelect from './ErrorableSelect';
 
 export default {
-  title: 'Library/Form controls/ErrorableSelect',
+  title: 'Components/Form controls/ErrorableSelect',
   component: ErrorableSelect,
 };
 

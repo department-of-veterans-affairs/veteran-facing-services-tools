@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ErrorableRadioButtons from './ErrorableRadioButtons';
 
 export default {
-  title: 'Library/Form controls/ErrorableRadioButtons',
+  title: 'Components/Form controls/ErrorableRadioButtons',
   component: ErrorableRadioButtons,
 };
 
