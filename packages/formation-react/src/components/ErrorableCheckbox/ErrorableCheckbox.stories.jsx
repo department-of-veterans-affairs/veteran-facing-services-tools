@@ -2,7 +2,7 @@ import React from 'react';
 import ErrorableCheckbox from './ErrorableCheckbox';
 
 export default {
-  title: 'Components/Form controls/ErrorableCheckbox',
+  title: 'Components/ErrorableCheckbox',
   component: ErrorableCheckbox,
 };
 

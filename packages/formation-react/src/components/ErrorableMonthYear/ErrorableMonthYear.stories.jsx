@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ErrorableMonthYear from './ErrorableMonthYear';
 
 export default {
-  title: 'Components/Form controls/ErrorableMonthYear',
+  title: 'Components/ErrorableMonthYear',
   component: ErrorableMonthYear,
 };
 
