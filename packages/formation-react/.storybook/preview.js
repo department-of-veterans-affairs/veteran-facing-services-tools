@@ -55,7 +55,7 @@ export const parameters = {
   },
   viewport: {
     viewports,
-    defaultViewport: 'smallDesktop',
+    defaultViewport: 'small',
   },
 };
 
