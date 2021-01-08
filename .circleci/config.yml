@@ -128,3 +128,16 @@ workflows:
           bucket: staging-design.va.gov
           context:
             - Platform
+  publish-prod:
+    jobs:
+      - needs-to-publish-storybook:
+          filters:
+            branches:
+              only: master
+          doc_site: design.va.gov
+      - publish-storybook:
+          requires:
+            - needs-to-publish-storybook
+          bucket: design.va.gov
+          context:
+            - Platform
