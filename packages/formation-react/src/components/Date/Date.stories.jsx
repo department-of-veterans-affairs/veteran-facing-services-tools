@@ -20,7 +20,7 @@ const Template = args => {
 const defaultArgs = {
   required: true,
   label: 'Please tell us a date',
-  name: ' Date',
+  name: 'Date',
   requiredMessage: 'Please provide a response',
   date: {
     day: {

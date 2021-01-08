@@ -18,7 +18,7 @@ const Template = args => (
 );
 
 const defaultArgs = {
-  label: ' Checkbox Group',
+  label: 'Checkbox Group',
   errorMessage: 'This is an error message',
   required: true,
   options: [
