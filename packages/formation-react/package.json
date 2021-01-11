@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/formation-react",
-  "version": "5.4.13",
+  "version": "7.0.0",
   "description": "React implementation of patterns in Formation",
   "keywords": [
     "react",
@@ -17,10 +17,13 @@
   },
   "scripts": {
     "build": "node ./scripts/build.js",
+    "prepublishOnly": "node ../../scripts/prepublish.js",
     "release": "PACKAGE=formation-react VERSION=$npm_package_version node ../../scripts/release.js",
     "test-watch": "karma start testing/karma.conf.js --auto-watch",
     "test": "karma start testing/karma.conf.js --single-run",
-    "test-debug": "karma start testing/karma.conf.js --browsers Chrome"
+    "test-debug": "karma start testing/karma.conf.js --browsers Chrome",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
@@ -31,10 +34,23 @@
     "moment": "^2.23.0",
     "prop-types": "^15.6.2",
     "react-focus-lock": "^2.4.0",
+    "react-scroll": "^1.7.16",
     "react-transition-group": "1"
   },
   "peerDependencies": {
-    "@department-of-veterans-affairs/formation": "^6.9.0",
     "react": "^15.5.4||^16.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@department-of-veterans-affairs/formation": "^6.9.0",
+    "@storybook/addon-a11y": "^6.1.1",
+    "@storybook/addon-actions": "^6.1.1",
+    "@storybook/addon-essentials": "^6.1.1",
+    "@storybook/addon-links": "^6.1.1",
+    "@storybook/react": "^6.1.1",
+    "@whitespace/storybook-addon-html": "^2.0.1",
+    "babel-loader": "^8.1.0",
+    "react-html-parser": "^2.0.2",
+    "react-is": "^17.0.1"
   }
 }

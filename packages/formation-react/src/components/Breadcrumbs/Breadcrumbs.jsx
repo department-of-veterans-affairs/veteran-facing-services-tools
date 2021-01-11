@@ -5,11 +5,11 @@ import classnames from 'classnames';
 import { uniqueId } from 'lodash';
 
 /**
- * React component to dynamically build breadcrumb links.
- * The Breadcrumbs component accepts an array of HTML A tags,
- * React Router LINK components, or a combination of the two.
- * The component also accepts hard-coded A or LINK elements
- * as props.children.
+ * React component to dynamically build breadcrumb links. The Breadcrumbs
+ * component accepts an array of HTML A tags, React Router LINK components, or a
+ * combination of the two. The component also accepts hard-coded A or LINK
+ * elements as props.children.
+ *
  */
 class Breadcrumbs extends Component {
   /**

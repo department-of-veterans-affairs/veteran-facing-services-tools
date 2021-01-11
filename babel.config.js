@@ -7,6 +7,7 @@ module.exports = function(api) {
     '@babel/plugin-proposal-numeric-separator',
     '@babel/plugin-proposal-throw-expressions',
     // Stage 3
+    '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',
     ['@babel/plugin-proposal-class-properties', { loose: false }],

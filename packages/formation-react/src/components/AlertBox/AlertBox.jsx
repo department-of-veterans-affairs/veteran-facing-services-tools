@@ -1,10 +1,23 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
-class AlertBox extends React.Component {
+// Enum used to set the AlertBox's `status` prop
+export const ALERT_TYPE = Object.freeze({
+  INFO: 'info', // Blue border, black circled 'i'
+  ERROR: 'error', // Red border, red circled exclamation
+  SUCCESS: 'success', // Green border, green checkmark
+  WARNING: 'warning', // Yellow border, black triangle exclamation
+  CONTINUE: 'continue', // Green border, green lock
+});
+
+class AlertBox extends Component {
   componentDidMount() {
     this.scrollToAlert();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.scrollToAlertTimeout);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -19,17 +32,20 @@ class AlertBox extends React.Component {
   }
 
   scrollToAlert = () => {
-    if (!this.props.isVisible || !this.props.scrollOnShow) {
+    if (!this._ref || !this._ref.scrollIntoView) {
       return;
     }
 
-    const isInView = window.scrollY <= this._ref.offsetTop;
-
-    if (this._ref && !isInView) {
-      this._ref.scrollIntoView({
-        block: this.props.scrollPosition,
-        behavior: 'smooth',
-      });
+    // Without using the setTimeout, React has not added the element
+    // to the DOM when it calls scrollIntoView()
+    if (this.props.isVisible && this.props.scrollOnShow) {
+      clearTimeout(this.scrollToAlertTimeout);
+      this.scrollToAlertTimeout = setTimeout(() => {
+        this._ref.scrollIntoView({
+          block: this.props.scrollPosition,
+          behavior: 'smooth',
+        });
+      }, 0);
     }
   };
 
@@ -79,13 +95,7 @@ AlertBox.propTypes = {
   /**
    * Determines the color and icon of the alert box.
    */
-  status: PropTypes.oneOf([
-    'info', // Blue border, black circled 'i'
-    'error', // Red border, red circled exclamation
-    'success', // Green border, green checkmark
-    'warning', // Yellow border, black triangle exclamation
-    'continue', // Green border, green lock
-  ]).isRequired,
+  status: PropTypes.oneOf(Object.values(ALERT_TYPE)).isRequired,
 
   /**
    * Show or hide the alert. Useful for alerts triggered by app interaction.

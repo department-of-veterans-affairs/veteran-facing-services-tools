@@ -137,7 +137,17 @@ const formConfig = {
       uiSchema: {
         myField: {
           'ui:title': 'My field',
-          'ui:widget': 'yesNo'
+          'ui:widget': 'yesNo',
+          'ui:options': {
+            labels: {
+              Y: 'Yes, this is what I want',
+              N: 'No, I do not want this',
+            },
+            widgetProps: {
+              Y: { 'aria-describedby': 'some_id' },
+              N: { 'aria-describedby': 'different_id' },
+            }
+          }
         },
         veteranFullName: set('ui:options.expandUnder', 'myField', fullNameUI)
       },

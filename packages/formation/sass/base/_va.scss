@@ -100,7 +100,8 @@ a {
   &:active {
     background: $color-link-default-hover;
   }
-  &:visited {
+  &:visited,
+  &:visited abbr {
     color: $color-visited;
   }
 }
