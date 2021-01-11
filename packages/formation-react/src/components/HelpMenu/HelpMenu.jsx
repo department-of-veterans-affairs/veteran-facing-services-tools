@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import DropDownPanel from '../DropDownPanel/DropDownPanel';
 import IconHelp from '../IconHelp/IconHelp';
+import Telephone, { CONTACTS } from '../Telephone/Telephone';
 
 class HelpMenu extends React.Component {
   render() {
@@ -21,7 +22,7 @@ class HelpMenu extends React.Component {
             <b>Call the VA.gov Help Desk</b>
           </p>
           <p>
-            <a href="tel:18555747286">1-855-574-7286</a>
+            <Telephone contact={CONTACTS.HELP_DESK} />
           </p>
           <p>
             TTY: <a href="tel:+18008778339">1-800-877-8339</a>
