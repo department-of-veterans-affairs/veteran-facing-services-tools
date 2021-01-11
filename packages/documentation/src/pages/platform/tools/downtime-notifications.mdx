@@ -53,6 +53,9 @@ import { externalServices } from 'platform/monitoring/DowntimeNotification'
     - given a user is not logged in,
   - `false` [default]: when any services in the dependencies array are down, then display the downtime notification before application submission
 
+4. If you need your FormBuilder app to have downtime notifications on intro page you also need to follow React implimentation below
+   - The above implimentation only adds downtime notifications to the review page. Most forms will probably require to also the notifications on intro page so users dont find out at the end of the form.
+
 _The DowntimeNotifications component wraps the `FormStartControls` on the introduction page and the `SubmitController` on the review page. Users can edit and save forms for later during a downtime unless `requiredForPrefill` is true._
 
 ### React applications
