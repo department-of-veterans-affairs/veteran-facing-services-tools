@@ -186,6 +186,12 @@ uiSchema: {
       cat: 'Cat',
       octopus: 'Octopus',
       sloth: 'Sloth'
+    },
+    widgetProps: {
+      dog: { 'aria-describedby': 'some_id_1' },
+      cat: { 'aria-describedby': 'some_id_2' },
+      octopus: { 'aria-describedby': 'some_id_3' },
+      sloth: { 'aria-describedby': 'some_id_4' }
     }
   }
 }
@@ -349,7 +355,13 @@ Your config file might look like this:
   uiSchema: {
     hasPet: {
       'ui:title': 'Do you have a pet?'
-      'ui:widget': 'yesNo'
+      'ui:widget': 'yesNo',
+      'ui:options': {
+        widgetProps: {
+          Y: { 'aria-describedby': 'some_id' },
+          N: { 'aria-describedby': 'different_id' },
+        }
+      }
     },
     petName: {
       'ui:title': 'What is your pet‘s name?',
