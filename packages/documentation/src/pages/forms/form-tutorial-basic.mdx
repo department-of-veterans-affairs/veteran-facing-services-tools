@@ -196,7 +196,13 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field label',
-      'ui:widget': 'radio'
+      'ui:widget': 'radio',
+      'ui:options': {
+        widgetProps: {
+          'First option': { 'aria-describedby': 'some_id_1' },
+          'Second option': { 'aria-describedby': 'some_id_2' },
+        }
+      }
     }
   },
   schema: {
