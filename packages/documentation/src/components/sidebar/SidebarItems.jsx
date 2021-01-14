@@ -13,7 +13,7 @@ function ComponentList() {
       query={graphql`
         query ComponentListQuery {
           components: allSitePage(
-            filter: { context: { source: { eq: "formation-react" } } }
+            filter: { context: { source: { eq: "component-library" } } }
             sort: { fields: [context___name], order: ASC }
           ) {
             edges {

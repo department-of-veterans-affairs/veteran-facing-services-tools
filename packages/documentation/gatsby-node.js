@@ -7,10 +7,13 @@
 const path = require('path');
 
 // Base URL for a GitHub link to the source of a page *from this repo*.
-const GITHUB_FILE_BASE_URL = 'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
+const GITHUB_FILE_BASE_URL =
+  'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
+const COMPONENT_LIBRARY_BASE_URL =
+  'https://github.com/department-of-veterans-affairs/component-library/blob/master';
 
 /**
- * Creates pages for formation-react docs that were pulled
+ * Creates pages for component-library docs that were pulled
  * with gatsby-source-filesystem.
  */
 const createFormationReactPages = async ({ graphql, actions, reporter }) => {
@@ -18,7 +21,11 @@ const createFormationReactPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMdx(filter: { fields: { sourceInstanceName: { eq: "formation-react" } } }) {
+        allMdx(
+          filter: {
+            fields: { sourceInstanceName: { eq: "component-library" } }
+          }
+        ) {
           edges {
             node {
               id
@@ -46,13 +53,13 @@ const createFormationReactPages = async ({ graphql, actions, reporter }) => {
 
   if (result.errors) {
     reporter.panicOnBuild(
-      'Error querying for formation-react mdx',
+      'Error querying for component-library mdx',
       new Error(result.errors),
     );
   }
 
   result.data.allMdx.edges.forEach(({ node }) => {
-    const sourceUrl = `${GITHUB_FILE_BASE_URL}/packages/formation-react/src/components/${node.parent.relativePath}`;
+    const sourceUrl = `${COMPONENT_LIBRARY_BASE_URL}/src/components/${node.parent.relativePath}`;
 
     createPage({
       path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
@@ -162,7 +169,7 @@ const createVaGovTeamPages = async ({ graphql, actions, reporter }) => {
  * Derive and include the source URL on automatically generated pages,
  * specifically from src/pages.
  *
- * External pages, such as those pulled from va.gov-team or formation-react,
+ * External pages, such as those pulled from va.gov-team or component-library,
  * should already have sources and also source URLs associated with them.
  */
 const setSourceUrl = ({ page, actions, reporter }) => {
