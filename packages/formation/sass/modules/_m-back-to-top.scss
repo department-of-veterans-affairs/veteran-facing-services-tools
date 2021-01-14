@@ -40,10 +40,10 @@
     right: 0;
     width: 44px;
 
-    //This adds the text to the component so the user doesn't need to do it in the HTML
-    &::after {
+    span {
+      display: none;
       @include media($medium-screen) {
-        content: 'Back to top';
+        display: block;
       }
     }
 
