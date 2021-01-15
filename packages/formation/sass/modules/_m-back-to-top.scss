@@ -41,23 +41,21 @@
     width: 44px;
 
     span {
-      display: none;
-      @include media($medium-screen) {
-        display: block;
+      &:last-child {
+        display: none;
+        @include media($medium-screen) {
+          display: inline-block;
+        }
       }
-    }
 
-    // This adds the arrow icon so that the user doesn't have to do it inthe HTML
-    &::before {
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      content: '\F062';
-      margin-right: 0;
-      font-size: 2rem;
+      i {
+        margin-right: 0;
+        font-size: 2rem;
 
-      @include media($medium-screen) {
-        margin-right: 0.8rem;
-        font-size: 1.5rem;
+        @include media($medium-screen) {
+          margin-right: 0.8rem;
+          font-size: 1.5rem;
+        }
       }
     }
 
