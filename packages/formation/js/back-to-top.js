@@ -5,7 +5,14 @@
 
 function navigateToTop() {
   const el = document.querySelector('body');
-  if (el) el.focus();
+  if (el) {
+    // Prepare the element so that it can accept focus properly
+    el.setAttribute('tabindex', '-1');
+    el.focus();
+
+    // Cleanup
+    el.addEventListener('blur', () => el.removeAttribute('tabindex'));
+  }
 
   return window.scrollTo(0, 0);
 }
