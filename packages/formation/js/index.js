@@ -1,6 +1,7 @@
 import loadAccordionHandler from './accordion';
 import createAdditionalInfoWidget from './additional-info';
 import addSidenavListeners from './sidenav';
+import backToTopListener from './back-to-top';
 import domready from 'domready';
 import elementClosest from 'element-closest';
 
@@ -13,10 +14,12 @@ if (
   addSidenavListeners();
   createAdditionalInfoWidget();
   loadAccordionHandler();
+  backToTopListener();
 } else {
   domready(() => {
     addSidenavListeners();
     createAdditionalInfoWidget();
     loadAccordionHandler();
+    backToTopListener();
   });
 }
