@@ -41,13 +41,6 @@
     width: 44px;
 
     span {
-      &:last-child {
-        display: none;
-        @include media($medium-screen) {
-          display: inline-block;
-        }
-      }
-
       i {
         margin-right: 0;
         font-size: 2rem;
@@ -55,6 +48,24 @@
         @include media($medium-screen) {
           margin-right: 0.8rem;
           font-size: 1.5rem;
+        }
+      }
+
+      &:last-child {
+        @media (max-width: $medium-screen) {
+          /* Use the .vads-u-visibility--screen-reader to make text SR-only for mobile */
+          /* https://design.va.gov/utilities/visibility */
+          border: 0;
+          clip: rect(0, 0, 0, 0);
+          -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute !important;
+          width: 1px;
+          word-wrap: normal !important;
         }
       }
     }
