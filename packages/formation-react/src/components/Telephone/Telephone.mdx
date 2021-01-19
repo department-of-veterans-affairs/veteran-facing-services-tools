@@ -82,26 +82,32 @@ import Telephone, { CONTACTS, PATTERNS } from '@department-of-veterans-affairs/f
     <Telephone contact={CONTACTS.VA_BENEFITS} />
   </p>
 
-{' '}
 
-<strong>Adding a pattern</strong>
-<p>
-  <Telephone contact={CONTACTS.VA_311} pattern={PATTERNS.OUTSIDE_US} />
-</p>
+  <strong>Adding a pattern</strong>
+  <p>
+    <Telephone
+      contact={CONTACTS.VA_311}
+     pattern={PATTERNS.OUTSIDE_US}
+   />
+  </p>
 
-{' '}
 
-<strong>Adding an extension</strong>
-<p>
-  <Telephone contact="8005551212" extension="123" />
-</p>
+  <strong>Adding an extension</strong>
+  <p>
+    <Telephone
+      contact="8005551212"
+      extension="123"
+    />
+  </p>
 
-{' '}
 
-<strong>Special case (911)</strong>
-<p>
-  <Telephone contact={CONTACTS['911']} onClick={e => e.preventDefault()} />
-</p>
+  <strong>Special case (911)</strong>
+  <p>
+    <Telephone
+      contact={CONTACTS['911']}
+      onClick={e => e.preventDefault()}
+    />
+  </p>
 
   <strong>Showing all options</strong>
   <p>
