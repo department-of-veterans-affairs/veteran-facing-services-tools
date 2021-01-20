@@ -103,17 +103,14 @@ module.exports = {
 
 #### Adding Your Own Folders
 By default gatsby-mdx will only look in the src/pages folder.
-In this project we needed a special folder for all our components.
-This folder lives in `formation-react/src/components`.
-We need to add some configurations to be able to do this.
-
+We need to add some configurations to be able to add non-default folders.
 
 **Add the `gatsby-source-filesystem` plugin:**
 
 This plugin can be added multiple times in the plugins object.
 This plugin is used for sourcing data into your Gatsby application
 from your local filesystem. Here we add a name and path to the
-formation-react/src/components folder. This will now be added to our GraphQL
+images folder. This will now be added to our GraphQL
 database so we can use it in our project.
 ```javascript
 // gatsby-configs.js
@@ -122,8 +119,8 @@ plugins: [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: `../formation-react/src/components`,
-      name: 'components'
+      path: `./src/images`,
+      name: 'images'
     }
   },
 ]

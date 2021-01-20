@@ -104,7 +104,7 @@ const createVaGovTeamPages = async ({ graphql, actions, reporter }) => {
  * Derive and include the source URL on automatically generated pages,
  * specifically from src/pages.
  *
- * External pages, such as those pulled from va.gov-team or formation-react,
+ * External pages, such as those pulled from va.gov-team
  * should already have sources and also source URLs associated with them.
  */
 const setSourceUrl = ({ page, actions, reporter }) => {
