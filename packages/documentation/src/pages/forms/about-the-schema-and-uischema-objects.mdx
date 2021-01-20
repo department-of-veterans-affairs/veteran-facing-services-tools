@@ -170,9 +170,9 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
   }) => (
     <>
       <div className="form-review-panel-page-header-row">
-        <h3 className="form-review-panel-page-header vads-u-font-size--h5">
+        <h4 className="form-review-panel-page-header vads-u-font-size--h5">
           {title}
-        </h3>
+        </h4>
         /* use the `defaultEditButton` function, or create a custom edit button
           if the value is not included, it will fall back to its default
           {defaultEditButton({
@@ -253,9 +253,9 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     viewField: RowViewComponent,
 
     // For array fields, this will toggle the auto-scroll that happens when an item is added
-    // to the list. This setting will toggle the scroll for both the original page and the review page. 
+    // to the list. This setting will toggle the scroll for both the original page and the review page.
     doNotScroll: true,
-    
+
     // To show a field only when another field is true, set this option to the property name.
     // It wraps the fields with an ExpandingGroup component using the `expandUnder` field as
     // the first question.
