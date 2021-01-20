@@ -99,15 +99,8 @@ module.exports = {
     },
     {
       id: 'visual-design',
-      name: 'Visual design',
-      href: '/visual-design',
-      indexmdx: true,
-      items: [
-        {
-          name: 'Formation components',
-          query: 'componentList',
-        },
-      ],
+      name: 'Components',
+      href: 'https://design.va.gov/components',
     },
     {
       id: 'forms',
