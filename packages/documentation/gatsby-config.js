@@ -74,8 +74,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./node_modules/@department-of-veterans-affairs/component-library/docs`,
-        name: 'component-library',
+        path: `../formation-react/src/components`,
+        name: 'formation-react',
         ignore: ['**/*.stories.*'],
       },
     },
