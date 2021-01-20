@@ -16,9 +16,6 @@ button,
 
 .usa-button-primary {
   color: $color-white !important;
-  &:hover {
-    // background-color: $color-primary-darker;
-  }
   &[href^=http] {
     @include no-sr-content;
 
@@ -125,35 +122,50 @@ button.short {
 
 // Opens / closes a sidebar navigation on detail pages.
 .va-btn-sidebarnav-trigger {
-  background: $color-gray-lightest;
-  border-radius: 0;
-  display: block;
-  color: $color-link-default;
-  margin: 1rem 0 2rem;
-  text-align: left;
+  margin: 0;
+  padding: 0;
 
-  span {
-    align-items: center;
+  &.fixed-trigger {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $top-layer - 1;
+  }
+
+  .button-wrapper {
+    position: absolute;
+    width: 100%;
+    padding: units(1) units(1) units(2);
+  }
+
+  button {
+    background-color: $color-white;
+    color: $color-primary;
+    margin: 0;
+    padding: units(1.5);
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    width: 100%;
     display: flex;
-  }
+    align-items: center;
+    justify-content: space-between;
 
-  b {
-    flex: 1 1 10rem
-  }
-
-  svg {
-    display: inline-block;
-    height: 1rem;
-    width: 1rem;
-    fill: $color-link-default;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    svg {
-      fill: $color-white;
+    strong {
+      line-height: units(2.5);
     }
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+
+  // .button-background is layered behind the button and prevents anything that
+  // is scrolling behind the button from being visible
+  .button-background {
+    position: absolute;
+    background-color: $color-white;
+    width: 100%;
+
   }
 
   @include media($medium-large-screen) {

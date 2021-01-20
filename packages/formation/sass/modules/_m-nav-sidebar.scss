@@ -370,32 +370,3 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   }
 
 }
-
-// This is the trigger-button on mobile
-.va-btn-sidebarnav-trigger {
-  color: $color-white;
-  background-color: $color-primary;
-
-  &:hover {
-    background-color: $color-primary-darker;
-  }
-
-  &:focus,
-  &:hover {
-    svg {
-      fill: $color-white;
-    }
-  }
-
-  &.fixed-trigger {
-    margin: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: $top-layer;
-  }
-
-  svg {
-    margin: 5px 0 0 3px;
-  }
-}
