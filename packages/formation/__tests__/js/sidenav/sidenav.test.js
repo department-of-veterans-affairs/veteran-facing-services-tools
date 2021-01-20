@@ -4,11 +4,17 @@ import '../../matchMedia.mock';
 document.body.innerHTML = `
 <div>
 <!-- Begin mobile toggle button -->
-<button type="button" class="va-btn-sidebarnav-trigger" aria-controls="va-detailpage-sidebar">
-  <span>
-    <b>More in this section</b>
-  </span>
-</button>
+<div class="va-btn-sidebarnav-trigger" id="sidebar-nav-trigger">
+  <!-- The button background is to hide any content that is behind the trigger -->
+  <div class="button-background"></div>
+  <div class="button-wrapper">
+    <button aria-controls="va-detailpage-sidebar">
+      <strong>In this section</strong>
+      {% include "src/site/assets/img/bars.svg" %}
+    </button>
+  </div>
+</div>
+<div class="trigger-placeholder"></div>
 <div class="medium-screen:vads-u-display--flex">
   <div class="medium-screen:vads-l-col--3">
     <nav class="va-sidebarnav vads-u-width--full" id="va-detailpage-sidebar">
@@ -90,10 +96,10 @@ document.body.innerHTML = `
 require('../../../js');
 
 describe('Sidenav', () => {
-  it('should show sidenav when clicking on More in this section', () => {
+  it('should show sidenav when clicking on the trigger button', () => {
     global.window.innerWidth = '600px';
     const mobileSideNavButton = document.querySelector(
-      '.va-btn-sidebarnav-trigger',
+      '.va-btn-sidebarnav-trigger button',
     );
 
     mobileSideNavButton.click();
@@ -104,14 +110,10 @@ describe('Sidenav', () => {
       navElement.classList.value.includes('va-sidebarnav--opened'),
     ).toEqual(true);
     expect(navElement.getAttribute('aria-hidden')).toEqual('false');
-    expect(mobileSideNavButton.getAttribute('hidden')).toEqual('true');
   });
 
   it('should hide sidenav when clicking on close button', () => {
     global.window.innerWidth = '600px';
-    const mobileSideNavButton = document.querySelector(
-      '.va-btn-sidebarnav-trigger',
-    );
     const navElement = document.querySelector('nav');
 
     const closeButton = navElement.querySelector('.va-btn-close-icon');
@@ -121,25 +123,6 @@ describe('Sidenav', () => {
     expect(
       navElement.classList.value.includes('va-sidebarnav--opened'),
     ).toEqual(false);
-    expect(mobileSideNavButton.getAttribute('hidden')).toEqual(null);
-    expect(navElement.getAttribute('aria-hidden')).toEqual('true');
-  });
-
-  it('', () => {
-    global.window.innerWidth = '600px';
-    const mobileSideNavButton = document.querySelector(
-      '.va-btn-sidebarnav-trigger',
-    );
-    const navElement = document.querySelector('nav');
-
-    const closeButton = navElement.querySelector('.va-btn-close-icon');
-
-    closeButton.click();
-
-    expect(
-      navElement.classList.value.includes('va-sidebarnav--opened'),
-    ).toEqual(false);
-    expect(mobileSideNavButton.getAttribute('hidden')).toEqual(null);
     expect(navElement.getAttribute('aria-hidden')).toEqual('true');
   });
 });
