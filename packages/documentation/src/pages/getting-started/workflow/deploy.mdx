@@ -51,6 +51,10 @@ Two out-of-cycle deploys are supported in Jenkins:
 - partial deploy including only static page changes (`vagov-content` and `Drupal`)
 - full deploy of VA.gov client app and static pages
 
+**Note**: If a full or partial manual deploy of vets-website is kicked off while a scheduled deploy 
+is in progress (or vice versa), the builds will not conflict. Whichever begins first will deploy 
+first, with the latter queued up behind it.
+
 ### Before deploying
 
 - Wait for **Jenkins** to **build the change** in `vets-website`
