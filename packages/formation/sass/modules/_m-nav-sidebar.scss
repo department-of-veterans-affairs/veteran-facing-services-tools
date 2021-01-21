@@ -370,3 +370,66 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   }
 
 }
+
+// Opens / closes a sidebar navigation on detail pages.
+.va-btn-sidebarnav-trigger {
+  margin: 0;
+  padding: 0;
+
+  &.fixed-trigger {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $top-layer - 1;
+  }
+
+  .button-wrapper {
+    position: absolute;
+    width: 100%;
+    padding: units(1) units(1) units(2);
+  }
+
+  button {
+    background-color: $color-white;
+    color: $color-primary;
+    margin: 0;
+    padding: units(1.5);
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    strong {
+      line-height: units(2.5);
+    }
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+
+  // .button-background is layered behind the button and prevents anything that
+  // is scrolling behind the button from being visible
+  .button-background {
+    position: absolute;
+    background-color: $color-white;
+    width: 100%;
+
+  }
+
+  @include media($medium-large-screen) {
+    display: none;
+  }
+}
+
+.va-btn-close-icon {
+  background: transparent url('#{$formation-image-path}/icons/close.svg') center no-repeat;
+  background-size: 1rem 1rem;
+  height: 2.2rem;
+  padding: 2.2rem;
+  margin: 0;
+  text-indent: -9999rem;
+  width: 1rem;
+}
