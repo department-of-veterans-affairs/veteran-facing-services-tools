@@ -20,12 +20,12 @@
   }
 
   /* Relative URLs - include the HREF with the domain prepended */
-  a:not([href^="#"]):not([href^="tel"]):not([href^="http"]):after {
+  a[href^="/"]:after {
     content: " (https://www.va.gov" attr(href) ")";
   }
 
   /* Absolute URLs - show the HREF without prepending the domain. */
-  a[href^="tel"]:after, a[href^="http"]:after {
+  a[href^="http"]:after {
     content: " (" attr(href) ")";
   }
 }
