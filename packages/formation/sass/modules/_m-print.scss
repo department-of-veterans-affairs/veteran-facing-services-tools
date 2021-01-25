@@ -8,19 +8,24 @@
   header, footer, nav {
     display: none;
   }
-  
+
   .schemaform-title,
   .schemaform-subtitle,
   .screen-only {
     display: none;
   }
-  
+
   .print-only {
     display: block;
   }
-  
-  /* Include href when printing */
-  a:not([href^="tel"]):after {
-    content: " (https://va.gov" attr(href) ")";
+
+  /* Relative URLs - include the HREF with the domain prepended */
+  a[href^="/"]:after {
+    content: " (https://www.va.gov" attr(href) ")";
+  }
+
+  /* Absolute URLs - show the HREF without prepending the domain. */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
   }
 }
