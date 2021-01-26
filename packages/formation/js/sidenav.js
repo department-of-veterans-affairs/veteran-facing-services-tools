@@ -91,8 +91,14 @@ class SideBarMenu {
     this.menu.setAttribute('aria-hidden', 'false');
     document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     this.addCloseMenuListener();
-    // main trigger, switch focus to close button
-    this.closeControl.focus();
+    // Switch focus to close button. In Safari the focus was not always getting
+    // set when the menu opened. This event loop hack fixes the issue and
+    // ensures that the menu's close button gets focus when the sidenav menu
+    // opens.
+    // https://github.com/department-of-veterans-affairs/va.gov-team/issues/18916
+    setTimeout(() => {
+      this.closeControl.focus();
+    }, 0);
     // capture the focus
     if (this.lastAccordionButton) {
       this.lastAccordionButton.addEventListener(
