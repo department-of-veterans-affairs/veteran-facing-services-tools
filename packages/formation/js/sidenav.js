@@ -95,6 +95,7 @@ class SideBarMenu {
     // set when the menu opened. This event loop hack fixes the issue and
     // ensures that the menu's close button gets focus when the sidenav menu
     // opens.
+    // https://github.com/department-of-veterans-affairs/va.gov-team/issues/18916
     setTimeout(() => {
       this.closeControl.focus();
     }, 0);
