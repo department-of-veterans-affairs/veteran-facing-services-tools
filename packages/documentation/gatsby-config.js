@@ -72,14 +72,6 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `../formation-react/src/components`,
-        name: 'formation-react',
-        ignore: ['**/*.stories.*'],
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
