@@ -1,8 +1,8 @@
 ---
-title: Setting up a form wizard
+title: Form wizard
 ---
 
-# Setting up a form wizard
+# Form wizard
 
 ## Product details
 
@@ -29,21 +29,25 @@ A `wizard` folder is usually added under the form root folder.
 ```
 form
 |_ ...
+|_ components
+|  |_ createApplicationStatus.jsx
 |_ wizard
    |_ WizardContainer.jsx
    |_ WizardLink.jsx
-   |_ /pages
+   |_ pages
       |_ index.js (returns an array of all pages)
-      |_ start.jsx (usually named after wizard nodes)
-      |_ ... (other pages)
+      |_ start.jsx (or whatever you name the first page)
+      |_ ... (other pages; usually named after wizard nodes)
 ```
 
 Within this folder are a `WizardContainer` which renders the content surrounding
 the actual `Wizard` component. A `WizardLink` may be found if the info page needs
 to render a link to the start of your form conditionally (behind a feature flag).
 
-Each wizard page file (not the `index.js`), _must_ export the following object
-which ends up in the array exported by the index.
+Within the `pages` folder, are pages that represent each wizard node. The
+`index.js` imports all the pages and exports an array with the first entry being
+the wizard start page. Each page file _must_ export the following object which
+contains the page name and component.
 
 ```js
 export default {
@@ -52,8 +56,8 @@ export default {
 };
 ```
 
-Each page will most likely contain analytics events, see the link in the product
-details section.
+Each page will likely contain analytics events. More details can be found in the
+[wizard analytics spec](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md).
 
 ## Setup
 
@@ -145,10 +149,11 @@ app.
 
 ### Application status
 
-A component to render the `ApplicationStatus` is also contained somewhere within
-the form files. A static page component imports and injects the application
-status component into the form's info page. Within this component are two
-buttons which allow the user to either continue or restart the application.
+A component (see `createApplicationStatus` in the file structure section) to
+render the `ApplicationStatus` is also contained somewhere within the form
+files. A static page component imports and injects the application status
+component into the form's info page. Within this component are two buttons which
+allow the user to either continue or restart the application.
 
 Too ensure the wizard is properly handled when restarting (clear the wizard
 state) or continuing (set the wizard state to complete), we need to provide the
