@@ -79,6 +79,11 @@ const formConfig = {
     noAuth: errorMessages.savedFormNoAuth,
   },
 
+  // Defaults to WIZARD_STATUS in 'applications/static-pages/wizard'. Added
+  // here if your form uses a unique sessionStorage key (currently only used by
+  // the save-in-progress component)
+  wizardStorageKey: 'wizardStatus',
+
   // Legacy SiP configuration such as savedFormMessages will be moved into saveInProgress.
   // All new SiP configuration will go here.
   saveInProgress: {
@@ -92,13 +97,11 @@ const formConfig = {
       saved: 'Your education benefits application has been saved.',
     },
     // *** Form restart-specific options ***
-    // Defaults to WIZARD_STATUS in 'applications/static-pages/wizard'. Added
-    // here if your form uses a unique sessionStorage key
-    restartWizardKey: 'wizardStatus',
-    // state parameter is either 'restarting' (from FormStartControls component)
-    // or 'restarted' (from RoutedSavableApp component)
-    // Return the destination route ('/' is the introduction page) or null to
-    // continue with the default behavior
+    // This callback is _only_ called by the RoutedSavableApp, so if the wizard
+    // is being rendered by the outer form App file, this callback won't work
+    // If the wizard is being rendered within the Intro page (like 0996 HLR),
+    // then have the function return either a destination route ('/' is the
+    // introduction page) or null to continue with the default behavior
     restartFormCallback: state => '/',
   },
   prefillEnabled: false,

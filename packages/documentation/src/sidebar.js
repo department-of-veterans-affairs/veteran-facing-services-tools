@@ -173,6 +173,10 @@ module.exports = {
               href: '/forms/available-features-and-usage-guidelines',
             },
             {
+              name: 'Form wizard',
+              href: '/forms/wizard',
+            },
+            {
               name: 'Using available fields',
               href: '/forms/using-available-fields',
             },
