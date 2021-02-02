@@ -79,7 +79,7 @@ const formConfig = {
     noAuth: errorMessages.savedFormNoAuth,
   },
 
-  // Defaults to WIZARD_STATUS in 'applications/static-pages/wizard'. Added
+  // Defaults to WIZARD_STATUS in 'platform/site-wide/wizard'. Added
   // here if your form uses a unique sessionStorage key (currently only used by
   // the save-in-progress component)
   wizardStorageKey: 'wizardStatus',
@@ -100,8 +100,8 @@ const formConfig = {
     // This callback is _only_ called by the RoutedSavableApp, so if the wizard
     // is being rendered by the outer form App file, this callback won't work
     // If the wizard is being rendered within the Intro page (like 0996 HLR),
-    // then have the function return either a destination route ('/' is the
-    // introduction page) or null to continue with the default behavior
+    // then have the function return a destination route ('/' is the
+    // introduction page)
     restartFormCallback: state => '/',
   },
   prefillEnabled: false,
