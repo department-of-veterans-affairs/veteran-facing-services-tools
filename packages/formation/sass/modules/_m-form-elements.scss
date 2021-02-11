@@ -55,7 +55,7 @@ button.form-button-disabled {
 }
 
 .form-datefield-month {
-  width: 10rem;
+  width: 12rem;
 }
 
 .form-datefield-day {
@@ -113,6 +113,13 @@ button.form-button-disabled {
 
 .form-error-date {
   margin-top: 0;
+}
+
+// override width set to calc(100% + 1.9rem) for dates
+.usa-input-error.form-error-date {
+  input, select {
+    width: 100%;
+  }
 }
 
 @include media($medium-large-screen) {
