@@ -1,0 +1,22 @@
+a.va-action-link--blue, a.va-action-link--green {
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 175%;
+    display: inline-block; // Remove the underline text decoration
+    content: "\f138";
+    padding-right: 1rem;
+    transform: translateY(5px); // "Center" the circle with the text
+    height: 0px; // So the height doesn't mess with the focus halo
+  }
+  font-weight: bold;
+  padding: 8px;
+}
+
+a.va-action-link--blue:before {
+  color: $color-link-default;
+}
+
+a.va-action-link--green:before {
+  color: $color-green;
+}
