@@ -77,6 +77,9 @@ button.form-button-disabled {
   > input[type="radio"] + label {
     margin-left: 1.7em;
   }
+  > input[type='radio'] {
+    cursor: pointer;
+  }
 }
 
 .form-required-span {
