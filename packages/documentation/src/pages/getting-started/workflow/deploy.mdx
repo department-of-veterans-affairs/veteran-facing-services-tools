@@ -93,7 +93,7 @@ first, with the latter queued up behind it.
 - Builds status can be viewed [here](http://jenkins.vetsgov-internal/blue/organizations/jenkins/testing%2Fvets-website/activity?branch=master). _Requires SOCKS proxy. See [Accessing internal tools](/getting-started/internal-tools)_
 - If this build fails, you may need to log into Jenkins and restart it
 
-### Partial deploy- static page changes only
+### Content only deploy
 
 1. Start a deploy job
    - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
@@ -107,7 +107,7 @@ first, with the latter queued up behind it.
 
 2. **Verify** changes in **production** once the build finishes
 
-### Full deploy of VA.gov client app
+### Full deploy of VA.gov
 
 1. Verify that your changes are committed and that the changes since the last deploy are safe to deploy:
    - **Last deployment time**: You can check the build [history](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/) for the time of the last deploy (usually daily at 2pm EST)
@@ -117,7 +117,7 @@ _You may need to contact the developers of those commits to verify._
 
 2. Start a deploy job
    - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
-   - Click **Build with Parameters**
+   - Click **Build with Parameters** _(contact [#vsp-operations](https://dsva.slack.com/archives/CJYRZK2HH) if you don't see this option and think you should)_
    - Set the **release_wait** option to **5** minutes
    - Uncheck **use_latest_release** <-- _important_
    - Click **Build**
