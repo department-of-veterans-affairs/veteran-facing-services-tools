@@ -51,9 +51,27 @@ previous release tag. Typical deployment times are under 5mins.
 5. Enter the ref value into the ref field
 6. Click "Build"
 
-The **use of hotfixes is discouraged**, but may be useful in an emergency situation when `master` has significantly deviated from the release and a fix to the failed production release is critical. To create a hotfix, create a branch from the last stable release tag, make changes necessary (with review), create a new release tag following the correct naming scheme, and trigger a deploy in Jenkins with the release name as a parameter.
+If SLOs are not affected and a fix is not critical, no rollback will be issued. Instead the fix should 
+be applied through the standard development workflow.
 
-If SLOs are not affected and a fix is not critical, no rollback will be issued. Instead the fix should be applied through the standard development workflow.
+## Creating a Release
+
+If the commit you are trying to release to does not have an official release tag, you have to create one:
+
+1. Update your local master branch
+2. Check out the commit you want
+3. Note the latest release from the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases)
+4. [Add a tag to the commit](https://git-scm.com/book/en/v2/Git-Basics-Tagging) using the release format (e.g. `vets-website/v0.1.1438`, note that if your tag isn't sequetial it will be overwritten at the next deploy)
+5. Push your new tag up (e.g. `git push origin vets-website/v0.1.1439`)
+6. You should now see it in the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases) and can follow the normal rollback steps.
+
+## Hotfixes
+
+The **use of hotfixes is discouraged**, but may be useful in an emergency situation when `master` 
+has significantly deviated from the release and a fix to the failed production release is critical. 
+To create a hotfix, create a branch from the last stable release tag, make changes necessary (with review), 
+create a new release tag following the correct naming scheme, and trigger a deploy in Jenkins with the 
+release name as a parameter. This documentation is above, in the "Creating a Release" section.
 
 ## Manual deployment
 
