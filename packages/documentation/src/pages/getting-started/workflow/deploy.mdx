@@ -61,9 +61,13 @@ If the commit you are trying to release to does not have an official release tag
 1. Update your local master branch
 2. Check out the commit you want
 3. Note the latest release from the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases)
-4. [Add a tag to the commit](https://git-scm.com/book/en/v2/Git-Basics-Tagging) using the release format (e.g. `vets-website/v0.1.1438`, note that if your tag isn't sequetial it will be overwritten at the next deploy)
-5. Push your new tag up (e.g. `git push origin vets-website/v0.1.1439`)
-6. You should now see it in the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases) and can follow the normal rollback steps.
+4. Visit the [release job in Jenkins](http://jenkins.vfs.va.gov/job/releases/job/vets-website/build?delay=0sec)
+5. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/vets-website/commits/master)
+6. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+7. Click "Build"
+8. You should now see it in the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases) and can follow the normal rollback steps.
+
+This should create a new release, and deploy it to va.gov.
 
 ## Hotfixes
 
