@@ -127,4 +127,44 @@ _You may need to contact the developers of those commits to verify._
  
 2. **Verify** changes in **production** once the build finishes
 
+### Dealing with Flaky Unit Tests
 
+A test fixture is a fixed state so the results should be repeatable. A flaky test is a test 
+which could fail or pass for the same configuration. In monitoring the deploy of vets-website
+we often have to deal with flaky tests in a few specific situations:
+
+1. A flaky test inside of a pull request
+2. A flaky test in `master` when an autodeploy is _not_ nearing
+3. A flaky test in `master` when an auto-deploy is nearing
+
+To tell if an auto-deploy is nearing you can refer to the table at the top of this document.
+
+#### A flaky test inside of a pull request
+
+If a unit test fails in a pull request, no one is alerted so it’s more likely that it gets refreshed 
+to unblock the work or skipped in the PR, then reviewed by the code owner. This action is the
+responsibility of the pull request owner and has no effect on the daily deploy.
+
+#### A flaky test in `master` when an autodeploy is not nearing
+
+If a unit test fails in master and a deploy is not nearing (or has already happened for the day), 
+the failure can be ignored as inconsequential. However, the pipeline should still be refreshed 
+in order to tell if the test is flaky or legitamately failing. The relevant code owner should 
+then be alerted so they can either skip or fix the test before the next deploy (at the discretion 
+of the test owner).
+
+#### A flaky test in `master` when an auto-deploy is nearing
+
+If a unit test fails in `master` and a scheduled deploy is nearing, the [Front-end Tools support 
+team member](https://github.com/orgs/department-of-veterans-affairs/teams/frontend-review-group) should 
+refresh the pipeline immediately, open up a pull request to skip the test, and alert the code owner 
+for a fix and/or pull request approval to skip the test. Ideally the test gets fixed, but in reality, 
+the process to merge can often take longer than is allowed for by the timing of the deploy. This is 
+why it is important to have a pull request opened immediately to skip the test if needed - no need 
+to wait for the code owner, delays can fail the deploy. This is the most common reason for a failed 
+deploy so we should all be on high alert for it while on a support rotation.
+
+As the pull request is running through the pipeline, the support engineer should keep 
+refreshing the master pipeline just in case it catches and is successful to prevent a failed deploy. 
+Even if the deploy is successful, the test should be either fixed or skipped as to not block future 
+deploys.
