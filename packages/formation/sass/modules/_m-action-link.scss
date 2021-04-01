@@ -1,4 +1,4 @@
-a.va-action-link--blue, a.va-action-link--green {
+a.va-action-link--blue, a.va-action-link--green, a.va-action-link--white {
   &:before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -19,4 +19,22 @@ a.va-action-link--blue:before {
 
 a.va-action-link--green:before {
   color: $color-green;
+}
+
+a.va-action-link--white {
+  color: $color-white;
+
+  &:before {
+    color: $color-white;
+    @include color-transition;
+  }
+}
+
+a.va-action-link--white:hover {
+  color: $color-gold-light;
+  background-color: transparent;
+
+  &:before {
+    color: $color-gold-light;
+  }
 }

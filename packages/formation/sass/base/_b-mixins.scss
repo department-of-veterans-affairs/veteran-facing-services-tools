@@ -102,6 +102,18 @@
   @include focus-gold-light-outline;
 }
 
+@mixin color-transition {
+  -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+
+  // Transition only these properties.
+  -webkit-transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color;
+}
+
 @mixin linear-gradient-background($from, $to) {
   background: $from; /* Old browsers */
   background: -moz-linear-gradient(top, $from 0%, $to 63%); /* FF3.6-15 */
@@ -135,15 +147,7 @@
     color: $color-link-default;
     text-decoration: underline;
     background-color: $color-link-default-hover !important;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-
-    // Transition only these properties.
-    -webkit-transition-property: color, background-color, border-color;
-    transition-property: color, background-color, border-color;
+    @include color-transition;
   }
   &:active {
     background: $color-link-default-hover;

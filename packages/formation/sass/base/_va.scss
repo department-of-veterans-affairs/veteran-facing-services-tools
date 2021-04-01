@@ -81,16 +81,7 @@ abbr {
 a {
   color: $color-link-default;
   text-decoration: underline;
-
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-
-  // Transition only these properties.
-  -webkit-transition-property: color, background-color, border-color;
-  transition-property: color, background-color, border-color;
+  @include color-transition;
 
   &:hover {
     background-color: $color-link-default-hover;
