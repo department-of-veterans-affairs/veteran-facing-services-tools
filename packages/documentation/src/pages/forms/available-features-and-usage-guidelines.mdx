@@ -367,8 +367,8 @@ Your config file might look like this:
       'ui:widget': 'yesNo',
       'ui:options': {
         widgetProps: {
-          Y: { 'aria-describedby': 'some_id' },
-          N: { 'aria-describedby': 'different_id' },
+          Y: { 'data-info': 'yes' },
+          N: { 'data-info': 'no' },
         },
         // Only added to the radio when it is selected
         // a11y requirement: aria-describedby ID's *must* exist on the page; and
