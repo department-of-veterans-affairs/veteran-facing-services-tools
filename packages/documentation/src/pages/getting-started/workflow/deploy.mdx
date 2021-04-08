@@ -7,6 +7,21 @@ tags: build, rollback, manual deploy, automatic deploy, static page deploy, depl
 
 Code goes through several steps to get to production. This document describes this process. It should also be noted that this is the same flow for both content and code changes.
 
+## Table of Contents
+
+- [Automated deployment schedule](#automated-deployment-schedule)
+- [Overview](#overview)
+- [Process details](#process-details)
+- [Rollbacks](#rollbacks)
+- [Creating a Release](#creating-a-release)
+- [Hotfixes](#hotfixes)
+- [Manual deployment](#manual-deployment)
+  - [Before deploying](#before-deploying)
+  - [Content-only production deploy](#content-only-production-deploy)
+  - [Full production deploy of va.gov](#full-production-deploy-of-vagov)
+  - [Manual deployment of staging.va.gov](#manual-deployment-of-stagingvagov)
+- [Dealing with Flaky Unit Tests](#dealing-with-flaky-unit-tests)
+
 ## Automated deployment schedule
 
 | Application | Branch | Changes in by | Deployment Start | Release History |
@@ -95,7 +110,7 @@ first, with the latter queued up behind it.
 - Builds status can be viewed [here](http://jenkins.vetsgov-internal/blue/organizations/jenkins/testing%2Fvets-website/activity?branch=master). _Requires SOCKS proxy. See [Accessing internal tools](/getting-started/internal-tools)_
 - If this build fails, you may need to log into Jenkins and restart it
 
-### Content only deploy
+### Content-only production deploy
 
 1. Start a deploy job
    - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
@@ -109,7 +124,7 @@ first, with the latter queued up behind it.
 
 2. **Verify** changes in **production** once the build finishes
 
-### Full deploy of VA.gov
+### Full production deploy of VA.gov
 
 1. Verify that your changes are committed and that the changes since the last deploy are safe to deploy:
    - **Last deployment time**: You can check the build [history](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/) for the time of the last deploy (usually daily at 2pm EST)
@@ -129,7 +144,21 @@ _You may need to contact the developers of those commits to verify._
  
 2. **Verify** changes in **production** once the build finishes
 
-### Dealing with Flaky Unit Tests
+### Manual deployment of staging.va.gov
+
+When staging deployments get clogged up or staging as a whole falls behind production 
+(for various reasons) you may need to execute a manual deployment for staging. To do this 
+use the following steps: 
+
+1. Visit the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) job in Jenkins
+2. Click **Build with Parameters**
+3. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/vets-website/commits/master)
+4. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+5. Click **Build**
+6. You can watch the deployment process from the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) status page in Jenkins 
+6. [Confirm that your deployed commit is on staging](https://frontend-support-dashboard.now.sh/)
+
+## Dealing with Flaky Unit Tests
 
 A test fixture is a fixed state so the results should be repeatable. A flaky test is a test 
 which could fail or pass for the same configuration. In monitoring the deploy of vets-website
