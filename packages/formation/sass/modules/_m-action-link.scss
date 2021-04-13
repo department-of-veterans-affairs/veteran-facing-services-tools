@@ -1,4 +1,4 @@
-a.va-action-link--blue, a.va-action-link--green, a.va-action-link--white {
+a.vads-c-action-link--blue, a.vads-c-action-link--green, a.vads-c-action-link--white {
   &:before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -13,15 +13,15 @@ a.va-action-link--blue, a.va-action-link--green, a.va-action-link--white {
   padding: 8px;
 }
 
-a.va-action-link--blue:before {
+a.vads-c-action-link--blue:before {
   color: $color-link-default;
 }
 
-a.va-action-link--green:before {
+a.vads-c-action-link--green:before {
   color: $color-green;
 }
 
-a.va-action-link--white {
+a.vads-c-action-link--white {
   color: $color-white;
 
   &:before {
@@ -30,7 +30,7 @@ a.va-action-link--white {
   }
 }
 
-a.va-action-link--white:hover {
+a.vads-c-action-link--white:hover {
   color: $color-gold-light;
   background-color: transparent;
 
