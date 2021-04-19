@@ -44,7 +44,7 @@ _A big assumption in this process is that the `master` should always be deployab
 
 - [Create a release](https://help.github.com/en/articles/creating-releases) in GitHub from master, tag artifacts of that commit SHA hash with release name
 
-Every work day at the configured time a [Jenkins automerge job](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-automerge/) sends a link to the #vetsgov-engineers Slack channel with a diff between the last release and the most recent changes in `master`. This commit reference is stored to ensure the diff and released version is deterministic.
+(Every work day at the configured time a [Jenkins automerge job](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-automerge/) sends a link to the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel with a diff between the last release and the most recent changes in `master`. This commit reference is stored to ensure the diff and released version is deterministic.
 
 After a time has elapsed ( currently set to 60m ) release is created at the reference from above.
 
@@ -120,7 +120,7 @@ first, with the latter queued up behind it.
    - Click **Build**
    - Verify commits in **deployment notification**
 
- _In the [#vfs-engineers](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
+ _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
 
 2. **Verify** changes in **production** once the build finishes
 
@@ -140,7 +140,7 @@ _You may need to contact the developers of those commits to verify._
    - Click **Build**
    - Verify commits in **deployment notification**
 
- _In the [#vfs-engineers](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
+ _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
  
 2. **Verify** changes in **production** once the build finishes
 
