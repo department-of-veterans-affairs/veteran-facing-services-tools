@@ -11,7 +11,7 @@ Code goes through several steps to get to production. This document describes th
 
 - [Automated deployment schedule](#automated-deployment-schedule)
 - [Overview](#overview)
-- [Process details](#process-details)
+- [Automated process details](#process-details)
 - [Rollbacks](#rollbacks)
 - [Creating a Release](#creating-a-release)
 - [Hotfixes](#hotfixes)
@@ -40,17 +40,11 @@ Jenkins performs the following tasks after a pull request is merged into `master
 
 _A big assumption in this process is that the `master` should always be deployable. As such, the deployment to the staging environment is configured to happen automatically and can be used to see what something would look like in a production-like environment for any kind of manual testing/verification._
 
-## Process details
+## Automated process details
 
-- [Create a release](https://help.github.com/en/articles/creating-releases) in GitHub from master, tag artifacts of that commit SHA hash with release name
-
-(Every work day at the configured time a [Jenkins automerge job](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-automerge/) sends a link to the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel with a diff between the last release and the most recent changes in `master`. This commit reference is stored to ensure the diff and released version is deterministic.
-
-After a time has elapsed ( currently set to 60m ) release is created at the reference from above.
-
-- **Deploy** to production using deployment artifacts
-
-From here, Jenkins can kickoff a production deployment. After the deployment occurs, the normal site monitoring infrastructure will be used to valide it is working. As this process is automatic any new features should have monitoring in place before, or as a part of their deployment
+- Every work day at the configured time the [vets-gov-autodeploy-vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-vets-website/) release job](http://jenkins.vfs.va.gov/job/releases/job/vets-website/) job will run.
+- The autodeploy job will call the [vets-website release](http://jenkins.vfs.va.gov/job/releases/job/vets-website/) job which creates a [release](https://github.com/department-of-veterans-affairs/vets-website/releases).
+- Release artifact is deployed to production by [vets-website-vagovprod job](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/). This job should *not* be triggered manually.
 
 ## Rollbacks
 
