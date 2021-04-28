@@ -85,6 +85,8 @@ If the commit you are trying to release to does not have an official release tag
 
 This should create a new release, and deploy it to va.gov.
 
+**Note:** Verify that there are no [scheduled](#automated-deployment-schedule) [content releases](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-content-autodeploy/) around the time of creating a release. A following release can override your manual release if started before your release has finished.
+
 ## Hotfixes
 
 The **use of hotfixes is discouraged**, but may be useful in an emergency situation when `master` 
