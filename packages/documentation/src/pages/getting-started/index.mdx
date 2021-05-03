@@ -61,6 +61,7 @@ These instructions cover building and running VA.gov locally, including configur
    ```bash
    $ git clone git@github.com:department-of-veterans-affairs/vets-website.git
    $ git clone git@github.com:department-of-veterans-affairs/vagov-content.git
+   $ git clone git@github.com:department-of-veterans-affairs/content-build.git
    $ git clone git@github.com:department-of-veterans-affairs/vets-json-schema.git
    $ git clone git@github.com:department-of-veterans-affairs/veteran-facing-services-tools.git
    $ git clone git@github.com:department-of-veterans-affairs/vets-api.git
@@ -70,6 +71,7 @@ These instructions cover building and running VA.gov locally, including configur
    **Front end repos**
    - `vets-website`: Core front end platform and application code
    - `vagov-content`: Markdown content used to generate static pages
+   - `content-build`: Metalsmith templates and content build for static pages
    - `veteran-facing-services-tools`: Shared front end components (including non VA.gov users) and front end documentation site
 
    **Back end repos**
@@ -81,13 +83,22 @@ These instructions cover building and running VA.gov locally, including configur
 
 ## Start up the front end
 
-7. Navigate to the `vets-website` repository, then install `vets-website` dependencies. See these [common commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/README.md) for more information.
+### vets-website
+
+7a. Navigate to the `vets-website` repository, then install `vets-website` dependencies. See these [common commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/README.md) for more information.
    ```bash
    $ cd vets-website
    $ yarn install
    ```
 
-8. Build `vets-website`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
+8a. Build `vets-website`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
+   If you're only doing application work inside `vets-website` you can build with the scaffold option:
+   ```bash
+   $ yarn build:webpack --env.scaffold
+   ```
+
+   If you need the CSS and JS generated for work in `content-build` you can run a normal build:
+
    ```bash
    $ yarn build
    ```
@@ -97,14 +108,46 @@ These instructions cover building and running VA.gov locally, including configur
    $ yarn fetch-drupal-cache
    ```
 
-9. Start the local development server.
+9a. Start the local development server.
    ```bash
    $ yarn watch
    ```
 
-   The build is complete when the CLI says `Compiled successfully`.
+   The watch is complete when the CLI says `Compiled successfully`.
 
-10. Open [http://localhost:3001](http://localhost:3001) in a browser
+10a. Open [http://localhost:3001](http://localhost:3001) in a browser
+
+### content-build
+
+In order to run `content-build`, you must first generate the CSS and JS files within `vets-website` 
+(follow steps above). If you don't you will see a build error in the console instructing you to first
+generate files in `vets-website`.
+
+If you don't need to locally view static pages and are just working on applications, you don't need to set this part up.
+
+7b. Navigate to the `content-build` repository, then install dependencies via `yarn`
+   ```bash
+   $ cd content-build
+   $ yarn install
+   ```
+
+8b. Build `content-build`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
+   ```bash
+   $ yarn build
+   ```
+
+   If you do not have access to the SOCKS proxy, you can alternately fetch the latest cached version of the content.
+   ```bash
+   $ yarn fetch-drupal-cache
+
+9a. Start the local development server.
+   ```bash
+   $ yarn watch
+   ```
+
+   The watch is complete when the CLI says `Compiled successfully`.
+
+10a. Open [http://localhost:3002](http://localhost:3002) in a browser
 
 ## Backend and internal tools set up
 
