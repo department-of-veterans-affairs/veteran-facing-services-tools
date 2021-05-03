@@ -105,7 +105,7 @@ If the commit you are trying to release to does not have an official release tag
 
 This should create a new release, and deploy it to va.gov.
 
-**Note:** Verify that there are no [scheduled](#automated-deployment-schedule) [content releases](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-content-autodeploy/) around the time of creating a release. A following release can override your manual release if started before your release has finished.
+**Note:** Verify that there are no [scheduled](#automated-deployment-schedule) [content releases](http://jenkins.vfs.va.gov/job/deploys/job/content-build-content-autodeploy/) around the time of creating a release. A following release can override your manual release if started before your release has finished.
 
 
 ## Hotfixes
@@ -119,14 +119,6 @@ release name as a parameter. This documentation is above, in the "Creating a Rel
 ## vets-website Manual deployment
 
 Out-of-band deploys may be performed in accordance with Platform [deployment policy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/deployment-policy.md#requesting-out-of-band-deploys).
-
-Two out-of-cycle deploys are supported in Jenkins:
-- partial deploy including only static page changes (`vagov-content` and `Drupal`)
-- full deploy of VA.gov client app and static pages
-
-**Note**: If a full or partial manual deploy of vets-website is kicked off while a scheduled deploy 
-is in progress (or vice versa), the builds will not conflict. Whichever begins first will deploy 
-first, with the latter queued up behind it.
 
 ### Before deploying
 
@@ -172,6 +164,13 @@ use the following steps:
 
 ## content-build Manual deployment
 
+Out-of-band deploys may be performed in accordance with Platform [deployment policy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/deployment-policy.md#requesting-out-of-band-deploys).
+
+Multiple manual deploys are supported in Jenkins:
+
+- Partial deploy including only static page changes (`vagov-content` and `Drupal`)
+- Full deploy of VA.gov static pages
+
 ### Content-only production deploy
 
 1. Start a deploy job
@@ -182,7 +181,7 @@ use the following steps:
    - Click **Build**
    - Verify commits in **deployment notification**
 
- _In the [#vfs-engineers](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
+ _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
 
 ### Full production deploy of content-build
 
