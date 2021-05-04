@@ -71,7 +71,7 @@ These instructions cover building and running VA.gov locally, including configur
    **Front end repos**
    - `vets-website`: Core front end platform and application code
    - `vagov-content`: Markdown content used to generate static pages
-   - `content-build`: Metalsmith templates and content build for static pages
+   - `content-build`: Liquid templates and content build for static pages
    - `veteran-facing-services-tools`: Shared front end components (including non VA.gov users) and front end documentation site
 
    **Back end repos**
@@ -91,8 +91,7 @@ These instructions cover building and running VA.gov locally, including configur
    $ yarn install
    ```
 
-8a. Build `vets-website`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
-   If you're only doing application work inside `vets-website` you can build with the scaffold option:
+8a. Build `vets-website`. If you're only doing application work inside `vets-website` you can build with the scaffold option:
    ```bash
    $ yarn build:webpack --env.scaffold
    ```
@@ -110,12 +109,12 @@ These instructions cover building and running VA.gov locally, including configur
 
    The watch is complete when the CLI says `Compiled successfully`.
 
-10a. Open [http://localhost:3001](http://localhost:3001) in a browser
+10a. Open [http://localhost:3001](http://localhost:3001) in a browser if you built `vets-website` using the scaffold option; otherwise, continue on to the [content-build](#content-build) section for viewing changes in the browser.
 
 ### content-build
 
 In order to run `content-build`, you must first generate the CSS and JS files within `vets-website` 
-(follow steps above). If you don't you will see a build error in the console instructing you to first
+(follow steps above). If you don't, you will see a build error in the console instructing you to first
 generate files in `vets-website`.
 
 If you don't need to locally view static pages and are just working on applications, you don't need to set this part up.
