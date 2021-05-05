@@ -58,10 +58,10 @@ established for the project, you may restore service to users by rolling back
 to a previous deployment. This is accomplished by triggering a new deploy job in Jenkins using a 
 previous release tag. Typical deployment times are under 5mins.
 
-1. Identify the release you want to rollback to by visiting the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases)
+1. Identify the release you want to rollback to by visiting the [vets-website](https://github.com/department-of-veterans-affairs/vets-website/releases) or [content-build](https://github.com/department-of-veterans-affairs/content-build/releases) release log(s)
 2. Click on the commit ID in the left column of the release you want to reference
 3. Copy the commit ref (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
-4. Visit the [vets-website prod deploy job](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/build?delay=0sec)
+4. Visit the [vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/build?delay=0sec) or [content-build](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovprod/build?delay=0sec) prod deploy job(s)
 5. Enter the ref value into the ref field
 6. Click "Build"
 
