@@ -47,9 +47,9 @@ _A big assumption in this process is that the `master` should always be deployab
 
 ## Automated process details
 
-- Every work day at the configured time the [vets-gov-autodeploy-vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-vets-website/) job will run.
-- The autodeploy job will call the [vets-website release](http://jenkins.vfs.va.gov/job/releases/job/vets-website/) job which creates a [release](https://github.com/department-of-veterans-affairs/vets-website/releases).
-- Release artifact is deployed to production by [vets-website-vagovprod job](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/). This job should *not* be triggered manually.
+- Every work day at the configured time the [vets-gov-autodeploy-vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-vets-website/) and [vets-gov-autodeploy-content-build](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-content-build/) jobs will run.
+- The autodeploy jobs will call the [vets-website release](http://jenkins.vfs.va.gov/job/releases/job/vets-website/) and [content-build release](http://jenkins.vfs.va.gov/job/releases/job/content-build/) jobs which create a [vets-website release](https://github.com/department-of-veterans-affairs/vets-website/releases) and [content-build release](https://github.com/department-of-veterans-affairs/content-build/releases).
+- Release artifacts are deployed to production by the [vets-website-vagovprod](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/) and [content-build-vagovprod](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovprod/) jobs. These jobs should *not* be triggered manually.
 
 ## Rollbacks
 
