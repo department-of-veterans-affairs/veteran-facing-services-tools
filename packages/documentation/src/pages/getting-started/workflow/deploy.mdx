@@ -11,7 +11,7 @@ Code goes through several steps to get to production. This document describes th
 
 - [Automated deployment schedule](#automated-deployment-schedule)
 - [Overview](#overview)
-- [Automated process details](#process-details)
+- [Automated process details](#automated-process-details)
 - [Rollbacks](#rollbacks)
 - [Creating a vets-website Release](#creating-a-vets-website-release)
 - [Hotfixes](#hotfixes)
@@ -118,20 +118,6 @@ Out-of-band deploys may be performed in accordance with Platform [deployment pol
 - Wait for **Jenkins** to **build the change** in `vets-website`
 - Builds status can be viewed [here](http://jenkins.vetsgov-internal/blue/organizations/jenkins/testing%2Fvets-website/activity?branch=master). _Requires SOCKS proxy. See [Accessing internal tools](/getting-started/internal-tools)_
 - If this build fails, you may need to log into Jenkins and restart it
-
-### Content-only production deploy
-
-1. Start a deploy job
-   - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
-   - Click **Build with Parameters**
-   - Set the **release_wait** option to **5** minutes
-   - Check **use_latest_release** <-- _important_
-   - Click **Build**
-   - Verify commits in **deployment notification**
-
- _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
-
-2. **Verify** changes in **production** once the build finishes
 
 ### Full production deploy of vets-website
 
