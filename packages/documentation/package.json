@@ -41,6 +41,17 @@
     "react-live": "1.12.0",
     "uswds": "1.6.10"
   },
+  "resolutions": {
+    "**/lodash": "^4.17.21",
+    "**/url-parse": "^1.5.0",
+    "**/hosted-git-info": "^3.0.8",
+    "**/ua-parser-js": "^0.7.24",
+    "**/underscore": "^1.12.1",
+    "**/xmlhttprequest-ssl":"^1.6.2",
+    "**/ssri": "^8.0.1",
+    "**/is-svg": "^4.3.1",
+    "**/axios": "^0.21.1"
+  },
   "keywords": [
     "gatsby"
   ],
