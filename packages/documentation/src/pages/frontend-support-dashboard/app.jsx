@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import Layout from '../../layouts/Layout';
 
 import CommitsTable from '../../components/dashboard/CommitsTable';
 import DashboardDataFecth from '../../components/dashboard/DashboardDataFetch';
+import { initialState, DashboardReducer } from '../../components/dashboard/Reducer'
 import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
@@ -12,14 +13,18 @@ defineCustomElements();
 
 
 export default function App({ location }) {
-  const [appsDevBuildText, setAppsDevBuildText] = useState('');
-  const [appsStagingBuildText, setAppsStagingBuildText] = useState('');
-  const [appsProdBuildText, setAppsProdBuildText] = useState('');
-  const [appsCommits, setAppsCommits] = useState([]);
-  const [contentDevBuildText, setContentDevBuildText] = useState('');
-  const [contentStagingBuildText, setContentStagingBuildText] = useState('');
-  const [contentProdBuildText, setContentProdBuildText] = useState('');
-  const [contentCommits, setContentCommits] = useState([]);
+
+  const [state, dispatch] = useReducer(DashboardReducer, initialState);
+  const {     
+    appsDevBuildText,
+    appsStagingBuildText,
+    appsProdBuildText,
+    appsCommits,
+    contentDevBuildText,
+    contentStagingBuildText,
+    contentProdBuildText,
+    contentCommits
+  } = state;
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
@@ -31,10 +36,14 @@ export default function App({ location }) {
           prodBuildText,
           commits,
         } = allData;
-        setAppsDevBuildText(devBuildText);
-        setAppsStagingBuildText(stagingBuildText);
-        setAppsProdBuildText(prodBuildText);
-        setAppsCommits(commits);
+
+        dispatch({
+          type: 'vetsWebsite',
+          appsDevBuildText: devBuildText,
+          appsStagingBuildText: stagingBuildText,
+          appsProdBuildText: prodBuildText,
+          appsCommits: commits,
+        })
         return allData;
       })
       .catch(function handleError(error) {
@@ -52,10 +61,14 @@ export default function App({ location }) {
           prodBuildText,
           commits,
         } = allData;
-        setContentDevBuildText(devBuildText);
-        setContentStagingBuildText(stagingBuildText);
-        setContentProdBuildText(prodBuildText);
-        setContentCommits(commits);
+
+        dispatch({
+          type: 'contentBuild',
+          contentDevBuildText: devBuildText,
+          contentStagingBuildText: stagingBuildText,
+          contentProdBuildText: prodBuildText,
+          contentCommits: commits,
+        })
         return allData;
       })
       .catch(function handleError(error) {
