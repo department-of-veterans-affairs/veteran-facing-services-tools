@@ -27,6 +27,10 @@ export default function Index({ location }) {
             For info about writing documentation on this site, see the{' '}
             <Link to="/documentation-guide">Documentation guide</Link> section.
           </li>
+          <li>
+            For Github deployment information, see the{' '}
+            <Link to="/frontend-support-dashboard">Frontend Support Dashboard</Link>.
+          </li>
         </ul>
       </div>
     </Layout>

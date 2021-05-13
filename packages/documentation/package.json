@@ -4,6 +4,7 @@
   "description": "Developer Document Site for VA.gov",
   "version": "0.1.0",
   "dependencies": {
+    "@department-of-veterans-affairs/component-library": "^2.5.1",
     "@department-of-veterans-affairs/formation": "^6.6.3",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
@@ -39,13 +40,15 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^6.1.0",
     "react-live": "1.12.0",
-    "uswds": "1.6.10"
+    "uswds": "1.6.10",
+    "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.5.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
+    "postinstall": "cd node_modules/web-components && yarn install --production && yarn build",
     "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
     "deploy": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths && gh-pages -d public -e .; fi",
     "develop": "gatsby develop",

@@ -344,5 +344,10 @@ module.exports = {
         },
       ],
     },
+    {
+      id: 'frontend-support-dashboard',
+      name: 'Frontend Support Dashboard',
+      href: '/frontend-support-dashboard',
+    },
   ],
 };
