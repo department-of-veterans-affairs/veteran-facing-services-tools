@@ -70,11 +70,11 @@ export default function CommitsTable({
           <table>
             <thead>
               <tr>
-                <th>Author</th>
-                <th>Commit</th>
-                <th>On Dev?</th>
-                <th>On Staging?</th>
-                <th>On Prod?</th>
+                <th scope="col">Author</th>
+                <th scope="col">Commit</th>
+                <th scope="col">On Dev?</th>
+                <th scope="col">On Staging?</th>
+                <th scope="col">On Prod?</th>
               </tr>
             </thead>
             <tbody>
