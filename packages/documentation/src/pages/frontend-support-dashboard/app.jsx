@@ -111,13 +111,13 @@ export default function App({ location }) {
 
         <h2>Content-build</h2>
 
-        <CommitsTable
+        {/* <CommitsTable
           repo={contentBuildInfo}
           devBuildText={contentDevBuildText}
           stagingBuildText={contentStagingBuildText}
           prodBuildText={contentProdBuildText}
           commits={contentCommits}
-        />
+        /> */}
       </div>
 
     </Layout>
