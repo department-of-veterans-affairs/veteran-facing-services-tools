@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Layout from '../../layouts/Layout';
 
-import CommitsTable from './containers/CommitsTable';
+import CommitsTable from '../../components/CommitsTable';
+import DashboardDataFecth from '../../components/DashboardDataFetch';
 import { vetsWebsiteInfo, contentBuildInfo } from '../../definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
@@ -9,37 +10,6 @@ import 'web-components/dist/component-library/component-library.css';
 import { defineCustomElements } from 'web-components/loader';
 defineCustomElements();
 
-
-async function fetchDashboardData(repo) {
-  // https://dmitripavlutin.com/javascript-fetch-async-await/#5-parallel-fetch-requests
-  const [
-    devBuildTextResponse,
-    stagingBuildTextResponse,
-    prodBuildTextResponse,
-    commitsResponse,
-  ] = await Promise.all([
-    fetch(repo.devBuildText),
-    fetch(repo.stagingBuildText),
-    fetch(repo.prodBuildText),
-    // last 30 commits from vets-website
-    fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}/commits`),
-  ]);
-
-  const devBuildText = await devBuildTextResponse.text();
-  const stagingBuildText = await stagingBuildTextResponse.text();
-  const prodBuildText = await prodBuildTextResponse.text();
-  const commits = await commitsResponse.json();
-
-  const result = {
-    devBuildText,
-    stagingBuildText,
-    prodBuildText,
-    commits,
-  };
-  console.log(result); // eslint-disable-line no-console
-
-  return result;
-}
 
 export default function App({ location }) {
   const [appsDevBuildText, setAppsDevBuildText] = useState('');
@@ -53,7 +23,7 @@ export default function App({ location }) {
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
-    fetchDashboardData(vetsWebsiteInfo)
+    DashboardDataFecth(vetsWebsiteInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -74,7 +44,7 @@ export default function App({ location }) {
 
   // Fetches content-build
   React.useEffect(function fetchComponentData() {
-    fetchDashboardData(contentBuildInfo)
+    DashboardDataFecth(contentBuildInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -111,13 +81,13 @@ export default function App({ location }) {
 
         <h2>Content-build</h2>
 
-        {/* <CommitsTable
+        <CommitsTable
           repo={contentBuildInfo}
           devBuildText={contentDevBuildText}
           stagingBuildText={contentStagingBuildText}
           prodBuildText={contentProdBuildText}
           commits={contentCommits}
-        /> */}
+        />
       </div>
 
     </Layout>
