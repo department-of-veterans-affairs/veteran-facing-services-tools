@@ -3,9 +3,9 @@ export const vetsWebsiteInfo = {
   owner: 'department-of-veterans-affairs',
   repo: 'vets-website',
   devBuildText:
-    'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
+    'http://apps.dev.va.gov.s3-website-us-gov-west-1.amazonaws.com/BUILD.txt',
   stagingBuildText:
-    'http://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
+    'http://apps.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/BUILD.txt',
   prodBuildText:
     'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
 };
