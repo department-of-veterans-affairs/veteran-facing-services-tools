@@ -1,11 +1,8 @@
 import React from 'react';
 
-import Table from '@department-of-veterans-affairs/component-library/Table';
-
-
 const isOnEnv = (isOn) => {
-  const trueIcon = <span style={{color: "green"}} aria-label="true"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
-  const falseIcon = <span style={{color: "red"}} aria-label="false"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
+  const trueIcon = <span style={{color: "green"}} aria-label="True Icon"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
+  const falseIcon = <span style={{color: "red"}} aria-label="False Icon"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
 
   return isOn ? trueIcon : falseIcon;
 }
@@ -101,7 +98,7 @@ export default function CommitsTable({
                   <tr key={sha}>
                     <td style={{textAlign: 'center'}}>
                       <div>
-                          <a href={`https://www.github.com/${login}`} target="_blank">
+                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
                             <img style={imageStyle} className="github-image" src={`https://www.github.com/${login}.png`} alt=""></img> 
                             <br></br>{name}
                           </a>
