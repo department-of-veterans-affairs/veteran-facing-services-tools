@@ -4,8 +4,8 @@ import Table from '@department-of-veterans-affairs/component-library/Table';
 
 
 const isOnEnv = (isOn) => {
-  const trueIcon = <span style={{color: "green"}}><i class="fas fa-check-circle fa-3x"></i></span>;
-  const falseIcon = <span style={{color: "red"}}><i class="fas fa-times-circle fa-3x"></i></span>;
+  const trueIcon = <span style={{color: "green"}} aria-label="true"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
+  const falseIcon = <span style={{color: "red"}} aria-label="true"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
 
   return isOn ? trueIcon : falseIcon;
 }
