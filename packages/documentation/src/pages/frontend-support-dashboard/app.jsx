@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Layout from '../../layouts/Layout';
 
 import CommitsTable from './containers/CommitsTable';
-import { vetsWebsiteInfo, contentBuildInfo } from './definitions/constants';
+import { vetsWebsiteInfo, contentBuildInfo } from '../../definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
 
