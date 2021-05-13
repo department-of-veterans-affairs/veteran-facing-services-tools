@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Layout from '../../layouts/Layout';
 
-import CommitsTable from '../../components/CommitsTable';
-import DashboardDataFecth from '../../components/DashboardDataFetch';
-import { vetsWebsiteInfo, contentBuildInfo } from '../../definitions/constants';
+import CommitsTable from '../../components/dashboard/CommitsTable';
+import DashboardDataFecth from '../../components/dashboard/DashboardDataFetch';
+import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
 

@@ -26,7 +26,6 @@ export default async function DashboardDataFecth(repo) {
     prodBuildText,
     commits,
   };
-  console.log(result); // eslint-disable-line no-console
 
   return result;
 }
