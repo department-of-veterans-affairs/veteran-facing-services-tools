@@ -79,12 +79,10 @@ export default function App({ location }) {
 
   return (
     <Layout location={location}>
-
       <div id="main-content" className="vads-l-col--8 site-c-content__content docSearch-content">
         <h1>Frontend Support Dashboard</h1>
 
         <h2>Vets-website</h2>
-
         <CommitsTable
           repo={vetsWebsiteInfo}
           devBuildText={appsDevBuildText}
@@ -94,7 +92,6 @@ export default function App({ location }) {
         />
 
         <h2>Content-build</h2>
-
         <CommitsTable
           repo={contentBuildInfo}
           devBuildText={contentDevBuildText}
@@ -103,7 +100,6 @@ export default function App({ location }) {
           commits={contentCommits}
         />
       </div>
-
     </Layout>
   );
 }
