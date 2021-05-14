@@ -91,7 +91,7 @@ export default function CommitsTable({
                     <td className="dash-td-center">
                       <div>
                           <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github-image"></img> 
+                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
                             <br />{name}
                           </a>
                       </div>

@@ -14,9 +14,21 @@ export default async function DashboardDataFecth(repo) {
   ]);
 
   const devBuildText = await devBuildTextResponse.text();
+  if (!devBuildTextResponse.ok) {
+    throw Error(devBuildTextResponse.statusText);
+  }
   const stagingBuildText = await stagingBuildTextResponse.text();
+  if (!stagingBuildTextResponse.ok) {
+    throw Error(stagingBuildTextResponse.statusText);
+  }
   const prodBuildText = await prodBuildTextResponse.text();
+  if (!prodBuildTextResponse.ok) {
+    throw Error(prodBuildTextResponse.statusText);
+  }
   const commits = await commitsResponse.json();
+  if (!commitsResponse.ok) {
+    throw Error(commitsResponse.statusText);
+  }
 
   const result = {
     devBuildText,
