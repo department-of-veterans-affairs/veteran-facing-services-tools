@@ -26,6 +26,7 @@ export default function App({ location }) {
     contentCommits
   } = state;
 
+
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
     DashboardDataFecth(vetsWebsiteInfo)

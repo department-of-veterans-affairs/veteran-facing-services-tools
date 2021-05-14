@@ -1,23 +1,24 @@
-$font-path: "~uswds/src/fonts";
-$image-path: "~uswds/src/img";
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$font-path: '~uswds/src/fonts';
+$image-path: '~uswds/src/img';
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 $formation-asset-path: '~@department-of-veterans-affairs/formation/assets';
 
-@import "~@department-of-veterans-affairs/formation/sass/full";
-@import "~@department-of-veterans-affairs/formation/sass/site/m-vet-nav";
+@import '~@department-of-veterans-affairs/formation/sass/full';
+@import '~@department-of-veterans-affairs/formation/sass/site/m-vet-nav';
 
-@import "base";
-@import "header";
-@import "site-content";
-@import "mobile-nav";
-@import "sidebar";
-@import "code";
-@import "reactcomp";
-@import "search";
+@import 'base';
+@import 'header';
+@import 'site-content';
+@import 'mobile-nav';
+@import 'sidebar';
+@import 'code';
+@import 'reactcomp';
+@import 'search';
+@import 'dashboard';
 
 .loading-indicator-container {
   .loading-indicator {
     // overwrite original css to use Gatsby folder
-    background: url("../images/loading-state.svg") center center no-repeat !important;
+    background: url('../images/loading-state.svg') center center no-repeat !important;
   }
 }

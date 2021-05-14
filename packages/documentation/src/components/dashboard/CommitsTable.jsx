@@ -1,9 +1,8 @@
 import React from 'react';
 
 const isOnEnv = (isOn) => {
-  const trueIcon = <span style={{color: "green"}} aria-label="True Icon"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
-  const falseIcon = <span style={{color: "red"}} aria-label="False Icon"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
-
+  const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
+  const falseIcon = <span className="dash-false-icon" aria-label="False Icon"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
   return isOn ? trueIcon : falseIcon;
 }
 
@@ -29,10 +28,9 @@ export default function CommitsTable({
 
   return (
     <div>
-
       <div class="feature">
         <h3>{repo.repo} BUILD.txt files</h3>
-        <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '0.85em' }}>
+        <div className="dash-build-div">
             <div>
               <h4>
                 <a href={repo.devBuildText}>Dev</a>
@@ -59,7 +57,6 @@ export default function CommitsTable({
             </div>
           </div>
       </div>
-
 
       <va-accordion multi bordered>
         <va-accordion-item 
@@ -89,18 +86,13 @@ export default function CommitsTable({
                 if (sha === stagingRef) isOnStaging = true;
                 if (sha === prodRef) isOnProd = true;
 
-                const imageStyle = {
-                  width: '8rem',
-                  borderRadius: '5rem'
-                };
-
                 return (
                   <tr key={sha}>
-                    <td style={{textAlign: 'center'}}>
+                    <td className="dash-td-center">
                       <div>
                           <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                            <img style={imageStyle} className="github-image" src={`https://www.github.com/${login}.png`} alt=""></img> 
-                            <br></br>{name}
+                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github-image"></img> 
+                            <br />{name}
                           </a>
                       </div>
                     </td>
@@ -120,9 +112,9 @@ export default function CommitsTable({
                         }).format(new Date(date))}
                       </div>
                     </td>
-                    <td style={{textAlign: 'center'}}>{isOnEnv(isOnDev)}</td>
-                    <td style={{textAlign: 'center'}}>{isOnEnv(isOnStaging)}</td>
-                    <td style={{textAlign: 'center'}}>{isOnEnv(isOnProd)}</td>
+                    <td className="dash-td-center">{isOnEnv(isOnDev)}</td>
+                    <td className="dash-td-center">{isOnEnv(isOnStaging)}</td>
+                    <td className="dash-td-center">{isOnEnv(isOnProd)}</td>
                   </tr>
                 );
               })}
