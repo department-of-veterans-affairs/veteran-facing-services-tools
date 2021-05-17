@@ -7,8 +7,8 @@ import { defineCustomElements } from 'web-components/loader';
 defineCustomElements();
 
 const isOnEnv = (isOn) => {
-  const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
-  const falseIcon = <span className="dash-false-icon" aria-label="False Icon"><i class="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
+  const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i className="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
+  const falseIcon = <span className="dash-false-icon" aria-label="False Icon"><i className="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
   return isOn ? trueIcon : falseIcon;
 }
 
@@ -49,7 +49,7 @@ export default function CommitsTable({
         </DropDownPanel>
       </div>
 
-      <div class="feature">
+      <div>
         <h3>{repo.repo} BUILD.txt files</h3>
         <div className="dash-build-div">
             <div>
