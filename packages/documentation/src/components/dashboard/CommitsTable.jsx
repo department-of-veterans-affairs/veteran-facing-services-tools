@@ -1,4 +1,10 @@
 import React from 'react';
+import DropDownPanel from '@department-of-veterans-affairs/component-library/DropDownPanel'
+
+import 'web-components/dist/component-library/component-library.css';
+
+import { defineCustomElements } from 'web-components/loader';
+defineCustomElements();
 
 const isOnEnv = (isOn) => {
   const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i class="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
@@ -27,7 +33,22 @@ export default function CommitsTable({
   const openAccordion = repo.repo === 'vets-website' ? false : true;
 
   return (
+    
     <div>
+
+      <div
+        style={{
+          backgroundColor: '#112e51'
+        }}
+      >
+        <DropDownPanel
+          buttonText="Helpdesk"
+          clickHandler={function noRefCheck(){}}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium.
+        </DropDownPanel>
+      </div>
+
       <div class="feature">
         <h3>{repo.repo} BUILD.txt files</h3>
         <div className="dash-build-div">
@@ -98,18 +119,17 @@ export default function CommitsTable({
                     </td>
                     <td>
                       <div><b>{message.slice(0, 100)}</b></div>
-                      <br></br>
                       <div>
                         <a href={html_url /* eslint-disable-line camelcase */}>{sha}</a>
-                      </div>
-                      <div>
-                        Merged on {new Intl.DateTimeFormat("en-US", {
-                          year: "numeric",
-                          month: "numeric",
-                          day: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit"
-                        }).format(new Date(date))}
+                        <span className="dash-span-right">
+                          Merged on {new Intl.DateTimeFormat("en-US", {
+                            year: "numeric",
+                            month: "numeric",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit"
+                          }).format(new Date(date))}
+                        </span>
                       </div>
                     </td>
                     <td className="dash-td-center">{isOnEnv(isOnDev)}</td>
