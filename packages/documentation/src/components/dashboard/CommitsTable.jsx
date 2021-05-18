@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DropDownPanel from '@department-of-veterans-affairs/component-library/DropDownPanel'
 
-import 'web-components/dist/component-library/component-library.css';
-
-import { defineCustomElements } from 'web-components/loader';
-defineCustomElements();
-
 const isOnEnv = (isOn) => {
-  const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i className="fas fa-check-circle fa-3x" aria-hidden="true"></i></span>;
-  const falseIcon = <span className="dash-false-icon" aria-label="False Icon"><i className="fas fa-times-circle fa-3x" aria-hidden="true"></i></span>;
+  const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i className="fas fa-check-circle fa-2x" aria-hidden="true"></i></span>;
+  const falseIcon = <span className="dash-false-icon" aria-label="False Icon"><i className="fas fa-times-circle fa-2x" aria-hidden="true"></i></span>;
   return isOn ? trueIcon : falseIcon;
 }
 
@@ -19,6 +14,7 @@ export default function CommitsTable({
   prodBuildText,
   commits,
 }) {
+  const [isPanelOpen, setPanelOpen] = useState(false)
   const devRows = devBuildText.split('\n').filter(x => x) || [];
   const stagingRows = stagingBuildText.split('\n').filter(x => x);
   const prodRows = prodBuildText.split('\n').filter(x => x);
@@ -36,22 +32,15 @@ export default function CommitsTable({
     
     <div>
 
-      <div
-        style={{
-          backgroundColor: '#112e51'
-        }}
-      >
+      <div className="dash-build-pannel">
         <DropDownPanel
-          buttonText="Helpdesk"
-          clickHandler={function noRefCheck(){}}
+          buttonText={`${repo.repo} BUILD.txt files`}
+          clickHandler={() => {
+            setPanelOpen(!isPanelOpen)
+          }}
+          isOpen={isPanelOpen}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper at eros eu suscipit. Ut imperdiet libero et luctus pretium.
-        </DropDownPanel>
-      </div>
-
-      <div>
-        <h3>{repo.repo} BUILD.txt files</h3>
-        <div className="dash-build-div">
+          <div>
             <div>
               <h4>
                 <a href={repo.devBuildText}>Dev</a>
@@ -77,6 +66,7 @@ export default function CommitsTable({
               })}
             </div>
           </div>
+        </DropDownPanel>
       </div>
 
       <va-accordion multi bordered>
@@ -85,14 +75,14 @@ export default function CommitsTable({
           subheader='latest 30 commits'
           open={openAccordion}
         >
-          <table>
+          <table className="dash-table">
             <thead>
               <tr>
                 <th scope="col">Author</th>
                 <th scope="col">Commit</th>
-                <th scope="col">On Dev?</th>
-                <th scope="col">On Staging?</th>
-                <th scope="col">On Prod?</th>
+                <th scope="col">Dev</th>
+                <th scope="col">Staging</th>
+                <th scope="col">Prod</th>
               </tr>
             </thead>
             <tbody>
@@ -110,10 +100,12 @@ export default function CommitsTable({
                 return (
                   <tr key={sha}>
                     <td className="dash-td-center">
-                      <div>
+                      <div className="dash-github-info">
                           <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
                             <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
-                            <br />{name}
+                          </a>
+                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
+                            <div className="dash-github-name">{name}</div>
                           </a>
                       </div>
                     </td>
