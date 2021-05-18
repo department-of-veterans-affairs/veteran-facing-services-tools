@@ -15,7 +15,7 @@ For example, you might create a unit test file for each page in a form and then 
   - [Mocha](https://mochajs.org/) for running unit tests
   - [Chai](http://chaijs.com/) for test assertions
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
-    - We encourage the use of React Testing Library in place of Enzyme. [See the migration docs.] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme)
+    - We encourage the use of React Testing Library in place of Enzyme. [See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
   - [Sinon](https://sinonjs.org/) for stubs and spies
 - Unit tests are **collocated with the application folder** in a test directory that matches the application directory structure:
 
@@ -61,9 +61,38 @@ describe('my-application', () => {
   - **Not recommended**:
     - `it('shortens the address when the user has a long address')`
     - `it('shows an error when the user is not logged in')`
-  - Use RTL's [render](https://testing-library.com/docs/react-testing-library/api/#render) when testing components.
-  - If you're using Enzyme, use [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components.
-    - Always `unmount` components at the end of the test.
+
+### Testing components
+- Use [React Testing Library's `render` function](https://testing-library.com/docs/react-testing-library/api/#render) when testing components.
+  ```js
+  import React from 'react';
+  import { render } from '@testing-library/react';
+  import MyComponent from '../../components/MyComponent';
+
+  describe('MyComponent', () => {
+    it('renders', () => {
+      ...
+      render(<MyComponent />);
+      ...
+    });
+  });
+  ```
+- If you're using Enzyme, use [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components.
+  - Always `unmount` components at the end of the test.
+  ```js
+  import React from 'react';
+  import { mount } from 'enzyme';
+  import MyComponent from '../../components/MyComponent';
+  
+  describe('MyComponent', () => {
+    it('renders', () => {
+      ...
+      const form = mount(<MyComponent />);
+      ...
+      form.unmount();
+    });
+  });
+  ```
   
 ## Unit tests for forms pages
 Use the following guidelines when writing a unit test for forms pages.
@@ -207,7 +236,7 @@ const user = { username: 'user123', password: 'password123' };
 ...
 ```
 
-The setup for this test is self-explanatory. We create a mocked submit function and pass that to our form component, then use the [render](https://testing-library.com/docs/react-testing-library/api/#render) function to produce actual DOM nodes. Then we define user data for reuse later on.
+In setting up this test, we create a mocked submit function and pass that to our form component, then use the [render](https://testing-library.com/docs/react-testing-library/api/#render) function to produce actual DOM nodes. We then, define user data for reuse later on.
 
 **Note:** In this example we opt-in to destructuring the return value from our `render` function to give us our query functions. Optionally, you can utilize [screen](https://testing-library.com/docs/queries/about#screen) to access the query functions.
 
