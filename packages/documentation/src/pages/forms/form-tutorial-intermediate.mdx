@@ -20,7 +20,7 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field label',
-      'ui:validation': [
+      'ui:validations': [
         (errors, field) => {
           if (field && field.startsWith('bad')) {
             errors.addError("Sorry, you can't start this field with 'bad'");
@@ -56,7 +56,7 @@ page1: {
     confirmEmail: {
       'ui:title': 'Confirm email'
     },
-    'ui:validation': [
+    'ui:validations': [
       (errors, field) => {
         if (field.email !== field.confirmEmail) {
           errors.confirmEmail.addError('Sorry, your emails must match');
