@@ -79,7 +79,7 @@ export default function App({ location }) {
 
   return (
     <Layout location={location}>
-      <div id="main-content" className="vads-l-col--8 site-c-content__content docSearch-content">
+      <div id="main-content" className="site-c-content__content docSearch-content">
         <h1>Frontend Support Dashboard</h1>
 
         <h2>Vets-website</h2>
