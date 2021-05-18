@@ -1,0 +1,47 @@
+.dash-build-pannel {
+  background-color: #112e51;
+  font-weight: bold;
+}
+
+.dash-table {
+  margin: 0px;
+}
+
+.dash-table td,
+th {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.dash-github-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-github-image {
+  width: 5rem;
+  border-radius: 5rem;
+}
+
+.dash-github-name {
+  font-size: 0.7em;
+  width: 5rem;
+  padding-left: 0.5em;
+}
+
+.dash-td-center {
+  text-align: center;
+}
+
+.dash-true-icon {
+  color: green;
+}
+
+.dash-false-icon {
+  color: red;
+}
+
+.dash-span-right {
+  float: right;
+}
