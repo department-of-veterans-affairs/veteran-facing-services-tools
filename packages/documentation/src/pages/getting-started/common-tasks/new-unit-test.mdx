@@ -14,7 +14,7 @@ For example, you might create a unit test file for each page in a form and then 
 - The `vets-website` repo uses:
   - [Mocha](https://mochajs.org/) for running unit tests
   - [Chai](http://chaijs.com/) for test assertions
-  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
+  - [React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) and [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
     - We encourage the use of React Testing Library in place of Enzyme. [See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
   - [Sinon](https://sinonjs.org/) for stubs and spies
 - Unit tests are **collocated with the application folder** in a test directory that matches the application directory structure:
@@ -225,10 +225,11 @@ describe('my-application', () => {
 });
 ```
 
-We have successfully performed a "Happy Path" test for this component. Let's break down this test:
+We have written a "happy path" test for a `SimpleLoginForm` component. Let's break down this test.
+
+### Setup
 
 ```js
-// Setup
 ...
 const handleSubmit = sinon.spy();
 const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);
@@ -236,12 +237,17 @@ const user = { username: 'user123', password: 'password123' };
 ...
 ```
 
-In setting up this test, we create a mocked submit function and pass that to our form component, then use the [render](https://testing-library.com/docs/react-testing-library/api/#render) function to produce actual DOM nodes. We then, define user data for reuse later on.
+1. We mock the `handleSubmit` function.
+2. We instantiate the `SimpleLoginForm` component, passing in the mocked `handleSubmit` as a prop.
+3. We use the `render` function from RTL to produce actual DOM nodes.
+4. We get the RTL query functions from destructuring the return value of `render`. Alternatively, you can utilize [`screen`](https://testing-library.com/docs/queries/about#screen) to access the query functions directly.
+5. We define the user data for reuse later in the test.
 
-**Note:** In this example we opt-in to destructuring the return value from our `render` function to give us our query functions. Optionally, you can utilize [screen](https://testing-library.com/docs/queries/about#screen) to access the query functions.
+**Note:** In this example we opted to destructure the return value from our `render` function to give us our query functions. Alternatively, you can utilize [screen](https://testing-library.com/docs/queries/about#screen) to access the query functions.
+
+### DOM Interactions and Queries
 
 ```js
-// DOM Interaction and Queries
 ...
 userEvent.type(getByLabelText(/username/i), user.username);
 userEvent.type(getByLabelText(/password/i), user.password);
@@ -249,21 +255,21 @@ userEvent.click(getByText(/submit/i));
 ...
 ```
 
-Unit tests should be isolated and your components should use a unique label and text for each test.
+- Unit tests should be isolated
+- Components should use a unique label and text for each test.
 
-We can use the query functions that we destructured from `render` to find the input elements in our component by their label text. `Testing Library` provides a utility called [userEvent](https://testing-library.com/docs/ecosystem-user-event/) that allows us to interact with the DOM nodes. We leverage the `type` interaction to enter our username and password into each respective field, then the `click` function to submit after querying with the submit button text.
+**Note:** We can use the query functions that we destructured from `render` to find the input elements in our component by their label text. `Testing Library` provides a utility called [userEvent](https://testing-library.com/docs/ecosystem-user-event/) that allows us to interact with the DOM nodes. We leverage the `type` interaction to enter our username and password into each respective field, then the `click` function to submit after querying with the submit button text.
+
+### Assertions
 
 ```js
-// Expect
 ...
 expect(handleSubmit.callCount).to.equal(1); // alternatively `expect(handleSubmit.calledOnce).to.be.true()` works as well
 expect(handleSubmit.calledWith(user)).to.be.true(); // for more explicit testing we can use `calledWithExactly` in place of `calledWith`
 ...
 ```
 
-To conclude this test we need to check for two things:
-- that our submit button was clicked and our onSubmit function fired
-- that our onSubmit function fired with the correct data
+To conclude this test we need to check that our `onSubmit` function fired and received the correct data.
 
 ## Example unit tests - Enzyme
 VSP provides helper utilities to make writing tests easier. The following example unit tests illustrate some of these helpers. You can find these unit tests in the `vets-website` repo in the [veteranInformation.unit.spec.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx) file.
