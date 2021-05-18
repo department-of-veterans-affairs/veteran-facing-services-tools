@@ -5,6 +5,7 @@
 
 .dash-table {
   margin: 0px;
+  font-size: 0.8em;
 }
 
 .dash-table td,
@@ -22,6 +23,7 @@ th {
 .dash-github-image {
   width: 5rem;
   border-radius: 5rem;
+  min-width: 3rem;
 }
 
 .dash-github-name {
