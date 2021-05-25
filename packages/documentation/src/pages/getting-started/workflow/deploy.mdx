@@ -18,11 +18,11 @@ Code goes through several steps to get to production. This document describes th
 - [vets-website Manual deployment](#vets-website-manual-deployment)
   - [Before deploying](#before-deploying)
   - [Full production deploy of vets-website](#full-production-deploy-of-vets-website)
-  - [Manual deployment of vets-website to staging.va.gov](#manual-deployment-of-vets-website-to-stagingvagov)
+  - [Manual deployment of vets-website to staging or dev](#manual-deployment-of-vets-website-to-staging-or-dev)
 - [content-build Manual deployment](#content-build-manual-deployment)
   - [Content-only production deploy](#content-only-production-deploy)
   - [Full production deploy of content-build](#full-production-deploy-of-content-build)
-  - [Manual deployment of content-build to staging.va.gov](#manual-deployment-of-content-build-to-stagingvagov)
+  - [Manual deployment of content-build to staging or dev](#manual-deployment-of-content-build-to-staging-or-dev)
 - [Dealing with Flaky Unit Tests](#dealing-with-flaky-unit-tests)
 
 ## Automated deployment schedule
@@ -139,18 +139,18 @@ _You may need to contact the developers of those commits to verify._
  
 2. **Verify** changes in **production** once the build finishes
 
-### Manual deployment of vets-website to staging.va.gov
+### Manual deployment of vets-website to staging or dev
 
 When staging deployments get clogged up or staging as a whole falls behind production 
 (for various reasons) you may need to execute a manual deployment for staging. To do this 
 use the following steps: 
 
-1. Visit the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) job in Jenkins
+1. Visit the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) job in Jenkins (or [vets-website vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovdev/) for dev)
 2. Click **Build with Parameters**
 3. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/vets-website/commits/master)
 4. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
 5. Click **Build**
-6. You can watch the deployment process from the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) status page in Jenkins 
+6. You can watch the deployment process from the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) (or [vets-website vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovdev/) for dev) status page in Jenkins 
 7. [Confirm that your deployed commit is on staging](https://frontend-support-dashboard.now.sh/)
 
 ## content-build Manual deployment
@@ -190,18 +190,18 @@ _You may need to contact the developers of those commits to verify._
    - Click **Build**
    - Verify commits in **deployment notification**
 
-### Manual deployment of content-build to staging.va.gov
+### Manual deployment of content-build to staging or dev
 
 When staging deployments get clogged up or staging as a whole falls behind production 
 (for various reasons) you may need to execute a manual deployment for staging. To do this 
 use the following steps: 
 
-1. Visit the [content-build staging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-staging/) job in Jenkins
+1. Visit the [content-build vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovstaging/) job in Jenkins (or [content-build vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovdev/))
 2. Click **Build with Parameters**
 3. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/content-build/commits/master)
 4. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
 5. Click **Build**
-6. You can watch the deployment process from the [content-build vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-staging/) status page in Jenkins 
+6. You can watch the deployment process from the [content-build vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovstaging/) (or [content-build vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovdev/)) status page in Jenkins 
 
 ## Dealing with Flaky Unit Tests
 
