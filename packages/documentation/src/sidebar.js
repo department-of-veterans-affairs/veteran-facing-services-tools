@@ -251,7 +251,8 @@ module.exports = {
               href: '/platform/architecture/teamsite',
             },
             {
-              name: 'How do end-to-end tests work?',
+              name: 'Reverse Proxy',
+              href: '/platform/architecture/reverse-proxy',
             },
           ],
         },
