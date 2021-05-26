@@ -39,7 +39,3 @@ Nginx conf files containing the properties for each environment:
 Our current nginx config only provides for proxying to s3 buckets that have the same name as the site for which 
 they are being proxied. However, in order to use a specific S3 bucket a new proxy header was created to handle t
 his by not overriding the [host header for s3 requests](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/files/proxy-headers-s3.conf).
-
-## Resources
-
-- [Deploying the Reverse Proxy](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/roles/revproxy-configure/README.md)
