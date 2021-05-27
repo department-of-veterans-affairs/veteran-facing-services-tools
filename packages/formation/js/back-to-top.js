@@ -7,7 +7,12 @@ function navigateToTop() {
   // Focus the h1 tag on the page.
   const el = document.querySelector('h1');
   if (el) {
+    // Prepare the element so that it can accept focus properly.
+    el.setAttribute('tabindex', '-1');
     el.focus();
+
+    // Cleanup the tabindex on blur.
+    el.addEventListener('blur', () => el.removeAttribute('tabindex'));
   }
 
   // Scroll to the top.
