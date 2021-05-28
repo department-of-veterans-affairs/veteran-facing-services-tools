@@ -102,20 +102,25 @@ These instructions cover building and running VA.gov locally, including configur
    $ yarn build
    ```
 
-9a. Start the local development server.
+9a. Start the local development server. If you are applying CSS and/or JS changes to a static page/template that renders 
+in `content-build`, we recommend leaving this command running so you will be able to see the changes in `content-build`.
    ```bash
    $ yarn watch
    ```
 
    The watch is complete when the CLI says `Compiled successfully`.
 
-10a. Open [http://localhost:3001](http://localhost:3001) in a browser if you built `vets-website` using the scaffold option; otherwise, continue on to the [content-build](#content-build) section for viewing changes in the browser.
+10a. Open [http://localhost:3001](http://localhost:3001) in a browser if you are working on an app; 
+otherwise, continue on to the [content-build](#content-build) section for viewing changes in the browser.
 
 ### content-build
 
-In order to run `content-build`, you must first generate the CSS and JS files within `vets-website` 
+**NOTE:** In order to run `content-build`, you must first generate the CSS and JS files within `vets-website` 
 (follow steps above). If you don't, you will see a build error in the console instructing you to first
-generate files in `vets-website`.
+generate files in `vets-website`. If you are applying CSS and/or JS changes to a static page/template that renders 
+in `content-build` (like the homepage) you will need to run a watch in `vet-website` to view 
+the updates. The CSS and JS files within `vets-website` are locally connected through a symlink 
+in the build process.
 
 If you don't need to locally view static pages and are just working on applications, you don't need to set this part up.
 
@@ -140,7 +145,9 @@ If you don't need to locally view static pages and are just working on applicati
    $ yarn watch
    ```
 
-   The watch is complete when the CLI says `Compiled successfully`.
+   The watch is complete when the CLI says `Compiled successfully`. If you just need a server running without 
+   watching the metalsmith files you can run `npx http-server . -p 3002` inside `/build/localhost` to 
+   save some CPU.
 
 10a. Open [http://localhost:3002](http://localhost:3002) in a browser
 
