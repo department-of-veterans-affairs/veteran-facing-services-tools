@@ -38,12 +38,13 @@ Use the following conventions when writing a unit test.
 ```js
 import React from 'react';
 import { expect } from 'chai';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import MyComponent from '../../components/MyComponent';
+
 describe('my-application', () => {
   describe('MyComponent', () => {
     it('renders privacy act disclosure when "show" is true', () => {
-        render(<MyComponent show />);
+        const screen = render(<MyComponent show />);
         expect(screen.getByRole('heading')).to.have.text('Privacy Act Disclosure');
     });
   });
@@ -99,7 +100,7 @@ Use the following guidelines when writing a unit test for forms pages.
 
 ```js
 import { expect } from 'chai';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { DefinitionTester } from 'platform/testing/unit/schemaform-utils';
 
 describe('MyForm FormID', () => {
@@ -109,7 +110,7 @@ describe('MyForm FormID', () => {
     arrayPath,
   } = formConfig.chapters.myFormChapter.pages.myFormPage;
   it('renders myFormPage form', () => {
-    render(
+    const screen = render(
       <DefinitionTester
         arrayPath={arrayPath}
         pagePerItemIndex={0}
@@ -161,6 +162,7 @@ We recommend using [React Testing Library](https://testing-library.com/docs/reac
 ```js
 // SimpleLoginForm.js
 import React from 'react';
+
 const SimpleLoginForm = ({ onSubmit }) => {
   const [error, setError] = React.useState('');
   function handleSubmit(event) {
@@ -207,15 +209,16 @@ import sinon from 'sinon';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SimpleLoginForm from '../../components/SimpleLoginForm';
+
 describe('my-application', () => {
   describe('SimpleLoginForm', () => {
     it('calls onSubmit with the username and password when submit is clicked', () => {
         const handleSubmit = sinon.spy();
-        const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);
+        const screen = render(<SimpleLoginForm onSubmit={handleSubmit} />); // alternatively `const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);`
         const user = { username: 'user123', password: 'password123' };
 
-        userEvent.type(getByLabelText(/username/i), user.username);
-        userEvent.type(getByLabelText(/password/i), user.password);
+        userEvent.type(screen.getByLabelText(/username/i), user.username);
+        userEvent.type(screen.getByLabelText(/password/i), user.password);
         userEvent.click(getByText(/submit/i));
 
         expect(handleSubmit.callCount).to.equal(1); // alternatively `expect(handleSubmit.calledOnce).to.be.true()` works as well
@@ -232,7 +235,7 @@ We have written a "happy path" test for a `SimpleLoginForm` component. Let's bre
 ```js
 ...
 const handleSubmit = sinon.spy();
-const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);
+const screen = render(<SimpleLoginForm onSubmit={handleSubmit} />);
 const user = { username: 'user123', password: 'password123' };
 ...
 ```
@@ -240,17 +243,17 @@ const user = { username: 'user123', password: 'password123' };
 1. We mock the `handleSubmit` function.
 2. We instantiate the `SimpleLoginForm` component, passing in the mocked `handleSubmit` as a prop.
 3. We use the `render` function from RTL to produce actual DOM nodes.
-4. We get the RTL query functions from destructuring the return value of `render`. Alternatively, you can utilize [`screen`](https://testing-library.com/docs/queries/about#screen) to access the query functions directly.
+4. We get our `screen` utility from the return value of `render`.
 5. We define the user data for reuse later in the test.
 
-**Note:** In this example we opted to destructure the return value from our `render` function to give us our query functions. Alternatively, you can utilize [screen](https://testing-library.com/docs/queries/about#screen) to access the query functions.
+**Note:** In this example we gained access to our query functions through the return value from `render`. The global named [`screen`](https://testing-library.com/docs/queries/about#screen) import currently does not work in our test environment. Alternatively, you can destructure the return value to gain direct access to the RTL query functions.
 
 ### DOM Interactions and Queries
 
 ```js
 ...
-userEvent.type(getByLabelText(/username/i), user.username);
-userEvent.type(getByLabelText(/password/i), user.password);
+userEvent.type(screen.getByLabelText(/username/i), user.username);
+userEvent.type(screen.getByLabelText(/password/i), user.password);
 userEvent.click(getByText(/submit/i));
 ...
 ```
@@ -280,6 +283,7 @@ import sinon from 'sinon';
 import { mount } from 'enzyme';
 import { DefinitionTester, fillData, selectRadio, fillDate } from '../../../../platform/testing/unit/schemaform-utils.jsx';
 import formConfig from '../config/form.js';
+
 describe('VIC veteran information', () => {
   const { schema, uiSchema } = formConfig.chapters.veteranInformation.pages.veteranInformation;
   it('should render', () => {
