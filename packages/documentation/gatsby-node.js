@@ -182,4 +182,11 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+
+  if (page.path.match(/^\/unit-test-coverage-report/)) {
+    page.matchPath = "/unit-test-coverage-report/*"
+
+    // Update the page.
+    createPage(page)
+  }
 }

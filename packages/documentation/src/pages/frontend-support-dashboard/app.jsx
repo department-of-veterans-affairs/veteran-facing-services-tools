@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import Layout from '../../layouts/Layout';
 
 import CommitsTable from '../../components/dashboard/CommitsTable';
-import DashboardDataFecth from '../../components/dashboard/DashboardDataFetch';
+import DashboardDataFetch from '../../components/dashboard/DashboardDataFetch';
 import { initialState, DashboardReducer } from '../../components/dashboard/Reducer'
 import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/definitions/constants';
 
@@ -29,7 +29,7 @@ export default function App({ location }) {
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
-    DashboardDataFecth(vetsWebsiteInfo)
+    DashboardDataFetch(vetsWebsiteInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -54,7 +54,7 @@ export default function App({ location }) {
 
   // Fetches content-build
   React.useEffect(function fetchComponentData() {
-    DashboardDataFecth(contentBuildInfo)
+    DashboardDataFetch(contentBuildInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,

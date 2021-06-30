@@ -350,5 +350,10 @@ module.exports = {
       name: 'Frontend Support Dashboard',
       href: '/frontend-support-dashboard',
     },
+    {
+      id: 'unit-test-coverage-report',
+      name: 'Unit Test Coverage Report',
+      href: '/unit-test-coverage-report',
+    },
   ],
 };
