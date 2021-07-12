@@ -6,7 +6,7 @@ import Layout from '../../layouts/Layout';
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
   return Object.values(report).map(cov => {
-    const appName = cov.path.substr(0, cov.path.lastIndexOf('/'));
+    const appName = cov.path.substr(0, cov.path.lastIndexOf('/')) || 'All Files';
 
     return ({
       appName,
@@ -65,7 +65,8 @@ const App = ({ location }) => {
     <Layout location={location}>
       <div
         id="main-content-coverage"
-        className="site-c-content__content docSearch-content"
+        className="docSearch-content"
+        style={{ padding:'3.2rem 8rem' }}
       >
         <h1>Unit Test Coverage Report</h1>
         <Table data={coverageReportData} fields={coverageReportFields} />
