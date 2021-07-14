@@ -91,7 +91,7 @@ export default function CommitsTable({
                 const { author = {}, committer = {}, message = '' } = commit;
                 const { name } = author;
                 const { date } = committer;
-                const { login } = githubAuthor;
+                const login = githubAuthor?.login;
 
                 if (sha === devRef) isOnDev = true;
                 if (sha === stagingRef) isOnStaging = true;
@@ -101,9 +101,11 @@ export default function CommitsTable({
                   <tr key={sha}>
                     <td className="dash-td-center">
                       <div className="dash-github-info">
-                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
-                          </a>
+                          {login ? (
+                            <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
+                              <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
+                            </a>
+                          ) : false }
                           <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
                             <div className="dash-github-name">{name}</div>
                           </a>
