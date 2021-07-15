@@ -17,6 +17,7 @@ if (!(process.env.INSTALL_HOOKS === 'no')) {
     }
   });
 }
+console.log('asdsa');
 
 if (semver.compare(process.version, minimumNodeVersion) === -1) {
   process.stdout.write(`Node.js version (mininum): v${minimumNodeVersion}\n`);
