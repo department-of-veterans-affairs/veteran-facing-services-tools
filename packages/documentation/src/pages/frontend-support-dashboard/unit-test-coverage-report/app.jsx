@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Table from '@department-of-veterans-affairs/component-library/Table';
 import * as coverageReport from './test-coverage-report.json';
-import Layout from '../../layouts/Layout';
+import Layout from '../../../layouts/Layout';
+import Sidebar from '../../../components/sidebar/Sidebar';
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
@@ -63,13 +64,16 @@ const App = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <div
-        id="main-content-coverage"
-        className="docSearch-content"
-        style={{ padding:'3.2rem 8rem' }}
-      >
-        <h1>Unit Test Coverage Report</h1>
-        <Table data={coverageReportData} fields={coverageReportFields} />
+      <div className="vads-l-row">
+        <Sidebar location={location} />
+        <div
+          id="main-content-coverage"
+          className="site-c-content__content docSearch-content vads-l-col--8"
+        >
+          <h1>Frontend Support Dashboard</h1>
+          <h2>Unit Test Coverage Report</h2>
+          <Table data={coverageReportData} fields={coverageReportFields} />
+        </div>
       </div>
     </Layout>
   );

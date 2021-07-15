@@ -9,6 +9,7 @@ import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/de
 import 'web-components/dist/component-library/component-library.css';
 
 import { defineCustomElements } from 'web-components/loader';
+import Sidebar from '../../components/sidebar/Sidebar';
 defineCustomElements();
 
 
@@ -79,26 +80,29 @@ export default function App({ location }) {
 
   return (
     <Layout location={location}>
-      <div id="main-content" className="site-c-content__content docSearch-content">
-        <h1>Frontend Support Dashboard</h1>
+      <div className="vads-l-row">
+        <Sidebar location={location} />
+        <div id="main-content" className="site-c-content__content docSearch-content vads-l-col--8">
+          <h1>Frontend Support Dashboard</h1>
 
-        <h2>Vets-website</h2>
-        <CommitsTable
-          repo={vetsWebsiteInfo}
-          devBuildText={appsDevBuildText}
-          stagingBuildText={appsStagingBuildText}
-          prodBuildText={appsProdBuildText}
-          commits={appsCommits}
-        />
+          <h2>Deploy Status vets-website</h2>
+          <CommitsTable
+            repo={vetsWebsiteInfo}
+            devBuildText={appsDevBuildText}
+            stagingBuildText={appsStagingBuildText}
+            prodBuildText={appsProdBuildText}
+            commits={appsCommits}
+          />
 
-        <h2>Content-build</h2>
-        <CommitsTable
-          repo={contentBuildInfo}
-          devBuildText={contentDevBuildText}
-          stagingBuildText={contentStagingBuildText}
-          prodBuildText={contentProdBuildText}
-          commits={contentCommits}
-        />
+          <h2>Deploy Status content-build</h2>
+          <CommitsTable
+            repo={contentBuildInfo}
+            devBuildText={contentDevBuildText}
+            stagingBuildText={contentStagingBuildText}
+            prodBuildText={contentProdBuildText}
+            commits={contentCommits}
+          />
+        </div>
       </div>
     </Layout>
   );
