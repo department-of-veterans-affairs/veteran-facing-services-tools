@@ -99,15 +99,8 @@ module.exports = {
     },
     {
       id: 'visual-design',
-      name: 'Visual design',
-      href: '/visual-design',
-      indexmdx: true,
-      items: [
-        {
-          name: 'Formation components',
-          query: 'componentList',
-        },
-      ],
+      name: 'Components',
+      href: 'https://design.va.gov/components',
     },
     {
       id: 'forms',
@@ -178,6 +171,10 @@ module.exports = {
             {
               name: 'Form features and usage guidelines',
               href: '/forms/available-features-and-usage-guidelines',
+            },
+            {
+              name: 'Form wizard',
+              href: '/forms/wizard',
             },
             {
               name: 'Using available fields',
@@ -254,7 +251,8 @@ module.exports = {
               href: '/platform/architecture/teamsite',
             },
             {
-              name: 'How do end-to-end tests work?',
+              name: 'Reverse Proxy',
+              href: '/platform/architecture/reverse-proxy',
             },
           ],
         },
@@ -346,6 +344,11 @@ module.exports = {
           href: '/documentation-guide/creating-gatsby-plugins',
         },
       ],
+    },
+    {
+      id: 'frontend-support-dashboard',
+      name: 'Frontend Support Dashboard',
+      href: '/frontend-support-dashboard',
     },
   ],
 };

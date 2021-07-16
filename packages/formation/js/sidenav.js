@@ -5,14 +5,13 @@ import {
 } from './utilities/accessibility';
 
 /*
-@param menuTrigger: One or more elements that have menus attached. Typically
-this will be .va-btn-sidebarnav-trigger
+@param menuTriggers: One or more elements that will trigger the appearance of
+the menu. Typically this will be `.va-btn-sidebarnav-trigger button`
 */
 class SideBarMenu {
-  constructor(menuTrigger) {
-    this.menuTrigger = Array.from(menuTrigger);
+  constructor(menuTriggers) {
+    this.menuTriggers = Array.from(menuTriggers);
     this.init = this.init.bind(this);
-    this.getMenu = this.getMenu.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.addCloseMenuListener = this.addCloseMenuListener.bind(this);
@@ -34,20 +33,13 @@ class SideBarMenu {
       });
     }
 
-    this.menuTrigger.forEach(mt => {
+    this.menuTriggers.forEach(mt => {
       mt.addEventListener('click', domEvent => {
         this.openMenu(domEvent.currentTarget);
       });
     });
   }
 
-  getMenu(element) {
-    const el = document.querySelector(
-      `#${element.getAttribute('aria-controls')}`,
-    );
-    this.menu = el;
-    return this.menu;
-  }
   captureFocus(e) {
     if (e.target === this.closeControl) {
       if (isReverseTab(e)) {
@@ -97,15 +89,16 @@ class SideBarMenu {
     this.loadKeyNodes(trigger);
     this.menu.classList.add('va-sidebarnav--opened');
     this.menu.setAttribute('aria-hidden', 'false');
-    document
-      .getElementsByClassName('va-btn-sidebarnav-trigger')[0]
-      .setAttribute('hidden', 'true');
     document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     this.addCloseMenuListener();
-    if (trigger.className.includes('va-btn-sidebarnav-trigger')) {
-      // main trigger, switch focus to close button
+    // Switch focus to close button. In Safari the focus was not always getting
+    // set when the menu opened. This event loop hack fixes the issue and
+    // ensures that the menu's close button gets focus when the sidenav menu
+    // opens.
+    // https://github.com/department-of-veterans-affairs/va.gov-team/issues/18916
+    setTimeout(() => {
       this.closeControl.focus();
-    }
+    }, 0);
     // capture the focus
     if (this.lastAccordionButton) {
       this.lastAccordionButton.addEventListener(
@@ -139,9 +132,6 @@ class SideBarMenu {
     this.menu.classList.remove('va-sidebarnav--opened');
     this.menu.setAttribute('aria-hidden', 'true');
     document.getElementsByTagName('body')[0].style.overflow = 'initial';
-    document
-      .getElementsByClassName('va-btn-sidebarnav-trigger')[0]
-      .removeAttribute('hidden');
   }
 }
 
@@ -166,7 +156,9 @@ function addActiveState() {
 
 const addSidenavListeners = () => {
   // eslint-disable-next-line no-new
-  new SideBarMenu(document.querySelectorAll('.va-btn-sidebarnav-trigger'));
+  new SideBarMenu(
+    document.querySelectorAll('.va-btn-sidebarnav-trigger button'),
+  );
   addActiveState();
 };
 

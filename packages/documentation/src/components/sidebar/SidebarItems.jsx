@@ -1,44 +1,11 @@
 import React from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
 /**
  * Sidebar
  *
  * @param {props} props
  */
-
-function ComponentList() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query ComponentListQuery {
-          components: allSitePage(
-            filter: { context: { source: { eq: "formation-react" } } }
-            sort: { fields: [context___name], order: ASC }
-          ) {
-            edges {
-              node {
-                path
-                context {
-                  source
-                  name
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={data => (
-        <SidebarItems
-          items={data.components.edges.map(comp => ({
-            href: comp.node.path,
-            name: comp.node.context.name,
-          }))}
-        />
-      )}
-    />
-  );
-}
 
 function SidebarItem({ item }) {
   if (item.href) {
@@ -65,15 +32,6 @@ export default function SidebarItems({ items, isSublist = false }) {
               {isSublist && <SidebarItem item={item} />}
               {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
               <SidebarItems isSublist items={item.items} />
-            </li>
-          );
-        }
-        if (item.query === 'componentList') {
-          return (
-            <li key={item.name}>
-              {isSublist && <SidebarItem item={item} />}
-              {!isSublist && <h2 className="heading-level-4">{item.name}</h2>}
-              <ComponentList />
             </li>
           );
         }

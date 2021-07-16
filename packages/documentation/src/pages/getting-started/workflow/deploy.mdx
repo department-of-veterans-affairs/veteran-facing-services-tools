@@ -7,12 +7,32 @@ tags: build, rollback, manual deploy, automatic deploy, static page deploy, depl
 
 Code goes through several steps to get to production. This document describes this process. It should also be noted that this is the same flow for both content and code changes.
 
+## Table of Contents
+
+- [Automated deployment schedule](#automated-deployment-schedule)
+- [Overview](#overview)
+- [Automated process details](#automated-process-details)
+- [Rollbacks](#rollbacks)
+- [Creating a vets-website Release](#creating-a-vets-website-release)
+- [Hotfixes](#hotfixes)
+- [vets-website Manual deployment](#vets-website-manual-deployment)
+  - [Before deploying](#before-deploying)
+  - [Full production deploy of vets-website](#full-production-deploy-of-vets-website)
+  - [Manual deployment of vets-website to staging or dev](#manual-deployment-of-vets-website-to-staging-or-dev)
+- [content-build Manual deployment](#content-build-manual-deployment)
+  - [Content-only production deploy](#content-only-production-deploy)
+  - [Full production deploy of content-build](#full-production-deploy-of-content-build)
+  - [Manual deployment of content-build to staging or dev](#manual-deployment-of-content-build-to-staging-or-dev)
+- [Dealing with Flaky Unit Tests](#dealing-with-flaky-unit-tests)
+
 ## Automated deployment schedule
 
-| Application | Branch | Changes in by | Deployment Start | Release History |
+| Application | Branch | Changes in by | Deployment Start | Release Information |
 | --- | --- | --- | --- | --- |
-| vets-website | master | 2:00pm ET M-F | 3:00pm ET M-F| https://github.com/department-of-veterans-affairs/vets-website/releases |
-| vets-api | master | 2:00pm ET M-F | 3:00pm ET M-F | https://github.com/department-of-veterans-affairs/vets-api/releases |
+| vets-website | master | 2:00pm ET M-F | 3:00pm ET M-F| [vets-website release history](https://github.com/department-of-veterans-affairs/vets-website/releases) |
+| content-build | master | 2:00pm ET M-F | 3:00pm ET M-F| [content-build release history](https://github.com/department-of-veterans-affairs/content-build/releases) |
+| vets-api | master | 2:00pm ET M-F | 3:00pm ET M-F | [vets-api release history](https://github.com/department-of-veterans-affairs/vets-api/releases) |
+| content-build (content only) | master | 9am-12pm Hourly, 1:45pm, 4pm, 5pm ET M-F | (same) | [content-build latest release](https://github.com/department-of-veterans-affairs/content-build/releases/latest) |
 
 ## Overview
 
@@ -25,31 +45,73 @@ Jenkins performs the following tasks after a pull request is merged into `master
 
 _A big assumption in this process is that the `master` should always be deployable. As such, the deployment to the staging environment is configured to happen automatically and can be used to see what something would look like in a production-like environment for any kind of manual testing/verification._
 
-## Process details
+## Automated process details
 
-- [Create a release](https://help.github.com/en/articles/creating-releases) in GitHub from master, tag artifacts of that commit SHA hash with release name
-
-Every work day at the configured time a [Jenkins automerge job](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-automerge/) sends a link to the #vetsgov-engineers Slack channel with a diff between the last release and the most recent changes in `master`. This commit reference is stored to ensure the diff and released version is deterministic.
-
-After a time has elapsed ( currently set to 60m ) release is created at the reference from above.
-
-- **Deploy** to production using deployment artifacts
-
-From here, Jenkins can kickoff a production deployment. After the deployment occurs, the normal site monitoring infrastructure will be used to valide it is working. As this process is automatic any new features should have monitoring in place before, or as a part of their deployment
+- Every work day at the configured time the [vets-gov-autodeploy-vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-vets-website/) and [vets-gov-autodeploy-content-build](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-content-build/) jobs will run.
+- The autodeploy jobs will call the [vets-website release](http://jenkins.vfs.va.gov/job/releases/job/vets-website/) and [content-build release](http://jenkins.vfs.va.gov/job/releases/job/content-build/) jobs which create a [vets-website release](https://github.com/department-of-veterans-affairs/vets-website/releases) and [content-build release](https://github.com/department-of-veterans-affairs/content-build/releases).
+- Release artifacts are deployed to production by the [vets-website-vagovprod](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/) and [content-build-vagovprod](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovprod/) jobs. These jobs should *not* be triggered manually.
 
 ## Rollbacks
 
-If a production deployment introduces issues that affect Service Level Objectives (SLOs) established for the project, the DevOps team may restore service to users by rolling back the deployment. This is accomplished by triggering a new deploy job in Jenkins using a previous release tag.
+If a production deployment introduces issues that affect Service Level Objectives (SLOs) 
+established for the project, you may restore service to users by rolling back 
+to a previous deployment. This is accomplished by triggering a new deploy job in Jenkins using a 
+previous release tag. Typical deployment times are under 5mins.
 
-The **use of hotfixes is discouraged**, but may be useful in an emergency situation when `master` has significantly deviated from the release and a fix to the failed production release is critical. To create a hotfix, create a branch from the last stable release tag, make changes necessary (with review), create a new release tag following the correct naming scheme, and trigger a deploy in Jenkins with the release name as a parameter.
+1. Identify the release you want to rollback to by visiting the [vets-website](https://github.com/department-of-veterans-affairs/vets-website/releases) or [content-build](https://github.com/department-of-veterans-affairs/content-build/releases) release log(s)
+2. Click on the commit ID in the left column of the release you want to reference
+3. Copy the commit ref (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+4. Visit the [vets-website](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovprod/build?delay=0sec) or [content-build](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovprod/build?delay=0sec) prod deploy job(s)
+5. Enter the ref value into the ref field
+6. Click "Build"
 
-If SLOs are not affected and a fix is not critical, no rollback will be issued. Instead the fix should be applied through the standard development workflow.
+If SLOs are not affected and a fix is not critical, no rollback will be issued. Instead the fix should 
+be applied through the standard development workflow.
 
-## Manual deployment
+## Creating a vets-website Release
 
-Two out-of-cycle deploys are supported in Jenkins:
-- partial deploy including only static page changes (`vagov-content` and `Drupal`)
-- full deploy of VA.gov client app and static pages
+If the commit you are trying to release to does not have an official release tag, you have to create one:
+
+1. Update your local master branch
+2. Check out the commit you want
+3. Note the latest release from the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases)
+4. Visit the [release job in Jenkins](http://jenkins.vfs.va.gov/job/releases/job/vets-website/build?delay=0sec)
+5. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/vets-website/commits/master)
+6. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+7. Click "Build"
+8. You should now see it in the [vets-website release log](https://github.com/department-of-veterans-affairs/vets-website/releases) and can follow the normal rollback steps.
+
+This should create a new release, and deploy it to va.gov.
+
+## Creating a content-build Release
+
+If the commit you are trying to release to does not have an official release tag, you have to create one:
+
+1. Update your local master branch
+2. Check out the commit you want
+3. Note the latest release from the [content-build release log](https://github.com/department-of-veterans-affairs/content-build/releases)
+4. Visit the [release job in Jenkins](http://jenkins.vfs.va.gov/job/releases/job/content-build/)
+5. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/content-build/commits/master)
+6. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+7. Click "Build"
+8. You should now see it in the [content-build release log](https://github.com/department-of-veterans-affairs/content-build/releases) and can follow the normal rollback steps.
+
+This should create a new release, and deploy it to va.gov.
+
+**Note:** Verify that there are no [scheduled](#automated-deployment-schedule) [content releases](http://jenkins.vfs.va.gov/job/deploys/job/content-build-content-autodeploy/) around the time of creating a release. A following release can override your manual release if started before your release has finished.
+
+
+## Hotfixes
+
+The **use of hotfixes is discouraged**, but may be useful in an emergency situation when `master` 
+has significantly deviated from the release and a fix to the failed production release is critical. 
+To create a hotfix, create a branch from the last stable release tag, make changes necessary (with review), 
+create a new release tag following the correct naming scheme, and trigger a deploy in Jenkins with the 
+release name as a parameter. This documentation is above, in the "Creating a Release" section.
+
+## vets-website Manual deployment
+
+Out-of-band deploys may be performed in accordance with Platform [deployment policy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/deployment-policy.md#requesting-out-of-band-deploys).
 
 ### Before deploying
 
@@ -57,21 +119,7 @@ Two out-of-cycle deploys are supported in Jenkins:
 - Builds status can be viewed [here](http://jenkins.vetsgov-internal/blue/organizations/jenkins/testing%2Fvets-website/activity?branch=master). _Requires SOCKS proxy. See [Accessing internal tools](/getting-started/internal-tools)_
 - If this build fails, you may need to log into Jenkins and restart it
 
-### Partial deploy- static page changes only
-
-1. Start a deploy job
-   - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
-   - Click **Build with Parameters**
-   - Set the **release_wait** option to **5** minutes
-   - Check **use_latest_release** <-- _important_
-   - Click **Build**
-   - Verify commits in **deployment notification**
-
- _In Slack channel **#vetsgov-engineers**, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
-
-2. **Verify** changes in **production** once the build finishes
-
-### Full deploy of VA.gov client app
+### Full production deploy of vets-website
 
 1. Verify that your changes are committed and that the changes since the last deploy are safe to deploy:
    - **Last deployment time**: You can check the build [history](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/) for the time of the last deploy (usually daily at 2pm EST)
@@ -81,14 +129,118 @@ _You may need to contact the developers of those commits to verify._
 
 2. Start a deploy job
    - Log into Jenkins [here](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/)
-   - Click **Build with Parameters**
+   - Click **Build with Parameters** _(contact [#vsp-operations](https://dsva.slack.com/archives/CJYRZK2HH) if you don't see this option and think you should)_
    - Set the **release_wait** option to **5** minutes
    - Uncheck **use_latest_release** <-- _important_
    - Click **Build**
    - Verify commits in **deployment notification**
 
- _In Slack channel **#vetsgov-engineers**, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
-
+ _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
+ 
 2. **Verify** changes in **production** once the build finishes
 
+### Manual deployment of vets-website to staging or dev
 
+When staging deployments get clogged up or staging as a whole falls behind production 
+(for various reasons) you may need to execute a manual deployment for staging. To do this 
+use the following steps: 
+
+1. Visit the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) job in Jenkins (or [vets-website vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovdev/) for dev)
+2. Click **Build with Parameters**
+3. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/vets-website/commits/master)
+4. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+5. Click **Build**
+6. You can watch the deployment process from the [vets-website vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovstaging/) (or [vets-website vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/vets-website-vagovdev/) for dev) status page in Jenkins 
+7. [Confirm that your deployed commit is on staging](https://frontend-support-dashboard.now.sh/)
+
+## content-build Manual deployment
+
+Out-of-band deploys may be performed in accordance with Platform [deployment policy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/deployment-policy.md#requesting-out-of-band-deploys).
+
+Multiple manual deploys are supported in Jenkins:
+
+- Partial deploy including only static page changes (`vagov-content` and `Drupal`)
+- Full deploy of VA.gov static pages
+
+### Content-only production deploy
+
+1. Start a deploy job
+   - [Login to Jenkins](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-content-build/)
+   - Click **Build with Parameters**
+   - Set the **release_wait** option to **5** minutes
+   - Check **use_latest_release** <-- _important_
+   - Click **Build**
+   - Verify commits in **deployment notification**
+
+ _In the [#vfs-platform-builds](https://dsva.slack.com/archives/C0MQ281DJ) Slack channel, Jenkins will include a link that shows the exact commits being released in the **deploy notification**._
+
+### Full production deploy of content-build
+
+1. Verify that your changes are committed and that the changes since the last deploy are safe to deploy:
+   - **Last deployment time**: You can check the build [history](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-content-build/) for the time of the last deploy (usually daily at 2pm EST)
+   - **Commit history**: [Look](https://github.com/department-of-veterans-affairs/content-build/commits/master) for commits after the last deploy and verify they're production ready.
+
+_You may need to contact the developers of those commits to verify._
+
+2. Start a deploy job
+   - [Login to Jenkins](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-content-build/)
+   - Click **Build with Parameters** _(contact [#vsp-operations](https://dsva.slack.com/archives/CJYRZK2HH) if you don't see this option and think you should)_
+   - Set the **release_wait** option to **5** minutes
+   - Uncheck **use_latest_release** <-- _important_
+   - Click **Build**
+   - Verify commits in **deployment notification**
+
+### Manual deployment of content-build to staging or dev
+
+When staging deployments get clogged up or staging as a whole falls behind production 
+(for various reasons) you may need to execute a manual deployment for staging. To do this 
+use the following steps: 
+
+1. Visit the [content-build vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovstaging/) job in Jenkins (or [content-build vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovdev/))
+2. Click **Build with Parameters**
+3. Make sure the commit you want to use has [passed through the build pipeline in master](https://github.com/department-of-veterans-affairs/content-build/commits/master)
+4. Replace the "ref" value with the commit you want to use to create the release (it will be a long string like: `7c74702605561a33a5a6edbe46a95ac43dddb1df`)
+5. Click **Build**
+6. You can watch the deployment process from the [content-build vagovstaging](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovstaging/) (or [content-build vagovdev](http://jenkins.vfs.va.gov/job/deploys/job/content-build-vagovdev/)) status page in Jenkins 
+
+## Dealing with Flaky Unit Tests
+
+A test fixture is a fixed state so the results should be repeatable. A flaky test is a test 
+which could fail or pass for the same configuration. In monitoring the deploy of vets-website
+we often have to deal with flaky tests in a few specific situations:
+
+1. A flaky test inside of a pull request
+2. A flaky test in `master` when an autodeploy is _not_ nearing
+3. A flaky test in `master` when an auto-deploy is nearing
+
+To tell if an auto-deploy is nearing you can refer to the table at the top of this document.
+
+#### A flaky test inside of a pull request
+
+If a unit test fails in a pull request, no one is alerted so it’s more likely that it gets refreshed 
+to unblock the work or skipped in the PR, then reviewed by the code owner. This action is the
+responsibility of the pull request owner and has no effect on the daily deploy.
+
+#### A flaky test in `master` when an autodeploy is not nearing
+
+If a unit test fails in master and a deploy is not nearing (or has already happened for the day), 
+the failure can be ignored as inconsequential. However, the pipeline should still be refreshed 
+in order to tell if the test is flaky or legitamately failing. The relevant code owner should 
+then be alerted so they can either skip or fix the test before the next deploy (at the discretion 
+of the test owner).
+
+#### A flaky test in `master` when an auto-deploy is nearing
+
+If a unit test fails in `master` and a scheduled deploy is nearing, the [Front-end Tools support 
+team member](https://github.com/orgs/department-of-veterans-affairs/teams/frontend-review-group) should 
+refresh the pipeline immediately, open up a pull request to skip the test, and alert the code owner 
+for a fix and/or pull request approval to skip the test. Ideally the test gets fixed, but in reality, 
+the process to merge can often take longer than is allowed for by the timing of the deploy. This is 
+why it is important to have a pull request opened immediately to skip the test if needed - no need 
+to wait for the code owner, delays can fail the deploy. This is the most common reason for a failed 
+deploy so we should all be on high alert for it while on a support rotation.
+
+As the pull request is running through the pipeline, the support engineer should keep 
+refreshing the master pipeline just in case it catches and is successful to prevent a failed deploy. 
+Even if the deploy is successful, the test should be either fixed or skipped as to not block future 
+deploys.

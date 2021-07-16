@@ -160,10 +160,27 @@ const addAccordionClickHandler = () => {
   }
 };
 
+function autoExpandAccordionPanelByUrlHash() {
+  const hash = document.location.hash;
+
+  if (!hash) {
+    return;
+  }
+
+  const anchorId = document.location.hash.slice(1);
+  const accordionButtonSelector = `.usa-accordion li[id="${anchorId}"] .usa-accordion-button`;
+  const accordionButton = document.querySelector(accordionButtonSelector);
+
+  if (accordionButton) {
+    accordionButton.click();
+  }
+}
+
 const loadAccordionHandler = () => {
   addAriaHiddenAttr();
   addAriasExpandedAttr();
   addAccordionClickHandler();
+  autoExpandAccordionPanelByUrlHash();
 };
 
 export default loadAccordionHandler;

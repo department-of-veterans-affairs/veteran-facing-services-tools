@@ -196,7 +196,20 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field label',
-      'ui:widget': 'radio'
+      'ui:widget': 'radio',
+      'ui:options': {
+        widgetProps: {
+          'First option': { 'data-info': 'first_1' },
+          'Second option': { 'data-info': 'second_2' }
+        },
+        // Only added to the radio when it is selected
+        // a11y requirement: aria-describedby ID's *must* exist on the page;
+        // and we conditionally add content based on the selection
+        selectedProps:  {
+          'First option': { 'aria-describedby': 'some_id_1' },
+          'Second option': { 'aria-describedby': 'some_id_2' }
+        }
+      }
     }
   },
   schema: {

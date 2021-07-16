@@ -1,6 +1,6 @@
 ---
 title: Creating React widgets on static content pages
-tags: react, widget, content, dynamic
+tags: react, widget, content, dynamic, scaffold
 ---
 
 # Creating a new React widget
@@ -95,3 +95,17 @@ There's a simple static page widget feature that you can use to help with the fi
 - slowMessage: Message shown when the slowThreshold is passed. Defaulted to message above.
 - loadingMessage: Message shown while the JS code is loading. This should probably match any loading message in your React code.
 - errorMessage: Message shown when the JS code fails or times out.
+
+## Running end-to-end tests on a widget
+
+Before running end-to-end (e2e) tests for a widget, you must add an entry for your widget to `src/applications/registry.scaffold.json`. This will allow a landing page to be generated for your widget so you can run end-to-end tests in `vets-website`. An example entry looks something like:
+```json
+{
+   "appName": "About VA Disability Ratings",
+   "rootUrl": "/disability/about-disability-ratings",
+   "widgetType": "disability-rating-calculator"
+},
+```
+- `appName`: The name of the title that will be used for the page.
+- `rootUrl`: The relative url of the page that the widget will be mounted on.
+- `widgetType`: The name of the `data-widget-type` attribute that will be used to mount your widget on the page.

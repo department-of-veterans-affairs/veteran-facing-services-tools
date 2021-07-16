@@ -8,33 +8,33 @@ module.exports = {
   pathPrefix: '/veteran-facing-services-tools',
   plugins: [
     {
-    resolve: "gatsby-plugin-google-tagmanager",
-    options: {
-      id: "GTM-T2ZTDXZ",
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-T2ZTDXZ',
 
-      // Include GTM in development.
-      //
-      // Defaults to false meaning GTM will only be loaded in production.
-      includeInDevelopment: false,
+        // Include GTM in development.
+        //
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
 
-      // datalayer to be set before GTM is loaded
-      // should be an object or a function that is executed in the browser
-      //
-      // Defaults to null
-      // defaultDataLayer: { platform: "gatsby" },
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        // defaultDataLayer: { platform: "gatsby" },
 
-      // Specify optional GTM environment details.
-      // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-      // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-      // dataLayerName: "YOUR_DATA_LAYER_NAME",
+        // Specify optional GTM environment details.
+        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+        // dataLayerName: "YOUR_DATA_LAYER_NAME",
 
-      // Name of the event that is triggered
-      // on every Gatsby route change.
-      //
-      // Defaults to gatsby-route-change
-      // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+        // Name of the event that is triggered
+        // on every Gatsby route change.
+        //
+        // Defaults to gatsby-route-change
+        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+      },
     },
-  },
     {
       resolve: 'gatsby-source-git',
       options: {
@@ -53,28 +53,28 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        failOnError: false,
+      },
+    },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `vagov-documentation`,
         short_name: `vagov-documentation`,
         start_url: `/`,
+        icons: [],
       },
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `../formation-react/src/components`,
-        name: 'formation-react',
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.md`, `.mdx`],
         mediaTypes: ['text/x-markdown'],
         defaultLayouts: {
           default: require.resolve('./src/layouts/SidebarLayout.jsx'),
@@ -84,7 +84,6 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1035,
-              sizeByPixelDensity: true,
             },
           },
           {
@@ -121,7 +120,7 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           SitePage: {
-            title: (node) => {
+            title: node => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -140,7 +139,7 @@ module.exports = {
               console.info('Page title missing from front matter.', node);
               return '';
             },
-            tags: (node) => {
+            tags: node => {
               if (
                 node.context &&
                 node.context.frontmatter &&
@@ -151,7 +150,7 @@ module.exports = {
 
               return '';
             },
-            path: (node) => node.path,
+            path: node => node.path,
           },
         },
       },

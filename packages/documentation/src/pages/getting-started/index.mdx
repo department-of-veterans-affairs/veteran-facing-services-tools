@@ -29,29 +29,29 @@ These instructions cover building and running VA.gov locally, including configur
 
    Follow the post-install instructions in the success message.
 
-1. Install `node 10.15.3` (this also installs `npm`):
+1. Install `node 14.15.0` (this also installs `npm`):
 
    ```bash
-   $ nvm install 10.15.3
+   $ nvm install 14.15.0
    ```
 
-1. Configure `nvm` to use `node 10.15.3` by default:
+1. Configure `nvm` to use `node 14.15.0` by default:
 
    ```bash
-   $ nvm alias default 10.15.3
+   $ nvm alias default 14.15.0
    ```
 
-1. Install `yarn 1.12.3` globally:
+1. Install `yarn 1.21.1` globally:
 
    ```bash
-   $ npm i -g yarn@1.12.3
+   $ npm i -g yarn@1.21.1
    ```
 
 1. Verify correct versions of `node` and `yarn` are installed:
 
    ```bash
-   $ node --version # 10.15.3
-   $ yarn --version # 1.12.3
+   $ node --version # 14.15.0
+   $ yarn --version # 1.21.1
    ```
 
 ## Get the source code
@@ -61,6 +61,7 @@ These instructions cover building and running VA.gov locally, including configur
    ```bash
    $ git clone git@github.com:department-of-veterans-affairs/vets-website.git
    $ git clone git@github.com:department-of-veterans-affairs/vagov-content.git
+   $ git clone git@github.com:department-of-veterans-affairs/content-build.git
    $ git clone git@github.com:department-of-veterans-affairs/vets-json-schema.git
    $ git clone git@github.com:department-of-veterans-affairs/veteran-facing-services-tools.git
    $ git clone git@github.com:department-of-veterans-affairs/vets-api.git
@@ -70,6 +71,7 @@ These instructions cover building and running VA.gov locally, including configur
    **Front end repos**
    - `vets-website`: Core front end platform and application code
    - `vagov-content`: Markdown content used to generate static pages
+   - `content-build`: Liquid templates and content build for static pages
    - `veteran-facing-services-tools`: Shared front end components (including non VA.gov users) and front end documentation site
 
    **Back end repos**
@@ -81,13 +83,56 @@ These instructions cover building and running VA.gov locally, including configur
 
 ## Start up the front end
 
-7. Navigate to the `vets-website` repository, then install `vets-website` dependencies. See these [common commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/README.md) for more information.
+### vets-website
+
+7a. Navigate to the `vets-website` repository, then install `vets-website` dependencies. See these [common commands](https://github.com/department-of-veterans-affairs/vets-website/blob/master/README.md) for more information.
    ```bash
    $ cd vets-website
    $ yarn install
    ```
 
-8. Build `vets-website`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
+8a. Build `vets-website`. If you're only doing application work inside `vets-website` you can run the build command which contains the scaffolding option by default:
+   ```bash
+   $ yarn build
+   ```
+
+   If you need the CSS and JS generated for work in `content-build` you can run a normal build:
+
+   ```bash
+   $ yarn build
+   ```
+
+9a. Start the local development server. If you are applying CSS and/or JS changes to a static page/template that renders 
+in `content-build`, we recommend leaving this command running so you will be able to see the changes in `content-build`.
+   ```bash
+   $ yarn watch
+   ```
+
+   The watch is complete when the CLI says `Compiled successfully`.
+
+   If you would like webpack to open a browser window for you, please run `yarn watch --open`. We use [Webpack DevServer](https://webpack.js.org/configuration/dev-server/) to watch and serve the files locally; all the same options and documentation should apply.
+
+10a. Open [http://localhost:3001](http://localhost:3001) in a browser if you are working on an app; 
+otherwise, continue on to the [content-build](#content-build) section for viewing changes in the browser.
+
+### content-build
+
+**NOTE:** In order to run `content-build`, you must first generate the CSS and JS files within `vets-website` 
+(follow steps above). If you don't, you will see a build error in the console instructing you to first
+generate files in `vets-website`. If you are applying CSS and/or JS changes to a static page/template that renders 
+in `content-build` (like the homepage) you will need to run a watch in `vet-website` to view 
+the updates. The CSS and JS files within `vets-website` are locally connected through a symlink 
+in the build process.
+
+If you don't need to locally view static pages and are just working on applications, you don't need to set this part up.
+
+7b. Navigate to the `content-build` repository, then install dependencies via `yarn`
+   ```bash
+   $ cd content-build
+   $ yarn install
+   ```
+
+8b. Build `content-build`. Make sure you [configured the SOCKS proxy](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/internal-tools.md#configure-the-socks-proxy) to fetch content from Drupal.
    ```bash
    $ yarn build
    ```
@@ -97,14 +142,16 @@ These instructions cover building and running VA.gov locally, including configur
    $ yarn fetch-drupal-cache
    ```
 
-9. Start the local development server.
+9a. Start the local development server.
    ```bash
    $ yarn watch
    ```
 
-   The build is complete when the CLI says `Compiled successfully`.
+   The watch is complete when the CLI says `Compiled successfully`. If you just need a server running without 
+   watching the metalsmith files you can run `npx http-server . -p 3002` inside `/build/localhost` to 
+   save some CPU.
 
-10. Open [http://localhost:3001](http://localhost:3001) in a browser
+10a. Open [http://localhost:3002](http://localhost:3002) in a browser
 
 ## Backend and internal tools set up
 

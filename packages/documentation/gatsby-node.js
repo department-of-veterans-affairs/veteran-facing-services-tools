@@ -7,66 +7,8 @@
 const path = require('path');
 
 // Base URL for a GitHub link to the source of a page *from this repo*.
-const GITHUB_FILE_BASE_URL = 'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
-
-/**
- * Creates pages for formation-react docs that were pulled
- * with gatsby-source-filesystem.
- */
-const createFormationReactPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
-  const result = await graphql(
-    `
-      {
-        allMdx(filter: { fields: { sourceInstanceName: { eq: "formation-react" } } }) {
-          edges {
-            node {
-              id
-              fileAbsolutePath
-              frontmatter {
-                name
-                tags
-                title
-              }
-              parent {
-                ... on File {
-                  name
-                  relativePath
-                }
-              }
-              fields {
-                sourceInstanceName
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
-
-  if (result.errors) {
-    reporter.panicOnBuild(
-      'Error querying for formation-react mdx',
-      new Error(result.errors),
-    );
-  }
-
-  result.data.allMdx.edges.forEach(({ node }) => {
-    const sourceUrl = `${GITHUB_FILE_BASE_URL}/packages/formation-react/src/components/${node.parent.relativePath}`;
-
-    createPage({
-      path: `/visual-design/components/${node.parent.name.toLowerCase()}/`,
-      component: path.resolve('./src/templates/FormationReactTemplate.jsx'),
-      context: {
-        id: node.id,
-        source: node.fields.sourceInstanceName,
-        sourceUrl,
-        frontmatter: node.frontmatter,
-        name: node.frontmatter.name,
-      },
-    });
-  });
-};
+const GITHUB_FILE_BASE_URL =
+  'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
 
 /**
  * Creates pages for va.gov-team docs that were pulled with gatsby-source-git.
@@ -162,7 +104,7 @@ const createVaGovTeamPages = async ({ graphql, actions, reporter }) => {
  * Derive and include the source URL on automatically generated pages,
  * specifically from src/pages.
  *
- * External pages, such as those pulled from va.gov-team or formation-react,
+ * External pages, such as those pulled from va.gov-team
  * should already have sources and also source URLs associated with them.
  */
 const setSourceUrl = ({ page, actions, reporter }) => {
@@ -214,7 +156,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = async helpers => {
-  await createFormationReactPages(helpers);
   await createVaGovTeamPages(helpers);
 };
 
@@ -229,3 +170,16 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     },
   });
 };
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/frontend-support-dashboard/)) {
+    page.matchPath = "/frontend-support-dashboard/*"
+
+    // Update the page.
+    createPage(page)
+  }
+}

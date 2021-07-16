@@ -190,13 +190,15 @@ flipper:
     - email1@email.us
 ```
 
-   <b>Notes:</b>
+   **Notes:**
    - If you are not on the list, you can add yourself or your teammates to the file.
    - If you're not sure if your account is identity-verified, you can check by going to [this page](https://www.va.gov/profile/). If you need to verify your account you'll see a "Verify with ID.me" button.
 
 3. Once you have logged into the Flipper UI, you can perform the following actions:
    - Select "Enable for everyone" or "Disable for everyone" to enable or disable the feature for all users.
-   - For a gradual rollout or an a/b test you can use "Percentage of Logged in Users." "Percentage of Logged in Users" will enable the feature for the same users each time they return to the site as long as you don't change the percentage.
+   - Use "Percentage of Logged in Users" for a [staged rollout](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/product-management/release-plan-template.md#phase-ii-staged-rollout-also-known-as-unmoderated-production-testing) (gradual rollout or an a/b test).
+       - "Percentage of Logged in Users" will enable the feature for only a percentage of logged in users. It will be applied to the same users each time they return to the site (even when they log out and back in) as long as you don't change the percentage.
+       - If the feature toggle's actor_type in [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml) is set to "cookie_id" rather than "user" then the feature instead applies to only a percentage of users for the duration of a cookie within a single browser, *regardless of their logged in status*. This is useful when you need to apply a staged rollout that involves an unauthenticated user experience.
    - Use "Percentage of Time" to enable a feature for all users for a percentage of time.
    - Register a "Group" of users to enable a feature for.
    - You can also roll out a feature for a select few users by adding their email address to the “Users” section. For performance reasons, the list of users is intended to be small — do not use this option for hundreds of users.
@@ -216,7 +218,7 @@ In the [production environment](https://www.va.gov), you can test unreleased fea
 - Adding the feature name/value to local storage with a console command in the browser
 - Using application specific code that automatically checks when a certain query parameter is present
 
-<b>Note:</b> Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
+**Note:** Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
 
 ## Testing content pages
 *Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*

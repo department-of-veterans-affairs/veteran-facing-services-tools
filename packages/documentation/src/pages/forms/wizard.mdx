@@ -1,0 +1,176 @@
+---
+title: Form wizard
+---
+
+# Form wizard
+
+## Product details
+
+The design system [wizard pattern documentation](https://design.va.gov/patterns/wizards) provides a general overview of how the wizard should look and work.
+
+More details can be found in these documents:
+
+- Product: https://github.com/department-of-veterans-affairs/va.gov-team/tree/master/products/public-websites/how-to-apply-wizards
+- [IA documentation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/information-architecture/ia-reviews/websites-apply-wizard.md) for implementation teams; also includes some UX documenation
+- Additional UX guidance captured in [UXPin documentation](https://preview.uxpin.com/ca08f3dbf63475b2b62f3e8c00050ad1b19c4cb5#/pages/132986657/documentation/no-panels?mode=i) (using Edu flow as an example)
+- Content outlines of wizard user flows
+    - [Education wizard content outline](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/products/public-websites/how-to-apply-wizards/content-outlines/education-forms-wizard.md)
+- [Usability Study Synthesis](https://github.com/department-of-veterans-affairs/va.gov-team/files/5548107/Wizard.Migration.Usability.Study.Synthesis.pdf)
+- Analytics: https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md
+
+## File structure
+
+There isn't a provided template for the wizard, but you can copy the `wizard`
+folder from any of the forms that include one. Given that, this will only be a
+brief review of how to setup the wizard
+
+A `wizard` folder is usually added under the form root folder.
+
+```
+form
+|_ ...
+|_ components
+|  |_ createApplicationStatus.jsx
+|_ wizard
+   |_ WizardContainer.jsx
+   |_ WizardLink.jsx
+   |_ pages
+      |_ index.js (returns an array of all pages)
+      |_ start.jsx (or whatever you name the first page)
+      |_ ... (other pages; usually named after wizard nodes)
+```
+
+Within this folder are a `WizardContainer` which renders the content surrounding
+the actual `Wizard` component. A `WizardLink` may be found if the info page needs
+to render a link to the start of your form conditionally (behind a feature flag).
+
+Within the `pages` folder, are pages that represent each wizard node. The
+`index.js` imports all the pages and exports an array with the first entry being
+the wizard start page. Each page file _must_ export the following object which
+contains the page name and component.
+
+```js
+export default {
+  name: 'component-name',
+  component: Component,
+};
+```
+
+Each page will likely contain analytics events. More details can be found in the
+[wizard analytics spec](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md).
+
+## Setup
+
+Set up the files as described in the previous section.
+
+There is a difference if you decide to render the wizard on either the
+Introduction page, or in the `FormApp` wrapper.
+
+### Render wizard in the Intro page
+
+In the `formConfig` (`config/form.js`), ensure a `wizardStorageKey` is included.
+It should be unique (recomended), and match the `sessionStorage` key used by
+whatever method is used to show or hide the wizard on the intro page.
+
+In the `formConfig` set up a `restartFormCallback` option inside the
+`saveInProgress` settings. Set it as a function that returns a URL destination.
+Most likely it will return `'/'`, which targets the introduction page.
+
+```js
+const formConfig = {
+  // ...
+  wizardStorageKey: 'wizardStatus',
+  saveInProgress: {
+    // return restart destination url; only needed if wizard rendered by Intro
+    restartFormCallback: () => '/', // introduction page
+  },
+  // ...
+};
+```
+
+### Render wizard in the App file
+
+If the wizard is rendered by the main `FormApp.jsx` wrapper, then you'll need to
+check if the form has restarted (using `restartShouldRedirect` helper function),
+then push the restart destination URL to the router
+
+`App.jsx` (example code)
+
+```js
+import WizardContainer from './containers/WizardContainer';
+import { WIZARD_STATUS } from './constants'; // should be unique to the form
+import {
+  WIZARD_STATUS_NOT_STARTED,
+  WIZARD_STATUS_COMPLETE,
+  WIZARD_STATUS_RESTARTED,
+  restartShouldRedirect,
+} from 'platform/site-wide/wizard';
+
+export const FormEntry = ({
+  const [wizardState, setWizardState] = useState(
+    sessionStorage.getItem(WIZARD_STATUS) || WIZARD_STATUS_NOT_STARTED
+  );
+
+  const hasRestarted = () => {
+    setWizardStatus(WIZARD_STATUS_RESTARTED);
+    sessionStorage.setItem(WIZARD_STATUS, value);
+    router.push('/');
+  };
+
+  // ...
+  useEffect(() => {
+    if (restartShouldRedirect(WIZARD_STATUS)) {
+      hasRestarted();
+    }
+    // ...
+  });
+
+  if (wizardState !== WIZARD_STATUS_COMPLETE) {
+    return <WizardContainer />;
+  }
+  // ...
+});
+```
+
+The `formConfig` will also require the wizard status setting so that the form
+restart link properly adjusts the session storage value.
+
+```js
+const formConfig = {
+  // ...
+  wizardStorageKey: 'wizardStatus',
+  // ...
+};
+```
+
+A `restartFormCallback` is not set in this case because we're handling it in the
+app.
+
+
+### Application status
+
+A component (see `createApplicationStatus` in the file structure section) to
+render the `ApplicationStatus` is also contained somewhere within the form
+files. A static page component imports and injects the application status
+component into the form's info page. Within this component are two buttons which
+allow the user to either continue or restart the application.
+
+Too ensure the wizard is properly handled when restarting (clear the wizard
+state) or continuing (set the wizard state to complete), we need to provide the
+`WIZARD_STATUS` session storage key to the component
+
+```js
+<ApplicationStatus
+  formIds="XX-XXXX"
+  formType="What this form does"
+  wizardStatus={WIZARD_STATUS}
+  // ...
+/>
+```
+
+## Tasks
+
+- [ ] Match design spec
+- [ ] Verify wizard flow per [IA documenation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/information-architecture/ia-reviews/websites-apply-wizard.md)
+- [ ] Ensure [analytics implementation spec](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md) is followed
+- [ ] Add unit/e2e tests

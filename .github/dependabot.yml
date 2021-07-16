@@ -12,4 +12,13 @@ updates:
       time: "09:00"
       timezone: "America/New_York"
     # Allow up to 10 open pull requests for npm dependencies
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 1
+    ignore:
+      ## Ignore Gatbsy related dependencies since we're deprecating the Gatsby site
+      - dependency-name: "gatsby-plugin-react-helmet"
+      - dependency-name: "enzyme-adapter-react-16"
+      - dependency-name: "gatsby-remark-mermaid"
+      - dependency-name: "eslint-plugin-prettier"
+        ## Ignore major update version for now
+        versions: ["3.x"]
+      

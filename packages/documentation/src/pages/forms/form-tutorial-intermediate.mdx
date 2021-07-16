@@ -20,7 +20,7 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field label',
-      'ui:validation': [
+      'ui:validations': [
         (errors, field) => {
           if (field && field.startsWith('bad')) {
             errors.addError("Sorry, you can't start this field with 'bad'");
@@ -56,7 +56,7 @@ page1: {
     confirmEmail: {
       'ui:title': 'Confirm email'
     },
-    'ui:validation': [
+    'ui:validations': [
       (errors, field) => {
         if (field.email !== field.confirmEmail) {
           errors.confirmEmail.addError('Sorry, your emails must match');
@@ -162,6 +162,23 @@ page1: {
     myField: {
       'ui:title': 'My field',
       'ui:widget': 'yesNo'
+      'ui:options': {
+        labels: {
+          Y: 'Yes, this is what I want',
+          N: 'No, I do not want this',
+        },
+        widgetProps: {
+          Y: { 'data-info': 'yes' },
+          N: { 'data-info': 'no' }
+        },
+        // Only added to the radio when it is selected
+        // a11y requirement: aria-describedby ID's *must* exist on the page;
+        // and we conditionally add content based on the selection
+        selectedProps: {
+          Y: { 'aria-describedby': 'some_id' },
+          N: { 'aria-describedby': 'different_id' }
+        }
+      }
     },
     myConditionalField: {
       'ui:title': 'My conditional field',
@@ -197,7 +214,24 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field',
-      'ui:widget': 'yesNo'
+      'ui:widget': 'yesNo',
+      'ui:options': {
+        labels: {
+          Y: 'Yes, this is what I want',
+          N: 'No, I do not want this',
+        },
+        widgetProps: {
+          Y: { 'data-info': 'yes' },
+          N: { 'data-info': 'no' }
+        },
+        // Only added to the radio when it is selected
+        // a11y requirement: aria-describedby ID's *must* exist on the page;
+        // and we conditionally add content based on the selection
+        selectedProps: {
+          Y: { 'aria-describedby': 'some_id' },
+          N: { 'aria-describedby': 'different_id' }
+        }
+      }
     },
     myConditionalField: {
       'ui:title': 'My conditional field',
@@ -234,7 +268,24 @@ page1: {
   uiSchema: {
     myField: {
       'ui:title': 'My field',
-      'ui:widget': 'yesNo'
+      'ui:widget': 'yesNo',
+      'ui:options': {
+        labels: {
+          Y: 'Yes, this is what I want',
+          N: 'No, I do not want this',
+        },
+        widgetProps: {
+          Y: { 'data-info': 'yes' },
+          N: { 'data-info': 'no' }
+        },
+        // Only added to the radio when it is selected
+        // a11y requirement: aria-describedby ID's *must* exist on the page;
+        // and we conditionally add content based on the selection
+        selectedProps: {
+          Y: { 'aria-describedby': 'some_id' },
+          N: { 'aria-describedby': 'different_id' }
+        }
+      }
     }
   },
   schema: {

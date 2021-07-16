@@ -35,7 +35,7 @@ Here are the steps for manually setting up a new application. We're going to wal
 }
 ```
 
-3. Add an entry to `src/applications/registry.json`. This file contains information that the content build needs to create the landing page for your application:
+3. Add an entry to `src/applications/registry.json` in the `content-build` directory. This file contains information that the content build needs to create the landing page for your application:
 
 ```js
 {
@@ -60,7 +60,8 @@ Here are the steps for manually setting up a new application. We're going to wal
   }
 }
 ```
-   
+
+**Note:** If you don't want to add your application to the application registry, but still want your application's tests to run in CI, you'll need to add an entry to `src/applications/registry.scaffold.json` instead.
 
 4. Create the file you referenced in the `entryFile` property above:
 

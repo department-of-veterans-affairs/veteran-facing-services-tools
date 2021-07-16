@@ -4,16 +4,12 @@ This repo contains front end code and documentation used by the Veteran facing s
 
 There is [another repository for the documentation site](https://github.com/department-of-veterans-affairs/vets-design-system-documentation). The documentation site can be viewed at [design.va.gov](https://design.va.gov). See also: [contributing to Formation](https://design.va.gov/documentation/contributing-to-formation).
 
-
-
 ## Packages
 
 - [formation](./packages/formation)
-   - Styles and assets for the VA design system
-- [formation-react](./packages/formation-react)
-   - React implementations of some of the patterns in formation.
+  - Styles and assets for the VA design system
 - [documentation](./packages/documentation)
-   - Public [documentation website](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/) for Veteran Facing Service development on Veteran Service Platform. For local development following setup below, then see [README](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages/documentation/README.md).
+  - Public [documentation website](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/) for Veteran Facing Service development on Veteran Service Platform. For local development following setup below, then see [README](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages/documentation/README.md).
 
 ## Setup
 
@@ -36,9 +32,9 @@ Available npm scripts:
 - `test`: Runs the tests in each repo
 - `lint`: Runs the linter in each repo
 
-## Updating formation and formation-react
+## Updating formation
 
-The process for updating formation and formation-react can be found at [https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/getting-started/common-tasks/updating-formation](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/getting-started/common-tasks/updating-formation)
+The process for updating formation can be found at [https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/getting-started/common-tasks/updating-formation](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/getting-started/common-tasks/updating-formation)
 
 ## Build
 
