@@ -8,6 +8,7 @@ tags: fields, reviewcardfield
 ## In this guide
 
 - [Using the `ReviewCardField`](#using-the-revewcardfield)
+- [Misc Field options](#misc-field-options)
 
 ## Using the ReviewCardField
 
@@ -131,3 +132,24 @@ properties: {
   },
 },
 ```
+
+
+## Misc Field options
+
+### `addAnotherLabel`
+
+- Only applies when setting a schema type to `array`.
+- The `ArrayField` code will add an "Add another" button with a suffix from `itemName`.
+- Including an `addAnotherLabel` replaces the add another button text:
+
+  ```js
+  names: {
+    'ui:title': 'Bunch of names',
+    'ui:options': {
+      itemName: 'Name', // title case
+      addAnotherLabel: 'Add another name' // sentence case
+    }
+  }
+  ```
+
+  Results in a title of "New Name" & a button containing "Add another name"
