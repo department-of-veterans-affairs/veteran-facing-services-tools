@@ -31,6 +31,10 @@ export default function Index({ location }) {
             For Github deployment information, see the{' '}
             <Link to="/frontend-support-dashboard">Frontend Support Dashboard</Link>.
           </li>
+          <li>
+            For information about the unit test coverage report by application, see the{' '}
+            <Link to="/unit-test-coverage-report">Unit Test Coverage Report</Link>.
+          </li>
         </ul>
       </div>
     </Layout>

@@ -7,6 +7,11 @@ const isOnEnv = (isOn) => {
   return isOn ? trueIcon : falseIcon;
 }
 
+const getGithubLoginId = (githubObject) => {
+  const { author, committer } = githubObject
+  return author?.login || committer.login;
+}
+
 export default function CommitsTable({
   repo,
   devBuildText,
@@ -87,11 +92,11 @@ export default function CommitsTable({
             </thead>
             <tbody>
               {commits.map(x => {
-                const { commit = {}, author: githubAuthor = {}, html_url, sha, } = x; // eslint-disable-line camelcase
+                const { commit = {}, html_url, sha, } = x; // eslint-disable-line camelcase
                 const { author = {}, committer = {}, message = '' } = commit;
                 const { name } = author;
                 const { date } = committer;
-                const login = githubAuthor?.login;
+                const login = getGithubLoginId(x);
 
                 if (sha === devRef) isOnDev = true;
                 if (sha === stagingRef) isOnStaging = true;
@@ -101,11 +106,9 @@ export default function CommitsTable({
                   <tr key={sha}>
                     <td className="dash-td-center">
                       <div className="dash-github-info">
-                          {login ? (
-                            <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                              <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
-                            </a>
-                          ) : false }
+                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
+                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
+                          </a>
                           <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
                             <div className="dash-github-name">{name}</div>
                           </a>

@@ -1,4 +1,4 @@
-export default async function DashboardDataFecth(repo) {
+export default async function DashboardDataFetch(repo) {
   // https://dmitripavlutin.com/javascript-fetch-async-await/#5-parallel-fetch-requests
   const [
     devBuildTextResponse,
