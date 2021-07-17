@@ -32,12 +32,13 @@ img {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 85em;
+  max-width: 75ch;
   padding: 1vh 2vw;
 }
 
 #grid-container aside {
   order: 2;
+  width: 30rem;
 }
 
 .ac-layout--flex {
@@ -48,14 +49,14 @@ img {
   justify-content: space-between;
 }
 
-@media (min-width: 30em) {
+@media (min-width: 768px) {
   #grid-container {
     justify-content: space-between;
     flex-direction: row;
   }
 
   .ac-layout--two-column__main {
-    width: calc(100% - 25em);
+    width: calc(100% - 35rem);
   }
 
   .ac-layout--two-column__aside {

@@ -6,15 +6,12 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Awards from '../pages/Awards';
 import Feedback from '../pages/Feedback';
+import Information from '../pages/Information';
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" render={() => <Home title="Welcome to AnyCorp" />} />
-    <Route
-      exact
-      path="/about"
-      render={() => <About title="Learn About AnyCorp" />}
-    />
+    <Route exact path="/about" render={() => <About title="All About Us" />} />
     <Route
       exact
       path="/awards"
@@ -24,6 +21,11 @@ const Routes = () => (
       exact
       path="/feedback"
       render={() => <Feedback title="AnyCorp Wants Your Feedback!" />}
+    />
+    <Route
+      exact
+      path="/information"
+      render={() => <Information title="More information about AnyCorp" />}
     />
   </Switch>
 );

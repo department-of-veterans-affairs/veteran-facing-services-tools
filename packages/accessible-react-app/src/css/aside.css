@@ -1,0 +1,24 @@
+.ac-aside__subhead {
+  font-weight: 700;
+  margin: 0;
+}
+
+.ac-aside__list {
+  list-style-type: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.ac-aside__list li {
+  border-bottom: 1px dotted #ccc;
+  padding: 0.825rem 0.125rem;
+  line-height: 1.5;
+}
+
+.ac-aside__list li:last-of-type {
+  border-bottom: none;
+}
+
+.ac-aside__list a {
+  display: block;
+}
