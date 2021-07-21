@@ -27,12 +27,14 @@ Code goes through several steps to get to production. This document describes th
 
 ## Automated deployment schedule
 
-| Application | Branch | Changes in by | Deployment Start | Release Information |
+All listed times are eastern timezone and are **scheduled Monday&ndash;Friday** (excluding holidays). All deployments are executed from the master branch in each repository.
+
+| Application | Changes in by | Deployment Start | Release Information | Jenkins Job |
 | --- | --- | --- | --- | --- |
-| vets-website | master | 2:00pm ET M-F | 3:00pm ET M-F| [vets-website release history](https://github.com/department-of-veterans-affairs/vets-website/releases) |
-| content-build | master | 2:00pm ET M-F | 3:00pm ET M-F| [content-build release history](https://github.com/department-of-veterans-affairs/content-build/releases) |
-| vets-api | master | 2:00pm ET M-F | 3:00pm ET M-F | [vets-api release history](https://github.com/department-of-veterans-affairs/vets-api/releases) |
-| content-build (content only) | master | 9am-12pm Hourly, 1:45pm, 4pm, 5pm ET M-F | (same) | [content-build latest release](https://github.com/department-of-veterans-affairs/content-build/releases/latest) |
+| vets-website | 2:00pm ET | 3:00pm ET | [vets-website release history](https://github.com/department-of-veterans-affairs/vets-website/releases) | [vets-gov-autodeploy-vets-website](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-vets-website/) |
+| content-build | 2:00pm ET | 3:00pm ET | [content-build release history](https://github.com/department-of-veterans-affairs/content-build/releases) | [vets-gov-autodeploy-content-build](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-content-build/) |
+| vets-api | 2:00pm ET | 3:00pm ET | [vets-api release history](https://github.com/department-of-veterans-affairs/vets-api/releases) | [vets-gov-autodeploy-vets-api](http://jenkins.vfs.va.gov/job/deploys/job/vets-gov-autodeploy-vets-api/) |
+| content-build (content only) | n/a | 9am&ndash;12pm Hourly, 1:45pm, 4pm, 5pm ET | [content-build latest release](https://github.com/department-of-veterans-affairs/content-build/releases/latest) | [vets-gov-autodeploy-content-build](http://jenkins.vetsgov-internal/job/deploys/job/vets-gov-autodeploy-content-build/) |
 
 ## Overview
 
