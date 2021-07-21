@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Table from '@department-of-veterans-affairs/component-library/Table';
-import * as coverageReport from './test-coverage-report.json';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
 import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
