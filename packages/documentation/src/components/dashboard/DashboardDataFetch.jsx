@@ -1,4 +1,4 @@
-export default async function DashboardDataFetch(repo) {
+export async function DeployStatusDataFetch(repo) {
   // https://dmitripavlutin.com/javascript-fetch-async-await/#5-parallel-fetch-requests
   const [
     devBuildTextResponse,
@@ -38,4 +38,13 @@ export default async function DashboardDataFetch(repo) {
   };
 
   return result;
+}
+
+export async function TestCoverageDataFetch(repo) {
+  const testCoverageDataResponse = await fetch(repo.prodTestCoverage);
+  console.log(testCoverageDataResponse);
+  if (!testCoverageDataResponse.ok) {
+    throw Error(testCoverageDataResponse.statusText);
+  }
+  return testCoverageDataResponse.json();
 }

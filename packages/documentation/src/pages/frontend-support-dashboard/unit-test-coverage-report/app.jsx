@@ -3,6 +3,8 @@ import Table from '@department-of-veterans-affairs/component-library/Table';
 import * as coverageReport from './test-coverage-report.json';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
+import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
+import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
@@ -48,14 +50,12 @@ const App = ({ location }) => {
   useEffect(() => {
     // connect to S3 and retrieve coverage report
     const handleCoverageReportData = async () => {
-      const transformedTableData = await transformCoverageReportToArray(coverageReport.default);
+      const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
+      const transformedTableData = await transformCoverageReportToArray(rawTableData);
       setCoverageReportData(transformedTableData);
     };
 
     handleCoverageReportData();
-    // return () => {
-      //   // Cleanup connection as necessary
-      // }
   }, []); 
   
   if (coverageReportData.length === 0) {

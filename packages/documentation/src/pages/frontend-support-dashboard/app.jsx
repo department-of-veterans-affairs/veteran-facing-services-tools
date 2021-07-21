@@ -1,21 +1,22 @@
 import React, { useReducer } from 'react';
 import Layout from '../../layouts/Layout';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 import CommitsTable from '../../components/dashboard/CommitsTable';
-import DashboardDataFetch from '../../components/dashboard/DashboardDataFetch';
-import { initialState, DashboardReducer } from '../../components/dashboard/Reducer'
+import { DeployStatusDataFetch } from '../../components/dashboard/DashboardDataFetch';
+import { deployStatusInitialState, DeployStatusReducer } from '../../components/dashboard/Reducer'
 import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
 
 import { defineCustomElements } from 'web-components/loader';
-import Sidebar from '../../components/sidebar/Sidebar';
+
 defineCustomElements();
 
 
 export default function App({ location }) {
 
-  const [state, dispatch] = useReducer(DashboardReducer, initialState);
+  const [state, dispatch] = useReducer(DeployStatusReducer, deployStatusInitialState);
   const {     
     appsDevBuildText,
     appsStagingBuildText,
@@ -30,7 +31,7 @@ export default function App({ location }) {
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
-    DashboardDataFetch(vetsWebsiteInfo)
+    DeployStatusDataFetch(vetsWebsiteInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -55,7 +56,7 @@ export default function App({ location }) {
 
   // Fetches content-build
   React.useEffect(function fetchComponentData() {
-    DashboardDataFetch(contentBuildInfo)
+    DeployStatusDataFetch(contentBuildInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
