@@ -1,4 +1,4 @@
-export const initialState = {
+export const deployStatusInitialState = {
   appsDevBuildText: '',
   appsStagingBuildText: '',
   appsProdBuildText: '',
@@ -9,7 +9,7 @@ export const initialState = {
   contentCommits: [],
 };
 
-export function DashboardReducer(state, action) {
+export function DeployStatusReducer(state, action) {
   switch (action.type) {
     case 'vetsWebsite': {
       return {

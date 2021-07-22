@@ -1,20 +1,22 @@
 import React, { useReducer } from 'react';
 import Layout from '../../layouts/Layout';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 import CommitsTable from '../../components/dashboard/CommitsTable';
-import DashboardDataFecth from '../../components/dashboard/DashboardDataFetch';
-import { initialState, DashboardReducer } from '../../components/dashboard/Reducer'
+import { DeployStatusDataFetch } from '../../components/dashboard/DashboardDataFetch';
+import { deployStatusInitialState, DeployStatusReducer } from '../../components/dashboard/Reducer'
 import { vetsWebsiteInfo, contentBuildInfo } from '../../components/dashboard/definitions/constants';
 
 import 'web-components/dist/component-library/component-library.css';
 
 import { defineCustomElements } from 'web-components/loader';
+
 defineCustomElements();
 
 
 export default function App({ location }) {
 
-  const [state, dispatch] = useReducer(DashboardReducer, initialState);
+  const [state, dispatch] = useReducer(DeployStatusReducer, deployStatusInitialState);
   const {     
     appsDevBuildText,
     appsStagingBuildText,
@@ -29,7 +31,7 @@ export default function App({ location }) {
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
-    DashboardDataFecth(vetsWebsiteInfo)
+    DeployStatusDataFetch(vetsWebsiteInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -54,7 +56,7 @@ export default function App({ location }) {
 
   // Fetches content-build
   React.useEffect(function fetchComponentData() {
-    DashboardDataFecth(contentBuildInfo)
+    DeployStatusDataFetch(contentBuildInfo)
       .then(function handleSuccess(allData) {
         const {
           devBuildText,
@@ -79,26 +81,29 @@ export default function App({ location }) {
 
   return (
     <Layout location={location}>
-      <div id="main-content" className="site-c-content__content docSearch-content">
-        <h1>Frontend Support Dashboard</h1>
+      <div className="vads-l-row site-l-wrapper">
+        <Sidebar location={location} />
+        <div id="main-content" className="dash-deploy-status site-c-content__content docSearch-content vads-l-col--12">
+          <h1>Frontend Support Dashboard</h1>
 
-        <h2>Vets-website</h2>
-        <CommitsTable
-          repo={vetsWebsiteInfo}
-          devBuildText={appsDevBuildText}
-          stagingBuildText={appsStagingBuildText}
-          prodBuildText={appsProdBuildText}
-          commits={appsCommits}
-        />
+          <h2>Deploy Status vets-website</h2>
+          <CommitsTable
+            repo={vetsWebsiteInfo}
+            devBuildText={appsDevBuildText}
+            stagingBuildText={appsStagingBuildText}
+            prodBuildText={appsProdBuildText}
+            commits={appsCommits}
+          />
 
-        <h2>Content-build</h2>
-        <CommitsTable
-          repo={contentBuildInfo}
-          devBuildText={contentDevBuildText}
-          stagingBuildText={contentStagingBuildText}
-          prodBuildText={contentProdBuildText}
-          commits={contentCommits}
-        />
+          <h2>Deploy Status content-build</h2>
+          <CommitsTable
+            repo={contentBuildInfo}
+            devBuildText={contentDevBuildText}
+            stagingBuildText={contentStagingBuildText}
+            prodBuildText={contentProdBuildText}
+            commits={contentCommits}
+          />
+        </div>
       </div>
     </Layout>
   );

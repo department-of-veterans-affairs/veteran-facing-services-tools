@@ -349,6 +349,16 @@ module.exports = {
       id: 'frontend-support-dashboard',
       name: 'Frontend Support Dashboard',
       href: '/frontend-support-dashboard',
+      items: [
+        {
+          name: 'Deploy Status',
+          href: '/frontend-support-dashboard',
+        },
+        {
+          name: 'Unit Test Coverage Report',
+          href: '/frontend-support-dashboard/unit-test-coverage-report',
+        }
+      ]
     },
   ],
 };
