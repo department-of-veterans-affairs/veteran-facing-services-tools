@@ -63,11 +63,11 @@ const App = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <div className="vads-l-row">
+      <div className="vads-l-row site-l-wrapper">
         <Sidebar location={location} />
         <div
           id="main-content-coverage"
-          className="site-c-content__content docSearch-content vads-l-col--8"
+          className="dash-coverage-table site-c-content__content docSearch-content vads-l-col--12"
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Unit Test Coverage Report</h2>

@@ -14,7 +14,7 @@ import Layout from './Layout';
 export default function SidebarLayout({ children, location, pageContext }) {
   return (
     <Layout location={location}>
-      <div className="vads-l-row">
+      <div className="vads-l-row site-l-wrapper">
         <Sidebar location={location} />
         <div
           id="main-content"

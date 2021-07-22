@@ -3,6 +3,18 @@
   font-weight: bold;
 }
 
+.dash-deploy-status {
+  // Needed to match table width with the screen width at
+  // which the sidebar appears/disappears
+  @media (min-width: 840px) {
+    max-width: 66.66667%;
+  }
+
+  @media (min-width: 1401px) {
+    max-width: 75%;
+  }
+}
+
 .dash-table {
   margin: 0px;
   font-size: 0.8em;
@@ -12,6 +24,26 @@
 th {
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+}
+
+.dash-coverage-table {
+  // This is for the Unit Test Coverage Report table. Sometimes the
+  // application names get long, but are connected with things like
+  // dashes or slashes and so the browser interprets them as one word
+  // and keeps the cell really wide when we need it to shrink.
+  td[data-label="Application"] {
+    word-wrap: anywhere;
+  }
+
+  // Needed to match table width with the screen width at
+  // which the sidebar appears/disappears
+  @media (min-width: 840px) {
+    max-width: 66.66667%;
+  }
+
+  @media (min-width: 1401px) {
+    max-width: 75%;
+  }
 }
 
 .dash-github-info {
