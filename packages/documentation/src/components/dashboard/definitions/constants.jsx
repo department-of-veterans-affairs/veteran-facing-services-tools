@@ -8,8 +8,9 @@ export const vetsWebsiteInfo = {
     'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
   prodBuildText:
     'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
-  prodTestCoverage:
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/test-coverage-report.json',
+  // uncomment when we re-automate test coverage reports
+  // prodTestCoverage:
+  //   'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/test-coverage-report.json',
 };
 
 // https://github.com/department-of-veterans-affairs/content-build/blob/844d3170a92005dbee70a7ecf643362137ba68c3/jenkins/common.groovy#L280
