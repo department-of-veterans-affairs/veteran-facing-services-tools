@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Table from '@department-of-veterans-affairs/component-library/Table';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
-import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
-import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
+import * as coverageReport from './test-coverage-report.json';
+
+// uncomment when we re-automate test coverage reports
+// import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
+// import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
@@ -47,9 +50,10 @@ const App = ({ location }) => {
   const [coverageReportData, setCoverageReportData] = useState([]);
 
   useEffect(() => {
-    // connect to S3 and retrieve coverage report
     const handleCoverageReportData = async () => {
-      const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
+      // uncomment when we re-automate test coverage reports
+      // const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
+      const rawTableData = coverageReport.default;
       const transformedTableData = await transformCoverageReportToArray(rawTableData);
       setCoverageReportData(transformedTableData);
     };
@@ -71,6 +75,7 @@ const App = ({ location }) => {
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Unit Test Coverage Report</h2>
+          <p>Last updated: July 28, 2021</p>
           <Table data={coverageReportData} fields={coverageReportFields} />
         </div>
       </div>
