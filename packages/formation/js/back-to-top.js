@@ -25,9 +25,12 @@ function isScrolledIntoView(el) {
   return elemTop >= 0 && elemTop <= window.innerHeight;
 }
 
-function closure(button, buttonContainer, footer, buttonClasses) {
+export function closure(button, buttonContainer, footer, buttonClasses) {
   const scrollBreakpoint = 600;
-  const breakpointCheck = () => window.scrollY > scrollBreakpoint;
+  // Fallback to window.pageYOffset for IE11
+  // https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY#browser_compatibility
+  const breakpointCheck = () =>
+    (window.scrollY || window.pageYOffset) > scrollBreakpoint;
   let hasHitBreakpoint = false;
 
   const footerCheck = () => isScrolledIntoView(footer);
