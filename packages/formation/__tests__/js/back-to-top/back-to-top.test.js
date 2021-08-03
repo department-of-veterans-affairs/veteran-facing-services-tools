@@ -82,6 +82,15 @@ describe('static page back to top widget', () => {
       .to.be.true;
   });
 
+  it('should toggle button transition class even when footer is not present', () => {
+    global.window.scrollY = 601;
+
+    closure(testButton, testButtonContainer, null, buttonClasses)();
+
+    expect(testButton.classList.toggle.calledWith(buttonClasses.transitionIn))
+      .to.be.true;
+  });
+
   it('should not toggle button container relative class when footer is out of view', () => {
     closure(
       testButton,
