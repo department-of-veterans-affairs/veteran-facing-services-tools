@@ -42,7 +42,7 @@ export function closure(button, buttonContainer, footer, buttonClasses) {
       hasHitBreakpoint = !hasHitBreakpoint;
     }
 
-    if (footerCheck() !== footerVisChanged) {
+    if (footer && footerCheck() !== footerVisChanged) {
       buttonContainer.classList.toggle(buttonClasses.containerRelative);
       footerVisChanged = !footerVisChanged;
     }
@@ -58,7 +58,6 @@ export default function setup() {
   // The current page likely does not contain a "Back to top" button in its layout.
 
   const footer = document.getElementById('footerNav');
-  if (!footer) return;
 
   const buttonClasses = {
     transitionIn: 'va-top-button-transition-in',
