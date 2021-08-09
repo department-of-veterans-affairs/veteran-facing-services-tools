@@ -20,7 +20,12 @@ function navigateToTop() {
 }
 
 function isScrolledIntoView(el) {
-  const elemTop = el.getBoundingClientRect().top;
+  const elemTop = el?.getBoundingClientRect().top;
+
+  if (!elemTop && elemTop !== 0) {
+    return false;
+  }
+
   // Only partially || completely visible elements return true
   return elemTop >= 0 && elemTop <= window.innerHeight;
 }
@@ -42,7 +47,7 @@ export function closure(button, buttonContainer, footer, buttonClasses) {
       hasHitBreakpoint = !hasHitBreakpoint;
     }
 
-    if (footer && footerCheck() !== footerVisChanged) {
+    if (footerCheck() !== footerVisChanged) {
       buttonContainer.classList.toggle(buttonClasses.containerRelative);
       footerVisChanged = !footerVisChanged;
     }
