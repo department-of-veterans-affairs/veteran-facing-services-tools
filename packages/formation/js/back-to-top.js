@@ -20,7 +20,12 @@ function navigateToTop() {
 }
 
 function isScrolledIntoView(el) {
-  const elemTop = el.getBoundingClientRect().top;
+  const elemTop = el?.getBoundingClientRect().top;
+
+  if (!elemTop && elemTop !== 0) {
+    return false;
+  }
+
   // Only partially || completely visible elements return true
   return elemTop >= 0 && elemTop <= window.innerHeight;
 }
@@ -58,7 +63,6 @@ export default function setup() {
   // The current page likely does not contain a "Back to top" button in its layout.
 
   const footer = document.getElementById('footerNav');
-  if (!footer) return;
 
   const buttonClasses = {
     transitionIn: 'va-top-button-transition-in',
