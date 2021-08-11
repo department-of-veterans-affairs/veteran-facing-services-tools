@@ -33,7 +33,6 @@
     "gatsby-transformer-sharp": "^2.9.0",
     "gh-pages": "^3.0.0",
     "node-github-graphql": "^0.2.7",
-    "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "puppeteer": "^2.0.0",
     "react": "^16.6.3",
@@ -41,7 +40,7 @@
     "react-helmet": "^6.1.0",
     "react-live": "1.12.0",
     "uswds": "1.6.10",
-    "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.5.0"
+    "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.9.0"
   },
   "resolutions": {
     "**/lodash": "^4.17.21",
@@ -49,7 +48,7 @@
     "**/hosted-git-info": "^3.0.8",
     "**/ua-parser-js": "^0.7.24",
     "**/underscore": "^1.12.1",
-    "**/xmlhttprequest-ssl":"^1.6.2",
+    "**/xmlhttprequest-ssl": "^1.6.2",
     "**/ssri": "^8.0.1",
     "**/is-svg": "^4.3.1",
     "**/axios": "^0.21.1"
@@ -59,7 +58,6 @@
   ],
   "license": "MIT",
   "scripts": {
-    "postinstall": "cd node_modules/web-components && yarn install --production && yarn build",
     "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build; fi",
     "deploy": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths && gh-pages -d public -e .; fi",
     "develop": "gatsby develop",
