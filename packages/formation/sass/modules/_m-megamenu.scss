@@ -2,7 +2,8 @@ $vetnav-panel-height-desktop: 490px;
 $vetnav-panel-height: 380px;
 $marketing-container-height: 380px;
 
-#mega-menu {
+#mega-menu,
+.mega-menu {
   flex: 1 0 100%;
   color: $color-primary;
   width: 100%;
