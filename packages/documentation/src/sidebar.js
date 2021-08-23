@@ -149,6 +149,10 @@ module.exports = {
               href: '/forms/available-widgets',
             },
             {
+              name: 'Bypassing the Schemaform',
+              href: '/forms/bypassing-schemaform',
+            },
+            {
               name: 'Common patterns',
               href: '/forms/common-patterns-for-building-forms',
             },
@@ -289,8 +293,7 @@ module.exports = {
             },
             {
               name: 'Documented Decisions',
-              href:
-                '/platform/front-end-standards/documented-decisions/summary',
+              href: '/platform/front-end-standards/documented-decisions/summary',
             },
           ],
         },
@@ -357,8 +360,8 @@ module.exports = {
         {
           name: 'Unit Test Coverage Report',
           href: '/frontend-support-dashboard/unit-test-coverage-report',
-        }
-      ]
+        },
+      ],
     },
   ],
 };

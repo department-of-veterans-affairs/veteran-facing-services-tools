@@ -1,0 +1,213 @@
+---
+title: Bypassing the SchemaForm
+---
+
+# Bypassing the `SchemaForm`
+The schema-based forms library can be used to quickly build simple form applications. It handles a lot of common things under the hood such as validation, routing, and state management.
+
+For more complicated pages, however, it can be very difficult to work with the `schema` and `uiSchema` to do what you need to. This is where bypassing the `SchemaForm` comes in.
+
+## What does "bypassing the `SchemaForm`" mean?
+The schema-based forms library in `vets-website` renders a component called `SchemaForm`. This component uses `react-jsonschema-form` to render form fields using the `schema` and `uiSchema` for a page in the `formConfig`. **Bypassing the `SchemaForm` component means you can render a form page using plain React components.** No `schema`. No `uiSchema`.
+
+You may bypass `SchemaForm` for one page at a time. This means you can use `schema` and `uiSchema` when it's helpful, and ignore it when it isn't.
+
+## How to bypass `SchemaForm`
+In your form's `formConfig` for a given page, you may supply `CustomPage` and `CustomPageReview` properties which contain React components.
+
+**Example**
+```js
+// form/config.js
+import CustomPage from './CustomPage'; // React component
+import CustomPageReview from './CustomPageReview'; // React component
+
+export const formConfig = {
+  // Some config here...
+  chapters: {
+    chapterOneName: {
+      // Chapter config here...
+      pages: {
+        mySchemalessPage: {
+          path: 'my-schemaless-page',
+          title: 'Bypassing the SchemaForm',
+          CustomPage,
+          CustomPageReview,
+          schema: { // This does still need to be here or it'll throw an error
+            type: 'object',
+            properties: {}, // But the properties can be empty
+          },
+          uiSchema: {},
+        }
+      }
+    }
+  }
+}
+```
+
+There are a few important things going on here:
+1. We pass `CustomPage` to the page's config
+2. We pass `CustomPageReview` to the page's config
+3. We _still_ supply a `schema` and `uiSchema`, but leave them (essentially) empty
+    - If we leave them out entirely, the library will throw an error
+
+### `CustomPage` props
+- `name`: String
+    - The name of the page in the `formConfig`
+    - In the example above, it's `mySchemalessPage`
+- `title`: String
+     - The title of the page in the `formConfig`
+     - In the example above, it's `Bypassing the SchemaForm`
+- `data`: Object
+     - The entire form data
+     - **Important:** It contains the form data for the entire form, not just for the page
+- `pagePerItemIndex`: Number | undefined
+     - If `showPagePerItem` is true for the page, this contains the array index
+- `onReviewPage`: Boolean
+     - True if the page is being rendered in edit mode on the review page
+     - This is useful for rendering either the form navigation buttons or the update button on the review page
+          - See [Common tasks](#render-the-form-navigation-or-update-button) below for more information
+- `trackingPrefix`: String
+     - The tracking prefix specified in for the form in `formConfig`
+- `uploadFile`: Function
+     - The function to call to upload a file
+     - Not supplied when `CustomPage` is rendered on the review page
+- `goBack`: () => void
+     - The function to call to move back a page in the form
+     - Not supplied when `CustomPage` is rendered on the review page
+- `goForward`: () => void
+     - The function to call to move forward a page in the form
+     - **Caveat:** Rather than assigning this to a button's `onClick` event handler, make that button a submit button and use `<form onSubmit={goForward}>...</form>` so the user only navigates to the next page if there are no validation errors
+          - See [Common tasks](#render-the-form-navigation-or-update-button) below for more information
+- `updatePage`: () => void
+     - Supplied only when rendering `CustomPage` on the review page
+     - The function to call when the user is finished editing the data
+
+### `CustomPageReview` props
+- `editPage`: () => void
+     - The function to call to initiate editing the data on the review page
+- `name`: String
+    - The name of the page in the `formConfig`
+    - In the example above, it's `mySchemalessPage`
+- `title`: String
+     - The title of the page in the `formConfig`
+     - In the example above, it's `Bypassing the SchemaForm`
+- `data`: Object
+     - The entire form data
+     - **Important:** It contains the form data for the entire form, not just for the page
+- `pagePerItemIndex`: Number | undefined
+     - If `showPagePerItem` is true for the page, this contains the array index
+
+## The review page
+There are three options for showing your page content on the review page:
+1. Use the `CustomPageReview`
+2. Automatically render the page content using `schema` and `uiSchema`
+    - **Important:** You may still use `CustomPage` with this option; [see below](#using-schema-and-uischema)
+4. Hide the page entirely
+
+### Using `CustomPageReview`
+To bypass the automatic data rendering, you may supply a `CustomPageReview`. In your page's config:
+1. Supply a React component to `CustomPageReview`
+
+See [`CustomPageReview` props](#custompagereview-props) for the props that will be passed to this component.
+
+**Note:** You may use `CustomPageReview` with or without `CustomPage`. If your page has a `CustomPage` component and `CustomPageReview`, the `schema` and `uiSchema` will be ignored altogether, so you don't need to spend time writing them.
+
+### Using `schema` and `uiSchema`
+You may bypass the `SchemaForm` on the form page but still retain the automatic review page data rendering. Do the following in your page's config:
+1. Add the `schema` and `uiSchema` as normal
+2. Set `CustomPageReview` to `null`.
+
+**Note:** If you have a `CustomPage` but `CustomPageReview` is `undefined` and `schema.properties` is empty, the forms library will throw an error. This is to make sure you're deliberately choosing to supply a custom page, use the automatic data rendering, or hide the page.
+
+### Hiding the page
+If you want the page to appear in the normal form flow but not on the review page, do the following in your page's config
+1. Supply a `CustomPage`
+2. Set `CustomPageReview` to `null`
+3. Set `schema.properties` to `{}`
+
+## Common tasks
+There are a few common tasks you'll need to perform when bypassing the `SchemaForm`.
+
+### Render the form navigation or update button
+When using a `CustomPage`, you'll need to make sure to render the form navigation and review page update buttons. To simplify this, the forms library has a `FormNavButtons` component.
+
+**Example**
+```js
+// CustomPage.jsx
+import React from 'react';
+import { Formik } from 'formik';
+import { TextField } from '@department-of-veterans-affairs/formulate';
+
+import FormNavButtons from '~/platform/forms-system/src/js/components/FormNavButtons';
+import Form from '~/platform/forms/formulate-integration/Form';
+
+const CustomPage = ({
+  data,
+  goBack,
+  goForward,
+  onReviewPage,
+  updatePage,
+}) => {
+  const navButtons = <FormNavButtons goBack={goBack} submitToContinue />;
+  const updateButton = <button type="submit">Review update button</button>;
+  return (
+    <Formik
+      initialValues={data}
+      onSubmit={onReviewPage ? updatePage : goForward}
+    >
+      <Form>
+        <TextField
+          name="theData"
+          label="The data to collect"
+          required
+        />
+        {onReviewPage ? updateButton : navButtons}
+      </Form>
+    </Formik>
+  );
+};
+
+export default CustomPage;
+```
+
+There are a few important parts to note here:
+- The navigation buttons are imported from `~/platform/forms-system/src/js/components/FormNavButtons`
+- `goForward` is supplied to the `onSubmit` event handler prop and `submitToContinue` is passed to `FormNavButtons`
+     - This is so the `Continue` button is `type="submit"` and navigation only occurs if there are no validation errors
+     - If `const navButtons = <FormNavButtons goBack={goBack} goForward={goForward} />`, then the user would continue to the next page even if there were validation errors
+- `updateButton` is `type="submit"` for the same reasons outlined above
+     - We call `updatePage` if there are no validation errors by supplying `onSubmit={updatePage}` to `<Formik>`
+- `{onReviewPage ? updateButton : navButtons }` renders the context-appropriate buttons depending on where the `CustomPage` is rendered
+
+### Render the edit button on `CustomPageReview`
+```jsx
+const CustomPageReview = ({ data, editPage }) => (
+  <>
+    <h1>
+      Hello, {data.name.first} {data.name.last}!
+    </h1>
+    <button onClick={editPage}>
+      Edit
+    </button>
+  </>
+);
+
+export default CustomPageReview;
+```
+
+There's less going on here. Just make sure your `CustomPageReview` has an edit button that calls `editPage` if the user needs to be able to edit the data on that page.
+
+## Using Formulate
+See [Render the form navigation or update button](#render-the-form-navigation-or-update-button) for an example of how to use [Formulate](https://github.com/department-of-veterans-affairs/formulate) inside the schema-based forms library.
+
+**The important parts**
+- `<Formik>` is used to wrap the form contents on the page
+     - [Formik](https://formik.org/docs/overview) is the library that Formulate uses for form state management
+     - `data` is passed to `initialValues`
+     - `goForward` is passed to `onSubmit` so navigation to the next page only occurs if there are no validation errors
+     - See the [Formik tutorial](https://formik.org/docs/tutorial) for more information on how to use Formik
+- `Form` is imported form the `src/platform/forms/formulate-integration/Form.jsx`
+     - This component observes the Formik state and dispatches the schema-based forms library's `setData` redux action to update the redux store containing the form data so its accessible to the rest of the forms library
+- The [`name` prop](https://formik.org/docs/api/field#name) supplied to Formulate's `TextField` uses dot notation to represent the path to the data in Formik; this corresponds to redux store at `form.data.<name>` when `initialValues` is set to `data`
+
+**Note:** The schema-based forms library renders inputs with `name` attributes prefixed with `root_`. When using Formulate / Formik, the input `name` attributes do _not_ follow the same naming convention, so the automated form tester may not work for these pages.
