@@ -1,0 +1,19 @@
+$position: (absolute, fixed, relative);
+
+// Standard Classes
+@each $name in $position {
+  .vads-u-position--#{$name} {
+    position: #{$name} !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media (min-width: $bp_value) {
+    @each $name in $position {
+      .#{$bp_name}\:vads-u-position--#{$name} {
+        position: #{$name} !important;
+      }
+    }
+  }
+}
