@@ -15,6 +15,7 @@ $formation-asset-path: '~@department-of-veterans-affairs/formation/assets';
 @import 'reactcomp';
 @import 'search';
 @import 'dashboard';
+@import 'deprecation-message';
 
 .loading-indicator-container {
   .loading-indicator {
