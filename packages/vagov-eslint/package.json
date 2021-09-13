@@ -20,7 +20,7 @@
         "eslint-plugin-react-hooks": "^1.6.0",
         "eslint-plugin-scanjs-rules": "^0.2.1",
         "eslint-plugin-va-enzyme": "file:./custom-eslint/va-enzyme",
-        "prettier": "^1.16.4",
+        "prettier": "^2.4.0",
         "shelljs": "0.8.4",
         "window-or-global": "^1.0.1"
     },
