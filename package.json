@@ -74,7 +74,7 @@
     "fs-extra": "^7.0.1",
     "glob": "^7.1.2",
     "is-docker": "^1.1.0",
-    "jest": "^24.7.1",
+    "jest": "^27.2.1",
     "karma": "1.6",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^2.0.1",
