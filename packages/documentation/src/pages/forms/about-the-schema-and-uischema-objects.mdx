@@ -309,7 +309,25 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
     // information for multiple dependents, are displayed in a separate section on the
     // review page. To keep the information in a single section on a review page, set
     // this property to `true`.
-    keepInPageOnReview: true
+    keepInPageOnReview: true,
+
+    // *** Autosuggest field options ***
+    labels: {}, // custom labels or use schema.enumNames
+    maxOptions: 0, // set to 0 to show all
+    freeInput: true, // true = allow input not in enum list
+    // internally modify user input used for suggestions, text within the input
+    // is not modified
+    inputTransformers: [ userInput => userInput ],
+    // set to true to call the below getOptions
+    queryForResults: false,
+    // Async method to get list of options
+    getOptions: () => {},
+    // debounce time before updating suggestions
+    debounceRate: 1000, // default
+    // most basic example (leave undefined to use default matcher which uses
+    // a fast Levenshtein algorithm)
+    customMatcher: (userInput, fullList) =>
+      fullList.filter(item => item.includes(userInput)),
   }
 }
 ```
