@@ -206,7 +206,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       }
 
       &:focus {
-        outline: 2px solid $color-gold;
+        outline: 2px solid $color-olive;
         outline-offset: 3px;
       }
     }
@@ -286,7 +286,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       font-size: 15px;
 
       &:focus {
-        @include focus-gold-light-outline(0);
+        @include focus-olive-outline(0);
       }
 
       &:hover, &:focus {
@@ -332,7 +332,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
         background-image: url('#{$formation-image-path}/minus-blue.svg');
 
         &:focus {
-          border: 2px solid $color-gold;
+          border: 2px solid $color-olive;
         }
       }
     }

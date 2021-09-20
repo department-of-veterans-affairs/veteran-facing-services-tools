@@ -87,8 +87,13 @@
   }
 }
 
+@mixin focus-olive-outline($offset: 2) {
+  outline: $focus-olive-outline;
+  outline-offset: #{$offset}px;
+}
+
 @mixin focus-gold-light-outline($offset: 2) {
-  outline: $focus-outline;
+  outline: $focus-gold-outline;
   outline-offset: #{$offset}px;
 }
 
@@ -98,7 +103,11 @@
   outline-offset: 0;
 }
 
-@mixin focus {
+@mixin olive-focus {
+  @include focus-olive-outline;
+}
+
+@mixin gold-focus {
   @include focus-gold-light-outline;
 }
 
@@ -153,7 +162,7 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    @include focus-gold-light-outline;
+    @include focus-olive-outline;
     outline-offset: 0;
   }
   &:disabled {

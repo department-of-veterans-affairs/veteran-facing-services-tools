@@ -41,6 +41,7 @@ $color-aqua-dark:            #00a6d2;
 $color-aqua-lightest:        #e1f3f8;
 $color-purple:               #4c2c92;
 $color-white:                #ffffff;
+$color-olive:                #988530;
 $color-red:                  #e31c3d;
 $color-red-lightest:         #f9dede;
 $color-red-light:            #e59393;
@@ -87,7 +88,8 @@ $color-gold-light:           #f9c642;
 $color-visited:              $color-purple;
 $color-focus:                #3e94cf;
 
-$focus-outline:              2px solid $color-gold-light;
+$focus-olive-outline:        2px solid $color-olive;
+$focus-gold-outline:         2px solid $color-gold-light;
 
 $color-cool-blue:           #205493;
 $color-cool-blue-light:     #4773aa;
