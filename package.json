@@ -93,7 +93,7 @@
     "react-test-renderer": "^16.7.0",
     "recast": "^0.20.4",
     "resolve-url-loader": "^2.2.0",
-    "sass": "^1.37.5",
+    "sass": "~1.32.0",
     "sass-loader": "^12.1.0",
     "semver": "^7.3.2",
     "sinon": "^4.1.6",
