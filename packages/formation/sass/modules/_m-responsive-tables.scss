@@ -17,15 +17,6 @@ table.responsive {
   td::first-letter {
     text-transform: capitalize;
   }
-
-  thead button.sort {
-    display: flex;
-    align-items: center;
-  }
-
-  thead svg.usa-icon.sort {
-    width: 24px;
-  }
 }
 
 @media screen and (max-width: $medium-screen) {
