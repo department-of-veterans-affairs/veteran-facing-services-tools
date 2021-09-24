@@ -38,7 +38,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
+            name: '[name].[hash:8].[ext]',
             outputPath: 'img/'
           }
         }
@@ -57,7 +57,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[name].[hash:8].[ext]',
               outputPath: 'img/'
             }
           }
