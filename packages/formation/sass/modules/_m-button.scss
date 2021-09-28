@@ -16,20 +16,20 @@ button,
 
 .usa-button-primary {
   color: $color-white !important;
-  &[href^=http] {
+  &[href^="http"] {
     @include no-sr-content;
 
     background-image: none;
     // TODO: clean up #content .main.interior a then remove !important
     text-decoration: none !important;
-
   }
 }
 
 // @todo Remove this once the USWDS upgrade is complete.
 .usa-accordion {
   .usa-button-secondary:focus {
-    box-shadow: inset 0 0 0 2px $color-primary-darkest, 0 0 3px $color-focus, 0 0 7px $color-focus;
+    box-shadow: inset 0 0 0 2px $color-primary-darkest, 0 0 3px $color-focus,
+      0 0 7px $color-focus;
   }
 }
 
@@ -85,7 +85,7 @@ button.short {
 
   span {
     display: inline-block;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     text-decoration: underline;
   }
 }
@@ -104,7 +104,7 @@ button.short {
     @include media($medium-large-screen) {
       display: block;
       height: 1.5rem;
-      margin-right: .25rem;
+      margin-right: 0.25rem;
       pointer-events: none;
       width: 1.5rem;
     }

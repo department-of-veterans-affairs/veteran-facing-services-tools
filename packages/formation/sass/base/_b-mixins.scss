@@ -74,7 +74,7 @@
     padding: 0;
     border: 0;
     margin: -1px;
-    content: "this will open a new website";
+    content: 'this will open a new website';
   }
 }
 
@@ -102,9 +102,14 @@
   @include focus-gold-light-outline;
 }
 
+@mixin focus-dark-outline($offset: 2) {
+  outline: $color-primary-darker;
+  outline-offset: #{$offset}px;
+}
+
 @mixin color-transition {
   -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
+  transition-duration: 0.3s;
 
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
@@ -117,8 +122,16 @@
 @mixin linear-gradient-background($from, $to) {
   background: $from; /* Old browsers */
   background: -moz-linear-gradient(top, $from 0%, $to 63%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, $from 0%,$to 63%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, $from 0%,$to 63%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-linear-gradient(
+    top,
+    $from 0%,
+    $to 63%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    $from 0%,
+    $to 63%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$from, endColorstr=$to,GradientType=0 ); /* IE6-9 */
 }
 
@@ -153,7 +166,7 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    @include focus-gold-light-outline;
+    @include focus-dark-outline;
     outline-offset: 0;
   }
   &:disabled {
