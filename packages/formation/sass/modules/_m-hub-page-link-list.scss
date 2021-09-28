@@ -2,20 +2,25 @@
   // override default ul styles
   list-style: none;
   padding: 0;
+
   &__item {
     margin-bottom: 1em;
     margin: 1.6rem 0;
     > a {
       text-decoration: none;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         .all-link-arrow {
           margin-left: 10px;
-          content: url("#{$formation-image-path}/arrow-right.svg");
+          content: url('#{$formation-image-path}/arrow-right.svg');
         }
+
         .hub-page-link-list__header {
           text-decoration: underline;
         }
       }
+
       .all-link-arrow {
         width: 11px;
         margin-left: 5px;
@@ -24,11 +29,19 @@
       }
     }
   }
+
   &__header {
     font-weight: bold;
   }
+
   &__description {
     color: $color-black;
     margin: 0;
+  }
+
+  &__title {
+    &:focus {
+      outline: none;
+    }
   }
 }
