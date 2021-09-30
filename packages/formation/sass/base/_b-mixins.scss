@@ -102,11 +102,6 @@
   @include focus-gold-light-outline;
 }
 
-@mixin focus-dark-outline($offset: 2) {
-  outline: $color-primary-darker;
-  outline-offset: #{$offset}px;
-}
-
 @mixin color-transition {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
@@ -166,7 +161,7 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    @include focus-dark-outline;
+    @include focus-gold-light-outline;
     outline-offset: 0;
   }
   &:disabled {
