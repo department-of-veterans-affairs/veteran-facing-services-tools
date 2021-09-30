@@ -3,20 +3,24 @@
 .usa-button:visited,
 .usa-button-primary:visited,
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-[type="image"] {
+[type='button'],
+[type='submit'],
+[type='reset'],
+[type='image'] {
   background-color: $color-primary;
 
   &.usa-button-secondary {
     background: transparent;
+    &:focus,
+    &:hover {
+      background-color: $color-cool-blue-lightest;
+    }
   }
 }
 
 .usa-button-primary {
   color: $color-white !important;
-  &[href^="http"] {
+  &[href^='http'] {
     @include no-sr-content;
 
     background-image: none;
@@ -62,7 +66,7 @@ button.short {
 
 // For links and buttons that look like links and have an icon.
 .va-icon-link,
-.va-icon-link[type="button"] {
+.va-icon-link[type='button'] {
   background: transparent;
   border-radius: 0;
   color: $color-primary !important;
