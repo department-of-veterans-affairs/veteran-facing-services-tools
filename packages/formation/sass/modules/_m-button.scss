@@ -18,6 +18,10 @@ button,
   }
 }
 
+.usa-button:focus {
+  background: $color-primary-darker;
+}
+
 .usa-button-primary {
   color: $color-white !important;
   &[href^='http'] {
