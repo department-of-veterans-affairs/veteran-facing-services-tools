@@ -107,7 +107,7 @@ document.body.innerHTML = `
 
 require('../../../js');
 
-describe('accordion', () => {
+describe('accordion (legacy)', () => {
   it('should set aria-expanded attribute on load if non exists', () => {
     const a1Element = document.querySelector('[aria-controls="a1"]');
 
