@@ -193,6 +193,8 @@ function autoExpandAccordionPanelByUrlHash() {
       const headerText = normalizeText(accordion.getAttribute('header') || '');
       if (headerText.includes(anchorText) || idInSlot === anchorText) {
         accordion.setAttribute('open', true);
+        // eslint-disable-next-line no-unused-expressions
+        accordion?.shadowRoot?.querySelector('button')?.focus();
         window.scrollTo(0, accordion.offsetTop);
         return true;
       }
