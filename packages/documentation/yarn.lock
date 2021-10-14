@@ -1067,10 +1067,10 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
   integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
-"@department-of-veterans-affairs/component-library@^2.5.1":
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/component-library/-/component-library-2.5.2.tgz#dabd1f5146c74125f07e211bef656cf611f333be"
-  integrity sha512-3nLgpLlObaW9y8F2ueE8FPEwPXXObjjt7Uy3xDereWo+BX6UgT5A9kiNljU5zhabA1ZzEK4o4LuklEvkMxx+nA==
+"@department-of-veterans-affairs/component-library@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/component-library/-/component-library-3.2.2.tgz#ed8e5b21e60797f8e9fd7a1be23d64badad19266"
+  integrity sha512-MJx1FDkuDAR9n2pmql8hNNmK516qZ5Z5YpSBioaTgMjUFOXZj63ymj10bp8CppJv+2zhGLuXQ1qcmOwRqx7zlg==
   dependencies:
     classnames "^2.2.6"
     core-js "^3.9.0"
@@ -1078,18 +1078,18 @@
     date-fns-tz "^1.1.1"
     lodash "^4.17.15"
     moment "^2.23.0"
+    number-to-words "^1.2.4"
     prop-types "^15.6.2"
-    react "^16.7.0"
-    react-focus-lock "^2.4.0"
+    react-focus-lock "^2.5.1"
     react-focus-on "^3.5.1"
     react-scroll "^1.7.16"
     react-transition-group "1"
     recast "^0.14.4"
 
-"@department-of-veterans-affairs/formation@^6.6.3":
-  version "6.16.1"
-  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.16.1.tgz#b25b0d1a64638a220c42b36f9671de58b54d48fe"
-  integrity sha512-tsivIl/nbsUFScCdduaDYxqgplPuDw8Xoo7pbq56fou7QBT83BS+5NW307YbtwO8ucsFW6RIOmyQYYB1AE2uyg==
+"@department-of-veterans-affairs/formation@^6.17.3":
+  version "6.17.3"
+  resolved "https://registry.yarnpkg.com/@department-of-veterans-affairs/formation/-/formation-6.17.3.tgz#204a1e86d041eec30c6ed8a16c8f74f94498dc21"
+  integrity sha512-JS103tNPG4oHYAL3PZoeEWpUdkZVNqAqkegM82Sv5L4hkf5hpPZdrmulIi7xFXE3tmfWc1rHLXL2uMf8auOKYg==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.6.3"
     domready "^1.0.8"
@@ -1776,10 +1776,10 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
-"@stencil/core@^2.0.1":
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.5.2.tgz#ad00d495ee37bbed4044524d59c7f22de15ab4a7"
-  integrity sha512-bgjPXkSzzg1WnTgVUm6m5ZzpKt602WmA/QljODAW1xVN40OHJdbGblzF/F6MFzqv2c5Cy30CB41arc8qADIdcQ==
+"@stencil/core@^2.8.1":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.9.0.tgz#cbac84b996475b8fc983931539ed1261174e2df3"
+  integrity sha512-kY3xYolZoJO1MKslL0NQccHy72R3TIl1prHgfmIrEoGcnMgc6uiskdWaGMuI5/sCGz9T+QuTVz76B1H2ySyBZg==
 
 "@stencil/postcss@^2.0.0":
   version "2.0.0"
@@ -4023,7 +4023,7 @@ classlist-polyfill@^1.0.3:
   resolved "https://registry.yarnpkg.com/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz#935bc2dfd9458a876b279617514638bcaa964a2e"
   integrity sha1-k1vC39lFiodrJ5YXUUY4vKqWSi4=
 
-classnames@^2.2.6:
+classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -9131,6 +9131,11 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+intersection-observer@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.12.0.tgz#6c84628f67ce8698e5f9ccf857d97718745837aa"
+  integrity sha512-2Vkz8z46Dv401zTWudDGwO7KiGHNDkMv417T5ItcNYfmvHR/1qCTVBO9vwH8zZmQ0WkA/1ARwpysR9bsnop4NQ==
+
 into-stream@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/into-stream/-/into-stream-3.1.0.tgz#96fb0a936c12babd6ff1752a17d05616abd094c6"
@@ -11490,6 +11495,11 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
+number-to-words@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/number-to-words/-/number-to-words-1.2.4.tgz#e0f124de9628f8d86c4eeb89bac6c07699264501"
+  integrity sha512-/fYevVkXRcyBiZDg6yzZbm0RuaD6i0qRfn8yr+6D0KgBMOndFPxuW10qCHpzs50nN8qKuv78k8MuotZhcVX6Pw==
+
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
@@ -13148,7 +13158,7 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-clientside-effect@^1.2.2:
+react-clientside-effect@^1.2.2, react-clientside-effect@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.5.tgz#e2c4dc3c9ee109f642fac4f5b6e9bf5bcd2219a3"
   integrity sha512-2bL8qFW1TGBHozGGbVeyvnggRpMjibeZM2536AKNENLECutp2yfs44IL8Hmpn8qjFQ2K7A9PnYf3vc7aQq/cPA==
@@ -13215,7 +13225,7 @@ react-fast-compare@^3.1.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-focus-lock@^2.4.0, react-focus-lock@^2.5.0:
+react-focus-lock@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.5.1.tgz#e2060c5d7b02c62d79c4f103d0fc5a1288bc8f75"
   integrity sha512-gOToRZKVEymGEjFaTRUKgJsdYQrNosoiK7yZnXnnd8bYew4vMzk3Rxb0Q4nyrGwsFuUmgQiSAulQirA0J+v4hA==
@@ -13226,6 +13236,18 @@ react-focus-lock@^2.4.0, react-focus-lock@^2.5.0:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-focus-lock@^2.5.1:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.5.2.tgz#f1e4db5e25cd8789351f2bd5ebe91e9dcb9c2922"
+  integrity sha512-WzpdOnEqjf+/A3EH9opMZWauag7gV0BxFl+EY4ElA4qFqYsUsBLnmo2sELbN5OC30S16GAWMy16B9DLPpdJKAQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    focus-lock "^0.9.1"
+    prop-types "^15.6.2"
+    react-clientside-effect "^1.2.5"
+    use-callback-ref "^1.2.5"
+    use-sidecar "^1.0.5"
 
 react-focus-on@^3.5.1:
   version "3.5.2"
@@ -13343,7 +13365,7 @@ react-transition-group@1:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react@^16.6.3, react@^16.7.0:
+react@^16.6.3:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
@@ -16467,13 +16489,14 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-"web-components@https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.9.0":
-  version "0.9.0"
-  uid ac558c3c97129ad1acdf60b08966359b2d5139f4
-  resolved "https://github.com/department-of-veterans-affairs/component-library.git#ac558c3c97129ad1acdf60b08966359b2d5139f4"
+"web-components@https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.13.0":
+  version "0.13.0"
+  resolved "https://github.com/department-of-veterans-affairs/component-library.git#076765c81554032c35ef6af45a25e19771e883a1"
   dependencies:
-    "@stencil/core" "^2.0.1"
+    "@stencil/core" "^2.8.1"
     "@stencil/postcss" "^2.0.0"
+    classnames "^2.3.1"
+    intersection-observer "^0.12.0"
     postcss-url "^10.1.1"
 
 web-namespaces@^1.0.0, web-namespaces@^1.1.2:
