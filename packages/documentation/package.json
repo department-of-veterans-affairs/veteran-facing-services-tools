@@ -15,13 +15,6 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.29.1",
     "gatsby-image": "^2.8.0",
-    "gatsby-plugin-google-tagmanager": "^2.3.11",
-    "gatsby-plugin-manifest": "^2.9.0",
-    "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
-    "gatsby-plugin-react-helmet": "^3.7.0",
-    "gatsby-plugin-sass": "^4.14.0",
-    "gatsby-plugin-sharp": "^2.11.1",
-    "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^3.8.0",
     "gatsby-remark-mermaid": "^2.0.0",
     "gatsby-remark-slug": "^0.1.0",
@@ -52,8 +45,7 @@
     "**/ssri": "^8.0.1",
     "**/is-svg": "^4.3.1",
     "**/axios": "^0.21.1",
-    "**/mozjpeg": "^7.1.1",
-    "**/tsd": "0.17.0"
+    "**/mozjpeg": "^7.1.1"
   },
   "keywords": [
     "gatsby"
