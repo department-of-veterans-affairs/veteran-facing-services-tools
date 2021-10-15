@@ -4,8 +4,8 @@
   "description": "Developer Document Site for VA.gov",
   "version": "0.1.0",
   "dependencies": {
-    "@department-of-veterans-affairs/component-library": "^3.2.2",
-    "@department-of-veterans-affairs/formation": "^6.17.3",
+    "@department-of-veterans-affairs/component-library": "^2.5.1",
+    "@department-of-veterans-affairs/formation": "^6.6.3",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@mdx-js/mdx": "^1.6.22",
@@ -19,7 +19,7 @@
     "gatsby-plugin-manifest": "^2.9.0",
     "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
     "gatsby-plugin-react-helmet": "^3.7.0",
-    "gatsby-plugin-sass": "^4.14.0",
+    "gatsby-plugin-sass": "^2.7.0",
     "gatsby-plugin-sharp": "^3.14.1",
     "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^3.8.0",
@@ -40,7 +40,7 @@
     "react-helmet": "^6.1.0",
     "react-live": "1.12.0",
     "uswds": "1.6.14",
-    "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.11.2"
+    "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.9.0"
   },
   "resolutions": {
     "**/lodash": "^4.17.21",
@@ -51,8 +51,7 @@
     "**/xmlhttprequest-ssl": "^1.6.2",
     "**/ssri": "^8.0.1",
     "**/is-svg": "^4.3.1",
-    "**/axios": "^0.21.1",
-    "**/mozjpeg": "^7.1.1"
+    "**/axios": "^0.21.1"
   },
   "keywords": [
     "gatsby"
