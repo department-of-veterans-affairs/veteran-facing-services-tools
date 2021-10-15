@@ -4,7 +4,7 @@
 
 First off, thanks for taking the time to contribute! :heart:
 
-All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us project owners and smooth out the experience for all involved. The team looks forward to your contributions!
+All types of contributions are encouraged and valued. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us project owners and smooth out the experience for all involved. The team looks forward to your contributions!
 
 As this is a monorepo housing [multiple projects](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools#packages), there are a few ways to contribute.
 
