@@ -20,7 +20,7 @@
     "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-sass": "^4.14.0",
-    "gatsby-plugin-sharp": "^2.11.1",
+    "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^3.8.0",
     "gatsby-remark-mermaid": "^2.0.0",
     "gatsby-remark-slug": "^0.1.0",
