@@ -16,6 +16,8 @@
     "gatsby": "^2.29.1",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-google-tagmanager": "^2.3.11",
+    "gatsby-plugin-manifest": "^2.9.0",
+    "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
     "gatsby-remark-images": "^3.8.0",
     "gatsby-remark-mermaid": "^2.0.0",
     "gatsby-remark-slug": "^0.1.0",
