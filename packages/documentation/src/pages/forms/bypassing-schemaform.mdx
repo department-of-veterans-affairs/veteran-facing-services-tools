@@ -71,7 +71,8 @@ There are a few important things going on here:
 - `uploadFile`: Function
      - The function to call to upload a file
      - Not supplied when `CustomPage` is rendered on the review page
-- `goBack`: () => void
+- `goBack`: Function
+     - When a valid path is passed to this function, calling this function will return you to that page. Invalid paths will return you to the root (introduction) page, so be careful
      - The function to call to move back a page in the form
      - Not supplied when `CustomPage` is rendered on the review page
 - `goForward`: () => void
