@@ -71,14 +71,17 @@ There are a few important things going on here:
 - `uploadFile`: Function
      - The function to call to upload a file
      - Not supplied when `CustomPage` is rendered on the review page
-- `goBack`: Function
+- `goBack`: () => void
      - The function to call to move back a page in the form
-     - When a valid path is passed to this function, calling this function will return you to that page. Invalid paths will return you to the root (introduction) page, so be careful. For example, `goBack('main-page')`
      - Not supplied when `CustomPage` is rendered on the review page
 - `goForward`: () => void
      - The function to call to move forward a page in the form
      - **Caveat:** Rather than assigning this to a button's `onClick` event handler, make that button a submit button and use `<form onSubmit={goForward}>...</form>` so the user only navigates to the next page if there are no validation errors
           - See [Common tasks](#render-the-form-navigation-or-update-button) below for more information
+- `goToPath`: Function
+     - Function to call if you need to go to a specific path within the form
+     - When callign this function with a valid active path, it will return you to that page. An invalid paths will send you back one page, so be careful. For example, `goToPath('/second-page')`
+     - Not supplied when `CustomPage` is rendered on the review page
 - `updatePage`: () => void
      - Supplied only when rendering `CustomPage` on the review page
      - The function to call when the user is finished editing the data
