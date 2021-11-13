@@ -225,12 +225,12 @@ dfn {
   }
 
   &:last-child {
-    > :last-child {
+    > :not(va-back-to-top):last-child {
       margin-bottom: 0;
     }
   }
 
-  > :last-child {
+  > :not(va-back-to-top):last-child {
     @include media($medium-screen) {
       margin-bottom: 0;
     }
