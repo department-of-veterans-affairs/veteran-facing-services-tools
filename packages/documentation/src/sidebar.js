@@ -361,6 +361,10 @@ module.exports = {
           name: 'Unit Test Coverage Report',
           href: '/frontend-support-dashboard/unit-test-coverage-report',
         },
+        {
+          name: 'Lighthouse Performance Report',
+          href: '/frontend-support-dashboard/lighthouse-performance-report',
+        }
       ],
     },
   ],

@@ -189,4 +189,11 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+
+  if (page.path.match(/\/lighthouse-performance/)) {
+    page.matchPath = "/frontend-support-dashboard/lighthouse-performance-report/*"
+
+    // Update the page.
+    createPage(page)
+  }
 }
