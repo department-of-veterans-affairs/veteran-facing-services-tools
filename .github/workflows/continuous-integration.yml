@@ -84,6 +84,9 @@ jobs:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
+      - name: echo workspace
+        run: echo ${{ github.workspace }}
+
       - name: Build
         run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run build
 
