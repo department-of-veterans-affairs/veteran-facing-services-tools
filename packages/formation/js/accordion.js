@@ -160,6 +160,10 @@ const addAccordionClickHandler = () => {
   }
 };
 
+// only keep alpha-numeric characters from header, hash and id
+const normalizeRegexp = /[^\w]/g;
+const normalizeText = id => id.replace(normalizeRegexp, '').toLowerCase();
+
 function autoExpandAccordionPanelByUrlHash() {
   const hash = document.location.hash;
 
@@ -167,12 +171,35 @@ function autoExpandAccordionPanelByUrlHash() {
     return;
   }
 
-  const anchorId = document.location.hash.slice(1);
+  // legacy accordion - target entity ID (id + partial text)
+  const anchorId = hash.slice(1);
   const accordionButtonSelector = `.usa-accordion li[id="${anchorId}"] .usa-accordion-button`;
   const accordionButton = document.querySelector(accordionButtonSelector);
 
   if (accordionButton) {
     accordionButton.click();
+  }
+
+  // <va-accordion-item> web component - match either
+  // 1) partial text of header, e.g. "#contact-us"
+  // 2) the entity ID, e.g. "#1234"
+  const anchorText = normalizeText(anchorId);
+  const accordionItemSelector = 'va-accordion-item';
+  const accordionItems = document.querySelectorAll(accordionItemSelector);
+
+  if (accordionItems) {
+    [...accordionItems].some(accordion => {
+      const idInSlot = accordion?.querySelector('[id]')?.id || null;
+      const headerText = normalizeText(accordion.getAttribute('header') || '');
+      if (headerText.includes(anchorText) || idInSlot === anchorText) {
+        accordion.setAttribute('open', true);
+        // eslint-disable-next-line no-unused-expressions
+        accordion?.shadowRoot?.querySelector('button')?.focus();
+        window.scrollTo(0, accordion.offsetTop);
+        return true;
+      }
+      return false;
+    });
   }
 }
 

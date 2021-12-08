@@ -1,0 +1,127 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+
+env:
+  CHROMEDRIVER_FILEPATH: /usr/local/share/chrome_driver/chromedriver
+
+concurrency:
+  group: ${{ github.ref != 'refs/heads/master' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        uses: ./.github/workflows/install
+        with:
+          key: ${{ hashFiles('yarn.lock') }}
+          yarn_cache_folder: .cache/yarn
+          path: |
+            .cache/yarn
+            node_modules
+
+      - name: Lint
+        run: npx vagov-eslint lint:js
+
+  testing:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        uses: ./.github/workflows/install
+        with:
+          key: ${{ hashFiles('yarn.lock') }}
+          yarn_cache_folder: .cache/yarn
+          path: |
+            .cache/yarn
+            node_modules
+      
+      - name: Test
+        run: npm run test
+        env:
+          NODE_ENV: test
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        uses: ./.github/workflows/install
+        with:
+          key: ${{ hashFiles('yarn.lock') }}
+          yarn_cache_folder: .cache/yarn
+          path: |
+            .cache/yarn
+            node_modules
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-gov-west-1
+
+      - name: Get va-vsp-bot token
+        uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
+      - name: Build
+        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run build
+
+  # deploy:
+  #   name: Deploy
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/master'
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Install dependencies
+  #       uses: ./.github/workflows/install
+  #       with:
+  #         key: ${{ hashFiles('yarn.lock') }}
+  #         yarn_cache_folder: .cache/yarn
+  #         path: |
+  #           .cache/yarn
+  #           node_modules
+
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-gov-west-1
+
+  #     - name: Get va-vsp-bot token
+  #       uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+  #       with:
+  #         ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+  #         env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
+  #     - name: Config Git
+  #       run: |
+  #         git config --global user.email james.kassemi+vabot@adhocteam.us
+  #         git config --global user.name va-bot
+  #         git config --global credential.helper '${{ github.workspace }}/scripts/credential-helper.sh'
+
+  #     - name: Deploy
+  #       run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy

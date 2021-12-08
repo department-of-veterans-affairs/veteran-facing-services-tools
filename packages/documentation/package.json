@@ -20,7 +20,7 @@
     "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-sass": "^2.7.0",
-    "gatsby-plugin-sharp": "^2.11.1",
+    "gatsby-plugin-sharp": "^3.14.1",
     "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^3.8.0",
     "gatsby-remark-mermaid": "^2.0.0",
@@ -39,7 +39,7 @@
     "react-dom": "^16.6.3",
     "react-helmet": "^6.1.0",
     "react-live": "1.12.0",
-    "uswds": "1.6.10",
+    "uswds": "1.6.14",
     "web-components": "https://github.com/department-of-veterans-affairs/component-library.git#wc-v0.9.0"
   },
   "resolutions": {

@@ -5,6 +5,12 @@ tags: react, widget, content, dynamic, scaffold
 
 # Creating a new React widget
 
+<div class="deprecation-message">
+    <h2>We're moving our docs!</h2>
+    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Creating-a-new-React-widget.1849425948.html">the latest version of this page</a> on the Platform website.</h3>
+    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+</div>
+
 Note: Check out the [Adding a new feature](/getting-started/common-tasks/new-feature) doc to make sure you're trying to add the right type of feature to VA.gov.
 
 ## Adding a new widget
@@ -72,29 +78,6 @@ We should be careful to not create a bad user experience when using React on sta
 1. JS and React take time to download, parse, and render. Make sure you are providing the appropriate feedback to users while that is happening, with a spinner or another method from the UX team.
 2. Make sure the page is still usable if your React code fails to work. This can mean it fails to download, an error occurs, or just handling the different login states a user can be in.
 3. Be aware of how much weight you're adding to the static-pages bundle and code-split/lazy load when it makes sense.
-
-## Common widget code
-
-There's a simple static page widget feature that you can use to help with the first two points above. The code is in `src/applications/static-pages/static-page-widgets.js`. Using this will inline some JS that can handle displaying a loading spinner and showing an error message if something goes wrong before the React code can take over rendering. Several pension pages use this functionality (`pages/pension/index.md`, `pages/pension/apply.md` in `vagov-content`). It's controlled by defining a widgets list in the front matter for the static content page you're on. The options are:
-
-```
-- widgets
-  - root: someId 
-    timeout: 20
-    showSpinnerUnauthed: false
-    slowLoadingThreshold: 6
-    loadingMessage: Loading
-    slowMessage: Sorry, this is taking longer than expected.
-    errorMessage: Sorry, something went wrong.
-```
-
-- root: The id of the div where the React component will mount.
-- timeout: The amount of time in seconds before the error message is shown.
-- showSpinnerUnauthed: By default, a spinner is shown only if a user has a session token. This will override that and show it always.
-- slowLoadingThreshold: The amount of time in seconds before the slow loading message is shown. This is skipped if the threshold is greater than the overall timeout. Defaulted to 6 seconds.
-- slowMessage: Message shown when the slowThreshold is passed. Defaulted to message above.
-- loadingMessage: Message shown while the JS code is loading. This should probably match any loading message in your React code.
-- errorMessage: Message shown when the JS code fails or times out.
 
 ## Running end-to-end tests on a widget
 
