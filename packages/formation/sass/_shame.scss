@@ -54,22 +54,6 @@ body {
   }
 }
 
-.edit-checkbox {
-  label {
-    background-color: transparent;
-    display: inline-block;
-
-    &::before {
-      display: none !important;
-    }
-
-    &:hover {
-      cursor: pointer;
-      outline: 0;
-    }
-  }
-}
-
 .input-section {
   margin-bottom: 2em;
 
