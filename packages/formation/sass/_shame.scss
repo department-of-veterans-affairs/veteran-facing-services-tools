@@ -116,42 +116,6 @@ body {
   padding: 2em 0;
 }
 
-// Handles the height transition
-.expander-content {
-  // No max height for small screens = no animation, which is fine
-  // Also means the Apply Now button doesn't get cut off
-  @include media($small-screen) {
-    max-height: 35em;
-  }
-  overflow: hidden;
-  transition: max-height 150ms ease-in-out;
-
-  // Handles the opacity transition
-  .expander-content-inner {
-    transition: opacity 150ms ease-in-out;
-
-    a.usa-button-primary {
-      transition: opacity 150ms ease-in-out;
-      transition-delay: 150ms;
-    }
-  }
-
-  // Apply this to the inner content and make a new div
-  //  with the border to expand that without the opacity
-  &.expander-content-closed {
-    max-height: 0 !important; // To override the id selector height
-    visibility: hidden;
-
-    .expander-content-inner {
-      opacity: 0;
-
-      a.usa-button-primary {
-        opacity: 0;
-      }
-    }
-  }
-}
-
 //============================================
 // Overrides for USWDS shenanigans.
 // See: https://github.com/18F/web-design-standards/issues/1899
