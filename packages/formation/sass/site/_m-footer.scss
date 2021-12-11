@@ -78,17 +78,6 @@
   }
 }
 
-[id=footer-contact] {
-  order: -1;
-  @include media($medium-screen) {
-    order: 0
-  }
-
-  li:nth-of-type(3) {
-    padding: 16px 0;
-  }
-}
-
 .va-footer-linkgroup-title {
   -webkit-font-smoothing: antialiased;
   color: $color-white;
