@@ -118,33 +118,3 @@
     }
   }
 }
-
-[id=va-footer-supplementallinks] {
-  align-items: flex-end;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10rem;
-  padding-left: 0.9375rem;
-  padding-bottom: 1em;
-
-  @include media($medium-large-screen) {
-    flex-wrap: nowrap;
-  }
-
-  > div {
-      &:first-child {
-        @include media($medium-large-screen) {
-          flex: 0 1 60%;
-        }
-      }
-
-      &:last-child {
-        order: -1;
-
-        @include media($medium-large-screen) {
-          order: 1;
-          flex: 1 1 40%;
-        }
-      }
-  }
-}
