@@ -2,52 +2,45 @@ import React, { useEffect, useState } from 'react';
 import Table from '@department-of-veterans-affairs/component-library/Table';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
-// import * as coverageReport from './test-coverage-report.json';
-
-// uncomment when we re-automate test coverage reports
-// import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
-// import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
+import * as coverageReport from './lighthouse-report.json';
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
   return Object.values(report).map(cov => {
-    const appName = cov.path.substr(0, cov.path.lastIndexOf('/')) || 'All Files';
-
     return ({
-      appName,
-      lines: `${cov.lines.pct}%`,
-      functions: `${cov.functions.pct}%`,
-      statements: `${cov.statements.pct}%`,
-      branches: `${cov.branches.pct}%`,
+      rootUrl: `va.gov${cov.path}`,
+      s3: <a href={cov.s3}>{cov.s3}</a>,
     });
   });
 };
 
 const coverageReportFields = [
   {
-    label: 'Root URL',
+    label: 'URL',
     value: 'rootUrl',
+  },
+  {
+    label: 'S3 URL',
+    value: 's3'
   }
 ];
 
 const App = ({ location }) => {
-  // const [coverageReportData, setCoverageReportData] = useState([]);
+  const [coverageReportData, setCoverageReportData] = useState([]);
 
-  // useEffect(() => {
-  //   const handleCoverageReportData = async () => {
-  //     // uncomment when we re-automate test coverage reports
-  //     // const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
-  //     const rawTableData = coverageReport.default;
-  //     const transformedTableData = await transformCoverageReportToArray(rawTableData);
-  //     setCoverageReportData(transformedTableData);
-  //   };
+  useEffect(() => {
+    const handleCoverageReportData = async () => {
+      const rawTableData = coverageReport.default;
+      const transformedTableData = await transformCoverageReportToArray(rawTableData);
+      setCoverageReportData(transformedTableData);
+    };
 
-  //   handleCoverageReportData();
-  // }, []); 
+    handleCoverageReportData();
+  }, []); 
   
-  // if (coverageReportData.length === 0) {
-  //   return null;
-  // }
+  if (coverageReportData.length === 0) {
+    return null;
+  }
 
   return (
     <Layout location={location}>
@@ -60,7 +53,7 @@ const App = ({ location }) => {
           <h1>Frontend Support Dashboard</h1>
           <h2>Lighthouse Performance Report</h2>
           <p>Last updated: October 4, 2021</p>
-          {/* <Table data={coverageReportData} fields={coverageReportFields} /> */}
+          <Table data={coverageReportData} fields={coverageReportFields} />
         </div>
       </div>
     </Layout>
