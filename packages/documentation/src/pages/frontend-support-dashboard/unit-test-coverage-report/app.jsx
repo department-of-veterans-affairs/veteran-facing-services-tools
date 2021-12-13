@@ -5,8 +5,8 @@ import Sidebar from '../../../components/sidebar/Sidebar';
 import * as coverageReport from './test-coverage-report.json';
 
 // uncomment when we re-automate test coverage reports
-import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
-import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
+// import { TestCoverageDataFetch } from '../../../components/dashboard/DashboardDataFetch';
+// import { vetsWebsiteInfo } from '../../../components/dashboard/definitions/constants';
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
@@ -52,8 +52,8 @@ const App = ({ location }) => {
   useEffect(() => {
     const handleCoverageReportData = async () => {
       // uncomment when we re-automate test coverage reports
-      const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
-      // const rawTableData = coverageReport.default;
+      // const rawTableData = await TestCoverageDataFetch(vetsWebsiteInfo);
+      const rawTableData = coverageReport.default;
       const transformedTableData = await transformCoverageReportToArray(rawTableData);
       setCoverageReportData(transformedTableData);
     };
