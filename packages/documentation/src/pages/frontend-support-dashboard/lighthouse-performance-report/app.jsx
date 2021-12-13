@@ -52,7 +52,6 @@ const App = ({ location }) => {
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Lighthouse Performance Report</h2>
-          <p>Last updated: October 4, 2021</p>
           <Table data={coverageReportData} fields={coverageReportFields} />
         </div>
       </div>
