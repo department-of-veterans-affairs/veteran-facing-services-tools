@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Table from '@department-of-veterans-affairs/component-library/Table';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
 import * as coverageReport from './lighthouse-report.json';
@@ -8,22 +7,11 @@ const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
   return Object.values(report).map(cov => {
     return ({
-      rootUrl: `va.gov${cov.path}`,
-      s3: <a href={cov.s3}>{cov.s3}</a>,
+      rootUrl: `www.va.gov${cov.path}`,
+      s3: `${cov.s3}`,
     });
   });
 };
-
-const coverageReportFields = [
-  {
-    label: 'URL',
-    value: 'rootUrl',
-  },
-  {
-    label: 'S3 URL',
-    value: 's3'
-  }
-];
 
 const App = ({ location }) => {
   const [coverageReportData, setCoverageReportData] = useState([]);
@@ -52,7 +40,11 @@ const App = ({ location }) => {
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Lighthouse Performance Report</h2>
-          <Table data={coverageReportData} fields={coverageReportFields} />
+          <ul>
+            {Object.keys(coverageReportData).map(function(key){
+              return <li><a href={coverageReportData[key].s3}>{coverageReportData[key].rootUrl}</a></li>;
+            })}
+          </ul>
         </div>
       </div>
     </Layout>
