@@ -8,7 +8,7 @@ const transformCoverageReportToArray = async report => {
   return Object.values(report).map(cov => {
     return ({
       rootUrl: `www.va.gov${cov.path}`,
-      s3: `${cov.s3}`,
+      s3: `https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse${cov.s3}`,
     });
   });
 };

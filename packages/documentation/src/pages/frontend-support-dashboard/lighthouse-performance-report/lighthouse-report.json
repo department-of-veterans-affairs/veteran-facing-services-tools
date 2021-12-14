@@ -1,210 +1,210 @@
 {
   "homepage": {
     "path": "/",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/homepage.html"
+    "s3": "/homepage.html"
   },
   "/auth/login/callback": {
     "path": "/auth/login/callback",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/auth/login/callback.html"
+    "s3": "/auth/login/callback.html"
   },
   "/burials-and-memorials/application/530": {
     "path": "/burials-and-memorials/application/530",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/burials-and-memorials/application/530.html"
+    "s3": "/burials-and-memorials/application/530.html"
   },
   "/burials-and-memorials/pre-need/form-10007-apply-for-eligibility": {
     "path": "/burials-and-memorials/pre-need/form-10007-apply-for-eligibility",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/burials-and-memorials/pre-need/form-10007-apply-for-eligibility.html"
+    "s3": "/burials-and-memorials/pre-need/form-10007-apply-for-eligibility.html"
   },
   "/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832": {
     "path": "/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832.html"
+    "s3": "/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832.html"
   },
   "/careers-employment/vocational-rehabilitation/apply-vre-form-28-1900": {
     "path": "/careers-employment/vocational-rehabilitation/apply-vre-form-28-1900",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/careers-employment/vocational-rehabilitation/apply-vre-form-28-1900.html"
+    "s3": "/careers-employment/vocational-rehabilitation/apply-vre-form-28-1900.html"
   },
   "/coronavirus-research/volunteer": {
     "path": "/coronavirus-research/volunteer",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/coronavirus-research/volunteer.html"
+    "s3": "/coronavirus-research/volunteer.html"
   },
   "/covid19screen": {
     "path": "/covid19screen",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/covid19screen.html"
+    "s3": "/covid19screen.html"
   },
   "/decision-reviews/board-appeal/request-board-appeal-form-10182": {
     "path": "/decision-reviews/board-appeal/request-board-appeal-form-10182",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/decision-reviews/board-appeal/request-board-appeal-form-10182.html"
+    "s3": "/decision-reviews/board-appeal/request-board-appeal-form-10182.html"
   },
   "/decision-reviews/higher-level-review/request-higher-level-review-form-20-0996": {
     "path": "/decision-reviews/higher-level-review/request-higher-level-review-form-20-0996",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/decision-reviews/higher-level-review/request-higher-level-review-form-20-0996.html"
+    "s3": "/decision-reviews/higher-level-review/request-higher-level-review-form-20-0996.html"
   },
   "/disability/file-disability-claim-form-21-526ez": {
     "path": "/disability/file-disability-claim-form-21-526ez",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/disability/file-disability-claim-form-21-526ez.html"
+    "s3": "/disability/file-disability-claim-form-21-526ez.html"
   },
   "/disability/view-disability-rating/rating": {
     "path": "/disability/view-disability-rating/rating",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/disability/view-disability-rating/rating.html"
+    "s3": "/disability/view-disability-rating/rating.html"
   },
   "/discharge-upgrade-instructions": {
     "path": "/discharge-upgrade-instructions",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/discharge-upgrade-instructions.html"
+    "s3": "/discharge-upgrade-instructions.html"
   },
   "/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/apply-for-vettec-form-22-0994": {
     "path": "/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/apply-for-vettec-form-22-0994",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/apply-for-vettec-form-22-0994.html"
+    "s3": "/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/apply-for-vettec-form-22-0994.html"
   },
   "/education/apply-for-education-benefits/application/1990": {
     "path": "/education/apply-for-education-benefits/application/1990",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/1990.html"
+    "s3": "/education/apply-for-education-benefits/application/1990.html"
   },
   "/education/apply-for-education-benefits/application/1990E": {
     "path": "/education/apply-for-education-benefits/application/1990E",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/1990E.html"
+    "s3": "/education/apply-for-education-benefits/application/1990E.html"
   },
   "/education/apply-for-education-benefits/application/1990N": {
     "path": "/education/apply-for-education-benefits/application/1990N",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/1990N.html"
+    "s3": "/education/apply-for-education-benefits/application/1990N.html"
   },
   "/education/apply-for-education-benefits/application/1995": {
     "path": "/education/apply-for-education-benefits/application/1995",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/1995.html"
+    "s3": "/education/apply-for-education-benefits/application/1995.html"
   },
   "/education/apply-for-education-benefits/application/5490": {
     "path": "/education/apply-for-education-benefits/application/5490",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/5490.html"
+    "s3": "/education/apply-for-education-benefits/application/5490.html"
   },
   "/education/apply-for-education-benefits/application/5495": {
     "path": "/education/apply-for-education-benefits/application/5495",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/apply-for-education-benefits/application/5495.html"
+    "s3": "/education/apply-for-education-benefits/application/5495.html"
   },
   "/education/gi-bill/post-9-11/ch-33-benefit/status": {
     "path": "/education/gi-bill/post-9-11/ch-33-benefit/status",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/gi-bill/post-9-11/ch-33-benefit/status.html"
+    "s3": "/education/gi-bill/post-9-11/ch-33-benefit/status.html"
   },
   "/education/opt-out-information-sharing/opt-out-form-0993": {
     "path": "/education/opt-out-information-sharing/opt-out-form-0993",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/opt-out-information-sharing/opt-out-form-0993.html"
+    "s3": "/education/opt-out-information-sharing/opt-out-form-0993.html"
   },
   "/education/other-va-education-benefits/stem-scholarship/apply-for-scholarship-form-22-10203": {
     "path": "/education/other-va-education-benefits/stem-scholarship/apply-for-scholarship-form-22-10203",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/other-va-education-benefits/stem-scholarship/apply-for-scholarship-form-22-10203.html"
+    "s3": "/education/other-va-education-benefits/stem-scholarship/apply-for-scholarship-form-22-10203.html"
   },
   "/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s": {
     "path": "/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s.html"
+    "s3": "/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s.html"
   },
   "/education/submit-school-feedback": {
     "path": "/education/submit-school-feedback",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/submit-school-feedback.html"
+    "s3": "/education/submit-school-feedback.html"
   },
   "/education/yellow-ribbon-participating-schools": {
     "path": "/education/yellow-ribbon-participating-schools",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/education/yellow-ribbon-participating-schools.html"
+    "s3": "/education/yellow-ribbon-participating-schools.html"
   },
   "/family-member-benefits/apply-for-caregiver-assistance-form-10-10cg": {
     "path": "/family-member-benefits/apply-for-caregiver-assistance-form-10-10cg",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/family-member-benefits/apply-for-caregiver-assistance-form-10-10cg.html"
+    "s3": "/family-member-benefits/apply-for-caregiver-assistance-form-10-10cg.html"
   },
   "/find-locations": {
     "path": "/find-locations",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/find-locations.html"
+    "s3": "/find-locations.html"
   },
   "/gi-bill-comparison-tool": {
     "path": "/gi-bill-comparison-tool",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/gi-bill-comparison-tool.html"
+    "s3": "/gi-bill-comparison-tool.html"
   },
   "/health-care/apply/application": {
     "path": "/health-care/apply/application",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/apply/application.html"
+    "s3": "/health-care/apply/application.html"
   },
   "/health-care/appointment-check-in": {
     "path": "/health-care/appointment-check-in",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/appointment-check-in.html"
+    "s3": "/health-care/appointment-check-in.html"
   },
   "/health-care/covid-19-vaccine/sign-up": {
     "path": "/health-care/covid-19-vaccine/sign-up",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/covid-19-vaccine/sign-up.html"
+    "s3": "/health-care/covid-19-vaccine/sign-up.html"
   },
   "/health-care/covid-19-vaccine/stay-informed": {
     "path": "/health-care/covid-19-vaccine/stay-informed",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/covid-19-vaccine/stay-informed.html"
+    "s3": "/health-care/covid-19-vaccine/stay-informed.html"
   },
   "/health-care/medical-information-terms-conditions": {
     "path": "/health-care/medical-information-terms-conditions",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/medical-information-terms-conditions.html"
+    "s3": "/health-care/medical-information-terms-conditions.html"
   },
   "/health-care/order-hearing-aid-batteries-and-accessories/order-form-2346": {
     "path": "/health-care/order-hearing-aid-batteries-and-accessories/order-form-2346",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/order-hearing-aid-batteries-and-accessories/order-form-2346.html"
+    "s3": "/health-care/order-hearing-aid-batteries-and-accessories/order-form-2346.html"
   },
   "/health-care/pay-copay-bill/your-current-balances": {
     "path": "/health-care/pay-copay-bill/your-current-balances",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/pay-copay-bill/your-current-balances.html"
+    "s3": "/health-care/pay-copay-bill/your-current-balances.html"
   },
   "/health-care/schedule-view-va-appointments/appointments": {
     "path": "/health-care/schedule-view-va-appointments/appointments",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/health-care/schedule-view-va-appointments/appointments.html"
+    "s3": "/health-care/schedule-view-va-appointments/appointments.html"
   },
   "/manage-va-debt/request-debt-help-form-5655": {
     "path": "/manage-va-debt/request-debt-help-form-5655",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/manage-va-debt/request-debt-help-form-5655.html"
+    "s3": "/manage-va-debt/request-debt-help-form-5655.html"
   },
   "/manage-va-debt/your-debt": {
     "path": "/manage-va-debt/your-debt",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/manage-va-debt/your-debt.html"
+    "s3": "/manage-va-debt/your-debt.html"
   },
   "/my-va": {
     "path": "/my-va",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/my-va.html"
+    "s3": "/my-va.html"
   },
   "/pension/application/527EZ": {
     "path": "/pension/application/527EZ",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/pension/application/527EZ.html"
+    "s3": "/pension/application/527EZ.html"
   },
   "/profile": {
     "path": "/profile",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/profile.html"
+    "s3": "/profile.html"
   },
   "/records/download-va-letters/letters": {
     "path": "/records/download-va-letters/letters",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/records/download-va-letters/letters.html"
+    "s3": "/records/download-va-letters/letters.html"
   },
   "/records/get-veteran-id-cards/apply": {
     "path": "/records/get-veteran-id-cards/apply",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/records/get-veteran-id-cards/apply.html"
+    "s3": "/records/get-veteran-id-cards/apply.html"
   },
   "/resources/search": {
     "path": "/resources/search",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/resources/search.html"
+    "s3": "/resources/search.html"
   },
   "/search": {
     "path": "/search",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/search.html"
+    "s3": "/search.html"
   },
   "/sign-in": {
     "path": "/sign-in",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/sign-in.html"
+    "s3": "/sign-in.html"
   },
   "/track-claims": {
     "path": "/track-claims",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/track-claims.html"
+    "s3": "/track-claims.html"
   },
   "/va-payment-history/payments": {
     "path": "/va-payment-history/payments",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/va-payment-history/payments.html"
+    "s3": "/va-payment-history/payments.html"
   },
   "/verify": {
     "path": "/verify",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/verify.html"
+    "s3": "/verify.html"
   },
   "/view-change-dependents/add-remove-form-21-686c": {
     "path": "/view-change-dependents/add-remove-form-21-686c",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/view-change-dependents/add-remove-form-21-686c.html"
+    "s3": "/view-change-dependents/add-remove-form-21-686c.html"
   },
   "/view-change-dependents/view": {
     "path": "/view-change-dependents/view",
-    "s3": "https://vetsgov-website-builds-s3-upload.s3-us-gov-west-1.amazonaws.com/lighthouse/view-change-dependents/view.html"
+    "s3": "/view-change-dependents/view.html"
   }
 }
