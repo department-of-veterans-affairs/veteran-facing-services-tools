@@ -78,6 +78,10 @@ There are a few important things going on here:
      - The function to call to move forward a page in the form
      - **Caveat:** Rather than assigning this to a button's `onClick` event handler, make that button a submit button and use `<form onSubmit={goForward}>...</form>` so the user only navigates to the next page if there are no validation errors
           - See [Common tasks](#render-the-form-navigation-or-update-button) below for more information
+- `goToPath`: Function
+     - Function to call if you need to go to a specific path within the form
+     - When callign this function with a valid active path, it will return you to that page. An invalid paths will send you back one page, so be careful. For example, `goToPath('/second-page')`
+     - Not supplied when `CustomPage` is rendered on the review page
 - `updatePage`: () => void
      - Supplied only when rendering `CustomPage` on the review page
      - The function to call when the user is finished editing the data
