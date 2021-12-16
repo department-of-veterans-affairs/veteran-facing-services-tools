@@ -70,7 +70,7 @@ For the code implementation, see [FormApp.jsx](https://github.com/department-of-
 
 ## Progress bar
 
-The `SegmentedProgressBar` component calculates the number of chapters completed and displays them in a horizontal stack of blocks. It indicates to the user how much of a multi-chapter or multi-page form they've completed. It includes:
+The `va-segmented-progress-bar` component calculates the number of chapters completed and displays them in a horizontal stack of blocks. It indicates to the user how much of a multi-chapter or multi-page form they've completed. It includes:
 
 - A non-interactive, sectioned progress bar
 - A number to indicate how many pages there are within each section
@@ -82,12 +82,12 @@ The `SegmentedProgressBar` component calculates the number of chapters completed
 
 In `formConfig`, define your form's chapters and the pages contained inside each chapter. To add a progress bar to a multi-page form, create chapters with a single page each. We don't recommend including a progress bar on single-page forms.
 
-VAFS includes the progress bar by default, and will display automatically when the chapters and pages are defined. To remove the progress bar, edit the `FormNav.jsx` component to remove the defined `SegmentedProgressBar` in the HTML.
+VAFS includes the progress bar by default, and will display automatically when the chapters and pages are defined. To remove the progress bar, edit the `FormNav.jsx` component to remove the defined `va-segmented-progress-bar` in the HTML.
 
 For the code implementation, see:
 
 - [FormNav.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/FormNav.jsx)
-- [SegmentedProgressBar.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/components/SegmentedProgressBar.jsx)
+- [va-segmented-progress-bar.tsx](https://github.com/department-of-veterans-affairs/component-library/blob/master/packages/web-components/src/components/va-segmented-progress-bar/va-segmented-progress-bar.tsx)
 
 ## Title and Subtitle
 
