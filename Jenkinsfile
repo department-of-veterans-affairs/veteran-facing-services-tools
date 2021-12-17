@@ -41,21 +41,21 @@ pipeline {
       }
     }
 
-    stage('deploy') {
-      when { branch 'master' }
-      steps {
-        sh 'git config --global user.email james.kassemi+vabot@adhocteam.us'
-        sh 'git config --global user.name va-bot'
-        sh 'git config --global credential.helper "/bin/bash ' + env.WORKSPACE + '/scripts/credential-helper.sh"'
-        withCredentials([[
-          $class: 'UsernamePasswordMultiBinding',
-          credentialsId: 'va-bot',
-          usernameVariable: 'GIT_USERNAME',
-          passwordVariable: 'GIT_PASSWORD'
-        ]]) {
-          sh "GITHUB_API_KEY=${env.GIT_PASSWORD} npm run deploy"
-        }
-      }
-    }
+    // stage('deploy') {
+    //   when { branch 'master' }
+    //   steps {
+    //     sh 'git config --global user.email james.kassemi+vabot@adhocteam.us'
+    //     sh 'git config --global user.name va-bot'
+    //     sh 'git config --global credential.helper "/bin/bash ' + env.WORKSPACE + '/scripts/credential-helper.sh"'
+    //     withCredentials([[
+    //       $class: 'UsernamePasswordMultiBinding',
+    //       credentialsId: 'va-bot',
+    //       usernameVariable: 'GIT_USERNAME',
+    //       passwordVariable: 'GIT_PASSWORD'
+    //     ]]) {
+    //       sh "GITHUB_API_KEY=${env.GIT_PASSWORD} npm run deploy"
+    //     }
+    //   }
+    // }
   }
 }
