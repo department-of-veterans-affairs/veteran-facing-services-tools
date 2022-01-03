@@ -75,7 +75,7 @@ const App = ({ location }) => {
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Unit Test Coverage Report</h2>
-          <p>Last updated: December 8, 2021</p>
+          <p>Last updated: January 3, 2022</p>
           <Table data={coverageReportData} fields={coverageReportFields} />
           <p>
             Report file (
