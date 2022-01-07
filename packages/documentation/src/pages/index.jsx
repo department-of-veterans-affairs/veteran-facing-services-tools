@@ -29,15 +29,21 @@ export default function Index({ location }) {
           </li>
           <li>
             For Github deployment information, see the{' '}
-            <Link to="/frontend-support-dashboard">Frontend Support Dashboard</Link>.
+            <Link to="/frontend-support-dashboard">
+              Frontend Support Dashboard
+            </Link>
+            .
           </li>
           <li>
             For information about the unit test coverage report by application, see the{' '}
-            <Link to="/unit-test-coverage-report">Unit Test Coverage Report</Link>.
+            <Link to="/unit-test-coverage-report">
+              Unit Test Coverage Report
+            </Link>
+            .
           </li>
           <li>
-            For information about the lighthouse performance report by application, see the{' '}
-            <Link to="/lighthouse-performance-report">Lighthouse Performance Report</Link>.
+            For information about the performance report by application, see the{' '}
+            <Link to="/lighthouse-performance-report">Performance Report</Link>.
           </li>
         </ul>
       </div>
