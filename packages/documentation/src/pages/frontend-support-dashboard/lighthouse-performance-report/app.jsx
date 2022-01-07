@@ -39,7 +39,7 @@ const App = ({ location }) => {
           className="dash-coverage-table site-c-content__content docSearch-content vads-l-col--12"
         >
           <h1>Frontend Support Dashboard</h1>
-          <h2>Performance Reports</h2>
+          <h2>Performance Report</h2>
           <ul>
             {Object.keys(coverageReportData).map(function(key){
               return <li><a href={coverageReportData[key].s3}>{coverageReportData[key].rootUrl}</a></li>;
