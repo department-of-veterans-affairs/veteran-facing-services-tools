@@ -196,4 +196,11 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+
+  if (page.path.match(/\/cross-app-import-report/)) {
+    page.matchPath = "/frontend-support-dashboard/cross-app-import-report/*"
+
+    // Update the page.
+    createPage(page)
+  }
 }
