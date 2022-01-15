@@ -3,7 +3,6 @@
 
 .va-pagination {
   border-top: 1px solid $color-gray-lightest;
-  font-size: .9em;
   overflow: hidden;
   padding: 2rem 0 1rem;
   position: relative;
@@ -11,6 +10,18 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
+  button {
+    line-height: 2;
+    border: 0;
+    color: $color-link-default;
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+    font-weight: 400;
+    transition: all 0.3s ease-in-out;
+    transition-property: color, background-color, border-color;
+  }
 
   &-prev {
     @media (max-width: $medium-screen) {
@@ -20,8 +31,8 @@
 
     &:not(:empty) {
       @media (min-width: $small-screen) {
-        a::before {
-          content: "\2039\a0\a0";
+        button::before {
+          content: '\2039\a0\a0';
         }
       }
     }
@@ -35,8 +46,8 @@
 
     &:not(:empty) {
       @media (min-width: $small-screen) {
-        a::after {
-          content: "\a0\a0\203a";
+        button::after {
+          content: '\a0\a0\203a';
         }
       }
     }
@@ -44,10 +55,21 @@
 
   &-prev,
   &-next {
+    display: flex;
     position: relative;
 
-    &:hover,
-    &:focus {
+    button {
+      border-radius: 0;
+      margin: 0;
+
+      &:hover {
+        background-color: transparent;
+        color: $color-link-default;
+        text-decoration: underline;
+      }
+    }
+
+    &:hover {
       text-decoration: underline;
     }
 
@@ -59,6 +81,18 @@
   &-inner {
     white-space: nowrap;
     overflow: hidden;
+
+    button {
+      border-radius: 1000px;
+      height: 3rem;
+      margin: 0 0.5rem;
+      width: 3rem;
+    }
+
+    button[aria-current='true'] {
+      background-color: $color-primary;
+      color: $color-white;
+    }
 
     @media (max-width: $medium-screen) {
       width: 20rem;
@@ -77,25 +111,10 @@
     padding-top: 4px;
   }
 
-  a {
-    line-height: 2;
-    text-decoration: none;
+  &-inner button:hover,
+  &-inner button:focus,
+  &-active button {
+    background-color: $color-primary;
+    color: $color-white;
   }
-}
-
-.va-pagination-inner a {
-  border-radius: 1000px;
-  display: inline-block;
-  height: 3rem;
-  margin: 0 .5rem;
-  width: 3rem;
-  text-decoration: none;
-}
-
-.va-pagination-inner a:hover,
-.va-pagination-inner a:focus,
-.va-pagination-active,
-.va-pagination-active:visited {
-  background: $color-primary;
-  color: $color-white;
 }
