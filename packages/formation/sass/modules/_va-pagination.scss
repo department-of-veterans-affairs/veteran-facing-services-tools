@@ -12,11 +12,15 @@
   justify-content: center;
 
   button {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
     background-color: transparent;
     border: 0;
     color: $color-link-default;
+    display: inline-flex;
     font-size: 0.9em;
     font-weight: 400;
+    justify-content: center;
     line-height: 2;
     padding: 0;
     transition: all 0.3s ease-in-out;
@@ -57,12 +61,15 @@
       width: 3rem;
     }
 
-    button[aria-current='true'] {
+    button[aria-current='true'],
+    button:hover,
+    button:focus {
       background-color: $color-primary;
       color: $color-white;
     }
   }
 
+  // va-pagination-prev, va-pagination-next, va-pagination-inner
   &-prev,
   &-next,
   &-inner {
@@ -71,9 +78,8 @@
     padding-top: 4px;
   }
 
-  &-inner button:hover,
-  &-inner button:focus,
-  &-active button {
+  // va-pagination-active
+  &-active {
     background-color: $color-primary;
     color: $color-white;
   }
@@ -82,12 +88,12 @@
   &-prev {
     @media (max-width: $medium-screen) {
       margin-left: -3rem;
-      padding: 0 1rem 0 0;
+      padding-right: 1rem;
     }
 
     &:not(:empty) {
       @media (min-width: $small-screen) {
-        button::before {
+        span::before {
           content: '\2039\a0\a0';
         }
       }
@@ -98,12 +104,12 @@
   &-next {
     @media (max-width: $medium-screen) {
       margin-right: -3rem;
-      padding: 0 0 0 1rem;
+      padding-left: 1rem;
     }
 
     &:not(:empty) {
       @media (min-width: $small-screen) {
-        button::after {
+        span::after {
           content: '\a0\a0\203a';
         }
       }
@@ -114,7 +120,8 @@
   &-next,
   &-prev {
     @media (min-width: $medium-screen) {
-      padding: 0 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 
