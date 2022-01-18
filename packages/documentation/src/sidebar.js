@@ -364,7 +364,11 @@ module.exports = {
         {
           name: 'Performance Report',
           href: '/frontend-support-dashboard/lighthouse-performance-report',
-        }
+        },
+        {
+          name: 'Cross App Import Report',
+          href: '/frontend-support-dashboard/cross-app-import-report',
+        },
       ],
     },
   ],
