@@ -45,6 +45,10 @@ export default function Index({ location }) {
             For information about the performance report by application, see the{' '}
             <Link to="/lighthouse-performance-report">Performance Report</Link>.
           </li>
+          <li>
+            For information about cross app import statistics, see the{' '}
+            <Link to="/cross-app-import-report">Cross App Import Report</Link>.
+          </li>
         </ul>
       </div>
     </Layout>
