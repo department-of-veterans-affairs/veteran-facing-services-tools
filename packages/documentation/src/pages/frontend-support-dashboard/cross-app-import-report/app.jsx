@@ -8,7 +8,7 @@ import appImportGraph from './cross-app-imports.json';
  * Gets a check or 'x' icon based on the given status.
  *
  * @param {boolean} status - Determines whether to return check or x icon.
- * @returns {string} Status icon.
+ * @returns {JSX.Element} Status icon.
  */
 const getStatusIcon = status => {
   const trueIcon = (
@@ -28,12 +28,12 @@ const getStatusIcon = status => {
 /**
  * Transforms import graph data for table.
  *
- * @param {*} importGraph - Cross app import graph.
+ * @param {Object} importGraph - Cross app import graph.
  * @returns {Object[]} Transformed import graph data.
  */
 const getAppImportData = importGraph => {
   return Object.keys(importGraph).map(appName => {
-    const appImports = appImportGraph[appName];
+    const appImports = importGraph[appName];
 
     // Platform directory paths with files that import from the app.
     const platformImports = [
