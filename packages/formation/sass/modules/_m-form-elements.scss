@@ -212,8 +212,13 @@ legend.legend-label + .form-checkbox-buttons {
   }
 }
 
+.form-expanding-group {
+  margin-left: -2rem;
+  padding-left: 2rem;
+}
+
 .form-expanding-group-open {
-  margin-left: -7px;
+  padding-left: calc(2rem - 7px);
   border-left: 7px solid $color-primary-alt-light;
 
   // Avoid nested expanding group borders
