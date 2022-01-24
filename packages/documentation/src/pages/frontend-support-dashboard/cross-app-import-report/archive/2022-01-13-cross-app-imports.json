@@ -174,8 +174,7 @@
   "debt-letters": {
     "appsToTest": [
       "debt-letters",
-      "financial-status-report",
-      "personalization"
+      "financial-status-report"
     ],
     "appsThatThisAppImportsFrom": {},
     "appsThatImportFromThisApp": {
@@ -214,14 +213,6 @@
             "importee": "src/applications/debt-letters/actions"
           }
         ]
-      },
-      "personalization": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/debt-letters/reducers"
-          }
-        ]
       }
     },
     "platformFilesThatImportFromThisApp": []
@@ -229,7 +220,6 @@
   "disability-benefits": {
     "appsToTest": [
       "disability-benefits",
-      "personalization",
       "static-pages"
     ],
     "appsThatThisAppImportsFrom": {
@@ -251,18 +241,6 @@
       }
     },
     "appsThatImportFromThisApp": {
-      "personalization": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
-            "importee": "src/applications/disability-benefits/view-payments/actions"
-          },
-          {
-            "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/disability-benefits/view-payments/reducers"
-          }
-        ]
-      },
       "static-pages": {
         "filesImported": [
           {
@@ -863,8 +841,7 @@
   },
   "financial-status-report": {
     "appsToTest": [
-      "financial-status-report",
-      "personalization"
+      "financial-status-report"
     ],
     "appsThatThisAppImportsFrom": {
       "debt-letters": {
@@ -924,16 +901,7 @@
         ]
       }
     },
-    "appsThatImportFromThisApp": {
-      "personalization": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
-            "importee": "src/applications/financial-status-report/actions"
-          }
-        ]
-      }
-    },
+    "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
   },
   "find-forms": {
@@ -1050,18 +1018,6 @@
           }
         ]
       },
-      "disability-benefits": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
-            "importee": "src/applications/disability-benefits/view-payments/actions"
-          },
-          {
-            "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/disability-benefits/view-payments/reducers"
-          }
-        ]
-      },
       "claims-status": {
         "filesImported": [
           {
@@ -1115,22 +1071,6 @@
           {
             "importer": "src/applications/personalization/dashboard/reducers/index.js",
             "importee": "src/applications/claims-status/reducers"
-          }
-        ]
-      },
-      "financial-status-report": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
-            "importee": "src/applications/financial-status-report/actions"
-          }
-        ]
-      },
-      "debt-letters": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/debt-letters/reducers"
           }
         ]
       },
@@ -1229,14 +1169,6 @@
     "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
   },
-  "mock-sip-form": {
-    "appsToTest": [
-      "mock-sip-form"
-    ],
-    "appsThatThisAppImportsFrom": {},
-    "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
-  },
   "my-education-benefits": {
     "appsToTest": [
       "my-education-benefits"
@@ -1321,9 +1253,47 @@
     "appsToTest": [
       "resources-and-support"
     ],
-    "appsThatThisAppImportsFrom": {},
+    "appsThatThisAppImportsFrom": {
+      "search": {
+        "filesImported": [
+          {
+            "importer": "src/applications/resources-and-support/components/ResourcesAndSupportSearchApp.jsx",
+            "importee": "src/applications/search/manifest.json"
+          },
+          {
+            "importer": "src/applications/resources-and-support/components/SearchBar.jsx",
+            "importee": "src/applications/search/manifest.json"
+          }
+        ]
+      }
+    },
     "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
+  },
+  "search": {
+    "appsToTest": [
+      "search",
+      "resources-and-support"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "resources-and-support": {
+        "filesImported": [
+          {
+            "importer": "src/applications/resources-and-support/components/ResourcesAndSupportSearchApp.jsx",
+            "importee": "src/applications/search/manifest.json"
+          },
+          {
+            "importer": "src/applications/resources-and-support/components/SearchBar.jsx",
+            "importee": "src/applications/search/manifest.json"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/user-nav/components/SearchMenu.jsx",
+      "src/platform/site-wide/user-nav/index.js"
+    ]
   },
   "sah": {
     "appsToTest": [
@@ -1332,17 +1302,6 @@
     "appsThatThisAppImportsFrom": {},
     "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
-  },
-  "search": {
-    "appsToTest": [
-      "search"
-    ],
-    "appsThatThisAppImportsFrom": {},
-    "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": [
-      "src/platform/site-wide/user-nav/components/SearchMenu.jsx",
-      "src/platform/site-wide/user-nav/index.js"
-    ]
   },
   "third-party-app-directory": {
     "appsToTest": [
