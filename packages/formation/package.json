@@ -31,11 +31,11 @@
     "@fortawesome/fontawesome-free": "^5.6.3",
     "domready": "^1.0.8",
     "element-closest": "^3.0.1",
-    "foundation-sites": "5"
+    "foundation-sites": "6"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
-    "foundation-sites": "5",
+    "foundation-sites": "6",
     "uswds": "^1.6.10"
   }
 }
