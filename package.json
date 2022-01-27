@@ -78,7 +78,7 @@
     "jest": "^27.2.1",
     "lerna": "^4.0.0",
     "mini-css-extract-plugin": "^2.3.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.4",
     "mocha": "^4.0.1",
     "ncp": "^2.0.0",
     "postcss-loader": "^3.0.0",
