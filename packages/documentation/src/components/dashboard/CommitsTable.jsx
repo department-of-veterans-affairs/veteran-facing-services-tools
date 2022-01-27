@@ -9,7 +9,7 @@ const isOnEnv = (isOn) => {
 
 const getGithubLoginId = (githubObject) => {
   const { author, committer } = githubObject
-  return author?.login || committer.login;
+  return author?.login || committer?.login;
 }
 
 export default function CommitsTable({
@@ -34,7 +34,7 @@ export default function CommitsTable({
   const openAccordion = repo.repo === 'vets-website' ? false : true;
 
   return (
-    
+
     <div>
 
       <div className="dash-build-pannel">
@@ -75,8 +75,8 @@ export default function CommitsTable({
       </div>
 
       <va-accordion multi bordered>
-        <va-accordion-item 
-          header={`${repo.repo} commits`} 
+        <va-accordion-item
+          header={`${repo.repo} commits`}
           subheader='latest 30 commits'
           open={openAccordion}
         >
@@ -106,12 +106,12 @@ export default function CommitsTable({
                   <tr key={sha}>
                     <td className="dash-td-center">
                       <div className="dash-github-info">
-                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                            <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img> 
-                          </a>
-                          <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
-                            <div className="dash-github-name">{name}</div>
-                          </a>
+                        <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
+                          <img className="dash-github-image" src={`https://www.github.com/${login}.png`} alt="github"></img>
+                        </a>
+                        <a href={`https://www.github.com/${login}`} rel="noreferrer" target="_blank">
+                          <div className="dash-github-name">{name}</div>
+                        </a>
                       </div>
                     </td>
                     <td>
@@ -137,7 +137,7 @@ export default function CommitsTable({
               })}
             </tbody>
           </table>
-         </va-accordion-item>
+        </va-accordion-item>
       </va-accordion>
 
     </div>
