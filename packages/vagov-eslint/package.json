@@ -6,7 +6,7 @@
         "vagov-eslint": "./bin/vagov-eslint"
     },
     "dependencies": {
-        "eslint": "5.15.3",
+        "eslint": "8.8.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-prettier": "^6.15.0",
         "eslint-import-resolver-babel-module": "^5.0.1",
