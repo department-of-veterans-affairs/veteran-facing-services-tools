@@ -27,7 +27,6 @@
     "gatsby-remark-slug": "^0.1.0",
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-source-git": "^1.0.2",
-    "gatsby-transformer-javascript-frontmatter": "^2.3.5",
     "gatsby-transformer-react-docgen": "^5.2.5",
     "gatsby-transformer-remark": "^2.13.0",
     "gatsby-transformer-sharp": "^2.9.0",
