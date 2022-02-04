@@ -7618,16 +7618,6 @@ gatsby-telemetry@^2.14.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-transformer-javascript-frontmatter@^2.3.5:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-javascript-frontmatter/-/gatsby-transformer-javascript-frontmatter-2.10.0.tgz#4dda2c0884aba27027ed66adde2b3d331684d710"
-  integrity sha512-6cXovyoKdSJ77tQt48S+LBcsxFSUGKSG9lqWFNp1ASGFZy0QPmIMAx2eVA9zX0C62pj52U6aJRDhU3wn52OWGQ==
-  dependencies:
-    "@babel/parser" "^7.12.5"
-    "@babel/runtime" "^7.12.5"
-    "@babel/traverse" "^7.12.5"
-    bluebird "^3.7.2"
-
 gatsby-transformer-react-docgen@^5.2.5:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-react-docgen/-/gatsby-transformer-react-docgen-5.9.0.tgz#bc121c45e6b1fb4f683d08326c1b5c394c7b80c7"
