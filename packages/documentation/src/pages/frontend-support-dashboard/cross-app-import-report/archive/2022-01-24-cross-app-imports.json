@@ -207,7 +207,7 @@
           },
           {
             "importer": "src/applications/financial-status-report/containers/ConfirmationPage.jsx",
-            "importee": "src/applications/debt-letters/const/deduction-codes"
+            "importee": "src/applications/debt-letters/const/deduction-codes/"
           },
           {
             "importer": "src/applications/financial-status-report/reducers/index.js",
@@ -267,15 +267,15 @@
         "filesImported": [
           {
             "importer": "src/applications/static-pages/static-pages-entry.js",
-            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
-          },
-          {
-            "importer": "src/applications/static-pages/static-pages-entry.js",
             "importee": "src/applications/disability-benefits/wizard/createWizard"
           },
           {
             "importer": "src/applications/static-pages/static-pages-entry.js",
             "importee": "src/applications/disability-benefits/disability-rating-calculator/createCalculator"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
           },
           {
             "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
@@ -312,18 +312,6 @@
             "importee": "src/applications/facility-locator/utils/facilityHours"
           },
           {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapboxToken"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/facilityAddress"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapHelpers"
-          },
-          {
             "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
             "importee": "src/applications/facility-locator/utils/mapboxToken"
           },
@@ -333,18 +321,6 @@
           },
           {
             "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapHelpers"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
-            "importee": "src/applications/facility-locator/utils/mapboxToken"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
-            "importee": "src/applications/facility-locator/utils/facilityAddress"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
             "importee": "src/applications/facility-locator/utils/mapHelpers"
           },
           {
@@ -365,12 +341,16 @@
           }
         ]
       },
-      "disability-benefits": {
+      "coronavirus-chatbot": {
         "filesImported": [
           {
             "importer": "src/applications/static-pages/static-pages-entry.js",
-            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
-          },
+            "importee": "src/applications/coronavirus-chatbot/createCoronavirusChatbot"
+          }
+        ]
+      },
+      "disability-benefits": {
+        "filesImported": [
           {
             "importer": "src/applications/static-pages/static-pages-entry.js",
             "importee": "src/applications/disability-benefits/wizard/createWizard"
@@ -380,20 +360,16 @@
             "importee": "src/applications/disability-benefits/disability-rating-calculator/createCalculator"
           },
           {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
+          },
+          {
             "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
             "importee": "src/applications/disability-benefits/all-claims/constants"
           },
           {
             "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
             "importee": "src/applications/disability-benefits/wizard/pages"
-          }
-        ]
-      },
-      "coronavirus-chatbot": {
-        "filesImported": [
-          {
-            "importer": "src/applications/static-pages/static-pages-entry.js",
-            "importee": "src/applications/coronavirus-chatbot/createCoronavirusChatbot"
           }
         ]
       },
@@ -637,7 +613,9 @@
       }
     },
     "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/banners/index.js",
       "src/platform/site-wide/component-library-analytics-setup.js",
+      "src/platform/site-wide/side-nav/index.js",
       "src/platform/site-wide/va-footer/components/Footer.jsx",
       "src/platform/site-wide/va-footer/components/LanguageSupport.jsx",
       "src/platform/startup/store.js"
@@ -815,22 +793,6 @@
     },
     "platformFilesThatImportFromThisApp": []
   },
-  "education-inbox": {
-    "appsToTest": [
-      "education-inbox"
-    ],
-    "appsThatThisAppImportsFrom": {},
-    "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
-  },
-  "enrollment-verification": {
-    "appsToTest": [
-      "enrollment-verification"
-    ],
-    "appsThatThisAppImportsFrom": {},
-    "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
-  },
   "facility-locator": {
     "appsToTest": [
       "facility-locator",
@@ -867,18 +829,6 @@
             "importee": "src/applications/facility-locator/utils/facilityHours"
           },
           {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapboxToken"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/facilityAddress"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapHelpers"
-          },
-          {
             "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
             "importee": "src/applications/facility-locator/utils/mapboxToken"
           },
@@ -888,18 +838,6 @@
           },
           {
             "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
-            "importee": "src/applications/facility-locator/utils/mapHelpers"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
-            "importee": "src/applications/facility-locator/utils/mapboxToken"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
-            "importee": "src/applications/facility-locator/utils/facilityAddress"
-          },
-          {
-            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
             "importee": "src/applications/facility-locator/utils/mapHelpers"
           },
           {
@@ -957,7 +895,7 @@
           },
           {
             "importer": "src/applications/financial-status-report/containers/ConfirmationPage.jsx",
-            "importee": "src/applications/debt-letters/const/deduction-codes"
+            "importee": "src/applications/debt-letters/const/deduction-codes/"
           },
           {
             "importer": "src/applications/financial-status-report/reducers/index.js",
@@ -1069,6 +1007,14 @@
             "importee": "src/applications/hca/actions"
           },
           {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/constants"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/selectors"
+          },
+          {
             "importer": "src/applications/personalization/profile/reducers/index.js",
             "importee": "src/applications/hca/reducers/hca-enrollment-status-reducer"
           }
@@ -1089,6 +1035,14 @@
           {
             "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
             "importee": "src/applications/hca/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/constants"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/selectors"
           },
           {
             "importer": "src/applications/personalization/profile/reducers/index.js",
@@ -1301,14 +1255,6 @@
         ]
       }
     },
-    "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
-  },
-  "office-directory": {
-    "appsToTest": [
-      "office-directory"
-    ],
-    "appsThatThisAppImportsFrom": {},
     "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
   },
