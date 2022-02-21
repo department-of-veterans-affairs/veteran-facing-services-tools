@@ -6,7 +6,7 @@
         "vagov-eslint": "./bin/vagov-eslint"
     },
     "dependencies": {
-        "eslint": "5.15.3",
+        "eslint": "8.8.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-prettier": "^6.15.0",
         "eslint-import-resolver-babel-module": "^5.0.1",
@@ -21,7 +21,7 @@
         "eslint-plugin-scanjs-rules": "^0.2.1",
         "eslint-plugin-va-enzyme": "file:./custom-eslint/va-enzyme",
         "prettier": "^2.4.0",
-        "shelljs": "0.8.4",
+        "shelljs": "0.8.5",
         "window-or-global": "^1.0.1"
     },
     "scripts": {

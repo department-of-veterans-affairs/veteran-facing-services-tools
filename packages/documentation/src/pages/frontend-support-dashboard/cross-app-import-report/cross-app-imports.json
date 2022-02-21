@@ -1,0 +1,1512 @@
+{
+  "appeals": {
+    "appsToTest": [
+      "appeals"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "ask-a-question": {
+    "appsToTest": [
+      "ask-a-question"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "auth": {
+    "appsToTest": [
+      "auth"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "beta-enrollment": {
+    "appsToTest": [
+      "beta-enrollment"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "burials": {
+    "appsToTest": [
+      "burials"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "caregivers": {
+    "appsToTest": [
+      "caregivers"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "check-in": {
+    "appsToTest": [
+      "check-in"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "claims-status": {
+    "appsToTest": [
+      "claims-status",
+      "personalization"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/Appeal.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/Claim.jsx",
+            "importee": "src/applications/claims-status/utils/helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/ClaimsAndAppeals.jsx",
+            "importee": "src/applications/claims-status/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/ClaimsAndAppeals.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/HighlightedClaimAppeal.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/ClaimsListItem.jsx",
+            "importee": "src/applications/claims-status/utils/helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/actions/index.jsx"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/appeals-v2/AppealListItemV2"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/ClaimsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/AppealsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/ClaimsAppealsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/claims-status/reducers"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "coronavirus-chatbot": {
+    "appsToTest": [
+      "coronavirus-chatbot",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/coronavirus-chatbot/createCoronavirusChatbot"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "coronavirus-research": {
+    "appsToTest": [
+      "coronavirus-research"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "coronavirus-screener": {
+    "appsToTest": [
+      "coronavirus-screener"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "coronavirus-vaccination-expansion": {
+    "appsToTest": [
+      "coronavirus-vaccination-expansion"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "coronavirus-vaccination": {
+    "appsToTest": [
+      "coronavirus-vaccination"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "debt-letters": {
+    "appsToTest": [
+      "debt-letters",
+      "financial-status-report",
+      "personalization"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "financial-status-report": {
+        "filesImported": [
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/actions"
+          },
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/utils/mockResponses"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/DebtCard.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/DebtCard.jsx",
+            "importee": "src/applications/debt-letters/const/diary-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/ResolutionDebtCards.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/containers/ConfirmationPage.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/reducers/index.js",
+            "importee": "src/applications/debt-letters/actions"
+          }
+        ]
+      },
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/debt-letters/reducers"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "disability-benefits": {
+    "appsToTest": [
+      "disability-benefits",
+      "personalization",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/disability-benefits/996/wizard/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/disability-benefits/all-claims/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/disability-benefits/wizard/wizard-entry.js",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
+            "importee": "src/applications/disability-benefits/view-payments/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/disability-benefits/view-payments/reducers"
+          }
+        ]
+      },
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/wizard/createWizard"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/disability-rating-calculator/createCalculator"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
+            "importee": "src/applications/disability-benefits/all-claims/constants"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
+            "importee": "src/applications/disability-benefits/wizard/pages"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "static-pages": {
+    "appsToTest": [
+      "static-pages",
+      "disability-benefits",
+      "edu-benefits",
+      "financial-status-report",
+      "personalization",
+      "post-911-gib-status",
+      "vre"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "facility-locator": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityAddress.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityDetailWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityHours"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/tests/NearbyVetCenters.unit.spec.jsx",
+            "importee": "src/applications/facility-locator/utils/mapbox"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vet-center/NearByVetCenters.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityDistance"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vet-center/NearByVetCenters.jsx",
+            "importee": "src/applications/facility-locator/utils/mapbox"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vetCentersHours.jsx",
+            "importee": "src/applications/facility-locator/utils/formatHours"
+          }
+        ]
+      },
+      "disability-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/996/components/createHLRApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/wizard/createWizard"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/disability-benefits/disability-rating-calculator/createCalculator"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
+            "importee": "src/applications/disability-benefits/all-claims/constants"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/bdd-526.unit.spec.jsx",
+            "importee": "src/applications/disability-benefits/wizard/pages"
+          }
+        ]
+      },
+      "coronavirus-chatbot": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/coronavirus-chatbot/createCoronavirusChatbot"
+          }
+        ]
+      },
+      "edu-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/edu-benefits/components/createEducationApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/edu-benefits/components/createOptOutApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/edu-benefits.unit.spec.jsx",
+            "importee": "src/applications/edu-benefits/wizard/pages"
+          }
+        ]
+      },
+      "find-forms": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/find-forms/createFindVaForms"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/find-forms/widgets/createFindVaFormsPDFDownloadHelper"
+          }
+        ]
+      },
+      "post-911-gib-status": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/post-911-gib-status/createPost911GiBillStatusWidget"
+          }
+        ]
+      },
+      "third-party-app-directory": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/third-party-app-directory/createThirdPartyApps"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "disability-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/disability-benefits/996/wizard/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/disability-benefits/all-claims/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/disability-benefits/wizard/wizard-entry.js",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      },
+      "edu-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/edu-benefits/0994/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/tests/e2e/edu-0994.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990e/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990e/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990n/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990n/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990s/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1995/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1995/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5490/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5490/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5495/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5495/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/components/EducationWizard.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/tests/wizard/containers/WizardContainer.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/ApplyNow.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/ClaimingBenefitOwnService.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/NewBenefit.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/SponsorDeceased.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/STEMScholarship.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/TransferredBenefits.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/VetTec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/WarningAlert.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      },
+      "financial-status-report": {
+        "filesImported": [
+          {
+            "importer": "src/applications/financial-status-report/tests/e2e/fsr-5655-wizard.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/tests/e2e/fsr-5655.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/wizard/components/StartFormButton.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/wizard/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      },
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/view-dependents/layouts/ViewDependentsLists.jsx",
+            "importee": "src/applications/static-pages/dependency-verification/components/dependencyVerificationModal"
+          },
+          {
+            "importer": "src/applications/personalization/view-dependents/view-dependents-entry.jsx",
+            "importee": "src/applications/static-pages/dependency-verification/reducers"
+          }
+        ]
+      },
+      "post-911-gib-status": {
+        "filesImported": [
+          {
+            "importer": "src/applications/post-911-gib-status/containers/ServiceAvailabilityBanner.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          }
+        ]
+      },
+      "vre": {
+        "filesImported": [
+          {
+            "importer": "src/applications/vre/28-1900/containers/OrientationWizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/wizard/pages/ApplyLaterNotification.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/wizard/pages/StartForm.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/component-library-analytics-setup.js",
+      "src/platform/site-wide/va-footer/components/Footer.jsx",
+      "src/platform/site-wide/va-footer/components/LanguageSupport.jsx",
+      "src/platform/startup/store.js"
+    ]
+  },
+  "discharge-wizard": {
+    "appsToTest": [
+      "discharge-wizard"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "e-folders": {
+    "appsToTest": [
+      "e-folders"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "edu-benefits": {
+    "appsToTest": [
+      "edu-benefits",
+      "my-education-benefits",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/edu-benefits/0994/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/0994/tests/e2e/edu-0994.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990e/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990e/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990n/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990n/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1990s/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1995/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/1995/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5490/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5490/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5495/containers/IntroductionPage.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/5495/tests/containers/IntroductionPage.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/components/EducationWizard.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/tests/wizard/containers/WizardContainer.unit.spec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/ApplyNow.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/ClaimingBenefitOwnService.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/NewBenefit.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/SponsorDeceased.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/STEMScholarship.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/TransferredBenefits.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/VetTec.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/edu-benefits/wizard/pages/WarningAlert.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "my-education-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/pages/directDeposit"
+          },
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/1990/helpers"
+          }
+        ]
+      },
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/edu-benefits/components/createEducationApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/edu-benefits/components/createOptOutApplicationStatus"
+          },
+          {
+            "importer": "src/applications/static-pages/wizard/tests/edu-benefits.unit.spec.jsx",
+            "importee": "src/applications/edu-benefits/wizard/pages"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "education-inbox": {
+    "appsToTest": [
+      "education-inbox"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "enrollment-verification": {
+    "appsToTest": [
+      "enrollment-verification"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "facility-locator": {
+    "appsToTest": [
+      "facility-locator",
+      "hca",
+      "personalization",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "hca": {
+        "filesImported": [
+          {
+            "importer": "src/applications/hca/helpers.jsx",
+            "importee": "src/applications/facility-locator/manifest.json"
+          }
+        ]
+      },
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/profile/components/military-information/MilitaryInformation.jsx",
+            "importee": "src/applications/facility-locator/manifest.json"
+          }
+        ]
+      },
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityAddress.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityDetailWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityHours"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapSatelliteMainWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidget.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/mapboxToken"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityAddress"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/FacilityMapWidgetDynamic.jsx",
+            "importee": "src/applications/facility-locator/utils/mapHelpers"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/tests/NearbyVetCenters.unit.spec.jsx",
+            "importee": "src/applications/facility-locator/utils/mapbox"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vet-center/NearByVetCenters.jsx",
+            "importee": "src/applications/facility-locator/utils/facilityDistance"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vet-center/NearByVetCenters.jsx",
+            "importee": "src/applications/facility-locator/utils/mapbox"
+          },
+          {
+            "importer": "src/applications/static-pages/facilities/vetCentersHours.jsx",
+            "importee": "src/applications/facility-locator/utils/formatHours"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "financial-status-report": {
+    "appsToTest": [
+      "financial-status-report",
+      "personalization"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "debt-letters": {
+        "filesImported": [
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/actions"
+          },
+          {
+            "importer": "src/applications/financial-status-report/actions/index.js",
+            "importee": "src/applications/debt-letters/utils/mockResponses"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/DebtCard.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/DebtCard.jsx",
+            "importee": "src/applications/debt-letters/const/diary-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/components/ResolutionDebtCards.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/containers/ConfirmationPage.jsx",
+            "importee": "src/applications/debt-letters/const/deduction-codes"
+          },
+          {
+            "importer": "src/applications/financial-status-report/reducers/index.js",
+            "importee": "src/applications/debt-letters/actions"
+          }
+        ]
+      },
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/financial-status-report/tests/e2e/fsr-5655-wizard.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/tests/e2e/fsr-5655.cypress.spec.js",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/wizard/components/StartFormButton.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/financial-status-report/wizard/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
+            "importee": "src/applications/financial-status-report/actions"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "find-forms": {
+    "appsToTest": [
+      "find-forms",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/find-forms/createFindVaForms"
+          },
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/find-forms/widgets/createFindVaFormsPDFDownloadHelper"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "gi-sandbox": {
+    "appsToTest": [
+      "gi-sandbox"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "gi": {
+    "appsToTest": [
+      "gi"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/mobile-menu-button/tests/main.unit.spec.js"
+    ]
+  },
+  "hca": {
+    "appsToTest": [
+      "hca",
+      "personalization"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/hca/enrollment-status-helpers.jsx",
+            "importee": "src/applications/personalization/dashboard/components/DashboardAlert"
+          }
+        ]
+      },
+      "facility-locator": {
+        "filesImported": [
+          {
+            "importer": "src/applications/hca/helpers.jsx",
+            "importee": "src/applications/facility-locator/manifest.json"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/actions"
+          },
+          {
+            "importer": "src/applications/personalization/profile/reducers/index.js",
+            "importee": "src/applications/hca/reducers/hca-enrollment-status-reducer"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "personalization": {
+    "appsToTest": [
+      "personalization",
+      "hca",
+      "vre"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "hca": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/apply-for-benefits/ApplyForBenefits.jsx",
+            "importee": "src/applications/hca/actions"
+          },
+          {
+            "importer": "src/applications/personalization/profile/reducers/index.js",
+            "importee": "src/applications/hca/reducers/hca-enrollment-status-reducer"
+          }
+        ]
+      },
+      "disability-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
+            "importee": "src/applications/disability-benefits/view-payments/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/disability-benefits/view-payments/reducers"
+          }
+        ]
+      },
+      "claims-status": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/Appeal.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/Claim.jsx",
+            "importee": "src/applications/claims-status/utils/helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/ClaimsAndAppeals.jsx",
+            "importee": "src/applications/claims-status/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/ClaimsAndAppeals.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/claims-and-appeals/HighlightedClaimAppeal.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/components/ClaimsListItem.jsx",
+            "importee": "src/applications/claims-status/utils/helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/utils/appeals-v2-helpers"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/actions/index.jsx"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/appeals-v2/AppealListItemV2"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/ClaimsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/AppealsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/containers/ClaimsAppealsWidget.jsx",
+            "importee": "src/applications/claims-status/components/ClaimsAppealsUnavailable"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/claims-status/reducers"
+          }
+        ]
+      },
+      "financial-status-report": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
+            "importee": "src/applications/financial-status-report/actions"
+          }
+        ]
+      },
+      "debt-letters": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/debt-letters/reducers"
+          }
+        ]
+      },
+      "facility-locator": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/profile/components/military-information/MilitaryInformation.jsx",
+            "importee": "src/applications/facility-locator/manifest.json"
+          }
+        ]
+      },
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/view-dependents/layouts/ViewDependentsLists.jsx",
+            "importee": "src/applications/static-pages/dependency-verification/components/dependencyVerificationModal"
+          },
+          {
+            "importer": "src/applications/personalization/view-dependents/view-dependents-entry.jsx",
+            "importee": "src/applications/static-pages/dependency-verification/reducers"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "hca": {
+        "filesImported": [
+          {
+            "importer": "src/applications/hca/enrollment-status-helpers.jsx",
+            "importee": "src/applications/personalization/dashboard/components/DashboardAlert"
+          }
+        ]
+      },
+      "vre": {
+        "filesImported": [
+          {
+            "importer": "src/applications/vre/28-1900/tests/e2e/chapter31-loa1.cypress.spec.js",
+            "importee": "src/applications/personalization/profile/tests/fixtures/users/user-loa1.json"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/forms/save-in-progress/ApplicationStatus.jsx",
+      "src/platform/site-wide/mega-menu/tests/megaMenu.cypress.spec.js",
+      "src/platform/user/profile/vap-svc/components/ContactInformationFieldInfo/ContactInformationUpdateSuccessAlert.jsx",
+      "src/platform/user/profile/vap-svc/components/ProfileInformationFieldController.jsx",
+      "src/platform/user/profile/vap-svc/tests/selectors.unit.spec.js"
+    ]
+  },
+  "health-care-questionnaire": {
+    "appsToTest": [
+      "health-care-questionnaire"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "letters": {
+    "appsToTest": [
+      "letters"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "lgy": {
+    "appsToTest": [
+      "lgy"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "login": {
+    "appsToTest": [
+      "login"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "medical-copays": {
+    "appsToTest": [
+      "medical-copays"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "messages": {
+    "appsToTest": [
+      "messages"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "mock-sip-form": {
+    "appsToTest": [
+      "mock-sip-form"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "my-education-benefits": {
+    "appsToTest": [
+      "my-education-benefits"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "edu-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/pages/directDeposit"
+          },
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/1990/helpers"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "office-directory": {
+    "appsToTest": [
+      "office-directory"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "pensions": {
+    "appsToTest": [
+      "pensions"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "post-911-gib-status": {
+    "appsToTest": [
+      "post-911-gib-status",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/post-911-gib-status/containers/ServiceAvailabilityBanner.jsx",
+            "importee": "src/applications/static-pages/cta-widget"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/post-911-gib-status/createPost911GiBillStatusWidget"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "pre-need": {
+    "appsToTest": [
+      "pre-need"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "proxy-rewrite": {
+    "appsToTest": [
+      "proxy-rewrite"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "public-outreach-materials": {
+    "appsToTest": [
+      "public-outreach-materials"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "resources-and-support": {
+    "appsToTest": [
+      "resources-and-support"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "sah": {
+    "appsToTest": [
+      "sah"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "search": {
+    "appsToTest": [
+      "search"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/user-nav/components/SearchMenu.jsx",
+      "src/platform/site-wide/user-nav/index.js"
+    ]
+  },
+  "third-party-app-directory": {
+    "appsToTest": [
+      "third-party-app-directory",
+      "static-pages"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/static-pages/static-pages-entry.js",
+            "importee": "src/applications/third-party-app-directory/createThirdPartyApps"
+          }
+        ]
+      }
+    },
+    "platformFilesThatImportFromThisApp": []
+  },
+  "terms-and-conditions": {
+    "appsToTest": [
+      "terms-and-conditions"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "vaos": {
+    "appsToTest": [
+      "vaos"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "verify": {
+    "appsToTest": [
+      "verify"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "veteran-id-card": {
+    "appsToTest": [
+      "veteran-id-card"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "veteran-representative": {
+    "appsToTest": [
+      "veteran-representative"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "virtual-agent": {
+    "appsToTest": [
+      "virtual-agent"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "vre": {
+    "appsToTest": [
+      "vre"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "static-pages": {
+        "filesImported": [
+          {
+            "importer": "src/applications/vre/28-1900/containers/OrientationWizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/containers/WizardContainer.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/wizard/pages/ApplyLaterNotification.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          },
+          {
+            "importer": "src/applications/vre/28-8832/wizard/pages/StartForm.jsx",
+            "importee": "src/applications/static-pages/wizard"
+          }
+        ]
+      },
+      "personalization": {
+        "filesImported": [
+          {
+            "importer": "src/applications/vre/28-1900/tests/e2e/chapter31-loa1.cypress.spec.js",
+            "importee": "src/applications/personalization/profile/tests/fixtures/users/user-loa1.json"
+          }
+        ]
+      }
+    },
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "yellow-ribbon": {
+    "appsToTest": [
+      "yellow-ribbon"
+    ],
+    "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  }
+}

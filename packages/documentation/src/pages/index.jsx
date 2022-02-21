@@ -35,15 +35,26 @@ export default function Index({ location }) {
             .
           </li>
           <li>
-            For information about the unit test coverage report by application, see the{' '}
-            <Link to="/unit-test-coverage-report">
+            For information about the unit test coverage report by application,
+            see the{' '}
+            <Link to="/frontend-support-dashboard/unit-test-coverage-report">
               Unit Test Coverage Report
             </Link>
             .
           </li>
           <li>
             For information about the performance report by application, see the{' '}
-            <Link to="/lighthouse-performance-report">Performance Report</Link>.
+            <Link to="/frontend-support-dashboard/lighthouse-performance-report">
+              Performance Report
+            </Link>
+            .
+          </li>
+          <li>
+            For information about cross app import statistics, see the{' '}
+            <Link to="/frontend-support-dashboard/cross-app-import-report">
+              Cross App Import Report
+            </Link>
+            .
           </li>
         </ul>
       </div>
