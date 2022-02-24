@@ -123,4 +123,4 @@ jobs:
           git config --global user.name va-bot
           git config --global credential.helper '${{ github.workspace }}/scripts/credential-helper.sh'
       - name: Deploy
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy
+        run: GITHUB_API_KEY=${{ env.GIT_PASSWORD }} npm run deploy
