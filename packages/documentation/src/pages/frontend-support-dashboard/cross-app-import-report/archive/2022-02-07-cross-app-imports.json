@@ -218,14 +218,6 @@
       "personalization": {
         "filesImported": [
           {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/debt-letters/const/deduction-codes"
-          },
-          {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/debt-letters/actions"
-          },
-          {
             "importer": "src/applications/personalization/dashboard/reducers/index.js",
             "importee": "src/applications/debt-letters/reducers"
           }
@@ -261,6 +253,10 @@
     "appsThatImportFromThisApp": {
       "personalization": {
         "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
+            "importee": "src/applications/disability-benefits/view-payments/actions"
+          },
           {
             "importer": "src/applications/personalization/dashboard/reducers/index.js",
             "importee": "src/applications/disability-benefits/view-payments/reducers"
@@ -792,6 +788,10 @@
         "filesImported": [
           {
             "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/pages/directDeposit"
+          },
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
             "importee": "src/applications/edu-benefits/1990/helpers"
           }
         ]
@@ -819,44 +819,8 @@
     "appsToTest": [
       "education-inbox"
     ],
-    "appsThatThisAppImportsFrom": {
-      "my-education-benefits": {
-        "filesImported": [
-          {
-            "importer": "src/applications/education-inbox/containers/App.jsx",
-            "importee": "src/applications/my-education-benefits/selectors/userDispatch"
-          }
-        ]
-      }
-    },
+    "appsThatThisAppImportsFrom": {},
     "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
-  },
-  "my-education-benefits": {
-    "appsToTest": [
-      "my-education-benefits",
-      "education-inbox"
-    ],
-    "appsThatThisAppImportsFrom": {
-      "edu-benefits": {
-        "filesImported": [
-          {
-            "importer": "src/applications/my-education-benefits/config/form.js",
-            "importee": "src/applications/edu-benefits/1990/helpers"
-          }
-        ]
-      }
-    },
-    "appsThatImportFromThisApp": {
-      "education-inbox": {
-        "filesImported": [
-          {
-            "importer": "src/applications/education-inbox/containers/App.jsx",
-            "importee": "src/applications/my-education-benefits/selectors/userDispatch"
-          }
-        ]
-      }
-    },
     "platformFilesThatImportFromThisApp": []
   },
   "enrollment-verification": {
@@ -1026,8 +990,8 @@
       "personalization": {
         "filesImported": [
           {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/financial-status-report/constants/actionTypes"
+            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
+            "importee": "src/applications/financial-status-report/actions"
           }
         ]
       }
@@ -1070,7 +1034,9 @@
     ],
     "appsThatThisAppImportsFrom": {},
     "appsThatImportFromThisApp": {},
-    "platformFilesThatImportFromThisApp": []
+    "platformFilesThatImportFromThisApp": [
+      "src/platform/site-wide/mobile-menu-button/tests/main.unit.spec.js"
+    ]
   },
   "hca": {
     "appsToTest": [
@@ -1118,30 +1084,6 @@
       "vre"
     ],
     "appsThatThisAppImportsFrom": {
-      "debt-letters": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/debt-letters/const/deduction-codes"
-          },
-          {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/debt-letters/actions"
-          },
-          {
-            "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/debt-letters/reducers"
-          }
-        ]
-      },
-      "financial-status-report": {
-        "filesImported": [
-          {
-            "importer": "src/applications/personalization/dashboard/actions/debts.js",
-            "importee": "src/applications/financial-status-report/constants/actionTypes"
-          }
-        ]
-      },
       "hca": {
         "filesImported": [
           {
@@ -1151,6 +1093,18 @@
           {
             "importer": "src/applications/personalization/profile/reducers/index.js",
             "importee": "src/applications/hca/reducers/hca-enrollment-status-reducer"
+          }
+        ]
+      },
+      "disability-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/benefit-payments-and-debts/BenefitPaymentsAndDebt.jsx",
+            "importee": "src/applications/disability-benefits/view-payments/actions"
+          },
+          {
+            "importer": "src/applications/personalization/dashboard/reducers/index.js",
+            "importee": "src/applications/disability-benefits/view-payments/reducers"
           }
         ]
       },
@@ -1210,11 +1164,19 @@
           }
         ]
       },
-      "disability-benefits": {
+      "financial-status-report": {
+        "filesImported": [
+          {
+            "importer": "src/applications/personalization/dashboard/components/Dashboard.jsx",
+            "importee": "src/applications/financial-status-report/actions"
+          }
+        ]
+      },
+      "debt-letters": {
         "filesImported": [
           {
             "importer": "src/applications/personalization/dashboard/reducers/index.js",
-            "importee": "src/applications/disability-benefits/view-payments/reducers"
+            "importee": "src/applications/debt-letters/reducers"
           }
         ]
       },
@@ -1318,6 +1280,27 @@
       "mock-sip-form"
     ],
     "appsThatThisAppImportsFrom": {},
+    "appsThatImportFromThisApp": {},
+    "platformFilesThatImportFromThisApp": []
+  },
+  "my-education-benefits": {
+    "appsToTest": [
+      "my-education-benefits"
+    ],
+    "appsThatThisAppImportsFrom": {
+      "edu-benefits": {
+        "filesImported": [
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/pages/directDeposit"
+          },
+          {
+            "importer": "src/applications/my-education-benefits/config/form.js",
+            "importee": "src/applications/edu-benefits/1990/helpers"
+          }
+        ]
+      }
+    },
     "appsThatImportFromThisApp": {},
     "platformFilesThatImportFromThisApp": []
   },
