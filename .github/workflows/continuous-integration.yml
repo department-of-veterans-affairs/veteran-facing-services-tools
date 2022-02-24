@@ -121,6 +121,6 @@ jobs:
         run: |
           git config --global user.email james.kassemi+vabot@adhocteam.us
           git config --global user.name va-bot
-          git config --global credential.helper '/bin/bash ./scripts/credential-helper.sh'
+          git config --global credential.helper '${{ github.workspace }}/scripts/credential-helper.sh'
       - name: Deploy
         run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy
