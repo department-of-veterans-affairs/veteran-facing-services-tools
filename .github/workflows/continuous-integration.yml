@@ -14,7 +14,6 @@ concurrency:
   group: ${{ github.ref != 'refs/heads/master' && github.ref || github.sha }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
-
 jobs:
   linting:
     name: Linting
