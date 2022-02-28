@@ -112,11 +112,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-gov-west-1
 
-      - name: Get va-bot password
+      - name: Get va github token
         uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
         with:
-          ssm_parameter: /devops/github/va-bot/password
-          env_variable_name: VA_BOT_PASSWORD
+          ssm_parameter: /devops/service_account/svc-gha-frontendteam-user/github-token 
+          env_variable_name: VA_GITHUB_TOKEN
 
       - name: Config Git
         run: |
@@ -125,4 +125,4 @@ jobs:
           git config --global credential.helper '${{ github.workspace }}/scripts/credential-helper.sh'
 
       - name: Deploy
-        run: GITHUB_API_KEY=${{ env.VA_BOT_PASSWORD }} npm run deploy
+        run: GITHUB_API_KEY=${{ env.VA_GITHUB_TOKEN }} npm run deploy
