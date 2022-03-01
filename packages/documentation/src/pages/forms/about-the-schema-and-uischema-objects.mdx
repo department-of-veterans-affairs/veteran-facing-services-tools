@@ -124,6 +124,10 @@ The VAFS code includes additional `uiSchema` functionality not found in the RJSF
   // It can also be a component, which passes the current form data as a property.
   'ui:title': ({ formData }) => <legend>{`A ${formData.thing} title`}</legend>,
 
+  // set "autocomplete" property on input - see
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
+  'ui:autocomplete': 'off',
+
   // Used instead of the `description` property in the JSON Schema. This can be a string
   // or a React component, and is normally used on object fields in the schema to provide
   // description text or HTML before a block of fields.
