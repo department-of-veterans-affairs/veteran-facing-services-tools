@@ -156,6 +156,8 @@ const formConfig = {
             }
           }
         },
+        // inputs for full name include the appropriate autocomplete properties:
+        // first (given-name), middle (additional-name) and last (family-name)
         veteranFullName: set('ui:options.expandUnder', 'myField', fullNameUI)
       },
       schema: {

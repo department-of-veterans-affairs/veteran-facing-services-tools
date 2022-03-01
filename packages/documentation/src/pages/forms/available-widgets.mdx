@@ -68,14 +68,14 @@ Renders three separate fields for dates, two `<select>` elements for month and d
 
 ## `EmailWidget`
 
-Renders a `TextWidget` with the `type: "email"` passed to the `<input>` element.
+Renders a `TextWidget` with the `type: "email"` and `autocomplete: 'email'` passed to the `<input>` element.
 
 - **File:** [EmailWidget.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/widgets/EmailWidget.jsx)
 - **Usage:** In the `uiSchema`, specify `'ui:widget': 'email'` for the given field.
 
 ## `PhoneNumberWidget`
 
-Renders a `TextWidget` with additional logic to strip non-numeric characters from the input before saving the input.
+Renders a `TextWidget` with additional logic to strip non-numeric characters from the input before saving the input. The phone number input includes an `autocomplete: 'tel'` setting.
 
 - **File:** [PhoneNumberWidget.jsx](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/forms-system/src/js/widgets/PhoneNumberWidget.jsx)
 - **Usage:** In the `uiSchema`, specify `'ui:widget': PhoneNumberWidget` for the given field.
