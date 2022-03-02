@@ -120,8 +120,8 @@ jobs:
 
       - name: Set identity
         run: |
-          git config --global user.email james.kassemi+vabot@adhocteam.us
-          git config --global user.name va-bot
+          git config user.email va-vsp-bot@users.noreply.github.com
+          git config user.name va-vsp-bot
 
       - name: Deploy
         run: |
