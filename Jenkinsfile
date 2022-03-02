@@ -18,28 +18,28 @@ pipeline {
       }
     }
 
-    stage('test, and build') {
-      steps {
-        parallel (
-          'lint': {
-            sh 'npm run lint'
-          },
-          'test': {
-            sh 'NODE_ENV=test npm run test'
-          },
-          'build': {
-            withCredentials([[
-              $class: 'UsernamePasswordMultiBinding',
-              credentialsId: 'va-bot',
-              usernameVariable: 'USERNAME',
-              passwordVariable: 'TOKEN'
-            ]]) {
-              sh "GITHUB_API_KEY=${env.TOKEN} npm run build"
-            }
-          }
-        )
-      }
-    }
+    // stage('test, and build') {
+    //   steps {
+    //     parallel (
+    //       'lint': {
+    //         sh 'npm run lint'
+    //       },
+    //       'test': {
+    //         sh 'NODE_ENV=test npm run test'
+    //       },
+    //       'build': {
+    //         withCredentials([[
+    //           $class: 'UsernamePasswordMultiBinding',
+    //           credentialsId: 'va-bot',
+    //           usernameVariable: 'USERNAME',
+    //           passwordVariable: 'TOKEN'
+    //         ]]) {
+    //           sh "GITHUB_API_KEY=${env.TOKEN} npm run build"
+    //         }
+    //       }
+    //     )
+    //   }
+    // }
 
    //stage('deploy') {
    //  when { branch 'master' }

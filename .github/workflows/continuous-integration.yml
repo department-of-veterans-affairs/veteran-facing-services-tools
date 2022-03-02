@@ -118,6 +118,11 @@ jobs:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
+      - name: Set username and email
+        run: |
+          git config user.email va-vsp-bot@users.noreply.github.com
+          git config user.name va-vsp-bot
+
       - name: Deploy
         run: |
           git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/department-of-veterans-affairs/veteran-facing-services-tools.git
