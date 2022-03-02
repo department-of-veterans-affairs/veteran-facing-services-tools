@@ -118,8 +118,7 @@ jobs:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
-      - name: Config Git
-        run: git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/veteran-facing-services-tools.git
-
       - name: Deploy
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy
+        run: |
+          git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/department-of-veterans-affairs/veteran-facing-services-tools.git
+          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy
