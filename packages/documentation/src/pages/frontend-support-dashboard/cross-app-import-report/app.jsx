@@ -109,7 +109,7 @@ const App = ({ location }) => {
         >
           <h1>Frontend Support Dashboard</h1>
           <h2>Cross App Import Report</h2>
-          <p>Last updated: February 24, 2022</p>
+          <p>Last updated: March 2, 2022</p>
           <p>
             <strong>
               {stats.appsIsolated} out of {stats.totalAppCount} (
