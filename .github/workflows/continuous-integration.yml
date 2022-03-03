@@ -108,14 +108,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Get Node version
+        id: get-node-version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
       - name: Install dependencies
-        uses: ./.github/workflows/install
+        uses: actions/setup-node@v2
         with:
-          key: ${{ hashFiles('yarn.lock') }}
-          yarn_cache_folder: .cache/yarn
-          path: |
-            .cache/yarn
-            node_modules
+          node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
+          cache: 'yarn'
+          cache-dependency-path: packages/documentation/yarn.lock
+        run: yarn install --frozen-lockfile --prefer-offline --production=false
+        working-directory: packages/documentation
 
       - name: Download documentation build artifact
         uses: actions/download-artifact@v2
