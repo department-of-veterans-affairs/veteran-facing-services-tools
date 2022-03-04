@@ -81,7 +81,7 @@ const App = ({ location }) => {
                 return (
                   <div
                     key={i}
-                    className="vads-l-col--12 large-screen:vads-l-col--6 vads-u-display--flex vads-u-padding--2 vads-u-background-color--gray-light-alt"
+                    className="vads-l-col--12 large-screen:vads-l-col--6 vads-u-display--flex vads-u-padding--2 vads-u-background-color--gray-light-alt vads-u-border-color--white vads-u-border--1px"
                   >
                     <div className="vads-u-flex--auto">
                       <div>
