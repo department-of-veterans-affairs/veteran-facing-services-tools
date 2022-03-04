@@ -155,3 +155,4 @@ jobs:
         run: |
           git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/department-of-veterans-affairs/veteran-facing-services-tools.git
           yarn deploy
+        working-directory: packages/documentation
