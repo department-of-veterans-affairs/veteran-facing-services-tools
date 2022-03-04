@@ -120,8 +120,13 @@ jobs:
           cache-dependency-path: packages/documentation/yarn.lock
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --prefer-offline --production=false
-        working-directory: packages/documentation
+        uses: nick-invision/retry@v2
+        with:
+          command: cd packages/documentation && yarn install --frozen-lockfile --prefer-offline --production=false
+          max_attempts: 3
+          timeout_minutes: 7
+        env:
+          YARN_CACHE_FOLDER: ~/.cache/yarn
 
       - name: Download documentation build artifact
         uses: actions/download-artifact@v2
