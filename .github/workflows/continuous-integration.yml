@@ -32,7 +32,7 @@ jobs:
             node_modules
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
   testing:
     name: Testing
@@ -51,7 +51,7 @@ jobs:
             node_modules
       
       - name: Test
-        run: npm run test
+        run: yarn test
         env:
           NODE_ENV: test
 
@@ -85,7 +85,7 @@ jobs:
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
       - name: Build
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run build
+        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
 
       - name: Compress documentation build
         # if: github.ref == 'refs/heads/master'
@@ -154,4 +154,4 @@ jobs:
       # - name: Deploy
       #   run: |
       #     git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/department-of-veterans-affairs/veteran-facing-services-tools.git
-      #     npm run deploy
+      #     yarn deploy
