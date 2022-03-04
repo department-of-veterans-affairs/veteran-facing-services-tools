@@ -50,6 +50,10 @@ export default function Index({ location }) {
             .
           </li>
           <li>
+            For information about the performance report by application, see the{' '}
+            <Link to="/frontend-support-dashboard/status">Status</Link>.
+          </li>
+          <li>
             For information about cross app import statistics, see the{' '}
             <Link to="/frontend-support-dashboard/cross-app-import-report">
               Cross App Import Report

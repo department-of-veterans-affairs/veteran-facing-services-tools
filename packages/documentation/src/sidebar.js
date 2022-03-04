@@ -366,6 +366,10 @@ module.exports = {
           href: '/frontend-support-dashboard/lighthouse-performance-report',
         },
         {
+          name: 'Status',
+          href: '/frontend-support-dashboard/status',
+        },
+        {
           name: 'Cross App Import Report',
           href: '/frontend-support-dashboard/cross-app-import-report',
         },

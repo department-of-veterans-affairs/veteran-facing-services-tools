@@ -42,9 +42,17 @@ export async function DeployStatusDataFetch(repo) {
 
 export async function TestCoverageDataFetch(repo) {
   const testCoverageDataResponse = await fetch(repo.prodTestCoverage);
-  console.log(testCoverageDataResponse);
   if (!testCoverageDataResponse.ok) {
     throw Error(testCoverageDataResponse.statusText);
   }
   return testCoverageDataResponse.json();
+}
+
+export async function statusDataFetch(repo) {
+  const statusDataResponse = await fetch(repo.backendStatus);
+  console.log(statusDataResponse);
+  if (!statusDataResponse.ok) {
+    throw Error(statusDataResponse.statusText);
+  }
+  return statusDataResponse.json();
 }
