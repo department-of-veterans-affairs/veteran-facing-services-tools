@@ -32,7 +32,7 @@ jobs:
             node_modules
 
       - name: Lint
-        run: npx vagov-eslint lint:js
+        run: yarn lint
 
   testing:
     name: Testing
@@ -51,7 +51,7 @@ jobs:
             node_modules
       
       - name: Test
-        run: npm run test
+        run: yarn test
         env:
           NODE_ENV: test
 
@@ -85,25 +85,58 @@ jobs:
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
       - name: Build
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run build
+        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
+
+      - name: Compress documentation build
+        if: github.ref == 'refs/heads/master'
+        run: tar -C packages/documentation/public -cvf documentation.tar.bz2 .
+
+      - name: Upload documentation build artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v2
+        with:
+          name: documentation.tar.bz2
+          path: documentation.tar.bz2
+          retention-days: 1
 
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: [linting, testing, build]
+    needs: [linting, build]
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        uses: ./.github/workflows/install
+      - name: Get Node version
+        id: get-node-version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
+      - name: Setup Node and cache documentation dependencies
+        uses: actions/setup-node@v2
         with:
-          key: ${{ hashFiles('yarn.lock') }}
-          yarn_cache_folder: .cache/yarn
-          path: |
-            .cache/yarn
-            node_modules
+          node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
+          cache: 'yarn'
+          cache-dependency-path: packages/documentation/yarn.lock
+
+      - name: Install dependencies
+        uses: nick-invision/retry@v2
+        with:
+          command: cd packages/documentation && yarn install --frozen-lockfile --prefer-offline --production=false
+          max_attempts: 3
+          timeout_minutes: 7
+        env:
+          YARN_CACHE_FOLDER: ~/.cache/yarn
+
+      - name: Download documentation build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: documentation.tar.bz2
+
+      - name: Extract documentation build artifact
+        run: |
+          mkdir packages/documentation/public
+          tar -C packages/documentation/public -xvf documentation.tar.bz2
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -126,4 +159,5 @@ jobs:
       - name: Deploy
         run: |
           git remote set-url origin https://git:${{ env.VA_VSP_BOT_GITHUB_TOKEN }}@github.com/department-of-veterans-affairs/veteran-facing-services-tools.git
-          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} npm run deploy
+          yarn deploy
+        working-directory: packages/documentation
