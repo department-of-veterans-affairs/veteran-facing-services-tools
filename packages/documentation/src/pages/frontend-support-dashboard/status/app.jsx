@@ -85,7 +85,7 @@ const App = ({ location }) => {
                   >
                     <div className="vads-u-flex--auto">
                       <div>
-                        <strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{_item.service}</strong>
+                        <strong>{_item.service}</strong>
                       </div>
                       <div>Last incident: {_item.lastIncidentTimestamp}</div>
                     </div>
