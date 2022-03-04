@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Table from '@department-of-veterans-affairs/component-library/Table';
 import Layout from '../../../layouts/Layout';
 import Sidebar from '../../../components/sidebar/Sidebar';
 import { statusDataFetch } from '../../../components/dashboard/DashboardDataFetch';
@@ -31,7 +30,7 @@ const getStatusIcon = status => {
 
 const truncate = str => {
   return str.length > 30 ? `${str.substring(0, 27)}...` : str;
-}
+};
 
 const transformCoverageReportToArray = async report => {
   // Add each app coverage result to the table
