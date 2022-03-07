@@ -10,6 +10,7 @@ export const vetsWebsiteInfo = {
     'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
   prodTestCoverage:
     'https://s3-us-gov-west-1.amazonaws.com/vetsgov-website-builds-s3-upload-test/coverage/test-coverage-report.json',
+  backendStatus: 'https://api.va.gov/v0/backend_statuses',
 };
 
 // https://github.com/department-of-veterans-affairs/content-build/blob/844d3170a92005dbee70a7ecf643362137ba68c3/jenkins/common.groovy#L280
