@@ -56,3 +56,11 @@ export async function statusDataFetch(repo) {
   }
   return statusDataResponse.json();
 }
+
+export async function crossAppImportDataFetch(repo) {
+  const crossAppImportDataResponse = await fetch(repo.crossAppImports);
+  if (!crossAppImportDataResponse.ok) {
+    throw Error(crossAppImportDataResponse.statusText);
+  }
+  return crossAppImportDataResponse.json();
+}
