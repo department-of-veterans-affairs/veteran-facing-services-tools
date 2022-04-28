@@ -1,6 +1,6 @@
 # Review the CODEOWNERS guide before editing:
 # https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/codeowners.md
 
-*       @department-of-veterans-affairs/frontend-review-group
-packages/formation @department-of-veterans-affairs/vsp-design-system-fe @department-of-veterans-affairs/vsp-design-system-team-mod
-packages/formation-react @department-of-veterans-affairs/vsp-design-system-fe
+*       @department-of-veterans-affairs/platform-release-tools
+packages/formation @department-of-veterans-affairs/platform-design-system-fe
+packages/formation-react @department-of-veterans-affairs/platform-design-system-fe
