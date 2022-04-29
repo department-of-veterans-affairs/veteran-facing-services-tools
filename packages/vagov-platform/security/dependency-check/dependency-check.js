@@ -75,8 +75,6 @@ function processAuditResults(audit) {
       'No security advisories rated moderate or higher found for non-dev dependencies.',
     );
   }
-
-  // process.exit(validAdvisories.length);
 }
 
 /**
