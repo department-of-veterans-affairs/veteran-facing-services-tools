@@ -16,7 +16,7 @@ yarn add @department-of-veterans-affairs/vagov-platform
 
 ## Dependency Security Checks
 
-Shared command to run secrity checks on non-dev dependencies.
+Shared command to run security checks on non-dev dependencies.
 
 ### Usage
 
