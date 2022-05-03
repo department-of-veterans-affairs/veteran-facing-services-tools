@@ -16,11 +16,11 @@
   },
   "homepage": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools#readme",
   "scripts": {
-    "dependency-check": "node ./security/dependency-check/index.js",
+    "vagov-dependency-check": "node ./security/dependency-check/index.js",
     "test": "jest"
   },
   "bin": {
-    "dependency-check": "./security/dependency-check/index.js"
+    "vagov-dependency-check": "./security/dependency-check/index.js"
   },
   "license": "CC0-1.0",
   "engines": {
