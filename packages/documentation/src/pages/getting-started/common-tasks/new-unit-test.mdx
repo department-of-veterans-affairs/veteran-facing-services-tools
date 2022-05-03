@@ -6,13 +6,26 @@ tags: Mocha, Chai, Enzyme, schemaform-utils
 # Writing a unit test
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 All new code that is added to `vets-website` should be unit tested and unit tests should cover at least 75% of code paths. Write unit tests as you build to make sure your form (or other component) is behaving as you expect and to help guard against future bugs.
 For example, you might create a unit test file for each page in a form and then test the following scenarios:
+
 - The correct number of inputs show up when you render the page.
 - The correct number of fields display validation errors if you submit without entering any information.
 - Any conditional logic on the page displays under the correct conditions.
@@ -20,6 +33,7 @@ For example, you might create a unit test file for each page in a form and then 
 For more detailed information about unit test best practices and an in-depth discussion of how they apply to `vets-website`, please view this recording of [Front End Unit Tests on VA.gov - Best Practices/Q&A Brown Bag Training](https://youtu.be/8Y0cuMUoWAw).
 
 ## Unit test overview
+
 - The `vets-website` repo uses:
   - [Mocha](https://mochajs.org/) for running unit tests
   - [Chai](http://chaijs.com/) for test assertions
@@ -38,23 +52,26 @@ For more detailed information about unit test best practices and an in-depth dis
         - MyComponent.unit.spec.jsx
 ```
 
-Mocha runs any *file_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
-[Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to master.
-   
+Mocha runs any _file_name_.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
+[Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to main.
+
 ## Unit test conventions
+
 Use the following conventions when writing a unit test.
 
 ```js
-import React from 'react';
-import { expect } from 'chai';
-import { render } from '@testing-library/react';
-import MyComponent from '../../components/MyComponent';
+import React from "react";
+import { expect } from "chai";
+import { render } from "@testing-library/react";
+import MyComponent from "../../components/MyComponent";
 
-describe('my-application', () => {
-  describe('MyComponent', () => {
+describe("my-application", () => {
+  describe("MyComponent", () => {
     it('renders privacy act disclosure when "show" is true', () => {
-        const screen = render(<MyComponent show />);
-        expect(screen.getByRole('heading')).to.have.text('Privacy Act Disclosure');
+      const screen = render(<MyComponent show />);
+      expect(screen.getByRole("heading")).to.have.text(
+        "Privacy Act Disclosure"
+      );
     });
   });
 });
@@ -73,7 +90,9 @@ describe('my-application', () => {
     - `it('shows an error when the user is not logged in')`
 
 ### Testing components
+
 - Use [React Testing Library's `render` function](https://testing-library.com/docs/react-testing-library/api/#render) when testing components.
+
   ```js
   import React from 'react';
   import { render } from '@testing-library/react';
@@ -87,13 +106,16 @@ describe('my-application', () => {
     });
   });
   ```
+
 - If you're using Enzyme, use [shallow](https://airbnb.io/enzyme/docs/api/shallow.html) instead of [mount](https://airbnb.io/enzyme/docs/api/mount.html) when possible to test components.
+
   - Always `unmount` components at the end of the test.
+
   ```js
   import React from 'react';
   import { mount } from 'enzyme';
   import MyComponent from '../../components/MyComponent';
-  
+
   describe('MyComponent', () => {
     it('renders', () => {
       ...
@@ -103,8 +125,9 @@ describe('my-application', () => {
     });
   });
   ```
-  
+
 ## Unit tests for forms pages
+
 Use the following guidelines when writing a unit test for forms pages.
 
 ```js
@@ -143,6 +166,7 @@ describe('MyForm FormID', () => {
   - All field level validation errors
 
 When working with Enzyme, you can use the other `schemaform-utils` for filling out form data:
+
 - `fillData()` - Enzyme helper that fires a change event with a value for an element at the given selector
 
 ```
@@ -166,14 +190,15 @@ fillDate(
 - `selectCheckbox()` - Enzyme helper that fires a change event with a value for a checkbox at the given name
 
 ## Example unit tests - React Testing Library
+
 We recommend using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for all your unit/integration testing needs.
 
 ```js
 // SimpleLoginForm.js
-import React from 'react';
+import React from "react";
 
 const SimpleLoginForm = ({ onSubmit }) => {
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState("");
   function handleSubmit(event) {
     event.preventDefault();
     const {
@@ -181,11 +206,11 @@ const SimpleLoginForm = ({ onSubmit }) => {
       passwordInput: { value: password },
     } = event.target.elements;
     if (!username) {
-      setError('username is required');
+      setError("username is required");
     } else if (!password) {
-      setError('password is required');
+      setError("password is required");
     } else {
-      setError('');
+      setError("");
       onSubmit({ username, password });
     }
   }
@@ -212,26 +237,26 @@ export default SimpleLoginForm;
 
 ```js
 // SimpleLoginForm.unit.spec.jsx
-import React from 'react';
-import { expect } from 'chai';
-import sinon from 'sinon';
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import SimpleLoginForm from '../../components/SimpleLoginForm';
+import React from "react";
+import { expect } from "chai";
+import sinon from "sinon";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import SimpleLoginForm from "../../components/SimpleLoginForm";
 
-describe('my-application', () => {
-  describe('SimpleLoginForm', () => {
-    it('calls onSubmit with the username and password when submit is clicked', () => {
-        const handleSubmit = sinon.spy();
-        const screen = render(<SimpleLoginForm onSubmit={handleSubmit} />); // alternatively `const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);`
-        const user = { username: 'user123', password: 'password123' };
+describe("my-application", () => {
+  describe("SimpleLoginForm", () => {
+    it("calls onSubmit with the username and password when submit is clicked", () => {
+      const handleSubmit = sinon.spy();
+      const screen = render(<SimpleLoginForm onSubmit={handleSubmit} />); // alternatively `const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);`
+      const user = { username: "user123", password: "password123" };
 
-        userEvent.type(screen.getByLabelText(/username/i), user.username);
-        userEvent.type(screen.getByLabelText(/password/i), user.password);
-        userEvent.click(getByText(/submit/i));
+      userEvent.type(screen.getByLabelText(/username/i), user.username);
+      userEvent.type(screen.getByLabelText(/password/i), user.password);
+      userEvent.click(getByText(/submit/i));
 
-        expect(handleSubmit.callCount).to.equal(1); // alternatively `expect(handleSubmit.calledOnce).to.be.true()` works as well
-        expect(handleSubmit.calledWith(user)).to.be.true(); // for more explicit testing we can use `calledWithExactly` in place of `calledWith`
+      expect(handleSubmit.callCount).to.equal(1); // alternatively `expect(handleSubmit.calledOnce).to.be.true()` works as well
+      expect(handleSubmit.calledWith(user)).to.be.true(); // for more explicit testing we can use `calledWithExactly` in place of `calledWith`
     });
   });
 });
@@ -284,7 +309,9 @@ expect(handleSubmit.calledWith(user)).to.be.true(); // for more explicit testing
 To conclude this test we need to check that our `onSubmit` function fired and received the correct data.
 
 ## Example unit tests - Enzyme
+
 VSP provides helper utilities to make writing tests easier. The following example unit tests illustrate some of these helpers. You can find these unit tests in the `vets-website` repo in the [veteranInformation.unit.spec.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx) file.
+
 ```js
 import React from 'react';
 import { expect } from 'chai';
@@ -311,73 +338,88 @@ describe('VIC veteran information', () => {
   ...
 });
 ```
+
 Helpers are imported from [`schemaform-utils.jsx`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/unit/schemaform-utils.jsx). The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
 This example uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTester` component that is passed in the schema information from the `veteranInformation` page as props. The test checks to make sure there are 7 `input` and 4 `select` entries on the page. When there are errors with definitions on the form pages, you will often see inputs not being rendered, so this helps check for that scenario.
 The next test in the file checks to see that the right fields are marked as required:
+
 ```js
-  it('should not submit without required info', () => {
-    const onSubmit = sinon.spy();
-    const form = mount(
-      <DefinitionTester
-        onSubmit={onSubmit}
-        definitions={formConfig.defaultDefinitions}
-        schema={schema}
-        data={{}}
-        uiSchema={uiSchema}
-        />
-    );
-    form.find('form').simulate('submit');
-    expect(form.find('.usa-input-error').length).to.equal(6);
-    expect(onSubmit.called).to.be.false;
-    form.unmount();
-  });
+it("should not submit without required info", () => {
+  const onSubmit = sinon.spy();
+  const form = mount(
+    <DefinitionTester
+      onSubmit={onSubmit}
+      definitions={formConfig.defaultDefinitions}
+      schema={schema}
+      data={{}}
+      uiSchema={uiSchema}
+    />
+  );
+  form.find("form").simulate("submit");
+  expect(form.find(".usa-input-error").length).to.equal(6);
+  expect(onSubmit.called).to.be.false;
+  form.unmount();
+});
 ```
+
 This test simulates a form submission and then counts the number of error elements on the page, which is expected to be 6. The test checks that the existing validation rules are still generally in place and that additional rules haven't been added.
 Finally, this example test fills in all the data and submits the form:
+
 ```js
-  it('should submit with all info filled in', () => {
-    const onSubmit = sinon.spy();
-    const form = mount(
-      <DefinitionTester
-        onSubmit={onSubmit}
-        definitions={formConfig.defaultDefinitions}
-        schema={schema}
-        data={{}}
-        uiSchema={uiSchema}
-        />
-    );
-    fillData(form, 'input#root_veteranFullName_first', 'test');
-    fillData(form, 'input#root_veteranFullName_last', 'test2');
-    fillData(form, 'input#root_veteranSocialSecurityNumber', '233224343');
-    selectRadio(form, 'root_gender', 'F');
-    fillDate(form, 'root_veteranDateOfBirth', '1920-01-04');
-    fillData(form, 'select#root_serviceBranch', 'F');
-    form.find('form').simulate('submit');
-    expect(form.find('.usa-input-error').length).to.equal(0);
-    expect(onSubmit.called).to.be.true;
-    form.unmount();
-  });
+it("should submit with all info filled in", () => {
+  const onSubmit = sinon.spy();
+  const form = mount(
+    <DefinitionTester
+      onSubmit={onSubmit}
+      definitions={formConfig.defaultDefinitions}
+      schema={schema}
+      data={{}}
+      uiSchema={uiSchema}
+    />
+  );
+  fillData(form, "input#root_veteranFullName_first", "test");
+  fillData(form, "input#root_veteranFullName_last", "test2");
+  fillData(form, "input#root_veteranSocialSecurityNumber", "233224343");
+  selectRadio(form, "root_gender", "F");
+  fillDate(form, "root_veteranDateOfBirth", "1920-01-04");
+  fillData(form, "select#root_serviceBranch", "F");
+  form.find("form").simulate("submit");
+  expect(form.find(".usa-input-error").length).to.equal(0);
+  expect(onSubmit.called).to.be.true;
+  form.unmount();
+});
 ```
-Helper functions make the correct Enzyme calls to fill in data, so there isn't a lot of repeated code. The helpers are documented in the `schemaform-utils.jsx` file. The helpers fill in data and then check that the right number of inputs appear on the page after that change. Some of the tests also directly test logic in `depends` functions on the page configuration. 
+
+Helper functions make the correct Enzyme calls to fill in data, so there isn't a lot of repeated code. The helpers are documented in the `schemaform-utils.jsx` file. The helpers fill in data and then check that the right number of inputs appear on the page after that change. Some of the tests also directly test logic in `depends` functions on the page configuration.
+
 ## Other utilities
+
 These utilities can be found in `platform/testing/unit/helpers.js`:
-- `mockFetch()` -  A function to mock the global fetch function and return the value provided in returnVal
+
+- `mockFetch()` - A function to mock the global fetch function and return the value provided in returnVal
   - `resetFetch()` - Resets the mocked fetch set with `mockFetch()`
   - `mockApiRequest()` - Decorated `mockFetch()` that adds typical API headers to `returnVal`
   - `mockMultipleApiRequests()` - Decorated `mockFetch()` that mocks a fetch call for each response object in an array
+
 ```
 mockFetch(
   new Error('fake error'), // returnVal
   false, // shouldResolve: false returns rejected promise. default is true
 );
 ```
+
 **Note:** This utility can be found in `platform/utilities/storage/localstorage.js`.
+
 - `getLocalStorage()` - convenience accessor for local storage and implements a fallback. Useful for stubbing localstorage.
 
 ## Legacy tools
+
 While ReactTestUtils, SkinDeep, and Enzyme are used in many of our tests, use React Testing Library for any updated or new tests.
+
 ## Libraries
+
 Unit tests use the following libraries:
+
 - [mocha.js](https://mochajs.org/): Test framework.
 - [chai.js](https://www.chaijs.com/): BDD / TDD assertion library.
 - [chai-as-promised](https://github.com/domenic/chai-as-promised): Extends Chai with assertions about promises.

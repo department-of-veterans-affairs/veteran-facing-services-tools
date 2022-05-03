@@ -22,4 +22,4 @@ This is a running list of accessibility and usability features to add to AnyCorp
 - ~~[ESLint](https://eslint.org/)~~
 - ~~[React-axe](https://github.com/dequelabs/react-axe)~~
 - [Pa11y](https://pa11y.org/)
-- ESLint git precommit hook (0 errors) on master branch
+- ESLint git precommit hook (0 errors) on main branch
