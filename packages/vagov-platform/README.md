@@ -21,13 +21,13 @@ Shared command to run security checks on non-dev dependencies.
 ### Usage
 
 ```bash
-npm run dependency-check
+npm run vagov-dependency-check
 ```
 
 or
 
 ```bash
-yarn dependency-check
+yarn vagov-dependency-check
 ```
 
 ### Return
