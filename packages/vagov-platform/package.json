@@ -1,0 +1,36 @@
+{
+  "name": "@department-of-veterans-affairs/vagov-platform",
+  "version": "0.0.1",
+  "description": "Shared utilites and services from VA Platform teams",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/department-of-veterans-affairs/veteran-facing-services-tools.git"
+  },
+  "keywords": [
+    "va",
+    "veterans"
+  ],
+  "bugs": {
+    "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
+  },
+  "homepage": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools#readme",
+  "scripts": {
+    "vagov-dependency-check": "node ./security/dependency-check/index.js",
+    "test": "jest"
+  },
+  "bin": {
+    "vagov-dependency-check": "./security/dependency-check/index.js"
+  },
+  "license": "CC0-1.0",
+  "engines": {
+    "node": ">=14.15.0",
+    "yarn": ">=1.21.1"
+  },
+  "dependencies": {
+    "minimist": "^1.2.6"
+  },
+  "devDependencies": {
+    "jest": "^28.0.0"
+  }
+}
