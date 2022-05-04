@@ -26,10 +26,10 @@ VA.gov uses a [Continuous Integration](https://www.thoughtworks.com/continuous-i
     - Test and peer review code (read: code review)
 3. [Deploy](/getting-started/workflow/deploy)
     - Merge code to stable code base
-    - Jenkins automatically deploys changes merged into `master` to staging and dev
-    - Jenkins automatically deploys master to production every day
+    - Jenkins automatically deploys changes merged into `main` to staging and dev
+    - Jenkins automatically deploys main to production every day
 
-_Each project's code base has a branch called `master` by default. Anything in `master` is deemed to be stable and deployable. This means that **anything you merge will need to be ready to immediately be live or hidden in some way behind a feature flag**._
+_Each project's code base has a branch called `main` by default. Anything in `main` is deemed to be stable and deployable. This means that **anything you merge will need to be ready to immediately be live or hidden in some way behind a feature flag**._
 
 Merge changes when support can be provided; Avoid merging significant changes at the end of the day or before the weekend.
 

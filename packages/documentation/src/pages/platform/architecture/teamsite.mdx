@@ -82,7 +82,7 @@ For example: https://staging.va.gov/health/?targetEnvironment=vagovstaging
 
 The default behavior for https://staging.va.gov/health is to load the production assets. when the `targetEnvironment` is set, the loader well delete the production nodes from the DOM and add script and style nodes for the target environment.
 
-The injection script will support any of [these](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/site/constants/environments.js) environment names set as the `targetEnvironment`.
+The injection script will support any of [these](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/site/constants/environments.js) environment names set as the `targetEnvironment`.
 
 Caveats:
 - Style node deletions will prompt a rebuilding of the CSSOM but removing script nodes doesn't undo any JS that was run before the JS node was removed. For most cases this should not impact testing as the application specific code doesn't run but JS that is executed before the application (e.g. polyfills) will always run the production code first.

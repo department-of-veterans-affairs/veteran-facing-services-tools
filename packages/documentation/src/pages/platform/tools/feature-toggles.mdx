@@ -56,7 +56,7 @@ Follow these steps to add and use a new feature toggle in vets-website:
 
 5. Navigate to [http://localhost:3000/flipper/features](http://localhost:3000/flipper/features) and verify that you see your new feature name. If not, restart your rails server.
 
-6. Add the feature toggle name to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/feature-toggles/featureFlagNames.js).
+6. Add the feature toggle name to vets-website by updating [featureFlagNames.js](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/utilities/feature-toggles/featureFlagNames.js).
 
     ```js
     const FEATURE_FLAG_NAMES = Object.freeze({
@@ -213,9 +213,9 @@ flipper:
 ## Testing new applications and updates to existing applications
 *Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
 
-In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/environment/index.js).
+In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/utilities/environment/index.js).
 
-In the [production environment](https://www.va.gov), you can test unreleased features and applications by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value. You can do this by:
+In the [production environment](https://www.va.gov), you can test unreleased features and applications by checking [localstorage](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/utilities/storage/localStorage.js) for a developer-defined name/value. You can do this by:
 - Adding the feature name/value to local storage with a console command in the browser
 - Using application specific code that automatically checks when a certain query parameter is present
 

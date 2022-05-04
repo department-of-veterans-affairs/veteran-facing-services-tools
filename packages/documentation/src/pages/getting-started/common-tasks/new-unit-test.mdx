@@ -39,7 +39,7 @@ For more detailed information about unit test best practices and an in-depth dis
 ```
 
 Mocha runs any *file_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
-[Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to master.
+[Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to main.
    
 ## Unit test conventions
 Use the following conventions when writing a unit test.
@@ -284,7 +284,7 @@ expect(handleSubmit.calledWith(user)).to.be.true(); // for more explicit testing
 To conclude this test we need to check that our `onSubmit` function fired and received the correct data.
 
 ## Example unit tests - Enzyme
-VSP provides helper utilities to make writing tests easier. The following example unit tests illustrate some of these helpers. You can find these unit tests in the `vets-website` repo in the [veteranInformation.unit.spec.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx) file.
+VSP provides helper utilities to make writing tests easier. The following example unit tests illustrate some of these helpers. You can find these unit tests in the `vets-website` repo in the [veteranInformation.unit.spec.jsx](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/applications/vic-v2/tests/config/veteranInformation.unit.spec.jsx) file.
 ```js
 import React from 'react';
 import { expect } from 'chai';
@@ -311,7 +311,7 @@ describe('VIC veteran information', () => {
   ...
 });
 ```
-Helpers are imported from [`schemaform-utils.jsx`](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/platform/testing/unit/schemaform-utils.jsx). The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
+Helpers are imported from [`schemaform-utils.jsx`](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/testing/unit/schemaform-utils.jsx). The `DefinitionTester` is a component you can use to simulate a page being rendered without having to set up a whole form application with all the dependencies.
 This example uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTester` component that is passed in the schema information from the `veteranInformation` page as props. The test checks to make sure there are 7 `input` and 4 `select` entries on the page. When there are errors with definitions on the form pages, you will often see inputs not being rendered, so this helps check for that scenario.
 The next test in the file checks to see that the right fields are marked as required:
 ```js

@@ -13,14 +13,14 @@ tags: peer review, pull request, feature branch, git
 
 ## Submit pull request
 
-- **Pull master** and **push feature branch** to `vets-website` and/or `content-build` repositories
+- **Pull main** and **push feature branch** to `vets-website` and/or `content-build` repositories
 ```bash
-git pull origin master
+git pull origin main
 git push origin feature/12345-issue-title
 ```
 **Note:** If you are making changes in both repositories that are dependent on each other, you should give both branches in each repository the same name.
 
-_Always **pull master** into your feature branch before creating a pull request._
+_Always **pull main** into your feature branch before creating a pull request._
 
 - **Create a pull request** indicating that your code is ready for review.
 - **Request peer review** on Github by tagging a fellow team member who you feel is qualified to review the code (this prevents the pull request from just sitting). You may also want to tag developers on other teams if the changes cover more than one application.
@@ -88,7 +88,7 @@ _A Jenkins job will run periodically and remove review instances for which the s
 
 - Get at least one **pull request approval** from a peer
 - It is recommended not to merge at the end of the day or right before the weekend unless necessary.
-- [Squash your commits](https://github.blog/2016-04-01-squash-your-commits/) and **merge** into **master**
+- [Squash your commits](https://github.blog/2016-04-01-squash-your-commits/) and **merge** into **main**
 - **Delete** pull request branch
 
 _See our team's [code review norms](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/code_review_guidelines.md) for details on how code review work and what needs to be checked._
