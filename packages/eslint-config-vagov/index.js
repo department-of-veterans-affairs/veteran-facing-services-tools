@@ -1,5 +1,6 @@
+'use strict';
+
 module.exports = {
-  // All rules should be disabled or they should produce errors. No warnings.
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 11,
@@ -21,8 +22,8 @@ module.exports = {
     'unicorn',
   ],
   extends: [
+    'eslint:recommended',
     'airbnb',
-    'plugin:react/recommended',
     'plugin:cypress/recommended',
     'plugin:prettier/recommended',
   ],
@@ -90,7 +91,6 @@ module.exports = {
     'react/no-access-state-in-setstate': 1,
     'react/no-string-refs': 1,
     'react/button-has-type': 1,
-    'react/display-name': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-one-expression-per-line': 0,
     'react/destructuring-assignment': 0,
