@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/eslint-config-vagov",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ESLint configuration for va.gov projects",
   "homepage": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/tree/master/packages/eslint-config-vagov#readme",
   "bugs": {
