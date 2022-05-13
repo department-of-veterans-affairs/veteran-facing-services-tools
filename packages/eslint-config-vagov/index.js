@@ -169,5 +169,17 @@ module.exports = {
     'import/first': 0,
     'import/no-named-as-default': 0,
     'import/prefer-default-export': 0,
+
+    /* || va custom plugin || */
+    'va/proptypes-camel-cased': 2,
+    'va/enzyme-unmount': 2,
+    'va/use-resolved-path': [
+      2,
+      {
+        aliases: ['applications', 'platform', 'site', '@@vap-svc', '@@profile'],
+      },
+    ],
+    'va/correct-apostrophe': 1,
+    'va/prefer-web-component-library': 1,
   },
 };
