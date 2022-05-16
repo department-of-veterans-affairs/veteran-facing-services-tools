@@ -9,24 +9,29 @@ module.exports = {
     'cypress-viewport-deprecated': require('./rules/cypress-viewport-deprecated.js'),
     'prefer-web-component-library': require('./rules/prefer-web-component-library'),
   },
-  rulesConfig: {
-    'proptypes-camel-cased': 2,
-    'enzyme-unmount': 2,
-    'use-resolved-path': [
-      2,
-      {
-        aliases: ['applications', 'platform', 'site'],
+  configs: {
+    recommended: {
+      plugins: ['va'],
+      rules: {
+        'va/proptypes-camel-cased': 2,
+        'va/enzyme-unmount': 2,
+        'va/use-resolved-path': [
+          2,
+          {
+            aliases: [
+              'applications',
+              'platform',
+              'site',
+              '@@vap-svc',
+              '@@profile',
+            ],
+          },
+        ],
+        'va/axe-check-required': 1,
+        'va/correct-apostrophe': 1,
+        'va/cypress-viewport-deprecated': 1,
+        'va/prefer-web-component-library': 1,
       },
-    ],
-    'resolved-path-on-required': [
-      1,
-      {
-        aliases: ['applications', 'platform', 'site'],
-      },
-    ],
-    'axe-check-required': 1,
-    'correct-apostrophe': 1,
-    'cypress-viewport-deprecated': 1,
-    'prefer-web-component-library': 1,
+    },
   },
 };
