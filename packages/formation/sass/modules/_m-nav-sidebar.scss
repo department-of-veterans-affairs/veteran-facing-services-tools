@@ -286,7 +286,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       font-size: 15px;
 
       &:focus {
-        @include focus-gold-light-outline(0);
+        @include focus-gold-vivid-outline(0);
       }
 
       &:hover, &:focus {

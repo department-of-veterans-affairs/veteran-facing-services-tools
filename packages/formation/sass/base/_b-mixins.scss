@@ -87,7 +87,7 @@
   }
 }
 
-@mixin focus-gold-light-outline($offset: 2) {
+@mixin focus-gold-vivid-outline($offset: 2) {
   outline: $focus-outline;
   outline-offset: #{$offset}px;
 }
@@ -99,7 +99,7 @@
 }
 
 @mixin focus {
-  @include focus-gold-light-outline;
+  @include focus-gold-vivid-outline;
 }
 
 @mixin color-transition {
@@ -153,7 +153,7 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    @include focus-gold-light-outline;
+    @include focus-gold-vivid-outline;
     outline-offset: 0;
   }
   &:disabled {
