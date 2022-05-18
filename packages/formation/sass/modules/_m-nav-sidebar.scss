@@ -206,7 +206,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       }
 
       &:focus {
-        outline: 2px solid $color-gold;
+        outline: $focus-outline;
         outline-offset: 3px;
       }
     }
