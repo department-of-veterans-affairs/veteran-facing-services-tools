@@ -88,8 +88,8 @@
 }
 
 @mixin focus-gold-vivid-outline($offset: 2) {
-  outline: $focus-outline;
-  outline-offset: #{$offset}px;
+  box-shadow: 0 0 0 3px $color-white, 0 0 4px 6px $color-gold-50v;
+  outline: none;
 }
 
 @mixin focus {
