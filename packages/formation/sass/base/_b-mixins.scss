@@ -87,7 +87,7 @@
   }
 }
 
-@mixin focus-gold-vivid-outline($offset: 2) {
+@mixin focus-gold-vivid-outline {
   box-shadow: 0 0 0 3px $color-white, 0 0 4px 6px $color-gold-50v;
   outline: none;
 }
@@ -148,7 +148,6 @@
   }
   &:focus {
     @include focus-gold-vivid-outline;
-    outline-offset: 0;
   }
   &:disabled {
     text-decoration: none;

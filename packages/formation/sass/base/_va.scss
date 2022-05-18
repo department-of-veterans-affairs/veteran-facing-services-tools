@@ -35,7 +35,7 @@ body {
   &:focus {
     position: inherit;
     top: auto;
-    @include focus-gold-vivid-outline()
+    @include focus-gold-vivid-outline;
   }
 }
 
