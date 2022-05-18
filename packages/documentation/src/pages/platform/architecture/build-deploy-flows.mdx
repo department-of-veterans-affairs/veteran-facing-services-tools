@@ -1,25 +1,37 @@
 ---
 title: Build and deploy Jenkins flows
-tags: Jenkins, drupal, metalsmith, cache, master
+tags: Jenkins, drupal, metalsmith, cache, main
 ---
 
 # Build and deploy process flows
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Build-and-deploy-process-flows.1844346924.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Build-and-deploy-process-flows.1844346924.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 Here you'll find flow diagrames for the different types of build and deploy flows we have for VA.gov. Those different flows are:
 
-- [Standard master/PR build](#standard-masterpr-build)
+- [Standard main/PR build](#standard-masterpr-build)
 - [Content only build and deploy](#content-only-build-and-deploy)
 - [Daily deploy](#daily-deploy)
 
-## Standard master/PR build
+## Standard main/PR build
 
-This is the typical Jenkins build for any vets-website branch. There is some logic that is different between master and other branches:
+This is the typical Jenkins build for any vets-website branch. There is some logic that is different between main and other branches:
 
 ```mermaid
 graph TD
@@ -40,7 +52,7 @@ graph TD
 9 --> 11[End to end tests]
 11 --> 12[Create archives for each build and upload to S3]
 10 --> 12
-12 --> 13{On master branch?}
+12 --> 13{On main branch?}
 13 -->|Yes| 14[Cache Drupal content and files to S3]
 14 --> 15[Deploy builds to dev and staging]
 13 -->|No| 16(Done)
@@ -56,7 +68,7 @@ When content is changed in Drupal, sometimes we need to publish it immediately o
 ```mermaid
 graph TD
 1(Build started for dev or staging)
-1 --> 2[Fetch build for latest master commit from S3]
+1 --> 2[Fetch build for latest main commit from S3]
 2 --> 3[Build static pages with new content]
 3 --> 4[Skip Webpack build, use assets from most recent build for applications]
 4 --> 5[Create archive for build and upload to S3]
@@ -82,9 +94,9 @@ graph TD
 ```mermaid
 graph TD
 1(Deploy started)
-1 --> 2[Fetch build for latest master commit from S3]
+1 --> 2[Fetch build for latest main commit from S3]
 2 --> 3[Build static pages with new content]
-3 --> 4[Skip Webpack build, use assets from most recent master build for applications]
+3 --> 4[Skip Webpack build, use assets from most recent main build for applications]
 4 --> 5[Create archive for build and upload to S3]
 5 --> 6[Create GitHub release]
 6 --> 7[Wait for 60 minutes]
