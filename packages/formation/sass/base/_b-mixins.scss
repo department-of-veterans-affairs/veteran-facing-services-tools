@@ -92,12 +92,6 @@
   outline-offset: #{$offset}px;
 }
 
-@mixin focus-gold-lighter-highlight {
-  background: $color-gold-lighter;
-  outline: 2px solid $color-gold-lighter;
-  outline-offset: 0;
-}
-
 @mixin focus {
   @include focus-gold-vivid-outline;
 }
