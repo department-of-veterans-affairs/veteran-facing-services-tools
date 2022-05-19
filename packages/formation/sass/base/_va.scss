@@ -97,6 +97,18 @@ a {
   }
 }
 
+// Use outline focus styling for links in the main content area
+// since box-shadow styling doesn't look good on wrapped links
+main [href],
+va-banner [href] {
+  &:focus {
+    outline: $focus-outline;
+    background: $color-white;
+    color: $color-link-default;
+    box-shadow: unset;
+  }
+}
+
 // ====== Headings
 
 // H1 should only be used once at the top-level, so we can safely remove the margin-top.
