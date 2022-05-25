@@ -8,7 +8,7 @@ ESLint rules and configs for [VA.gov](https://www.va.gov/) projects.
 $ yarn add --dev eslint-plugin-va
 ```
 
-.eslintrc.js (example using a config)
+**.eslintrc.js** (example using a config)
 
 ```js
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
 }
 ```
 
-.eslintrc.js (example using rules)
+**.eslintrc.js** (example using rules)
 
 ```js
 module.exports = {
