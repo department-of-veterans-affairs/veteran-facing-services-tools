@@ -6,9 +6,21 @@ tags: cms, drupal, headless, preview, graphql
 # VA.gov content management system overview
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/VA.gov-content-management-system-overview.1854832733.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/VA.gov-content-management-system-overview.1854832733.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 The VA is currently in the process of moving content from several other systems into one primary content management system, powered by Drupal. VA.gov takes a decoupled approach, where content editors make change in a Drupal environment, then VA.gov build process queries that Drupal instance and transforms the resulting content into static html that is deployed on the site. Drupal does not control any Veteran-facing page rendering.
@@ -41,15 +53,15 @@ All Drupal environments require you to either be on the VA network or the SOCKS 
 VA.gov is a static html/js/css site, built with a static site generator tool called Metalsmith. During the Metalsmith build process we query the appropriate Drupal environment with a GraphQL query. The results of that query are transformed into pages through the Metalsmith build pipeline. There are [liquid](https://shopify.github.io/liquid/) templates specific to page content that came from Drupal, generally denoted with a `.drupal.liquid` suffix. Each `entity` from Drupal has a corresponding `entityType`, which is used to choose the entry template for each `entity` (i.e. page) from Drupal.
 
 - [Metalsmith build process diagram](/platform/architecture/static-site)
-- [Primary GraphQL query](https://github.com/department-of-veterans-affairs/vets-website/blob/master/src/site/stages/build/drupal/graphql/GetAllPages.graphql.js)
-- [Entry templates](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/site/layouts)
+- [Primary GraphQL query](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/site/stages/build/drupal/graphql/GetAllPages.graphql.js)
+- [Entry templates](https://github.com/department-of-veterans-affairs/vets-website/tree/main/src/site/layouts)
 
 ## Jenkins build process integration
 
-Drupal is queried in the Jenkins build process for any vets-website branch. On Jenkins, however, there is a caching mechanism to help deal with downtime and other failures in the live Drupal environments. After any successful master build, the results of the GraphQL query and any files downloaded from Drupal during the build process are put into a tarball and uploaded to S3. For builds on any branch, if the site build (the `npm run build` command) fails, Jenkins will download the appropriate cache and retry the build.
+Drupal is queried in the Jenkins build process for any vets-website branch. On Jenkins, however, there is a caching mechanism to help deal with downtime and other failures in the live Drupal environments. After any successful main build, the results of the GraphQL query and any files downloaded from Drupal during the build process are put into a tarball and uploaded to S3. For builds on any branch, if the site build (the `npm run build` command) fails, Jenkins will download the appropriate cache and retry the build.
 
 - [Jenkins build process flow](/platform/architecture/build-deploy-flows#standard-masterpr-build)
-- [Drupal/AWS cache script](https://github.com/department-of-veterans-affairs/vets-website/tree/master/script/drupal-aws-cache.js)
+- [Drupal/AWS cache script](https://github.com/department-of-veterans-affairs/vets-website/tree/main/script/drupal-aws-cache.js)
 
 ### Automated accessibility checking
 
@@ -101,7 +113,7 @@ A typical cms deploys content changes to users immediately, because the content 
 
 The scheduled deploy begins at 2pm ET, and fetches new content from Drupal before deploying. The off schedule deploy is a Jenkins job that can be triggered from a button in the production Drupal environment which will get the currently released code and update it with the latest content from Drupal.
 
-Off schedule deploys can be done for all environments, however there are separate Jenkins jobs for production vs staging/dev.The main difference is that dev/staging deploys update the latest builds from vets-website master with new content and the production deploy updates the latest released code on VA.gov with new content.
+Off schedule deploys can be done for all environments, however there are separate Jenkins jobs for production vs staging/dev.The main difference is that dev/staging deploys update the latest builds from vets-website main with new content and the production deploy updates the latest released code on VA.gov with new content.
 
 ## Preview server
 
@@ -113,7 +125,7 @@ A typical cms also provides an easy way to preview changes before making them li
 | staging     | http://preview-staging.vfs.va.gov | https://staging.va.gov |
 | production  | http://preview-prod.vfs.va.gov    | https://va.gov         |
 
-The preview server is written in Node and Express, [located in vets-website](https://github.com/department-of-veterans-affairs/vets-website/blob/master/script/preview.js).
+The preview server is written in Node and Express, [located in vets-website](https://github.com/department-of-veterans-affairs/vets-website/blob/main/script/preview.js).
 
 Requests that are made to the preview server that are not to the special `/preview` route are proxied to the associated live site. So, for example, a request for `/health-care` on the staging preview server will request the `/health-care` page from staging.va.gov. If you were trying to preview an unpublished version of the `/health-care` page you would go to `/preview?nodeId=<id of health care entity>`.
 

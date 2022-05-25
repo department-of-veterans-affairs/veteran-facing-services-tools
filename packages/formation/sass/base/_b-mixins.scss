@@ -87,19 +87,13 @@
   }
 }
 
-@mixin focus-gold-light-outline($offset: 2) {
-  outline: $focus-outline;
-  outline-offset: #{$offset}px;
-}
-
-@mixin focus-gold-lighter-highlight {
-  background: $color-gold-lighter;
-  outline: 2px solid $color-gold-lighter;
-  outline-offset: 0;
+@mixin focus-gold-vivid-outline {
+  box-shadow: 0 0 0 3px $color-white, 0 0 4px 6px $color-gold-50v;
+  outline: none;
 }
 
 @mixin focus {
-  @include focus-gold-light-outline;
+  @include focus-gold-vivid-outline;
 }
 
 @mixin color-transition {
@@ -153,8 +147,7 @@
     background: $color-link-default-hover;
   }
   &:focus {
-    @include focus-gold-light-outline;
-    outline-offset: 0;
+    @include focus-gold-vivid-outline;
   }
   &:disabled {
     text-decoration: none;
