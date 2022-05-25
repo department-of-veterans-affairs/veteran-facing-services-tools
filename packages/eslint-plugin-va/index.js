@@ -10,6 +10,6 @@ module.exports = {
     'prefer-web-component-library': require('./rules/prefer-web-component-library'),
   },
   configs: {
-    recommended: require('./configs/recommended'),
+    recommended: require('./config/recommended'),
   },
 };
