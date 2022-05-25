@@ -13,6 +13,10 @@
   "license": "MIT",
   "author": "Department of Veteran Affairs",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/"
+  ],
   "engines": {
     "node": ">= 12"
   },
