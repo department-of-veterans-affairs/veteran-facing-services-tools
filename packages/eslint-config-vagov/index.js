@@ -20,14 +20,12 @@ module.exports = {
     'react-hooks',
     'sonarjs',
     'unicorn',
-    'va',
   ],
   extends: [
     'eslint:recommended',
     'airbnb',
     'plugin:cypress/recommended',
     'plugin:prettier/recommended',
-    'plugin:va/recommended',
   ],
   env: {
     browser: true,
