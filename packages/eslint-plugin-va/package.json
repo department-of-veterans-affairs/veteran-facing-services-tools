@@ -1,0 +1,47 @@
+{
+  "name": "eslint-plugin-va",
+  "version": "1.1.0",
+  "description": "ESLint plugin for va.gov projects",
+  "homepage": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/tree/master/packages/eslint-plugin-vav#readme",
+  "bugs": {
+    "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:department-of-veterans-affairs/veteran-facing-services-tools.git"
+  },
+  "license": "MIT",
+  "author": "Department of Veteran Affairs",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 12"
+  },
+  "scripts": {
+    "lint": "eslint . --cache",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.3",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {},
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "testMatch": [
+      "**/tests/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/helpers/"
+    ]
+  }
+}
