@@ -18,7 +18,7 @@ module.exports = {
     'react-hooks',
     'sonarjs',
     'unicorn',
-    'va'
+    '@department-of-veterans-affairs',
   ],
   extends: [
     'eslint:recommended',
@@ -34,7 +34,7 @@ module.exports = {
     mocha: true,
   },
   rules: {
-    /* || Eslint main rules || */
+    /* || ESLint main rules || */
     camelcase: [2, { properties: 'always' }], // Override airbnb style.
     'no-unused-vars': [
       2,
@@ -170,17 +170,17 @@ module.exports = {
     'import/prefer-default-export': 0,
 
     /* || va custom plugin || */
-    'va/proptypes-camel-cased': 2,
-    'va/enzyme-unmount': 2,
-    'va/use-resolved-path': [
+    '@department-of-veterans-affairs/proptypes-camel-cased': 2,
+    '@department-of-veterans-affairs/enzyme-unmount': 2,
+    '@department-of-veterans-affairs/use-resolved-path': [
       2,
       {
         aliases: ['applications', 'platform', 'site', '@@vap-svc', '@@profile'],
       },
     ],
-    'va/axe-check-required': 1,
-    'va/correct-apostrophe': 1,
-    'va/cypress-viewport-deprecated': 1,
-    'va/prefer-web-component-library': 1,
+    '@department-of-veterans-affairs/axe-check-required': 1,
+    '@department-of-veterans-affairs/correct-apostrophe': 1,
+    '@department-of-veterans-affairs/cypress-viewport-deprecated': 1,
+    '@department-of-veterans-affairs/prefer-web-component-library': 1,
   },
 };
