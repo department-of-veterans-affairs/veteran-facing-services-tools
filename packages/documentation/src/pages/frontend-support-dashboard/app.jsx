@@ -13,21 +13,21 @@ import { defineCustomElements } from 'web-components/loader';
 
 defineCustomElements();
 
-
 export default function App({ location }) {
 
   const [state, dispatch] = useReducer(DeployStatusReducer, deployStatusInitialState);
-  const {     
+  const {
     appsDevBuildText,
     appsStagingBuildText,
     appsProdBuildText,
     appsCommits,
+    appsWorkflowRuns,
     contentDevBuildText,
     contentStagingBuildText,
     contentProdBuildText,
-    contentCommits
+    contentCommits,
+    contentWorkflowRuns,
   } = state;
-
 
   // Fetches vets-website
   React.useEffect(function fetchComponentData() {
@@ -38,6 +38,7 @@ export default function App({ location }) {
           stagingBuildText,
           prodBuildText,
           commits,
+          workflowRuns,
         } = allData;
 
         dispatch({
@@ -46,6 +47,7 @@ export default function App({ location }) {
           appsStagingBuildText: stagingBuildText,
           appsProdBuildText: prodBuildText,
           appsCommits: commits,
+          appsWorkflowRuns: workflowRuns,
         })
         return allData;
       })
@@ -63,6 +65,7 @@ export default function App({ location }) {
           stagingBuildText,
           prodBuildText,
           commits,
+          workflowRuns,
         } = allData;
 
         dispatch({
@@ -71,7 +74,9 @@ export default function App({ location }) {
           contentStagingBuildText: stagingBuildText,
           contentProdBuildText: prodBuildText,
           contentCommits: commits,
+          contentWorkflowRuns: workflowRuns,
         })
+
         return allData;
       })
       .catch(function handleError(error) {
@@ -93,6 +98,7 @@ export default function App({ location }) {
             stagingBuildText={appsStagingBuildText}
             prodBuildText={appsProdBuildText}
             commits={appsCommits}
+            workflowRuns={appsWorkflowRuns}
           />
 
           <h2>Deploy Status content-build</h2>
@@ -102,6 +108,7 @@ export default function App({ location }) {
             stagingBuildText={contentStagingBuildText}
             prodBuildText={contentProdBuildText}
             commits={contentCommits}
+            workflowRuns={contentWorkflowRuns}
           />
         </div>
       </div>

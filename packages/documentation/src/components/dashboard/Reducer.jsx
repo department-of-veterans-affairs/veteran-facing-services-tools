@@ -3,10 +3,12 @@ export const deployStatusInitialState = {
   appsStagingBuildText: '',
   appsProdBuildText: '',
   appsCommits: [],
+  appsWorkflowRuns: [],
   contentDevBuildText: '',
   contentStagingBuildText: '',
   contentProdBuildText: '',
   contentCommits: [],
+  contentWorkflowRuns: [],
 };
 
 export function DeployStatusReducer(state, action) {
@@ -18,6 +20,7 @@ export function DeployStatusReducer(state, action) {
         appsStagingBuildText: action.appsStagingBuildText,
         appsProdBuildText: action.appsProdBuildText,
         appsCommits: action.appsCommits,
+        appsWorkflowRuns: action.appsWorkflowRuns,
       };
     }
     case 'contentBuild': {
@@ -27,6 +30,7 @@ export function DeployStatusReducer(state, action) {
         contentStagingBuildText: action.contentStagingBuildText,
         contentProdBuildText: action.contentProdBuildText,
         contentCommits: action.contentCommits,
+        contentWorkflowRuns: action.contentWorkflowRuns,
       };
     }
     default:

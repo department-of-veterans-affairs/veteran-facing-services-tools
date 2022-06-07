@@ -1,5 +1,14 @@
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import DropDownPanel from '@department-of-veterans-affairs/component-library/DropDownPanel'
+
+const isDeployed = (workflowRuns, commitSHA) => {
+  const workflow = workflowRuns.find(({ head_sha }) => head_sha === commitSHA);
+
+  if (!workflow) return false;
+
+  return workflow.conclusion === 'success';
+}
 
 const isOnEnv = (isOn) => {
   const trueIcon = <span className="dash-true-icon" aria-label="True Icon"><i className="fas fa-check-circle fa-2x" aria-hidden="true"></i></span>;
@@ -18,6 +27,7 @@ export default function CommitsTable({
   stagingBuildText,
   prodBuildText,
   commits,
+  workflowRuns,
 }) {
   const [isPanelOpen, setPanelOpen] = useState(false)
   const devRows = devBuildText.split('\n').filter(x => x) || [];
@@ -88,6 +98,7 @@ export default function CommitsTable({
                 <th scope="col">Dev</th>
                 <th scope="col">Staging</th>
                 <th scope="col">Prod</th>
+                <th scope="col">Full deploy</th>
               </tr>
             </thead>
             <tbody>
@@ -129,9 +140,12 @@ export default function CommitsTable({
                         </span>
                       </div>
                     </td>
-                    <td className="dash-td-center">{isOnEnv(isOnDev)}</td>
+                    <td className="dash-td-center">
+                      {isOnEnv(isDeployed(workflowRuns, sha))}
+                    </td>
                     <td className="dash-td-center">{isOnEnv(isOnStaging)}</td>
                     <td className="dash-td-center">{isOnEnv(isOnProd)}</td>
+                    <td className="dash-td-center">{isOnEnv(true)}</td>
                   </tr>
                 );
               })}

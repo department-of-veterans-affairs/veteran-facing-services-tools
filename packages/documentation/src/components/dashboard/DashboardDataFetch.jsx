@@ -1,3 +1,26 @@
+/* eslint-disable camelcase */
+import { Octokit } from '@octokit/rest';
+
+function getWorkflowRuns(repo) {
+  const octokit = new Octokit();
+
+  const params = {
+    owner: 'department-of-veterans-affairs',
+    repo,
+    workflow_id: 'continuous-integration.yml',
+    branch: 'main',
+    per_page: 100,
+    page: 1,
+  };
+
+  return octokit.rest.actions.listWorkflowRuns(params).then(response => {
+    if (response.status !== 200) {
+      throw new Error(`Response ${response.status} from ${response.url}.`);
+    }
+    return response.data.workflow_runs;
+  });
+}
+
 export async function DeployStatusDataFetch(repo) {
   // https://dmitripavlutin.com/javascript-fetch-async-await/#5-parallel-fetch-requests
   const [
@@ -5,12 +28,14 @@ export async function DeployStatusDataFetch(repo) {
     stagingBuildTextResponse,
     prodBuildTextResponse,
     commitsResponse,
+    workflowRuns,
   ] = await Promise.all([
     fetch(repo.devBuildText),
     fetch(repo.stagingBuildText),
     fetch(repo.prodBuildText),
     // last 30 commits from vets-website
     fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}/commits`),
+    getWorkflowRuns(repo.repo),
   ]);
 
   const devBuildText = await devBuildTextResponse.text();
@@ -35,6 +60,7 @@ export async function DeployStatusDataFetch(repo) {
     stagingBuildText,
     prodBuildText,
     commits,
+    workflowRuns,
   };
 
   return result;
@@ -50,7 +76,6 @@ export async function TestCoverageDataFetch(repo) {
 
 export async function statusDataFetch(repo) {
   const statusDataResponse = await fetch(repo.backendStatus);
-  console.log(statusDataResponse);
   if (!statusDataResponse.ok) {
     throw Error(statusDataResponse.statusText);
   }
