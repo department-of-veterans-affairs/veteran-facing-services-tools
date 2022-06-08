@@ -8,6 +8,7 @@ module.exports = {
     'correct-apostrophe': require('./lib/rules/correct-apostrophe'),
     'cypress-viewport-deprecated': require('./lib/rules/cypress-viewport-deprecated.js'),
     'prefer-web-component-library': require('./lib/rules/prefer-web-component-library'),
+    'design-system': require('./lib/rules/design-system'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),

@@ -182,5 +182,6 @@ module.exports = {
     '@department-of-veterans-affairs/correct-apostrophe': 1,
     '@department-of-veterans-affairs/cypress-viewport-deprecated': 1,
     '@department-of-veterans-affairs/prefer-web-component-library': 1,
+    '@department-of-veterans-affairs/design-system': 1,
   },
 };
