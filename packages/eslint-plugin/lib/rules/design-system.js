@@ -18,7 +18,7 @@ module.exports = {
          * Deprecrate green button
          */
         const className = getPropNode(node, 'className');
-        if (className?.value.includes('va-button-primary')) {
+        if (className?.value.value.includes('va-button-primary')) {
           context.report({
             node,
             message:
