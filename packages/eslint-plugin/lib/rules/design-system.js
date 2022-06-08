@@ -15,7 +15,7 @@ module.exports = {
     return {
       JSXElement(node) {
         /**
-         * Deprecrate green button
+         * Deprecate green button
          */
         const className = getPropNode(node, 'className');
         if (className?.value.value.includes('va-button-primary')) {
