@@ -5,3 +5,4 @@
 packages/formation @department-of-veterans-affairs/platform-design-system-fe
 packages/formation-react @department-of-veterans-affairs/platform-design-system-fe
 packages/eslint-plugin/lib/rules/prefer-web-component-library.js @department-of-veterans-affairs/platform-design-system-fe
+packages/eslint-plugin/lib/rules/deprecated-classes.js @department-of-veterans-affairs/platform-design-system-fe
