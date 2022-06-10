@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require('../../../lib/rules/design-system');
+const rule = require('../../../lib/rules/deprecated-classes');
 const RuleTester = require('eslint').RuleTester;
 
 const parserOptions = {
@@ -13,7 +13,7 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-ruleTester.run('design-system', rule, {
+ruleTester.run('deprecated-classes', rule, {
   valid: [
     {
       code: `<button onClick={verify} type="button" className="usa-button-primary">Verify your identity</button>`,

@@ -4,7 +4,7 @@ const getPropNode = (node, propName) =>
 module.exports = {
   meta: {
     docs: {
-      description: 'VA.gov Design System',
+      description: 'VA.gov Design System deprecated classes',
       category: 'Best Practices',
       recommended: false,
     },
