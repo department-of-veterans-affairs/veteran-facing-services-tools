@@ -1,5 +1,5 @@
 const getPropNode = (node, propName) =>
-  node.openingElement.attributes.find(n => n.name.name === propName);
+  node.openingElement.attributes.find(n => n.name?.name === propName);
 
 module.exports = {
   meta: {
@@ -18,7 +18,10 @@ module.exports = {
          * Deprecate green button
          */
         const className = getPropNode(node, 'className');
-        if (className?.value.value.includes('va-button-primary')) {
+        if (
+          className?.value?.value?.includes('va-button-primary') ||
+          className?.value?.expression?.value?.includes('va-button-primary')
+        ) {
           context.report({
             node,
             message:
