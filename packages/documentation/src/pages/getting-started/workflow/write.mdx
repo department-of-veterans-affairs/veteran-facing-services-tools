@@ -1,14 +1,26 @@
 ---
-title:  Workflow- Write
+title: Workflow- Write
 tags: feature branching, git, code
 ---
 
 # Write
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Write.1846312961.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Write.1846312961.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 ## Choose an issue to work on
@@ -19,12 +31,14 @@ _The VA handbook has more information about the broader process for delivering s
 
 ## Create feature branch
 
-- Checkout `master` branch and pull the latest
+- Checkout `main` branch and pull the latest
+
 ```bash
-git checkout master && git pull origin master
+git checkout main && git pull origin main
 ```
 
-- Create a new feature branch from master
+- Create a new feature branch from main
+
 ```bash
 git checkout -b feature/12345-issue-title
 ```

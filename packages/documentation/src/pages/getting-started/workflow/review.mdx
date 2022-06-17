@@ -1,26 +1,40 @@
 ---
-title:  Workflow- Review
+title: Workflow- Review
 tags: peer review, pull request, feature branch, git
 ---
 
 # Review
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Review.1845919891.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Review.1845919891.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 ## Submit pull request
 
-- **Pull master** and **push feature branch** to `vets-website` and/or `content-build` repositories
+- **Pull main** and **push feature branch** to `vets-website` and/or `content-build` repositories
+
 ```bash
-git pull origin master
+git pull origin main
 git push origin feature/12345-issue-title
 ```
+
 **Note:** If you are making changes in both repositories that are dependent on each other, you should give both branches in each repository the same name.
 
-_Always **pull master** into your feature branch before creating a pull request._
+_Always **pull main** into your feature branch before creating a pull request._
 
 - **Create a pull request** indicating that your code is ready for review.
 - **Request peer review** on Github by tagging a fellow team member who you feel is qualified to review the code (this prevents the pull request from just sitting). You may also want to tag developers on other teams if the changes cover more than one application.
@@ -60,20 +74,21 @@ _**The person making the change is responsible** for ensuring the change is adeq
 ### Review instance automatic creation
 
 **Jenkins** automatically **deploys** two remote **review instances** of a **feature branch** when a pull request is created:
-  - an instance that just includes static pages content deployed by **va-bot**
-  - an instance that includes static pages and the VA.gov client application deployed by **va-vfs-bot**
 
-  _Example of deployment links:_
+- an instance that just includes static pages content deployed by **va-bot**
+- an instance that includes static pages and the VA.gov client application deployed by **va-vfs-bot**
 
-  ![PR deployment list](../../../images/reviewing-feature-branches/PR-deployment-list.png)
+_Example of deployment links:_
+
+![PR deployment list](../../../images/reviewing-feature-branches/PR-deployment-list.png)
 
 After a pull request is created, **Jenkins** will automatically **rebuild** these instances when feature branch **changes are pushed**
 
 To review dependent changes made in `vets-website` and `content-build` pull requests in the same review instance, verify both branches in each repository have the same name. The review instance deployment in both pull requests will share the same link. Changes made in either pull request will be deployed to that review instance.
 
-  _You will need your browser configured to access the vetsgov-internal domain via the SOCKS proxy. Please see the [2. Access internal tools](/getting-started/internal-tools) for detailed instructions._
+_You will need your browser configured to access the vetsgov-internal domain via the SOCKS proxy. Please see the [2. Access internal tools](/getting-started/internal-tools) for detailed instructions._
 
-  ### Review instance manual creation
+### Review instance manual creation
 
 **Jenkins** can be **manually triggered** to build a **review instance**.
 

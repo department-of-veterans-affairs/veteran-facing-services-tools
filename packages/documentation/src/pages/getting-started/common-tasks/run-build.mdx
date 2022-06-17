@@ -6,62 +6,82 @@ tags: watch
 # Run and build VA.gov
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Running-VA.gov-locally.1844248620.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Running-VA.gov-locally.1844248620.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 ## Prerequisite
 
-- Complete the [first](/getting-started) step in *Start up guide*.
+- Complete the [first](/getting-started) step in _Start up guide_.
 
 ## Locally run VA.gov
 
 Start the watch task:
+
 ```bash
 yarn watch
 ```
+
 ### Build
 
 #### vets-website
-  - **Webpack** manages this build pipeline. At a high level, this process:
-    1. Starts **Webpack**'s devevelopment server which
-       - **Builds** the **JavaScript** and **CSS** bundles
-       - **Serves** the **JavaScript** and **CSS** bundles built by Webpack as well as any scaffolded application pages [http://localhost:3001](http://localhost:3001)
+
+- **Webpack** manages this build pipeline. At a high level, this process:
+  1. Starts **Webpack**'s devevelopment server which
+     - **Builds** the **JavaScript** and **CSS** bundles
+     - **Serves** the **JavaScript** and **CSS** bundles built by Webpack as well as any scaffolded application pages [http://localhost:3001](http://localhost:3001)
 
 #### content-build
-  - **Metalsmith** manages this build pipeline. At a high level, this process:
-    1. Retrieves and **builds** all of the **static pages** sourced from `vagov-content` or Drupal
-    2. **Serves** the **static content** built by Metalsmith at [http://localhost:3002](http://localhost:3002)
+
+- **Metalsmith** manages this build pipeline. At a high level, this process:
+  1. Retrieves and **builds** all of the **static pages** sourced from `vagov-content` or Drupal
+  2. **Serves** the **static content** built by Metalsmith at [http://localhost:3002](http://localhost:3002)
 
 ### Output
-  - **Metalsmith** in the `content-build` repository outputs **static pages** to`build/localhost`
-  - **Webpack** in the `vets-website` repository development server has **no output**. **JavaScript** and **CSS** are kept on disk.
+
+- **Metalsmith** in the `content-build` repository outputs **static pages** to`build/localhost`
+- **Webpack** in the `vets-website` repository development server has **no output**. **JavaScript** and **CSS** are kept on disk.
 
 ### Watch and rebuild
-  - **Metalsmith** in the `content-build` repository will rebuild **static pages** when changes are saved to **templates** or content in `vagov-content`
-  - **Webpack** in the `vets-website` repository will rebuild when changes are saved to **JavaScript** or **SCSS**
-  - Both updates require a browser refresh to see changes.
-  - Changes to build process or configuration files are typically not picked up, and require a restart of the watch task to become active.
+
+- **Metalsmith** in the `content-build` repository will rebuild **static pages** when changes are saved to **templates** or content in `vagov-content`
+- **Webpack** in the `vets-website` repository will rebuild when changes are saved to **JavaScript** or **SCSS**
+- Both updates require a browser refresh to see changes.
+- Changes to build process or configuration files are typically not picked up, and require a restart of the watch task to become active.
 
 ## Locally build and run for specific environment
 
 _Note: most of the time, it's better to use the `watch` task to build the site locally since it is the most developer-friendly experience._
 
-| Environment | Build Command | Output directory | Run Command |
-| --- | --- | --- | ---|
-| localhost | `yarn build` | `build/localhost` | `npx http-server -p 3001 build/localhost` |
-| dev.va.gov | `yarn build --buildtype=vagovdev` | `build/vagovdev` | `npx http-server -p 3001 build/vagovdev` |
+| Environment    | Build Command                                             | Output directory     | Run Command                                  |
+| -------------- | --------------------------------------------------------- | -------------------- | -------------------------------------------- |
+| localhost      | `yarn build`                                              | `build/localhost`    | `npx http-server -p 3001 build/localhost`    |
+| dev.va.gov     | `yarn build --buildtype=vagovdev`                         | `build/vagovdev`     | `npx http-server -p 3001 build/vagovdev`     |
 | staging.va.gov | `NODE_ENV=production yarn build --buildtype=vagovstaging` | `build/vagovstaging` | `npx http-server -p 3001 build/vagovstaging` |
-| www.va.gov | `NODE_ENV=production yarn build --buildtype=vagovprod` | `build/vagovprod` | `npx http-server -p 3001 build/vagovprod` |
+| www.va.gov     | `NODE_ENV=production yarn build --buildtype=vagovprod`    | `build/vagovprod`    | `npx http-server -p 3001 build/vagovprod`    |
 
 ### Build commands
+
 - **create** the **static pages** from the markdown content in the `vagov-content` repository and data queried from the Drupal API into their **output directory**
 - **create** the **JavaScript** and **CSS** files with Webpack into `/generated` folder in their **output directory** with Webpack
 
 _Production like builds are required for staging and production environments. **NODE_ENV=production** environment variable is required to be set when running these build commands_
 
 ### Run commands
+
 - **start** an `http-server` that **serves** the **static pages** from the **output directory** at [http://localhost:3001](https://localhost:3001)
 
 _Typically, the reason for building the site locally like this is to build it in production mode and check that it is behaving as you'd expect._
@@ -69,5 +89,6 @@ _Typically, the reason for building the site locally like this is to build it in
 _**Deep-linking** to urls that are rendered by **React** apps on VA.gov **will not work** when you run the site this way, as that relies on some server-side routing that is handled in nginx (or the Webpack dev server when running the `watch` task)_
 
 ## Related source
-- [Metalsmith build script](https://github.com/department-of-veterans-affairs/content-build/tree/master/src/site/stages/build)
-- [Webpack development server config](https://github.com/department-of-veterans-affairs/vets-website/blob/master/config/webpack.dev.config.js)
+
+- [Metalsmith build script](https://github.com/department-of-veterans-affairs/content-build/tree/main/src/site/stages/build)
+- [Webpack development server config](https://github.com/department-of-veterans-affairs/vets-website/blob/main/config/webpack.dev.config.js)

@@ -6,15 +6,28 @@ tags: styling overview, sass, SCSS, US Web Design System, USWDS, Foundation, Fon
 # CSS General Info
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Styling.1851392375.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{" "}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Styling.1851392375.html">
+      the latest version of this page
+    </a>{" "}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{" "}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{" "}
+    on Slack.
+  </h3>
 </div>
 
 ## Background
+
 - Written in [Sass](http://sass-lang.com/) using the [SCSS](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) syntax
-    > There are two syntaxes available for Sass. The first, known as SCSS (Sassy CSS) and used throughout this reference, is an extension of the syntax of CSS. This means that every valid CSS stylesheet is a valid SCSS file with the same meaning. In addition, SCSS understands most CSS hacks and vendor-specific syntax, such as IE's old filter syntax. This syntax is enhanced with the Sass features described below. Files using this syntax have the .scss extension.
-- Files resides in [src/platform/site-wide/sass](https://github.com/department-of-veterans-affairs/vets-website/tree/master/src/platform/site-wide/sass)
+  > There are two syntaxes available for Sass. The first, known as SCSS (Sassy CSS) and used throughout this reference, is an extension of the syntax of CSS. This means that every valid CSS stylesheet is a valid SCSS file with the same meaning. In addition, SCSS understands most CSS hacks and vendor-specific syntax, such as IE's old filter syntax. This syntax is enhanced with the Sass features described below. Files using this syntax have the .scss extension.
+- Files resides in [src/platform/site-wide/sass](https://github.com/department-of-veterans-affairs/vets-website/tree/main/src/platform/site-wide/sass)
 - Frameworks and libraries include:
   - [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/)
     - [GitHub Repo](https://github.com/uswds/uswds)
@@ -24,8 +37,8 @@ tags: styling overview, sass, SCSS, US Web Design System, USWDS, Foundation, Fon
   - [Font Awesome](http://fontawesome.io/)
 - Compiled to CSS using Webpack
 
-
 ## Directory structure
+
 - `root/`
   - Site-wide style is defined in `style.scss`
     - Includes global imports, such as our frameworks and libraries
@@ -42,6 +55,7 @@ tags: styling overview, sass, SCSS, US Web Design System, USWDS, Foundation, Fon
     - Generally used only for specific applications/pages of the website that are organized in a directory rather than a single file.
 
 # Webpack/Compilation
+
 - Sass is configured and compiled into CSS via Webpack
   - Configuration at `config/webpack.config.js`
 - Website is broken into a series of entry files, one of which is the site-wide file, `style.scss`, while the rest are entry points for applications defined as `JSX` files.
@@ -51,6 +65,7 @@ tags: styling overview, sass, SCSS, US Web Design System, USWDS, Foundation, Fon
 ## Example Application
 
 ##### config/webpack.config.js
+
 ```js
 const entryFiles = {
   // ...
@@ -59,26 +74,31 @@ const entryFiles = {
 ```
 
 ##### content/somewhere/some-application.md
+
 ```html
 ---
 title: My Application
 layout: page-react.html
 entryname: my-application
 ---
-<p> Some content</p>
+
+<p>Some content</p>
 <div id="react-entry"></div>
 ```
 
 ##### src/applications/my-application/entry.jsx
+
 ```js
 // Our Webpack configuration will use the file extension to determine how to handle that import, which in our case is to compile it into a CSS file.
-import '../../sass/my-application.scss';
+import "../../sass/my-application.scss";
 ```
 
 ## Static Assets
+
 The `root/assets/` directory is used for storing images, fonts, and other files you may want to have reside outside of the Webpack build system. During build time, the contents of that directory will be moved as-is to the build output, so `root/assets/js/something.js` will be moved to `root/build/development/js/something.js`, which means it can be linked to in the website with `/js/something.js`.
 
 # Roadmap Ahead
+
 - Keep up-to-date with USWDS
   - [What's New](https://designsystem.digital.gov/whats-new/)
 - Foundation needs to go entirely. We should opt for the USWDS grid system or Flexbox instead.
