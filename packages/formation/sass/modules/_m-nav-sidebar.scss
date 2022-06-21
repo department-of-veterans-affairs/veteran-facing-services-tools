@@ -206,7 +206,8 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       }
 
       &:focus {
-        @include focus-gold-vivid-outline;
+        outline: 2px solid $color-gold;
+        outline-offset: 3px;
       }
     }
 
@@ -285,7 +286,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       font-size: 15px;
 
       &:focus {
-        @include focus-gold-vivid-outline;
+        @include focus-gold-light-outline(0);
       }
 
       &:hover, &:focus {
