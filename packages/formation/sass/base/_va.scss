@@ -35,7 +35,7 @@ body {
   &:focus {
     position: inherit;
     top: auto;
-    @include focus-gold-vivid-outline;
+    outline: 2px solid $color-gold;
   }
 }
 
@@ -94,18 +94,6 @@ a {
   &:visited,
   &:visited abbr {
     color: $color-visited;
-  }
-}
-
-// Use outline focus styling for links in the main content area
-// since box-shadow styling doesn't look good on wrapped links
-main [href],
-va-banner [href] {
-  &:focus {
-    outline: $focus-outline;
-    background: $color-white;
-    color: $color-link-default;
-    box-shadow: unset;
   }
 }
 
