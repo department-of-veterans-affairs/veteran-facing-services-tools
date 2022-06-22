@@ -188,8 +188,8 @@ $multiple: 8px !default;
 $spacers: (
   0:    0,
   1px:  1px,
-  0p25: calc(#{$multiple} / 4),
-  0p5:  calc(#{$multiple} / 2),
+  0p25: $multiple * 0.25,
+  0p5:  $multiple * 0.5,
   1:    $multiple,
   1p5:  $multiple * 1.5,
   2:    $multiple * 2,
