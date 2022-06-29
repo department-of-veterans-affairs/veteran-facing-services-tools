@@ -1,3 +1,34 @@
+import { Octokit } from '@octokit/rest';
+
+function getWorkflowRunsAsCommitStatusObject(repo) {
+  const octokit = new Octokit();
+
+  const params = {
+    owner: 'department-of-veterans-affairs',
+    repo,
+    workflow_id: 'continuous-integration.yml',
+    branch: 'main',
+    per_page: 30,
+    page: 1,
+  };
+
+  return octokit.rest.actions.listWorkflowRuns(params).then(response => {
+    if (response.status !== 200) {
+      throw new Error(`Response ${response.status} from ${response.url}.`);
+    }
+    return response.data;
+  }).then(({ workflow_runs }) => {
+    if (workflow_runs.length === 0) {
+      throw new Error('No workflows found.');
+    }
+
+    return workflow_runs.reduce((map, obj) => {
+      map[obj["head_sha"]] = obj["status"];
+      return map;
+    }, {});
+  });
+}
+
 export async function DeployStatusDataFetch(repo) {
   // https://dmitripavlutin.com/javascript-fetch-async-await/#5-parallel-fetch-requests
   const [
