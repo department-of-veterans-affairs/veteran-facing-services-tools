@@ -18,18 +18,12 @@ export default function CommitsTable({
   stagingBuildText,
   prodBuildText,
   commits,
+  deploys,
 }) {
   const [isPanelOpen, setPanelOpen] = useState(false)
   const devRows = devBuildText.split('\n').filter(x => x) || [];
   const stagingRows = stagingBuildText.split('\n').filter(x => x);
   const prodRows = prodBuildText.split('\n').filter(x => x);
-
-  const devRef = devRows[6]?.slice(4);
-  const stagingRef = stagingRows[6]?.slice(4);
-  const prodRef = prodRows[6]?.slice(4);
-  let isOnDev = false;
-  let isOnStaging = false;
-  let isOnProd = false;
 
   const openAccordion = repo.repo === 'vets-website' ? false : true;
 
@@ -98,10 +92,6 @@ export default function CommitsTable({
                 const { date } = committer;
                 const login = getGithubLoginId(x);
 
-                if (sha === devRef) isOnDev = true;
-                if (sha === stagingRef) isOnStaging = true;
-                if (sha === prodRef) isOnProd = true;
-
                 return (
                   <tr key={sha}>
                     <td className="dash-td-center">
@@ -129,9 +119,9 @@ export default function CommitsTable({
                         </span>
                       </div>
                     </td>
-                    <td className="dash-td-center">{isOnEnv(isOnDev)}</td>
-                    <td className="dash-td-center">{isOnEnv(isOnStaging)}</td>
-                    <td className="dash-td-center">{isOnEnv(isOnProd)}</td>
+                    <td className="dash-td-center">{isOnEnv(deploys[sha]?.['dev'])}</td>
+                    <td className="dash-td-center">{isOnEnv(deploys[sha]?.['staging'])}</td>
+                    <td className="dash-td-center">{isOnEnv(deploys[sha]?.['prod'])}</td>
                   </tr>
                 );
               })}

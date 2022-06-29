@@ -13,6 +13,8 @@ export const vetsWebsiteInfo = {
   backendStatus: 'https://api.va.gov/v0/backend_statuses',
   crossAppImports:
     'https://s3-us-gov-west-1.amazonaws.com/vetsgov-website-builds-s3-upload-test/cross-app-imports/cross-app-imports.json',
+  buildArtifactBucket:
+    'https://s3-us-gov-west-1.amazonaws.com/vetsgov-website-builds-s3-upload',
 };
 
 // https://github.com/department-of-veterans-affairs/content-build/blob/844d3170a92005dbee70a7ecf643362137ba68c3/jenkins/common.groovy#L280
