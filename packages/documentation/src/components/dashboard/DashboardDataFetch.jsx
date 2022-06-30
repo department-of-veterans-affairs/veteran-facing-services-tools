@@ -23,7 +23,7 @@ function getWorkflowRunsAsCommitStatusObject(repo) {
     }
 
     return workflow_runs.reduce((map, obj) => {
-      map[obj["head_sha"]] = obj["status"];
+      map[obj["head_sha"]] = obj["conclusion"];
       return map;
     }, {});
   });
