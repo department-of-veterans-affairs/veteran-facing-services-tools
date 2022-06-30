@@ -25,7 +25,7 @@ export default function CommitsTable({
   const stagingRows = stagingBuildText.split('\n').filter(x => x);
   const prodRows = prodBuildText.split('\n').filter(x => x);
 
-  const openAccordion = repo.repo === 'vets-website' ? false : true;
+  const openAccordion = repo.repo === 'vets-website';
 
   return (
 

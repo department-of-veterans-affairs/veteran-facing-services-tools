@@ -60,12 +60,18 @@ export async function DeployStatusDataFetch(repo) {
   if (!commitsResponse.ok) {
     throw Error(commitsResponse.statusText);
   }
+  let workflowConclusions = {};
+  if (repo.repo === 'vets-website') {
+    // Needed only for vets-website since it supports single-app builds
+    workflowConclusions = await getWorkflowRunsAsCommitStatusObject(repo.repo);
+  }
   const deploys = await deploysFetch(
     repo,
     devBuildText,
     stagingBuildText,
     prodBuildText,
     commits,
+    workflowConclusions,
   );
 
   const result = {
@@ -109,6 +115,7 @@ export async function deploysFetch(
   stagingBuildText,
   prodBuildText,
   commits,
+  workflowConclusions,
 ) {
   // Store results as a hash with sha and env as the keys, and boolean as value
   // representing whether the commit was deployed to the env
@@ -134,21 +141,24 @@ export async function deploysFetch(
     if (sha === prodRef) isOnProd = true;
 
     // If commit wasn't deployed by a full build, check for single-app build
-    let isSingleAppBuild = false;
+    let hasSuccessfulSingleAppBuild = false;
     if (isVetsWebsite && (!isOnDev || !isOnStaging || !isOnProd)) {
       const buildArtifactUrl = `${repo.buildArtifactBucket}/${sha}/BUILD_ARTIFACT.txt`;
       const response = await fetch(buildArtifactUrl);
       if (response.ok) {
         const fileText = await response.text();
         const matchText = fileText.match(/IS_SINGLE_APP_BUILD=(\w+)/)[1];
-        isSingleAppBuild = matchText === 'true';
+        const isSingleAppBuild = matchText === 'true';
+        const workflowSucceeded = workflowConclusions[sha] === 'success';
+        hasSuccessfulSingleAppBuild = isSingleAppBuild && workflowSucceeded;
       }
     }
 
     results[sha] = {
-      dev: isOnDev || isSingleAppBuild,
-      staging: isOnStaging || isSingleAppBuild,
-      prod: isOnProd || isSingleAppBuild,
+      dev: isOnDev || hasSuccessfulSingleAppBuild,
+      staging: isOnStaging || hasSuccessfulSingleAppBuild,
+      // Single-app builds are not yet enabled on prod, so ignore for now
+      prod: isOnProd, // || hasSuccessfulSingleAppBuild,
     };
   }
 
