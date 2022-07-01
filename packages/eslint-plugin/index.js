@@ -9,6 +9,7 @@ module.exports = {
     'cypress-viewport-deprecated': require('./lib/rules/cypress-viewport-deprecated.js'),
     'prefer-web-component-library': require('./lib/rules/prefer-web-component-library'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
+    'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
