@@ -143,7 +143,7 @@ export async function deploysFetch(
     // If commit wasn't deployed by a full build, check for single-app build
     let hasSuccessfulSingleAppBuild = false;
     if (isVetsWebsite && (!isOnDev || !isOnStaging || !isOnProd)) {
-      const buildArtifactUrl = `${repo.buildArtifactBucket}/${sha}/BUILD_ARTIFACT.txt`;
+      const buildArtifactUrl = `${repo.buildArtifacts}/${sha}.txt`;
       const response = await fetch(buildArtifactUrl);
       if (response.ok) {
         const fileText = await response.text();
