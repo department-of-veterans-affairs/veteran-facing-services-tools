@@ -22,10 +22,12 @@ export default function App({ location }) {
     appsStagingBuildText,
     appsProdBuildText,
     appsCommits,
+    appsDeploys,
     contentDevBuildText,
     contentStagingBuildText,
     contentProdBuildText,
-    contentCommits
+    contentCommits,
+    contentDeploys,
   } = state;
 
 
@@ -38,6 +40,7 @@ export default function App({ location }) {
           stagingBuildText,
           prodBuildText,
           commits,
+          deploys,
         } = allData;
 
         dispatch({
@@ -46,6 +49,7 @@ export default function App({ location }) {
           appsStagingBuildText: stagingBuildText,
           appsProdBuildText: prodBuildText,
           appsCommits: commits,
+          appsDeploys: deploys,
         })
         return allData;
       })
@@ -63,6 +67,7 @@ export default function App({ location }) {
           stagingBuildText,
           prodBuildText,
           commits,
+          deploys,
         } = allData;
 
         dispatch({
@@ -71,6 +76,7 @@ export default function App({ location }) {
           contentStagingBuildText: stagingBuildText,
           contentProdBuildText: prodBuildText,
           contentCommits: commits,
+          contentDeploys: deploys,
         })
         return allData;
       })
@@ -93,6 +99,7 @@ export default function App({ location }) {
             stagingBuildText={appsStagingBuildText}
             prodBuildText={appsProdBuildText}
             commits={appsCommits}
+            deploys={appsDeploys}
           />
 
           <h2>Deploy Status content-build</h2>
@@ -102,6 +109,7 @@ export default function App({ location }) {
             stagingBuildText={contentStagingBuildText}
             prodBuildText={contentProdBuildText}
             commits={contentCommits}
+            deploys={contentDeploys}
           />
         </div>
       </div>
