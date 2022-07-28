@@ -3,7 +3,8 @@
 // is for this file to be empty, but some times you just have to throw that
 // hack in there to get it working.
 
-// message while loading react app
+// TODO: use padding and text-align utilities in health-care-questionnaire:
+// https://github.com/department-of-veterans-affairs/vets-website/blob/04a0d9b8a99af9e829870f14ccfffeabbd447a18/src/applications/health-care-questionnaire/shared/components/print/LoadingMessage.jsx#L7
 .loading-message {
   padding: 2em 0;
   text-align: center;
@@ -36,20 +37,31 @@ body {
   }
 }
 
+// TODO: replace with .vads-u-font-size--md utility class
 .button-icon {
   font-size: 1.7rem;
 }
 
+// TODO: This is only used in:
+// - https://github.com/department-of-veterans-affairs/vets-website/blob/9432fc259a76a2a0a8f1766ac5bebfe9cb947966/src/platform/forms-system/src/js/containers/FormApp.jsx#L71
+// and is overridden by the .progress-box-schemaform which specifies:
+// - margin-top
+// - border
+// - padding-top
+// It can be removed once we update other sass selectors
 .progress-box {
   border: 1px solid $color-gray-lightest;
   margin: 1.5rem 0;
   padding: 1rem 2rem;
 }
 
+// TODO: Remove unused class
 .form-section {
   display: none;
 }
 
+// TODO: className="section" appears a few times in vets-website.
+// See if there are any h4s that are children of fieldsets inside a .section
 #content .section {
   fieldset {
     h4 {
@@ -58,6 +70,7 @@ body {
   }
 }
 
+// TODO: Remove unused .edit-checkbox class
 .edit-checkbox {
   label {
     background-color: transparent;
@@ -74,9 +87,12 @@ body {
   }
 }
 
+// TODO: Eventually replace .input-section class with margin-bottom utility in forms library
+// Make similar updates in app code as necessary
 .input-section {
   margin-bottom: 2em;
 
+  // TODO: Figure out if this is class is ever used inside an input-section
   .row {
     margin: 0;
   }
@@ -92,8 +108,10 @@ body {
   display: none !important;
 }
 
-// inline declarations moved here as a result of CSP rules
 
+// TODO: Remove all csp-inline-* classes and use utiltity classes:
+// - https://github.com/department-of-veterans-affairs/content-build/blob/1b7251633cf86521e7e4b05601bcbc0ff576fca8/src/site/components/react-loader.html#L5
+// - https://github.com/department-of-veterans-affairs/content-build/blob/1b7251633cf86521e7e4b05601bcbc0ff576fca8/src/site/includes/google-analytics.liquid#L36
 .csp-inline-patch-footer {
   display: none;
   visibility: hidden;
@@ -136,8 +154,11 @@ body {
   padding: 2em 0;
 }
 
-// /education/apply/ uses this expander button for navigation
-// Where else can I put this? Also, it could use a better name.
+// TODO: Remove unused .expander-* classes
+// The only place I found any of these .expander-* classes used was in a script
+// for attaching handlers to elements with .usa-alert classes, but these classes
+// still appear unused.
+// https://github.com/department-of-veterans-affairs/vets-website/blob/04a0d9b8a99af9e829870f14ccfffeabbd447a18/src/applications/static-pages/widget-creators/alerts-dismiss-view.js#L16
 .expander-button {
   &::after {
     background-image: url('#{$formation-image-path}/arrow-down-white.svg');
@@ -240,8 +261,14 @@ form {
   }
 }
 
-// .usa-alert shame moved to _m_alert.scss
 
+// TODO: Remove unused #top-of-page-alert styles
+// I didn't find this id in vets-website, and it _is_ in content-build:
+// - https://github.com/department-of-veterans-affairs/content-build/blob/1b7251633cf86521e7e4b05601bcbc0ff576fca8/src/site/includes/gibs-down.html#L1-L2
+//
+// I believe that may not actually get used in the build, but we should confirm before removal.
+// Relevant slack thread:
+// - https://dsva.slack.com/archives/CT4GZBM8F/p1639178459219800
 #top-of-page-alert-container {
   width: 100%;
   background-color: $color-gibill-accent;
