@@ -178,6 +178,15 @@ module.exports = {
         aliases: ['applications', 'platform', 'site', '@@vap-svc', '@@profile'],
       },
     ],
+    '@department-of-veterans-affairs/no-cross-app-imports': [
+      1, // Warnings for now, but after cleanup of imports, change to errors
+      {
+        // Aliases copied from babel.config.json
+        '~': './src',
+        '@@vap-svc': './src/platform/user/profile/vap-svc',
+        '@@profile': './src/applications/personalization/profile',
+      },
+    ],
     '@department-of-veterans-affairs/axe-check-required': 1,
     '@department-of-veterans-affairs/correct-apostrophe': 1,
     '@department-of-veterans-affairs/cypress-viewport-deprecated': 1,
