@@ -29,17 +29,14 @@ module.exports = {
 
         if (hrefValue.startsWith('tel:')) {
           const contact = hrefValue.substring('tel:'.length);
-          console.log('CONTACT', contact);
 
           context.report({
             node,
             message: MESSAGE,
             fix: fixer => {
-              // Replace the node name
-              // and remove the `pattern` prop if it's there
               return [
                 fixer.replaceText(node.name, 'va-telephone'),
-                fixer.replaceText(hrefProp.name, 'contact'),
+                fixer.replaceText(hrefProp, `contact="${contact}"`),
               ].filter(i => !!i);
             },
           });
