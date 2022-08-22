@@ -75,5 +75,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/tests/helpers/"
     ]
+  },
+  "dependencies": {
+    "jsx-ast-utils": "^3.3.3"
   }
 }
