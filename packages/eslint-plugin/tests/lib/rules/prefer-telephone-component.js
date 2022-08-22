@@ -29,7 +29,7 @@ ruleTester.run('prefer-telephone-component', rule, {
   invalid: [
     {
       code: `
-        const phone = () => (<a href="tel:8004569876" />)
+        const phone = () => (<a href="tel:8004569876">Link text</a>)
       `,
       errors: [
         {
@@ -38,7 +38,7 @@ ruleTester.run('prefer-telephone-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-telephone contact="8004569876" />)
+        const phone = () => (<va-telephone contact="8004569876"/>)
       `,
     },
   ],

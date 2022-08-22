@@ -20,11 +20,13 @@ module.exports = {
 
   create(context) {
     return {
-      JSXOpeningElement(node) {
+      JSXElement(node) {
         // Exit early if we aren't on an anchor link
-        if (elementType(node) !== 'a') return;
+        if (elementType(node.openingElement) !== 'a') return;
 
-        const hrefProp = getProp(node.attributes, 'href');
+        const anchorNode = node.openingElement;
+
+        const hrefProp = getProp(anchorNode.attributes, 'href');
         const hrefValue = getPropValue(hrefProp);
 
         if (hrefValue.startsWith('tel:')) {
@@ -35,8 +37,14 @@ module.exports = {
             message: MESSAGE,
             fix: fixer => {
               return [
-                fixer.replaceText(node.name, 'va-telephone'),
+                fixer.replaceText(anchorNode.name, 'va-telephone'),
                 fixer.replaceText(hrefProp, `contact="${contact}"`),
+                ...node.children.map(c => fixer.remove(c)),
+                fixer.insertTextBeforeRange(
+                  [anchorNode.range[1] - 1, anchorNode.range[1]],
+                  '/',
+                ),
+                fixer.remove(node.closingElement),
               ].filter(i => !!i);
             },
           });
