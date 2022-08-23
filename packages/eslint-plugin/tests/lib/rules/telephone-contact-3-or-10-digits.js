@@ -49,6 +49,9 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
             'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
         },
       ],
+      output: `
+        const phone = () => (<va-telephone contact="1" />)
+      `,
     },
     {
       code: `
@@ -60,6 +63,8 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
             'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
         },
       ],
+      // This is the only case where the output is any different
+      // due to the hyphens being stripped. The number isn't changed otherwise
       output: `
         const phone = () => (<va-telephone contact="1234567890" />)
       `,
@@ -74,6 +79,9 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
             'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
         },
       ],
+      output: `
+        const phone = () => (<va-telephone contact="0011234567890" />)
+      `,
     },
   ],
 });
