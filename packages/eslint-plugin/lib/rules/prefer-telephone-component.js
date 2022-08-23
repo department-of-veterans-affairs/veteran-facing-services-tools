@@ -30,7 +30,9 @@ module.exports = {
         const hrefValue = getPropValue(hrefProp);
 
         if (hrefValue.startsWith('tel:')) {
-          const contact = hrefValue.substring('tel:'.length);
+          const contact = hrefValue
+            .substring('tel:'.length)
+            .replace(/[^\d]/g, '');
 
           context.report({
             node,
