@@ -41,5 +41,33 @@ ruleTester.run('prefer-telephone-component', rule, {
         const phone = () => (<va-telephone contact="8004569876"/>)
       `,
     },
+    {
+      code: `
+        const phone = () => (
+          <a
+            href="tel:8004569876"
+            className="foo"
+            id="bar"
+          >
+            Link text
+          </a>
+        )
+      `,
+      errors: [
+        {
+          message:
+            'The <va-telephone> Web Component should be used to display phone numbers.',
+        },
+      ],
+      output: `
+        const phone = () => (
+          <va-telephone
+            contact="8004569876"
+            className="foo"
+            id="bar"
+          />
+        )
+      `,
+    },
   ],
 });

@@ -39,11 +39,14 @@ module.exports = {
               return [
                 fixer.replaceText(anchorNode.name, 'va-telephone'),
                 fixer.replaceText(hrefProp, `contact="${contact}"`),
+                // Remove the children
                 ...node.children.map(c => fixer.remove(c)),
+                // Add the self-closing slash
                 fixer.insertTextBeforeRange(
                   [anchorNode.range[1] - 1, anchorNode.range[1]],
                   '/',
                 ),
+                // The component will be self-closing since it accepts no child content
                 fixer.remove(node.closingElement),
               ].filter(i => !!i);
             },
