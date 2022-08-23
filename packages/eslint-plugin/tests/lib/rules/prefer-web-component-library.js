@@ -21,7 +21,7 @@ const mockFile = (componentName, snippet) => {
 };
 
 const mockFileBindingsImport = (componentName, snippet) => {
-  return `import { ${componentName} } from 'web-components/react-bindings';
+  return `import { ${componentName} } from '@department-of-veterans-affairs/component-library/dist/react-bindings';
   ${snippet}
   `;
 };
