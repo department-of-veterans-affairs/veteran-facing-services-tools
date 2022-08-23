@@ -1,6 +1,7 @@
 {
   "packages": [
     "packages/documentation",
+    "packages/eslint-plugin",
     "packages/formation",
     "packages/vagov-eslint"
   ],
