@@ -11,7 +11,7 @@ module.exports = {
       description:
         'The telephone Web Component is preferred over anchor links with tel hrefs',
       category: 'Best Practices',
-      recommended: false,
+      recommended: true,
     },
     type: 'suggestion',
     fixable: 'code',
