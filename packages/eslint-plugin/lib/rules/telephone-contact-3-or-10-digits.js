@@ -30,6 +30,11 @@ module.exports = {
           context.report({
             node,
             message: MESSAGE,
+            fix: fixer => {
+              // Strip hyphens if we can
+              const contact = contactValue?.replace(/[^\d]/g, '');
+              return [fixer.replaceText(contactProp, `contact="${contact}"`)];
+            },
           });
         }
       },
