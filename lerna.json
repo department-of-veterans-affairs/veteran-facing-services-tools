@@ -2,8 +2,7 @@
   "packages": [
     "packages/documentation",
     "packages/eslint-plugin",
-    "packages/formation",
-    "packages/vagov-eslint"
+    "packages/formation"
   ],
   "version": "independent",
   "npmClient": "yarn",
