@@ -61,5 +61,16 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
         },
       ],
     },
+    {
+      code: `
+        const phone = () => (<va-telephone contact="0011234567890" />)
+      `,
+      errors: [
+        {
+          message:
+            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
+        },
+      ],
+    },
   ],
 });
