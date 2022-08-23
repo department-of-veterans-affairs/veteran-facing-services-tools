@@ -1,4 +1,3 @@
-// const { elementType, getProp, getPropValue } from 'jsx-ast-utils';
 const jsxAstUtils = require('jsx-ast-utils');
 
 const { elementType, getProp, getPropValue } = jsxAstUtils;
@@ -10,7 +9,7 @@ module.exports = {
   meta: {
     docs: {
       description:
-        'Web Components are preferred over deprecated React component library components',
+        'The telephone Web Component is preferred over anchor links with tel hrefs',
       category: 'Best Practices',
       recommended: false,
     },
@@ -50,7 +49,7 @@ module.exports = {
                 ),
                 // The component will be self-closing since it accepts no child content
                 fixer.remove(node.closingElement),
-              ].filter(i => !!i);
+              ];
             },
           });
         }
