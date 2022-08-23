@@ -7,12 +7,6 @@ const MESSAGE =
 
 module.exports = {
   meta: {
-    docs: {
-      description:
-        'The telephone Web Component is preferred over anchor links with tel hrefs',
-      category: 'Best Practices',
-      recommended: true,
-    },
     type: 'suggestion',
     fixable: 'code',
   },
