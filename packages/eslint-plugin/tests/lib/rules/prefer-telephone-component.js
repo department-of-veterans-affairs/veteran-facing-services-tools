@@ -95,5 +95,31 @@ ruleTester.run('prefer-telephone-component', rule, {
         const phone = () => (<va-telephone contact="8004569876"/>)
       `,
     },
+    {
+      code: `
+        const phone = () => (
+          <a
+            href="tel:8004569876"
+            aria-label="8 0 0. 4 5 6. 9 8 7 6."
+          >
+            Link text
+          </a>
+        )
+      `,
+      errors: [
+        {
+          message:
+            'The <va-telephone> Web Component should be used to display phone numbers.',
+        },
+      ],
+      output: `
+        const phone = () => (
+          <va-telephone
+            contact="8004569876"
+            
+          />
+        )
+      `,
+    },
   ],
 });

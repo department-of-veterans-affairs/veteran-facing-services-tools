@@ -33,6 +33,8 @@ module.exports = {
             .substring('tel:'.length)
             .replace(/[^\d]/g, '');
 
+          const ariaLabelProp = getProp(anchorNode.attributes, 'aria-label');
+
           context.report({
             node,
             message: MESSAGE,
@@ -40,6 +42,7 @@ module.exports = {
               return [
                 fixer.replaceText(anchorNode.name, 'va-telephone'),
                 fixer.replaceText(hrefProp, `contact="${contact}"`),
+                ariaLabelProp && fixer.remove(ariaLabelProp),
                 // Remove the children
                 ...node.children.map(c => fixer.remove(c)),
                 // Add the self-closing slash
@@ -49,7 +52,7 @@ module.exports = {
                 ),
                 // The component will be self-closing since it accepts no child content
                 fixer.remove(node.closingElement),
-              ];
+              ].filter(i => !!i);
             },
           });
         }
