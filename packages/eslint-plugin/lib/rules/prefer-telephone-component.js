@@ -1,6 +1,6 @@
 const jsxAstUtils = require('jsx-ast-utils');
 
-const { elementType, getProp, getPropValue } = jsxAstUtils;
+const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
   'The <va-telephone> Web Component should be used to display phone numbers.';
@@ -26,9 +26,9 @@ module.exports = {
         const anchorNode = node.openingElement;
 
         const hrefProp = getProp(anchorNode.attributes, 'href');
-        const hrefValue = getPropValue(hrefProp);
+        const hrefValue = getLiteralPropValue(hrefProp);
 
-        if (hrefValue.startsWith('tel:')) {
+        if (hrefValue?.startsWith('tel:')) {
           const contact = hrefValue
             .substring('tel:'.length)
             .replace(/[^\d]/g, '');

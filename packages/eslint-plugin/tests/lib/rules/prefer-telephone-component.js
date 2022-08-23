@@ -25,6 +25,18 @@ ruleTester.run('prefer-telephone-component', rule, {
         const phone = () => (<va-telephone contact="711" tty />)
       `,
     },
+    {
+      code: `
+        const phone = () => (<a href="/foo/bar">Link text</a>)
+      `,
+    },
+    // The rule isn't fancy enough to evaluate variables, though ideally this would fail
+    {
+      code: `
+        const telLink = "tel:8004569999";
+        const phone = () => (<a href={telLink}>Link text</a>)
+      `,
+    },
   ],
   invalid: [
     {
