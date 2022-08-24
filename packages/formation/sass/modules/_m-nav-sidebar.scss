@@ -145,6 +145,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   ul.usa-accordion {
     > li {
       margin-bottom: -1px;
+      background-color: transparent;
     }
   }
 
@@ -298,7 +299,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
   .usa-accordion {
     .usa-accordion-button {
-      background-color: $color-white;
+      background-color: transparent;
       border-top: 1px solid $color-gray-lighter;
       border-bottom: 1px solid $color-gray-lighter;
       background-size: 1.1rem;
