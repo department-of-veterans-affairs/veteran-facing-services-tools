@@ -46,7 +46,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
+            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       output: `
@@ -60,7 +60,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
+            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       // This is the only case where the output is any different
@@ -76,7 +76,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.',
+            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       output: `

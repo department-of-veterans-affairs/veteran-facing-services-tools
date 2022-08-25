@@ -3,7 +3,7 @@ const jsxAstUtils = require('jsx-ast-utils');
 const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
-  'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long.';
+  'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.';
 
 module.exports = {
   meta: {
