@@ -9,6 +9,8 @@ module.exports = {
     'correct-apostrophe': require('./lib/rules/correct-apostrophe'),
     'cypress-viewport-deprecated': require('./lib/rules/cypress-viewport-deprecated.js'),
     'prefer-web-component-library': require('./lib/rules/prefer-web-component-library'),
+    'prefer-telephone-component': require('./lib/rules/prefer-telephone-component'),
+    'telephone-contact-3-or-10-digits': require('./lib/rules/telephone-contact-3-or-10-digits'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
   },
   configs: {
