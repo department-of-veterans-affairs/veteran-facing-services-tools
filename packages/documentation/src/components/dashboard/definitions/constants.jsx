@@ -10,7 +10,7 @@ export const vetsWebsiteInfo = {
     'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/BUILD.txt',
   prodTestCoverage:
     'https://s3-us-gov-west-1.amazonaws.com/vetsgov-website-builds-s3-upload-test/coverage/test-coverage-report.json',
-  backendStatus: 'https://api.va.gov/v0/backend_statuses',
+  backendStatus: 'https://paltform-api.va.gov/v0/backend_statuses',
   crossAppImports:
     'https://s3-us-gov-west-1.amazonaws.com/vetsgov-website-builds-s3-upload-test/cross-app-imports/cross-app-imports.json',
   buildArtifacts:
