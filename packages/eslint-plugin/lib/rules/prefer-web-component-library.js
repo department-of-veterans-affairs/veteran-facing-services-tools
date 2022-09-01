@@ -207,9 +207,7 @@ const paginationTransformer = (context, node) => {
       node =>
         node.type === 'ImportDeclaration' &&
         node.source.value.includes(
-          `@department-of-veterans-affairs/component-library/${
-            componentName.name
-          }`,
+          `@department-of-veterans-affairs/component-library/${componentName.name}`,
         ),
     );
 
@@ -248,6 +246,7 @@ const paginationTransformer = (context, node) => {
     ],
   });
 };
+
 const tableTransformer = (context, node) => {
   const componentName = node.openingElement.name;
   const currentSortNode = getPropNode(node, 'currentSort');
@@ -262,9 +261,7 @@ const tableTransformer = (context, node) => {
       node =>
         node.type === 'ImportDeclaration' &&
         node.source.value.includes(
-          `@department-of-veterans-affairs/component-library/${
-            componentName.name
-          }`,
+          `@department-of-veterans-affairs/component-library/${componentName.name}`,
         ),
     );
 
@@ -329,6 +326,43 @@ const tableTransformer = (context, node) => {
               ],
               '',
             ),
+          ].filter(i => !!i);
+        },
+      },
+    ],
+  });
+};
+
+const ombInfoTransformer = (context, node) => {
+  const openingTagNode = node.openingElement.name;
+  const closingTagNode = node.closingElement?.name;
+  const resBurdenNode = getPropNode(node, 'resBurden');
+  const ombNumberNode = getPropNode(node, 'ombNumber');
+  const expDateNode = getPropNode(node, 'expDate');
+  const benefitsTypeNode = getPropNode(node, 'resBurden');
+
+  context.report({
+    node,
+    message: MESSAGE,
+    data: {
+      reactComponent: openingTagNode.name,
+      webComponent: 'va-omb-info',
+    },
+    suggest: [
+      {
+        desc: 'Migrate component',
+        fix: fixer => {
+          return [
+            // Rename component tags
+            fixer.replaceText(openingTagNode, 'va-omb-info'),
+            closingTagNode && fixer.replaceText(closingTagNode, 'va-omb-info'),
+
+            // Rename props if they exist
+            resBurdenNode &&
+              fixer.replaceText(resBurdenNode.name, 'res-burden'),
+            ombNumberNode &&
+              fixer.replaceText(ombNumberNode.name, 'omb-number'),
+            expDateNode && fixer.replaceText(expDateNode.name, 'exp-date'),
           ].filter(i => !!i);
         },
       },
@@ -420,6 +454,9 @@ module.exports = {
             break;
           case 'Modal':
             modalTransformer(context, node);
+            break;
+          case 'OMBInfo':
+            ombInfoTransformer(context, node);
             break;
           case 'Pagination':
             paginationTransformer(context, node);
