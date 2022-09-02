@@ -339,7 +339,6 @@ const ombInfoTransformer = (context, node) => {
   const resBurdenNode = getPropNode(node, 'resBurden');
   const ombNumberNode = getPropNode(node, 'ombNumber');
   const expDateNode = getPropNode(node, 'expDate');
-  const benefitsTypeNode = getPropNode(node, 'resBurden');
 
   context.report({
     node,
