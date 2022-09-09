@@ -416,5 +416,24 @@ ruleTester.run('prefer-web-component-library', rule, {
         },
       ],
     },
+    {
+      code: mockFile(
+        'FileInput',
+        'const component = () => (<FileInput additionalClass="my-class" buttonText="Upload file" onChange={handleChange} name="my-upload" accept="png" errorMessage="my error" />)',
+      ),
+      errors: [
+        {
+          suggestions: [
+            {
+              desc: 'Migrate component',
+              output: mockFile(
+                'FileInput',
+                'const component = () => (<VaFileInput  button-text="Upload file" onVaChange={handleChange} name="my-upload" accept="png" error="my error" />)',
+              ),
+            },
+          ],
+        },
+      ],
+    },
   ],
 });

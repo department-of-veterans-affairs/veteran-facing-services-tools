@@ -377,28 +377,30 @@ const fileInputTransformer = (context, node) => {
   const additionalClassNode = getPropNode(node, 'additionalClass');
   const additionalErrorClassNode = getPropNode(node, 'additionalErrorClass');
   const multipleNode = getPropNode(node, 'multiple');
+  const changeHandler = getPropNode(node, 'onChange');
 
   context.report({
     node,
     message: MESSAGE  +
-    `\nBEWARE: multiple, additionalClass, and additionalErrorClass properties have been removed.` + 
+    `\nBEWARE: The multiple, additionalClass, and additionalErrorClass properties are no longer available.` + 
     `\nSee the File Input design system guidance: https://design.va.gov/components/form/file-input`,
     data: {
       reactComponent: openingTagNode.name,
-      webComponent: 'va-file-input',
+      webComponent: 'VaFileInput',
     },
     suggest: [
       {
         desc: 'Migrate component',
         fix: fixer => {
           return [
-            // Rename component tags
-            fixer.replaceText(openingTagNode, 'va-file-input'),
-            closingTagNode && fixer.replaceText(closingTagNode, 'va-file-input'),
+            // Rename component tags (Bindings)
+            fixer.replaceText(openingTagNode, 'VaFileInput'),
+            closingTagNode && fixer.replaceText(closingTagNode, 'VaFileInput'),
 
             // Rename props if they exist
             buttonTextNode && fixer.replaceText(buttonTextNode.name, 'button-text'),
             errorMessageNode && fixer.replaceText(errorMessageNode.name, 'error'),
+            changeHandler && fixer.replaceText(changeHandler.name, 'onVaChange'),
 
             // Remove props that are no longer available
             additionalClassNode && fixer.remove(additionalClassNode),
