@@ -369,6 +369,48 @@ const ombInfoTransformer = (context, node) => {
   });
 };
 
+const fileInputTransformer = (context, node) => {
+  const openingTagNode = node.openingElement.name;
+  const closingTagNode = node.closingElement?.name;
+  const buttonTextNode = getPropNode(node, 'buttonText');
+  const errorMessageNode = getPropNode(node, 'errorMessage');
+  const additionalClassNode = getPropNode(node, 'additionalClass');
+  const additionalErrorClassNode = getPropNode(node, 'additionalErrorClass');
+  const multipleNode = getPropNode(node, 'multiple');
+
+  context.report({
+    node,
+    message: MESSAGE  +
+    `\nBEWARE: multiple, additionalClass, and additionalErrorClass properties have been removed.` + 
+    `\nSee the File Input design system guidance: https://design.va.gov/components/form/file-input`,
+    data: {
+      reactComponent: openingTagNode.name,
+      webComponent: 'va-file-input',
+    },
+    suggest: [
+      {
+        desc: 'Migrate component',
+        fix: fixer => {
+          return [
+            // Rename component tags
+            fixer.replaceText(openingTagNode, 'va-file-input'),
+            closingTagNode && fixer.replaceText(closingTagNode, 'va-file-input'),
+
+            // Rename props if they exist
+            buttonTextNode && fixer.replaceText(buttonTextNode.name, 'button-text'),
+            errorMessageNode && fixer.replaceText(errorMessageNode.name, 'error'),
+
+            // Remove props that are no longer available
+            additionalClassNode && fixer.remove(additionalClassNode),
+            additionalErrorClassNode && fixer.remove(additionalErrorClassNode),
+            multipleNode && fixer.remove(multipleNode),
+          ].filter(i => !!i);
+        }
+      }
+    ]
+  })
+}
+
 /**
  * Stores the result of a check that determines if a component is part of
  * the Design System component-library.
@@ -450,6 +492,9 @@ module.exports = {
         switch (componentName) {
           case 'Breadcrumbs':
             breadcrumbsTransformer(context, node);
+            break;
+          case 'FileInput':
+            fileInputTransformer(context, node);
             break;
           case 'Modal':
             modalTransformer(context, node);
