@@ -157,8 +157,7 @@ export async function deploysFetch(
     results[sha] = {
       dev: isOnDev || hasSuccessfulSingleAppBuild,
       staging: isOnStaging || hasSuccessfulSingleAppBuild,
-      // Single-app builds are not yet enabled on prod, so ignore for now
-      prod: isOnProd, // || hasSuccessfulSingleAppBuild,
+      prod: isOnProd || hasSuccessfulSingleAppBuild,
     };
   }
 
