@@ -25,13 +25,13 @@ ruleTester.run('use-workspace-imports', rule, {
     {
       code: "import scrollToTop from 'platform/utilities/ui/scrollToTop'",
       errors: [
-        'Importing from platform via platform/utilities is deprecated. Import from @department-of-veterans-affairs/platform-utilities instead.',
+        'Importing from platform via platform/utilities is deprecated. Import from @department-of-veterans-affairs/platform-utilities instead or check babel.config.json for an alias to the import.',
       ],
     },
     {
       code: "import recordEvent from 'platform/monitoring/record-event'",
       errors: [
-        'Importing from platform via platform/monitoring is deprecated. Import from @department-of-veterans-affairs/platform-monitoring instead.',
+        'Importing from platform via platform/monitoring is deprecated. Import from @department-of-veterans-affairs/platform-monitoring instead or check babel.config.json for an alias to the import.',
       ],
     },
   ],
