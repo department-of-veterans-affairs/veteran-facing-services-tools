@@ -1,8 +1,8 @@
 {
   "packages": [
     "packages/documentation",
-    "packages/formation",
-    "packages/vagov-eslint"
+    "packages/eslint-plugin",
+    "packages/formation"
   ],
   "version": "independent",
   "npmClient": "yarn",

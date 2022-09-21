@@ -21,7 +21,7 @@ const mockFile = (componentName, snippet) => {
 };
 
 const mockFileBindingsImport = (componentName, snippet) => {
-  return `import { ${componentName} } from 'web-components/react-bindings';
+  return `import { ${componentName} } from '@department-of-veterans-affairs/component-library/dist/react-bindings';
   ${snippet}
   `;
 };
@@ -372,6 +372,44 @@ ruleTester.run('prefer-web-component-library', rule, {
               output: mockFile(
                 'TextInput',
                 'const Component = () => (<va-text-input label="First name" name="first_name"  required class="some-class" onInput={handler} />)',
+              ),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: mockFile(
+        'OMBInfo',
+        'const component = () => (<OMBInfo resBurden={10} ombNumber="12345" expDate="01/01/01" />)',
+      ),
+      errors: [
+        {
+          suggestions: [
+            {
+              desc: 'Migrate component',
+              output: mockFile(
+                'OMBInfo',
+                'const component = () => (<va-omb-info res-burden={10} omb-number="12345" exp-date="01/01/01" />)',
+              ),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: mockFile(
+        'OMBInfo',
+        'const component = () => (<OMBInfo resBurden={10} ombNumber="12345" expDate="01/01/01">Some content here</OMBInfo>)',
+      ),
+      errors: [
+        {
+          suggestions: [
+            {
+              desc: 'Migrate component',
+              output: mockFile(
+                'OMBInfo',
+                'const component = () => (<va-omb-info res-burden={10} omb-number="12345" exp-date="01/01/01">Some content here</va-omb-info>)',
               ),
             },
           ],
