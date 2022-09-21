@@ -12,6 +12,7 @@ module.exports = {
     'prefer-telephone-component': require('./lib/rules/prefer-telephone-component'),
     'telephone-contact-3-or-10-digits': require('./lib/rules/telephone-contact-3-or-10-digits'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
+    'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),

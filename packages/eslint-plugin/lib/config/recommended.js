@@ -185,5 +185,6 @@ module.exports = {
     '@department-of-veterans-affairs/prefer-telephone-component': 1,
     '@department-of-veterans-affairs/telephone-contact-3-or-10-digits': 1,
     '@department-of-veterans-affairs/deprecated-classes': 1,
+    '@department-of-veterans-affairs/use-workspace-imports': 1,
   },
 };
