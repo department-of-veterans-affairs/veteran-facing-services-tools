@@ -1,4 +1,10 @@
 /*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+
+/*!
    * elasticlunr.Configuration
    * Copyright (C) 2016 Wei Song
    */
@@ -73,12 +79,6 @@
    * lunr.SortedSet
    * Copyright (C) 2016 Oliver Nightingale
    */
-
-/*!
-  Copyright (c) 2018 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
 
 /**
  * elasticlunr - http://weixsong.github.io
