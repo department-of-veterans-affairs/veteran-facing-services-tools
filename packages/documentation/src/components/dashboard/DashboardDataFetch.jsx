@@ -171,6 +171,7 @@ export async function deploysFetch(
       prod:
         isOnProd ||
         (isContinuousDeploymentEnabled && hasSuccessfulSingleAppBuild),
+      continuousDeployment: isContinuousDeploymentEnabled,
     };
   }
 
