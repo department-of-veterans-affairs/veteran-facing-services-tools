@@ -105,7 +105,17 @@ export default function CommitsTable({
                       </div>
                     </td>
                     <td>
-                      <div><b>{message.slice(0, 100)}</b></div>
+                      <div>
+                        <b>{message.slice(0, 100)}</b>
+                        {deploys[sha]?.['continuousDeployment'] && (
+                          <i
+                            className="fas fa-bolt dash-span-right"
+                            aria-label="Continuous deployment enabled for commit"
+                            title="Continuous deployment enabled"
+                            role="img"
+                          />
+                        )}
+                      </div>
                       <div>
                         <a href={html_url /* eslint-disable-line camelcase */}>{sha}</a>
                         <span className="dash-span-right">

@@ -12,21 +12,24 @@ function getWorkflowRunsAsCommitStatusObject(repo) {
     page: 1,
   };
 
-  return octokit.rest.actions.listWorkflowRuns(params).then(response => {
-    if (response.status !== 200) {
-      throw new Error(`Response ${response.status} from ${response.url}.`);
-    }
-    return response.data;
-  }).then(({ workflow_runs }) => {
-    if (workflow_runs.length === 0) {
-      throw new Error('No workflows found.');
-    }
+  return octokit.rest.actions
+    .listWorkflowRuns(params)
+    .then(response => {
+      if (response.status !== 200) {
+        throw new Error(`Response ${response.status} from ${response.url}.`);
+      }
+      return response.data;
+    })
+    .then(({ workflow_runs }) => {
+      if (workflow_runs.length === 0) {
+        throw new Error('No workflows found.');
+      }
 
-    return workflow_runs.reduce((map, obj) => {
-      map[obj["head_sha"]] = obj["conclusion"];
-      return map;
-    }, {});
-  });
+      return workflow_runs.reduce((map, obj) => {
+        map[obj['head_sha']] = obj['conclusion'];
+        return map;
+      }, {});
+    });
 }
 
 export async function DeployStatusDataFetch(repo) {
@@ -134,6 +137,10 @@ export async function deploysFetch(
   let isOnStaging = false;
   let isOnProd = false;
 
+  // Gets the value of a property in a text file
+  const getValueFromFile = (fileContents, propertyName) =>
+    fileContents.match(`${propertyName}=(\\w+)`)?.[1];
+
   // Add each commit to results
   for (const { sha } of commits) {
     if (sha === devRef) isOnDev = true;
@@ -142,22 +149,29 @@ export async function deploysFetch(
 
     // If commit wasn't deployed by a full build, check for single-app build
     let hasSuccessfulSingleAppBuild = false;
+    let isContinuousDeploymentEnabled = false;
     if (isVetsWebsite && (!isOnDev || !isOnStaging || !isOnProd)) {
       const buildArtifactUrl = `${repo.buildArtifacts}/${sha}.txt`;
       const response = await fetch(buildArtifactUrl);
       if (response.ok) {
         const fileText = await response.text();
-        const matchText = fileText.match(/IS_SINGLE_APP_BUILD=(\w+)/)[1];
-        const isSingleAppBuild = matchText === 'true';
+        const isSingleAppBuild =
+          getValueFromFile(fileText, 'IS_SINGLE_APP_BUILD') === 'true';
         const workflowSucceeded = workflowConclusions[sha] === 'success';
         hasSuccessfulSingleAppBuild = isSingleAppBuild && workflowSucceeded;
+        isContinuousDeploymentEnabled =
+          getValueFromFile(fileText, 'IS_CONTINUOUS_DEPLOYMENT_ENABLED') ===
+          'true';
       }
     }
 
     results[sha] = {
       dev: isOnDev || hasSuccessfulSingleAppBuild,
       staging: isOnStaging || hasSuccessfulSingleAppBuild,
-      prod: isOnProd || hasSuccessfulSingleAppBuild,
+      prod:
+        isOnProd ||
+        (isContinuousDeploymentEnabled && hasSuccessfulSingleAppBuild),
+      continuousDeployment: isContinuousDeploymentEnabled,
     };
   }
 
