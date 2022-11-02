@@ -145,6 +145,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
   ul.usa-accordion {
     > li {
       margin-bottom: -1px;
+      background-color: transparent;
     }
   }
 
@@ -206,8 +207,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       }
 
       &:focus {
-        outline: 2px solid $color-gold;
-        outline-offset: 3px;
+        @include focus-gold-vivid-outline;
       }
     }
 
@@ -285,10 +285,6 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       padding-left: 40px;
       font-size: 15px;
 
-      &:focus {
-        @include focus-gold-light-outline(0);
-      }
-
       &:hover, &:focus {
         background-color: $light-blue;
         padding: $level-3-hover-padding;
@@ -303,7 +299,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
   .usa-accordion {
     .usa-accordion-button {
-      background-color: $color-white;
+      background-color: transparent;
       border-top: 1px solid $color-gray-lighter;
       border-bottom: 1px solid $color-gray-lighter;
       background-size: 1.1rem;
@@ -313,8 +309,6 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       padding-left: 1rem;
 
       &:focus {
-        outline: 0;
-        border: 2px solid $color-gold;
         background-color: $mm-gray;
         font-weight: bold;
       }
@@ -330,10 +324,6 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       &[aria-expanded=true] {
         border-bottom: 0;
         background-image: url('#{$formation-image-path}/minus-blue.svg');
-
-        &:focus {
-          border: 2px solid $color-gold;
-        }
       }
     }
 
