@@ -11,7 +11,7 @@ html {
 
 body {
   background: $color-white;
-  color: $color-gray-dark;
+  color: $color-base;
   // font-family: $font-sans;
   font-size: $base-font-size;
   font-family: inherit;
@@ -319,7 +319,7 @@ article > h1 {
 #content {
   margin: 0;
   padding: 0;
-  color: $color-gray-dark;
+  color: $color-base;
   overflow: hidden;
 }
 
