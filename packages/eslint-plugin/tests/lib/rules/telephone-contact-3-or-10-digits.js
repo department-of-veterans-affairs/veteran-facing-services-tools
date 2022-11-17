@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require('../../../lib/rules/telephone-contact-3-or-10-digits');
+const rule = require('../../../lib/rules/telephone-contact-digits');
 const RuleTester = require('eslint').RuleTester;
 
 const parserOptions = {
@@ -12,7 +12,7 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-ruleTester.run('telephone-contact-3-or-10-digits', rule, {
+ruleTester.run('telephone-contact-digits', rule, {
   valid: [
     {
       code: `
