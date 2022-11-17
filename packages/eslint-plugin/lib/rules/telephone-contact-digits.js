@@ -3,7 +3,7 @@ const jsxAstUtils = require('jsx-ast-utils');
 const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
-  'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.';
+  'The <va-telephone> contact prop should only contain digits and be 3, 5, 6, or 10 digits long. Consider the international prop if you want the number to begin with a 1.';
 
 module.exports = {
   meta: {
@@ -21,10 +21,12 @@ module.exports = {
         const contactValue = getLiteralPropValue(contactProp);
 
         // If contactValue is undefined then the first part of the expression will
-        // fail, since undefined doesn't equal 3 or 10
+        // fail, since undefined doesn't equal 3, 5, 6, or 10
         if (
           contactValue &&
           contactValue?.length !== 3 &&
+          contactValue?.length !== 5 &&
+          contactValue?.length !== 6 &&
           contactValue?.length !== 10
         ) {
           context.report({

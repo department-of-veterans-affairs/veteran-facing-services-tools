@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require('../../../lib/rules/telephone-contact-3-or-10-digits');
+const rule = require('../../../lib/rules/telephone-contact-digits');
 const RuleTester = require('eslint').RuleTester;
 
 const parserOptions = {
@@ -12,7 +12,7 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-ruleTester.run('telephone-contact-3-or-10-digits', rule, {
+ruleTester.run('telephone-contact-digits', rule, {
   valid: [
     {
       code: `
@@ -37,6 +37,12 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
         const phone = () => (<va-telephone contact={partialContact} />)
       `,
     },
+    {
+      code: `
+        const phoneContact = "123456";
+        const phone = () => (<va-telephone contact={phoneContact} />)
+      `,
+    },
   ],
   invalid: [
     {
@@ -46,7 +52,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
+            'The <va-telephone> contact prop should only contain digits and be 3, 5, 6, or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       output: `
@@ -60,7 +66,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
+            'The <va-telephone> contact prop should only contain digits and be 3, 5, 6, or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       // This is the only case where the output is any different
@@ -76,7 +82,7 @@ ruleTester.run('telephone-contact-3-or-10-digits', rule, {
       errors: [
         {
           message:
-            'The <va-telephone> contact prop should only contain digits and be 3 or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
+            'The <va-telephone> contact prop should only contain digits and be 3, 5, 6, or 10 digits long. Consider the international prop if you want the number to begin with a 1.',
         },
       ],
       output: `
