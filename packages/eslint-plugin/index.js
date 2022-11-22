@@ -10,7 +10,7 @@ module.exports = {
     'cypress-viewport-deprecated': require('./lib/rules/cypress-viewport-deprecated.js'),
     'prefer-web-component-library': require('./lib/rules/prefer-web-component-library'),
     'prefer-telephone-component': require('./lib/rules/prefer-telephone-component'),
-    'telephone-contact-3-or-10-digits': require('./lib/rules/telephone-contact-3-or-10-digits'),
+    'telephone-contact-digits': require('./lib/rules/telephone-contact-digits'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
     'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
     'migrate-radio-buttons': require('./lib/rules/migrate-radio-buttons'),
