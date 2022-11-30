@@ -5,7 +5,7 @@ legend.legend-label + .form-radio-buttons {
 
 .form-radio-buttons {
   label {
-    margin-top: 1em;
+    margin-top: 12px;
 
     // Make links in radio button labels clickable
     a {
@@ -75,9 +75,6 @@ button.form-button-disabled {
 }
 
 .form-radio-buttons {
-  label {
-    margin-top: 1em;
-  }
   > input[type="radio"] + label::before {
     display: block;
     float: left;
