@@ -1,7 +1,7 @@
 # Review the CODEOWNERS guide before editing:
 # https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/codeowners.md
 
-*       @department-of-veterans-affairs/platform-release-tools
+*       @department-of-veterans-affairs/va-platform-cop-frontend
 packages/formation @department-of-veterans-affairs/platform-design-system-fe
 packages/formation-react @department-of-veterans-affairs/platform-design-system-fe
 packages/eslint-plugin/lib/rules/prefer-web-component-library.js @department-of-veterans-affairs/platform-design-system-fe

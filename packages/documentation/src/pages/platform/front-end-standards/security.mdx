@@ -16,7 +16,7 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
 ## Cross-Origin Resource Sharing (CORS)
 
 - Some cross origin connections made to VA.gov must support CORS including **all** XHR connections and web font downloads. 
-- Updates to CORS headers returned by `vets-api` services or `vets-website` assets must be made through the devops team and must be reviewed by [platform release tools](https://github.com/orgs/department-of-veterans-affairs/teams/platform-release-tools). Example:  
+- Updates to CORS headers returned by `vets-api` services or `vets-website` assets must be made through the devops team and must be reviewed by [va platform frontend cop](https://github.com/orgs/department-of-veterans-affairs/teams/va-platform-cop-frontend). Example:  
   - Your application is on a VA.gov subdomain, needs to connect to `vets-api`, but is not currently listed in the allowed origins
 - More [info on cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - CORS configurations: 
@@ -29,7 +29,7 @@ _This is an overview not an implementation guide. These rules apply to VA.gov pr
 - The CSP is enforced i.e. not set to `report-only`
 - The `report-uri` points to a VA platform error capturing service (Sentry)
   - VA.gov throttles these reports by including the `report-uri` only on a small % of responses
-- Updates to CSP headers returned by or `vets-website` assets must be made through the devops team and must be reviewed by [platform release tools](https://github.com/orgs/department-of-veterans-affairs/teams/platform-release-tools)
+- Updates to CSP headers returned by or `vets-website` assets must be made through the devops team and must be reviewed by [va platform frontend cop](https://github.com/orgs/department-of-veterans-affairs/teams/va-platform-cop-frontend)
 - More [info on CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 - CSP configurations:
   - [production](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/content_security_policy_vagov-prod.yml)
