@@ -62,7 +62,7 @@ function getErrorMessage(classes) {
   const firstErrorClass = classesArray.find(element => element.includes('vads-u'));
   const newClass = getNewClass(firstErrorClass);
 
-  return newClass.includes('undefined') ? MESSAGE : `${MESSAGE} Try using ${newClass} instead of "${firstErrorClass}"`;
+  return newClass.includes('undefined') ? MESSAGE : `${MESSAGE} Use ${newClass} instead of "${firstErrorClass}"`;
 }
 
 module.exports = {
