@@ -28,7 +28,7 @@ ruleTester.run('prefer-new-utility-classes', rule, {
       `,
       errors: [
         {
-          message: 'The new utility classes should be used instead. Try using "vads-bg-color-gray-lightest" instead of "vads-u-background-color--gray-lightest"',
+          message: 'The new utility classes should be used instead. Use "vads-bg-color-gray-lightest" instead of "vads-u-background-color--gray-lightest"',
         },
       ],
       output: `
