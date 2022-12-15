@@ -12,6 +12,7 @@ module.exports = {
     'prefer-telephone-component': require('./lib/rules/prefer-telephone-component'),
     'telephone-contact-digits': require('./lib/rules/telephone-contact-digits'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
+    'use-new-utility-classes': require('./lib/rules/use-new-utility-classes'),
     'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
     'migrate-radio-buttons': require('./lib/rules/migrate-radio-buttons'),
   },
