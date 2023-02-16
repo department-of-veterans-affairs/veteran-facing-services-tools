@@ -2,7 +2,7 @@
 
 This repo contains front end code and documentation used by the Veteran facing services on VA.gov. It's a monorepo managed by Lerna, a tool for managing versioning and publishing for multiple modules located in a single repo.
 
-There is [another repository for the documentation site](https://github.com/department-of-veterans-affairs/vets-design-system-documentation). The documentation site can be viewed at [design.va.gov](https://design.va.gov). See also: [contributing to the Design System](https://design.va.gov/about/developers#contributing-to-the-design-system/).
+There is [another repository for the documentation site](https://github.com/department-of-veterans-affairs/vets-design-system-documentation). The documentation site can be viewed at [design.va.gov](https://design.va.gov). See also: [contributing to the Design System](https://design.va.gov/about/developers#contributing-to-the-design-system).
 
 ## Packages
 
