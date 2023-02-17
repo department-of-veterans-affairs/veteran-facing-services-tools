@@ -186,5 +186,6 @@ module.exports = {
     '@department-of-veterans-affairs/telephone-contact-digits': 1,
     '@department-of-veterans-affairs/deprecated-classes': 1,
     '@department-of-veterans-affairs/use-workspace-imports': 1,
+    '@department-of-veterans-affairs/remove-expanding-group': 1,
   },
 };
