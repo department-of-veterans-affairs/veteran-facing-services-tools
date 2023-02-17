@@ -15,6 +15,7 @@ module.exports = {
     'use-new-utility-classes': require('./lib/rules/use-new-utility-classes'),
     'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
     'migrate-radio-buttons': require('./lib/rules/migrate-radio-buttons'),
+    'remove-expanding-group': require('./lib/rules/remove-expanding-group'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
