@@ -25,7 +25,7 @@ This packages has been moved to
 
 ## Formation
 
-Please see documentation on [contributing to the design system](https://design.va.gov/documentation/contributing-to-the-design-system).
+Please see documentation on [contributing to the design system](https://design.va.gov/about/developers/contributing).
 
 ## Keyboard E2E
 
