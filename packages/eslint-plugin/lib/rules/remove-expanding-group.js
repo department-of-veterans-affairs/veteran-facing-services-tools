@@ -1,7 +1,7 @@
 const jsxAstUtils = require('jsx-ast-utils');
 const { elementType } = jsxAstUtils;
 
-const MESSAGE = 'The ExpandingGroup React component is deprecated. Please replace with a custom solution. Also note that the wizard pattern deprecated as well. See "Retrofit this pattern" for additional guidance if needed: https://design.va.gov/patterns/wizards#retrofit-this-pattern';
+const MESSAGE = 'The ExpandingGroup React component is deprecated. Please replace with a custom solution. Also note that the wizard pattern is deprecated as well. See "Retrofit this pattern" for additional guidance if needed: https://design.va.gov/patterns/wizards#retrofit-this-pattern';
 
 module.exports = {
   meta: {
