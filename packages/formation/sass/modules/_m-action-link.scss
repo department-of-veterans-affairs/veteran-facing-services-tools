@@ -6,11 +6,7 @@ a.vads-c-action-link--blue, a.vads-c-action-link--green, a.vads-c-action-link--w
     display: inline-block; // Remove the underline text decoration
     content: "\f138";
     padding-right: 1rem;
-    position: absolute;
-    transform: translate(
-      -35px,
-      -8px
-    ); // "Center" the circle with the text and shift it to the left from text
+    transform: translateY(5px); // "Center" the circle with the text
     height: 0px; // So the height doesn't mess with the focus halo
   }
   font-weight: bold;
