@@ -181,7 +181,6 @@ body.va-pos-fixed {
 }
 
 .vetnav-level1 {
-  -webkit-font-smoothing: antialiased;
   background-color: $color-primary-darker;
   background-position: right 3rem center;
   background-repeat: no-repeat;
@@ -258,7 +257,6 @@ body.va-pos-fixed {
   padding: 1.6rem;
   text-align: left;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
 
   @include media($medium-large-screen) {
     background: transparent url('#{$formation-image-path}/arrow-right.svg') right 1rem center
@@ -295,7 +293,6 @@ body.va-pos-fixed {
   }
 
   &-heading {
-    -webkit-font-smoothing: antialiased;
     font-size: 2rem;
     font-weight: bold;
     padding: 0.8rem 1.6rem;
