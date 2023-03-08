@@ -3,14 +3,15 @@ a.vads-c-action-link--blue, a.vads-c-action-link--green, a.vads-c-action-link--w
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 175%;
-    display: inline-block; // Remove the underline text decoration
     content: "\f138";
     padding-right: 1rem;
-    transform: translateY(5px); // "Center" the circle with the text
+    transform: translateY(-9px); // "Center" the circle with the text
     height: 0px; // So the height doesn't mess with the focus halo
+    float: left;
   }
   font-weight: bold;
-  padding: 8px 0px;
+  padding: 13px 0px 8px 0px;
+  display: flex;
 }
 
 a.vads-c-action-link--blue:before {
