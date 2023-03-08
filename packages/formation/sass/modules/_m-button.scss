@@ -7,6 +7,8 @@ button,
 [type='submit'],
 [type='reset'],
 [type='image'] {
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
   background-color: $color-primary;
 
   &.usa-button-secondary {
@@ -16,10 +18,6 @@ button,
       background-color: $color-cool-blue-lightest;
     }
   }
-}
-
-.usa-button:focus {
-  background: $color-primary-darker;
 }
 
 .usa-button-primary {
