@@ -7,8 +7,8 @@ button,
 [type='submit'],
 [type='reset'],
 [type='image'] {
-  -webkit-font-smoothing: none!important;
-  -moz-osx-font-smoothing: auto!important;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
   background-color: $color-primary;
 
   &.usa-button-secondary {
