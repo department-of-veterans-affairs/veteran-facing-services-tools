@@ -193,6 +193,11 @@
     "s3": "/manage-va-debt/your-debt.html",
     "app": "debt-letters"
   },
+  "my-health": {
+    "path": "/my-health",
+    "s3": "/my-health.html",
+    "app": "my-health"
+  },
   "/my-va": {
     "path": "/my-va",
     "s3": "/my-va.html",
