@@ -19,76 +19,6 @@
   }
 }
 
-.feedback-widget {
-  padding: 1.5em 0;
-  background-color: $color-gray-lightest;
-  color: $color-gray-dark;
-
-  > .row {
-    padding: 0 0.9375rem;
-    .va-flex {
-      padding-left: 0;
-    }
-  }
-
-  .feedback-error > .usa-alert {
-    margin: 1.5em 0;
-  }
-
-  .feedback-widget-title {
-    margin: 0 0 0.5em 0;
-  }
-
-  .feedback-widget-intro {
-    margin: 0;
-  }
-
-  @include media($medium-screen) {
-    .feedback-button {
-      margin: 10px 0 0;
-    }
-  }
-}
-
-.feedback-widget-form-container {
-  order: 1;
-  flex: 0 0 100%;
-
-  textarea[name=description]{
-    max-width: 100%;
-  }
-
-  @include media($medium-screen) {
-    order: 0;
-    flex: 0 0 67%;
-    padding-right: 1em;
-    .feedback-widget-desc-container label {
-      margin-top: 0;
-    }
-  }
-}
-
-.feedback-widget-need-help-container {
-  order: 0;
-  flex: 0 1 100%;
-  .feedback-widget-need-help-inner {
-    background-color: $color-aqua-lightest;
-    padding: 1em;
-    margin: 1em 0;
-    > h3 {
-      margin-top: 0;
-    }
-  }
-  @include media($medium-screen) {
-    order: 1;
-    flex: 0 1 33%;
-    margin-top: 23.2px;  // the sum of the label height plus textarea margin-top
-    .feedback-widget-need-help-inner {
-      margin: 0;
-    }
-  }
-}
-
 .footer-inner {
   padding: 2rem 1rem 0;
 }
@@ -148,17 +78,6 @@
   }
 }
 
-[id=footer-contact] {
-  order: -1;
-  @include media($medium-screen) {
-    order: 0
-  }
-
-  li:nth-of-type(3) {
-    padding: 16px 0;
-  }
-}
-
 .va-footer-linkgroup-title {
   -webkit-font-smoothing: antialiased;
   color: $color-white;
@@ -186,35 +105,5 @@
       background: none;
       padding: 0;
     }
-  }
-}
-
-[id=va-footer-supplementallinks] {
-  align-items: flex-end;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10rem;
-  padding-left: 0.9375rem;
-  padding-bottom: 1em;
-
-  @include media($medium-large-screen) {
-    flex-wrap: nowrap;
-  }
-
-  > div {
-      &:first-child {
-        @include media($medium-large-screen) {
-          flex: 0 1 60%;
-        }
-      }
-
-      &:last-child {
-        order: -1;
-
-        @include media($medium-large-screen) {
-          order: 1;
-          flex: 1 1 40%;
-        }
-      }
   }
 }
