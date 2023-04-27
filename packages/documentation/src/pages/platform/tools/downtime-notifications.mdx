@@ -144,7 +144,7 @@ If you've created a new backend service that a React application depends on, fol
   - This may require you to create a PagerDuty Person, Escalation Policy, and/or Team that is specific to this service.
   - Follow the naming convention of other backend services in PagerDuty by prepending "External: " to the service name (i.e. "External: MyService").
   - You may also want to create multiple services for multiple enviornements (i.e. "External: MyService", "Staging: External: MyService", "Dev: External: MyService").
-- In the [vets-api]() repo, add your service to the list of [maintenance services](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml#L441) in `config/settings.yml`.
+- In the vets-api repo, add your service to the list of [maintenance services](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/settings.yml#L441) in `config/settings.yml`.
 - In the [devops]() repo, make the same configuration change to each enviornemnt's config file.
 - Deploy all changes.
 
