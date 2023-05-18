@@ -4,14 +4,13 @@ a.vads-c-action-link--blue, a.vads-c-action-link--green, a.vads-c-action-link--w
     font-weight: 900;
     font-size: 175%;
     content: "\f138";
-    padding-right: 1rem;
-    transform: translateY(-9px); // "Center" the circle with the text
-    height: 0px; // So the height doesn't mess with the focus halo
-    float: left;
+    position: absolute; 
+    left: 0px;
+    top: 4px;
   }
   font-weight: bold;
-  padding: 13px 0px 8px 0px;
-  display: flex;
+  padding: 4px 0 4px 38px;
+  position: relative;
 }
 
 a.vads-c-action-link--blue:before {
