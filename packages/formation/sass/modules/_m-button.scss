@@ -10,6 +10,7 @@ button,
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   background-color: $color-primary;
+  box-sizing: border-box;
 
   &.usa-button-secondary {
     background: transparent;
