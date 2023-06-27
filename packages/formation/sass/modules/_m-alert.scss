@@ -3,11 +3,9 @@
   background-color: $color-gray-lightest;
   border-left-style: solid;
   border-left-width: 8px;
-  display: block;
   padding: units(2);
   @include media($medium) {
-    display: table;
-      padding: units(4) units(3);
+    padding: units(4) units(3);
   }
   width: 100%;
 
