@@ -1,3 +1,7 @@
+// TODO: Figure out how to handle crisis line styles:
+// - as a DS component
+// - as CSS classes in the new library
+// - Not part of the DS, but handled in vets-website
 .va-crisis-line {
   @include media($medium-large-screen) {
     position: absolute;

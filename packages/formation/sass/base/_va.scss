@@ -21,6 +21,8 @@ body {
   }
 }
 
+// TODO: @extend USWDS3's .usa-skipnav in the new library
+// https://github.com/uswds/uswds/blob/9099ffe06f06f3901e5d5acf1a5c6dbca0f8dc2b/packages/usa-skipnav/src/styles/_usa-skipnav.scss#L3-L23
 // Skip link
 .show-on-focus {
   position: absolute;
@@ -45,6 +47,9 @@ body .row.full {
   max-width: 100%;
 }
 
+// TODO: The existing utility can be used, or we can
+// extend from USWDS instead:
+// - https://github.com/uswds/uswds/blob/9099ffe06f06f3901e5d5acf1a5c6dbca0f8dc2b/packages/uswds-helpers/src/styles/_usa-sr-only.scss#L4
 // Screen Readers
 // updated to match definition in
 // packages/formation/sass/utilities/_visibility.scss
@@ -209,6 +214,8 @@ table {
   position: fixed;
 }
 
+// TODO: This shouldn't be moved over since it is hard to search for
+// due to the naming conflict with the `<header>` element
 // Logo and Header
 .header {
   background: $color-primary-darkest;
@@ -247,6 +254,8 @@ table {
   }
 }
 
+// TODO: The header-logo-menu selectors should probably be internal
+// to a DS component
 #va-header-logo-menu {
   flex-wrap: wrap;
   padding: 1em 0.75em 0;
@@ -310,6 +319,8 @@ article > h1 {
   margin-top: 0;
 }
 
+// TODO: Replace with vads utility and remove
+// - https://github.com/department-of-veterans-affairs/vets-website/blob/a4d732de0433fd7ca7553987be5244532bc347d5/src/applications/dhp-connected-devices/components/PageNotFound.jsx#L9
 .text-center {
   text-align: center;
 }
@@ -323,6 +334,7 @@ article > h1 {
   overflow: hidden;
 }
 
+// TODO: Remove unused class
 .va-facloc-tagline {
   color: $color-white;
   // font-family: $font-sans;
@@ -358,6 +370,7 @@ article > h1 {
   }
 }
 
+// TODO: Possibly move this over
 // This is a copy of USWDS's .usa-font-lead style
 // https://github.com/18F/web-design-standards/blob/develop/src/stylesheets/elements/_typography.scss#L164
 .va-introtext {
@@ -425,6 +438,7 @@ article > h1 {
   }
 }
 
+// TODO: Remove unused class
 .va-callout {
   background: $color-primary-alt-lightest;
   padding: 1em;
@@ -712,6 +726,7 @@ li {
 
 // Information Grid
 
+// TODO: Remove unused class
 .information-grid {
   strong {
     font-size: 1.3em;
@@ -795,6 +810,8 @@ li {
   }
 }
 
+// TODO: Remove this as a follow-up to:
+// - https://github.com/department-of-veterans-affairs/content-build/pull/1190
 .incompatible-browser-warning {
   padding: 0.5em;
   font-weight: bold;
@@ -946,6 +963,7 @@ li {
   }
 }
 
+// TODO: Remove unused class
 // Panel list
 .panel-list {
   background: $color-link-default-hover;
@@ -1019,6 +1037,7 @@ li {
   }
 }
 
+// TODO: Remove unused va-action-bar classes
 // Action bars
 [class^="va-action-bar"] {
   background: $color-gray-lightest;
@@ -1112,6 +1131,7 @@ li {
   padding: 0 0 0 0.5em !important;
 }
 
+// TODO: Remove unused tooltip classes
 // Tooltip
 .js-simple-tooltip {
   font-family: "Courier New", "Courier", serif;
