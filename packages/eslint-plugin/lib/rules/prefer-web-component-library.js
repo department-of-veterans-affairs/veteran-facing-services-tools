@@ -4,50 +4,6 @@ const MESSAGE =
 const getPropNode = (node, propName) =>
   node.openingElement.attributes.find(n => n.name.name === propName);
 
-const telephoneTransformer = (context, node) => {
-  const componentName = node.openingElement.name;
-  const patternNode = getPropNode(node, 'pattern');
-  const notClickableNode = getPropNode(node, 'notClickable');
-  const contactNode = getPropNode(node, 'contact');
-  const contactValue = contactNode?.value.expression || contactNode?.value;
-
-  const stripHyphens = contactValue?.type === 'Literal';
-  const international =
-    patternNode?.value.expression?.property?.name === 'OUTSIDE_US';
-
-  context.report({
-    node,
-    message: MESSAGE,
-    data: {
-      reactComponent: componentName.name,
-      webComponent: 'va-telephone',
-    },
-    suggest: [
-      {
-        desc: 'Migrate component',
-        fix: fixer => {
-          // Replace the node name
-          // and remove the `pattern` prop if it's there
-          return [
-            fixer.replaceText(componentName, 'va-telephone'),
-            stripHyphens &&
-              fixer.replaceTextRange(
-                // Leave the quotes alone
-                [contactValue.range[0] + 1, contactValue.range[1] - 1],
-                contactValue.value.replace(/[^\d]/g, ''),
-              ),
-            international &&
-              fixer.insertTextBefore(patternNode, 'international'),
-            patternNode && fixer.remove(patternNode),
-            notClickableNode &&
-              fixer.replaceText(notClickableNode, 'not-clickable'),
-          ].filter(i => !!i);
-        },
-      },
-    ],
-  });
-};
-
 const textInputTransformer = (context, node) => {
   const componentName = node.openingElement.name;
   const error = getPropNode(node, 'errorMessage');
@@ -373,9 +329,6 @@ module.exports = {
             break;
           case 'Pagination':
             paginationTransformer(context, node);
-            break;
-          case 'Telephone':
-            telephoneTransformer(context, node);
             break;
           case 'TextInput':
             textInputTransformer(context, node);
