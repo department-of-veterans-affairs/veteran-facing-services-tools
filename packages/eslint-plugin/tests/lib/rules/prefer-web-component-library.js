@@ -197,43 +197,5 @@ ruleTester.run('prefer-web-component-library', rule, {
         },
       ],
     },
-    {
-      code: mockFile(
-        'OMBInfo',
-        'const component = () => (<OMBInfo resBurden={10} ombNumber="12345" expDate="01/01/01" />)',
-      ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              output: mockFile(
-                'OMBInfo',
-                'const component = () => (<va-omb-info res-burden={10} omb-number="12345" exp-date="01/01/01" />)',
-              ),
-            },
-          ],
-        },
-      ],
-    },
-    {
-      code: mockFile(
-        'OMBInfo',
-        'const component = () => (<OMBInfo resBurden={10} ombNumber="12345" expDate="01/01/01">Some content here</OMBInfo>)',
-      ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              output: mockFile(
-                'OMBInfo',
-                'const component = () => (<va-omb-info res-burden={10} omb-number="12345" exp-date="01/01/01">Some content here</va-omb-info>)',
-              ),
-            },
-          ],
-        },
-      ],
-    },
   ],
 });

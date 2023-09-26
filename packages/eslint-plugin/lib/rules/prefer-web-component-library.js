@@ -203,42 +203,6 @@ const paginationTransformer = (context, node) => {
   });
 };
 
-const ombInfoTransformer = (context, node) => {
-  const openingTagNode = node.openingElement.name;
-  const closingTagNode = node.closingElement?.name;
-  const resBurdenNode = getPropNode(node, 'resBurden');
-  const ombNumberNode = getPropNode(node, 'ombNumber');
-  const expDateNode = getPropNode(node, 'expDate');
-
-  context.report({
-    node,
-    message: MESSAGE,
-    data: {
-      reactComponent: openingTagNode.name,
-      webComponent: 'va-omb-info',
-    },
-    suggest: [
-      {
-        desc: 'Migrate component',
-        fix: fixer => {
-          return [
-            // Rename component tags
-            fixer.replaceText(openingTagNode, 'va-omb-info'),
-            closingTagNode && fixer.replaceText(closingTagNode, 'va-omb-info'),
-
-            // Rename props if they exist
-            resBurdenNode &&
-              fixer.replaceText(resBurdenNode.name, 'res-burden'),
-            ombNumberNode &&
-              fixer.replaceText(ombNumberNode.name, 'omb-number'),
-            expDateNode && fixer.replaceText(expDateNode.name, 'exp-date'),
-          ].filter(i => !!i);
-        },
-      },
-    ],
-  });
-};
-
 /**
  * Stores the result of a check that determines if a component is part of
  * the Design System component-library.
@@ -323,9 +287,6 @@ module.exports = {
             break;
           case 'Modal':
             modalTransformer(context, node);
-            break;
-          case 'OMBInfo':
-            ombInfoTransformer(context, node);
             break;
           case 'Pagination':
             paginationTransformer(context, node);
