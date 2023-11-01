@@ -188,5 +188,6 @@ module.exports = {
     '@department-of-veterans-affairs/use-workspace-imports': 1,
     '@department-of-veterans-affairs/remove-expanding-group': 1,
     '@department-of-veterans-affairs/prefer-button-component': 1,
+    '@department-of-veterans-affairs/prefer-table-component': 1,
   },
 };

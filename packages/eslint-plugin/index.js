@@ -16,6 +16,7 @@ module.exports = {
     'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
     'remove-expanding-group': require('./lib/rules/remove-expanding-group'),
     'prefer-button-component': require('./lib/rules/prefer-button-component'),
+    'prefer-table-component': require('./lib/rules/prefer-table-component'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
