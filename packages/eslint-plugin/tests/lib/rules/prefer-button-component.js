@@ -90,5 +90,31 @@ ruleTester.run('prefer-button-component', rule, {
         },
       ],
     },
+    {
+      code: `
+        const button = () => (
+          <input type="button">Click me</input>
+        )
+      `,
+      errors: [
+        {
+          message:
+            'The <va-button> Web Component should be used to instead of the button HTML element.'
+        },
+      ],
+    },
+    {
+      code: `
+        const button = () => (
+          <input type="button" value="Click me" />
+        )
+      `,
+      errors: [
+        {
+          message:
+            'The <va-button> Web Component should be used to instead of the button HTML element.'
+        },
+      ],
+    },
   ],
 });

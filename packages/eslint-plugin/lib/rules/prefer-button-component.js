@@ -1,6 +1,6 @@
 const jsxAstUtils = require('jsx-ast-utils');
 
-const { elementType } = jsxAstUtils;
+const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
   'The <va-button> Web Component should be used to instead of the button HTML element.';
@@ -14,13 +14,18 @@ module.exports = {
   create(context) {
     return {
       JSXElement(node) {
-        // Exit early if we aren't on a button
-        if (elementType(node.openingElement) !== 'button') return;
+        const anchorNode = node.openingElement;
+        const typeProp = getProp(anchorNode.attributes, 'type');
         
-        context.report({
-          node,
-          message:  MESSAGE,
-        })
+        // Only display if we are on a button or input with type button
+        if (elementType(anchorNode) === 'button' || 
+          (elementType(anchorNode) === 'input' && getLiteralPropValue(typeProp) === 'button')){
+          
+          context.report({
+            node,
+            message:  MESSAGE,
+          })
+        }
       },
     };
   },
