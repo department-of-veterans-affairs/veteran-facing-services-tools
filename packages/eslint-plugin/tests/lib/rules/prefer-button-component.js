@@ -41,7 +41,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used to instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ],
     },
@@ -56,7 +56,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used to instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ],
      },
@@ -71,7 +71,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used to instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ]
      },
@@ -86,7 +86,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-          'The <va-button> Web Component should be used to instead of the button HTML element.'
+          'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ],
     },
@@ -99,7 +99,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used to instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ],
     },
@@ -112,7 +112,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used to instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element.'
         },
       ],
     },
