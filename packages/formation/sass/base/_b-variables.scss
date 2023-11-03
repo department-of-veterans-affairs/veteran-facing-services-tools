@@ -31,33 +31,38 @@ $h6-font-size:        1.5rem;
 $text-max-width:      70rem; // Note: USWDS value is 53rem;
 $site-max-width:      100rem; // Worksout to about 1000px. USWDS value is 1040px
 
+
+//================
+//  USWDS Colors
+//===============
+$color-aqua:                 #00bde3;
+$color-aqua-dark:            #009ec1;
+$color-aqua-lightest:        #e1f3f8;
+$color-blue:                 #005ea2;
+$color-blue-darkest:         #162e51;
+
+$color-primary:              $color-blue;
+$color-primary-darker:       #1a4480;
+$color-primary-darkest:      $color-blue-darkest;
+
+$color-primary-alt:          $color-aqua;
+$color-primary-alt-light:    #97d4ea;
+$color-primary-alt-lightest: $color-aqua-lightest;
+$color-primary-alt-dark:     #28a0cb;
+
 //===================================
-// USWDS variables
-// Colors that override (or restate) USWDS values
+// Formation colors that override (or restate) USWDS values
 // Also see: https://standards.usa.gov/components/colors/
 //===================================
-$color-aqua:                 #02bfe7;
-$color-aqua-dark:            #00a6d2;
-$color-aqua-lightest:        #e1f3f8;
+
 $color-purple:               #4c2c92;
 $color-white:                #ffffff;
 $color-red:                  #e31c3d;
 $color-red-lightest:         #f9dede;
 $color-red-light:            #e59393;
 $color-red-dark:             #cd2026;
-$color-blue:                 #0071BB;
-$color-blue-darkest:         #112e51;
 
 $color-base:                 #212121;
-
-$color-primary:              $color-blue;
-$color-primary-darker:       #003E73;
-$color-primary-darkest:      #112e51;
-
-$color-primary-alt:          $color-aqua;
-$color-primary-alt-light:    #9bdaf1;
-$color-primary-alt-lightest: $color-aqua-lightest;
-$color-primary-alt-dark:     $color-aqua-dark;
 
 $color-secondary:            $color-red;
 $color-secondary-lightest:   $color-red-lightest;
