@@ -10,10 +10,11 @@
 $font-path: "~uswds/src/fonts";
 $image-path: "~uswds/src/img";
 @import "~uswds/src/stylesheets/core/grid-settings";
-@import "~uswds/src/stylesheets/core/variables";
+// @import "~uswds/src/stylesheets/core/variables"; // [x]
+@import 'formation-overrides/variables';
 
-@import "base/b-variables";
-@import "base/b-breakpoints";
-@import "base/b-mixins";
-@import "base/b-functions";
-@import "base/b-element-overrides";
+@import "base/b-variables"; // [x]
+@import "base/b-breakpoints"; // [x]
+@import "base/b-mixins"; // [x]
+@import "base/b-functions"; // [x]
+@import "base/b-element-overrides"; // [x]
