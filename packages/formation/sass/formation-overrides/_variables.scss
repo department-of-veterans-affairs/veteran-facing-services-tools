@@ -1,17 +1,8 @@
 @import '../override-function';
 
-// These variables drive almost every aspect of the U.S. Web Design
-// system. Every variable is declared as !default so that it can be
-// overridden by a previous import.
-//
-// XXX Do not modify this file!
-//
-// If you want to override a variable, set that variable in one of your
-// own partials, then @import '{path/to/uswds/}core/variables'.
+// This is a copy of the entire ~uswds/src/stylesheets/core/variables.scss file
+// so that we can convert the rem values for USWDS v3.
 
-// Typography
-// Removing the !default from $em-base so we are not inheriting that
-// value from Bourbon.
 $em-base:             10px;
 $base-font-size:      scale-rem(1.7rem) !default;
 $small-font-size:     scale-rem(1.4rem) !default;
