@@ -35,6 +35,8 @@ const mockFileComponentLibraryNamedImport = (name, snippet) => {
 ruleTester.run('prefer-web-component-library', rule, {
   // This rule should not trigger on application components, only React components
   // from the `component-library`
+  valid: [
+  ],
   invalid: [
     {
       code: mockFile(
