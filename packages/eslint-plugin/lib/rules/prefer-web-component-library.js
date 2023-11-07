@@ -42,35 +42,6 @@ const textInputTransformer = (context, node) => {
   });
 };
 
-const breadcrumbsTransformer = (context, node) => {
-  const componentName = node.openingElement.name;
-  const closingTag = node.closingElement.name;
-  const selectedFacilityNode = getPropNode(node, 'selectedFacility');
-
-  context.report({
-    node,
-    message: MESSAGE,
-    data: {
-      reactComponent: componentName.name,
-      webComponent: 'va-breadcrumbs',
-    },
-    suggest: [
-      {
-        desc: 'Migrate component',
-        fix: fixer => {
-          // Replace opening and close tags
-          // and remove `selectedFacilityNode` prop if present
-          return [
-            fixer.replaceText(componentName, 'va-breadcrumbs'),
-            fixer.replaceText(closingTag, 'va-breadcrumbs'),
-            selectedFacilityNode && fixer.remove(selectedFacilityNode),
-          ].filter(i => !!i);
-        },
-      },
-    ],
-  });
-};
-
 const modalTransformer = (context, node) => {
   const openingTagNode = node.openingElement.name;
   const closingTagNode = node.closingElement?.name;
@@ -282,9 +253,6 @@ module.exports = {
         if (!isLibraryImport(context, componentName)) return;
 
         switch (componentName) {
-          case 'Breadcrumbs':
-            breadcrumbsTransformer(context, node);
-            break;
           case 'Modal':
             modalTransformer(context, node);
             break;
