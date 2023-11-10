@@ -50,6 +50,11 @@ $color-primary-alt-light:    #97d4ea;
 $color-primary-alt-lightest: $color-aqua-lightest;
 $color-primary-alt-dark:     #28a0cb;
 
+$color-visited:              #54278f;
+$color-link-default:         $color-primary;
+$color-link-visited:         #54278f;
+$color-link-active:          #0b4778;
+
 //===================================
 // Formation colors that override (or restate) USWDS values
 // Also see: https://standards.usa.gov/components/colors/
@@ -89,7 +94,7 @@ $color-gold-lightest:        #fff1d2;
 $color-gold-lighter:         #fad980;
 $color-gold-light:           #f9c642;
 
-$color-visited:              $color-purple;
+
 $color-focus:                #3e94cf;
 
 $focus-outline:              2px solid $color-gold-light;
@@ -104,7 +109,6 @@ $color-cool-blue-lightest:  #dce4ef;
 //===================================
 
 $color-black:                #000;
-$color-link-default:         #004795;
 $color-link-default-hover:   rgba($color-black, 0.05);
 $color-primary-alt-darkest:  #046b99;
 $color-green-darker:         #195c27;

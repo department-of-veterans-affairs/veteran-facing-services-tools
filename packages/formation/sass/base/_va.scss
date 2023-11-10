@@ -89,11 +89,11 @@ a {
     text-decoration: underline;
   }
   &:active {
-    background: $color-link-default-hover;
+    background: $color-link-active;
   }
   &:visited,
   &:visited abbr {
-    color: $color-visited;
+    color: $color-link-visited;
   }
 }
 
