@@ -36,53 +36,8 @@ ruleTester.run('prefer-web-component-library', rule, {
   // This rule should not trigger on application components, only React components
   // from the `component-library`
   valid: [
-    {
-      code: `
-        import Breadcrumbs from '../../components/Breadcrumbs';
-        const breadcrumbs = () => (<Breadcrumbs><a href="#home">Home</a></Breadcrumbs>)
-      `,
-    },
   ],
   invalid: [
-    {
-      code: mockFile(
-        'Breadcrumbs',
-        'const breadcrumb = () => (<Breadcrumbs><a href="/">Home</a></Breadcrumbs>)',
-      ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              output: mockFile(
-                'Breadcrumbs',
-                'const breadcrumb = () => (<va-breadcrumbs><a href="/">Home</a></va-breadcrumbs>)',
-              ),
-            },
-          ],
-        },
-      ],
-    },
-    {
-      code: mockFile(
-        'Breadcrumbs',
-        'const breadcrumb = () => (<Breadcrumbs selectedFacility={selectedResult}><a href="/">Home</a></Breadcrumbs>)',
-      ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              // There is an extra space which would get removed on an autosave format
-              output: mockFile(
-                'Breadcrumbs',
-                'const breadcrumb = () => (<va-breadcrumbs ><a href="/">Home</a></va-breadcrumbs>)',
-              ),
-            },
-          ],
-        },
-      ],
-    },
     {
       code: mockFile(
         'Modal',
