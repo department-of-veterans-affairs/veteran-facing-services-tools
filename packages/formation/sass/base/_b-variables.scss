@@ -49,18 +49,22 @@ $color-primary-alt:          $color-aqua;
 $color-primary-alt-light:    #97d4ea;
 $color-primary-alt-lightest: $color-aqua-lightest;
 $color-primary-alt-dark:     #28a0cb;
+$color-primary-alt-darkest:  #07648d;
 
 $color-visited:              #54278f;
 $color-link-default:         $color-primary;
 $color-link-visited:         #54278f;
 $color-link-active:          #0b4778;
 
+$color-purple:               #54278f;
+$color-light-blue: #005ea2;
+$color-old-browser-background-start: #005ea2;
+
 //===================================
 // Formation colors that override (or restate) USWDS values
 // Also see: https://standards.usa.gov/components/colors/
 //===================================
 
-$color-purple:               #4c2c92;
 $color-white:                #ffffff;
 $color-red:                  #e31c3d;
 $color-red-lightest:         #f9dede;
@@ -110,7 +114,7 @@ $color-cool-blue-lightest:  #dce4ef;
 
 $color-black:                #000;
 $color-link-default-hover:   rgba($color-black, 0.05);
-$color-primary-alt-darkest:  #046b99;
+
 $color-green-darker:         #195c27;
 $color-va-accent:            #988530; // New gold "metal" acccent
 $color-gold:                 #fdb81e;
@@ -128,8 +132,6 @@ $color-sidebar-nav-bg:   rgba($color-black, 0.25);
 
 $color-orange: #EB7F29;
 $color-gold-darker: #988530;
-$color-light-blue: #0071bb;
-$color-old-browser-background-start: #0071bb;
 $color-old-browser-background-end: #112e51;
 
 //===================================
