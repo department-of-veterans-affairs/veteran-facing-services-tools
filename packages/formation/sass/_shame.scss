@@ -11,7 +11,7 @@ body {
 
   // We have no container element, so elements that are full width have to redefine the container layout every time
   // if they want to line up.
-  // unused in content-library
+  // unused in content-build
   // Used in vets-website, used in src/platform/monitoring/DowntimeNotification/components/DowntimeApproaching.jsx 
   .row-padded {
     max-width: 100rem;
@@ -20,7 +20,7 @@ body {
   }
 }
 
-// unused in content-library
+// unused in content-build
 // used in vets-website, used in src/applications/edu-benefits/0993/containers/FormPage.jsx
 // and src/applications/appeals/testing/components/ContactInformation.jsx
 .form-panel {
@@ -29,7 +29,7 @@ body {
   }
 }
 
-// unused in content-library
+// unused in content-build
 // used in vets-website, used in src/platform/forms-system/src/js/containers/FormApp.jsx 
 // and src/applications/simple-forms/mock-alternate-header-21-0845/components/CustomFormApp.jsx
 .progress-box {
@@ -45,7 +45,7 @@ body {
 }
 
 
-// unused in content-library
+// unused in content-build
 // used in vets-website in script/github-actions/daily-product-scan/tests/mocks/applications/app-1/containers/IDPage.jsx,
 // src/applications/enrollment-verification/components/VerifyEnrollments.jsx, src/applications/financial-status-report/components/shared/ButtonGroup.jsx
 // src/platform/forms-system/src/js/components/ProgressButton.jsx
@@ -53,7 +53,7 @@ body {
   font-size: 1.7rem;
 }
 
-// unused in content-library
+// unused in content-build
 // used in vets-website in src/platform/forms-system/src/js/fields/ArrayField.jsx, which appears to be reused in a number of forms
 .input-section {
   margin-bottom: 2em;
@@ -63,7 +63,7 @@ body {
   }
 }
 
-// unused in content-library
+// unused in content-build
 // used in src/applications/facility-locator/components/SearchControls.jsx in vets-website, can probably be removed if we update <select> to <VaSelect>
 .usa-input-error {
   select {
@@ -71,7 +71,7 @@ body {
   }
 }
 
-// unused in content-library
+// unused in content-build
 // used in vets-website in src/applications/terms-of-use/components/TermsAcceptanceAction.jsx,
 // src/platform/forms-system/src/js/containers/FormApp.jsx, src/platform/forms-system/src/js/review/submit-states/ClientError.jsx,
 // src/platform/forms-system/src/js/review/submit-states/Pending.jsx, src/platform/forms-system/src/js/review/submit-states/Submitted.jsx, 
@@ -88,7 +88,7 @@ body {
   visibility: hidden;
 }
 
-// used in content-library in src/site/components/react-loader.html
+// used in content-build in src/site/components/react-loader.html
 // unused in vets-website
 .csp-inline-patch-page-react {
   padding: 2em 0;
