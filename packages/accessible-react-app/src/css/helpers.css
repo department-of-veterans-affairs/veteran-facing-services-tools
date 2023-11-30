@@ -7,7 +7,7 @@
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 2px solid #f9c642;
+  outline: 2px solid #face00;
   outline-offset: 2px;
 }
 
