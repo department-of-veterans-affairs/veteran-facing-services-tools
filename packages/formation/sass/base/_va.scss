@@ -376,59 +376,6 @@ article > h1 {
 }
 
 // ** ADDED TO CSS-LIBRARY - elements.scss
-// Content lead paragraphs
-#content.interior .primary {
-  li p:first-of-type,
-  ul + p {
-    font-weight: normal !important;
-    color: $color-gray-dark;
-    font-size: 1em;
-    padding-bottom: 0;
-  }
-}
-
-// ** ADDED TO CSS-LIBRARY - elements.scss
-#content .section.primary {
-  background: none;
-  padding: 2em 0;
-  background: $color-primary;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  li {
-    color: $color-white;
-  }
-  p {
-    color: $color-white;
-  }
-  a {
-    color: $color-white;
-  }
-  ul li {
-    list-style: square;
-  }
-}
-
-// ** ADDED TO CSS-LIBRARY - elements.scss
-#content .section.secondary {
-  padding: 3em 0;
-  h3 {
-    font-size: 2.2em;
-  }
-}
-
-#content .panel {
-  background: $color-gray-lightest;
-  padding: 1em;
-  margin-bottom: 1.5em;
-  clear: both;
-}
-
-// ** ADDED TO CSS-LIBRARY - elements.scss
 // Used in content-build: src/site/includes/breadcrumbs-playbook.html
 //===== Playbook and Facility Locator
 .va-nav-breadcrumbs--playbook {
