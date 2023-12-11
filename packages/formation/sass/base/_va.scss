@@ -295,14 +295,6 @@ article > h1 {
   overflow: hidden;
 }
 
-// ** ADDED TO CSS-LIBRARY - elements.scss
-.primary {
-  p {
-    padding-top: 0;
-    margin-top: 0;
-  }
-}
-
 // TODO: .usa-font-lead is now .usa-intro in USWDS v3.
 // This is a copy of USWDS's .usa-font-lead style
 // https://github.com/18F/web-design-standards/blob/develop/src/stylesheets/elements/_typography.scss#L164
