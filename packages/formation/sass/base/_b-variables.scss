@@ -111,11 +111,6 @@ $focus-outline:              2px solid $color-gold-light;
 $color-hub-family-member: $color-primary-darker;
 $color-hub-service-member: $color-primary-darker;
 
-//===================================
-// Formation colors that override (or restate) USWDS values
-// Also see: https://standards.usa.gov/components/colors/
-//===================================
-
 $color-focus:                #3e94cf;
 
 $color-cool-blue:           #205493;
@@ -140,28 +135,15 @@ $color-sidebar-nav-bg:   rgba($color-black, 0.25);
 //
 //===================================
 
-$red-70v: #8b0a03;
-$red-60v: #b51d09;
-$indigo-cool-60: #3f57a6;
-$red-60: #a23737;
-$mint-cool-50: #21827f;
-$orange-warm-50: #bd5727;
-$green-cool-50: #3e8520;
-$gold-50: #8e704f;
-$green-warm-50: #6f7a41;
-$blue-50: #357ab2;
-$violet-warm-60: #864381;
-
-// Contextual variable names
-$color-hub-health-care: $indigo-cool-60;
-$color-hub-education: $mint-cool-50;
-$color-hub-disability: $red-60;
-$color-hub-careers: $orange-warm-50;
-$color-hub-pension: $green-cool-50;
-$color-hub-housing: $gold-50;
-$color-hub-life-insurance: $green-warm-50;
-$color-hub-burials: $blue-50;
-$color-hub-records: $violet-warm-60;
+$color-hub-health-care: #3f57a6;
+$color-hub-education: #21827f;
+$color-hub-disability: #a23737;
+$color-hub-careers: #bd5727;
+$color-hub-pension: #3e8520;
+$color-hub-housing: #8e704f;
+$color-hub-life-insurance: #6f7a41;
+$color-hub-burials: #357ab2;
+$color-hub-records: #864381;
 
 
 //===================================
@@ -169,12 +151,12 @@ $color-hub-records: $violet-warm-60;
 // Please avoid using.
 //===================================
 
-$polar:       #E8F5FA;
+$polar:       #e7f6f8;
 $wild-sand:   #f6f6f6;
-$green-white: #eff0e6;
-$olso-gray:   #849097;
+$green-white: #f5f0e6;
+$olso-gray:   #8d9297;
 $light-blue:  #e1f3f8;
-$mm-gray:     #f1f1f1;
+$mm-gray:     #f0f0f0;
 
 //===================================
 // Z-index values
