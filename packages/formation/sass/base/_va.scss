@@ -69,8 +69,8 @@ body .row.full {
 
 // Abbr
 
-abbr {
-  border-bottom: 0px !important;
+#content abbr {
+  border-bottom: 0px;
   text-decoration: none;
   font-weight: inherit;
   font-style: inherit;
