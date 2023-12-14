@@ -1,9 +1,11 @@
 // For the print view
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 .print-only {
   display: none;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 @media print {
   header, footer, nav {
     display: none;

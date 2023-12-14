@@ -1,14 +1,17 @@
+// ** ADDED TO CSS-LIBRARY - elements.scss
 html,
 body {
   padding: 0;
   margin: 0;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 html {
   font-size: $em-base;
   font-weight: 500;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 body {
   background: $color-white;
   color: $color-base;
@@ -68,7 +71,7 @@ body .row.full {
 }
 
 // Abbr
-
+// ** ADDED TO CSS-LIBRARY - elements.scss
 #content abbr {
   border-bottom: 0px;
   text-decoration: none;
@@ -78,6 +81,7 @@ body .row.full {
   cursor: pointer;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 a {
   color: $color-link-default;
   text-decoration: underline;
@@ -99,11 +103,13 @@ a {
 
 // ====== Headings
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 // H1 should only be used once at the top-level, so we can safely remove the margin-top.
 h1 {
   margin-top: 0;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 h6 {
   margin: 0.5em 0 0;
   text-transform: none;
@@ -111,16 +117,19 @@ h6 {
 }
 
 //======= Lists
+// ** ADDED TO CSS-LIBRARY - elements.scss
 ul {
   padding: 0 0 0 1.5em;
   list-style: square;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 ol {
   margin: 0 0 0 1.25em;
   list-style-position: outside;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 ul,
 ol {
   > ul,
@@ -130,15 +139,18 @@ ol {
 }
 
 // Definition lists
+// ** ADDED TO CSS-LIBRARY - elements.scss
 dd {
   margin-left: 0;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 dd + dt {
   margin-top: 1.5em;
 }
 
 // Figure / Caption
+// ** ADDED TO CSS-LIBRARY - elements.scss
 figure {
   font-size: 0.85em;
   margin-left: -$column-gutter/2;
@@ -150,30 +162,36 @@ figure {
   }
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 figcaption {
   color: $color-primary-darker;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input::-webkit-input-placeholder {
   color: $color-gray;
 }
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input::-moz-placeholder {
   color: $color-gray;
 }
-
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input:-ms-input-placeholder {
   color: $color-gray;
 }
 
 // Visually clear placeholder text on focus
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input:focus::-moz-placeholder {
   color: transparent;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 input:focus:-ms-input-placeholder {
   color: transparent;
 }
@@ -182,6 +200,7 @@ input.va-input-medium-large {
   max-width: 18rem;
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 hr {
   margin: 2.5em 0;
   margin: 3rem 0 2.5rem;
@@ -283,6 +302,7 @@ table {
   }
 }
 
+// ** ADDED TO CSS-LIBRARY - elements.scss
 article > h1 {
   margin-top: 0;
 }
