@@ -1,11 +1,19 @@
 // For the print view
 
-// ** ADDED TO CSS-LIBRARY - elements.scss
+/* 
+ADDED TO CSS-LIBRARY
+file: stylesheets/print.scss
+issue: vets-design-system-documentation#2042
+*/
 .print-only {
   display: none;
 }
 
-// ** ADDED TO CSS-LIBRARY - elements.scss
+/* 
+ADDED TO CSS-LIBRARY
+file: stylesheets/print.scss
+issue: vets-design-system-documentation#2042
+*/
 @media print {
   header, footer, nav {
     display: none;
