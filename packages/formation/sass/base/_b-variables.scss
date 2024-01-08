@@ -61,48 +61,57 @@ $color-light-blue: #005ea2;
 $color-old-browser-background-start: #005ea2;
 $color-old-browser-background-end: #162e51;
 
-//===================================
-// Formation colors that override (or restate) USWDS values
-// Also see: https://standards.usa.gov/components/colors/
-//===================================
-
 $color-white:                #ffffff;
-$color-red:                  #e31c3d;
-$color-red-lightest:         #f9dede;
-$color-red-light:            #e59393;
-$color-red-dark:             #cd2026;
+$color-red:                  #d83933;
+$color-red-lightest:         #f8dfe2;
+$color-red-light:            #f2938c;
+$color-red-dark:             #b50909;
 
-$color-base:                 #212121;
+$color-base:                 #1b1b1b;
 
 $color-secondary:            $color-red;
 $color-secondary-lightest:   $color-red-lightest;
 $color-secondary-light:      $color-red-light;
 $color-secondary-dark:       $color-red-dark;
-$color-secondary-darkest:    #981b1e;
+$color-secondary-darkest:    #8b0a03;
 
-$color-gray:                 #5b616b;
-$color-gray-light:           #aeb0b5;
-$color-gray-lighter:         #d6d7d9;
-$color-gray-lightest:        #f1f1f1;
+$color-gray:                 #565c65;
+$color-gray-light:           #a9aeb1;
+$color-gray-light-alt:       #edeff0;
+$color-gray-lighter:         #dfe1e2;
+$color-gray-lightest:        #f0f0f0;
 $color-gray-medium:          #757575;
-$color-gray-dark:            #323a45;
-$color-gray-warm-light:      #e4e2e0;
-$color-gray-warm-dark:       #494440;
-$color-gray-cool-light:      #dce4ef;
+$color-gray-dark:            #3d4551;
+$color-gray-warm-light:      #e6e6e2;
+$color-gray-warm-dark:       #454540;
+$color-gray-cool-light:      #e1e7f1;
 
-$color-green:                #2e8540;
-$color-green-lightest:       #e7f4e4;
-$color-green-lighter:        #94bfa2;
-$color-green-light:          #4aa564;
+$color-green:                #008817;
+$color-green-lightest:       #ecf3ec;
+$color-green-lighter:        #b4d0b9;
+$color-green-light:          #5e9f69;
+$color-green-darker:         #154c21;
 
-$color-gold-lightest:        #fff1d2;
-$color-gold-lighter:         #fad980;
-$color-gold-light:           #f9c642;
+$color-gold-lightest:        #fef0c8;
+$color-gold-lighter:         #ffe396;
+$color-gold-light:           #face00;
+$color-gold:                 #ffbe2e;
+$color-gold-darker:          #936f38;
 
+$color-orange: #dd7533;
+
+$color-black:                #000;
+
+$color-va-accent:            #8a7237; // New gold "metal" acccent
+$color-feedback-warning-background:      #faf3d1; // Used for Disability benefits
+$color-inset-bg:             #e7f6f8;
+$color-gibill-accent:        #fef0c8; // TODO: Replace with $color-gold-lightest;
+$focus-outline:              2px solid $color-gold-light;
+
+$color-hub-family-member: $color-primary-darker;
+$color-hub-service-member: $color-primary-darker;
 
 $color-focus:                #3e94cf;
-
-$focus-outline:              2px solid $color-gold-light;
 
 $color-cool-blue:           #205493;
 $color-cool-blue-light:     #4773aa;
@@ -113,72 +122,49 @@ $color-cool-blue-lightest:  #dce4ef;
 // Places where DSVA is going rogue!
 //===================================
 
+
 $color-black:                #000;
 /* 
 ADDED TO CSS-LIBRARY
 file: tokens/color.json
 issue: vets-design-system-documentation#2042
 */
+
 $color-link-default-hover:   rgba($color-black, 0.05);
 
-$color-green-darker:         #195c27;
-$color-va-accent:            #988530; // New gold "metal" acccent
-$color-gold:                 #fdb81e;
-$color-feedback-warning-background:      #fac922; // Used for Disability benefits
-$color-gray-light-alt:       #eee;
 $color-va-modal-bg:          rgba($color-gray-dark, .8);
-
-$color-inset-bg:             #e0f3f8;
-$color-gibill-accent:        #fff1d2; // TODO: Replace with $color-gold-lightest;
 
 $color-white-alpha70:        rgba(255,255,255,.7);
 
 $color-sidebar-nav-bg:   rgba($color-black, 0.25);
-
-$color-orange: #EB7F29;
-$color-gold-darker: #988530;
 
 //===================================
 // Hub Icon colors for BC
 //
 //===================================
 
-$red-70v: #8b1303;
-$red-60v: #b51d09;
-$indigo-cool-60: #3f57a6;
-$red-60: #a23737;
-$mint-cool-50: #21827f;
-$orange-warm-50: #bd5727;
-$green-cool-50: #3e8520;
-$gold-50: #8e704f;
-$green-warm-50: #6f7a41;
-$blue-50: #357ab2;
-$violet-warm-60: #864381;
+$color-hub-health-care: #3f57a6;
+$color-hub-education: #40807e;
+$color-hub-disability: #a23737;
+$color-hub-careers: #bd5727;
+$color-hub-pension: #4d8055;
+$color-hub-housing: #8e704f;
+$color-hub-life-insurance: #6f7a41;
+$color-hub-burials: #2378c3;
+$color-hub-records: #864381;
 
-// Contextual variable names
-$color-hub-health-care: $indigo-cool-60;
-$color-hub-education: $mint-cool-50;
-$color-hub-disability: $red-60;
-$color-hub-careers: $orange-warm-50;
-$color-hub-pension: $green-cool-50;
-$color-hub-housing: $gold-50;
-$color-hub-life-insurance: $green-warm-50;
-$color-hub-burials: $blue-50;
-$color-hub-records: $violet-warm-60;
-$color-hub-family-member: $color-primary-darker;
-$color-hub-service-member: $color-primary-darker;
 
 //===================================
 // Deprecated Colors;
 // Please avoid using.
 //===================================
 
-$polar:       #E8F5FA;
+$polar:       #e7f6f8;
 $wild-sand:   #f6f6f6;
-$green-white: #eff0e6;
-$olso-gray:   #849097;
+$green-white: #f5f0e6;
+$olso-gray:   #8d9297;
 $light-blue:  #e1f3f8;
-$mm-gray:     #f1f1f1;
+$mm-gray:     #f0f0f0;
 
 //===================================
 // Z-index values
