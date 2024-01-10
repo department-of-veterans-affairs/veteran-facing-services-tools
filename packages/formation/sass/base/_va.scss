@@ -807,29 +807,6 @@ issue: vets-design-system-documentation#2043
   }
 }
 
-// TODO: Deprecate .va-action-bar--header a.usa-button-primary.
-// Use .va-button-primary and .va-button-secondary
-// going forward.
-// Drop !important from the lines below when everything
-// is refactored.
-.va-button-primary {
-  background: $color-green !important;
-
-  &:hover,
-  &:focus {
-    background-color: $color-green-darker !important;
-    text-decoration: none !important;
-  }
-
-  svg {
-    display: inline-block;
-    height: 1.2rem;
-    margin-left: 0.5rem;
-    width: 1.2rem;
-    vertical-align: -1px;
-  }
-}
-
 // USDS component styles
 // Accordion
 .usa-accordion-content[aria-hidden="true"] {
