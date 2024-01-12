@@ -807,6 +807,25 @@ issue: vets-design-system-documentation#2043
   }
 }
 
+// DEPRECATED: Replaced with va-button web component
+.va-button-primary {
+  background: $color-green !important;
+
+  &:hover,
+  &:focus {
+    background-color: $color-green-darker !important;
+    text-decoration: none !important;
+  }
+
+  svg {
+    display: inline-block;
+    height: 1.2rem;
+    margin-left: 0.5rem;
+    width: 1.2rem;
+    vertical-align: -1px;
+  }
+}
+
 // USDS component styles
 // Accordion
 .usa-accordion-content[aria-hidden="true"] {
