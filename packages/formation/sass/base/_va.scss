@@ -113,7 +113,7 @@ a {
     text-decoration: underline;
   }
   &:active {
-    background: $color-link-active;
+    color: $color-link-active;
   }
   &:visited,
   &:visited abbr {
