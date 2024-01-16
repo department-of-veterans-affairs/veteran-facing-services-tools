@@ -97,6 +97,7 @@ body.va-pos-fixed {
     margin-bottom: 0;
   }
 
+  // DEPRECATED: Replaced with va-button web component
   .va-button-primary {
     border: 2px solid $color-white;
     color: $color-white;
