@@ -1,5 +1,5 @@
 {
-  "name": "vagov-documentation",
+  "name": "vagov-documentation test",
   "private": true,
   "description": "Developer Document Site for VA.gov",
   "version": "0.1.0",
@@ -58,7 +58,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths; fi",
+    "build": "gatsby build --prefix-paths",
     "deploy": "gh-pages -d public -e .",
     "develop": "gatsby develop",
     "start": "npm run develop",
