@@ -87,17 +87,17 @@ jobs:
       - name: Build
         run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
 
-      # - name: Compress documentation build
-      #   if: github.ref == 'refs/heads/master'
-      #   run: tar -C packages/documentation/public -cvf documentation.tar.bz2 .
+      - name: Compress documentation build
+        if: github.ref == 'refs/heads/master'
+        run: tar -C packages/documentation/public -cvf documentation.tar.bz2 .
 
-      # - name: Upload documentation build artifact
-      #   if: github.ref == 'refs/heads/master'
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: documentation.tar.bz2
-      #     path: documentation.tar.bz2
-      #     retention-days: 1
+      - name: Upload documentation build artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v2
+        with:
+          name: documentation.tar.bz2
+          path: documentation.tar.bz2
+          retention-days: 1
 
   deploy:
     name: Deploy
@@ -129,7 +129,7 @@ jobs:
           YARN_CACHE_FOLDER: ~/.cache/yarn
 
       - name: Download documentation build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v2
         with:
           name: documentation.tar.bz2
 
