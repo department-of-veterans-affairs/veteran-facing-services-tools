@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/formation",
-  "version": "7.1.0-color-beta",
+  "version": "10.1.2",
   "description": "The VA design system",
   "keywords": [
     "va",
@@ -28,13 +28,13 @@
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/issues"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "domready": "^1.0.8",
     "element-closest": "^3.0.1",
     "foundation-sites": "5"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "foundation-sites": "5",
     "uswds": "^1.6.10"
   }

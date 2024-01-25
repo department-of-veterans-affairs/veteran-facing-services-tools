@@ -19,8 +19,20 @@ $grid-columns-medium: 6 !default;
 $grid-columns-large: 12 !default;
 
 // Breakpoint variables from USWDS 1.4.2
+/* 
+ADDED TO CSS-LIBRARY
+file: tokens/breakpoints.json
+issue: vets-design-system-documentation#2042
+*/
 $small-screen:  481px !default;
+
 $medium-screen: 600px !default;
+
+/* 
+ADDED TO CSS-LIBRARY
+file: tokens/breakpoints.json
+issue: vets-design-system-documentation#2042
+*/
 $large-screen:  1201px !default;
 
 $small: new-breakpoint(min-width $small-screen $grid-columns-small);
