@@ -87,9 +87,9 @@ jobs:
       - name: Build
         run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
 
-      - name: Compress documentation build
-        if: github.ref == 'refs/heads/master'
-        run: tar -C packages/documentation/public -cvf documentation.tar.bz2 .
+      # - name: Compress documentation build
+      #   if: github.ref == 'refs/heads/master'
+      #   run: tar -C packages/documentation/public -cvf documentation.tar.bz2 .
 
       # - name: Upload documentation build artifact
       #   if: github.ref == 'refs/heads/master'
