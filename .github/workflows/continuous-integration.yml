@@ -75,6 +75,9 @@ jobs:
           large-packages: true
           swap-storage: true
 
+      - name: Delete caches folder
+        run: rm -rf /packages/documentation/.cache/caches
+
       - name: Install dependencies
         uses: ./.github/workflows/install
         with:
