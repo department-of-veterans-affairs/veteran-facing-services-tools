@@ -75,14 +75,14 @@ jobs:
       #     large-packages: true
       #     swap-storage: true
 
-      # - name: Install dependencies
-      #   uses: ./.github/workflows/install
-      #   with:
-      #     key: ${{ hashFiles('yarn.lock') }}
-      #     yarn_cache_folder: .cache/yarn
-      #     path: |
-      #       .cache/yarn
-      #       node_modules
+      - name: Install dependencies
+        uses: ./.github/workflows/install
+        with:
+          key: ${{ hashFiles('yarn.lock') }}
+          yarn_cache_folder: .cache/yarn
+          path: |
+            .cache/yarn
+            node_modules
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
