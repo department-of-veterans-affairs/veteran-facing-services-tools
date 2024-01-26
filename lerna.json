@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/documentation",
-    "packages/eslint-plugin"
+    "packages/eslint-plugin",
+    "packages/formation"
   ],
   "version": "independent",
   "npmClient": "yarn",
