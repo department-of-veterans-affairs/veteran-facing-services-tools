@@ -58,7 +58,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API Key\"; else gatsby build --prefix-paths; fi",
     "deploy": "gh-pages -d public -e .",
     "develop": "gatsby develop",
     "start": "npm run develop",
