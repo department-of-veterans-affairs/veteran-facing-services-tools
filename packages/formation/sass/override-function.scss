@@ -118,8 +118,8 @@ $unit-types: (
 
 @function scale-rem($value, $coeff: $f2u-coeff,  $separator: space) {
   // converts any singular SCSS value with rem units
-  // to its scaled equvalent
-  // otherwise returns  the orginal value
+  // to its scaled equivalent
+  // otherwise returns the orginal value
   @if (type-of($value) == number and unit($value) == rem) {
     @return ($value * $coeff) ;
   }

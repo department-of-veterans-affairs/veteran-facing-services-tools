@@ -627,6 +627,7 @@ issue: vets-design-system-documentation#2043
 .va-notice--banner {
   p {
     margin: 0;
+    font-size: .75rem; //fixes official website of US Gov banner text
   }
 
   a {
