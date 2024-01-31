@@ -1,6 +1,8 @@
+@import '../override-function';
+
 // RadioButtons Component
 legend.legend-label + .form-radio-buttons {
-  margin-top: 1.2rem;
+  margin-top: scale-rem(1.2rem);
 }
 
 .form-radio-buttons {
@@ -14,7 +16,7 @@ legend.legend-label + .form-radio-buttons {
   }
 
   [type="radio"] {
-    height: 4.8rem !important;
+    height: scale-rem(4.8rem) !important;
     margin: 0;
     border: 0;
     cursor: pointer;
@@ -23,9 +25,9 @@ legend.legend-label + .form-radio-buttons {
   .errorable-radio-button {
     label {
       outline: none;
-      padding: 1.2rem;
+      padding: scale-rem(1.2rem);
       display: inline-block;
-      margin: 0 0 0 1.2rem;
+      margin: scale-rule(0 0 0 1.2rem);
     }
 
     input:focus {
@@ -54,24 +56,24 @@ button.form-button-disabled {
 .form-datefield-day {
   clear: none;
   float: left;
-  margin-right: 1.5rem;
+  margin-right: scale-rem(1.5rem);
 
   & select {
-    padding-top: 0.85rem;
-    padding-bottom: 0.85rem;
+    padding-top: scale-rem(0.85rem);
+    padding-bottom: scale-rem(0.85rem);
   }
 }
 
 .form-alert-body {
-  padding: 0 3.5rem;
+  padding: scale-rule(0 3.5rem);
 }
 
 .form-datefield-month {
-  width: 13rem;
+  width: scale-rem(13rem);
 }
 
 .form-datefield-day {
-  width: 8rem;
+  width: scale-rem(8rem);
 }
 
 .form-radio-buttons {
@@ -102,9 +104,9 @@ button.form-button-disabled {
   // See 18F/web-design-standards#1490
   // This fixes things in the meantime.
   [type="checkbox"] {
-    height: 1.8rem !important;
+    height: scale-rem(1.8rem) !important;
     margin: 0;
-    width: 1.8rem !important;
+    width: scale-rem(1.8rem) !important;
     cursor: pointer;
   }
   > input[type="checkbox"] + label::before {
@@ -122,21 +124,21 @@ button.form-button-disabled {
 
 // Checkbox Group Component
 legend.legend-label + .form-checkbox-buttons {
-  margin-top: 1.2rem;
+  margin-top: scale-rem(1.2rem);
 }
 
 .form-checkbox-buttons {
   [type="checkbox"] {
-    height: 1.8rem !important;
-    width: 1.8rem !important;
+    height: scale-rem(1.8rem) !important;
+    width: scale-rem(1.8rem) !important;
     cursor: pointer;
-    margin: 1.2rem 0 0 2.4rem;
+    margin: scale-rule(1.2rem 0 0 2.4rem);
   }
 
   label {
-    padding: 1.2rem;
+    padding: scale-rem(1.2rem);
     display: inline-block;
-    margin: 0 0 0 1.2rem;
+    margin: scale-rule(0 0 0 1.2rem);
   }
 }
 
@@ -157,7 +159,7 @@ legend.legend-label + .form-checkbox-buttons {
 
 @include media($medium-large-screen) {
   .form-select-medium {
-    max-width: 12rem;
+    max-width: scale-rem(12rem);
   }
 }
 
@@ -198,24 +200,24 @@ legend.legend-label + .form-checkbox-buttons {
 
 .form-expanding-group > span {
   .usa-input-error {
-    padding-left: calc(1.5rem - 6px);
-    right: calc(1.9rem - 6px);
+    padding-left: calc(scale-rem(1.5rem) - 6px);
+    right: calc(scale-rem(1.9rem) - 6px);
   }
   .schemaform-expandUnder-indent {
     .usa-input-error {
-      padding-left: 1.5rem;
-      right: 1.9rem;
+      padding-left: scale-rem(1.5rem);
+      right: scale-rem(1.9rem);
     }
   }
 }
 
 .form-expanding-group {
-  margin-left: -2rem;
-  padding-left: 2rem;
+  margin-left: scale-rem(-2rem);
+  padding-left: scale-rem(2rem);
 }
 
 .form-expanding-group-open {
-  padding-left: calc(2rem - 7px);
+  padding-left: calc(scale-rem(2rem) - 7px);
   border-left: 7px solid $color-primary-alt-light;
 
   // Avoid nested expanding group borders
@@ -242,13 +244,13 @@ legend.legend-label + .form-checkbox-buttons {
 .form-errorable-group {
   > .usa-input-error {
     label {
-      margin-top: 3rem;
+      margin-top: scale-rem(3rem);
     }
     .usa-input-error-label {
       margin-top: 0;
     }
     .usa-input-error-message {
-      margin-bottom: -2rem;
+      margin-bottom: scale-rem(-2rem);
     }
   }
 }

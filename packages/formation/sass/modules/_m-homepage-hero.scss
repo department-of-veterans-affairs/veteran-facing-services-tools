@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .homepage-hero {
   background: $color-gray-lightest;
 }
@@ -7,17 +9,17 @@
   background-size: cover;
   display: flex;
   margin: auto;
-  min-height: 22.4rem;
-  padding: 1em 2.4rem;
+  min-height: scale-rem(22.4rem);
+  padding: 1em scale-rem(2.4rem);
   text-align: center;
 
   &.usa-grid {
-    max-width: 114rem;
+    max-width: scale-rem(114rem);
   }
 
   @include media($medium-large-screen) {
     padding: 2em 0;
-    min-height: 32rem;
+    min-height: scale-rem(32rem);
   }
 
   @include media($large-screen) {
@@ -30,7 +32,7 @@
   background: $color-white;
   color: $color-gray-dark;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: scale-rem(2.5rem);
   line-height: 1.3;
   //margin: auto;
   margin: 3em auto;
@@ -38,7 +40,7 @@
   white-space: pre-wrap;
 
   @include media($medium-large-screen) {
-    font-size: 3.5rem;
+    font-size: scale-rem(3.5rem);
     padding-left: .75em;
     padding-right: .75em;
     white-space: normal;
@@ -52,7 +54,7 @@
 
 
 .va-homepage-benefits {
-  padding-bottom: 2rem;
+  padding-bottom: scale-rem(2rem);
   // Commenting to remove this for now because there's still a discussion about
   // whether these links should be one column or two.
   // Restore if we use two columns. Remove if we use one.
@@ -63,6 +65,6 @@
   //}
 
   li:first-child{
-    margin-top: 1rem;
+    margin-top: scale-rem(1rem);
   }
 }
