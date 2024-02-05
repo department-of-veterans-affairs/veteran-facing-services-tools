@@ -39,6 +39,11 @@ $small: new-breakpoint(min-width $small-screen $grid-columns-small);
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium);
 $large: new-breakpoint(min-width $large-screen $grid-columns-large);
 
+/* 
+ADDED TO CSS-LIBRARY
+file: tokens/breakpoints.json
+issue: vets-design-system-documentation#2334
+*/
 // We do a custom override here, setting our site's medium breakpoint to 768 instead of how USWDS defines it at 600.
 $xsmall-screen:       320px; // QVGA display
 $medium-large-screen: 768px;
