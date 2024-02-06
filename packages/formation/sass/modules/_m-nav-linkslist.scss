@@ -1,3 +1,4 @@
+@import '../override-function';
 //============================================
 // m-nav-list-block
 // Created: 2017-04-12
@@ -9,13 +10,13 @@
 //============================================
 
 .va-nav-linkslist {
-  margin: 1rem 0 0;
-  padding: 0 0 1rem 0;
+  margin: scale-rule(1rem 0 0);
+  padding: scale-rule(0 0 1rem 0);
 
   &--related {
     background: $color-gray-lightest;
-    padding: 0.1rem 1.6rem;
-    margin: 2.6rem 0 4rem;
+    padding: scale-rule(0.1rem 1.6rem);
+    margin: scale-rule(2.6rem 0 4rem);
   }
 
   &-heading {
@@ -23,8 +24,8 @@
     // mixin when / if it's available
     border-bottom: 1px solid $color-gray-light;
     margin: 0;
-    padding: 1.6rem 0 0.4rem;
-    font-size: 1.5em;
+    padding: scale-rule(1.6rem 0 0.4rem);
+    font-size: scale-rem(1.5em);
   }
 
   &-list {
@@ -40,7 +41,7 @@
     }
 
     li {
-      margin: 1.6rem 0;
+      margin: scale-rule(1.6rem 0);
     }
   }
 

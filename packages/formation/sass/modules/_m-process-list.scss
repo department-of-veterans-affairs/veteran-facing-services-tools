@@ -4,7 +4,7 @@
 // Should only be used with ol elements
 // Also see l-playbook for a variation of these styles.
 //======================================
-
+@import '../override-function';
 @import "~uswds/src/stylesheets/core/utilities";
 
 .process {
@@ -30,7 +30,7 @@
     }
 
     &.va-address-block {
-      padding-left: 1rem;
+      padding-left: scale-rem(1rem);
     }
   }
 
