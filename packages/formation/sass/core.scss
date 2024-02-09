@@ -39,7 +39,8 @@
 // ---- U.S. WEB DESIGN STANDARDS ELEMENTS/COMPONENTS --- //
 // @import '~uswds/src/stylesheets/elements/buttons'; // [x]
 @import 'formation-overrides/elements/buttons'; // [x]
-@import '~uswds/src/stylesheets/elements/inputs';
+// @import '~uswds/src/stylesheets/elements/inputs';
+@import 'formation-overrides/elements/inputs'; // [x]
 @import '~uswds/src/stylesheets/elements/labels';
 @import '~uswds/src/stylesheets/elements/list';
 @import '~uswds/src/stylesheets/elements/table';
