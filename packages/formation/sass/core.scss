@@ -2,9 +2,9 @@
 // Note: if you add variable files in here, make sure you updated shared-variables.scss
 
 //============ VENDOR PARTIALS ==============//
-@import '~uswds/src/stylesheets/lib/bourbon'; // [x]?
-@import '~uswds/src/stylesheets/lib/neat'; // [x]?
-@import '~uswds/src/stylesheets/lib/normalize'; // Currently 3.0.3 // [x]?
+@import '~uswds/src/stylesheets/lib/bourbon'; // [x]
+@import '~uswds/src/stylesheets/lib/neat'; // [x]
+@import '~uswds/src/stylesheets/lib/normalize'; // Currently 3.0.3 // [x]
 
 @import '~foundation-sites/scss/foundation/components/grid';  // [x]
 @import '~foundation-sites/scss/foundation/components/block-grid';  // [x]
@@ -25,8 +25,8 @@
 @import 'base/b-variables'; // [x]
 @import 'base/b-breakpoints'; // [x]
 
-@import '~uswds/src/stylesheets/core/fonts'; // [x]?
-@import '~uswds/src/stylesheets/core/grid'; // [x]?
+@import '~uswds/src/stylesheets/core/fonts'; // [x]
+@import '~uswds/src/stylesheets/core/grid'; // [x]
 // @import '~uswds/src/stylesheets/core/utilities'; // [x]
 @import 'formation-overrides/core/utilities'; // [x]
 
@@ -34,7 +34,7 @@
 // Specifically, the "focus" mixin.
 @import 'base/b-mixins'; // [x]
 
-@import '~uswds/src/stylesheets/core/base'; // [x]?
+@import '~uswds/src/stylesheets/core/base'; // [x]
 
 // ---- U.S. WEB DESIGN STANDARDS ELEMENTS/COMPONENTS --- //
 // @import '~uswds/src/stylesheets/elements/buttons'; // [x]
