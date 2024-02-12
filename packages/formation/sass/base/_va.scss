@@ -1,3 +1,5 @@
+@import '../override-function';
+
 /* 
 ADDED TO CSS-LIBRARY
 file: stylesheets/elements.scss
@@ -278,7 +280,7 @@ input:focus:-ms-input-placeholder {
 }
 
 input.va-input-medium-large {
-  max-width: 18rem;
+  max-width: scale-rem(18rem);
 }
 
 /* 
@@ -288,7 +290,7 @@ issue: vets-design-system-documentation#2042
 */
 hr {
   margin: 2.5em 0;
-  margin: 3rem 0 2.5rem;
+  margin: scale-rule(3rem 0 2.5rem);
   border: 1px solid $color-gray-light;
 }
 
@@ -352,7 +354,7 @@ table {
   flex: 1 0 164px;
 
   @include media($medium-large-screen) {
-    flex-basis: 6rem;
+    flex-basis: scale-rem(6rem);
   }
 }
 
@@ -362,7 +364,7 @@ table {
   border-bottom: none;
   display: block;
   height: 40px;
-  //padding-left: .5rem;
+  //padding-left: scale-rem(.5rem);
   margin: 0;
   width: 164px;
 
@@ -466,10 +468,10 @@ article > h1 {
 // Quick Links
 .va-quicklinks {
   ul {
-    margin-top: 0.8rem;
+    margin-top: scale-rem(0.8rem);
   }
   li {
-    padding: 0.56rem 0;
+    padding: sccale-rule(0.56rem 0);
   }
   h3 {
     line-height: 1.2em;
@@ -477,7 +479,7 @@ article > h1 {
     // body.fourohfour #content h3 are straightened out.
     font-size: 1.65em;
     color: $color-primary-darkest;
-    margin: 0 0 1rem 0;
+    margin: scale-rem(0 0 1rem 0);
     padding: 0 0 0.2em 0;
   }
 }
@@ -577,7 +579,7 @@ li {
 
 // Cards
 [class*="block-grid-"] > li {
-  padding: 0 0.625rem 1.25rem 0.625rem;
+  padding: scale-rule(0 0.625rem 1.25rem 0.625rem);
 }
 
 // Telephone numbers
@@ -597,7 +599,7 @@ li {
   @include media($medium-large-screen) {
     background: $color-gray-lightest;
     .usa-banner-inner {
-      padding-left: 1.5rem;
+      padding-left: scale-rem(1.5rem);
     }
 
     .usa-banner-content {
@@ -608,13 +610,13 @@ li {
 
   @include media($small-desktop-screen) {
     .usa-banner-inner {
-      padding-left: 0rem;
+      padding-left: scale(0rem); // todo:should this not simply be 0?
     }
   }
 
   &-inner {
     margin: auto;
-    max-width: 97.5rem;
+    max-width: scale-rem(97.5rem);
     position: relative;
   }
 }
@@ -627,7 +629,7 @@ issue: vets-design-system-documentation#2043
 .va-notice--banner {
   p {
     margin: 0;
-    font-size: .75rem; //fixes official website of US Gov banner text
+    font-size: scale-rem(.75rem); //fixes official website of US Gov banner text
   }
 
   a {
@@ -786,7 +788,7 @@ issue: vets-design-system-documentation#2043
   // Flexbox magic means that setting a margin on ::before
   // applies the same margin to ::after
   &::before {
-    margin-right: 12rem;
+    margin-right: scale-rem(12rem);
   }
 
   &::before,
@@ -794,13 +796,13 @@ issue: vets-design-system-documentation#2043
     border-top: 1px solid $color-gray-light;
     content: " ";
     flex: 1 1 50%;
-    padding: 1rem 0;
+    padding: scale-rule(1rem 0);
   }
 
   background: url('#{$formation-image-path}/stars.png') no-repeat center;
-  background-size: 11rem auto;
-  margin: 1.6rem auto auto;
-  padding: 2rem 0 0;
+  background-size: scale-rule(11rem auto);
+  margin: scale-rule(1.6rem auto auto);
+  padding: scale-rule(2rem 0 0);
   text-align: center;
 
   @include media($medium-screen) {
@@ -820,9 +822,9 @@ issue: vets-design-system-documentation#2043
 
   svg {
     display: inline-block;
-    height: 1.2rem;
-    margin-left: 0.5rem;
-    width: 1.2rem;
+    height: scale-rem(1.2rem);
+    margin-left: scale-rem(0.5rem);
+    width: scale-rem(1.2rem);
     vertical-align: -1px;
   }
 }
@@ -834,9 +836,9 @@ issue: vets-design-system-documentation#2043
 }
 
 .va-address-block {
-  margin-left: 5rem;
+  margin-left: scale-rem(5rem);
   border-left: 3px solid $color-primary;
-  padding-left: 1rem;
+  padding-left: scale-rem(1rem);
 }
 
 //====== Flexbox related utility classes
@@ -931,5 +933,5 @@ issue: vets-design-system-documentation#2043
 }
 
 .fieldset-input {
-  margin-top: 3rem;
+  margin-top: scale-rem(3rem);
 }
