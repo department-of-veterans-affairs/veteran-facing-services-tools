@@ -72,3 +72,7 @@ To fix the `Expected corresponding JSX closing tag for <img>` error, you need to
      - Whitespace push
 
 ##### Example `va.gov-team` PR: https://github.com/department-of-veterans-affairs/va.gov-team/pull/9869
+
+## Not a member of the repository and want to be added?
+- If you're on a VA.gov Platform team, contact your Program Manager.
+- If you're on a VFS team, you must complete [Platform Orientation](https://depo-platform-documentation.scrollhelp.site/getting-started/platform-orientation) to be added to this repository. This includes completing your Platform Orientation ticket(s) in GitHub.
