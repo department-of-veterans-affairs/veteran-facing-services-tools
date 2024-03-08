@@ -19,7 +19,7 @@ $input-height-exact: (
 
 // truncated to 1 decimal place
 // (i.e., 1.21rem -> 1.2rem)
-$input-height: scale-rem(floor($input-height-exact * 10) / 10);
+$input-height: floor($input-height-exact * 10) / 10;
 
 // Block form elements
 /* stylelint-disable selector-no-qualifying-type */
