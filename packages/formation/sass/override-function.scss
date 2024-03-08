@@ -98,7 +98,7 @@ $unit-types: (
   @return (
     number: $numeric-result,
     unit: unquote($unit),
-    joint: if($numeric-result != null, #{$numeric-result} + unquote($unit), unquote($unit))
+    joint: if($numeric-result != null, #{$numeric-result} + unquote($unit), $string)
   );
 }
 
