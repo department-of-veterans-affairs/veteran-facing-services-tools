@@ -217,7 +217,7 @@ legend.legend-label + .form-checkbox-buttons {
 }
 
 .form-expanding-group-open {
-  padding-left: calc(scale-rem(2rem) - 7px);
+  padding-left: calc(#{scale-rem(2rem)} - 7px);
   border-left: 7px solid $color-primary-alt-light;
 
   // Avoid nested expanding group borders
