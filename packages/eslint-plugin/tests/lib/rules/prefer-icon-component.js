@@ -39,11 +39,11 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of the button HTML element. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default\" srtext="phone" className="vads-u-margin-right--1"  />)
+        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default\" srtext="phone" className="vads-u-margin-right--1" aria-hidden="true" />)
       `,
     },
     {
@@ -53,11 +53,11 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of the button HTML element. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"    />)
+        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"   aria-hidden="true" />)
       `,
     },
     {
@@ -67,7 +67,7 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of the button HTML element. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
         },
       ],
       output: `

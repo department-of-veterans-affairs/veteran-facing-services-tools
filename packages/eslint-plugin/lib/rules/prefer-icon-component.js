@@ -3,7 +3,7 @@ const jsxAstUtils = require('jsx-ast-utils');
 const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
-  'The <va-icon> Web Component should be used instead of the button HTML element. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default';
+  'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default';
 
 module.exports = {
   meta: {
