@@ -26,7 +26,6 @@ module.exports = {
 
         const ariaLabelProp = getProp(iconNode.attributes, 'aria-label');
         const ariaLabelText = getLiteralPropValue(ariaLabelProp);
-        const ariaHiddenProp = getProp(iconNode.attributes, 'aria-hidden');
 
         const roleProp = getProp(iconNode.attributes, 'role');
         const altProp = getProp(iconNode.attributes, 'alt');
@@ -54,9 +53,6 @@ module.exports = {
 
                 // replace aria-label with the srtext component prop
                 ariaLabelProp && fixer.replaceText(ariaLabelProp, `srtext="${ariaLabelText}"`),
-
-                // remove aria-hidden - replaced by component internals
-                ariaHiddenProp && fixer.remove(ariaHiddenProp),
 
                 // remove role - replaced by component internals
                 roleProp && fixer.remove(roleProp),
