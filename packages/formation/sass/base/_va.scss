@@ -471,7 +471,7 @@ article > h1 {
     margin-top: scale-rem(0.8rem);
   }
   li {
-    padding: sccale-rule(0.56rem 0);
+    padding: scale-rule(0.56rem 0);
   }
   h3 {
     line-height: 1.2em;
@@ -610,7 +610,7 @@ li {
 
   @include media($small-desktop-screen) {
     .usa-banner-inner {
-      padding-left: scale(0rem); // todo:should this not simply be 0?
+      padding-left: 0;
     }
   }
 
@@ -629,7 +629,7 @@ issue: vets-design-system-documentation#2043
 .va-notice--banner {
   p {
     margin: 0;
-    font-size: .95rem; //fixes official website of US Gov banner text
+    font-size: scale-rem(1.2rem); //fixes official website of US Gov banner text
   }
 
   a {
