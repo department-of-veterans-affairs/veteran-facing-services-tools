@@ -30,7 +30,8 @@ module.exports = {
         const roleProp = getProp(iconNode.attributes, 'role');
         const altProp = getProp(iconNode.attributes, 'alt');
 
-        if (classValue && classValue.includes('fa-')) {
+        if (classValue && classValue.includes('fa-') 
+        || elementType(iconNode) === 'i'){
           context.report({
             node,
             message:  MESSAGE,
@@ -49,7 +50,7 @@ module.exports = {
                 classNameClasses && fixer.replaceText(classNameProp, `className="${classNameClasses}"`),
 
                 // remove the className prop if there are no classes anymore
-                !classNameClasses && fixer.remove(classNameProp),
+                classNameProp && !classNameClasses && fixer.remove(classNameProp),
 
                 // replace aria-label with the srtext component prop
                 ariaLabelProp && fixer.replaceText(ariaLabelProp, `srtext="${ariaLabelText}"`),
