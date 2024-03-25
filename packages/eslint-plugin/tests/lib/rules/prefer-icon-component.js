@@ -39,7 +39,7 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon',
         },
       ],
       output: `
@@ -53,7 +53,7 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon',
         },
       ],
       output: `
@@ -67,7 +67,7 @@ ruleTester.run('prefer-icon-component', rule, {
       errors: [
         {
           message:
-            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default',
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon',
         },
       ],
       output: `
