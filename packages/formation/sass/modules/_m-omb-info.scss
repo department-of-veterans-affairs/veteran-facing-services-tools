@@ -12,6 +12,7 @@
 @media (max-width: 40.063em) {
   // Match the OMB Info section padding
   .omb-info--container {
-    padding-left: scale-rem(2rem - .9375rem);
+    // 2rem - .9375rem
+    padding-left: scale-rem(1.0625rem);
   }
 }
