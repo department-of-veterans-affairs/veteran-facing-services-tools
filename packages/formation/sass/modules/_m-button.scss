@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .usa-button,
 .usa-button-primary,
 .usa-button:visited,
@@ -49,7 +51,7 @@ button,
 }
 
 .row.form-progress-buttons {
-  max-width: 47rem;
+  max-width: scale-rem(47rem);
 }
 
 button i.fa {
@@ -64,7 +66,7 @@ button i.fa {
 
 button.short {
   font-weight: 500;
-  padding: 1rem;
+  padding: scale-rem(1rem);
 }
 
 // For links and buttons that look like links and have an icon.
@@ -87,12 +89,12 @@ button.short {
 
   .fa {
     display: inline-block;
-    font-size: 1.8rem;
+    font-size: scale-rem(1.8rem);
   }
 
   span {
     display: inline-block;
-    padding-left: 0.5rem;
+    padding-left: scale-rem(0.5rem);
     text-decoration: underline;
   }
 }
@@ -110,10 +112,10 @@ button.short {
 
     @include media($medium-large-screen) {
       display: block;
-      height: 1.5rem;
-      margin-right: 0.25rem;
+      height: scale-rem(1.5rem);
+      margin-right: scale-rem(0.25rem);
       pointer-events: none;
-      width: 1.5rem;
+      width: scale-rem(1.5rem);
     }
   }
 }

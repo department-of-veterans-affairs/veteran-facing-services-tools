@@ -1,3 +1,5 @@
+@import '../override-function';
+
 $color-white: #ffffff;
 $color-primary-darkest: #162e51;
 $color-gray-lightest: #f0f0f0;
@@ -16,7 +18,7 @@ $color-gray-lightest: #f0f0f0;
   background-color: $color-primary-darkest;
 
   .f-pipe {
-    font-size: 3rem;
+    font-size: scale-rem(3rem);
   }
 
   h2 {

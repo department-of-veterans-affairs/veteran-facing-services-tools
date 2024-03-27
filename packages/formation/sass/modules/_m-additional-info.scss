@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .additional-info-content {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -22,7 +24,7 @@
 .fa-angle-down {
   color: $color-gray-light;
   font-size: 16px !important;
-  margin: 0.5rem;
+  margin: scale-rem(0.5rem);
   transform: rotate(0deg);
   transition: transform 0.15s linear;
 }

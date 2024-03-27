@@ -1,3 +1,4 @@
+@import '../override-function';
 //=============================================================
 // Legacy styles for Crisis Line, mobile search modals
 // These styles are not quite the same as m-modal.
@@ -67,7 +68,7 @@
 }
 
 .va-overlay-body {
-  margin: 1rem auto;
+  margin: scale-rule(1rem auto);
 }
 
 @media (max-height: 30.5em) {

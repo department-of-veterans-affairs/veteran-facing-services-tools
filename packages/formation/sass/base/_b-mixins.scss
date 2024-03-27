@@ -1,3 +1,5 @@
+@import '../override-function';
+
 //=======================================
 // Media query helper. Use to set max-width queries.
 // Use this sparingly. Please use @include media instead.
@@ -165,7 +167,7 @@
 @mixin modal-close-button {
   background-color: transparent;
   color: $color-primary;
-  font-size: 2.25rem;
+  font-size: scale-rem(2.25rem);
   padding: 0;
   position: absolute;
   margin: units(2);

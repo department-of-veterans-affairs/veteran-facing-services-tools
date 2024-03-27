@@ -1,3 +1,4 @@
+@import '../override-function';
 // Styles for application modals
 
 // Hide initially, to be shown if url contains #modal
@@ -36,7 +37,7 @@
   &-inner {
     background: $color-white;
     margin: auto;
-    max-width: 40rem;
+    max-width: scale-rem(40rem);
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -50,7 +51,7 @@
   }
 
   &-alert {
-    max-width: 60rem;
+    max-width: scale-rem(60rem);
 
     .alert-actions {
       margin-top: units(3);
@@ -74,7 +75,7 @@
 
   &-large {
     .va-modal-inner {
-      max-width: 75rem;
+      max-width: scale-rem(75rem);
       width: 75vw;
 
       .va-modal-body {

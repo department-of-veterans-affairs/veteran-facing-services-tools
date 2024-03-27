@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .form-process {
   li {
     h5 {
@@ -76,7 +78,7 @@
   button:not(.usa-button-unstyled) {
     background-image: none;
     background-color: $color-primary;
-    padding: 1rem 2rem;
+    padding: scale-rule(1rem 2rem);
     color: $color-white;
     width: auto;
     &:hover {
@@ -125,14 +127,14 @@
     }
   }
   .accordion-header > button {
-    min-height: 7rem;
-    padding: 2.5rem 6.5rem 2.5rem 3rem;
+    min-height: scale-rem(7rem);
+    padding: scale-rule(2.5rem 6.5rem 2.5rem 3rem);
     font-size: 1.15em;
     line-height: 1.5;
     font-weight: bold;
   }
   .section-label {
-    padding-bottom: 1rem;
+    padding-bottom: scale-rem(1rem);
   }
   legend.hide-for-small-only {
     display: none !important;
@@ -175,7 +177,7 @@
 }
 
 .form-review-panel-page {
-  margin-bottom: 5rem;
+  margin-bottom: scale-rem(5rem);
   &:last-child {
     margin-bottom: 0;
   }
@@ -219,5 +221,5 @@
 }
 
 .form-review-array {
-  margin-top: 5rem;
+  margin-top: scale-rem(5rem);
 }
