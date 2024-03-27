@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .hub-page-link-list {
   // override default ul styles
   list-style: none;
@@ -5,7 +7,7 @@
 
   &__item {
     margin-bottom: 1em;
-    margin: 1.6rem 0;
+    margin: scale-rule(1.6rem 0);
     > a {
       text-decoration: none;
 

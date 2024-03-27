@@ -1,3 +1,5 @@
+@import '../override-function';
+
 // Footer
 .footer {
   color: $color-white;
@@ -12,7 +14,7 @@
 
   .va-flex {
     flex-wrap: wrap;
-    padding-left: 0.9375rem;
+    padding-left: scale-rem(0.9375rem);
     @include media($medium-large-screen) {
       flex-wrap: nowrap;
     }
@@ -25,7 +27,7 @@
   color: $color-gray-dark;
 
   > .row {
-    padding: 0 0.9375rem;
+    padding: scale-rule(0 0.9375rem);
     .va-flex {
       padding-left: 0;
     }
@@ -90,7 +92,7 @@
 }
 
 .footer-inner {
-  padding: 2rem 1rem 0;
+  padding: scale-rule(2rem 1rem 0);
 }
 
 .footer-seal {
@@ -100,7 +102,7 @@
   height: 49px;
   text-indent: -999em;
   overflow: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: scale-rem(3rem);
 
   @include media($medium-large-screen) {
     flex-wrap: nowrap;
@@ -170,7 +172,7 @@
 
 .va-footer-linkgroup--inline {
   list-style: none;
-  margin: 0 auto .5rem;
+  margin: scale-rule(0 auto .5rem);
   padding: 0;
 
   li {
@@ -179,7 +181,7 @@
 
     &:not(:last-child):after {
       content: "|";
-      padding: 0 1rem;
+      padding: scale-rule(0 1rem);
     }
 
     a {
@@ -193,8 +195,8 @@
   align-items: flex-end;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10rem;
-  padding-left: 0.9375rem;
+  margin-top: scale-rem(10rem);
+  padding-left: scale-rem(0.9375rem);
   padding-bottom: 1em;
 
   @include media($medium-large-screen) {

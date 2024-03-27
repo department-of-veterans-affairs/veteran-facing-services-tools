@@ -1,8 +1,10 @@
+@import '../override-function';
+
 .vads-c-emergency-banner {
   .usa-alert {
     align-items: flex-start;
     display: flex;
-    font-size: 1.6rem;
+    font-size: scale-rem(1.6rem);
     padding: 12px 16px;
     max-width: 650px;
 
@@ -13,13 +15,13 @@
 
     .usa-alert-heading {
       font-family: "Source Sans Pro";
-      font-size: 1.6rem;
+      font-size: scale-rem(1.6rem);
       margin-top: 4px;
       margin-left: 30.5px;
     }
 
     .usa-alert-text {
-      margin-top: 1rem;
+      margin-top: scale-rem(1rem);
     }
 
     .va-alert-close {

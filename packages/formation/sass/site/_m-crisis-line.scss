@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .va-crisis-line {
   @include media($medium-large-screen) {
     position: absolute;
@@ -12,7 +14,7 @@
   margin: 0;
   top: 50%;
   transform: translateY(-50%);
-  padding: 2rem;
+  padding: scale-rem(2rem);
   position: relative;
   z-index: 1;
   width: 100%;
@@ -26,7 +28,7 @@
     a {
       color: $color-base;
       display: block;
-      padding: 1.5rem 0;
+      padding: scale-rule(1.5rem 0);
       text-decoration: none;
     }
   }
@@ -54,7 +56,7 @@
   padding: 0;
 
   ul {
-  //  font-size: 1.7rem;
+  //  font-size: scale-rem(1.7rem);
     list-style: none;
     margin: 0;
     padding: 0;

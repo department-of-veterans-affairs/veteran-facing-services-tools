@@ -1,16 +1,18 @@
+@import '../override-function';
+
 $font-sizes: (
-  sm: 1.5rem,
-  base: 1.6rem,
-  md: 1.7rem,
-  lg: 2rem,
-  xl: 3rem,
-  2xl: 4rem,
-  h1: 4rem,
-  h2: 3rem,
-  h3: 2rem,
-  h4: 1.7rem,
-  h5: 1.5rem,
-  h6: 1.5rem
+  sm: scale-rem(1.5rem),
+  base: scale-rem(1.6rem),
+  md: scale-rem(1.7rem),
+  lg: scale-rem(2rem),
+  xl: scale-rem(3rem),
+  2xl: scale-rem(4rem),
+  h1: scale-rem(4rem),
+  h2: scale-rem(3rem),
+  h3: scale-rem(2rem),
+  h4: scale-rem(1.7rem),
+  h5: scale-rem(1.5rem),
+  h6: scale-rem(1.5rem)
 );
 
 // Standard classes

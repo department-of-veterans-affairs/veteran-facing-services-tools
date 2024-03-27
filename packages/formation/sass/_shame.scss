@@ -3,6 +3,8 @@
 // is for this file to be empty, but some times you just have to throw that
 // hack in there to get it working.
 
+@import './override-function.scss';
+
 body {
   // used a lot in vets-website
   .row {
@@ -14,8 +16,8 @@ body {
   // unused in content-build
   // Used in vets-website, used in src/platform/monitoring/DowntimeNotification/components/DowntimeApproaching.jsx 
   .row-padded {
-    max-width: 100rem;
-    padding: 0 1rem;
+    max-width: scale-rem(100rem);
+    padding: scale-rule(0 1rem);
     margin: 0 auto;
   }
 }
@@ -40,8 +42,8 @@ body {
 
 .progress-box {
   border: 1px solid $color-gray-lightest;
-  margin: 1.5rem 0;
-  padding: 1rem 2rem;
+  margin: scale-rule(1.5rem 0);
+  padding: scale-rule(1rem 2rem);
 }
 
 
@@ -50,7 +52,7 @@ body {
 // src/applications/enrollment-verification/components/VerifyEnrollments.jsx, src/applications/financial-status-report/components/shared/ButtonGroup.jsx
 // src/platform/forms-system/src/js/components/ProgressButton.jsx
 .button-icon {
-  font-size: 1.7rem;
+  font-size: scale-rem(1.7rem);
 }
 
 // unused in content-build
@@ -119,7 +121,7 @@ body {
 // e2e test cases, because Nightwatch can't find the elements on screen.
 input[type="checkbox"],
 input[type="radio"] {
-  margin-left: -2rem;
+  margin-left: scale-rem(-2rem);
   opacity: 0;
   position: absolute;
   left: auto;
@@ -138,8 +140,8 @@ input[type="radio"] {
 form {
   [type="submit"] {
     @include media($medium-screen) {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: scale-rem(2rem);
+      padding-right: scale-rem(2rem);
       width: 100%;
     }
   }
@@ -161,7 +163,7 @@ form {
     left: 0;
     position: absolute;
     top: 0;
-    width: 1rem;
+    width: scale-rem(1rem);
   }
 }
 
