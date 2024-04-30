@@ -113,7 +113,7 @@ button.short {
     @include media($medium-large-screen) {
       display: block;
       height: 15px;
-      margin-right: scale-rem(0.25rem);
+      margin-right: 2.5px;
       pointer-events: none;
       width: 15px;
     }
