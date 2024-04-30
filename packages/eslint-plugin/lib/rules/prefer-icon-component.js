@@ -44,7 +44,7 @@ module.exports = {
                 fixer.insertTextAfter(iconNode.name, ` size={4}`),
 
                 //  add the icon prop
-                fixer.insertTextAfter(iconNode.name, ` icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default"`),
+                fixer.insertTextAfter(iconNode.name, ` icon="see name mappings here https://design.va.gov/foundation/icons"`),
 
                 // re-adding classes without font awesome classes
                 classNameClasses && fixer.replaceText(classNameProp, `className="${classNameClasses}"`),

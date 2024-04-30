@@ -17,7 +17,7 @@ ruleTester.run('prefer-icon-component', rule, {
   valid: [
     {
       code: `
-      const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone" />)
+      const phone = () => (<va-icon size={4} icon="see name mappings here https://design.va.gov/foundation/icons" srtext="phone" />)
       `,
     },
     {
@@ -43,7 +43,7 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default\" srtext="phone" className="vads-u-margin-right--1" aria-hidden="true" />)
+        const phone = () => (<va-icon size={4} icon="see name mappings here https://design.va.gov/foundation/icons\" srtext="phone" className="vads-u-margin-right--1" aria-hidden="true" />)
       `,
     },
     {
@@ -57,7 +57,7 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"   aria-hidden="true" />)
+        const phone = () => (<va-icon size={4} icon="see name mappings here https://design.va.gov/foundation/icons" srtext="phone"   aria-hidden="true" />)
       `,
     },
     {
@@ -71,7 +71,7 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"   />)
+        const phone = () => (<va-icon size={4} icon="see name mappings here https://design.va.gov/foundation/icons" srtext="phone"   />)
       `,
     },
   ],
