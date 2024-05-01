@@ -17,7 +17,7 @@ module.exports = {
     'remove-expanding-group': require('./lib/rules/remove-expanding-group'),
     'prefer-button-component': require('./lib/rules/prefer-button-component'),
     'prefer-table-component': require('./lib/rules/prefer-table-component'),
-    'prefer-icon-component': require('./lib/rules/prefer-icon-component'),
+    'prefer-icon-component-message': require('./lib/rules/prefer-icon-component-message'),
     'keep-react-modal': require('./lib/rules/keep-react-modal'),
   },
   configs: {
