@@ -616,7 +616,7 @@ li {
 
   &-inner {
     margin: auto;
-    max-width: scale-rem(97.5rem);
+    max-width: 1000px;
     position: relative;
   }
 }
@@ -629,7 +629,6 @@ issue: vets-design-system-documentation#2043
 .va-notice--banner {
   p {
     margin: 0;
-    font-size: scale-rem(1.2rem); //fixes official website of US Gov banner text
   }
 
   a {
