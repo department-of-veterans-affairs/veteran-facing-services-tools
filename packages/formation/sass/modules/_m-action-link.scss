@@ -14,6 +14,8 @@ a.vads-c-action-link--blue, a.vads-c-action-link--green, a.vads-c-action-link--w
   padding: 4px 0 4px 38px;
   position: relative;
   display: inline-block;
+  font-size: 1.06rem; // USWDS v3 Source Sans Pro normalization
+  line-height: 1.5;
 }
 
 a.vads-c-action-link--blue:before {
