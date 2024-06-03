@@ -622,7 +622,7 @@ issue: vets-design-system-documentation#2043
 */
 .va-notice--banner {
   p {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
   }
 
@@ -865,7 +865,6 @@ issue: vets-design-system-documentation#2043
   border-top: 2px solid $color-gray-light;
   padding: 1em 0;
   p {
-    font-size: 1em !important;
     color: $color-gray-dark !important;
   }
 }
