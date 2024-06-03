@@ -417,6 +417,8 @@ article > h1 {
   max-width: $lead-max-width;
 
   p {
+    font-size: $lead-font-size;
+    font-weight: $font-weight-normal;
     line-height: $lead-line-height;
   }
 }
@@ -620,6 +622,7 @@ issue: vets-design-system-documentation#2043
 */
 .va-notice--banner {
   p {
+    font-size: 16px;
     margin: 0;
   }
 
