@@ -49,6 +49,7 @@ body {
   color: $color-primary-darkest;
   display: block;
   font-weight: 600;
+  font-size: 1.06rem;
 
   &:focus {
     position: inherit;
@@ -417,6 +418,7 @@ article > h1 {
   max-width: $lead-max-width;
 
   p {
+    font-family: $font-serif;
     font-size: $lead-font-size;
     font-weight: $font-weight-normal;
     line-height: $lead-line-height;
@@ -593,7 +595,11 @@ li {
   @include media($medium-large-screen) {
     background: $color-gray-lightest;
     .usa-banner-inner {
+      font-size: 12px;
       padding-left: scale-rem(1.5rem);
+      p {
+        font-size: 12px;
+      }
     }
 
     .usa-banner-content {
@@ -605,6 +611,9 @@ li {
   @include media($small-desktop-screen) {
     .usa-banner-inner {
       padding-left: 0;
+      p {
+        font-size: 12px;
+      }
     }
   }
 
@@ -622,7 +631,6 @@ issue: vets-design-system-documentation#2043
 */
 .va-notice--banner {
   p {
-    font-size: 12px;
     margin: 0;
   }
 
@@ -927,4 +935,9 @@ issue: vets-design-system-documentation#2043
 
 .fieldset-input {
   margin-top: scale-rem(3rem);
+}
+
+.i18-select {
+  font-size: 1.06rem;
+  line-height: 1.5;
 }
