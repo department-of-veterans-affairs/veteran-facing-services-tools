@@ -17,17 +17,17 @@ ruleTester.run('prefer-icon-component', rule, {
   valid: [
     {
       code: `
-      const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone" />)
+      const phone = () => (<va-icon size={4} icon="phone" srtext="phone" />)
       `,
     },
     {
       code: `
-        const phone = () => (<va-icon size={4} icon="star" />)
+        const star = () => (<va-icon size={4} icon="star" />)
       `,
     },
     {
       code: `
-        const phone = () => (<va-icon size={4} icon="star" className="vads-u-margin-right--1" />)
+        const star = () => (<va-icon size={4} icon="star" className="vads-u-margin-right--1" />)
       `,
     },
   ],
@@ -43,12 +43,12 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default\" srtext="phone" className="vads-u-margin-right--1" aria-hidden="true" />)
+        const phone = () => (<va-icon size={4} icon="phone" srtext="phone" className="vads-u-color--link-default vads-u-margin-right--1" aria-hidden="true" />)
       `,
     },
     {
       code: `
-        const phone = () => (<i aria-label="phone" role="img" className="fas fa-phone" aria-hidden="true" />)
+        const calendar = () => (<i aria-label="calendar" role="img" className="fas fa-calendar" aria-hidden="true" />)
       `,
       errors: [
         {
@@ -57,12 +57,12 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"   aria-hidden="true" />)
+        const calendar = () => (<va-icon size={4} icon="calendar_today" srtext="calendar" aria-hidden="true" />)
       `,
     },
     {
       code: `
-        const phone = () => (<i aria-label="phone" alt="alt stuff" className="fas fa-phone" />)
+        const building = () => (<i aria-label="building" alt="alt stuff" className="fas fa-building" />)
       `,
       errors: [
         {
@@ -71,7 +71,21 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="see Storybook for icon names: https://design.va.gov/storybook/?path=/docs/uswds-va-icon--default" srtext="phone"   />)
+        const building = () => (<va-icon size={4} icon="location_city" srtext="building" />)
+      `,
+    },
+    {
+      code: `
+        const video = () => (<i aria-label="video" className="fas fa-video" aria-hidden="true" />)
+      `,
+      errors: [
+        {
+          message:
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon',
+        },
+      ],
+      output: `
+        const video = () => (<va-icon size={4} icon="videocam" srtext="video" aria-hidden="true" />)
       `,
     },
   ],
