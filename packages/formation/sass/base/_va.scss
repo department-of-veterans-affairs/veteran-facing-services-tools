@@ -49,6 +49,7 @@ body {
   color: $color-primary-darkest;
   display: block;
   font-weight: 600;
+  font-size: 1.06rem;
 
   &:focus {
     position: inherit;
@@ -417,6 +418,9 @@ article > h1 {
   max-width: $lead-max-width;
 
   p {
+    font-family: $font-serif;
+    font-size: $lead-font-size;
+    font-weight: $font-weight-normal;
     line-height: $lead-line-height;
   }
 }
@@ -436,14 +440,6 @@ article > h1 {
   padding: 1em;
   clear: both;
   margin: 1.5em 0 1.5em 0;
-
-  p {
-    color: inherit !important;
-    font: inherit !important;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0.5em;
-  }
 
   h2 {
     margin-top: 0;
@@ -599,7 +595,11 @@ li {
   @include media($medium-large-screen) {
     background: $color-gray-lightest;
     .usa-banner-inner {
+      font-size: 12px;
       padding-left: scale-rem(1.5rem);
+      p {
+        font-size: 12px;
+      }
     }
 
     .usa-banner-content {
@@ -611,12 +611,15 @@ li {
   @include media($small-desktop-screen) {
     .usa-banner-inner {
       padding-left: 0;
+      p {
+        font-size: 12px;
+      }
     }
   }
 
   &-inner {
     margin: auto;
-    max-width: scale-rem(97.5rem);
+    max-width: 1000px;
     position: relative;
   }
 }
@@ -629,7 +632,6 @@ issue: vets-design-system-documentation#2043
 .va-notice--banner {
   p {
     margin: 0;
-    font-size: scale-rem(1.2rem); //fixes official website of US Gov banner text
   }
 
   a {
@@ -871,7 +873,6 @@ issue: vets-design-system-documentation#2043
   border-top: 2px solid $color-gray-light;
   padding: 1em 0;
   p {
-    font-size: 1em !important;
     color: $color-gray-dark !important;
   }
 }
@@ -934,4 +935,9 @@ issue: vets-design-system-documentation#2043
 
 .fieldset-input {
   margin-top: scale-rem(3rem);
+}
+
+.i18-select {
+  font-size: 1.06rem;
+  line-height: 1.5;
 }

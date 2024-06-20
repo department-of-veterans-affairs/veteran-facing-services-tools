@@ -80,27 +80,51 @@ h6 {
 
 h1 {
   @include h1();
+  a {
+    @include h1();
+    font-family: $font-serif;
+  }
 }
 
 h2 {
   @include h2();
+  a {
+    @include h2();
+    font-family: $font-serif;
+  }
 }
 
 h3 {
   @include h3();
+  a {
+    @include h3();
+    font-family: $font-serif;
+  }
 }
 
 h4 {
   @include h4();
+  a {
+    @include h4();
+    font-family: $font-serif;
+  }
 }
 
 h5 {
   @include h5();
+  a {
+    @include h5();
+    font-family: $font-serif;
+  }
 }
 
 h6 {
   @include h6();
   font-family: $font-sans;
+  a {
+    @include h6();
+    font-family: $font-sans;
+  }
 }
 
 // Remove user agent styles

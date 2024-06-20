@@ -13,7 +13,7 @@ button,
   -moz-osx-font-smoothing: inherit;
   background-color: $color-primary;
   box-sizing: border-box;
-
+  font-size: 1.06rem; // USWDS v3 Source Sans Pro normalization
   &.usa-button-secondary {
     background: transparent;
     &:focus,
@@ -112,10 +112,10 @@ button.short {
 
     @include media($medium-large-screen) {
       display: block;
-      height: scale-rem(1.5rem);
-      margin-right: scale-rem(0.25rem);
+      height: 15px;
+      margin-right: 2.5px;
       pointer-events: none;
-      width: scale-rem(1.5rem);
+      width: 15px;
     }
   }
 }

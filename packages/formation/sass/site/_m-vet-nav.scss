@@ -1,5 +1,3 @@
-// appears to be unused by header in vets-website
-
 @import '../override-function';
 
 // The distance from the top of the sceen that the mobile navigation menu should appear
@@ -120,7 +118,7 @@ body.va-pos-fixed {
   }
 
   .usa-button-secondary {
-    padding: calc(scale-rem(1rem) + 2px);
+    padding: scale-rule(calc(1rem + 2px));
     margin: scale-rule(0.8rem 1.6rem);
     width: auto;
     background-color: $color-gray-lightest;
