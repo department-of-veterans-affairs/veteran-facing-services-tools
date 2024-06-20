@@ -19,6 +19,7 @@ module.exports = {
     'prefer-table-component': require('./lib/rules/prefer-table-component'),
     'prefer-icon-component-message': require('./lib/rules/prefer-icon-component-message'),
     'keep-react-modal': require('./lib/rules/keep-react-modal'),
+    'prefer-icon-component': require('./lib/rules/prefer-icon-component'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
