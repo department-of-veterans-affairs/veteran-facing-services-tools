@@ -43,12 +43,12 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const phone = () => (<va-icon size={4} icon="phone" srtext="phone" className="vads-u-color--link-default vads-u-margin-right--1" aria-hidden="true" />)
+        const phone = () => (<va-icon size={4} icon="phone" srtext="phone" className="vads-u-margin-right--1" aria-hidden="true" />)
       `,
     },
     {
       code: `
-        const calendar = () => (<i aria-label="calendar" role="img" className="fas fa-calendar" aria-hidden="true" />)
+        const phone = () => (<i aria-label="phone" role="img" className="fas fa-phone" aria-hidden="true" />)
       `,
       errors: [
         {
@@ -57,7 +57,21 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const calendar = () => (<va-icon size={4} icon="calendar_today" srtext="calendar" aria-hidden="true" />)
+        const phone = () => (<va-icon size={4} icon="phone" srtext="phone"   aria-hidden="true" />)
+      `,
+    },
+    {
+      code: `
+        const phone = () => (<i aria-label="phone" alt="alt stuff" className="fas fa-phone" />)
+      `,
+      errors: [
+        {
+          message:
+            'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon',
+        },
+      ],
+      output: `
+        const phone = () => (<va-icon size={4} icon="phone" srtext="phone"   />)
       `,
     },
     {
@@ -71,7 +85,7 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const building = () => (<va-icon size={4} icon="location_city" srtext="building" />)
+        const building = () => (<va-icon size={4} icon="location_city" srtext="building"   />)
       `,
     },
     {
@@ -85,7 +99,7 @@ ruleTester.run('prefer-icon-component', rule, {
         },
       ],
       output: `
-        const video = () => (<va-icon size={4} icon="videocam" srtext="video" aria-hidden="true" />)
+        const video = () => (<va-icon size={4} icon="videocam" srtext="video"  aria-hidden="true" />)
       `,
     },
   ],

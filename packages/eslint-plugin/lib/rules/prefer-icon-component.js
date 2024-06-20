@@ -100,10 +100,10 @@ const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 const MESSAGE =
   'The <va-icon> Web Component should be used instead of Font Awesome. See: https://design.va.gov/about/developers/using-web-components#how-to-migrate-from-font-awesome-to-va-icon';
 
-function getIconNameFromClass(fontAwesomeClass) {
-  return fontAwesomeToIcon[fontAwesomeClass] ? `${fontAwesomeToIcon[fontAwesomeClass]}` : null;
-}
-
+  function getIconNameFromClass(fontAwesomeClass) {
+    return fontAwesomeToIcon[fontAwesomeClass] ? `${fontAwesomeToIcon[fontAwesomeClass]}` : null;
+  }
+  
 module.exports = {
   meta: {
     type: 'suggestion',
@@ -117,25 +117,28 @@ module.exports = {
         const classNameProp = getProp(iconNode.attributes, 'className');
         const classValue = getLiteralPropValue(classNameProp);
 
-          //  filter out font awesome classes
-          const classNameClasses = classValue
+        // filter out font awesome classes
+        const classNameClasses = classValue
           ?.split(' ')
           ?.filter(c => !c.includes('fa'))
           ?.join(' ');
-          const fontAwesomeClass = classValue.split(' ').find(element => element.includes('fa-'));
+          const fontAwesomeClass = classValue
+          ?.split(' ')
+          ?.find(element => element
+          ?.includes('fa-'));
           const iconName = getIconNameFromClass(fontAwesomeClass);
 
-          const ariaLabelProp = getProp(iconNode.attributes, 'aria-label');
-          const ariaLabelText = getLiteralPropValue(ariaLabelProp);
+        const ariaLabelProp = getProp(iconNode.attributes, 'aria-label');
+        const ariaLabelText = getLiteralPropValue(ariaLabelProp);
 
-          const roleProp = getProp(iconNode.attributes, 'role');
-          const altProp = getProp(iconNode.attributes, 'alt');
+        const roleProp = getProp(iconNode.attributes, 'role');
+        const altProp = getProp(iconNode.attributes, 'alt');
 
-          if (classValue && classValue.includes('fa-')
-          || elementType(iconNode) === 'i'){
+        if (classValue && classValue.includes('fa-') 
+        || elementType(iconNode) === 'i'){
           context.report({
             node,
-            message: MESSAGE,
+            message:  MESSAGE,
             fix: fixer => {
               return [
                 // replace the original element name with va-icon
@@ -161,9 +164,9 @@ module.exports = {
 
                 // remove alt - replaced by component internals
                 altProp && fixer.remove(altProp),
-              ];
+              ].filter(i => !!i);
             }
-          });
+          })
         }
       },
     };
