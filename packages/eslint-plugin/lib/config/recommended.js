@@ -189,7 +189,7 @@ module.exports = {
     '@department-of-veterans-affairs/remove-expanding-group': 1,
     '@department-of-veterans-affairs/prefer-button-component': 1,
     '@department-of-veterans-affairs/prefer-table-component': 1,
-    '@department-of-veterans-affairs/prefer-icon-component-message': 1,
+    '@department-of-veterans-affairs/prefer-icon-component': 1,
     '@department-of-veterans-affairs/keep-react-modal': 1,
   },
 };
