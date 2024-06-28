@@ -417,7 +417,7 @@ article > h1 {
   line-height: $lead-line-height;
   max-width: $lead-max-width;
 
-  p {
+  p, a {
     font-family: $font-serif;
     font-size: $lead-font-size;
     font-weight: $font-weight-normal;
