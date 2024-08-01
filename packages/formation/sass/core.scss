@@ -81,9 +81,9 @@
 @import 'layout/flex-grid';
 
 // ----- VA UTILITIES (UTILITIY OOCSS) ---- //
-@import 'utilities/background-color';
+// @import 'utilities/background-color';  // [x]
 @import 'utilities/border';
-@import 'utilities/color';
+// @import 'utilities/color';  //  [x]
 @import 'utilities/display';
 @import 'utilities/flexbox';
 @import 'utilities/font-family';
