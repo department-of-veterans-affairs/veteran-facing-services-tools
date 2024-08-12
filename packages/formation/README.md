@@ -11,5 +11,3 @@ Also included is a full build of all the styles, including component styles, at 
 ## Assets
 
 Image and font assets used by Formation are included in the `dist` folder.
-
-JUST A QUICK TEST!!!
