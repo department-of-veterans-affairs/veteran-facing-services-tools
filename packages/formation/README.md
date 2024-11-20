@@ -1,3 +1,9 @@
+# :no_entry: DEPRECATED
+
+The Formation package is no longer supported. Please use [@department-of-veterans-affairs/css-library](https://www.npmjs.com/package/@department-of-veterans-affairs/css-library) or contact the VA Design System team for more info.
+
+---
+
 This module contains styles and assets for the VA design system.
 
 ## Quick start
