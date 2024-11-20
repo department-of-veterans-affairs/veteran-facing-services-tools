@@ -1,6 +1,6 @@
 # :no_entry: DEPRECATED
 
-The Formation package is no longer supported. Please use [@department-of-veterans-affairs/css-library](https://www.npmjs.com/package/@department-of-veterans-affairs/css-library) or contact the VA Design System team for more info.
+The Formation library is no longer supported or maintained. Please use [@department-of-veterans-affairs/css-library](https://www.npmjs.com/package/@department-of-veterans-affairs/css-library) or contact the VA Design System team for more info.
 
 ---
 
