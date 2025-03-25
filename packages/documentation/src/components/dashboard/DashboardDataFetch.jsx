@@ -6,7 +6,7 @@ function getWorkflowRunsAsCommitStatusObject(repo) {
   const params = {
     owner: 'department-of-veterans-affairs',
     repo,
-    workflow_id: 'continuous-integration.yml',
+    workflow_id: 'continuous-deploy-production.yml',
     branch: 'main',
     per_page: 30,
     page: 1,
