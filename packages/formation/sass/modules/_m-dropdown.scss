@@ -1,15 +1,17 @@
+@import '../override-function';
+
 .va-dropdown {
   position: relative;
 
   // This should always be a button element
   &-trigger {
     background: transparent url('#{$formation-image-path}/arrow-down-white.svg') no-repeat;
-    background-position: right .8rem center;
-    background-size: 1rem 1rem;
+    background-position: right 8px center;
+    background-size: 10px 10px;
     border-radius: 0;
     border-top: 3px solid transparent;
     margin: 0;
-    padding: .9rem 2.5rem .8rem .8rem;
+    padding: 9px 25px 8px 8px;
 
     &:hover {
       background-color: $color-primary;
@@ -31,7 +33,7 @@
     background: $color-white;
     box-shadow: 0px 4px 10px -4px $color-base;
     color: $color-base;
-    padding: .8rem;
+    padding: scale-rem(.8rem);
     position: absolute;
     min-width: 100%;
     z-index: 2;
@@ -48,5 +50,5 @@
 //==============================
 
 [id=helpmenu] {
-  width: 21rem;
+  width: scale-rem(21rem);
 }

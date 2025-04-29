@@ -1,3 +1,5 @@
+@import '../override-function';
+
 // CSS for pagination navigation
 // TODO: Move these to vets-website
 
@@ -5,7 +7,7 @@
   border-top: 1px solid $color-gray-lightest;
   font-size: .9em;
   overflow: hidden;
-  padding: 2rem 0 1rem;
+  padding: scale-rule(2rem 0 1rem);
   position: relative;
   text-align: center;
   width: 100%;
@@ -14,8 +16,8 @@
 
   &-prev {
     @media (max-width: $medium-screen) {
-      margin-left: -3rem;
-      padding: 0 1rem 0 0;
+      margin-left: scale-rem(-3rem);
+      padding: scale-rule(0 1rem 0 0);
     }
 
     &:not(:empty) {
@@ -29,8 +31,8 @@
 
   &-next {
     @media (max-width: $medium-screen) {
-      margin-right: -3rem;
-      padding: 0 0 0 1rem;
+      margin-right: scale-rem(-3rem);
+      padding: scale-rule(0 0 0 1rem);
     }
 
     &:not(:empty) {
@@ -52,7 +54,7 @@
     }
 
     @media (min-width: $medium-screen) {
-      padding: 0 1rem;
+      padding: scale-rule(0 1rem);
     }
   }
 
@@ -61,11 +63,11 @@
     overflow: hidden;
 
     @media (max-width: $medium-screen) {
-      width: 20rem;
+      width: scale-rem(20rem);
     }
 
     @media (min-width: $large-screen) {
-      width: 40rem;
+      width: scale-rem(40rem);
     }
   }
 
@@ -86,9 +88,9 @@
 .va-pagination-inner a {
   border-radius: 1000px;
   display: inline-block;
-  height: 3rem;
-  margin: 0 .5rem;
-  width: 3rem;
+  height: scale-rem(3rem);
+  margin: scale-rule(0 .5rem);
+  width: scale-rem(3rem);
   text-decoration: none;
 }
 

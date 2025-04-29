@@ -1,3 +1,5 @@
+@import '../override-function';
+
 //++++++++++++++++++++++++++++++++++++
 // NOTE:
 //
@@ -17,19 +19,20 @@ $helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 $font-sans: 'Source Sans Pro', $helvetica !default;
 $font-serif:          "Bitter", $georgia;
 
-$base-font-size:      rem(16px);
+$em-base: 100%;
+$base-font-size: 1rem;
 
 $font-normal:   400 !default;
 $font-bold:     700 !default;
 
-$h6-font-size:        1.5rem;
+$h6-font-size:        scale-rem(1.5rem);
 
 //===================================
 // Magic Numbers
 //===================================
 
-$text-max-width:      70rem; // Note: USWDS value is 53rem;
-$site-max-width:      100rem; // Worksout to about 1000px. USWDS value is 1040px
+$text-max-width:      scale-rem(70rem); // Note: USWDS value is 53rem;
+$site-max-width:      1000px; //USWDS value is 1040px
 
 
 //================

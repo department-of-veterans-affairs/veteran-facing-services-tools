@@ -1,3 +1,4 @@
+@import '../override-function';
 //====================================
 // SCSS for content/components/navigation-sidebar.html
 //====================================
@@ -15,7 +16,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
     // DEPRECATED: Replaced with va-button web component
     &.va-button-primary {
-      padding: 1rem 2rem;
+      padding: scale-rule(1rem 2rem);
     }
   }
 }
@@ -98,9 +99,9 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       background: $color-white;
       border-left: 1px solid $color-gray-light;
       height: 100%;
-      max-width: 30rem;
+      max-width: scale-rem(30rem);
       overflow: auto;
-      padding: 3.2rem 1.6rem 1.6rem;
+      padding: scale-rule(3.2rem 1.6rem 1.6rem);
       z-index: 2;
       position: absolute;
       top: 0;
@@ -131,7 +132,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
   @include media($medium-screen) {
     a {
-      padding-right: 1.6rem;
+      padding-right: scale-rem(1.6rem);
     }
 
     &-close {
@@ -139,7 +140,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
     }
 
     .usa-sidenav-list {
-      margin-right: 1.6rem;
+      margin-right: scale-rem(1.6rem);
     }
   }
 
@@ -155,7 +156,7 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       vertical-align: middle;
       padding-left: initial;
       margin-right: 5px;
-      font-size: 1.7rem;
+      font-size: scale-rem(1.7rem);
     }
   }
 
@@ -307,11 +308,11 @@ $level-3-hover-padding: 8px 12px 8px 30px;
       background-color: $color-white;
       border-top: 1px solid $color-gray-lighter;
       border-bottom: 1px solid $color-gray-lighter;
-      background-size: 1.1rem;
+      background-size: scale-rem(1.1rem);
       color: $color-link-default;
       font-weight: normal;
       font-size: 17px;
-      padding-left: 1rem;
+      padding-left: scale-rem(1rem);
 
       &:focus {
         outline: 0;
@@ -427,10 +428,10 @@ $level-3-hover-padding: 8px 12px 8px 30px;
 
 .va-btn-close-icon {
   background: transparent url('#{$formation-image-path}/icons/close.svg') center no-repeat;
-  background-size: 1rem 1rem;
-  height: 2.2rem;
-  padding: 2.2rem;
+  background-size: scale-rule(1rem 1rem);
+  height: scale-rem(2.2rem);
+  padding: scale-rem(2.2rem);
   margin: 0;
-  text-indent: -9999rem;
-  width: 1rem;
+  text-indent: scale-rem(-9999rem);
+  width: scale-rem(1rem);
 }

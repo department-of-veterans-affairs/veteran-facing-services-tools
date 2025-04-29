@@ -2,51 +2,63 @@
 // Note: if you add variable files in here, make sure you updated shared-variables.scss
 
 //============ VENDOR PARTIALS ==============//
-@import '~uswds/src/stylesheets/lib/bourbon';
-@import '~uswds/src/stylesheets/lib/neat';
-@import '~uswds/src/stylesheets/lib/normalize'; // Currently 3.0.3
+@import '~uswds/src/stylesheets/lib/bourbon'; // [x]
+@import '~uswds/src/stylesheets/lib/neat'; // [x]
+@import '~uswds/src/stylesheets/lib/normalize'; // Currently 3.0.3 // [x]
 
-@import '~foundation-sites/scss/foundation/components/grid';
-@import '~foundation-sites/scss/foundation/components/block-grid';
-
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~foundation-sites/scss/foundation/components/grid';  // [x]
+@import '~foundation-sites/scss/foundation/components/block-grid';  // [x]
 
 // ============ SETTINGS ============//
 // Order matters here! Please don't change it.
-@import '~uswds/src/stylesheets/core/variables';
+// @import '~uswds/src/stylesheets/core/variables'; // [x]
+@import 'formation-overrides/variables'; // [x]
 
 // A VA partial. Here so that we can override the
 // USWDS breakpoint and grid variables from above before
 // the grid, alerts, etc are loaded.
-@import 'base/b-variables';
-@import 'base/b-breakpoints';
+@import 'base/b-variables'; // [x]
+@import 'base/b-breakpoints'; // [x]
 
-@import '~uswds/src/stylesheets/core/fonts';
-@import '~uswds/src/stylesheets/core/grid';
-@import '~uswds/src/stylesheets/core/utilities';
+@import '~uswds/src/stylesheets/core/fonts'; // [x]
+@import '~uswds/src/stylesheets/core/grid'; // [x]
+// @import '~uswds/src/stylesheets/core/utilities'; // [x]
+@import 'formation-overrides/core/utilities'; // [x]
 
 // VA mixins. Here so that we can override USWDS mixins.
 // Specifically, the "focus" mixin.
-@import 'base/b-mixins';
+@import 'base/b-mixins'; // [x]
 
-@import '~uswds/src/stylesheets/core/base';
+@import '~uswds/src/stylesheets/core/base'; // [x]
 
 // ---- U.S. WEB DESIGN STANDARDS ELEMENTS/COMPONENTS --- //
-@import '~uswds/src/stylesheets/elements/buttons';
-@import '~uswds/src/stylesheets/elements/inputs';
-@import '~uswds/src/stylesheets/elements/labels';
-@import '~uswds/src/stylesheets/elements/list';
-@import '~uswds/src/stylesheets/elements/table';
-@import '~uswds/src/stylesheets/elements/typography';
-@import '~uswds/src/stylesheets/components/accordions';
-@import '~uswds/src/stylesheets/components/alerts';
-@import '~uswds/src/stylesheets/components/forms';
-@import '~uswds/src/stylesheets/components/sidenav';
-@import '~uswds/src/stylesheets/components/media-block';
-@import '~uswds/src/stylesheets/components/banner';
+// @import '~uswds/src/stylesheets/elements/buttons'; // [x]
+@import 'formation-overrides/elements/buttons'; // [x]
+// @import '~uswds/src/stylesheets/elements/inputs';
+@import 'formation-overrides/elements/inputs'; // [x]
+// @import '~uswds/src/stylesheets/elements/labels';
+@import 'formation-overrides/elements/labels'; // [x]
+// @import '~uswds/src/stylesheets/elements/lists';
+@import 'formation-overrides/elements/lists'; // [x]
+// @import '~uswds/src/stylesheets/elements/table';
+@import 'formation-overrides/elements/table'; // [x]
+// @import '~uswds/src/stylesheets/elements/typography'; // [x]
+@import 'formation-overrides/elements/typography'; // [x]
+// @import '~uswds/src/stylesheets/components/accordions';
+@import 'formation-overrides/components/accordions'; // [x]
+// @import '~uswds/src/stylesheets/components/alerts';
+@import 'formation-overrides/components/alerts'; // [x]
+// @import '~uswds/src/stylesheets/components/forms';
+@import 'formation-overrides/components/forms'; // [x]
+// @import '~uswds/src/stylesheets/components/sidenav';
+@import 'formation-overrides/components/sidenav'; // [x]
+// @import '~uswds/src/stylesheets/components/media-block';
+@import 'formation-overrides/components/media-block'; // [x]
+// @import '~uswds/src/stylesheets/components/banner';
+@import 'formation-overrides/components/banner'; // [x]
+// @import @import '~foundation-sites/scss/foundation/components/grid';  // [x]
+// @import '~foundation-sites/scss/foundation/components/block-grid';  // [x]
+@import 'formation-overrides/foundation-sites';
 
 // ----- VA BASE (VARIABLES/HELPERS) ---- //
 @import 'base/b-element-overrides';
@@ -64,21 +76,21 @@
 @import 'layout/flex-grid';
 
 // ----- VA UTILITIES (UTILITIY OOCSS) ---- //
-@import 'utilities/background-color';
-@import 'utilities/border';
-@import 'utilities/color';
-@import 'utilities/display';
-@import 'utilities/flexbox';
-@import 'utilities/font-family';
-@import 'utilities/font-size';
-@import 'utilities/font-style';
-@import 'utilities/font-weight';
-@import 'utilities/height-width';
-@import 'utilities/line-height';
+// @import 'utilities/background-color';  
+// @import 'utilities/border';
+// @import 'utilities/color';
+// @import 'utilities/display';
+// @import 'utilities/flexbox';
+// @import 'utilities/font-family';
+// @import 'utilities/font-size';
+// @import 'utilities/font-style';
+// @import 'utilities/font-weight';
+// @import 'utilities/height-width';
+// @import 'utilities/line-height';
 @import 'utilities/margins';
-@import 'utilities/measure';
+// @import 'utilities/measure';
 @import 'utilities/padding';
-@import 'utilities/position';
-@import 'utilities/text-align';
-@import 'utilities/text-decoration';
-@import 'utilities/visibility';
+// @import 'utilities/position';
+// @import 'utilities/text-align';
+// @import 'utilities/text-decoration';
+// @import 'utilities/visibility';

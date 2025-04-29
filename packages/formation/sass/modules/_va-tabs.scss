@@ -1,3 +1,4 @@
+@import '../override-function';
 // CSS for Tab-based navigation
 
 .va-tabs {
@@ -28,7 +29,7 @@
   border-bottom-color: $color-gray;
   color: $color-gray;
   display: inline-block;
-  padding: 1rem;
+  padding: scale-rem(1rem);
   margin: 0px -1px;
   text-decoration: none;
 
@@ -45,8 +46,8 @@
   }
 
   @media (min-width: $small-screen) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: scale-rem(2rem);
+    padding-right: scale-rem(2rem);
   }
 }
 

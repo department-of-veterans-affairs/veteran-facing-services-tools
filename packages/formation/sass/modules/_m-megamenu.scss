@@ -1,3 +1,5 @@
+@import '../override-function';
+
 $vetnav-panel-height-desktop: 490px;
 $vetnav-panel-height: 380px;
 $marketing-container-height: 380px;
@@ -90,7 +92,7 @@ $marketing-container-height: 380px;
     .vetnav-panel--submenu:not([hidden]) {
       position: absolute;
       box-shadow: none;
-      width: 26rem;
+      width: 260px;
       padding: 72px 0px 0px 28px;
       white-space: normal;
 
@@ -98,7 +100,7 @@ $marketing-container-height: 380px;
         display: block;
         color: $color-black;
         font-family: Source Sans Pro, sans serif;
-        font-size: 1.6rem;
+        font-size: 16px;
         font-weight: bold;
         margin-top: 4px;
         padding: 0;
@@ -166,7 +168,7 @@ $marketing-container-height: 380px;
 
       &.vetnav-panel--submenu:not([hidden]) {
         padding: 86px 20px 20px 14px;
-        width: 24rem;
+        width: 240px;
 
         &.panel-white {
           padding-top: 30px;
@@ -194,7 +196,7 @@ $marketing-container-height: 380px;
     }
 
     .vetnav-level2 {
-      width: 24.3rem;
+      width: scale-rem(24.3rem);
     }
   }
 
@@ -226,9 +228,13 @@ $marketing-container-height: 380px;
 
     .mm-marketing-text {
       padding: 20px;
+      a {
+        font-size: 16px;
+      }
     }
 
     p {
+      font-size: 16px;
       margin-top: 5px;
     }
   }
@@ -251,7 +257,7 @@ $marketing-container-height: 380px;
     .vetnav-panel--submenu:not([hidden]) {
       h3 {
         font-family: Source Sans Pro, sans serif;
-        font-size: 1.6rem;
+        font-size: 16px;
       }
     }
   }
@@ -280,10 +286,10 @@ $marketing-container-height: 380px;
   @include media($medium-large-screen) {
     .current-page {
       box-shadow: inset 0 -5px 0 $color-blue;
-      margin-left: 1.6rem;
-      margin-right: 1.6rem;
+      margin-left: scale-rem(1.6rem);
+      margin-right: scale-rem(1.6rem);
       a {
-        padding: 1.6rem 0;
+        padding: scale-rule(1.6rem 0);
       }
     }
 
@@ -293,11 +299,11 @@ $marketing-container-height: 380px;
     }
 
     .column-one {
-      width: 39rem;
+      width: scale-rem(39rem);
     }
 
     .column-two {
-      width: 39rem;
+      width: scale-rem(39rem);
     }
 
     .column-three {
@@ -308,7 +314,7 @@ $marketing-container-height: 380px;
       position: absolute;
       height: 60px;
       width: $medium-large-screen - 297px;
-      left: 28rem;
+      left: 280px;
       border-bottom: 1px solid #d0d0d0;
       z-index: 3;
       top: 0;
@@ -341,11 +347,11 @@ $marketing-container-height: 380px;
     }
 
     .column-one {
-      width: 26rem;
+      width: 260px;
     }
 
     .column-two {
-      width: 26rem;
+      width: 260px;
     }
 
     .column-three {

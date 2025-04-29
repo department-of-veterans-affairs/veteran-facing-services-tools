@@ -1,0 +1,61 @@
+// This is a copy of the entire ~uswds/src/stylesheets/elements/table.scss file
+// so that we can convert the rem values for USWDS v3.
+
+@import '../../override-function';
+
+table {
+    border-spacing: 0;
+    margin: 2em 0;
+  }
+  
+  thead {
+    th {
+      font-weight: $font-bold;
+    }
+  
+    th,
+    td {
+      background-color: $color-gray-lightest;
+    }
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  th,
+  td {
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    font-weight: $font-normal;
+    padding: scale-rule(1rem 1.5rem);
+  }
+  
+  .usa-table-borderless {
+    thead {
+      th {
+        background-color: transparent;
+        border-top: 0;
+      }
+    }
+  
+    th,
+    td {
+      border-left: 0;
+      border-right: 0;
+    }
+  
+    th {
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+  
+  caption {
+    @include h5;
+    font-family: $font-serif;
+    margin-bottom: scale-rem(1.2rem);
+    text-align: left;
+  }
+  

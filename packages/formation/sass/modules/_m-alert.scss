@@ -1,3 +1,5 @@
+@import '../override-function';
+
 .usa-alert {
   background: none;
   background-color: $color-gray-lightest;
@@ -12,7 +14,7 @@
     width: auto;
     background: none;
     font-family: "Font Awesome 5 Free";
-    font-size: 2rem;
+    font-size: scale-rem(2rem);
     margin-right: units(2);
     position: static;
     font-weight: 900;
@@ -28,7 +30,7 @@
   }
 
   &-heading {
-    font-size: 2rem;
+    font-size: scale-rem(2rem);
     margin-top: 0;
     padding-top: 0;
   }
@@ -120,7 +122,7 @@
 
   &.background-color-only {
     border-left: none;
-    padding: 2rem;
+    padding: scale-rem(2rem);
 
     &::before {
       content: none;
@@ -217,7 +219,7 @@ p.usa-alert-heading {
           display: none;
         }
         .field__item {
-          font-size: 2rem;
+          font-size: scale-rem(2rem);
           margin-top: 0;
           padding-top: 0;
           font-weight: 700;
@@ -238,16 +240,16 @@ p.usa-alert-heading {
     }
   }
   &-warning {
-    border-top: 1rem solid $color-gold;
+    border-top: scale-rem(1rem) solid $color-gold;
   }
   &-info,
   &-information {
-    border-top: 1rem solid $color-primary-alt-dark;
+    border-top: scale-rem(1rem) solid $color-primary-alt-dark;
     .usa-alert:before {
       content: "\F05A";
       background: none;
-      font-size: 2rem;
-      margin-right: 1.5rem;
+      font-size: scale-rem(2rem);
+      margin-right: scale-rem(1.5rem);
       position: static;
       font-weight: 900;
     }

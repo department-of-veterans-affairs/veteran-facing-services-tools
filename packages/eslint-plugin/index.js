@@ -13,10 +13,12 @@ module.exports = {
     'telephone-contact-digits': require('./lib/rules/telephone-contact-digits'),
     'deprecated-classes': require('./lib/rules/deprecated-classes'),
     'use-new-utility-classes': require('./lib/rules/use-new-utility-classes'),
-    'use-workspace-imports': require('./lib/rules/use-workspace-imports'),
+    // 'use-workspace-imports': require('./lib/rules/use-workspace-imports'), // Commented out until Cypress is reconfigured to support these aliases.
     'remove-expanding-group': require('./lib/rules/remove-expanding-group'),
     'prefer-button-component': require('./lib/rules/prefer-button-component'),
     'prefer-table-component': require('./lib/rules/prefer-table-component'),
+    'keep-react-modal': require('./lib/rules/keep-react-modal'),
+    'prefer-icon-component': require('./lib/rules/prefer-icon-component'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
