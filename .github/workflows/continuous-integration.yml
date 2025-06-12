@@ -58,6 +58,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 45  # Set an overall timeout for the entire job
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -70,6 +71,17 @@ jobs:
           path: |
             .cache/yarn
             node_modules
+
+      # Add Gatsby cache
+      - name: Cache Gatsby folders
+        uses: actions/cache@v3
+        with:
+          path: |
+            packages/documentation/.cache
+            packages/documentation/public
+          key: gatsby-build-${{ hashFiles('packages/documentation/package.json', 'packages/documentation/gatsby-*.js', 'packages/documentation/src/**/*.js') }}
+          restore-keys: |
+            gatsby-build-
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -84,8 +96,20 @@ jobs:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
-      - name: Build
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
+      # Build non-documentation packages first
+      - name: Build Non-Documentation Packages
+        timeout-minutes: 10
+        run: |
+          echo "Building eslint-plugin and formation packages..."
+          yarn build:eslint-plugin
+          yarn build:formation
+
+      # Build documentation package separately with its own timeout
+      - name: Build Documentation
+        timeout-minutes: 20
+        run: |
+          echo "Building documentation package..."
+          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build:documentation --verbose
 
       - name: Compress documentation build
         if: github.ref == 'refs/heads/master'
