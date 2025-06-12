@@ -6,6 +6,14 @@
 
 const path = require('path');
 
+// Add polyfills for Web Streams API
+if (!global.ReadableStream) {
+  const { ReadableStream, WritableStream, TransformStream } = require('stream/web');
+  global.ReadableStream = ReadableStream;
+  global.WritableStream = WritableStream; 
+  global.TransformStream = TransformStream;
+}
+
 // Base URL for a GitHub link to the source of a page *from this repo*.
 const GITHUB_FILE_BASE_URL =
   'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
@@ -167,7 +175,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      fallback: {
+        stream: require.resolve('stream-browserify'),
+        buffer: require.resolve('buffer/'),
+      }
     },
+    experiments: {
+      asyncWebAssembly: true,
+      syncWebAssembly: true,
+    }
   });
 };
 
