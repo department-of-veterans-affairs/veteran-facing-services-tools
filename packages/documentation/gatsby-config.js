@@ -89,9 +89,6 @@ module.exports = {
           {
             resolve: 'gatsby-remark-mermaid',
           },
-          {
-            resolve: 'gatsby-remark-slug',
-          },
         ],
       },
     },
