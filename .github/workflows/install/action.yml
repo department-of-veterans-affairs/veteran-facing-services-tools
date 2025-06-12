@@ -31,6 +31,7 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
+        check-latest: true
 
     - name: Cache dependencies
       id: cache-dependencies

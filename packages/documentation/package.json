@@ -58,7 +58,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else GATSBY_CPU_COUNT=2 NODE_OPTIONS=--max-old-space-size=4096 gatsby build --prefix-paths; fi",
+    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else GATSBY_CPU_COUNT=2 NODE_OPTIONS=\"--max-old-space-size=4096\" NODE_ENV=production gatsby build --prefix-paths; fi",
     "deploy": "gh-pages -d public -e .",
     "develop": "gatsby develop",
     "start": "npm run develop",
