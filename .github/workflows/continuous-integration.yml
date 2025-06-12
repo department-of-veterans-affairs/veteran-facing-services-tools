@@ -60,6 +60,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45  # Set an overall timeout for the entire job
     steps:
+      # Free up disk space
+      - name: Maximize build disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # All of these default to true, but can be set to false to disable them
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -109,7 +121,11 @@ jobs:
         timeout-minutes: 20
         run: |
           echo "Building documentation package..."
-          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build:documentation --verbose
+          echo "Disk space before Gatsby build:"
+          df -h
+          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} GATSBY_CPU_COUNT=2 NODE_OPTIONS=--max-old-space-size=4096 yarn build:documentation --verbose
+          echo "Disk space after Gatsby build:"
+          df -h
 
       - name: Compress documentation build
         if: github.ref == 'refs/heads/master'
@@ -129,6 +145,18 @@ jobs:
     needs: [linting, build]
     if: github.ref == 'refs/heads/master'
     steps:
+      # Free up disk space
+      - name: Maximize build disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+          
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -155,12 +183,12 @@ jobs:
       - name: Download documentation build artifact
         uses: actions/download-artifact@v4
         with:
-          name: documentation.tar.bz2
+          name: documentation.tar
 
       - name: Extract documentation build artifact
         run: |
-          mkdir packages/documentation/public
-          tar -C packages/documentation/public -xvf documentation.tar.bz2
+          mkdir -p packages/documentation/public
+          tar -C packages/documentation/public -xf documentation.tar
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
