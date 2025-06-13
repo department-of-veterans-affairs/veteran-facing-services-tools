@@ -6,9 +6,10 @@
 
 const path = require('path');
 
-// Add polyfills for Web Streams API
+// Node 20 has native support for Web Streams API
+// This polyfill is only needed for older Node versions
 if (!global.ReadableStream) {
-  const { ReadableStream, WritableStream, TransformStream } = require('stream/web');
+  const { ReadableStream, WritableStream, TransformStream } = require('node:stream/web');
   global.ReadableStream = ReadableStream;
   global.WritableStream = WritableStream; 
   global.TransformStream = TransformStream;
