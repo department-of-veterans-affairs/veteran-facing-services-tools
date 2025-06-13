@@ -2,9 +2,9 @@ import loadAccordionHandler from './accordion';
 import createAdditionalInfoWidget from './additional-info';
 import addSidenavListeners from './sidenav';
 import domready from 'domready';
-import elementClosest from 'element-closest';
+import * as elementClosest from 'element-closest';
 
-elementClosest(window);
+elementClosest.default(window);
 
 if (
   document.readyState === 'complete' &&
