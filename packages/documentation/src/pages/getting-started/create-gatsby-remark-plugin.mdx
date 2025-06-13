@@ -3,14 +3,17 @@ title: Create a Gatsby Remark plugin
 ---
 
 ## Create a Gatsby Remark plugin
+
 Gatsby uses a plugin called [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/)
 to convert markdown to html. Our MDX plugin [gatsby-mdx](https://www.gatsbyjs.org/packages/gatsby-mdx/) uses this plugin
 to convert markdown to html. We needed to create a way to add graphs to our MDX files so we tried to implement another plugin that adds the [mermaid](https://mermaidjs.github.io/) feature to markdown. The problem was that it had conflicts with MDX files. This article will detail how we added our own plugin locally to the `gatsby-transformer-remark` plugin to solve this issue.
 
 ### What are we doing
+
 We needed a way to generate graphs using markdown like the code below. Normally this is done using the mermaid library. That is what we are going to use, but we need it to work with MDX files. Below is an example of what we are trying to do.
 
 **Markdown**
+
 ````
 ```mermaid
 graph LR
@@ -22,6 +25,7 @@ graph LR
 ````
 
 **HTML Output**
+
 ```mermaid
 graph LR
     A[Square Rect] -- Link text --> B((Circle))
@@ -41,15 +45,19 @@ Remark uses a plugin system that enables you to do some customization when the m
 
   const visit = require('unist-util-visit');
 
-  module.exports = ({ markdownAST }, { language = 'mermaid', theme = 'default' } = {}) => {
+  module.exports = (
+    { markdownAST },
+    { language = 'mermaid', theme = 'default' } = {},
+  ) => {
     visit(markdownAST, 'code', node => {
-      let lang = (node.lang || '').toLowerCase()
+      let lang = (node.lang || '').toLowerCase();
       if (lang === language) {
-        node.type = 'html'
-        node.value = '<div class="mermaid">{' + '`'+ node.value + '`'+ '}</div>'
+        node.type = 'html';
+        node.value =
+          '<div class="mermaid">{' + '`' + node.value + '`' + '}</div>';
       }
-    })
-  }
+    });
+  };
   ```
 
   This markdown code:
@@ -107,6 +115,7 @@ Remark uses a plugin system that enables you to do some customization when the m
     }
   }
   ```
+
 - Add the mermaid library so it can convert our code into SVG graphs
 
   Because mermaid is a client side library we need to include it when the build is rendered on the client-side.

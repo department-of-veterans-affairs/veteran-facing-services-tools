@@ -5,6 +5,7 @@ title: Gatsby Configurations
 ## Gatsby Configurations
 
 ### Why we chose Gatsby
+
 Gatsby was effectively chosen because it gave us the flexibility to create
 documentation for React Components and also regular documentation for developers.
 We wanted to be able to generate documentation that lived inside of the code and
@@ -13,12 +14,14 @@ markdown files for our normal documentation. Gatsby's plugin eco-system gave us 
 lot of flexibilities to customize it how we want it.
 
 ### What is Gatsby
+
 `"Gatsby is a blazing fast modern site generator for React."`
 
 Gatsby utilizes React, Node, and GraphQL to generate a blazing fast static websites.
 You can find more information at [https://www.gatsbyjs.org](https://www.gatsbyjs.org).
 
 ### Our Custom Configurations
+
 There are a few things that we wanted that Gatsby did not have out of the box.
 We wanted to be able to document all our React components and generate PropType
 documentation. We also wanted to be able to transfer over all our markdown documentatation
@@ -26,30 +29,37 @@ from `vets.gov-team` repo. Using Gatsby plugin eco-system. Below are the plugins
 and directions on how we inplemented them.
 
 ### Plugins
+
 All the plugins we use can be found in `gatsby-configs.js`.
 
 - [gatsby-mdx](https://www.gatsbyjs.org/packages/@benjie/gatsby-mdx/?=gatsby-mdx)
-> MDX is a new templating format which uses both JSX(React templating) and markdown.
-  This gaves us the best of both worlds. Being able to write markdown to generate
-  quick documentation and use React components within that page.
+
+  > MDX is a new templating format which uses both JSX(React templating) and markdown.
+  > This gaves us the best of both worlds. Being able to write markdown to generate
+  > quick documentation and use React components within that page.
 
 - [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/?=gatsby-plugin-sass)
-> Be able to use Sass/Scss in our project.
+
+  > Be able to use Sass/Scss in our project.
 
 - [gatsby-transformer-react-docgen](https://www.gatsbyjs.org/packages/gatsby-transformer-react-docgen/?=gatsby-transformer-react-docgen)
-> Helps extracting information from React components, and generate documentation
-  from it. This is created by Facebook. This is what is used for
-  [react-styleguidist](https://github.com/styleguidist/react-styleguidist).
+
+  > Helps extracting information from React components, and generate documentation
+  > from it. This is created by Facebook. This is what is used for
+  > [react-styleguidist](https://github.com/styleguidist/react-styleguidist).
 
 - [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/)
-> A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem.
+
+  > A Gatsby source plugin for sourcing data into your Gatsby application from your local filesystem.
 
 - https://www.gatsbyjs.org/packages/gatsby-remark-images/
-> We are using this to add images to our .mdx pages. This allows us to add
-  images to the folder and use it directly into our .mdx pages.
+  > We are using this to add images to our .mdx pages. This allows us to add
+  > images to the folder and use it directly into our .mdx pages.
 
 ---
+
 ### How we setup `gatsby-mdx`
+
 Plugin: [https://www.gatsbyjs.org/packages/@benjie/gatsby-mdx](https://www.gatsbyjs.org/packages/@benjie/gatsby-mdx)
 Guide: [https://gatsby-mdx.netlify.com/guides](https://gatsby-mdx.netlify.com/guides)
 
@@ -63,7 +73,7 @@ yarn add gatsby-mdx
 // gatsby-configs.js
 
 module.exports = {
-  plugins: [`gatsby-mdx`]
+  plugins: [`gatsby-mdx`],
 };
 ```
 
@@ -71,10 +81,12 @@ Once this is setup, you will be able to use both markdown and jsx on the page.
 More information can be found on https://mdxjs.com/
 
 #### Adding a Specific layout for your pages
+
 To add a specific layout to be used for the default pages. You need to change
 the plugin to an Object with options like so.
 
 Change this code:
+
 ```
 // gatsby-configs.js
 
@@ -84,6 +96,7 @@ module.exports = {
 ```
 
 To this code:
+
 ```
 // gatsby-configs.js
 
@@ -102,6 +115,7 @@ module.exports = {
 ```
 
 #### Adding Your Own Folders
+
 By default gatsby-mdx will only look in the src/pages folder.
 We need to add some configurations to be able to add non-default folders.
 
@@ -112,6 +126,7 @@ This plugin is used for sourcing data into your Gatsby application
 from your local filesystem. Here we add a name and path to the
 images folder. This will now be added to our GraphQL
 database so we can use it in our project.
+
 ```javascript
 // gatsby-configs.js
 
@@ -120,10 +135,10 @@ plugins: [
     resolve: `gatsby-source-filesystem`,
     options: {
       path: `./src/images`,
-      name: 'images'
-    }
+      name: 'images',
+    },
   },
-]
+];
 ```
 
 **Creating Pages from GraphQL data:**
@@ -133,7 +148,7 @@ pages out of them. To do this we need to add some code to the gatsby-node.js
 file. This is were you create pages or customize things before it get built.
 
 first we export createPages and then do a query to GraphQL. You can test it
-out at http://localhost:8000/___graphql. This is an interactive interface
+out at http://localhost:8000/\_\_\_graphql. This is an interactive interface
 for GraphQL. Here we are getting all the mdx pages and then we are checking if the
 document has a name property in the frontmatter. If it doesn't we won't create
 a page for it.
@@ -345,6 +360,7 @@ createPage({
   },
 })
 ```
+
 Set your component page layout
 
 ```javascript
@@ -394,6 +410,7 @@ to be able to render MDX. Here is a sample of the JSX.
 ```
 
 ### How do we automatically generate our propTypes
+
 Since one of the big requirements for our component documents is PropType
 definitions, we had to make sure we can populate the propTypes dynamically.
 To do this we are going to a module called
@@ -409,7 +426,7 @@ is were we get our propType definitions.
 
 ```javascript
 export const pageQuery = graphql`
-  query($id: String!, $name: String!) {
+  query ($id: String!, $name: String!) {
     mdx(id: { eq: $id }) {
       id
       code {
@@ -444,6 +461,7 @@ export const pageQuery = graphql`
 ```
 
 ### Adding Live Code
+
 Here is an example of how you add live editable code onto your page.
 Note: This has not been fully implemented on our pages yet. This is something
 we need to explore further if we really want to have this feature.
@@ -471,6 +489,7 @@ export default class MyPageLayout extends Component {
 ```
 
 ### Image plugin for MDX files
+
 We are using a plugin to be able to use images in .mdx pages. This allows us
 to access the images with relative paths.
 

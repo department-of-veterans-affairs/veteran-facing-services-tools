@@ -64,7 +64,7 @@ features:
 
    ```js
    const FEATURE_FLAG_NAMES = Object.freeze({
-     showYourFeatureName: "app_name_then_your_feature_name",
+     showYourFeatureName: 'app_name_then_your_feature_name',
    });
    ```
 
@@ -78,10 +78,10 @@ features:
 
 ```js
 // import the toggleValues helper
-import { toggleValues } from "platform/site-wide/feature-toggles/selectors";
+import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
 
 // use the toggleValues helper to select the toggle values list
-export const appNameThenYourFeatureName = (state) =>
+export const appNameThenYourFeatureName = state =>
   toggleValues(state).appNameThenYourFeatureName;
 ```
 

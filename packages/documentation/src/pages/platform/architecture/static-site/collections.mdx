@@ -6,9 +6,21 @@ tags: metalsmith-collections
 # Adding a collection of related links for Markdown pages
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Adding-a-collection-of-related-links-for-markdown-pages.1854996617.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{' '}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Adding-a-collection-of-related-links-for-markdown-pages.1854996617.html">
+      the latest version of this page
+    </a>{' '}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{' '}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{' '}
+    on Slack.
+  </h3>
 </div>
 
 Our current publishing system, Metalsmith, provides a way to group related content using what it calls _collections_. Using collections requires the `metalsmith-collections` plugin ([documentation](https://github.com/segmentio/metalsmith-collections)).
@@ -22,7 +34,6 @@ Viewing `src/site/components/navigation-sidebar.html` and `src/site/components/n
 _**NOTE**: Content team, you may wish to file a request with the DevOps team for this task._
 
 To create a new collection, add a new collection object to `vets-website/script/build.js`.
-
 
 ```
   smith.use(collections({
@@ -49,9 +60,9 @@ To create a new collection, add a new collection object to `vets-website/script/
 - `pattern`: should be a directory a relative to the site root (without a leading slash), and end with `*.md` or `*.html` (`*` is a _wildcard_ character that will match every file with an `.md` or `*.html` extension.)
 - `sortBy`: is any current YAML property used in the front matter metadata (front matter data is the stuff between the `---` at the beginning of each content file). This should be:
 
-    - `order`
-    - `title`
-    - `display_title`
+  - `order`
+  - `title`
+  - `display_title`
 
 - `metadata`: must be a JavaScript object that contains a `name` property. This field is optional. You may add additional properties as here.
 
@@ -84,7 +95,6 @@ To control the order of display within a collection, add an `order` property to 
 
 The value of `order` should be a number. Pages will be ordered in ascending order.
 
-
 ## Adding a child collection
 
 Collections do not have a hierarchy by default. Create one by adding a `children` property to the parent page or index page of a child collection.
@@ -107,10 +117,9 @@ order: 1
 
 _See vets-website/script/build.js_.
 
-| Label | Path | Child collection(s) |
-| --- | --- | --- |
-| `disabilityExposureHazMat` | disability-benefits/conditions/exposure-to-hazardous-materials/*.md | `disabilityAgentOrange` |
-| `disabilityAgentOrange` | disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/*.md | &ndash; |
-| `education` | education/*.md | `educationGIBill` |
-| `educationGIBill` | education/gi-bill/*.md | &ndash;
-
+| Label                      | Path                                                                              | Child collection(s)     |
+| -------------------------- | --------------------------------------------------------------------------------- | ----------------------- |
+| `disabilityExposureHazMat` | disability-benefits/conditions/exposure-to-hazardous-materials/\*.md              | `disabilityAgentOrange` |
+| `disabilityAgentOrange`    | disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/\*.md | &ndash;                 |
+| `education`                | education/\*.md                                                                   | `educationGIBill`       |
+| `educationGIBill`          | education/gi-bill/\*.md                                                           | &ndash;                 |

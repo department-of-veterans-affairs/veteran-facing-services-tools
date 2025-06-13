@@ -13,25 +13,38 @@ You can run the following types of tests when building on VA.gov.
 
 ## Test commands
 
-| Test type | Test all | Test one | Requires local build to run| Test target | Modules used |
-| --- | --- | --- | --- | --- | --- |
-| Unit | `yarn test:unit` | `yarn test:unit ./PATH-TO-TEST-FILE` | no | `*.unit.spec.js(x)` | [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), [Sinon](https://sinonjs.org/), [JSDom](https://github.com/jsdom/jsdom), [Enzyme](https://airbnb.io/enzyme/) |
-| Lint | `yarn lint` | `yarn lint:js` or `yarn lint:sass` | no | `*.js`, `*.scss` | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [sass-lint](https://github.com/sasstools/sass-lint) |
-| End to end | `yarn test:e2e` | `yarn test:e2e ./PATH-TO-TEST-FILE` | yes | `*.e2e.spec.js` | [Nightwatch.js](http://nightwatchjs.org/) |
- | Accessibility | `yarn test:accessibility` | | yes | all pages in `sitemap.xml` | [Nightwatch.js](http://nightwatchjs.org/) |
+| Test type     | Test all                  | Test one                             | Requires local build to run | Test target                | Modules used                                                                                                                                                           |
+| ------------- | ------------------------- | ------------------------------------ | --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unit          | `yarn test:unit`          | `yarn test:unit ./PATH-TO-TEST-FILE` | no                          | `*.unit.spec.js(x)`        | [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), [Sinon](https://sinonjs.org/), [JSDom](https://github.com/jsdom/jsdom), [Enzyme](https://airbnb.io/enzyme/) |
+| Lint          | `yarn lint`               | `yarn lint:js` or `yarn lint:sass`   | no                          | `*.js`, `*.scss`           | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [sass-lint](https://github.com/sasstools/sass-lint)                                                   |
+| End to end    | `yarn test:e2e`           | `yarn test:e2e ./PATH-TO-TEST-FILE`  | yes                         | `*.e2e.spec.js`            | [Nightwatch.js](http://nightwatchjs.org/)                                                                                                                              |
+| Accessibility | `yarn test:accessibility` |                                      | yes                         | all pages in `sitemap.xml` | [Nightwatch.js](http://nightwatchjs.org/)                                                                                                                              |
 
 ## Requires local build or run
 
 Some tests require [running or building](/getting-started/common-tasks/run-build) VA.gov:
+
 - **Testing while running `watch` task**: Tests will automatically be run against the site running on that server.
 - **Testing with a local build**: If nothing is running at `http://localhost:3001` (`vets-website` testing) or, `http://localhost:3002` (`content-build` testing), tests start an Express server and serve the build output in `build/localhost`.
 
 ## Unit tests
 
 <div class="deprecation-message">
-    <h3>We're moving our docs!</h3>
-    <h4>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">the latest version of this section</a> on the Platform website.</h4>
-    <h4>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h4>
+  <h3>We're moving our docs!</h3>
+  <h4>
+    Find{' '}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">
+      the latest version of this section
+    </a>{' '}
+    on the Platform website.
+  </h4>
+  <h4>
+    Still can't find what you're looking for? Reach out to{' '}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{' '}
+    on Slack.
+  </h4>
 </div>
 
 - Run all [Mocha](https://mochajs.org/)/[Chai](http://chaijs.com/)/[Sinon](https://sinonjs.org/)-based unit tests with the file extension `.unit.spec.js(x)`

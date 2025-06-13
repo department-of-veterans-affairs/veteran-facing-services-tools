@@ -76,17 +76,17 @@ Note that `MyAppDataGrid` would issue the API request to _Fancy Service_ during 
 **src/applications/my-app/containers/MyApp.jsx**
 
 ```jsx
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 import {
   DowntimeNotification,
   externalServices,
-} from "platform/monitoring/DowntimeNotifications";
+} from 'platform/monitoring/DowntimeNotifications';
 
-import { fetchFromFancyService } from "../actions";
+import { fetchFromFancyService } from '../actions';
 
-import MyAppDataGrid from "../components/MyAppDataGrid";
+import MyAppDataGrid from '../components/MyAppDataGrid';
 
 class MyApp extends React.component {
   render() {
@@ -106,7 +106,7 @@ class MyApp extends React.component {
   }
 }
 
-const mapStateToProps = (state) => store.myApp;
+const mapStateToProps = state => store.myApp;
 
 const mapDispatchToProps = {
   fetchFromFancyService,

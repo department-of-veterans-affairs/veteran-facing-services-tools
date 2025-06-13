@@ -6,9 +6,21 @@ tags: react,redux,application,routing
 # Creating a new application
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Creating-a-new-application.1847525496.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+  <h3>
+    Find{' '}
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Creating-a-new-application.1847525496.html">
+      the latest version of this page
+    </a>{' '}
+    on the Platform website.
+  </h3>
+  <h3>
+    Still can't find what you're looking for? Reach out to{' '}
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>{' '}
+    on Slack.
+  </h3>
 </div>
 
 Note: Check out the [Adding a new feature](/getting-started/common-tasks/new-feature) doc to make sure you're trying to add the right type of feature to VA.gov.
@@ -94,7 +106,7 @@ This file uses our `startApp` helper to create a React/Redux app that has client
 5. Create Sass file (`src/applications/my-new-application/sass/my-new-application.sass`):
 
 ```scss
-@import "~@department-of-veterans-affairs/formation/sass/shared-variables";
+@import '~@department-of-veterans-affairs/formation/sass/shared-variables';
 
 // Your custom sass
 ```
@@ -102,7 +114,6 @@ This file uses our `startApp` helper to create a React/Redux app that has client
 6. Create reducer (`src/applications/my-new-application/reducers/index.js`):
 
 ```js
-
 const initialState = {
   // whatever initial state you have
 };
@@ -117,7 +128,7 @@ function myNewApplication(state = initialState, action) {
 }
 
 export default {
-  myNewApplication
+  myNewApplication,
 };
 ```
 

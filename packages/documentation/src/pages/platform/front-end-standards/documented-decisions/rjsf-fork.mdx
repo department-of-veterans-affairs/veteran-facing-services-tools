@@ -5,19 +5,19 @@ tags: rjsf
 
 # Moving to a fork of RJSF
 
-| | | | |
-| --- | --- | --- | --- |
-|**Decision Made:**|Yes| **Decision Date:** | 03/2018 |
-|**Revisit Decision:**| Yes | **Revisit Date:** | July 2018 |
+|                       |     |                    |           |
+| --------------------- | --- | ------------------ | --------- |
+| **Decision Made:**    | Yes | **Decision Date:** | 03/2018   |
+| **Revisit Decision:** | Yes | **Revisit Date:**  | July 2018 |
 
 **Revisit Criteria:** As of 3/2018, we're just starting our fork. After using it for a couple months, we should revist and make sure it's still the best path.
 
 **Decision Makers:** @annekainicUSDS @jbalboni
 
-
 ---
 
 ## tl;dr
+
 We've diverged from the react-jsonschema-form functionality enough that forking the library is the best way to continue improving our form building process.
 
 ## History
@@ -33,6 +33,7 @@ We've been using a set of components built on top of RJSF for all of our longer 
 - Similarly, we need the changes that have been made to support React 16, but those are post some of the above changes.
 
 ## Pros
+
 - We have more control over the code for our forms, making it easier to fix bugs
 - Forking addresses all of the above issues
 - We can remove widget and field code that we don't use, making it easier for us to maintain. Eventually that may mean getting away from a separate library entirely.
@@ -46,4 +47,5 @@ We've been using a set of components built on top of RJSF for all of our longer 
 We could attempt to move to the latest version and push for the above changes in the main repo, but it's not guaranteed that we could be successful, or even that all of our changes make sense for the main library.
 
 ## Decision
+
 We're going to fork RJSF.

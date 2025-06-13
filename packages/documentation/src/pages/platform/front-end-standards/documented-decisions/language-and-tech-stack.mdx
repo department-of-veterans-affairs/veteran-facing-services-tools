@@ -5,10 +5,10 @@ tags: Ruby, rails, React
 
 # Languages and Tech Stack
 
-| | | | |
-| --- | --- | --- | --- |
-|**Last Decision Made:**|Yes| **Decision Date:** | 05/2016 |
-|**Revisit Decision:**| Yes | **Revisit Date:** | 05/2017 |
+|                         |     |                    |         |
+| ----------------------- | --- | ------------------ | ------- |
+| **Last Decision Made:** | Yes | **Decision Date:** | 05/2016 |
+| **Revisit Decision:**   | Yes | **Revisit Date:**  | 05/2017 |
 
 **Revisit Criteria:** The technical choices that were made inhibit writing maintainable code in a timely fashion, and/or an inability to hire new developers because the tech stack is out-of-date or not mainstream enough.
 
@@ -46,7 +46,7 @@ To alleviate this, the DSVA team made the decision to standardize around a few t
 
 The biggest reason for choosing the above was that the majority of our existing applications were in Ruby and that it seemed to be a prevalent stack within the civic tech community (i.e. 18F and civic tech organizations seemed to use it more than other languages).
 
-**__NOTE: The remainder of this document is more vets.gov specific, when that side of the team was re-evaluating its stance on the decision above__**
+****NOTE: The remainder of this document is more vets.gov specific, when that side of the team was re-evaluating its stance on the decision above****
 
 When 2016 began, the vets.gov team began exploring how to build its platform. The platform included two key things:
 
@@ -120,7 +120,7 @@ With the stacks being equal, what are reasons to choose one language over the ot
 
 ### Content Management Decision
 
-The initial decision around tech stack include [Jekyll](https://jekyllrb.com/) for content management. However, when the decision was made to combine all frontend React applications into a [single repo](https://github.com/department-of-veterans-affairs/vets-website), it made sense to move to a content management system driven by Node.js. The content management system chosen is [Metal Smith](http://www.metalsmith.io/).  The driving factor was to simplify and streamline our build process for the vets-website content and dynamic front-end components to a single process. We were using [Webpack](https://webpack.js.org/) for to bundle and transpile our [React.js](https://facebook.github.io/react/) components into code that could be consumed by web browsers, and the content was in Jekyll and required Ruby, and a seperate build process.  By moving to Metalsmith we were able to align our build process to one language, and because the build script for the content was just Node.js we could call Webpack from within that script.
+The initial decision around tech stack include [Jekyll](https://jekyllrb.com/) for content management. However, when the decision was made to combine all frontend React applications into a [single repo](https://github.com/department-of-veterans-affairs/vets-website), it made sense to move to a content management system driven by Node.js. The content management system chosen is [Metal Smith](http://www.metalsmith.io/). The driving factor was to simplify and streamline our build process for the vets-website content and dynamic front-end components to a single process. We were using [Webpack](https://webpack.js.org/) for to bundle and transpile our [React.js](https://facebook.github.io/react/) components into code that could be consumed by web browsers, and the content was in Jekyll and required Ruby, and a seperate build process. By moving to Metalsmith we were able to align our build process to one language, and because the build script for the content was just Node.js we could call Webpack from within that script.
 
 ## The Decision
 

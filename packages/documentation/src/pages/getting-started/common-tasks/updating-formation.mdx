@@ -1,10 +1,10 @@
 ---
 title: Updating Formation
 tags: formation, update, release, publish, npm
-
 ---
 
 ## Making updates to formation
+
 You can find a detailed guide on contributing to formation at [https://dev-design.va.gov/documentation/contributing-to-formation](https://dev-design.va.gov/documentation/contributing-to-formation)
 
 ## Publishing Module to NPM
@@ -31,18 +31,20 @@ Once your changes are approved, squash merge them to master. Also, if your chang
 
 ### 3. Build and publish
 
-* Checkout the master branch
-* Run `yarn build`
-* For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
+- Checkout the master branch
+- Run `yarn build`
+- For each module you need to publish, switch to its folder in `packages/` and run `npm publish`.
 
 ### 4. Create a release
+
 You will need a github [personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 This should be set as **GITHUB_API_KEY** in your environment variable.
+
 - Navigate to the package folder
 - Run the release script
-    ```
-    $ yarn release
-    ```
+  ```
+  $ yarn release
+  ```
 - Once the script has succeeded, go to the link provided in the console
 - Edit the release and add any relevant information.
 
