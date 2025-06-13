@@ -45,7 +45,6 @@ module.exports = {
         patterns: 'platform/working-with-vsp/**',
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,7 +55,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
-        failOnError: false,
+        failOn: 'none',
       },
     },
     `gatsby-transformer-sharp`,
@@ -75,10 +74,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
-        mediaTypes: ['text/x-markdown'],
-        defaultLayouts: {
-          default: require.resolve('./src/layouts/SidebarLayout.jsx'),
-        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -96,15 +91,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        // CommonMark mode (default: true)
-        commonmark: true,
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // Pedantic mode (default: true)
-        pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
         gfm: true,
-        // Plugins configs
         plugins: [],
       },
     },

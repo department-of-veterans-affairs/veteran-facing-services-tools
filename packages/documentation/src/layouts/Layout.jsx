@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 
 import Header from '../components/Header';
+import Head from '../components/seo';
 import '../scss/main.scss';
 
 /**
@@ -46,30 +46,6 @@ class Layout extends React.Component {
         `}
         render={data => (
           <>
-            <Helmet
-              title={data.site.siteMetadata.title}
-              meta={[
-                {
-                  name: 'description',
-                  content:
-                    'Template for creating design system documentatation',
-                },
-                {
-                  name: 'docsearch:language',
-                  content: 'en',
-                },
-                {
-                  name: 'docsearch:version',
-                  content: '1.0.0',
-                },
-                {
-                  name: 'keywords',
-                  content: 'design system, style guide, documentation',
-                },
-              ]}
-            >
-              <html lang="en" />
-            </Helmet>
             <Header location={location} />
             {children}
           </>
@@ -77,6 +53,34 @@ class Layout extends React.Component {
       />
     );
   }
+}
+
+// Export the Head component for Gatsby to use
+export function Head({ data }) {
+  return (
+    <Head
+      title={data.site.siteMetadata.title}
+      overrideTitle={true}
+      meta={[
+        {
+          name: 'description',
+          content: 'Template for creating design system documentatation',
+        },
+        {
+          name: 'docsearch:language',
+          content: 'en',
+        },
+        {
+          name: 'docsearch:version',
+          content: '1.0.0',
+        },
+        {
+          name: 'keywords',
+          content: 'design system, style guide, documentation',
+        },
+      ]}
+    />
+  );
 }
 
 Layout.propTypes = {

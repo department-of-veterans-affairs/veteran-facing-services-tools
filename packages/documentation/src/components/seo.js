@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -14,74 +13,62 @@ const detailsQuery = graphql`
   }
 `;
 
-function SEO({ description, lang, meta, keywords, title }) {
+export function Head({ description, lang = 'en', meta = [], keywords = [], title, overrideTitle = false }) {
+  const { site } = useStaticQuery(detailsQuery);
+
+  const metaDescription = description || site.siteMetadata.description;
+  const pageTitle = overrideTitle ? title : `${title} | ${site.siteMetadata.title}`;
+
   return (
-    <StaticQuery
-      query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description;
-        return (
-          <Helmet
-            htmlAttributes={{
-              lang,
-            }}
-            title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-            meta={[
-              {
-                name: 'description',
-                content: metaDescription,
-              },
-              {
-                name: 'docsearch:language',
-                content: 'en',
-              },
-              {
-                name: 'docsearch:version',
-                content: '1.0.0',
-              },
-              {
-                property: 'og:title',
-                content: title,
-              },
-              {
-                property: 'og:description',
-                content: metaDescription,
-              },
-              {
-                property: 'og:type',
-                content: 'website',
-              },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: 'keywords',
-                      content: keywords.join(', '),
-                    }
-                  : [],
-              )
-              .concat(meta)}
-          />
-        );
-      }}
-    />
+    <>
+      <html lang={lang} />
+      <title>{pageTitle}</title>
+      {[
+        {
+          name: 'description',
+          content: metaDescription,
+        },
+        {
+          name: 'docsearch:language',
+          content: 'en',
+        },
+        {
+          name: 'docsearch:version',
+          content: '1.0.0',
+        },
+        {
+          property: 'og:title',
+          content: pageTitle,
+        },
+        {
+          property: 'og:description',
+          content: metaDescription,
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        ...(keywords.length > 0 ? [{
+          name: 'keywords',
+          content: keywords.join(', '),
+        }] : []),
+        ...meta,
+      ].map(({ name, content, property }, i) => (
+        property ? 
+          <meta key={i} property={property} content={content} /> :
+          <meta key={i} name={name} content={content} />
+      ))}
+    </>
   );
 }
 
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: [],
-};
-
-SEO.propTypes = {
+Head.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  overrideTitle: PropTypes.bool,
 };
 
-export default SEO;
+export default Head;
