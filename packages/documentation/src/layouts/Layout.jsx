@@ -55,33 +55,6 @@ class Layout extends React.Component {
   }
 }
 
-// Export the Head component for Gatsby to use
-export function Head({ data = { site: { siteMetadata: { title: 'VA.gov | Client Application Documentation' } } } }) {
-  return (
-    <Head
-      title={data.site.siteMetadata.title}
-      overrideTitle={true}
-      meta={[
-        {
-          name: 'description',
-          content: 'Template for creating design system documentatation',
-        },
-        {
-          name: 'docsearch:language',
-          content: 'en',
-        },
-        {
-          name: 'docsearch:version',
-          content: '1.0.0',
-        },
-        {
-          name: 'keywords',
-          content: 'design system, style guide, documentation',
-        },
-      ]}
-    />
-  );
-}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
