@@ -45,16 +45,14 @@ export default class Header extends React.Component {
                 <StaticQuery
                   query={graphql`
                     query SearchIndexQuery {
-                      localSearchPages {
+                      siteSearchIndex {
                         index
-                        store
                       }
                     }
                   `}
                   render={(data) => {
-                    // Check if either the original siteSearchIndex or the new localSearchPages is available
-                    if (data && data.localSearchPages) {
-                      return <Search searchIndex={data.localSearchPages.index} searchStore={data.localSearchPages.store} />;
+                    if (data && data.siteSearchIndex) {
+                      return <Search searchIndex={data.siteSearchIndex.index} />;
                     }
                     
                     return (

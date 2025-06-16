@@ -56,7 +56,7 @@ class Layout extends React.Component {
 }
 
 // Export the Head component for Gatsby to use
-export function Head({ data }) {
+export function Head({ data = { site: { siteMetadata: { title: 'VA.gov | Client Application Documentation' } } } }) {
   return (
     <Head
       title={data.site.siteMetadata.title}

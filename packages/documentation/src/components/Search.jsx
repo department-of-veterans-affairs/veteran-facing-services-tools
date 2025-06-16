@@ -60,15 +60,9 @@ export default class Search extends React.Component {
           // Map over each ID and return the full document
           .splice(0, maxDisplayedSearchResults)
           .map(({ ref }) => {
-            let result;
+            // Get the document from the index
+            const result = this.index.documentStore.getDoc(ref);
             
-            // Support both the old and new search index formats
-            if (this.props.searchStore) {
-              result = this.props.searchStore[ref];
-            } else {
-              result = this.index.documentStore.getDoc(ref);
-            }
-
             // Handle tags that might be stored as string or array
             const tags = typeof result.tags === 'string' ? result.tags : (result.tags || []).join(',');
             
