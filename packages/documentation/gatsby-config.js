@@ -109,7 +109,7 @@ module.exports = {
         fields: [`title`, `tags`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          // For any node of type SitePage, list how to resolve the fields` values
           SitePage: {
             title: node => {
               if (
@@ -127,8 +127,8 @@ module.exports = {
                 return node.context.title;
               }
 
-              console.info('Page title missing from front matter.', node);
-              return '';
+              // Return a default title for pages without front matter
+              return node.path.split('/').pop() || 'Home';
             },
             tags: node => {
               if (
@@ -142,6 +142,12 @@ module.exports = {
               return '';
             },
             path: node => node.path,
+          },
+          // Add support for MDX nodes as well
+          Mdx: {
+            title: node => node.frontmatter && node.frontmatter.title ? node.frontmatter.title : '',
+            tags: node => node.frontmatter && node.frontmatter.tags ? node.frontmatter.tags.join(',') : '',
+            path: node => node.fields && node.fields.slug ? node.fields.slug : '',
           },
         },
       },

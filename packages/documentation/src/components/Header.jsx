@@ -45,14 +45,32 @@ export default class Header extends React.Component {
                 <StaticQuery
                   query={graphql`
                     query SearchIndexQuery {
-                      siteSearchIndex {
+                      localSearchPages {
                         index
+                        store
                       }
                     }
                   `}
-                  render={(data) => (
-                    <Search searchIndex={data.siteSearchIndex.index} />
-                  )}
+                  render={(data) => {
+                    // Check if either the original siteSearchIndex or the new localSearchPages is available
+                    if (data && data.localSearchPages) {
+                      return <Search searchIndex={data.localSearchPages.index} searchStore={data.localSearchPages.store} />;
+                    }
+                    
+                    return (
+                      <div className="site-c-search">
+                        <label htmlFor="search" className="usa-sr-only">
+                          Search
+                        </label>
+                        <input
+                          id="search"
+                          type="text"
+                          placeholder="Search..."
+                          className="site-c-search__input"
+                        />
+                      </div>
+                    );
+                  }}
                 />
               </div>
               <button
