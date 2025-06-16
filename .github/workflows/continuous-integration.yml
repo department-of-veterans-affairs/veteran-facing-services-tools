@@ -120,6 +120,12 @@ jobs:
           yarn build:eslint-plugin
           yarn build:formation
 
+      # Install Playwright for documentation package
+      - name: Install Playwright
+        timeout-minutes: 5
+        working-directory: packages/documentation
+        run: yarn playwright install
+
       # Build documentation package separately with its own timeout
       - name: Build Documentation
         timeout-minutes: 20
