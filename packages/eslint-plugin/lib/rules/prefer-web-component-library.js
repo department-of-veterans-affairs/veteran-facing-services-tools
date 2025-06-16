@@ -25,17 +25,17 @@ const textInputTransformer = (context, node) => {
     suggest: [
       {
         desc: 'Migrate component',
-        fix: fixer => {
-          // Replace the node name
-          return [
-            fixer.replaceText(componentName, 'va-text-input'),
-            error && fixer.replaceText(error.name, 'error'),
-            additionalClass && fixer.replaceText(additionalClass.name, 'class'),
-            field && fixer.remove(field),
-            placeholder && fixer.remove(placeholder),
-            maxlength && fixer.replaceText(maxlength.name, 'maxlength'),
-            changeHandler && fixer.replaceText(changeHandler.name, 'onInput'),
-          ].filter(i => !!i);
+        fix: function(fixer) {
+          // Only use serializable data and avoid capturing the node in closure
+          const fixes = [];
+          fixes.push(fixer.replaceText(componentName, 'va-text-input'));
+          if (error) fixes.push(fixer.replaceText(error.name, 'error'));
+          if (additionalClass) fixes.push(fixer.replaceText(additionalClass.name, 'class'));
+          if (field) fixes.push(fixer.remove(field));
+          if (placeholder) fixes.push(fixer.remove(placeholder));
+          if (maxlength) fixes.push(fixer.replaceText(maxlength.name, 'maxlength'));
+          if (changeHandler) fixes.push(fixer.replaceText(changeHandler.name, 'onInput'));
+          return fixes;
         },
       },
     ],
@@ -67,24 +67,22 @@ const paginationTransformer = (context, node) => {
     suggest: [
       {
         desc: 'Migrate component',
-        fix: fixer => {
-          return [
-            // Replace import name with bindings
+        fix: function(fixer) {
+          const fixes = [];
+          fixes.push(
             fixer.replaceText(
               importNode.specifiers[0].local,
               `{ VaPagination }`,
             ),
-
-            // Update import path to react-bindings
+          );
+          fixes.push(
             fixer.replaceText(
               importNode.source,
               `'@department-of-veterans-affairs/component-library/dist/react-bindings'`,
             ),
-
-            // Rename component name Pagination to VaPagination
-            // We are using bindings because onPageSelect is an event
-            fixer.replaceText(componentName, 'VaPagination'),
-          ].filter(i => !!i);
+          );
+          fixes.push(fixer.replaceText(componentName, 'VaPagination'));
+          return fixes;
         },
       },
     ],
