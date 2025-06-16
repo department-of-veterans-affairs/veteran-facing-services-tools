@@ -1,0 +1,9 @@
+# Ignore MDX files (handled by remark)
+**/*.mdx
+
+# Common directories to ignore
+node_modules/
+public/
+.cache/
+dist/
+coverage/

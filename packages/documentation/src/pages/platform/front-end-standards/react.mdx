@@ -8,18 +8,28 @@ title: Frontend Best Practices
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{' '}
+    Find 
+
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Best-practices.1824489781.html">
       the latest version of this page
-    </a>{' '}
+    </a>
+
+     
+
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to 
+
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
-      #vfs-platform-support
-    </a>{' '}
+      \#vfs-platform-support
+    </a>
+
+     
+
     on Slack.
   </h3>
 </div>
@@ -40,7 +50,7 @@ Over the last year, we have launched a number of different single-page React/Red
 
 This is a placeholder for any high-level paradigms we settle on. For now, it's merely a laundry list of debatable topics:
 
-- _PropTypes_: we try to define PropTypes to make it easier for newcomers to understand what can be passed to a component.
+- *PropTypes*: we try to define PropTypes to make it easier for newcomers to understand what can be passed to a component.
 - What to put into a selector vs. reducer vs. action
 - How we map backend data to the state?
 
@@ -66,7 +76,7 @@ Keep in mind that these are general conventions, not iron-clad rules, and we sho
 
 We have a set of [ESLint rules](https://github.com/department-of-veterans-affairs/vets-website/blob/main/.eslintrc) that extend the [AirBnB style guide](https://github.com/airbnb/javascript) and also use the [Prettier](https://prettier.io) [ESLint rules](https://prettier.io/docs/en/eslint.html). There is a pre-commit hook that prevents committing code that fails the ESLint rules. Developers should all be using ESLint plugins in their dev environments to catch lint-able things. In lieu of using an ESLint editor plugin, developers can run the `lint:js:fix` or `lint:js:changed:fix` NPM scripts to fix all errors that ESLint can auto-fix.
 
-_TODO: list any notable exceptions here._
+*TODO: list any notable exceptions here.*
 
 ### Project Structure and Code Location
 
@@ -82,10 +92,10 @@ A number (and soon all) of our forms use the [`react-json-schemaform`](https://g
 - [Form config cookbook](https://github.com/department-of-veterans-affairs/vets-website/blob/main/docs/schemaform/form-config.md)
 
 Existing posts/articles on best practices that we may or may not agree with but can pull topics from:
-_ [React best practices](https://medium.com/@nesbtesh/react-best-practices-a76fd0fbef21)
-_ [Redux best practices](https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e)
-_ [Long list of links about react architecture and best practices](https://github.com/markerikson/react-redux-links/blob/master/react-architecture.md)
-_ [Redux isn't slow, you're just doing it wrong - An optimization guide](https://reactrocket.com/post/react-redux-optimization/)
+\_ [React best practices](https://medium.com/@nesbtesh/react-best-practices-a76fd0fbef21)
+\_ [Redux best practices](https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e)
+\_ [Long list of links about react architecture and best practices](https://github.com/markerikson/react-redux-links/blob/master/react-architecture.md)
+\_ [Redux isn't slow, you're just doing it wrong - An optimization guide](https://reactrocket.com/post/react-redux-optimization/)
 
 ### Revision History
 

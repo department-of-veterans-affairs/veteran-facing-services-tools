@@ -9,51 +9,60 @@ tags: unit test, debugging, mocha, e2e
 
 <div class="deprecation-message">
   <h3>We're moving our docs!</h3>
+
   <h4>
-    Find{' '}
+    Find
+
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Debugging-unit-tests.1836286010.html">
       the latest version of this section
-    </a>{' '}
+    </a>
+
     on the Platform website.
   </h4>
+
   <h4>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to
+
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
-      #vfs-platform-support
-    </a>{' '}
+      \#vfs-platform-support
+    </a>
+
     on Slack.
   </h4>
 </div>
 
 - To run tests with some extra debugging info, you can pass a `--log-level`:
 
-        yarn test:unit --log-level debug
+  yarn test:unit --log-level debug
 
 - You can put a `console.log()` in your test code. When you run the test, the output will be in the command line.
+
 - Use Chrome devtools to debug unit tests
 
   1. Go to [chrome://inspect/](chrome://inspect/).
+
   2. Add a `debugger` statement in your test code and if you want to run only your test add the **.only** on your test like so. Make sure to remove the **.only** once you are done.
 
+     ```
+       it.only('testing something', () => {
+         debugger
 
-      ```
-        it.only('testing something', () => {
-          debugger
-
-          expect(value).to.eq(true);
-        })
-      ```
+         expect(value).to.eq(true);
+       })
+     ```
 
   3. run in the terminal
 
-
-      ```
-        $ BABEL_ENV=test node_modules/.bin/mocha --inspect-brk --opts src/platform/testing/unit/mocha.opts --recursive '{test,src}/**/*.unit.spec.js?(x)' src/platform/testing/unit/helper.js
-      ```
+     ```
+       $ BABEL_ENV=test node_modules/.bin/mocha --inspect-brk --opts src/platform/testing/unit/mocha.opts --recursive '{test,src}/**/*.unit.spec.js?(x)' src/platform/testing/unit/helper.js
+     ```
 
   4. Go to your Node Chrome Developer Tools. Under `Remote Target` you should see your test running. Click on the link where your test is running to open the debugger tool.
+
   5. You will want to press the debugger play button to start the program. It will initially pause on the first line of code.
+
   6. It might take awhile for the tests to setup, just be patient and eventually it will run.
+
   7. Once the test runs, your code should break at your debugger statement.
 
 - VSCode's debugging tool for unit tests

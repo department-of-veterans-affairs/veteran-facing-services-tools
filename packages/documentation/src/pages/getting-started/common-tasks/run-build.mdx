@@ -7,25 +7,27 @@ tags: watch
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{' '}
+    Find 
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Running-VA.gov-locally.1844248620.html">
       the latest version of this page
-    </a>{' '}
+    </a>
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to 
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{' '}
+    </a>
     on Slack.
   </h3>
 </div>
 
 ## Prerequisite
 
-- Complete the [first](/getting-started) step in _Start up guide_.
+- Complete the [first](/getting-started) step in *Start up guide*.
 
 ## Locally run VA.gov
 
@@ -64,7 +66,7 @@ yarn watch
 
 ## Locally build and run for specific environment
 
-_Note: most of the time, it's better to use the `watch` task to build the site locally since it is the most developer-friendly experience._
+*Note: most of the time, it's better to use the `watch` task to build the site locally since it is the most developer-friendly experience.*
 
 | Environment    | Build Command                                             | Output directory     | Run Command                                  |
 | -------------- | --------------------------------------------------------- | -------------------- | -------------------------------------------- |
@@ -78,15 +80,15 @@ _Note: most of the time, it's better to use the `watch` task to build the site l
 - **create** the **static pages** from the markdown content in the `vagov-content` repository and data queried from the Drupal API into their **output directory**
 - **create** the **JavaScript** and **CSS** files with Webpack into `/generated` folder in their **output directory** with Webpack
 
-_Production like builds are required for staging and production environments. **NODE_ENV=production** environment variable is required to be set when running these build commands_
+*Production like builds are required for staging and production environments. **NODE\_ENV=production** environment variable is required to be set when running these build commands*
 
 ### Run commands
 
 - **start** an `http-server` that **serves** the **static pages** from the **output directory** at [http://localhost:3001](https://localhost:3001)
 
-_Typically, the reason for building the site locally like this is to build it in production mode and check that it is behaving as you'd expect._
+*Typically, the reason for building the site locally like this is to build it in production mode and check that it is behaving as you'd expect.*
 
-_**Deep-linking** to urls that are rendered by **React** apps on VA.gov **will not work** when you run the site this way, as that relies on some server-side routing that is handled in nginx (or the Webpack dev server when running the `watch` task)_
+***Deep-linking** to urls that are rendered by **React** apps on VA.gov **will not work** when you run the site this way, as that relies on some server-side routing that is handled in nginx (or the Webpack dev server when running the `watch` task)*
 
 ## Related source
 

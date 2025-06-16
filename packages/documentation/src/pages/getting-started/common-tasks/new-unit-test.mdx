@@ -7,18 +7,20 @@ tags: Mocha, Chai, Enzyme, schemaform-utils
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{' '}
+    Find 
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">
       the latest version of this page
-    </a>{' '}
+    </a>
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to 
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{' '}
+    </a>
     on Slack.
   </h3>
 </div>
@@ -30,7 +32,7 @@ For example, you might create a unit test file for each page in a form and then 
 - The correct number of fields display validation errors if you submit without entering any information.
 - Any conditional logic on the page displays under the correct conditions.
 
-For more detailed information about unit test best practices and an in-depth discussion of how they apply to `vets-website`, please view this recording of [Front End Unit Tests on VA.gov - Best Practices/Q&A Brown Bag Training](https://youtu.be/8Y0cuMUoWAw).
+For more detailed information about unit test best practices and an in-depth discussion of how they apply to `vets-website`, please view this recording of [Front End Unit Tests on VA.gov - Best Practices/Q\&A Brown Bag Training](https://youtu.be/8Y0cuMUoWAw).
 
 ## Unit test overview
 
@@ -38,7 +40,7 @@ For more detailed information about unit test best practices and an in-depth dis
   - [Mocha](https://mochajs.org/) for running unit tests
   - [Chai](http://chaijs.com/) for test assertions
   - [React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) and [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
-    - We encourage the use of React Testing Library in place of Enzyme. [See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
+    - We encourage the use of React Testing Library in place of Enzyme. \[See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
   - [Sinon](https://sinonjs.org/) for stubs and spies
 - Unit tests are **collocated with the application folder** in a test directory that matches the application directory structure:
 
@@ -52,7 +54,7 @@ For more detailed information about unit test best practices and an in-depth dis
         - MyComponent.unit.spec.jsx
 ```
 
-Mocha runs any _file_name_.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
+Mocha runs any *file\_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
 [Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to main.
 
 ## Unit test conventions

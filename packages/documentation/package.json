@@ -64,7 +64,8 @@
     "deploy": "gh-pages -d public -e .",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\" \"src/**/*.scss\" \"src/**/*.css\"",
+    "lint:mdx": "remark \"src/**/*.mdx\" --quiet --frail",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "develop:inspect": "node --inspect --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },
@@ -74,5 +75,11 @@
   },
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/"
+  },
+  "devDependencies": {
+    "remark-cli": "^12.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx": "^3.1.0",
+    "remark-preset-lint-recommended": "^7.0.1"
   }
 }

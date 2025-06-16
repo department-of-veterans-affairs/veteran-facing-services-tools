@@ -22,6 +22,8 @@
     "lint:js:fix": "npx vagov-eslint lint:js:fix",
     "lint:js:changed": "npx vagov-eslint lint:js:changed",
     "lint:js:changed:fix": "npx vagov-eslint lint:js:changed:fix",
+    "lint:mdx": "lerna run lint:mdx --scope=vagov-documentation",
+    "lint:mdx:fix": "lerna run lint:mdx:fix --scope=vagov-documentation",
     "postinstall": "yarn bootstrap && node ./scripts/check-node-version.js",
     "prepublishOnly": "node ./scripts/prepublish.js",
     "publish": "lerna publish",

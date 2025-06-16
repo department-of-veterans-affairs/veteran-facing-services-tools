@@ -7,31 +7,41 @@ tags: metalsmith-collections
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{' '}
+    Find 
+
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Adding-a-collection-of-related-links-for-markdown-pages.1854996617.html">
       the latest version of this page
-    </a>{' '}
+    </a>
+
+     
+
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to 
+
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
-      #vfs-platform-support
-    </a>{' '}
+      \#vfs-platform-support
+    </a>
+
+     
+
     on Slack.
   </h3>
 </div>
 
-Our current publishing system, Metalsmith, provides a way to group related content using what it calls _collections_. Using collections requires the `metalsmith-collections` plugin ([documentation](https://github.com/segmentio/metalsmith-collections)).
+Our current publishing system, Metalsmith, provides a way to group related content using what it calls *collections*. Using collections requires the `metalsmith-collections` plugin ([documentation](https://github.com/segmentio/metalsmith-collections)).
 
 Content grouped within a collection is displayed in the sidebar navigation, and the next/previous links. Next and previous links are set based on the sorting order (`sortBy` property of the collection; see below)
 
-Viewing `src/site/components/navigation-sidebar.html` and `src/site/components/navigation-next-previous.html` _may_ clarify some of what's in this document.
+Viewing `src/site/components/navigation-sidebar.html` and `src/site/components/navigation-next-previous.html` *may* clarify some of what's in this document.
 
 ## Add a new collection
 
-_**NOTE**: Content team, you may wish to file a request with the DevOps team for this task._
+***NOTE**: Content team, you may wish to file a request with the DevOps team for this task.*
 
 To create a new collection, add a new collection object to `vets-website/script/build.js`.
 
@@ -57,7 +67,9 @@ To create a new collection, add a new collection object to `vets-website/script/
 ### What each field means:
 
 - `collectionName`: should be a camel-cased or snake cased string that summarizes the name of the related documents.
-- `pattern`: should be a directory a relative to the site root (without a leading slash), and end with `*.md` or `*.html` (`*` is a _wildcard_ character that will match every file with an `.md` or `*.html` extension.)
+
+- `pattern`: should be a directory a relative to the site root (without a leading slash), and end with `*.md` or `*.html` (`*` is a *wildcard* character that will match every file with an `.md` or `*.html` extension.)
+
 - `sortBy`: is any current YAML property used in the front matter metadata (front matter data is the stuff between the `---` at the beginning of each content file). This should be:
 
   - `order`
@@ -115,11 +127,11 @@ order: 1
 
 ## Current collections and hierarchy
 
-_See vets-website/script/build.js_.
+*See vets-website/script/build.js*.
 
 | Label                      | Path                                                                              | Child collection(s)     |
 | -------------------------- | --------------------------------------------------------------------------------- | ----------------------- |
 | `disabilityExposureHazMat` | disability-benefits/conditions/exposure-to-hazardous-materials/\*.md              | `disabilityAgentOrange` |
-| `disabilityAgentOrange`    | disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/\*.md | &ndash;                 |
+| `disabilityAgentOrange`    | disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/\*.md | –                 |
 | `education`                | education/\*.md                                                                   | `educationGIBill`       |
-| `educationGIBill`          | education/gi-bill/\*.md                                                           | &ndash;                 |
+| `educationGIBill`          | education/gi-bill/\*.md                                                           | –                 |

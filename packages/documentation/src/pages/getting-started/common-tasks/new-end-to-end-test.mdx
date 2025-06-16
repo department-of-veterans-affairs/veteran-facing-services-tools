@@ -25,7 +25,7 @@ Front end engineers use end-to-end (e2e) tests in `vets-website` to validate mul
 - Assert navigation is successful
 - Use functions from the helper file to perform all actions on the page
 
-_These are recommendations, not requirements, except where labeled as 'REQUIRED'_
+*These are recommendations, not requirements, except where labeled as 'REQUIRED'*
 
 - Separate navigation from field input
   - Use a **main test file** for navigation, assertions, and calls helpers
@@ -41,7 +41,7 @@ _These are recommendations, not requirements, except where labeled as 'REQUIRED'
 - Use `waitForElementVisible` before interacting with any element on the page
 - Use `Timeouts` constants for setting timeouts (`platform/testing/e2e/timeouts.js`)
 - Use helpers for filling data and performing actions on the page
-- (_REQUIRED_) Perform `axeCheck` on the main body of the application on each page - see [axeCheck](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/testing/e2e/cypress/support/commands/axeCheck.js)
+- (*REQUIRED*) Perform `axeCheck` on the main body of the application on each page - see [axeCheck](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/testing/e2e/cypress/support/commands/axeCheck.js)
 - Assert that each navigation is successful
 
 ## Mocking API responses

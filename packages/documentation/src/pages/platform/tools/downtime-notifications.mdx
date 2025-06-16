@@ -14,8 +14,8 @@ Downtime Notications are a mechanism for handling outages of external services i
 - Driven by [PagerDuty maintenance windows](https://dsva.pagerduty.com/maintenance_windows) so that downtime for a certain service can be scheduled without requiring a deployment. [More info on PagerDuty maintenance windows](https://support.pagerduty.com/docs/maintenance-windows).
 - After a maintenance window is added in Pager Duty, an application wrapped in the Downtime Notification React component typically responds in one of three ways:
   1. Rendering the application as normal if the maintenance window does not start for upwards of an hour.
-  1. Displaying a dismissible modal informing the user of upcoming downtime and rendering the application as usual if the maintenance window starts within the hour.
-  1. Rendering an alert banner informing the user of active downtime instead of rendering the application if the maintenance window has already started.
+  2. Displaying a dismissible modal informing the user of upcoming downtime and rendering the application as usual if the maintenance window starts within the hour.
+  3. Rendering an alert banner informing the user of active downtime instead of rendering the application if the maintenance window has already started.
 
 ## How to use
 
@@ -51,27 +51,27 @@ import { externalServices } from 'platform/monitoring/DowntimeNotification'
     - given a user is logged in, when any services in the dependencies array are down, then display downtime notification before starting a form
     - given a user is logged in and has a saved form, when any services in the dependency array are down, then display the downtime notification before application submission
     - given a user is not logged in,
-  - `false` [default]: when any services in the dependencies array are down, then display the downtime notification before application submission
+  - `false` \[default]: when any services in the dependencies array are down, then display the downtime notification before application submission
 
 4. If you need your FormBuilder app to have downtime notifications on intro page you also need to follow React implimentation below
    - The above implimentation only adds downtime notifications to the review page. Most forms will probably require to also the notifications on intro page so users dont find out at the end of the form.
 
-_The DowntimeNotifications component wraps the `FormStartControls` on the introduction page and the `SubmitController` on the review page. Users can edit and save forms for later during a downtime unless `requiredForPrefill` is true._
+*The DowntimeNotifications component wraps the `FormStartControls` on the introduction page and the `SubmitController` on the review page. Users can edit and save forms for later during a downtime unless `requiredForPrefill` is true.*
 
 ### React applications
 
 1. Import the Downtime Notification React component into the application React code, usually the topmost container.
-1. In the render method, render a Downtime Notification React component passing the identified dependencies as props and the affected components as React children.
+2. In the render method, render a Downtime Notification React component passing the identified dependencies as props and the affected components as React children.
 
 ### Example
 
-Suppose an application _My App_ leverages a service called _Fancy Service_, and _Fancy Service_ was known to be offline for maintenance every now and then. During those timeframes, it is desirable to show a message to the user explaining that _My App_ is unavailable at this time so that users aren't given the impression that they are running into unexpected errors and so that _Fancy Service_ isn't needlessly hit. This should also be easy for engineers to do, without requiring any deployments to publish/unpublish the messaging. This is a pretty typical use case for the `DowntimeNotification` React component.
+Suppose an application *My App* leverages a service called *Fancy Service*, and *Fancy Service* was known to be offline for maintenance every now and then. During those timeframes, it is desirable to show a message to the user explaining that *My App* is unavailable at this time so that users aren't given the impression that they are running into unexpected errors and so that *Fancy Service* isn't needlessly hit. This should also be easy for engineers to do, without requiring any deployments to publish/unpublish the messaging. This is a pretty typical use case for the `DowntimeNotification` React component.
 
 #### React code
 
 First, the topmost React container of My App is modified to import and consume the Downtime Notification React component.
 
-Note that `MyAppDataGrid` would issue the API request to _Fancy Service_ during `componentDidMount`, rather than `MyApp`. This is because `MyAppDataGrid` is passed a child component to `DowntimeNotification`. `DowntimeNotification` will fetch the currently-registered maintenance windows from the VA API (which in return reads the maintenance windows from PagerDuty), and if it discovers active downtime for `fancyService`, then the `componentDidMount` lifecycle method of `MyAppDataGrid` will not execute. This way, API requests to Fancy Service won't continue to send during downtime.
+Note that `MyAppDataGrid` would issue the API request to *Fancy Service* during `componentDidMount`, rather than `MyApp`. This is because `MyAppDataGrid` is passed a child component to `DowntimeNotification`. `DowntimeNotification` will fetch the currently-registered maintenance windows from the VA API (which in return reads the maintenance windows from PagerDuty), and if it discovers active downtime for `fancyService`, then the `componentDidMount` lifecycle method of `MyAppDataGrid` will not execute. This way, API requests to Fancy Service won't continue to send during downtime.
 
 **src/applications/my-app/containers/MyApp.jsx**
 
@@ -118,10 +118,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(MyApp);
 The render-flow for this container is:
 
 1. `MyApp`'s `render` method is executed
-1. `DowntimeNotification` issues a GET request to the VA API for all registered maintenance windows.
-1. `DowntimeNotification` processes the response JSON data into a map.
-1. `DowntimeNotification` searches the downtime map for a service called `fancyService`, as passed in its `dependencies` prop.
-1. If downtime for `fancyService` is found:
+2. `DowntimeNotification` issues a GET request to the VA API for all registered maintenance windows.
+3. `DowntimeNotification` processes the response JSON data into a map.
+4. `DowntimeNotification` searches the downtime map for a service called `fancyService`, as passed in its `dependencies` prop.
+5. If downtime for `fancyService` is found:
    - If the current time is in the timeframe of the downtime window, render an alert banner informing the user that this application is undergoing maintenance.
    - Otherwise, `DowntimeNotification` will renders its children, in this case `MyAppDataGrid`. A dismissible modal is also rendered if downtime is approaching within the hour.
 
@@ -153,14 +153,14 @@ If you've created a new backend service that a React application depends on, fol
 - Login to PagerDuty (https://dsva.pagerduty.com/)
 - Go to your **staging** service
 - Create a maintenance window sometime in the future.
-  - You can specify a message to a user by using the token "USER_MESSAGE: " in the description (i.e. "Down for v16 update. USER_MESSAGE: We'll be back soon!")
+  - You can specify a message to a user by using the token "USER\_MESSAGE: " in the description (i.e. "Down for v16 update. USER\_MESSAGE: We'll be back soon!")
     - - Note that custom messages are discouraged to maintain a consistent user experience.
-- Visit https://staging-platform-api.va.gov/v0/maintenance_windows and ensure that your service's downtime window is listed
+- Visit https://staging-platform-api.va.gov/v0/maintenance\_windows and ensure that your service's downtime window is listed
   - This information is cached and may have a delay for up to 3 minutes (see: the [PagerDuty::PollMaintenanceWindows job](https://github.com/department-of-veterans-affairs/vets-api/blob/master/app/workers/pager_duty/poll_maintenance_windows.rb)).
 
 ## Other examples
 
 1. The Search app is a basic [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/search/containers/SearchApp.jsx#L301) of an application having a single service dependency, in this case being Search.gov. The Facility Locator is another [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/facility-locator/containers/FacilityLocatorApp.jsx#L74).
-1. The Account app is another simple [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/account/containers/AccountApp.jsx#L23). This application has two dependencies. If either is down, then the application is considered in maintenance.
-1. The Sign-In Modal is an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/user/authentication/components/SignInModal.jsx#L74) of a component that renders messaging about service downtime, but it does not affect the functionality of the component. Instead, it's more a heads-up for the user about potential difficulty. This is also the case for [Letters](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/letters/containers/LettersApp.jsx#L63).
-1. The Dashboard app consists of components with their own unique dependencies, so that a certain service being in maintenance should result in reduced but partial functionality for the Dashboard. It serves as an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/dashboard/containers/DashboardApp.jsx#L398) of a more complex implementation of Downtime Notifications.
+2. The Account app is another simple [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/account/containers/AccountApp.jsx#L23). This application has two dependencies. If either is down, then the application is considered in maintenance.
+3. The Sign-In Modal is an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/platform/user/authentication/components/SignInModal.jsx#L74) of a component that renders messaging about service downtime, but it does not affect the functionality of the component. Instead, it's more a heads-up for the user about potential difficulty. This is also the case for [Letters](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/letters/containers/LettersApp.jsx#L63).
+4. The Dashboard app consists of components with their own unique dependencies, so that a certain service being in maintenance should result in reduced but partial functionality for the Dashboard. It serves as an [example](https://github.com/department-of-veterans-affairs/vets-website/blob/90152b7cdf5b53d6650b44fed832995dbf7660cb/src/applications/personalization/dashboard/containers/DashboardApp.jsx#L398) of a more complex implementation of Downtime Notifications.

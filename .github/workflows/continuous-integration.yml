@@ -34,6 +34,10 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Lint MDX files
+        id: mdx-lint
+        run: yarn lint:mdx
+
   testing:
     name: Testing
     runs-on: ubuntu-latest

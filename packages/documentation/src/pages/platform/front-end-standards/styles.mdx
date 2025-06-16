@@ -7,17 +7,17 @@ title: Guidelines for good SCSS / CSS
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
   <h3>
-    Find{' '}
+    Find
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Guidelines-for-good-SCSS-%2F-CSS.1844740108.html">
       the latest version of this page
-    </a>{' '}
+    </a>
     on the Platform website.
   </h3>
   <h3>
-    Still can't find what you're looking for? Reach out to{' '}
+    Still can't find what you're looking for? Reach out to
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{' '}
+    </a>
     on Slack.
   </h3>
 </div>
@@ -41,11 +41,13 @@ High specificity selectors are more likely to create side effects, that have to 
 
 SCSS compiles nested selectors into descendant combinators. For example:
 
+```css
     #content {
       ol {
         p {}
       }
     }
+```
 
 Compiles to:
 
@@ -55,10 +57,12 @@ There's a high likelihood, however that your selectors don't need to be that lon
 
 Nesting selectors can be useful, however, when creating variants. For example:
 
+```css
     .button {
       &-link {
       }
     }
+  ```
 
 Compiles to `button-link`.
 
@@ -78,6 +82,7 @@ This keeps selector specificity low, while also restricting the side-effects of 
 
 SCSS `@extend` repeats every instance of the extended selector for the extendee selector. (This will be flagged by our Sass-lint configuration.)
 
+```css
     h4 {
       color: #c09;
       font-size: 1.2rem;
@@ -92,9 +97,11 @@ SCSS `@extend` repeats every instance of the extended selector for the extendee 
     .footer h4 {
       display: inline;
     }
+```
 
 Compiles to:
 
+```css
     h4, label {
       color: #c09;
       font-size: 1.2rem;
@@ -105,6 +112,7 @@ Compiles to:
 
     .footer h4, .footer label {
       display: inline; }
+```
 
 Every instance of `h4` will also be applied to `label`. This is usually not the behavior we want, particularly across an entire code base.
 

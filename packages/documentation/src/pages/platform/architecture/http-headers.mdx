@@ -129,7 +129,7 @@ subgraph HTTP Body
   - `Access-Control-Allow-Origin: https://www.va.gov` - if allowed origin doesn't match the current origin, then the browser will not load the resource
     - `... has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
     - VA.gov is configured to only add this header when the request contains an origin that matches our whitelist
-    - Server _can_ block the request- ours do not opting to always return the resource
+    - Server *can* block the request- ours do not opting to always return the resource
 
 ---
 

@@ -25,7 +25,7 @@ The deployment of the reverse proxy configuration:
 - [staging](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov-staging.yml#L77-L81)
 - [prod](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov-prod.yml#L78-L82)
 
-Each deployment calls the `nginx` file [nginx_website_server](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/templates/nginx_website_server.conf.j2#L17) which passes the corresponding properties depending on each environment. It also calls [nginx_revproxy_redirects](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/templates/nginx_revproxy_redirects.conf.j2) to handle the port 80/443 requests
+Each deployment calls the `nginx` file [nginx\_website\_server](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/templates/nginx_website_server.conf.j2#L17) which passes the corresponding properties depending on each environment. It also calls [nginx\_revproxy\_redirects](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/templates/nginx_revproxy_redirects.conf.j2) to handle the port 80/443 requests
 
 Nginx conf files containing the properties for each environment:
 
@@ -49,5 +49,5 @@ directory you will need to trigger a deployment of the reverse proxy to see your
 3. Click on the deployment number to visit the landing page for that deployment.
 4. Click "Replay" in the sidebar to deploy your changes. If you don't see, "Replay," "Rebuild" can also be
    used. If you don't see either option and you think you should please
-   [file an issue with the Operations team](https://github.com/department-of-veterans-affairs/va.gov-team/issues/new?assignees=&labels=operations%2C+devops%2C+needs-grooming&template=ops_issue_template.md&title=).
+   [file an issue with the Operations team](https://github.com/department-of-veterans-affairs/va.gov-team/issues/new?assignees=\&labels=operations%2C+devops%2C+needs-grooming\&template=ops_issue_template.md\&title=).
    The deployment process should take about 10 minutes.
