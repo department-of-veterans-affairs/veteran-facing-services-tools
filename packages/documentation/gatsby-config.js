@@ -146,7 +146,17 @@ module.exports = {
           // Add support for MDX nodes as well
           Mdx: {
             title: node => node.frontmatter && node.frontmatter.title ? node.frontmatter.title : '',
-            tags: node => node.frontmatter && node.frontmatter.tags ? node.frontmatter.tags.join(',') : '',
+            tags: node => {
+              if (node.frontmatter && node.frontmatter.tags) {
+                // Check if tags is an array before calling join
+                return Array.isArray(node.frontmatter.tags) 
+                  ? node.frontmatter.tags.join(',') 
+                  : typeof node.frontmatter.tags === 'string' 
+                    ? node.frontmatter.tags 
+                    : '';
+              }
+              return '';
+            },
             path: node => node.fields && node.fields.slug ? node.fields.slug : '',
           },
         },
