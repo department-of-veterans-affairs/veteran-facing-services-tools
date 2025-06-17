@@ -168,27 +168,27 @@ exports.createPages = async helpers => {
   await createVaGovTeamPages(helpers);
 };
 
-exports.onCreatePage = helpers => {
-  setSourceUrl(helpers);
-};
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      fallback: {
-        stream: require.resolve('stream-browserify'),
-        buffer: require.resolve('buffer/'),
+exports.onCreatePage = async ({ page, actions, ...rest }) => {
+  // Call setSourceUrl first
+  setSourceUrl({ page, actions, ...rest });
+  
+  exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        fallback: {
+          stream: require.resolve('stream-browserify'),
+          buffer: require.resolve('buffer/'),
+        }
+      },
+      experiments: {
+        asyncWebAssembly: true,
+        syncWebAssembly: true,
       }
-    },
-    experiments: {
-      asyncWebAssembly: true,
-      syncWebAssembly: true,
-    }
-  });
-};
-
-exports.onCreatePage = async ({ page, actions }) => {
+    });
+  };
+  
+  // Then handle client-only routes
   const { createPage } = actions
 
   // page.matchPath is a special key that's used for matching pages
