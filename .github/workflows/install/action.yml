@@ -28,14 +28,14 @@ runs:
       run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
         check-latest: true
 
     - name: Cache dependencies
       id: cache-dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ inputs.path }}
         key: ${{ steps.get-node-version.outputs.NODE_VERSION }}-${{ inputs.key }}
@@ -46,6 +46,6 @@ runs:
       with:
         command: yarn install --frozen-lockfile --prefer-offline --production=false
         max_attempts: 3
-        timeout_minutes: 7
+        timeout_minutes: 10
       env:
         YARN_CACHE_FOLDER: ${{ inputs.yarn_cache_folder }}
