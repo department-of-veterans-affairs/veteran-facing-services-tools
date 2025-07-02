@@ -44,7 +44,7 @@ runs:
     - name: Install dependencies
       uses: nick-invision/retry@v3
       with:
-        command: yarn install --frozen-lockfile --prefer-offline --production=false
+        command: yarn install --frozen-lockfile --prefer-offline --production=false --ignore-scripts
         max_attempts: 3
         timeout_minutes: 10
       env:
