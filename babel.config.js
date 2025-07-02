@@ -49,13 +49,12 @@ module.exports = function(api) {
           forceAllTransforms: true,
           targets: {
             browsers: [
-              'Chrome 60',
-              'Firefox 57',
-              'iOS 9',
-              'Edge 14',
-              'ChromeAndroid 64',
-              'Safari 10',
-              'ie 11',
+              'Chrome >= 80',
+              'Firefox >= 78',
+              'iOS >= 13',
+              'Edge >= 80',
+              'ChromeAndroid >= 80',
+              'Safari >= 13'
             ],
           },
           useBuiltIns: 'entry',

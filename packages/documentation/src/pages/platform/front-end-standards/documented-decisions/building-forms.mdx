@@ -5,19 +5,19 @@ tags: rjsf, redux-form, json schema, react-form
 
 # Building forms
 
-| | | | |
-| --- | --- | --- | --- |
-|**Decision Made:**|Yes| **Decision Date:** | 01/2017 |
-|**Revisit Decision:**| Yes | **Revisit Date:** | December 2017 |
+|                       |     |                    |               |
+| --------------------- | --- | ------------------ | ------------- |
+| **Decision Made:**    | Yes | **Decision Date:** | 01/2017       |
+| **Revisit Decision:** | Yes | **Revisit Date:**  | December 2017 |
 
 **Revisit Criteria:** As of 9/2017, all our forms are using RJSF. We should regroup and take a look at how it's going a few months after that.
 
 **Decision Makers:** @annekainicUSDS @jbalboni @ayaleloehr @aub
 
-
 ---
 
 ## tl;dr
+
 When bringing lengthy paper forms to Vets.gov, we use react-jsonschema-form and the common code we've built on top of it.
 
 A longer form [article on this decision](https://medium.com/the-u-s-digital-service/building-forms-faster-on-vets-gov-d8619f4e9db) can be found on the USDS Medium. The information below is meant to be a distilled version.
@@ -45,6 +45,6 @@ We built two forms (10-10EZ and 22-1990) with a basic React/Redux approach. The 
 
 There are other React form libraries, most of which have you still building forms with React components ([redux-form](redux-form.com), [react-form](https://react-form.js.org/#/story/readme-documentation)). We could have gone with one of those, and put more effort into building reusable components, but we didn't feel like we would make as big of an improvement as with config file based approaches.
 
-
 ## Decision
+
 Long paper forms on Vets.gov will use RJSF and the shared code built on top of it.

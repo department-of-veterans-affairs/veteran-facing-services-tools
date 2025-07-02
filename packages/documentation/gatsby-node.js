@@ -6,6 +6,15 @@
 
 const path = require('path');
 
+// Node 20 has native support for Web Streams API
+// This polyfill is only needed for older Node versions
+if (!global.ReadableStream) {
+  const { ReadableStream, WritableStream, TransformStream } = require('node:stream/web');
+  global.ReadableStream = ReadableStream;
+  global.WritableStream = WritableStream; 
+  global.TransformStream = TransformStream;
+}
+
 // Base URL for a GitHub link to the source of a page *from this repo*.
 const GITHUB_FILE_BASE_URL =
   'https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master';
@@ -159,19 +168,27 @@ exports.createPages = async helpers => {
   await createVaGovTeamPages(helpers);
 };
 
-exports.onCreatePage = helpers => {
-  setSourceUrl(helpers);
-};
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    },
-  });
-};
-
-exports.onCreatePage = async ({ page, actions }) => {
+exports.onCreatePage = async ({ page, actions, ...rest }) => {
+  // Call setSourceUrl first
+  setSourceUrl({ page, actions, ...rest });
+  
+  exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        fallback: {
+          stream: require.resolve('stream-browserify'),
+          buffer: require.resolve('buffer/'),
+        }
+      },
+      experiments: {
+        asyncWebAssembly: true,
+        syncWebAssembly: true,
+      }
+    });
+  };
+  
+  // Then handle client-only routes
   const { createPage } = actions
 
   // page.matchPath is a special key that's used for matching pages

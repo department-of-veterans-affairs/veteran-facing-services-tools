@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         uses: ./.github/workflows/install
@@ -34,12 +34,16 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Lint MDX files
+        id: mdx-lint
+        run: yarn lint:mdx
+
   testing:
     name: Testing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         uses: ./.github/workflows/install
@@ -58,9 +62,22 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 45  # Set an overall timeout for the entire job
     steps:
+      # Free up disk space
+      - name: Maximize build disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # All of these default to true, but can be set to false to disable them
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         uses: ./.github/workflows/install
@@ -71,21 +88,54 @@ jobs:
             .cache/yarn
             node_modules
 
+      # Add Gatsby cache
+      - name: Cache Gatsby folders
+        uses: actions/cache@v3
+        with:
+          path: |
+            packages/documentation/.cache
+            packages/documentation/public
+          key: gatsby-build-${{ hashFiles('packages/documentation/package.json', 'packages/documentation/gatsby-*.js', 'packages/documentation/src/**/*.js') }}
+          restore-keys: |
+            gatsby-build-
+
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-gov-west-1
 
       - name: Get va-vsp-bot token
-        uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+        uses: marvinpinto/action-inject-ssm-secrets@latest
         with:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
-      - name: Build
-        run: GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} yarn build
+      # Build non-documentation packages first
+      - name: Build Non-Documentation Packages
+        timeout-minutes: 10
+        run: |
+          echo "Building eslint-plugin and formation packages..."
+          yarn build:eslint-plugin
+          yarn build:formation
+
+      # Install Playwright for documentation package
+      - name: Install Playwright
+        timeout-minutes: 5
+        working-directory: packages/documentation
+        run: yarn playwright install
+
+      # Build documentation package separately with its own timeout
+      - name: Build Documentation
+        timeout-minutes: 20
+        run: |
+          echo "Building documentation package..."
+          echo "Disk space before Gatsby build:"
+          df -h
+          GITHUB_API_KEY=${{ env.VA_VSP_BOT_GITHUB_TOKEN }} GATSBY_CPU_COUNT=2 NODE_OPTIONS=--max-old-space-size=4096 yarn build:documentation --verbose
+          echo "Disk space after Gatsby build:"
+          df -h
 
       - name: Compress documentation build
         if: github.ref == 'refs/heads/master'
@@ -93,7 +143,7 @@ jobs:
 
       - name: Upload documentation build artifact
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: documentation.tar.bz2
           path: documentation.tar.bz2
@@ -105,22 +155,34 @@ jobs:
     needs: [linting, build]
     if: github.ref == 'refs/heads/master'
     steps:
+      # Free up disk space
+      - name: Maximize build disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+          
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Get Node version
         id: get-node-version
-        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
       - name: Setup Node and cache documentation dependencies
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
           cache: 'yarn'
           cache-dependency-path: packages/documentation/yarn.lock
 
       - name: Install dependencies
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           command: cd packages/documentation && yarn install --frozen-lockfile --prefer-offline --production=false
           max_attempts: 3
@@ -129,24 +191,24 @@ jobs:
           YARN_CACHE_FOLDER: ~/.cache/yarn
 
       - name: Download documentation build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
-          name: documentation.tar.bz2
+          name: documentation.tar
 
       - name: Extract documentation build artifact
         run: |
-          mkdir packages/documentation/public
-          tar -C packages/documentation/public -xvf documentation.tar.bz2
+          mkdir -p packages/documentation/public
+          tar -C packages/documentation/public -xf documentation.tar
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-gov-west-1
 
       - name: Get va-vsp-bot token
-        uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+        uses: marvinpinto/action-inject-ssm-secrets@latest
         with:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN

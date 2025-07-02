@@ -3,9 +3,11 @@ title: How to add documents
 ---
 
 ## How to Add Documents
+
 This is the process of how you should add new pages and documents to this website.
 
 ### MDX Format
+
 We will be using the .mdx format to create our documents.
 MDX is a format that lets you seamlessly use JSX in your Markdown documents.
 You can import components, like interactive charts or notifs, and export metadata.
@@ -16,15 +18,20 @@ This makes writing long-form content with components a blast 🚀
 ### Adding Document Pages
 
 - **Create a .mdx file in `src/pages`**
+
 - **Add the required frontmatter at the top of the page. You will need this if you
   want it to display in the sidebar.**
 
   ```markdown
-    // Your .mdx page
-    ---
-    title: How to Add Documents
-    ---
+  // Your .mdx page
+
+  ---
+
+  title: How to Add Documents
+
+  ---
   ```
+
 - **You have the option to create React Components and add them to the MDX file.
   React components for pages should be located in src/components**
 
@@ -36,10 +43,10 @@ the main site navigation and sidebar. You can add your page where it makes sense
 There are examples in the sidebar file to follow. You'll need to add an object with `name` and `href` properties
 for regular links and you can also create nested sections by leaving out `href` and adding an `items` array to objects.
 
-  ### GraphQl Sample Reference
+### GraphQl Sample Reference
 
-  https://www.gatsbyjs.org/docs/graphql-reference/
+https://www.gatsbyjs.org/docs/graphql-reference/
 
-  ### Github API GraphQL Explorer
+### Github API GraphQL Explorer
 
-  https://developer.github.com/v4/explorer/
+https://developer.github.com/v4/explorer/

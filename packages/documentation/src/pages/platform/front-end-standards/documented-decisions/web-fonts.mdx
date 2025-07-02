@@ -4,9 +4,9 @@ title: Reducing site performance impact of web fonts
 
 # WEB-FONTS IMPROVEMENTS
 
-| | | | |
-| --- | --- | --- | --- |
-|**Decision Made:**|No| **Decision Date:** | Winter 2019 |
+|                    |     |                    |             |
+| ------------------ | --- | ------------------ | ----------- |
+| **Decision Made:** | No  | **Decision Date:** | Winter 2019 |
 
 ### **GOALS**
 
@@ -56,12 +56,13 @@ https://github.com/department-of-veterans-affairs/va.gov-team/issues/1676
 - Using pre-load in some of the fonts can improve the performance. Doing this helps the FCP since the webfonts will not be blocked by the CSS files.
 - In order to do this I removed the hashing from the webfonts and hard-coded them in the header
 
-```  
+```
   <link rel="preload" href="/generated/sourcesanspro-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/generated/sourcesanspro-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/generated/bitter-bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/generated/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 ```
+
 - If FCP is the priority over the loading time, then pre-loading could be a good option to improve the performance of the fonts.
 - Keep in mind that we should only pre-load 3-4 fonts only because we might end up pre-loading fonts that will not be used in the page.
 
@@ -76,5 +77,3 @@ https://github.com/department-of-veterans-affairs/va.gov-team/issues/1676
 
 - Remove hashing from webfonts
 - Pre-load the 4 main fonts in the header
-
-

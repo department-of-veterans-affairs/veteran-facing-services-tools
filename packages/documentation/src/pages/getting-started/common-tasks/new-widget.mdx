@@ -6,9 +6,23 @@ tags: react, widget, content, dynamic, scaffold
 # Creating a new React widget
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Creating-a-new-React-widget.1849425948.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+
+  <h3>
+    Find 
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Creating-a-new-React-widget.1849425948.html">
+      the latest version of this page
+    </a>
+    on the Platform website.
+  </h3>
+
+  <h3>
+    Still can't find what you're looking for? Reach out to 
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>
+    on Slack.
+  </h3>
 </div>
 
 Note: Check out the [Adding a new feature](/getting-started/common-tasks/new-feature) doc to make sure you're trying to add the right type of feature to VA.gov.
@@ -22,6 +36,7 @@ All the static pages use the `static-pages` entry bundle, so any JS code include
 ```markdown
 title: My awesome widget page
 layout: page.html
+
 ---
 ```
 
@@ -82,6 +97,7 @@ We should be careful to not create a bad user experience when using React on sta
 ## Running end-to-end tests on a widget
 
 Before running end-to-end (e2e) tests for a widget, you must add an entry for your widget to `src/applications/registry.scaffold.json`. This will allow a landing page to be generated for your widget so you can run end-to-end tests in `vets-website`. An example entry looks something like:
+
 ```json
 {
    "appName": "About VA Disability Ratings",
@@ -89,6 +105,7 @@ Before running end-to-end (e2e) tests for a widget, you must add an entry for yo
    "widgetType": "disability-rating-calculator"
 },
 ```
+
 - `appName`: The name of the title that will be used for the page.
 - `rootUrl`: The relative url of the page that the widget will be mounted on.
 - `widgetType`: The name of the `data-widget-type` attribute that will be used to mount your widget on the page.

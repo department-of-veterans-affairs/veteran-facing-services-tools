@@ -7,18 +7,20 @@ tags: feature branching, git, code
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{" "}
+    Find 
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Write.1846312961.html">
       the latest version of this page
-    </a>{" "}
+    </a>
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{" "}
+    Still can't find what you're looking for? Reach out to 
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{" "}
+    </a>
     on Slack.
   </h3>
 </div>
@@ -27,7 +29,7 @@ tags: feature branching, git, code
 
 - Work with your team to determine the right issue to work on
 
-_The VA handbook has more information about the broader process for delivering services to Veterans on VA.gov. Developers work in an agile framework, where issues are assigned to sprints and developers work on this items over the two-week sprint period._
+*The VA handbook has more information about the broader process for delivering services to Veterans on VA.gov. Developers work in an agile framework, where issues are assigned to sprints and developers work on this items over the two-week sprint period.*
 
 ## Create feature branch
 
@@ -43,7 +45,7 @@ git checkout main && git pull origin main
 git checkout -b feature/12345-issue-title
 ```
 
-_Since most new work derives from a GitHub Issue, it's recommended to prefix your branch name with the issue. For example, if you're working on a feature to collect a veteran's address as detailed in Issue #25, you might call your issue `25-address`._
+*Since most new work derives from a GitHub Issue, it's recommended to prefix your branch name with the issue. For example, if you're working on a feature to collect a veteran's address as detailed in Issue #25, you might call your issue `25-address`.*
 
 ## Code new functionality
 
@@ -61,7 +63,7 @@ As you code your changes, commit changes to your feature branch. **Commit early.
 
 These tests are automatically executed during [review](/getting-started/common-tasks/workflow/review), but you should [run them locally](/getting-started/common-tasks/test) before moving on.
 
-_The only way to quickly know if your new change breaks the existing functionality of the application is to have a suite of automated tests that execute whenever new stuff is added. When you add new functionality, new tests are required so that future developers know if they have broken your contributions._
+*The only way to quickly know if your new change breaks the existing functionality of the application is to have a suite of automated tests that execute whenever new stuff is added. When you add new functionality, new tests are required so that future developers know if they have broken your contributions.*
 
 ## Manual Testing
 

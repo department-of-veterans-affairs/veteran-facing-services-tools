@@ -5,6 +5,7 @@ title: About MDX
 ## About MDX
 
 ### What is MDX?
+
 We will be using the .mdx format to create our documents.
 MDX is a format that lets you seamlessly use JSX in your Markdown documents.
 You can import components, like interactive charts or notifs, and export metadata.
@@ -13,15 +14,18 @@ This makes writing long-form content with components a blast 🚀
 [https://mdxjs.com/](https://mdxjs.com/)
 
 ### Examples
+
 Here is a great page of examples of using MDX
 
 - http://dump.jamesknelson.com/mdxc-playground.html
 
 ### Things you can do with MDX and gotchas
+
 This is documentation of findings for using MDX in our projects. Please feel
 free to add to this document if you find anything else.
 
 #### Inline components
+
 You can use components inline inside your MDX files. Below is an example
 of how to do it.
 
@@ -69,6 +73,7 @@ export const InlinePresentationalComponent = () => (
 ```
 
 ***Gotchas***
+
 - MDX doesn't like newlines in between methods in a class based component.
 - Inline components need to begin with an uppercase letter. If it starts with a
   lowercase it will not render.
@@ -92,6 +97,7 @@ export class inlineClassComponent extends React.Component {
 ```
 
 Good:
+
 ```
 export class InlineClassComponent extends React.Component {
   constructor() {

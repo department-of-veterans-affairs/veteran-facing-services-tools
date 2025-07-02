@@ -7,18 +7,20 @@ tags: Mocha, Chai, Enzyme, schemaform-utils
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{" "}
+    Find 
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Unit-tests.1836187655.html">
       the latest version of this page
-    </a>{" "}
+    </a>
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{" "}
+    Still can't find what you're looking for? Reach out to 
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{" "}
+    </a>
     on Slack.
   </h3>
 </div>
@@ -30,7 +32,7 @@ For example, you might create a unit test file for each page in a form and then 
 - The correct number of fields display validation errors if you submit without entering any information.
 - Any conditional logic on the page displays under the correct conditions.
 
-For more detailed information about unit test best practices and an in-depth discussion of how they apply to `vets-website`, please view this recording of [Front End Unit Tests on VA.gov - Best Practices/Q&A Brown Bag Training](https://youtu.be/8Y0cuMUoWAw).
+For more detailed information about unit test best practices and an in-depth discussion of how they apply to `vets-website`, please view this recording of [Front End Unit Tests on VA.gov - Best Practices/Q\&A Brown Bag Training](https://youtu.be/8Y0cuMUoWAw).
 
 ## Unit test overview
 
@@ -38,7 +40,7 @@ For more detailed information about unit test best practices and an in-depth dis
   - [Mocha](https://mochajs.org/) for running unit tests
   - [Chai](http://chaijs.com/) for test assertions
   - [React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) and [Enzyme](https://airbnb.io/enzyme/) for mounting and inspecting React components
-    - We encourage the use of React Testing Library in place of Enzyme. [See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
+    - We encourage the use of React Testing Library in place of Enzyme. \[See the migration docs] (https://testing-library.com/docs/react-testing-library/migrate-from-enzyme).
   - [Sinon](https://sinonjs.org/) for stubs and spies
 - Unit tests are **collocated with the application folder** in a test directory that matches the application directory structure:
 
@@ -52,7 +54,7 @@ For more detailed information about unit test best practices and an in-depth dis
         - MyComponent.unit.spec.jsx
 ```
 
-Mocha runs any _file_name_.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
+Mocha runs any *file\_name*.unit.spec.js file located in the `/src` folder. This file is usually located in a test directory close to the code being tested.
 [Run the test](/getting-started/common-tasks/test) locally through npm script commands, during the Jenkins build (Unit), and after merging to main.
 
 ## Unit test conventions
@@ -60,17 +62,17 @@ Mocha runs any _file_name_.unit.spec.js file located in the `/src` folder. This 
 Use the following conventions when writing a unit test.
 
 ```js
-import React from "react";
-import { expect } from "chai";
-import { render } from "@testing-library/react";
-import MyComponent from "../../components/MyComponent";
+import React from 'react';
+import { expect } from 'chai';
+import { render } from '@testing-library/react';
+import MyComponent from '../../components/MyComponent';
 
-describe("my-application", () => {
-  describe("MyComponent", () => {
+describe('my-application', () => {
+  describe('MyComponent', () => {
     it('renders privacy act disclosure when "show" is true', () => {
       const screen = render(<MyComponent show />);
-      expect(screen.getByRole("heading")).to.have.text(
-        "Privacy Act Disclosure"
+      expect(screen.getByRole('heading')).to.have.text(
+        'Privacy Act Disclosure',
       );
     });
   });
@@ -195,10 +197,10 @@ We recommend using [React Testing Library](https://testing-library.com/docs/reac
 
 ```js
 // SimpleLoginForm.js
-import React from "react";
+import React from 'react';
 
 const SimpleLoginForm = ({ onSubmit }) => {
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
     const {
@@ -206,11 +208,11 @@ const SimpleLoginForm = ({ onSubmit }) => {
       passwordInput: { value: password },
     } = event.target.elements;
     if (!username) {
-      setError("username is required");
+      setError('username is required');
     } else if (!password) {
-      setError("password is required");
+      setError('password is required');
     } else {
-      setError("");
+      setError('');
       onSubmit({ username, password });
     }
   }
@@ -237,19 +239,19 @@ export default SimpleLoginForm;
 
 ```js
 // SimpleLoginForm.unit.spec.jsx
-import React from "react";
-import { expect } from "chai";
-import sinon from "sinon";
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import SimpleLoginForm from "../../components/SimpleLoginForm";
+import React from 'react';
+import { expect } from 'chai';
+import sinon from 'sinon';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import SimpleLoginForm from '../../components/SimpleLoginForm';
 
-describe("my-application", () => {
-  describe("SimpleLoginForm", () => {
-    it("calls onSubmit with the username and password when submit is clicked", () => {
+describe('my-application', () => {
+  describe('SimpleLoginForm', () => {
+    it('calls onSubmit with the username and password when submit is clicked', () => {
       const handleSubmit = sinon.spy();
       const screen = render(<SimpleLoginForm onSubmit={handleSubmit} />); // alternatively `const { getByLabelText, getByText } = render(<SimpleLoginForm onSubmit={handleSubmit} />);`
-      const user = { username: "user123", password: "password123" };
+      const user = { username: 'user123', password: 'password123' };
 
       userEvent.type(screen.getByLabelText(/username/i), user.username);
       userEvent.type(screen.getByLabelText(/password/i), user.password);
@@ -344,7 +346,7 @@ This example uses [Enzyme](http://airbnb.io/enzyme/) and mounts a `DefinitionTes
 The next test in the file checks to see that the right fields are marked as required:
 
 ```js
-it("should not submit without required info", () => {
+it('should not submit without required info', () => {
   const onSubmit = sinon.spy();
   const form = mount(
     <DefinitionTester
@@ -353,10 +355,10 @@ it("should not submit without required info", () => {
       schema={schema}
       data={{}}
       uiSchema={uiSchema}
-    />
+    />,
   );
-  form.find("form").simulate("submit");
-  expect(form.find(".usa-input-error").length).to.equal(6);
+  form.find('form').simulate('submit');
+  expect(form.find('.usa-input-error').length).to.equal(6);
   expect(onSubmit.called).to.be.false;
   form.unmount();
 });
@@ -366,7 +368,7 @@ This test simulates a form submission and then counts the number of error elemen
 Finally, this example test fills in all the data and submits the form:
 
 ```js
-it("should submit with all info filled in", () => {
+it('should submit with all info filled in', () => {
   const onSubmit = sinon.spy();
   const form = mount(
     <DefinitionTester
@@ -375,16 +377,16 @@ it("should submit with all info filled in", () => {
       schema={schema}
       data={{}}
       uiSchema={uiSchema}
-    />
+    />,
   );
-  fillData(form, "input#root_veteranFullName_first", "test");
-  fillData(form, "input#root_veteranFullName_last", "test2");
-  fillData(form, "input#root_veteranSocialSecurityNumber", "233224343");
-  selectRadio(form, "root_gender", "F");
-  fillDate(form, "root_veteranDateOfBirth", "1920-01-04");
-  fillData(form, "select#root_serviceBranch", "F");
-  form.find("form").simulate("submit");
-  expect(form.find(".usa-input-error").length).to.equal(0);
+  fillData(form, 'input#root_veteranFullName_first', 'test');
+  fillData(form, 'input#root_veteranFullName_last', 'test2');
+  fillData(form, 'input#root_veteranSocialSecurityNumber', '233224343');
+  selectRadio(form, 'root_gender', 'F');
+  fillDate(form, 'root_veteranDateOfBirth', '1920-01-04');
+  fillData(form, 'select#root_serviceBranch', 'F');
+  form.find('form').simulate('submit');
+  expect(form.find('.usa-input-error').length).to.equal(0);
   expect(onSubmit.called).to.be.true;
   form.unmount();
 });

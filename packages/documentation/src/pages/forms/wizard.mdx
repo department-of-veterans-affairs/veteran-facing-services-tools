@@ -14,7 +14,7 @@ More details can be found in these documents:
 - [IA documentation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/information-architecture/ia-reviews/websites-apply-wizard.md) for implementation teams; also includes some UX documenation
 - Additional UX guidance captured in [UXPin documentation](https://preview.uxpin.com/ca08f3dbf63475b2b62f3e8c00050ad1b19c4cb5#/pages/132986657/documentation/no-panels?mode=i) (using Edu flow as an example)
 - Content outlines of wizard user flows
-    - [Education wizard content outline](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/products/public-websites/how-to-apply-wizards/content-outlines/education-forms-wizard.md)
+  - [Education wizard content outline](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/products/public-websites/how-to-apply-wizards/content-outlines/education-forms-wizard.md)
 - [Usability Study Synthesis](https://github.com/department-of-veterans-affairs/va.gov-team/files/5548107/Wizard.Migration.Usability.Study.Synthesis.pdf)
 - Analytics: https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md
 
@@ -46,7 +46,7 @@ to render a link to the start of your form conditionally (behind a feature flag)
 
 Within the `pages` folder, are pages that represent each wizard node. The
 `index.js` imports all the pages and exports an array with the first entry being
-the wizard start page. Each page file _must_ export the following object which
+the wizard start page. Each page file *must* export the following object which
 contains the page name and component.
 
 ```js
@@ -146,7 +146,6 @@ const formConfig = {
 A `restartFormCallback` is not set in this case because we're handling it in the
 app.
 
-
 ### Application status
 
 A component (see `createApplicationStatus` in the file structure section) to
@@ -170,7 +169,7 @@ state) or continuing (set the wizard state to complete), we need to provide the
 
 ## Tasks
 
-- [ ] Match design spec
-- [ ] Verify wizard flow per [IA documenation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/information-architecture/ia-reviews/websites-apply-wizard.md)
-- [ ] Ensure [analytics implementation spec](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md) is followed
-- [ ] Add unit/e2e tests
+- \[ ] Match design spec
+- \[ ] Verify wizard flow per [IA documenation](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/information-architecture/ia-reviews/websites-apply-wizard.md)
+- \[ ] Ensure [analytics implementation spec](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/analytics/google-analytics/tracking-how-to-wizards.md) is followed
+- \[ ] Add unit/e2e tests

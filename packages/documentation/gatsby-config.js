@@ -45,7 +45,13 @@ module.exports = {
         patterns: 'platform/working-with-vsp/**',
       },
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,7 +62,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
-        failOnError: false,
+        failOn: 'none',
       },
     },
     `gatsby-transformer-sharp`,
@@ -75,10 +81,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
-        mediaTypes: ['text/x-markdown'],
-        defaultLayouts: {
-          default: require.resolve('./src/layouts/SidebarLayout.jsx'),
-        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -89,9 +91,6 @@ module.exports = {
           {
             resolve: 'gatsby-remark-mermaid',
           },
-          {
-            resolve: 'gatsby-remark-slug',
-          },
         ],
       },
     },
@@ -99,15 +98,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        // CommonMark mode (default: true)
-        commonmark: true,
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // Pedantic mode (default: true)
-        pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
         gfm: true,
-        // Plugins configs
         plugins: [],
       },
     },
@@ -118,7 +109,7 @@ module.exports = {
         fields: [`title`, `tags`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          // For any node of type SitePage, list how to resolve the fields` values
           SitePage: {
             title: node => {
               if (
@@ -136,8 +127,8 @@ module.exports = {
                 return node.context.title;
               }
 
-              console.info('Page title missing from front matter.', node);
-              return '';
+              // Return a default title for pages without front matter
+              return node.path.split('/').pop() || 'Home';
             },
             tags: node => {
               if (
@@ -151,6 +142,22 @@ module.exports = {
               return '';
             },
             path: node => node.path,
+          },
+          // Add support for MDX nodes as well
+          Mdx: {
+            title: node => node.frontmatter && node.frontmatter.title ? node.frontmatter.title : '',
+            tags: node => {
+              if (node.frontmatter && node.frontmatter.tags) {
+                // Check if tags is an array before calling join
+                return Array.isArray(node.frontmatter.tags) 
+                  ? node.frontmatter.tags.join(',') 
+                  : typeof node.frontmatter.tags === 'string' 
+                    ? node.frontmatter.tags 
+                    : '';
+              }
+              return '';
+            },
+            path: node => node.fields && node.fields.slug ? node.fields.slug : '',
           },
         },
       },

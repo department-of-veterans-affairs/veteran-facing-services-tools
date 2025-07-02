@@ -1,9 +1,23 @@
 # Routing
 
 <div class="deprecation-message">
-    <h2>We're moving our docs!</h2>
-    <h3>Find <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Routing.1844872008.html">the latest version of this page</a> on the Platform website.</h3>
-    <h3>Still can't find what you're looking for? Reach out to <a href="https://dsva.slack.com/archives/CBU0KDSB1">#vfs-platform-support</a> on Slack.</h3>
+  <h2>We're moving our docs!</h2>
+
+  <h3>
+    Find 
+    <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Routing.1844872008.html">
+      the latest version of this page
+    </a>
+    on the Platform website.
+  </h3>
+
+  <h3>
+    Still can't find what you're looking for? Reach out to 
+    <a href="https://dsva.slack.com/archives/CBU0KDSB1">
+      #vfs-platform-support
+    </a>
+    on Slack.
+  </h3>
 </div>
 
 ## Reverse Proxy Config
@@ -16,30 +30,34 @@ To use client side routing such as react-router, the `react_routes` section must
 For example, a React app running at `www.va.gov/appPath` would need this added:
 
 ```yml
-  - path: /appPath
-    protected: no
+- path: /appPath
+  protected: no
 ```
+
 By default, one url path maps to one document. This configuration changes the default behavior so that any additional path parts after `/appPath` like `/appPath/IntroductionPage` will return the document at `/appPath`.
 
 ## Server-side Redirects
 
 To redirect from one URL to another, use the `redirects` section with a `src`, `dest`, and optional params such as:
+
 ```yaml
-  # Redirect /caregivers/introduction to /caregivers
-  - src: /caregivers/introduction
-    dest: /caregivers
-    rewrite: permanent
+# Redirect /caregivers/introduction to /caregivers
+- src: /caregivers/introduction
+  dest: /caregivers
+  rewrite: permanent
 ```
+
 ```yaml
-  # Redirect various claim process and apply links
-  - src: /disability-benefits/claims-process/ratings/
-    dest: /disability-benefits/eligibility/ratings/
+# Redirect various claim process and apply links
+- src: /disability-benefits/claims-process/ratings/
+  dest: /disability-benefits/eligibility/ratings/
 ```
+
 ```yaml
-  # ==============
-  # March 23, 2020: https://github.com/department-of-veterans-affairs/va.gov-team/issues/7104
-  # ==============
-  - src: ^/coronavirus-veteran-faq/?$
-    dest: /coronavirus-veteran-frequently-asked-questions/
-    matcher: "~*"
-```  
+# ==============
+# March 23, 2020: https://github.com/department-of-veterans-affairs/va.gov-team/issues/7104
+# ==============
+- src: ^/coronavirus-veteran-faq/?$
+  dest: /coronavirus-veteran-frequently-asked-questions/
+  matcher: '~*'
+```

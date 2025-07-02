@@ -7,18 +7,20 @@ tags: peer review, pull request, feature branch, git
 
 <div class="deprecation-message">
   <h2>We're moving our docs!</h2>
+
   <h3>
-    Find{" "}
+    Find 
     <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/Frontend-workflow:-Review.1845919891.html">
       the latest version of this page
-    </a>{" "}
+    </a>
     on the Platform website.
   </h3>
+
   <h3>
-    Still can't find what you're looking for? Reach out to{" "}
+    Still can't find what you're looking for? Reach out to 
     <a href="https://dsva.slack.com/archives/CBU0KDSB1">
       #vfs-platform-support
-    </a>{" "}
+    </a>
     on Slack.
   </h3>
 </div>
@@ -34,16 +36,16 @@ git push origin feature/12345-issue-title
 
 **Note:** If you are making changes in both repositories that are dependent on each other, you should give both branches in each repository the same name.
 
-_Always **pull main** into your feature branch before creating a pull request._
+*Always **pull main** into your feature branch before creating a pull request.*
 
 - **Create a pull request** indicating that your code is ready for review.
 - **Request peer review** on Github by tagging a fellow team member who you feel is qualified to review the code (this prevents the pull request from just sitting). You may also want to tag developers on other teams if the changes cover more than one application.
 
-_Depending on the type of work done, you may need a product person to review and / or a developer to review. See [Code Review Norms](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md) for more information on how we do code reviews._
+*Depending on the type of work done, you may need a product person to review and / or a developer to review. See [Code Review Norms](https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md) for more information on how we do code reviews.*
 
 - Use Zenhub to **connect** pull request with a **linked issue**
 
-_If you use the Zenhub Chrome [extension](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd), there will be a "Connect this pull request with an existing issue" section at the bottom of Github's create pull request UI. You can click the "Connect with an issue" button to link the PR to the original issue in Zenhub._
+*If you use the Zenhub Chrome [extension](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd), there will be a "Connect this pull request with an existing issue" section at the bottom of Github's create pull request UI. You can click the "Connect with an issue" button to link the PR to the original issue in Zenhub.*
 
 ![PR deployment list](../../../images/reviewing-feature-branches/connect-issue.png)
 
@@ -58,7 +60,7 @@ _If you use the Zenhub Chrome [extension](https://chrome.google.com/webstore/det
 
 ![PR deployment list](../../../images/reviewing-feature-branches/test-results.png)
 
-_See [Run Tests](/getting-started/common-tasks/test) to run these tests locally_
+*See [Run Tests](/getting-started/common-tasks/test) to run these tests locally*
 
 ## Manually test change
 
@@ -69,7 +71,7 @@ Manual testing can involve some separate things:
 - See if there are there any bugs or unexpected nuisances that users might encounter
 - Does it meet the requirements?
 
-_**The person making the change is responsible** for ensuring the change is adequately tested. Testing can include automated tests or manual testing by stakeholders on the review instance or staging build._
+***The person making the change is responsible** for ensuring the change is adequately tested. Testing can include automated tests or manual testing by stakeholders on the review instance or staging build.*
 
 ### Review instance automatic creation
 
@@ -78,7 +80,7 @@ _**The person making the change is responsible** for ensuring the change is adeq
 - an instance that just includes static pages content deployed by **va-bot**
 - an instance that includes static pages and the VA.gov client application deployed by **va-vfs-bot**
 
-_Example of deployment links:_
+*Example of deployment links:*
 
 ![PR deployment list](../../../images/reviewing-feature-branches/PR-deployment-list.png)
 
@@ -86,18 +88,18 @@ After a pull request is created, **Jenkins** will automatically **rebuild** thes
 
 To review dependent changes made in `vets-website` and `content-build` pull requests in the same review instance, verify both branches in each repository have the same name. The review instance deployment in both pull requests will share the same link. Changes made in either pull request will be deployed to that review instance.
 
-_You will need your browser configured to access the vetsgov-internal domain via the SOCKS proxy. Please see the [2. Access internal tools](/getting-started/internal-tools) for detailed instructions._
+*You will need your browser configured to access the vetsgov-internal domain via the SOCKS proxy. Please see the [2. Access internal tools](/getting-started/internal-tools) for detailed instructions.*
 
 ### Review instance manual creation
 
 **Jenkins** can be **manually triggered** to build a **review instance**.
 
 1. Visit the [Jenkins Review Application Deploy job UI](http://jenkins.vfs.va.gov/job/deploys/job/vets-review-instance-deploy/) and log in.
-1. Select **Build with Parameters**
-1. Specify the branch names for `api_branch`, `web_branch`, and `content_branch`. These branches will be deployed together with the review instance.
-1. When the process is completed, the URL for the review instance will be provided at the end of the output logs.
+2. Select **Build with Parameters**
+3. Specify the branch names for `api_branch`, `web_branch`, and `content_branch`. These branches will be deployed together with the review instance.
+4. When the process is completed, the URL for the review instance will be provided at the end of the output logs.
 
-_A Jenkins job will run periodically and remove review instances for which the source branches no longer exist. To ensure that your instance is cleaned up appropriately, just delete the branch from the origin repository._
+*A Jenkins job will run periodically and remove review instances for which the source branches no longer exist. To ensure that your instance is cleaned up appropriately, just delete the branch from the origin repository.*
 
 ## Peer review and merge
 
@@ -106,4 +108,4 @@ _A Jenkins job will run periodically and remove review instances for which the s
 - [Squash your commits](https://github.blog/2016-04-01-squash-your-commits/) and **merge** into **master**
 - **Delete** pull request branch
 
-_See our team's [code review norms](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/code_review_guidelines.md) for details on how code review work and what needs to be checked._
+*See our team's [code review norms](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/code_review_guidelines.md) for details on how code review work and what needs to be checked.*

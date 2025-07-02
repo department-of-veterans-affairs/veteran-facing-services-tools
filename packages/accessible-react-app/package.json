@@ -50,7 +50,6 @@
     "react": "^16.9.0",
     "react-axe": "^3.3.0",
     "react-dom": "npm:@hot-loader/react-dom",
-    "react-helmet": "^5.2.1",
     "react-hot-loader": "^4.12.12",
     "react-modal": "^3.10.1",
     "react-router-dom": "^5.0.1"

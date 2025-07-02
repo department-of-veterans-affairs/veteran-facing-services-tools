@@ -53,8 +53,8 @@ features:
 ```
 
 3. Determine how you want the feature toggle to be "sticky".
-   For the behavior to be consistent across all devices for a logged in user choose "user" as the actor_type.
-   For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie_id" as the actor_type.
+   For the behavior to be consistent across all devices for a logged in user choose "user" as the actor\_type.
+   For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie\_id" as the actor\_type.
 
 4. Run vets-api locally. This can be done on main after your pull request (PR) is merged or off of your feature branch.
 
@@ -64,7 +64,7 @@ features:
 
    ```js
    const FEATURE_FLAG_NAMES = Object.freeze({
-     showYourFeatureName: "app_name_then_your_feature_name",
+     showYourFeatureName: 'app_name_then_your_feature_name',
    });
    ```
 
@@ -78,10 +78,10 @@ features:
 
 ```js
 // import the toggleValues helper
-import { toggleValues } from "platform/site-wide/feature-toggles/selectors";
+import { toggleValues } from 'platform/site-wide/feature-toggles/selectors';
 
 // use the toggleValues helper to select the toggle values list
-export const appNameThenYourFeatureName = (state) =>
+export const appNameThenYourFeatureName = state =>
   toggleValues(state).appNameThenYourFeatureName;
 ```
 
@@ -131,8 +131,8 @@ features:
 ```
 
 3. Determine how you want the feature toggle to be "sticky".
-   For the behavior to be consistent across all devices for a logged in user choose "user" as the actor_type.
-   For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie_id" as the actor_type.
+   For the behavior to be consistent across all devices for a logged in user choose "user" as the actor\_type.
+   For the behavior to be consistent for a user for the duration of a cookie within a single browser, regardless of their logged in status choose "cookie\_id" as the actor\_type.
 
 4. Run vets-api locally. This can be done on master after your PR is merged or off of your feature branch.
 
@@ -206,7 +206,7 @@ flipper:
    - Select "Enable for everyone" or "Disable for everyone" to enable or disable the feature for all users.
    - Use "Percentage of Logged in Users" for a [staged rollout](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/product-management/release-plan-template.md#phase-ii-staged-rollout-also-known-as-unmoderated-production-testing) (gradual rollout or an a/b test).
      - "Percentage of Logged in Users" will enable the feature for only a percentage of logged in users. It will be applied to the same users each time they return to the site (even when they log out and back in) as long as you don't change the percentage.
-     - If the feature toggle's actor*type in [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml) is set to "cookie_id" rather than "user" then the feature instead applies to only a percentage of users for the duration of a cookie within a single browser, \_regardless of their logged in status*. This is useful when you need to apply a staged rollout that involves an unauthenticated user experience.
+     - If the feature toggle's actor*type in [config/features.yml](https://github.com/department-of-veterans-affairs/vets-api/blob/master/config/features.yml) is set to "cookie\_id" rather than "user" then the feature instead applies to only a percentage of users for the duration of a cookie within a single browser, \_regardless of their logged in status*. This is useful when you need to apply a staged rollout that involves an unauthenticated user experience.
    - Use "Percentage of Time" to enable a feature for all users for a percentage of time.
    - Register a "Group" of users to enable a feature for.
    - You can also roll out a feature for a select few users by adding their email address to the “Users” section. For performance reasons, the list of users is intended to be small — do not use this option for hundreds of users.
@@ -215,11 +215,11 @@ flipper:
 
    ![Screen Shot](https://user-images.githubusercontent.com/19188/74881655-b4d11a80-533b-11ea-8e97-fdea24c10830.png)
 
-_The following sections contain information that will be phased out._
+*The following sections contain information that will be phased out.*
 
 ## Testing new applications and updates to existing applications
 
-_Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
+*Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
 
 In the [staging environment](https://staging.va.gov), you can test unreleased features or applications using [!isProduction()](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/utilities/environment/index.js).
 
@@ -228,11 +228,11 @@ In the [production environment](https://www.va.gov), you can test unreleased fea
 - Adding the feature name/value to local storage with a console command in the browser
 - Using application specific code that automatically checks when a certain query parameter is present
 
-**Note:** Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
+**Note:** Unreleased applications can be made available on production behind a password by setting `protected: yes` in [react\_routes.yml](https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/deployment/config/revproxy-vagov/vars/react_routes.yml). External teams should work with their DSVA contact to request support for enabling this.
 
 ## Testing content pages
 
-_Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
+*Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
 
 ### App-landing pages generated by registry.json
 
@@ -278,7 +278,7 @@ localhost: false
 
 ## Testing CMS feature toggles
 
-_Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out._
+*Use the method described above to [add](#add-feature) and [enable/disable](#flipper-ui) feature toggles. The method described in this section will be phased out.*
 
 VA.gov creates some pages based on content from the VA's Drupal CMS. The CMS has its own content model, which can sometimes change. When those changes modify the existing structure of the content model, the queries and templates in vets-website that expect a different model may break. And because the CMS and vets-website are separate systems with different deployment processes, we can't push up changes in both systems simultaneously. In order to keep the two systems in sync, we need to be able to turn features on and off in vets-website depending on what environment we're in, and update that feature state whenever a cms deployment happens.
 
@@ -288,9 +288,9 @@ We've created some infrastructure to make this a little easier to do.
 
 When running a new vets-website build, the script will fetch all CMS feature toggles from Drupal. This allows the toggles to be controlled from within Drupal.
 
-Before writing any code to use a new feature toggle, it must first be created from within Drupal for all three environments. The feature toggles can be found at https://dev.cms.va.gov/admin/config/system/feature_toggle for dev. Staging and production have similar pages.
+Before writing any code to use a new feature toggle, it must first be created from within Drupal for all three environments. The feature toggles can be found at https://dev.cms.va.gov/admin/config/system/feature\_toggle for dev. Staging and production have similar pages.
 
-**Important:** The new feature toggle _must_ be in _every_ Drupal environment or vets-website builds will fail when we try to use it! This is intentional so we don't have "accidentally" false feature toggles when Drupal doesn't have a toggle that vets-website is trying to use.
+**Important:** The new feature toggle *must* be in *every* Drupal environment or vets-website builds will fail when we try to use it! This is intentional so we don't have "accidentally" false feature toggles when Drupal doesn't have a toggle that vets-website is trying to use.
 
 ### Using toggles in GraphQL queries
 
