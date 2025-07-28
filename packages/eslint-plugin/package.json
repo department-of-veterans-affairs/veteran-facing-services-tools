@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/eslint-plugin",
-  "version": "1.18.2",
+  "version": "1.19.0",
   "description": "ESLint plugin for va.gov projects",
   "homepage": "https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/tree/master/packages/eslint-plugin#readme",
   "bugs": {
@@ -77,6 +77,7 @@
     ]
   },
   "dependencies": {
+    "has-proto": "^1.2.0",
     "jsx-ast-utils": "^3.3.3"
   }
 }

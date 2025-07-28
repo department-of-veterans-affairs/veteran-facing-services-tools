@@ -19,6 +19,8 @@ ruleTester.run('prefer-button-component', rule, {
       code: `
         const button = () => (<va-button
           id="cancel"
+          className=""
+          
           onClick={handlers.onCancel}
           text="Cancel"
         />)
@@ -38,6 +40,15 @@ ruleTester.run('prefer-button-component', rule, {
         </button>
         )
       `,
+      output: `
+        const button = () => (
+          <va-button
+          className="foo" text="Print this page"
+          id="bar"
+          onClick={() => window.print()}
+        ></va-button>
+        )
+      `,
       errors: [
         {
           message:
@@ -52,6 +63,14 @@ ruleTester.run('prefer-button-component', rule, {
         >
           {variable}
         </button>)
+      `,
+      output: `
+        const button = () => (
+          <va-button
+          text={variable}
+          onClick={() => window.print()}
+        ></va-button>
+        )
       `,
       errors: [
         {
@@ -68,6 +87,14 @@ ruleTester.run('prefer-button-component', rule, {
          Some plain text next to a {variable}
         </button>)
       `,
+      output: `
+        const button = () => (
+          <va-button
+          text="Some plain text next to a {variable}"
+          onClick={() => window.print()}
+        ></va-button>
+        )
+      `,
       errors: [
         {
           message:
@@ -83,6 +110,14 @@ ruleTester.run('prefer-button-component', rule, {
           <span>Button Text</span>
         </button>)
       `,
+      output: `
+        const button = () => (
+          <va-button
+          text="Button Text"
+          onClick={() => window.print()}
+        ></va-button>
+        )
+      `,
       errors: [
         {
           message:
@@ -96,6 +131,13 @@ ruleTester.run('prefer-button-component', rule, {
           <input type="button">Click me</input>
         )
       `,
+      output: `
+        const button = () => (
+          <va-button
+          text="Click me"
+        ></va-button>
+        )
+      `,
       errors: [
         {
           message:
@@ -107,6 +149,13 @@ ruleTester.run('prefer-button-component', rule, {
       code: `
         const button = () => (
           <input type="button" value="Click me" />
+        )
+      `,
+      output: `
+        const button = () => (
+          <va-button
+          text="Click me"
+        ></va-button>
         )
       `,
       errors: [
