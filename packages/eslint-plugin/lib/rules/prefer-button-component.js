@@ -27,8 +27,7 @@ module.exports = {
       JSXElement(node) {
         const anchorNode = node.openingElement;
         const closingNode = node.closingElement;
-        const typeProp = getProp(anchorNode.attributes, 'type');   
-        // get all classes 
+        const typeProp = getProp(anchorNode.attributes, 'type');
         const classNameProp = getProp(anchorNode.attributes, 'className');
         const classNameValue = getLiteralPropValue(classNameProp);
 
@@ -46,8 +45,6 @@ module.exports = {
               const removeWithWhitespace = (prop) => {
                 if (!prop) return null;
                 
-                const sourceText = sourceCode.getText();
-                const propRange = prop.range;
                 const tokenBefore = sourceCode.getTokenBefore(prop);
                 const tokenAfter = sourceCode.getTokenAfter(prop);
                 
@@ -78,12 +75,37 @@ module.exports = {
                 return filteredClasses.join(' ');
               };
               
-              // Extract text content or JSX expression from children
-              let textContent = null;
+              // Helper function to recursively extract text from JSX elements
+              const extractTextFromNode = (node) => {
+                if (!node) return '';
+                
+                if (node.type === 'JSXText' || node.type === 'Literal') {
+                  const text = node.value || node.raw || sourceCode.getText(node);
+                  return text.trim();
+                }
+                
+                if (node.type === 'JSXElement' && node.children) {
+                  return node.children
+                    .map(extractTextFromNode)
+                    .filter(Boolean)
+                    .join(' ');
+                }
+                
+                return '';
+              };
+              
+              // Extract text content from children or input value attribute
+              let textContent = "";
               let hasJsxExpression = false;
               
-              if (node.children && node.children.length > 0) {
-                // Check for JSX expressions (like {startNewAppButtonText})
+              // For input elements, use the value attribute as text content
+              const valueProp = getProp(node.openingElement.attributes, 'value');
+              const valueValue = valueProp ? getLiteralPropValue(valueProp) : null;
+              
+              if (valueValue) {
+                textContent = valueValue;
+              } else if (node.children && node.children.length > 0) {
+                // Check for JSX expressions (like {variable})
                 const jsxExpressions = node.children.filter(child => 
                   child.type === 'JSXExpressionContainer'
                 );
@@ -92,64 +114,68 @@ module.exports = {
                   // If there's exactly one JSX expression and no other content,
                   // use it directly as the text attribute
                   const jsxExpression = jsxExpressions[0];
-                  textContent = sourceCode.getText(jsxExpression);
+                  textContent = sourceCode.getText(jsxExpression.expression);
                   hasJsxExpression = true;
                 } else {
-                  // Otherwise, look for text content
-                  const textNodes = node.children.filter(child => 
-                    child.type === 'JSXText' || child.type === 'Literal'
-                  );
-                  
-                  if (textNodes.length > 0) {
-                    textContent = textNodes
-                      .map(child => {
-                        const text = child.value || child.raw || sourceCode.getText(child);
-                        return text.trim();
-                      })
-                      .filter(Boolean)
-                      .join(' ');
-                  }
+                  // Extract text from all children, including nested elements
+                  textContent = node.children
+                    .map(extractTextFromNode)
+                    .filter(Boolean)
+                    .join(' ');
                 }
               }
               
               const fixes = [
                 // replace the original element name with va-button
                 fixer.replaceText(anchorNode.name, 'va-button'),
-                fixer.replaceText(closingNode.name, 'va-button'),
-
-                // remove deprecatedButtonClasses classes from classNameValue
-                fixer.replaceText(classNameProp, `className="${removeDeprecatedClasses(classNameValue)}"`),
-
-                // add variant attribute if class matches one of the variant mappings
-                ...Object.keys(variantMapping).map(key => {
-                  if (classNameValue?.includes(key) && variantMapping[key] !== null) {
-                    return fixer.insertTextAfter(classNameProp, ` variant="${variantMapping[key]}"`);
-                  }
-                  return null;
-                }).filter(Boolean),
-
-                // remove type with surrounding whitespace
-                removeWithWhitespace(typeProp),
               ];
+
+              if (valueProp) {
+                fixes.push(fixer.remove(valueProp));
+              }
               
-              // Add text attribute
-              if (textContent) {
+              // Only add closing tag replacement if it exists (for non-self-closing elements)
+              if (closingNode) {
+                fixes.push(fixer.replaceText(closingNode.name, 'va-button'));
+              }
+
+              // Only add className replacement if it exists
+              if (classNameProp) {
+                fixes.push(fixer.replaceText(classNameProp, `className="${removeDeprecatedClasses(classNameValue)}"`));
+                
+                // add variant attribute if class matches one of the variant mappings
+                Object.keys(variantMapping).forEach(key => {
+                  if (classNameValue?.includes(key) && variantMapping[key] !== null) {
+                    fixes.push(fixer.insertTextAfter(classNameProp, ` variant="${variantMapping[key]}"`));
+                  }
+                });
+                
+                // Add text attribute with extracted content
                 if (hasJsxExpression) {
-                  // For JSX expressions, preserve the curly braces
-                  fixes.push(fixer.insertTextAfter(classNameProp, ` text=${textContent}`));
+                  // For JSX expressions, add curly braces
+                  fixes.push(fixer.insertTextAfter(classNameProp, ` text={${textContent}}`));
                 } else {
                   // For regular text, add quotes
                   fixes.push(fixer.insertTextAfter(classNameProp, ` text="${textContent}"`));
                 }
               } else {
-                // Add empty text attribute when there's no content
-                fixes.push(fixer.insertTextAfter(classNameProp, ` text=""`));
+                // If no className, add text attribute after the element name
+                if (hasJsxExpression) {
+                  fixes.push(fixer.insertTextAfter(anchorNode.name, ` text={${textContent}}`));
+                } else {
+                  fixes.push(fixer.insertTextAfter(anchorNode.name, ` text="${textContent}"`));
+                }
+              }
+
+              // remove type with surrounding whitespace if it exists
+              if (typeProp) {
+                fixes.push(removeWithWhitespace(typeProp));
               }
               
               // Remove all children between opening and closing tags
               if (node.children && node.children.length > 0) {
                 const openingTagEnd = anchorNode.range[1];
-                const closingTagStart = closingNode.range[0];
+                const closingTagStart = closingNode ? closingNode.range[0] : anchorNode.range[1];
                 fixes.push(fixer.replaceTextRange([openingTagEnd, closingTagStart], ''));
               }
               

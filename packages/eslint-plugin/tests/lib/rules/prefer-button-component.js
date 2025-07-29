@@ -65,12 +65,9 @@ ruleTester.run('prefer-button-component', rule, {
         </button>)
       `,
       output: `
-        const button = () => (
-          <va-button
-          text={variable}
+        const button = () => (<va-button text=""
           onClick={() => window.print()}
-        ></va-button>
-        )
+        ></va-button>)
       `,
       errors: [
         {
@@ -88,12 +85,9 @@ ruleTester.run('prefer-button-component', rule, {
         </button>)
       `,
       output: `
-        const button = () => (
-          <va-button
-          text="Some plain text next to a {variable}"
+        const button = () => (<va-button text="Some plain text next to a"
           onClick={() => window.print()}
-        ></va-button>
-        )
+        ></va-button>)
       `,
       errors: [
         {
@@ -111,12 +105,29 @@ ruleTester.run('prefer-button-component', rule, {
         </button>)
       `,
       output: `
-        const button = () => (
-          <va-button
-          text="Button Text"
+        const button = () => (<va-button text="Button Text"
           onClick={() => window.print()}
-        ></va-button>
-        )
+        ></va-button>)
+      `,
+      errors: [
+        {
+          message:
+          'The <va-button> Web Component should be used instead of the button HTML element.'
+        },
+      ],
+    },
+    {
+      code: `
+        const button = () => (<button
+          className="usa-button-secondary" onClick={() => window.print()}
+        >
+          <span>Button Text</span>
+        </button>)
+      `,
+      output: `
+        const button = () => (<va-button
+          className="" variant="secondary" text="Button Text" onClick={() => window.print()}
+        ></va-button>)
       `,
       errors: [
         {
@@ -133,9 +144,7 @@ ruleTester.run('prefer-button-component', rule, {
       `,
       output: `
         const button = () => (
-          <va-button
-          text="Click me"
-        ></va-button>
+          <va-button text="Click me" ></va-button>
         )
       `,
       errors: [
@@ -153,9 +162,7 @@ ruleTester.run('prefer-button-component', rule, {
       `,
       output: `
         const button = () => (
-          <va-button
-          text="Click me"
-        ></va-button>
+          <va-button text="Click me"  />
         )
       `,
       errors: [
