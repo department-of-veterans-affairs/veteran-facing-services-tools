@@ -14,7 +14,7 @@ const variantMapping = {
 }
 
 const MESSAGE =
-  'The <va-button> Web Component should be used instead of the button HTML element.';
+  'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs';
 
 module.exports = {
   meta: {
@@ -32,8 +32,10 @@ module.exports = {
         const classNameValue = getLiteralPropValue(classNameProp);
 
         // Only display if we are on a button or input with type button
+        // or any element with the usa-button class
         if (elementType(anchorNode) === 'button' || 
-          (elementType(anchorNode) === 'input' && getLiteralPropValue(typeProp) === 'button')){
+          (elementType(anchorNode) === 'input' && getLiteralPropValue(typeProp) === 'button') ||
+          (classNameValue && classNameValue.includes('usa-button'))){
           
           context.report({
             node,
