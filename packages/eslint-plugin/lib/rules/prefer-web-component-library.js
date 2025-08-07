@@ -158,6 +158,7 @@ module.exports = {
     },
     type: 'suggestion',
     fixable: 'code',
+    hasSuggestions: true,
   },
 
   create(context) {
