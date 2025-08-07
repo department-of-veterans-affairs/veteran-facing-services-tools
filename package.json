@@ -100,7 +100,6 @@
     "webpack": "^5.50.0"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001731",
     "foundation-sites": "5",
     "graphql": "^14.5.3"
   },

@@ -4447,11 +4447,6 @@ caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001349:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001731.tgz"
   integrity sha512-lDdp2/wrOmTRWuoB5DpfNkC0rJDU8DqRa6nYL6HK6sytw70QMopt/NIc/9SM7ylItlBWfACXk0tEn37UWM/+mg==
 
-caniuse-lite@^1.0.30001731:
-  version "1.0.30001731"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001731.tgz#277c07416ea4613ec564e5b0ffb47e7b60f32e2f"
-  integrity sha512-lDdp2/wrOmTRWuoB5DpfNkC0rJDU8DqRa6nYL6HK6sytw70QMopt/NIc/9SM7ylItlBWfACXk0tEn37UWM/+mg==
-
 chai-as-promised@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/chai-as-promised/-/chai-as-promised-7.1.1.tgz#08645d825deb8696ee61725dbf590c012eb00ca0"
@@ -12533,7 +12528,7 @@ v8-to-istanbul@^9.0.0:
     eslint-plugin-react "^7.12.4"
     eslint-plugin-react-hooks "^1.6.0"
     eslint-plugin-scanjs-rules "^0.2.1"
-    eslint-plugin-va-enzyme "file:../../../Library/Caches/Yarn/v6/npm-vagov-eslint-1.0.0-c20c05df-46b0-4851-be57-5d00b35389dd-1754605791872/node_modules/vagov-eslint/custom-eslint/va-enzyme"
+    eslint-plugin-va-enzyme "file:../../../Library/Caches/Yarn/v6/npm-vagov-eslint-1.0.0-15ca1994-4851-4b44-9c5f-9161af3ba26a-1754605971433/node_modules/vagov-eslint/custom-eslint/va-enzyme"
     prettier "^2.4.0"
     shelljs "0.8.5"
     window-or-global "^1.0.1"
