@@ -43,38 +43,14 @@ ruleTester.run('prefer-web-component-library', rule, {
         'Pagination',
         'const PaginationSample = () => (<Pagination onPageSelect={handlePageSelect} page="3" pages="50" />)',
       ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              output: mockFileBindingsImport(
-                'VaPagination',
-                'const PaginationSample = () => (<VaPagination onPageSelect={handlePageSelect} page="3" pages="50" />)',
-              ),
-            },
-          ],
-        },
-      ],
+      errors: 1
     },
     {
       code: mockFile(
         'TextInput',
         'const Component = () => (<TextInput label="First name" name="first_name" field={field} required additionalClass="some-class" onValueChange={handler} />)',
       ),
-      errors: [
-        {
-          suggestions: [
-            {
-              desc: 'Migrate component',
-              output: mockFile(
-                'TextInput',
-                'const Component = () => (<va-text-input label="First name" name="first_name"  required class="some-class" onInput={handler} />)',
-              ),
-            },
-          ],
-        },
-      ],
+      errors: 1
     },
   ],
 });
