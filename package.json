@@ -100,7 +100,8 @@
     "webpack": "^5.50.0"
   },
   "dependencies": {
-    "graphql": "^14.5.3"
+    "graphql": "^14.5.3",
+    "foundation-sites": "5"
   },
   "engines": {
     "node": ">=22"

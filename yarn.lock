@@ -6668,6 +6668,11 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+foundation-sites@5:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-5.5.3.tgz#6556eb2b31cde3b226630116bd215d95d056c0a7"
+  integrity sha512-z0NZl6Orkmeu0yhgjl3a8Ecd3frjEichn9IqocQX2jHMv9Ecd6UOPWS85f1YJXdCF6bHqnekGkrcWQ37ciR0Pw==
+
 from2@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/from2/-/from2-2.3.0.tgz#8bfb5502bde4a4d36cfdeea007fcca21d7e382af"
@@ -12528,7 +12533,7 @@ v8-to-istanbul@^9.0.0:
     eslint-plugin-react "^7.12.4"
     eslint-plugin-react-hooks "^1.6.0"
     eslint-plugin-scanjs-rules "^0.2.1"
-    eslint-plugin-va-enzyme "file:./packages/vagov-eslint/custom-eslint/va-enzyme"
+    eslint-plugin-va-enzyme "file:../../../Library/Caches/Yarn/v6/npm-vagov-eslint-1.0.0-6646a1d0-a5e2-4f90-977b-35b0e31f8f00-1754600464317/node_modules/vagov-eslint/custom-eslint/va-enzyme"
     prettier "^2.4.0"
     shelljs "0.8.5"
     window-or-global "^1.0.1"
