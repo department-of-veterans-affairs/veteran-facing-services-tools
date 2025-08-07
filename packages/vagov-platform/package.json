@@ -24,7 +24,7 @@
   },
   "license": "CC0-1.0",
   "engines": {
-    "node": ">=14.15.0",
+    "node": ">=22",
     "yarn": ">=1.21.1"
   },
   "dependencies": {
