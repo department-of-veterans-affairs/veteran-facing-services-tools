@@ -62,6 +62,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /usr/local/share/boost
+          sudo swapoff -a || true
+          sudo rm -f /swapfile || true
+
       - name: Install dependencies
         uses: ./.github/workflows/install
         with:
