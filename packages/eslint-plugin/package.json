@@ -22,7 +22,7 @@
   },
   "scripts": {
     "lint": "eslint . --cache",
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

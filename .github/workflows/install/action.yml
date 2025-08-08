@@ -25,10 +25,11 @@ runs:
     - name: Get Node version
       id: get-node-version
       shell: bash
-      run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      run: |
+        echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
     - name: Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
 

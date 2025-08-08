@@ -2,9 +2,14 @@ import loadAccordionHandler from './accordion';
 import createAdditionalInfoWidget from './additional-info';
 import addSidenavListeners from './sidenav';
 import domready from 'domready';
-import elementClosest from 'element-closest';
+import rawElementClosest from 'element-closest';
 
-elementClosest(window);
+
+const elementClosest = typeof rawElementClosest === 'function' ? rawElementClosest : rawElementClosest.default;
+
+if (typeof elementClosest === 'function') {
+  elementClosest(window);
+}
 
 if (
   document.readyState === 'complete' &&
