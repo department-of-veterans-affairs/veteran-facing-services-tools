@@ -21,7 +21,7 @@
     "gatsby-plugin-mdx": "file:plugins/gatsby-plugin-mdx(forked)",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-sass": "^2.7.0",
-    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-remark-images": "^6.8.1",
     "gatsby-remark-mermaid": "^2.0.0",
