@@ -41,7 +41,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ],
     },
@@ -56,7 +56,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ],
      },
@@ -71,7 +71,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ]
      },
@@ -86,7 +86,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-          'The <va-button> Web Component should be used instead of the button HTML element.'
+          'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ],
     },
@@ -99,7 +99,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ],
     },
@@ -112,7 +112,7 @@ ruleTester.run('prefer-button-component', rule, {
       errors: [
         {
           message:
-            'The <va-button> Web Component should be used instead of the button HTML element.'
+            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
         },
       ],
     },
