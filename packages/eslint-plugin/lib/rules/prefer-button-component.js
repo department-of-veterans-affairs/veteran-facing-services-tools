@@ -3,7 +3,7 @@ const jsxAstUtils = require('jsx-ast-utils');
 const { elementType, getProp, getLiteralPropValue } = jsxAstUtils;
 
 const MESSAGE =
-  'The <va-button> Web Component should be used instead of the button HTML element.';
+  'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs';
 
 module.exports = {
   meta: {
