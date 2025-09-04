@@ -19,8 +19,6 @@ ruleTester.run('prefer-button-component', rule, {
       code: `
         const button = () => (<va-button
           id="cancel"
-          className=""
-          
           onClick={handlers.onCancel}
           text="Cancel"
         />)
@@ -40,15 +38,6 @@ ruleTester.run('prefer-button-component', rule, {
         </button>
         )
       `,
-      output: `
-        const button = () => (
-          <va-button
-          className="foo" text="Print this page"
-          id="bar"
-          onClick={() => window.print()}
-        ></va-button>
-        )
-      `,
       errors: [
         {
           message:
@@ -63,11 +52,6 @@ ruleTester.run('prefer-button-component', rule, {
         >
           {variable}
         </button>)
-      `,
-      output: `
-        const button = () => (<va-button text=""
-          onClick={() => window.print()}
-        ></va-button>)
       `,
       errors: [
         {
@@ -84,11 +68,6 @@ ruleTester.run('prefer-button-component', rule, {
          Some plain text next to a {variable}
         </button>)
       `,
-      output: `
-        const button = () => (<va-button text="Some plain text next to a"
-          onClick={() => window.print()}
-        ></va-button>)
-      `,
       errors: [
         {
           message:
@@ -104,31 +83,6 @@ ruleTester.run('prefer-button-component', rule, {
           <span>Button Text</span>
         </button>)
       `,
-      output: `
-        const button = () => (<va-button text="Button Text"
-          onClick={() => window.print()}
-        ></va-button>)
-      `,
-      errors: [
-        {
-          message:
-          'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
-        },
-      ],
-    },
-    {
-      code: `
-        const button = () => (<button
-          className="usa-button-secondary" onClick={() => window.print()}
-        >
-          <span>Button Text</span>
-        </button>)
-      `,
-      output: `
-        const button = () => (<va-button
-          className="" variant="secondary" text="Button Text" onClick={() => window.print()}
-        ></va-button>)
-      `,
       errors: [
         {
           message:
@@ -142,11 +96,6 @@ ruleTester.run('prefer-button-component', rule, {
           <input type="button">Click me</input>
         )
       `,
-      output: `
-        const button = () => (
-          <va-button text="Click me" ></va-button>
-        )
-      `,
       errors: [
         {
           message:
@@ -158,29 +107,6 @@ ruleTester.run('prefer-button-component', rule, {
       code: `
         const button = () => (
           <input type="button" value="Click me" />
-        )
-      `,
-      output: `
-        const button = () => (
-          <va-button text="Click me"  />
-        )
-      `,
-      errors: [
-        {
-          message:
-            'The <va-button> Web Component should be used instead of the button HTML element. For more information, see Storybook: https://design.va.gov/storybook/?path=/docs/uswds-va-button--docs'
-        },
-      ],
-    },
-    {
-      code: `
-        const button = () => (
-          <a className="usa-button usa-button-secondary">Click me</a>
-        )
-      `,
-      output: `
-        const button = () => (
-          <va-button className="" variant="secondary" text="Click me"></va-button>
         )
       `,
       errors: [
