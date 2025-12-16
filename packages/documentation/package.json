@@ -63,6 +63,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
+    "postinstall": "bash script/run-postinstall.sh",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "develop:inspect": "node --inspect --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },

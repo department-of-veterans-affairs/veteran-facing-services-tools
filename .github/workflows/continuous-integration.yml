@@ -118,6 +118,9 @@ jobs:
             .cache/yarn
             node_modules
 
+      - name: Run postinstall for trusted packages
+        run: cd packages/documentation && yarn postinstall
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
