@@ -3,9 +3,9 @@ set -e
 
 echo "Running postinstall for trusted packages..."
 
-# Run lerna bootstrap from root to set up monorepo
-echo "Running lerna bootstrap..."
-cd ../.. && yarn bootstrap && cd packages/documentation
+# Link monorepo packages (dependencies already installed)
+echo "Linking monorepo packages..."
+cd ../.. && npx lerna link && cd packages/documentation
 
 # Run postinstall for gatsby (static site generator)
 if [ -d "node_modules/gatsby" ]; then
