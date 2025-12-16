@@ -15,9 +15,45 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
+  dependency-check:
+    name: Dependency Change Blocker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Block unauthorized dependency changes
+        run: |
+          # Check if yarn.lock was modified (always indicates dependency change)
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+
+          if echo "$CHANGED_FILES" | grep -q 'yarn\.lock'; then
+            echo "❌ Dependency changes detected in yarn.lock"
+            echo "This is temporarily blocked as a security measure."
+            echo "Please coordinate with platform support if dependency updates are absolutely necessary."
+            exit 1
+          fi
+
+          # Check if dependencies/devDependencies sections in package.json were modified
+          if echo "$CHANGED_FILES" | grep -q 'package\.json'; then
+            DEPENDENCY_CHANGES=$(git diff HEAD^ HEAD package.json | grep -E '^\+.*"(dependencies|devDependencies|peerDependencies|optionalDependencies)":|^\+.*"[^"]+": ".*",' | grep -A1 -E '"(dependencies|devDependencies|peerDependencies|optionalDependencies)":' || true)
+
+            if [ -n "$DEPENDENCY_CHANGES" ]; then
+              echo "❌ Dependency changes detected in package.json"
+              echo "This is temporarily blocked as a security measure."
+              echo "Please coordinate with platform support if dependency updates are absolutely necessary."
+              exit 1
+            fi
+          fi
+
+          echo "✅ No unauthorized dependency changes detected"
+
   linting:
     name: Linting
     runs-on: ubuntu-latest
+    needs: [dependency-check]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,6 +73,7 @@ jobs:
   testing:
     name: Testing
     runs-on: ubuntu-latest
+    needs: [dependency-check]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,7 +86,7 @@ jobs:
           path: |
             .cache/yarn
             node_modules
-      
+
       - name: Test
         run: yarn test
         env:
@@ -58,6 +95,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    needs: [dependency-check]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -128,7 +166,7 @@ jobs:
       - name: Install dependencies
         uses: nick-invision/retry@v2
         with:
-          command: cd packages/documentation && yarn install --frozen-lockfile --prefer-offline --production=false
+          command: cd packages/documentation && yarn install --frozen-lockfile --prefer-offline --production=false --ignore-scripts
           max_attempts: 3
           timeout_minutes: 7
         env:
