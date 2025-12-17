@@ -3,9 +3,9 @@ set -e
 
 echo "Running postinstall for trusted packages..."
 
-# Link monorepo packages (dependencies already installed)
-echo "Linking monorepo packages..."
-cd ../.. && npx lerna link && cd packages/documentation
+# Bootstrap monorepo packages without running scripts (avoid infinite loop)
+echo "Bootstrapping monorepo packages..."
+npx lerna bootstrap --ignore-scripts
 
 # Run postinstall for gatsby (static site generator)
 if [ -d "node_modules/gatsby" ]; then
