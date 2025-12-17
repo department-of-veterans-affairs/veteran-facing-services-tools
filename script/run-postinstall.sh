@@ -7,6 +7,21 @@ echo "Running postinstall for trusted packages..."
 echo "Bootstrapping monorepo packages..."
 npx lerna bootstrap --ignore-scripts
 
+# Check where gatsby is installed
+echo "Checking for gatsby installation..."
+if [ -d "node_modules/gatsby" ]; then
+  echo "✓ Found gatsby in root node_modules"
+  ls -la node_modules/gatsby/cli.js || echo "✗ gatsby CLI not found in expected location"
+else
+  echo "✗ gatsby NOT found in root node_modules"
+fi
+
+if [ -d "packages/documentation/node_modules/gatsby" ]; then
+  echo "✓ Found gatsby in packages/documentation/node_modules"
+else
+  echo "✗ gatsby NOT found in packages/documentation/node_modules"
+fi
+
 # Run postinstall for gatsby (static site generator)
 if [ -d "node_modules/gatsby" ]; then
   echo "Running gatsby postinstall..."
