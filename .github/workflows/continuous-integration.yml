@@ -119,7 +119,7 @@ jobs:
             node_modules
 
       - name: Run postinstall for trusted packages
-        run: cd packages/documentation && yarn postinstall
+        run: bash script/run-postinstall.sh
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
