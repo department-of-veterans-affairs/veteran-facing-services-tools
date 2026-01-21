@@ -58,9 +58,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else gatsby build --prefix-paths; fi",
+    "build": "if [ -z \"$GITHUB_API_KEY\" ]; then echo \"No API key, skipping doc build\"; else node ../../node_modules/gatsby/cli.js build --prefix-paths; fi",
     "deploy": "gh-pages -d public -e .",
-    "develop": "gatsby develop",
+    "develop": "node ../../node_modules/gatsby/cli.js develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
