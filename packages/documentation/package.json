@@ -14,7 +14,7 @@
     "@octokit/rest": "^18.12.0",
     "babel-preset-gatsby": "^0.9.0",
     "classnames": "^2.2.6",
-    "gatsby": "^2.29.1",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-google-tagmanager": "^2.3.11",
     "gatsby-plugin-manifest": "^2.9.0",
