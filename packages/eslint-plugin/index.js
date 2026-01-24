@@ -18,6 +18,9 @@ module.exports = {
     'prefer-table-component': require('./lib/rules/prefer-table-component'),
     'keep-react-modal': require('./lib/rules/keep-react-modal'),
     'prefer-icon-component': require('./lib/rules/prefer-icon-component'),
+    // Node 22 compatibility rules
+    'await-expect-assertion': require('./lib/rules/await-expect-assertion'),
+    'no-response-property-assignment': require('./lib/rules/no-response-property-assignment'),
   },
   configs: {
     recommended: require('./lib/config/recommended'),
